@@ -1,0 +1,138 @@
+/*
+
+  PUT YOUR THEME IN HERE!
+
+*/
+
+:root {
+  //GENERAL
+  --surface: #000b18;
+
+  //  PRIMARY
+  --primary-dark: #001334;
+  --primary: #12395eff;
+  --primary-light: #44638b;
+
+  --primary--variant-dark: #1c4c86;
+  --primary--variant: #1d69a9;
+  --primary--variant-light: #7d9fcb;
+
+  //  SECONDARY
+  --secondary-dark: #c67100;
+  --secondary: #ffa000;
+  --secondary-light: #ffd149;
+
+  //TEXT COLORS
+  --color: #fff;
+  --placeholder: #3c3c3c;
+
+  --input: #b0bfcd;
+
+  --error: #b00020;
+  --pending: #ffa000;
+  --success: #34cb4e;
+
+  --transparent: rgba(0,0,0,0.0);
+
+  --hover-dark: #3c3c3c;
+  --hover: #5a5a5a;
+  --hover-light: #a9adb2;
+
+  --scroll-thumb: #929292;
+  --scroll-hover: #5a5a5a;
+  /*============================================
+  --scroll-track is ALWAYS the --surface color
+  ============================================*/
+}
+
+body {
+  background-color: var(--surface);
+}
+
+.header {
+  background-color: var(--primary);
+}
+
+.search {
+
+  label {
+    background-color: var(--primary-light);
+  }
+
+  input[type=text] {
+    background-color: var(--input);
+    --color: #000;
+    color: var(--color);
+
+    &::placeholder {
+      color: var(--placeholder);
+    }
+  }
+
+}
+
+.close-button {
+  color: var(--surface) !important;
+}
+
+.nav {
+  background-color: var(--primary);
+}
+
+.search__predictive {
+  background-color: var(--primary--variant-light);
+
+  .search__predictive_result {
+    &:hover {
+      background-color: var(--primary--variant);
+    }
+  }
+  &::-webkit-scrollbar-track {
+    background: var(--primary--variant-light);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--scroll-thumb);
+    border: 4px solid var(--primary--variant-light);
+
+    &:hover {
+      background-color: var(--scroll-hover);
+    }
+  }
+
+}
+
+.drawer {
+  background-color: var(--primary--variant-light);
+
+  * {
+    color: var(--surface);
+  }
+
+  &::-webkit-scrollbar-track {
+    background: var(--primary--variant-light);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--scroll-thumb);
+    border: 4px solid var(--primary--variant-light);
+
+    &:hover {
+      background-color: var(--scroll-hover);
+    }
+  }
+}
+
+//  SCROLLS
+body::-webkit-scrollbar-track {
+  background: var(--surface);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--scroll-thumb);
+  border: 4px solid var(--surface);
+
+  &:hover {
+    background-color: var(--scroll-hover);
+  }
+}

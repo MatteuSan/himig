@@ -1,0 +1,360 @@
+/* NORMALIZER */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: var(--color);
+}
+*::-webkit-scrollbar {
+  width: 0.7em;
+}
+*::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+}
+*::-webkit-scrollbar-thumb:hover {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+b {
+  font-weight: 700;
+}
+
+h4,
+h5,
+h6,
+p {
+  font-weight: 400;
+}
+
+html {
+  width: 100%;
+  height: auto;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  font-size: 1rem;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  overflow-x: hidden;
+}
+
+/* HEADER (Namespace: Header__[component] */
+.header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 10000;
+  min-height: 50px;
+}
+.header .header__wrap {
+  display: flex;
+  justify-content: space-between;
+}
+.header .header__wrap .header__text {
+  position: relative;
+  left: 0;
+  padding: 0.5rem 0.7rem;
+  font-size: 1.2rem;
+}
+@media (min-width: 850px) {
+  .header .header__wrap .header__text {
+    padding: 0.5rem;
+  }
+}
+@media (min-width: 850px) {
+  .header .header__wrap {
+    width: calc(100% - 34px);
+    margin: 0 auto;
+  }
+}
+
+/* NAVBAR */
+.nav {
+  width: 100%;
+  position: fixed;
+  padding: 0.5rem;
+  bottom: 0;
+  z-index: 9999;
+}
+@media (min-width: 850px) {
+  .nav {
+    width: 0;
+    top: 0.25rem;
+    background-color: transparent !important;
+  }
+}
+.nav .nav__container {
+  display: flex;
+  flex-flow: row wrap;
+  text-align: center;
+  justify-content: space-evenly;
+}
+.nav .nav__container .nav__item {
+  margin: 0 auto;
+  cursor: pointer;
+}
+.nav .nav__container .nav__item .nav__item_icon {
+  font-size: 24px;
+  font-weight: 400;
+  transition: color 0.1s ease-in-out, background-color 0.1s ease-in-out;
+}
+.nav .nav__container .nav__item .nav__item_icon:hover {
+  color: #a9adb2;
+}
+.nav .nav__container .nav__item .nav__item_text {
+  font-size: 12px !important;
+  margin-top: -3px;
+}
+@media (min-width: 850px) {
+  .nav .nav__container .nav__item .nav__item_text {
+    display: none !important;
+    /*font-size: 16px!important;
+    margin-top: 0;*/
+  }
+}
+@media (min-width: 850px) {
+  .nav .nav__container {
+    position: fixed;
+    right: 17px;
+    width: 200px;
+  }
+}
+
+.search {
+  width: calc(100% + 22px);
+  display: none;
+  padding: 9px 0;
+}
+@media (min-width: 850px) {
+  .search {
+    display: block;
+    position: fixed;
+    max-width: calc(320px + 22px);
+    padding: 0.5rem 0;
+    right: 235px;
+  }
+}
+.search form {
+  width: calc(100% + 22px);
+  border: none;
+  position: relative;
+  left: 10px;
+  display: flex;
+}
+@media (min-width: 850px) {
+  .search form {
+    width: 100%;
+    margin-top: -1px;
+  }
+}
+.search form label {
+  display: none;
+}
+@media (min-width: 850px) {
+  .search form label {
+    display: block;
+    position: relative;
+    margin-right: 7px;
+    padding: 7px;
+    font-size: 22px;
+    border-radius: 25px;
+  }
+}
+.search form input[type=text] {
+  border: none;
+  font-size: 15px;
+  border-radius: 20px;
+  width: 100%;
+  padding: 7px 12px;
+}
+.search form input[type=text]::before {
+  content: "Search";
+}
+
+.search__buttons {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-right: 10px;
+}
+.search__buttons button {
+  width: 30px !important;
+  height: 30px !important;
+  display: block;
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  font-size: 20px !important;
+  border-radius: 50%;
+}
+@media (min-width: 850px) {
+  .search__buttons button {
+    display: none !important;
+  }
+}
+.search__buttons .close-button {
+  width: 30px;
+  height: 30px;
+  display: none;
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  font-size: 20px !important;
+  border-radius: 50%;
+}
+@media (min-width: 850px) {
+  .search__buttons .close-button {
+    display: none !important;
+  }
+}
+
+.search__predictive {
+  width: 100%;
+  position: fixed;
+  height: 100%;
+  top: 50px;
+  z-index: 100000;
+  transform-origin: right;
+  overflow-y: scroll;
+}
+@media (min-width: 850px) {
+  .search__predictive {
+    position: fixed;
+    max-width: 300px;
+    max-height: 400px;
+    right: 225px;
+  }
+}
+.search__predictive .search__predictive_result {
+  padding: 0.7rem;
+  display: flex;
+  /*&::after {
+    font-family: 'Material Icons';
+    content: 'north_west';
+    font-size: 18px;
+  }*/
+}
+.search__predictive .search__predictive_result span {
+  position: relative;
+  margin-right: 7px;
+  font-size: 18px;
+}
+.search__predictive .search__predictive_result p {
+  position: relative;
+  font-size: 16px;
+}
+.search__predictive .search__predictive_result:hover {
+  cursor: pointer;
+}
+
+/* MENU DRAWER */
+.drawer__overlay {
+  display: block;
+  position: fixed;
+  z-index: 98;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: black;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.drawer {
+  width: 100%;
+  max-width: 350px;
+  position: fixed;
+  padding: 15px;
+  height: 100%;
+  right: 0;
+  top: 50px;
+  z-index: 999;
+  transform-origin: right;
+  overflow-y: scroll;
+}
+.drawer .drawer__item {
+  display: block;
+  transition: 0.3s;
+}
+.drawer .drawer__item:hover {
+  opacity: 0.7;
+  cursor: pointer;
+  -webkit-transition: color 0.1s ease-in-out, background-color 0.1s ease-in-out;
+  transition: color 0.1s ease-in-out, background-color 0.1s ease-in-out;
+}
+.drawer .drawer__item p {
+  padding: 7px;
+  display: inline-block;
+  font-size: 16px !important;
+  transition: 0.3s;
+}
+.drawer .drawer__icon {
+  display: inline-block;
+  position: relative;
+  top: 2px;
+  font-size: 17px;
+}
+.drawer .drawer__icon:hover {
+  opacity: 0.7;
+  cursor: pointer;
+  -webkit-transition: color 0.1s ease-in-out, background-color 0.1s ease-in-out;
+  transition: color 0.1s ease-in-out, background-color 0.1s ease-in-out;
+}
+
+.drawer__divider {
+  margin: 17px 0 7px 0;
+  text-align: center;
+  font-family: "SF UI Display Bold", sans-serif;
+  font-weight: 700;
+}
+
+.drawer__socials {
+  display: flex;
+  justify-content: space-around;
+  width: 210px;
+  margin: 0 auto;
+}
+.drawer__socials i {
+  font-size: 24px !important;
+}
+
+.drawer__language-wrap {
+  text-align: center;
+}
+.drawer__language-wrap .drawer__language,
+.drawer__language-wrap .drawer__language p {
+  display: inline-block !important;
+  font-size: 14px !important;
+  text-align: center;
+}
+.drawer__language-wrap .drawer__language_spacer {
+  display: inline-block;
+  margin: 0 1px;
+}
+
+.drawer__language--active p {
+  font-family: "SF UI Display Bold", sans-serif;
+  font-weight: 700;
+}
+
+/*
+
+    StackCSS by GrowStocks v.1.0.2
+    Made by Matteu#0001
+
+    The CSS Library for building quick, beautiful, responsive, and flexible user interfaces.
+
+    "Why did you put that in there?!" - from that one jackbox game we played last friday
+
+*/
+
+/*# sourceMappingURL=style.css.map */

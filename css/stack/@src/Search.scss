@@ -1,0 +1,129 @@
+.search {
+  width: calc(100% + 22px);
+  display: none;
+  padding: 9px 0;
+
+  @media (min-width: 850px) {
+    display: block;
+    position: fixed;
+    max-width: calc(320px + 22px);
+    padding: 0.5rem 0;
+    right: 235px;
+  }
+
+  form {
+    width: calc(100% + 22px);
+    border: none;
+    position: relative;
+    left: 10px;
+    display: flex;
+
+    @media (min-width: 850px) {
+      width: 100%;
+      margin-top: -1px;
+    }
+
+    label {
+      display: none;
+
+      @media (min-width: 850px) {
+        display: block;
+        position: relative;
+        margin-right: 7px;
+        padding: 7px;
+        font-size: 22px;
+        border-radius: 25px;
+      }
+    }
+
+    input[type="text"] {
+      border: none;
+      font-size: 15px;
+      border-radius: 20px;
+      width: 100%;
+      padding: 7px 12px;
+
+      &::before {
+        content: 'Search';
+      }
+    }
+  }
+}
+
+.search__buttons {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-right: 10px;
+
+  button {
+    width: 30px !important;
+    height: 30px !important;
+    display: block;
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 20px !important;
+    border-radius: 50%;
+
+    @media (min-width: 850px) {
+      display: none !important;
+    }
+  }
+
+  .close-button {
+    width: 30px;
+    height: 30px;
+    display: none;
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 20px !important;
+    border-radius: 50%;
+
+    @media (min-width: 850px) {
+      display: none !important;
+    }
+  }
+}
+
+.search__predictive {
+  width: 100%;
+  position: fixed;
+  height: 100%;
+  top: 50px;
+  z-index: 100000;
+  transform-origin: right;
+  overflow-y: scroll;
+
+  @media (min-width: 850px) {
+    position: fixed;
+    max-width: 300px;
+    max-height: 400px;
+    right: 225px;
+  }
+
+  .search__predictive_result {
+    padding: 0.7rem;
+    display: flex;
+
+    span {
+      position: relative;
+      margin-right: 7px;
+      font-size: 18px;
+    }
+
+    p {
+      position: relative;
+      font-size: 16px;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    /*&::after {
+      font-family: 'Material Icons';
+      content: 'north_west';
+      font-size: 18px;
+    }*/
+  }
+}
