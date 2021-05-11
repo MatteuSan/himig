@@ -50,12 +50,18 @@ body {
 
 /* WRAPPERS */
 .wrap--content {
+  background-color: rgba(0, 0, 0, 0) !important;
   width: calc(100% - 20px);
-  max-width: 88vw;
-  margin: 70px auto 65px auto;
+  max-width: 1150px;
+  margin: 67px auto 65px auto;
+  overflow-x: hidden;
 }
 .wrap--content--no-margin-top {
-  margin-top: 0;
+  background-color: rgba(0, 0, 0, 0) !important;
+  width: calc(100% - 20px);
+  max-width: 1150px;
+  margin: 0 auto 65px auto;
+  overflow-x: hidden;
 }
 
 @media (min-width: 850px) {
@@ -69,6 +75,11 @@ body {
   margin-bottom: 15px;
 }
 
+.wrap--item {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
 .wrap--button {
   width: 100%;
   display: flex;
@@ -78,6 +89,34 @@ body {
   align-content: flex-end !important;
 }
 
+.wrap--text {
+  display: inline;
+  width: 100%;
+}
+
+@media (min-width: 850px) {
+  .col--33 {
+    width: calc(33% - 2px) !important;
+    padding-right: 5px !important;
+    float: left;
+  }
+
+  .col--66 {
+    width: calc(66% - 5px) !important;
+    float: right;
+    margin-top: 0;
+  }
+
+  .col--50--l {
+    float: left;
+    width: calc(50% - 5px) !important;
+  }
+
+  .col--50--r {
+    float: right;
+    width: calc(50% - 5px) !important;
+  }
+}
 /* HEADER (Namespace: Header__[component] */
 .header {
   width: 100%;
@@ -388,7 +427,33 @@ body {
   position: absolute;
   background-color: rgba(211, 211, 211, 0.83);
   color: #000;
-  padding: 1em 1em;
+  padding: 0.8em 1em;
+  border-radius: 5px;
+  font-size: 0.75em;
+  bottom: calc(100% + 2px);
+  left: -5%;
+  right: -5%;
+  z-index: 999;
+  opacity: 0;
+  transition: opacity ease-in-out 200ms;
+}
+*[data-tooltip]:hover::after {
+  opacity: 1;
+}
+
+button[data-tooltip] {
+  position: relative;
+}
+button[data-tooltip]:hover {
+  cursor: help;
+}
+button[data-tooltip]::after {
+  content: attr(data-tooltip);
+  display: block;
+  position: absolute;
+  background-color: rgba(211, 211, 211, 0.83);
+  color: #000;
+  padding: 0.8em 1em;
   border-radius: 5px;
   font-size: 0.75em;
   bottom: calc(100% + 5px);
@@ -398,7 +463,7 @@ body {
   opacity: 0;
   transition: opacity ease-in-out 200ms;
 }
-*[data-tooltip]:hover::after {
+button[data-tooltip]:hover::after {
   opacity: 1;
 }
 
