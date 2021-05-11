@@ -10,7 +10,13 @@
 */
 
 @use '@src/_normalize';
+@use '@src/Wraps';
 @use '@src/Header';
 @use '@src/Navbar';
 @use '@src/Search';
 @use '@src/Drawer';
+
+// COMPONENTS
+@use '@src/Tooltip';
+@use '@src/Button';
+@use '@src/BarsCards';

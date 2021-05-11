@@ -24,7 +24,10 @@
 
   //TEXT COLORS
   --color: #fff;
+  --on-primary: #fff;
+  --on-secondary: #000;
   --placeholder: #3c3c3c;
+  --on-code: #48ff5f;
 
   --input: #b0bfcd;
 
@@ -40,6 +43,8 @@
 
   --scroll-thumb: #929292;
   --scroll-hover: #5a5a5a;
+
+  --tooltip: rgba(gray, .6);
   /*============================================
   --scroll-track is ALWAYS the --surface color
   ============================================*/
@@ -121,6 +126,24 @@ body {
       background-color: var(--scroll-hover);
     }
   }
+}
+
+.title-bar {
+  background-color: var(--primary);
+}
+
+.btn, .btn--bold {
+  background-color: var(--secondary);
+  color: var(--on-secondary);
+}
+
+.card {
+  background-color: var(--primary-light);
+}
+
+code {
+  background-color: #2b2b2b;
+  color: var(--on-code);
 }
 
 //  SCROLLS

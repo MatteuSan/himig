@@ -1,0 +1,30 @@
+*[data-tooltip] {
+  position: relative;
+
+  &:hover {
+    cursor: help;
+  }
+
+  &::after {
+    // TAKE CONTENT DATA
+    content: attr(data-tooltip);
+    // STYLING
+    display: block;
+    position: absolute;
+    background-color: rgba(lightgray, 0.83);
+    color: #000;
+    padding: 1em 1em;
+    border-radius: 5px;
+    font-size: .75em;
+    bottom: calc(100% + 5px);
+    left: -5%;
+    right: -5%;
+    z-index: 999;
+    opacity: 0;
+    transition: opacity ease-in-out 200ms;
+  }
+
+  &:hover::after {
+    opacity: 1;
+  }
+}

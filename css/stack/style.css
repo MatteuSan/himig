@@ -48,12 +48,42 @@ body {
   overflow-x: hidden;
 }
 
+/* WRAPPERS */
+.wrap--content {
+  width: calc(100% - 20px);
+  max-width: 88vw;
+  margin: 70px auto 65px auto;
+}
+.wrap--content--no-margin-top {
+  margin-top: 0;
+}
+
+@media (min-width: 850px) {
+  .wrap--content {
+    margin-bottom: 10px;
+  }
+}
+
+.wrap--section {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.wrap--button {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  gap: 10px;
+  justify-content: flex-end !important;
+  align-content: flex-end !important;
+}
+
 /* HEADER (Namespace: Header__[component] */
 .header {
   width: 100%;
   position: fixed;
   top: 0;
-  z-index: 10000;
+  z-index: 100;
   min-height: 50px;
 }
 .header .header__wrap {
@@ -84,7 +114,7 @@ body {
   position: fixed;
   padding: 0.5rem;
   bottom: 0;
-  z-index: 9999;
+  z-index: 100;
 }
 @media (min-width: 850px) {
   .nav {
@@ -221,7 +251,7 @@ body {
   position: fixed;
   height: 100%;
   top: 50px;
-  z-index: 100000;
+  z-index: 100;
   transform-origin: right;
   overflow-y: scroll;
 }
@@ -277,9 +307,11 @@ body {
   height: 100%;
   right: 0;
   top: 50px;
-  z-index: 999;
-  transform-origin: right;
+  z-index: 100;
   overflow-y: scroll;
+}
+.drawer.drawer--right {
+  transform-origin: right;
 }
 .drawer .drawer__item {
   display: block;
@@ -313,7 +345,6 @@ body {
 .drawer__divider {
   margin: 17px 0 7px 0;
   text-align: center;
-  font-family: "SF UI Display Bold", sans-serif;
   font-weight: 700;
 }
 
@@ -342,8 +373,81 @@ body {
 }
 
 .drawer__language--active p {
-  font-family: "SF UI Display Bold", sans-serif;
   font-weight: 700;
+}
+
+*[data-tooltip] {
+  position: relative;
+}
+*[data-tooltip]:hover {
+  cursor: help;
+}
+*[data-tooltip]::after {
+  content: attr(data-tooltip);
+  display: block;
+  position: absolute;
+  background-color: rgba(211, 211, 211, 0.83);
+  color: #000;
+  padding: 1em 1em;
+  border-radius: 5px;
+  font-size: 0.75em;
+  bottom: calc(100% + 5px);
+  left: -5%;
+  right: -5%;
+  z-index: 999;
+  opacity: 0;
+  transition: opacity ease-in-out 200ms;
+}
+*[data-tooltip]:hover::after {
+  opacity: 1;
+}
+
+.btn {
+  padding: 5px 7px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+}
+.btn--bold {
+  padding: 5px 7px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.title-bar {
+  width: 100%;
+  height: auto;
+  padding: 8px 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: 700;
+}
+.title-bar--on-card {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: 700;
+  background-color: transparent !important;
+}
+
+.card {
+  width: 100%;
+  height: auto;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: justify;
+}
+.card p {
+  font-size: 14px;
+  margin-bottom: 7px;
+}
+.card code {
+  padding: 0 3px;
 }
 
 /*

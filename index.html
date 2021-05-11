@@ -33,7 +33,7 @@
         <div class="search">
             <form method="GET" action="#">
                 <label @click.prevent="predictive_show = true" for="search" class="material-icons">search</label>
-                <input @click.prevent="predictive_show = true" id="search" type="text" name="s" placeholder="Search something..." required>
+                <input @click.prevent="predictive_show = true" id="search" type="text" name="s" placeholder="Search the docs..." required>
             </form>
         </div>
         <div class="search__buttons">
@@ -48,8 +48,8 @@
                     <p class="nav__item_text">Home</p>
                 </div>
                 <div class="nav__item">
-                    <a class="nav__item_icon material-icons" href="#">info</a>
-                    <p class="nav__item_text">About</p>
+                    <a class="nav__item_icon material-icons" href="#">description</a>
+                    <p class="nav__item_text">Docs</p>
                 </div>
                 <div class="nav__item">
                     <a class="nav__item_icon material-icons" href="#">handyman</a>
@@ -215,7 +215,17 @@
 </div>
 
 <body>
-
+    <div class="wrap--content">
+        <h2 class="title-bar">TOOLTIPS ARE WACK!</h2>
+        <div class="card">
+            <p>A cool tooltip appears when you hover over the button!</p>
+            <p>For mobile users; you can click on it for it to appear, then click anywhere to make it disappear!</p>
+            <p>You can also place a tooltip on any element in the html file like <b data-tooltip="HELLO!">this one</b>. Just add in the <code>data-tooltip="your text here!"</code> attribute to any html element, and then you're good to go!</p>
+            <div class="wrap--button">
+                <button class="btn--bold" data-tooltip="HERE I AM! A TOOLTIP!">HOVER OVER ME!</button>
+            </div>
+        </div>
+    </div>
 </body>
 
 <script type="text/javascript">

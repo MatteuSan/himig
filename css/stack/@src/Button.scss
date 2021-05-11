@@ -1,0 +1,14 @@
+.btn {
+  padding: 5px 7px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+
+  @at-root #{&}--bold {
+    padding: 5px 7px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 700;
+  }
+}

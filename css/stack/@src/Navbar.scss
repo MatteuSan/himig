@@ -5,7 +5,7 @@
   position: fixed;
   padding: 0.5rem;
   bottom: 0;
-  z-index: 9999;
+  z-index: 100;
 
   @media (min-width: 850px) {
     width: 0;
