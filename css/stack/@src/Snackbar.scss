@@ -1,0 +1,53 @@
+.snackbar {
+    position: fixed;
+    width: calc(100% - 40px);
+    max-width: 420px;
+    padding: 14px 16px;
+    z-index: 1000;
+    border-radius: 5px;
+
+    bottom: 70px;
+    right: 20px;
+
+    border-left: none;
+
+    &.--error {
+        border-left: 5px solid var(--error);
+    }
+
+    &.--success {
+        border-left: 5px solid var(--success);
+    }
+
+    &.--warning {
+        border-left: 5px solid var(--pending);
+    }
+
+    @media (min-width: 850px) {
+        bottom: 30px;
+        right: 30px;
+        left: auto;
+    }
+
+    .snackbar__wrap {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+
+        .snackbar__label {
+            font-size: 15px;
+        }
+
+        .snackbar__action {
+            border: none;
+            background-color: transparent!important;
+            font-size: 15px;
+            font-weight: 700;
+
+            &:hover {
+                opacity: 0.7;
+                cursor: pointer;
+            }
+        }
+    }
+}

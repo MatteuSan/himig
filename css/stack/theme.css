@@ -30,6 +30,7 @@
   --scroll-thumb: #929292;
   --scroll-hover: #5a5a5a;
   --tooltip: rgba(gray, .6);
+  --snackbar: #232323;
   /*============================================
   --scroll-track is ALWAYS the --surface color
   ============================================*/
@@ -40,7 +41,7 @@ body {
 }
 
 .header {
-  background-color: var(--primary);
+  background-color: var(--primary-dark);
 }
 
 .search label {
@@ -60,7 +61,7 @@ body {
 }
 
 .nav {
-  background-color: var(--primary);
+  background-color: var(--primary-dark);
 }
 
 .search__predictive {
@@ -110,9 +111,20 @@ body {
   background-color: var(--primary-light);
 }
 
-code {
-  background-color: #2b2b2b;
-  color: var(--on-code);
+.banner {
+  background: #001334;
+  background: linear-gradient(45deg, #001334 0%, #44638b 100%);
+}
+
+.snackbar {
+  background-color: var(--snackbar);
+}
+.snackbar .snackbar__action {
+  color: var(--secondary);
+}
+
+footer {
+  background-color: var(--primary);
 }
 
 body::-webkit-scrollbar-track {

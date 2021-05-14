@@ -36,6 +36,7 @@
                 <input @click.prevent="predictive_show = true" id="search" type="text" name="s" placeholder="Search the docs..." required>
             </form>
         </div>
+
         <div class="search__buttons">
             <button @click="predictive_show = true" class="material-icons search-button">search</button>
             <button @click="predictive_show = false" class="material-icons close-button">close</button>
@@ -52,8 +53,8 @@
                     <p class="nav__item_text">Docs</p>
                 </div>
                 <div class="nav__item">
-                    <a class="nav__item_icon material-icons" href="#">handyman</a>
-                    <p class="nav__item_text">Services</p>
+                    <a class="nav__item_icon material-icons" href="#">code</a>
+                    <p class="nav__item_text">Dev Center</p>
                 </div>
                 <div class="nav__item">
                     <p @click="drawer_open = !drawer_open" class="nav__item_icon material-icons" href="#" x-text="drawer_open ? 'close' : 'menu'"></p>
@@ -77,17 +78,13 @@
     <div class="drawer mdc-elevation--z5" x-show.transition.origin.top.right="drawer_open" @click.away="drawer_open = false">
         <div class="wrap--text" style="margin: 0 auto;">
 
-            <a class="drawer__item" @click.prevent="dark_mode = !dark_mode">
-                <span class="drawer__icon material-icons">dark_mode</span>
-                <p>Dark Mode</p>
+            <a class="drawer__item" href="#">
+                <span class="drawer__icon fab fa-github"></span>
+                <p>StackCSS Repository</p>
             </a>
             <a class="drawer__item" href="#">
-                <span class="drawer__icon material-icons">dashboard</span>
-                <p>Editor Dashboard</p>
-            </a>
-            <a class="drawer__item" href="#">
-                <span class="drawer__icon material-icons">shopping_cart</span>
-                <p>GrowStocks Shop</p>
+                <span class="drawer__icon material-icons">language</span>
+                <p>GrowStocks Website</p>
             </a>
             <a class="drawer__item" href="#">
                 <span class="drawer__icon material-icons">lock</span>
@@ -127,87 +124,9 @@
                 <span class="spacer">|</span>
 
                 <a href="#" class="drawer__language">
-                    <p>Español</p>
-                </a>
-
-                <span class="spacer">|</span>
-
-                <a href="#" class="drawer__language">
-                    <p>Français</p>
-                </a>
-
-                <span class="spacer">|</span>
-
-                <a href="#" class="drawer__language">
-                    <p>Dansk</p>
-                </a>
-
-                <span class="spacer">|</span>
-
-                <a href="#" class="drawer__language">
-                    <p>عَرَبِي</p>
-                </a>
-
-                <span class="spacer">|</span>
-
-                <a href="#" class="drawer__language">
-                    <p>Bahasa Indonesia</p>
-                </a>
-
-                <span class="spacer">|</span>
-
-                <a href="#" class="drawer__language">
-                    <p>Türk</p>
-                </a>
-
-                <span class="spacer">|</span>
-
-                <a href="#" class="drawer__language">
-                    <p>Suomi</p>
-                </a>
-
-                <span class="spacer">|</span>
-
-                <a href="#" class="drawer__language">
-                    <p>Eesti</p>
-                </a>
-
-                <span class="spacer">|</span>
-
-                <a href="#" class="drawer__language">
-                    <p>Lithuania</p>
-                </a>
-
-                <span class="spacer">|</span>
-
-                <a href="#" class="drawer__language">
-                    <p>Tagalog</p>
-                </a>
-
-                <span class="spacer">|</span>
-
-                <a href="#" class="drawer__language">
                     <p>日本語</p>
                 </a>
 
-                <span class="spacer">|</span>
-
-                <a href="#" class="drawer__language">
-                    <p>한국어</p>
-                </a>
-
-                <span class="spacer">|</span>
-
-                <a href="#" class="drawer__language">
-                    <p>中文</p>
-                </a>
-
-            </div>
-
-            <div class="wrap--text" style="width: 100%; display: flex; justify-content: space-around; margin-top: 10px; text-align: center">
-                <p style="font-size: 12px!important;">
-                    The time right now is 08:23AM UTC
-                </p>
             </div>
 
         </div>
@@ -215,17 +134,37 @@
 </div>
 
 <body>
-    <div class="wrap--content">
-        <h2 class="title-bar">TOOLTIPS ARE WACK!</h2>
-        <div class="card">
-            <p>A cool tooltip appears when you hover over the button!</p>
-            <p>For mobile users; you can click on it for it to appear, then click anywhere to make it disappear!</p>
-            <p>You can also place a tooltip on any element in the html file like <b data-tooltip="HELLO!">this one</b>. Just add in the <code>data-tooltip="your text here!"</code> attribute to any html element, and then you're good to go!</p>
-            <div class="wrap--button">
-                <button class="btn--bold" data-tooltip="HERE I AM! A TOOLTIP!">HOVER OVER ME!</button>
-            </div>
+
+    <div class="banner">
+        <div class="wrap--text">
+            <h1>StackCSS</h1>
+            <p>GrowStocks' CSS Library for building user interfaces.</p>
         </div>
     </div>
+
+    <div class="wrap--content--no-margin-top">
+        <h2 class="title-bar--on-surface">THIS CSS LIBRARY IS SUPER WACK!</h2>
+        <div class="card--on-surface">
+            <p>This library prioritizes the "treat classes as functions" philosophy. Which means it's easily maintainable, while being powerful, beautiful, quick, responsive, and flexible.</p>
+            <p>Are you excited? Because I sure am! Alrighty then, here we go!</p>
+            <div class="wrap--button">
+                <button class="btn--bold">LET'S START!</button>
+            </div>
+        </div>
+
+        <!--<div class="snackbar &#45;&#45;warning mdc-elevation&#45;&#45;z5">
+            <div class="snackbar__wrap">
+                <p class="snackbar__label">Snackbar Label</p>
+                <button class="snackbar__action">ACTION</button>
+            </div>
+        </div>-->
+    </div>
+    <footer class="footer">
+        <div class="wrap--text">
+            <h3>StackCSS</h3>
+            <h5>Copyright GrowStocks &copy; 2021</h5>
+        </div>
+    </footer>
 </body>
 
 <script type="text/javascript">

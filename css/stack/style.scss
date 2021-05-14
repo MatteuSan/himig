@@ -15,8 +15,17 @@
 @use '@src/Navbar';
 @use '@src/Search';
 @use '@src/Drawer';
+@use '@src/Banner';
+@use '@src/Footer';
 
 // COMPONENTS
 @use '@src/Tooltip';
 @use '@src/Button';
 @use '@src/BarsCards';
+@use '@src/Chip';
+@use '@src/Snackbar';
+@use '@src/Modal';
+@use '@src/Faq';
+@use '@src/Staff';
+@use '@src/Codeblock';
+/*  @use '@src/Components'; */

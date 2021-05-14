@@ -1,0 +1,14 @@
+.footer {
+    padding: 1.5rem;
+    margin-bottom: 55px;
+
+    @media (min-width: 850px) {
+        margin-bottom: 0;
+    }
+
+    .wrap--text {
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+    }
+}

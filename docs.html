@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>StackCSS - PLAYGROUND</title>
+
+    <!-- STACK CSS -->
+    <link rel="stylesheet" href="css/stack/style.css">
+    <link rel="stylesheet" href="css/stack/theme.css">
+
+    <!-- CSS LIBS -->
+    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+
+    <!-- JS LIBS -->
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <!-- ICONS -->
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+          rel="stylesheet">
+    <script src="https://kit.fontawesome.com/0fb562e3a8.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+  <div class="wrap--content">
+    <h2 class="title-bar--on-surface">
+      HELLO!
+    </h2>
+    <div class="card--on-surface">
+      <p>This is the StackCSS Library!</p>
+      <p>Hover over <b data-tooltip="This is a tooltip!">THIS THING</b> to display tooltip</p>
+      <div class="code-block">
+        <code>data-tooltip="something"</code>
+      </div>
+    </div>
+    <div class="snackbar --success">
+      <div class="snackbar__wrap">
+        <p class="snackbar__label">Success!</p>
+        <button class="snackbar__action">CLICK ME</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

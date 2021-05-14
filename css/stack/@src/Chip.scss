@@ -1,0 +1,114 @@
+.container--item {
+
+  .item__status_sym {
+    display: inline!important;
+    position: relative!important;
+    top: 2px!important;
+    right: 0!important;
+    font-size: 16px!important;
+    font-weight: 400!important;
+  }
+
+  .chip__options_trigger, .material-icons {
+    display: block;
+    position: relative;
+    top: 4px;
+    right: 7px;
+  }
+}
+
+.chip,
+.chip--full {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px 5px 0 0;
+  color: #fff;
+
+  &::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+  .chip__sprite {
+    img {
+      display: inline !important;
+      width: 32px;
+      height: 32px;
+      margin: 3px 10px 7px 2px;
+      float: left;
+    }
+  }
+
+  .wrap--text {
+    display: inline;
+    width: 100% !important;
+
+    * {
+      display: inline;
+      text-align: justify;
+    }
+  }
+
+  h2 {
+    font-size: 20px;
+    padding: 0 !important;
+    display: inline !important;
+  }
+
+  p {
+    font-size: 14px;
+    padding: 0 !important;
+    display: inline;
+  }
+
+  a {
+    display: inline !important;
+  }
+
+  .chip__arrow {
+    width: 12px !important;
+    height: auto !important;
+    top: 2px;
+    margin: 0 2px 0 1px !important;
+  }
+
+  .chip__spacer {
+    margin: 0 3px 0 3px;
+    font-weight: 700;
+  }
+}
+
+.chip--full {
+  border-radius: 5px;
+}
+
+.chip__options {
+  display: none;
+  border: none;
+  width: 100%;
+  padding: 5px 10px;
+
+  .chip__options_button {
+    display: inline-block;
+    border: none;
+    font-size: 13px !important;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.close {
+  content: "close" !important;
+}
+
+.chip__footer {
+  width: 100%;
+  padding: 5px 10px 4px 10px !important;
+  border-radius: 0 0 5px 5px;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  color: #fff !important;
+}

@@ -3,15 +3,15 @@
 .wrap--content {
   background-color: rgba(0, 0, 0, 0)!important;
   width: calc(100% - 20px);
-  max-width: 1150px;
+  max-width: 1077px;
   margin: 67px auto 65px auto;
   overflow-x: hidden;
 
   @at-root #{&}--no-margin-top {
     background-color: rgba(0, 0, 0, 0)!important;
     width: calc(100% - 20px);
-    max-width: 1150px;
-    margin: 0 auto 65px auto;
+    max-width: 1077px;
+    margin: 25px auto 65px auto;
     overflow-x: hidden;
   }
 
@@ -42,6 +42,13 @@
 .wrap--text {
   display: inline;
   width: 100%;
+}
+
+.wrap--card--x, .wrap--card--y {
+  width: 100%;
+  margin-bottom: 10px;
+  white-space: normal;
+  max-width: 300px;
 }
 
 @media (min-width: 850px) {

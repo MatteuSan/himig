@@ -1,0 +1,13 @@
+.code-block {
+  width: 100%;
+  padding: 15px 10px;
+  border-radius: 5px;
+  margin: 20px 0;
+  background-color: #2b2b2b;
+
+  code {
+    width: 100%;
+    background-color: transparent;
+    color: var(--secondary);
+  }
+}

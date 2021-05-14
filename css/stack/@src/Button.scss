@@ -1,14 +1,27 @@
 .btn {
-  padding: 5px 7px;
+  padding: 7px 9px;
   border: none;
   border-radius: 5px;
-  font-size: 14px;
+  margin: 5px 0;
+  font-size: 15px;
+
+  &:hover {
+    opacity: 0.7;
+    cursor: pointer;
+  }
 
   @at-root #{&}--bold {
-    padding: 5px 7px;
+    padding: 7px 9px;
     border: none;
     border-radius: 5px;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 700;
+    margin: 5px 0 7px 0;
+
+    &:hover {
+      opacity: 0.7;
+      cursor: pointer;
+    }
+
   }
 }

@@ -1,0 +1,53 @@
+.market__search {
+  width: 100%;
+  border-radius: 5px;
+  padding: 5px;
+
+  form {
+    width: 100%;
+  }
+
+  input[type="text"] {
+    width: 100%;
+    border-radius: 5px;
+    padding: 7px;
+    border: none;
+    font-size: 14px;
+  }
+}
+
+.market__button {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: transparent;
+  margin-bottom: 3px;
+  margin-top: 3px;
+
+  &:hover {
+    opacity: 0.7;
+    cursor: pointer;
+  }
+}
+
+.wrap--market {
+  .chip__options_button {
+    display: inline-block;
+    border: none;
+    font-size: 13px !important;
+    margin-right: 0!important;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.wrap--market {
+  .chip {
+    img {
+      margin-bottom: 20px;
+    }
+  }
+}

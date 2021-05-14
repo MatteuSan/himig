@@ -1,0 +1,20 @@
+.faq {
+  display: none;
+  margin-bottom: 10px;
+  /*transition: ease 200ms 200ms;
+  transform-origin: top;*/
+}
+
+.faq--open {
+  cursor: pointer;
+
+  .material-icons {
+    display: inline;
+  }
+
+  h2 {
+    position: relative;
+    top: -5px;
+    display: inline;
+  }
+}
