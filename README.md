@@ -1,6 +1,11 @@
 # StackCSS
 - [GrowStocks](https://growstocks.xyz)' proprietary CSS Library for building beautiful, quick, responsive, and flexible user interfaces.
 
+# Features
+- Easily configurable
+- Easily paired with [Alpine.js](https://github.com/alpinejs/alpine)
+- Faster deployment of the app's frontend
+
 # Prerequisites
 * SASS/SCSS Live Watcher or Live Compiler (refer to your IDE's plugins marketplace)
 
