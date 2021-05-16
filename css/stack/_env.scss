@@ -1,16 +1,24 @@
 /*
 
-  Here is where your style settings go
+    StackCSS by GrowStocks v.1.0.2
+    Made by Matteu#0001
+
+    Copyright 2021 (c) Matteu and the GrowStocks Development Group
+
+    The CSS Library for building quick, beautiful, responsive, and flexible user interfaces.
+
+    "Why did you put that in there?!" - from that one jackbox game we played last friday
 
 */
 
-//  THEME
+// ENV FILE
 
 :root {
-  //GENERAL
+  // GENERAL
   --surface: #000b18;
+  --transparent: rgba(0,0,0,0.0);
 
-  //  PRIMARY
+  // PRIMARY
   --primary-dark: #001334;
   --primary: #12395eff;
   --primary-light: #44638b;
@@ -19,12 +27,12 @@
   --primary--variant: #1d69a9;
   --primary--variant-light: #7d9fcb;
 
-  //  SECONDARY
+  // SECONDARY
   --secondary-dark: #c67100;
   --secondary: #ffa000;
   --secondary-light: #ffd149;
 
-  //TEXT COLORS
+  // TEXT COLORS
   --on-primary: #fff;
   --on-secondary: #000;
   --on-input: #000;
@@ -35,23 +43,28 @@
   --placeholder: #3c3c3c;
   --on-code: #48ff5f;
 
+  // INPUT
   --input: #b0bfcd;
 
+  // ALERTS
   --error: #b00020;
   --warning: #ffa000;
   --success: #34cb4e;
 
-  --transparent: rgba(0,0,0,0.0);
-
+  // BANNER
+  // COULD BE SOLID COLOR, GRADIENT, OR IMAGE
   --banner: linear-gradient(45deg, rgba(0,19,52,1) 0%, rgba(68,99,139,1) 100%);
 
+  // HOVER
   --hover-dark: #3c3c3c;
   --hover: #5a5a5a;
   --hover-light: #a9adb2;
 
+  // SCROLL
   --scroll-thumb: #929292;
   --scroll-hover: #5a5a5a;
 
+  // HIDERS
   --tooltip: rgba(gray, .6);
   --snackbar: #232323;
   /*============================================

@@ -1,10 +1,18 @@
 /*
 
-  Here is where your style settings go
+    StackCSS by GrowStocks v.1.0.2
+    Made by Matteu#0001
+
+    Copyright 2021 (c) Matteu and the GrowStocks Development Group
+
+    The CSS Library for building quick, beautiful, responsive, and flexible user interfaces.
+
+    "Why did you put that in there?!" - from that one jackbox game we played last friday
 
 */
 :root {
   --surface: #000b18;
+  --transparent: rgba(0,0,0,0.0);
   --primary-dark: #001334;
   --primary: #12395eff;
   --primary-light: #44638b;
@@ -27,7 +35,6 @@
   --error: #b00020;
   --warning: #ffa000;
   --success: #34cb4e;
-  --transparent: rgba(0,0,0,0.0);
   --banner: linear-gradient(45deg, rgba(0,19,52,1) 0%, rgba(68,99,139,1) 100%);
   --hover-dark: #3c3c3c;
   --hover: #5a5a5a;
@@ -1175,6 +1182,8 @@ button[data-tooltip]:hover::after {
 
     StackCSS by GrowStocks v.1.0.2
     Made by Matteu#0001
+
+    Copyright 2021 (c) Matteu and the GrowStocks Development Group
 
     The CSS Library for building quick, beautiful, responsive, and flexible user interfaces.
 
