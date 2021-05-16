@@ -11,16 +11,18 @@
 
     border-left: none;
 
-    &.--error {
+    background-color: var(--snackbar);
+
+    &.error {
         border-left: 5px solid var(--error);
     }
 
-    &.--success {
+    &.success {
         border-left: 5px solid var(--success);
     }
 
-    &.--warning {
-        border-left: 5px solid var(--pending);
+    &.warning {
+        border-left: 5px solid var(--warning);
     }
 
     @media (min-width: 850px) {
@@ -43,6 +45,8 @@
             background-color: transparent!important;
             font-size: 15px;
             font-weight: 700;
+
+            color: var(--secondary);
 
             &:hover {
                 opacity: 0.7;

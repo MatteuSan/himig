@@ -4,7 +4,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  color: var(--color);
+  color: var(--on-surface);
 
   &::-webkit-scrollbar {
     width: 0.7em;
@@ -54,4 +54,19 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   overflow-x: hidden;
+
+  background-color: var(--surface);
+
+  &::-webkit-scrollbar-track {
+    background: var(--surface);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--scroll-thumb);
+    border: 4px solid var(--surface);
+
+    &:hover {
+      background-color: var(--scroll-hover);
+    }
+  }
 }

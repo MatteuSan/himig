@@ -7,6 +7,8 @@
   bottom: 0;
   z-index: 100;
 
+  background-color: var(--primary-dark);
+
   @media (min-width: 850px) {
     width: 0;
     top: 0.25rem;
@@ -14,10 +16,11 @@
   }
 
   .nav__container {
-    display: flex;
-    flex-flow: row wrap;
+    display: grid;
+    grid-column: 1/-1;
+    grid-template-columns: repeat(var(--nav-contents), 1fr);
+    grid-gap: 0.5rem;
     text-align: center;
-    justify-content: space-evenly;
 
     .nav__item {
       margin: 0 auto;

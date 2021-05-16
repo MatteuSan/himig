@@ -1,0 +1,74 @@
+/*
+
+  Here is where your style settings go
+
+*/
+
+//  THEME
+
+:root {
+  //GENERAL
+  --surface: #000b18;
+
+  //  PRIMARY
+  --primary-dark: #001334;
+  --primary: #12395eff;
+  --primary-light: #44638b;
+
+  --primary--variant-dark: #1c4c86;
+  --primary--variant: #1d69a9;
+  --primary--variant-light: #7d9fcb;
+
+  //  SECONDARY
+  --secondary-dark: #c67100;
+  --secondary: #ffa000;
+  --secondary-light: #ffd149;
+
+  //TEXT COLORS
+  --on-primary: #fff;
+  --on-secondary: #000;
+  --on-input: #000;
+  --on-error: #fff;
+  --on-warning: #000;
+  --on-success: #fff;
+  --on-surface: #fff;
+  --placeholder: #3c3c3c;
+  --on-code: #48ff5f;
+
+  --input: #b0bfcd;
+
+  --error: #b00020;
+  --warning: #ffa000;
+  --success: #34cb4e;
+
+  --transparent: rgba(0,0,0,0.0);
+
+  --banner: linear-gradient(45deg, rgba(0,19,52,1) 0%, rgba(68,99,139,1) 100%);
+
+  --hover-dark: #3c3c3c;
+  --hover: #5a5a5a;
+  --hover-light: #a9adb2;
+
+  --scroll-thumb: #929292;
+  --scroll-hover: #5a5a5a;
+
+  --tooltip: rgba(gray, .6);
+  --snackbar: #232323;
+  /*============================================
+  --scroll-track is ALWAYS the --surface color
+  ============================================*/
+}
+
+// IMPORT FONT
+// @import url('font_link')
+
+// SPECIFY FONT
+
+* {
+  font-family: 'Arial', sans-serif;
+}
+
+// SPECIFY NAV BUTTON COUNT
+.nav__container {
+  --nav-contents: 4;
+}

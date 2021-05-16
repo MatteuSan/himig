@@ -6,6 +6,8 @@
   background-attachment: fixed;
   overflow-x: hidden;
 
+  background: var(--banner);
+
   @media (min-width: 850px) {
     height: 50vh;
   }
@@ -13,7 +15,6 @@
   .wrap--text {
     top: 22vh;
     left: 10vw;
-    color: #fff;
     position: absolute;
     max-width: 250px;
 
