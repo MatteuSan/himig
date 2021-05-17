@@ -20,5 +20,5 @@
 ```html
 <script src="js/stack/index.js"></script>
 ```
-1. Configure your theme settings in the `_env.scss` file.
+1. Configure your theme settings in the `css/stack/_env.scss` file.
 1. DONE!
