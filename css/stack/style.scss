@@ -1,19 +1,9 @@
-/*
-
-    StackCSS by GrowStocks v.1.0.2
-    Made by Matteu#0001
-
-    Copyright 2021 (c) Matteu and the GrowStocks Development Group
-
-    The CSS Library for building quick, beautiful, responsive, and flexible user interfaces.
-
-    "Why did you put that in there?!" - from that one jackbox game we played last friday
-
-*/
-
 @use '_env';
+@use '_overrides';
 
-@use '@src/_normalize';
+@use '@src/_config';
+@use '@src/_functions';
+@use '@src/_mixins';
 @use '@src/Wraps';
 @use '@src/Header';
 @use '@src/Navbar';
@@ -32,4 +22,3 @@
 @use '@src/Faq';
 @use '@src/Staff';
 @use '@src/Codeblock';
-/*  @use '@src/Components'; */

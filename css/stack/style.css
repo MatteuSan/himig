@@ -1,3 +1,4 @@
+@import url(var(--font-link));
 /*
 
     StackCSS by GrowStocks v.1.0.2
@@ -12,7 +13,7 @@
 */
 :root {
   --surface: #000b18;
-  --transparent: rgba(0,0,0,0.0);
+  --transparent: rgba(0, 0, 0, 0.0);
   --primary-dark: #001334;
   --primary: #12395eff;
   --primary-light: #44638b;
@@ -35,33 +36,32 @@
   --error: #b00020;
   --warning: #ffa000;
   --success: #34cb4e;
-  --banner: linear-gradient(45deg, rgba(0,19,52,1) 0%, rgba(68,99,139,1) 100%);
+  --banner: linear-gradient(45deg, rgba(0, 19, 52, 1) 0%, rgba(68, 99, 139, 1) 100%);
   --hover-dark: #3c3c3c;
   --hover: #5a5a5a;
   --hover-light: #a9adb2;
   --scroll-thumb: #929292;
   --scroll-hover: #5a5a5a;
-  --tooltip: rgba(gray, .6);
+  --tooltip: #232323;
   --snackbar: #232323;
   /*============================================
   --scroll-track is ALWAYS the --surface color
   ============================================*/
-}
-
-* {
-  font-family: "Arial", sans-serif;
+  --font-link: null;
+  --font-name: "Consolas";
+  --font-type: sans-serif;
 }
 
 .nav__container {
   --nav-contents: 4;
 }
 
-/* NORMALIZER */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   color: var(--on-surface);
+  font-family: var(--font-name), var(--font-type);
 }
 *::-webkit-scrollbar {
   width: 0.7em;
@@ -1177,19 +1177,5 @@ button[data-tooltip]:hover::after {
   background-color: transparent;
   color: var(--secondary);
 }
-
-/*
-
-    StackCSS by GrowStocks v.1.0.2
-    Made by Matteu#0001
-
-    Copyright 2021 (c) Matteu and the GrowStocks Development Group
-
-    The CSS Library for building quick, beautiful, responsive, and flexible user interfaces.
-
-    "Why did you put that in there?!" - from that one jackbox game we played last friday
-
-*/
-/*  @use '@src/Components'; */
 
 /*# sourceMappingURL=style.css.map */

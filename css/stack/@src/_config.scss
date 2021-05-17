@@ -1,10 +1,13 @@
-/* NORMALIZER */
+// CONFIG
+
+@import url(var(--font-link));
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   color: var(--on-surface);
+  font-family: var(--font-name), var(--font-type);
 
   &::-webkit-scrollbar {
     width: 0.7em;

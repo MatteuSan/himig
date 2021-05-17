@@ -13,12 +13,23 @@
 
 // ENV FILE
 
-:root {
-  // GENERAL
-  --surface: #000b18;
-  --transparent: rgba(0,0,0,0.0);
 
-  // PRIMARY
+//|--------------------------------------------------------------------------
+//| :root settings
+//|--------------------------------------------------------------------------
+//|
+//| This is where you set your theme's colors. You can enter the primary,
+//| secondary, and other colors in here and the library will automatically
+//| apply it to your theme. Specific instructions are written with the
+//| setting inputs.
+//|
+
+:root {
+  // SURFACE COLOR AND GENERAL COLORS
+  --surface: #000b18;
+  --transparent: rgba(0, 0, 0, 0.0);
+
+  // PRIMARY COLORS
   --primary-dark: #001334;
   --primary: #12395eff;
   --primary-light: #44638b;
@@ -27,7 +38,7 @@
   --primary--variant: #1d69a9;
   --primary--variant-light: #7d9fcb;
 
-  // SECONDARY
+  // SECONDARY COLORS
   --secondary-dark: #c67100;
   --secondary: #ffa000;
   --secondary-light: #ffd149;
@@ -43,45 +54,62 @@
   --placeholder: #3c3c3c;
   --on-code: #48ff5f;
 
-  // INPUT
+  // INPUT COLORS
   --input: #b0bfcd;
 
-  // ALERTS
+  // ALERT COLORS
   --error: #b00020;
   --warning: #ffa000;
   --success: #34cb4e;
 
-  // BANNER
+  // BANNER STYLING
   // COULD BE SOLID COLOR, GRADIENT, OR IMAGE
-  --banner: linear-gradient(45deg, rgba(0,19,52,1) 0%, rgba(68,99,139,1) 100%);
+  --banner: linear-gradient(45deg, rgba(0, 19, 52, 1) 0%, rgba(68, 99, 139, 1) 100%);
 
-  // HOVER
+  // HOVER COLORS
   --hover-dark: #3c3c3c;
   --hover: #5a5a5a;
   --hover-light: #a9adb2;
 
-  // SCROLL
+  // SCROLL COLORS
   --scroll-thumb: #929292;
   --scroll-hover: #5a5a5a;
 
-  // HIDERS
-  --tooltip: rgba(gray, .6);
+  // HIDDEN ELEMENT COLORS
+  --tooltip: #232323;
   --snackbar: #232323;
   /*============================================
   --scroll-track is ALWAYS the --surface color
   ============================================*/
+
+  //--------------------------------------------------------------------------
+  // Font Settings
+  //--------------------------------------------------------------------------
+  //
+  // This is where you set your theme's fonts. --font-link is where you import
+  // your font link (from Google Fonts or wherever you get it). Then specify the
+  // font-family name and whether if it's sans-serif or serif. Then that's it!
+  //
+  // The --font-link variable is null on default whenever you want to use a system
+  // font.
+  //
+
+  // IMPORT FONT
+  --font-link: null;
+
+  // SPECIFY FONT
+  --font-name: 'Consolas';
+  --font-type: sans-serif;
 }
 
-// IMPORT FONT
-// @import url('font_link')
+//--------------------------------------------------------------------------
+// .nav__container settings
+//--------------------------------------------------------------------------
+//
+// Specify the amount of navbar items in here (how many buttons to be displayed)
+// then the library will do the work for you
+//
 
-// SPECIFY FONT
-
-* {
-  font-family: 'Arial', sans-serif;
-}
-
-// SPECIFY NAV BUTTON COUNT
 .nav__container {
   --nav-contents: 4;
 }
