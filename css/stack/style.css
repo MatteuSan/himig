@@ -1,4 +1,3 @@
-@import url(var(--font-link));
 /*
 
     StackCSS by GrowStocks v.1.0.2
@@ -47,7 +46,7 @@
   /*============================================
   --scroll-track is ALWAYS the --surface color
   ============================================*/
-  --font-link: null;
+  @import url("https://fontlink.com/font/font-name@font-specifications");
   --font-name: "Consolas";
   --font-type: sans-serif;
 }
@@ -806,6 +805,7 @@ button[data-tooltip]:hover::after {
 
 .chip,
 .chip--full {
+  background-color: var(--primary-light);
   width: 100%;
   padding: 10px;
   border-radius: 5px 5px 0 0;

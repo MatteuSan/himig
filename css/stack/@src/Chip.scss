@@ -15,10 +15,12 @@
     top: 4px;
     right: 7px;
   }
+
 }
 
 .chip,
 .chip--full {
+  background-color: var(--primary-light);
   width: 100%;
   padding: 10px;
   border-radius: 5px 5px 0 0;

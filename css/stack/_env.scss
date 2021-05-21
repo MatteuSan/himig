@@ -13,16 +13,15 @@
 
 // ENV FILE
 
-
-//|--------------------------------------------------------------------------
-//| :root settings
-//|--------------------------------------------------------------------------
-//|
-//| This is where you set your theme's colors. You can enter the primary,
-//| secondary, and other colors in here and the library will automatically
-//| apply it to your theme. Specific instructions are written with the
-//| setting inputs.
-//|
+//--------------------------------------------------------------------------
+// :root settings
+//--------------------------------------------------------------------------
+//
+// This is where you set your theme's colors. You can enter the primary,
+// secondary, and other colors in here and the library will automatically
+// apply it to your theme. Specific instructions are written with the
+// setting inputs.
+//
 
 :root {
   // SURFACE COLOR AND GENERAL COLORS
@@ -95,7 +94,7 @@
   //
 
   // IMPORT FONT
-  --font-link: null;
+  @import url('https://fontlink.com/font/font-name@font-specifications');
 
   // SPECIFY FONT
   --font-name: 'Consolas';
