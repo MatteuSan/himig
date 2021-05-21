@@ -8,7 +8,7 @@
   &::after {
     // TAKE CONTENT DATA
     content: attr(data-tooltip);
-    
+
     // STYLING
     display: block;
     position: absolute;
