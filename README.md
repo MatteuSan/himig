@@ -10,23 +10,23 @@
 
 # Installation Instructions
 1. Download or clone this repository.
-1. Import the stack folder into your project's root folder.
-1. Add the style.css file in the `<head></head>` tags.
+2. Import the stack folder into your project's root folder.
+3. Add the style.css file in the `<head></head>` tags.
 
 ```html
 
 <link rel=stylesheet type="text/css" href="stack/css/style.css">
 ```
-1. Add the index.js file a line before the `</body>` tag.
+4. Add the index.js file a line before the `</body>` tag.
 
 ```html
 
 <script src="js/index.js"></script>
 ```
-1. Configure your theme settings in the `stack/css/_env.scss` file.
-1. Add your theme overrides in the `stack/css/_overrides.scss` file.
-1. Add your theme's custom styles in the `stack/css/_custom.scss` file.
-1. DONE!
+5. Configure your theme settings in the `stack/css/_env.scss` file.
+6. Add your theme overrides in the `stack/css/_overrides.scss` file.
+7. Add your theme's custom styles in the `stack/css/_custom.scss` file.
+8. DONE!
 
 # Addons
 - There's an included `_demo.html` file that you can use to see the library in action!
