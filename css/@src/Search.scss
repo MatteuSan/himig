@@ -157,3 +157,21 @@
     }
   }
 }
+
+.market__search {
+  width: 100%;
+  border-radius: 5px;
+  padding: 5px;
+
+  form {
+    width: 100%;
+  }
+
+  input[type="text"] {
+    width: 100%;
+    border-radius: 5px;
+    padding: 7px;
+    border: none;
+    font-size: 14px;
+  }
+}

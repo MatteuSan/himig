@@ -12,12 +12,16 @@
 1. Download or clone this repository.
 1. Import the stack folder into your project's CSS folder.
 1. Add the style.css file in the `<head></head>` tags.
+
 ```html
-<link rel=stylesheet type="text/css" href="css/stack/style.css">
+
+<link rel=stylesheet type="text/css" href="css/style.css">
 ```
 1. Add the index.js file a line before the `</body>` tag.
+
 ```html
-<script src="js/stack/index.js"></script>
+
+<script src="js/index.js"></script>
 ```
 1. Configure your theme settings in the `css/stack/_env.scss` file.
 1. DONE!

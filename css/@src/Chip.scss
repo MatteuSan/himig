@@ -114,3 +114,22 @@
   font-weight: 700 !important;
   color: #fff !important;
 }
+
+.wrap--market {
+  .chip__options_button {
+    display: inline-block;
+    border: none;
+    font-size: 13px !important;
+    margin-right: 0!important;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .chip {
+    img {
+      margin-bottom: 20px;
+    }
+  }
+}
