@@ -1,5 +1,5 @@
 # Stack
-- [GrowStocks](https://growstocks.xyz)' open source lightweight Frontend Library for building beautiful, quick, responsive, and flexible user interfaces.
+- [GrowStocks](https://growstocks.xyz)' open source lightweight Frontend Library for building beautiful, quick, responsive, and flexible user interfaces based on GrowStocks' design system.
 
 # Features
 - Easily configurable
