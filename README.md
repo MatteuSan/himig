@@ -27,3 +27,6 @@
 1. Add your theme overrides in the `stack/css/_overrides.scss` file.
 1. Add your theme's custom styles in the `stack/css/_custom.scss` file.
 1. DONE!
+
+# Addons
+- There's an included `_demo.html` file that you can use to see the library in action!
