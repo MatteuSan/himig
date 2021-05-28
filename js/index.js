@@ -4,27 +4,15 @@
 *
 */
 
-/*
-import * as header from '@src/Header';
-import * as search from '@src/Search'
+/*import Header from "./@src/Header.js";
+import Search from "./@src/Search.js";
 
-export {
-    header,
-    search
-}
-*/
+const header = new Header;
+const search = new Search;
 
-/*$(document).ready(function() {
-    $(".search-button").click(function() {
-        $(".search-button").delay(-100).fadeOut("fast"), $(".header__text").delay(100).fadeOut("fast"),
-            $(".search").delay(400).fadeIn("fast"), $(".close-button").delay(400).fadeIn("fast");
-    }), $(".close-button").click(function() {
-        $(".close-button").delay(-100).fadeOut("fast"), $(".search").delay(100).fadeOut("fast"),
-            $(".header__text").delay(400).fadeIn("fast"), $(".search-button").delay(400).fadeIn("fast");
-    });
-});*/
+header.headerScrollable = true;
+search.search = true*/
 
-// HEADER COLOR CHANGE
 const header = document.querySelector('.header--scrollable')
 const banner = document.querySelector('.banner')
 
@@ -42,7 +30,6 @@ const observer = new IntersectionObserver(function (entries, observer) {
 
 observer.observe(banner)
 
-// SEARCH
 const search = document.querySelector('.search')
 const searchButton = document.querySelector('.search-button')
 const closeButton = document.querySelector('.close-button')
@@ -67,4 +54,3 @@ closeButton.addEventListener('click', function () {
     searchButton.classList.remove('invisible')
 
 });
-
