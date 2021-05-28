@@ -3,12 +3,18 @@
   display: none;
   padding: 9px 0;
 
+  transition: all 0.2s ease!important;
+
   @media (min-width: 850px) {
     display: block;
     position: fixed;
     max-width: calc(320px + 22px);
     padding: 0.5rem 0;
     right: 235px;
+  }
+
+  &.visible {
+    display: block!important;
   }
 
   label {
@@ -79,6 +85,14 @@
     }
   }
 
+  .search-button {
+    transition: all 0.2s ease!important;
+
+    &.invisible {
+      display: none!important;
+    }
+  }
+
   .close-button {
     width: 30px;
     height: 30px;
@@ -89,9 +103,14 @@
     border-radius: 50%;
 
     color: var(--surface) !important;
+    transition: all 0.2s ease!important;
 
     @media (min-width: 850px) {
       display: none !important;
+    }
+
+    &.visible {
+      display: block!important;
     }
   }
 }

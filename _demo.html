@@ -26,8 +26,9 @@
     <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
     <script src="https://kit.fontawesome.com/0fb562e3a8.js" crossorigin="anonymous"></script>
 
+
 </head>
-<header class="header mdc-elevation--z3">
+<header class="header--scrollable">
 
     <div class="header__wrap">
 
@@ -147,7 +148,8 @@
         </div>
     </div>
 
-    <div class="wrap--content--no-margin-top">
+    <section class="wrap--content--no-margin-top">
+
         <h2 class="title-bar--on-surface">COMPONENTS DEMO</h2>
         <div class="card--on-surface">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum ex hic placeat! Atque consequuntur, ea esse exercitationem, facilis fugiat ipsa iusto libero necessitatibus numquam odit omnis repellendus voluptate. Optio, porro?</p>
@@ -207,7 +209,68 @@
                 </div>
             </div>
         </section>
-    </div>
+
+        <h2 class="title-bar--on-surface">COMPONENTS DEMO</h2>
+        <div class="card--on-surface">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum ex hic placeat! Atque consequuntur, ea esse exercitationem, facilis fugiat ipsa iusto libero necessitatibus numquam odit omnis repellendus voluptate. Optio, porro?</p>
+
+            <div class="wrap--button">
+                <button class="btn--bold">LET'S START!</button>
+            </div>
+        </div>
+
+        <section class="container--grid">
+            <div class="card--y mdc-elevation--z3">
+                <div class="card--y__img">
+                    <img src="https://via.placeholder.com/150.png" alt="Photo">
+                </div>
+                <div class="card--y__info">
+                    <h3>CARD TITLE</h3>
+                    <h5>Card subtitle</h5>
+                    <a href="#" target="_blank">
+                        <button class="card--y__button">Card action...</button>
+                    </a>
+                </div>
+            </div>
+            <div class="card--y mdc-elevation--z3">
+                <div class="card--y__img">
+                    <img src="https://via.placeholder.com/150.png" alt="Photo">
+                </div>
+                <div class="card--y__info">
+                    <h3>CARD TITLE</h3>
+                    <h5>Card subtitle</h5>
+                    <a href="#" target="_blank">
+                        <button class="card--y__button">Card action...</button>
+                    </a>
+                </div>
+            </div>
+            <div class="card--y mdc-elevation--z3">
+                <div class="card--y__img">
+                    <img src="https://via.placeholder.com/150.png" alt="Photo">
+                </div>
+                <div class="card--y__info">
+                    <h3>CARD TITLE</h3>
+                    <h5>Card subtitle</h5>
+                    <a href="#" target="_blank">
+                        <button class="card--y__button">Card action...</button>
+                    </a>
+                </div>
+            </div>
+            <div class="card--y mdc-elevation--z3">
+                <div class="card--y__img">
+                    <img src="https://via.placeholder.com/150.png" alt="Photo">
+                </div>
+                <div class="card--y__info">
+                    <h3>CARD TITLE</h3>
+                    <h5>Card subtitle</h5>
+                    <a href="#" target="_blank">
+                        <button class="card--y__button">Card action...</button>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </section>
 
 <!--<div class="snackbar &#45;&#45;warning mdc-elevation&#45;&#45;z5">
         <div class="snackbar__wrap">
@@ -215,6 +278,8 @@
             <button class="snackbar__action">ACTION</button>
         </div>
     </div>-->
+
+    <script src="js/index.js"></script>
 </body>
 <footer class="footer">
     <div class="wrap--text">
@@ -222,16 +287,4 @@
         <h5>Copyright GrowStocks &copy; 2021</h5>
     </div>
 </footer>
-
-<script type="text/javascript">
-    $(document).ready(function() {
-        $(".search-button").click(function() {
-            $(".search-button").delay(-100).fadeOut("fast"), $(".header__text").delay(100).fadeOut("fast"),
-                $(".search").delay(400).fadeIn("fast"), $(".close-button").delay(400).fadeIn("fast");
-        }), $(".close-button").click(function() {
-            $(".close-button").delay(-100).fadeOut("fast"), $(".search").delay(100).fadeOut("fast"),
-                $(".header__text").delay(400).fadeIn("fast"), $(".search-button").delay(400).fadeIn("fast");
-        });
-    });
-</script>
 </html>

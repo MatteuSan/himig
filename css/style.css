@@ -265,7 +265,6 @@ body::-webkit-scrollbar-thumb:hover {
   }
 }
 
-/* HEADER (Namespace: Header__[component] */
 .header {
   width: 100%;
   position: fixed;
@@ -275,26 +274,52 @@ body::-webkit-scrollbar-thumb:hover {
   background-color: var(--primary-dark);
   transition: all 0.1s ease-in-out;
 }
-.header .header__wrap {
+
+.header__wrap {
   display: flex;
   justify-content: space-between;
 }
-.header .header__wrap .header__text {
+.header__wrap .header__text {
   position: relative;
   left: 0;
   padding: 0.5rem 0.7rem;
   font-size: 1.2rem;
+  transition: all 0.2s ease !important;
 }
 @media (min-width: 850px) {
-  .header .header__wrap .header__text {
+  .header__wrap .header__text {
     padding: 0.5rem;
   }
 }
+.header__wrap .header__text.invisible {
+  display: none;
+}
 @media (min-width: 850px) {
-  .header .header__wrap {
+  .header__wrap {
     width: calc(100% - 34px);
     margin: 0 auto;
   }
+}
+
+.header--scrollable {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  height: 50px;
+  background-color: var(--transparent);
+  transition: all 0.2s ease-in-out;
+}
+.header--scrollable * {
+  transition: all 0.2s ease-in-out;
+  color: var(--banner-color);
+}
+.header--scrollable.scrolled {
+  background-color: var(--primary-dark);
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+}
+.header--scrollable.scrolled * {
+  color: var(--on-primary);
 }
 
 /* NAVBAR */
@@ -306,7 +331,7 @@ body::-webkit-scrollbar-thumb:hover {
   z-index: 100;
   background-color: var(--primary-dark);
 }
-@media (min-width: 540px) {
+@media (min-width: 850px) {
   .nav {
     width: 0;
     top: 0.25rem;
@@ -320,7 +345,7 @@ body::-webkit-scrollbar-thumb:hover {
   grid-gap: 0.5rem;
   text-align: center;
 }
-@media (min-width: 540px) {
+@media (min-width: 850px) {
   .nav .nav__container {
     position: fixed;
     right: 17px;
@@ -335,6 +360,7 @@ body::-webkit-scrollbar-thumb:hover {
   font-size: 24px;
   font-weight: 200 !important;
   transition: color 0.1s ease-in-out, background-color 0.1s ease-in-out;
+  color: var(--on-primary) !important;
 }
 .nav .nav__container .nav__item .nav__item_icon:hover {
   opacity: 0.6;
@@ -342,8 +368,9 @@ body::-webkit-scrollbar-thumb:hover {
 .nav .nav__container .nav__item .nav__item_text {
   font-size: 12px !important;
   margin-top: -3px;
+  color: var(--on-primary) !important;
 }
-@media (min-width: 540px) {
+@media (min-width: 850px) {
   .nav .nav__container .nav__item .nav__item_text {
     display: none !important;
     /*font-size: 16px!important;
@@ -351,10 +378,18 @@ body::-webkit-scrollbar-thumb:hover {
   }
 }
 
+@media (min-width: 850px) {
+  .header--scrollable .nav__item_icon,
+.header--scrollable .nav__item_text {
+    color: var(--banner-color);
+  }
+}
+
 .search {
   width: calc(100% + 22px);
   display: none;
   padding: 9px 0;
+  transition: all 0.2s ease !important;
 }
 @media (min-width: 850px) {
   .search {
@@ -364,6 +399,9 @@ body::-webkit-scrollbar-thumb:hover {
     padding: 0.5rem 0;
     right: 235px;
   }
+}
+.search.visible {
+  display: block !important;
 }
 .search label {
   background-color: var(--primary-light);
@@ -428,6 +466,12 @@ body::-webkit-scrollbar-thumb:hover {
     display: none !important;
   }
 }
+.search__buttons .search-button {
+  transition: all 0.2s ease !important;
+}
+.search__buttons .search-button.invisible {
+  display: none !important;
+}
 .search__buttons .close-button {
   width: 30px;
   height: 30px;
@@ -437,11 +481,15 @@ body::-webkit-scrollbar-thumb:hover {
   font-size: 20px !important;
   border-radius: 50%;
   color: var(--surface) !important;
+  transition: all 0.2s ease !important;
 }
 @media (min-width: 850px) {
   .search__buttons .close-button {
     display: none !important;
   }
+}
+.search__buttons .close-button.visible {
+  display: block !important;
 }
 
 .search__predictive {
@@ -1084,6 +1132,7 @@ body::-webkit-scrollbar-thumb:hover {
   display: inline;
 }
 
+/* FORM TEST */
 /* MODAL */
 .modal__overlay {
   display: block;
