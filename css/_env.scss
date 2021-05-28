@@ -82,8 +82,8 @@
     --scroll-track is ALWAYS the --surface color
     ============================================*/
 
-    // SET DEFAULT DEVICE PREFERENCE
-    --default-preference: light;
+    // SET OTHER DEVICE PREFERENCE
+    --other-preference: light;
 
     // SET TRANSITIONS
     --ts-scale: 1.1;
@@ -167,6 +167,6 @@ h6 {
 // Place dark mode/light mode specifications here
 //
 
-@media (prefers-color-scheme: var(--default-preference)) {
+@media (prefers-color-scheme: var(--other-preference)) {
     // CODE
 }

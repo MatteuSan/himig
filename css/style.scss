@@ -4,6 +4,7 @@
 @use '@src/config';
 @use '@src/functions';
 @use '@src/mixins';
+
 @use '@src/Wraps';
 @use '@src/Containers';
 @use '@src/Header';
@@ -14,13 +15,15 @@
 @use '@src/Footer';
 
 // COMPONENTS
-@use '@src/Tooltip';
 @use '@src/Button';
 @use '@src/BarsCards';
 @use '@src/Chip';
-@use '@src/Snackbar';
-@use '@src/Modal';
-@use '@src/Faq';
-@use '@src/Staff';
 @use '@src/Codeblock';
+@use '@src/Faq';
+@use '@src/Modal';
+@use '@src/Snackbar';
+@use '@src/Staff';
+@use '@src/Tooltip';
+
+// CUSTOM
 @use 'custom';
