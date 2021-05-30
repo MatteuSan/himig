@@ -1,5 +1,81 @@
-/* FORM TEST */
-
 .form {
+    width: 100%;
+    max-width: 670px;
 
+    display: flex;
+    flex-direction: column;
+
+    padding: 1rem;
+
+    background-color: var(--primary);
+    border-radius: 0.8rem;
+
+    transition: all 0.2s ease;
+
+    &:focus-within {
+        transform: scale(1.01);
+    }
+
+    .form__field {
+        display: flex;
+        flex-direction: column;
+
+        margin: 5px 0;
+
+        label {
+            width: 100%;
+            color: var(--on-primary);
+            font-size: 13px;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            background-color: var(--input);
+            color: var(--on-input);
+
+            padding: 0.5rem 0.7rem;
+            border: none;
+            border-radius: 5px;
+            transition: all 0.2s ease;
+            font-size: min(14px, 18px);
+
+            &::placeholder {
+                color: var(--placeholder);
+            }
+        }
+
+        .error {
+            background-color: var(--error);
+            color: var(--on-error);
+            padding: 3px 5px;
+            border-radius: 3px;
+            margin: 5px 0 0 0;
+            font-size: 13px;
+
+            transition: all 0.2s ease;
+        }
+    }
+
+    .form__button {
+        border: none;
+        border-radius: 5px;
+        padding: 7px;
+
+        margin: 10px 0 0 0;
+
+        background-color: var(--secondary);
+        color: var(--on-secondary);
+
+        font-weight: 700;
+
+        transition: all 0.2s ease;
+
+        &:hover,
+        &:focus {
+            background-color: var(--secondary-dark);
+            transform: scale(1.01);
+            cursor: pointer;
+        }
+    }
 }

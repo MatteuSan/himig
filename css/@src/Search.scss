@@ -11,6 +11,10 @@
     max-width: calc(320px + 22px);
     padding: 0.5rem 0;
     right: 235px;
+
+    &:focus-within {
+      max-width: calc(320px + 30px);
+    }
   }
 
   &.visible {
@@ -60,6 +64,12 @@
         content: 'Search';
 
         color: var(--placeholder);
+      }
+
+      @media (min-width: 850px) {
+        &:focus {
+          transform: scaleX(1.03);
+        }
       }
     }
   }
@@ -128,9 +138,9 @@
 
   @media (min-width: 850px) {
     position: fixed;
-    max-width: 300px;
+    max-width: calc(300px + 10px);
     max-height: 400px;
-    right: 225px;
+    right: 223px;
   }
 
   .search__predictive_result {

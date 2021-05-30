@@ -1,85 +1,83 @@
 /* WRAPPERS */
 
 .wrap--content {
-  background-color: rgba(0, 0, 0, 0)!important;
-  width: calc(100% - 20px);
-  max-width: 1077px;
-  margin: 67px auto 65px auto;
-  overflow-x: hidden;
-  min-height: 25vh;
-
-  @at-root #{&}--no-margin-top {
-    background-color: rgba(0, 0, 0, 0)!important;
+    background-color: rgba(0, 0, 0, 0) !important;
     width: calc(100% - 20px);
     max-width: 1077px;
-    margin: 25px auto 65px auto;
-    overflow-x: hidden;
+    margin: 67px auto 65px auto;
     min-height: 25vh;
 
-      @media (min-width: 850px) {
-          margin: 25px auto 15px auto;
-      }
-  }
+    @at-root #{&}--no-margin-top {
+        background-color: rgba(0, 0, 0, 0) !important;
+        width: calc(100% - 20px);
+        max-width: 1077px;
+        margin: 25px auto 65px auto;
+        min-height: 25vh;
 
-  @media (min-width: 850px) {
-      margin: 67px auto 10px auto;
-  }
+        @media (min-width: 850px) {
+            margin: 25px auto 15px auto;
+        }
+    }
+
+    @media (min-width: 850px) {
+        margin: 67px auto 10px auto;
+    }
 }
 
 .wrap--section {
-  width: 100%;
-  margin-bottom: 15px;
+    width: 100%;
+    margin-bottom: 15px;
 }
 
 .wrap--item {
-  width: 100%;
-  margin-bottom: 10px;
+    width: 100%;
+    margin-bottom: 10px;
 }
 
 .wrap--button {
-  width: 100%;
-  display: flex;
-  flex-flow: row wrap;
-  gap: 10px;
-  justify-content: flex-end !important;
-  align-content: flex-end !important;
-  margin: 7px auto 0 auto;
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    gap: 10px;
+    justify-content: flex-end !important;
+    align-content: flex-end !important;
+    margin: 7px auto 0 auto;
 }
 
 .wrap--text {
-  display: inline;
-  width: 100%;
+    display: inline;
+    width: 100%;
 }
 
 .wrap--card--x, .wrap--card--y {
-  width: 100%;
-  margin-bottom: 10px;
-  white-space: normal;
-  max-width: 300px;
+    width: 100%;
+    margin-bottom: 10px;
+    white-space: normal;
+    max-width: 300px;
 }
 
 @media (min-width: 850px) {
 
-  .col--33 {
-    width: calc(33% - 2px) !important;
-    padding-right: 5px !important;
-    float: left;
-  }
+    .col--33 {
+        width: calc(33% - 2px) !important;
+        padding-right: 5px !important;
+        float: left;
+    }
 
-  .col--66 {
-    width: calc(66% - 5px) !important;
-    float: right;
-    margin-top: 0;
-  }
+    .col--66 {
+        width: calc(66% - 5px) !important;
+        float: right;
+        margin-top: 0;
+    }
 
-  .col--50--l {
-    float: left;
-    width: calc(50% - 5px) !important;
-  }
+    .col--50--l {
+        float: left;
+        width: calc(50% - 5px) !important;
+    }
 
-  .col--50--r {
-    float: right;
-    width: calc(50% - 5px) !important;
-  }
+    .col--50--r {
+        float: right;
+        width: calc(50% - 5px) !important;
+    }
 
 }

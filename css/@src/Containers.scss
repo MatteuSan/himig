@@ -1,13 +1,25 @@
 /* CONTAINERS */
 
-.container--flex {
+.contain--flex {
     display: flex;
     justify-content: space-evenly;
     flex-flow: wrap row;
     gap: 20px;
 }
 
-.container--grid {
+.contain--flex--centered {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0 auto!important;
+
+    width: 100%;
+    top: 20px;
+}
+
+.contain--grid {
     grid-column: 1/-1;
     display: grid;
     grid-template-columns: repeat(1, 1fr);
