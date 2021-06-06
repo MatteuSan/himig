@@ -59,7 +59,8 @@
     // ALERT COLORS
     --error: #b00020;
     --warning: #ffa000;
-    --success: #34cb4e;
+    --success: #25a53f;
+    --undefined: #757575;
 
     // BANNER STYLING
     // COULD BE SOLID COLOR, GRADIENT, OR IMAGE
@@ -102,18 +103,19 @@
 //
 
 // IMPORT FONT
-@import url('https://font.api/font.css@parmeters');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap');
 
 * {
     // SPECIFY FONT
-    --font-name: 'Consolas';
+    --font-name: 'Roboto';
     --font-type: sans-serif;
 }
 
 h1,
 h2,
-h3 {
-    --font-name: 'Consolas';
+h3,
+b {
+    --font-name: 'Roboto';
     --font-type: sans-serif;
 
     // @FONT WEIGHT DEFAULT: 700
@@ -122,12 +124,13 @@ h3 {
 
 h4,
 h5,
-h6 {
-    --font-name: 'Consolas';
+h6,
+p {
+    --font-name: 'Roboto';
     --font-type: sans-serif;
 
-    // @FONT WEIGHT DEFAULT: 400
-    --font-weight: 400;
+    // @FONT WEIGHT DEFAULT: 300
+    --font-weight: 300;
 }
 
 //--------------------------------------------------------------------------

@@ -1,10 +1,15 @@
 /* CONTAINERS */
 
-.contain--flex {
+.contain--flex--row {
     display: flex;
     justify-content: space-evenly;
-    flex-flow: wrap row;
-    gap: 20px;
+    flex-flow: row wrap;
+    gap: 7px;
+}
+
+.contain--flex--column {
+    display: flex;
+    flex-flow: column wrap;
 }
 
 .contain--flex--centered {

@@ -1,6 +1,6 @@
 /*
 
-    StackCSS by GrowStocks v.1.0.1
+    StackCSS by GrowStocks v.1.1.0
     Made by Matteu#0001
 
     Copyright 2021 (c) Matteu and the GrowStocks Development Group
@@ -10,7 +10,7 @@
     "Why did you put that in there?!" - from that one jackbox game we played last friday
 
 */
-@import url("https://font.api/font.css@parmeters");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap");
 :root {
   --surface: #000b18;
   --transparent: rgba(0, 0, 0, 0.0);
@@ -35,7 +35,8 @@
   --input: #b0bfcd;
   --error: #b00020;
   --warning: #ffa000;
-  --success: #34cb4e;
+  --success: #25a53f;
+  --undefined: #757575;
   --banner: linear-gradient(45deg, #001334 0%, #44638b 100%);
   --banner-color: #fff;
   --hover-dark: #3c3c3c;
@@ -53,24 +54,26 @@
 }
 
 * {
-  --font-name: "Consolas";
+  --font-name: "Roboto";
   --font-type: sans-serif;
 }
 
 h1,
 h2,
-h3 {
-  --font-name: "Consolas";
+h3,
+b {
+  --font-name: "Roboto";
   --font-type: sans-serif;
   --font-weight: 700;
 }
 
 h4,
 h5,
-h6 {
-  --font-name: "Consolas";
+h6,
+p {
+  --font-name: "Roboto";
   --font-type: sans-serif;
-  --font-weight: 400;
+  --font-weight: 300;
 }
 
 .nav__container {
@@ -234,11 +237,16 @@ body::-webkit-scrollbar-thumb:hover {
   }
 }
 /* CONTAINERS */
-.contain--flex {
+.contain--flex--row {
   display: flex;
   justify-content: space-evenly;
-  flex-flow: wrap row;
-  gap: 20px;
+  flex-flow: row wrap;
+  gap: 7px;
+}
+
+.contain--flex--column {
+  display: flex;
+  flex-flow: column wrap;
 }
 
 .contain--flex--centered {
@@ -996,7 +1004,10 @@ body::-webkit-scrollbar-thumb:hover {
   background-color: var(--secondary-dark);
   cursor: pointer;
 }
-.container--item .item__status_sym {
+.contain--item {
+  height: max-content;
+}
+.contain--item .item__status__sym {
   display: inline !important;
   position: relative !important;
   top: 2px !important;
@@ -1004,98 +1015,109 @@ body::-webkit-scrollbar-thumb:hover {
   font-size: 16px !important;
   font-weight: 400 !important;
 }
-.container--item .chip__options_trigger, .container--item .material-icons {
+.contain--item .chip__options__trigger, .contain--item .material-icons {
   display: block;
   position: relative;
+  background-color: var(--transparent);
+  border: none;
+  width: 32px;
+  height: 32px;
+  float: right;
+  padding: 0;
   top: 4px;
   right: 7px;
 }
-
-.chip,
-.chip--full {
+.contain--item .chip__options__trigger:hover, .contain--item .material-icons:hover {
+  cursor: pointer;
+}
+.contain--item .chip,
+.contain--item .chip--full {
   background-color: var(--primary-light);
   width: 100%;
   padding: 10px;
   border-radius: 5px 5px 0 0;
   color: #fff;
 }
-.chip::after,
-.chip--full::after {
+.contain--item .chip::after,
+.contain--item .chip--full::after {
   content: "";
   clear: both;
   display: table;
 }
-.chip .chip__sprite img,
-.chip--full .chip__sprite img {
+.contain--item .chip .chip__sprite img,
+.contain--item .chip--full .chip__sprite img {
   display: inline !important;
   width: 32px;
   height: 32px;
   margin: 3px 10px 7px 2px;
   float: left;
 }
-.chip .wrap--text,
-.chip--full .wrap--text {
+.contain--item .chip .wrap--text,
+.contain--item .chip--full .wrap--text {
   display: inline;
   width: 100% !important;
 }
-.chip .wrap--text *,
-.chip--full .wrap--text * {
+.contain--item .chip .wrap--text *,
+.contain--item .chip--full .wrap--text * {
   display: inline;
   text-align: justify;
 }
-.chip h2,
-.chip--full h2 {
+.contain--item .chip h2,
+.contain--item .chip--full h2 {
   font-size: 20px;
   padding: 0 !important;
   display: inline !important;
 }
-.chip p,
-.chip--full p {
+.contain--item .chip p,
+.contain--item .chip--full p {
   font-size: 14px;
   padding: 0 !important;
   display: inline;
 }
-.chip a,
-.chip--full a {
+.contain--item .chip a,
+.contain--item .chip--full a {
   display: inline !important;
 }
-.chip .chip__arrow,
-.chip--full .chip__arrow {
+.contain--item .chip .chip__arrow,
+.contain--item .chip--full .chip__arrow {
   width: 12px !important;
   height: auto !important;
   top: 2px;
   margin: 0 2px 0 1px !important;
 }
-.chip .chip__spacer,
-.chip--full .chip__spacer {
-  margin: 0 3px 0 3px;
+.contain--item .chip .chip__spacer,
+.contain--item .chip--full .chip__spacer {
+  margin: 0;
   font-weight: 700;
+  color: var(--surface);
 }
-
-.chip--full {
+.contain--item .chip--full {
   border-radius: 5px;
 }
-
-.chip__options {
+.contain--item .chip__options {
   display: none;
   border: none;
   width: 100%;
   padding: 5px 10px;
+  background-color: var(--primary--variant-dark);
 }
-.chip__options .chip__options_button {
+.contain--item .chip__options .chip__options__button {
   display: inline-block;
   border: none;
   font-size: 13px !important;
+  transition: color 0.1s linear;
 }
-.chip__options .chip__options_button:hover {
+.contain--item .chip__options .chip__options__button:hover {
   cursor: pointer;
+  color: var(--secondary);
 }
-
-.close {
+.contain--item .chip__options .chip__options_spacer {
+  color: var(--surface);
+}
+.contain--item .close {
   content: "close" !important;
 }
-
-.chip__footer {
+.contain--item .chip__footer {
   width: 100%;
   padding: 5px 10px 4px 10px !important;
   border-radius: 0 0 5px 5px;
@@ -1103,14 +1125,26 @@ body::-webkit-scrollbar-thumb:hover {
   font-weight: 700 !important;
   color: #fff !important;
 }
+.contain--item .chip__footer.stable {
+  background-color: var(--success);
+}
+.contain--item .chip__footer.semi-stable {
+  background-color: var(--warning);
+}
+.contain--item .chip__footer.unstable {
+  background-color: var(--error);
+}
+.contain--item .chip__footer.undefined {
+  background-color: var(--undefined);
+}
 
-.wrap--market .chip__options_button {
+.wrap--market .chip__options__button {
   display: inline-block;
   border: none;
   font-size: 13px !important;
   margin-right: 0 !important;
 }
-.wrap--market .chip__options_button:hover {
+.wrap--market .chip__options__button:hover {
   cursor: pointer;
 }
 .wrap--market .chip img {

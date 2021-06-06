@@ -1,6 +1,7 @@
-.container--item {
+.contain--item {
+  height: max-content;
 
-  .item__status_sym {
+  .item__status__sym {
     display: inline!important;
     position: relative!important;
     top: 2px!important;
@@ -9,114 +10,155 @@
     font-weight: 400!important;
   }
 
-  .chip__options_trigger, .material-icons {
+  .chip__options__trigger, .material-icons {
     display: block;
     position: relative;
+
+    background-color: var(--transparent);
+    border: none;
+
+    width: 32px;
+    height: 32px;
+
+    float: right;
+    padding: 0;
+
     top: 4px;
     right: 7px;
-  }
-
-}
-
-.chip,
-.chip--full {
-  background-color: var(--primary-light);
-  width: 100%;
-  padding: 10px;
-  border-radius: 5px 5px 0 0;
-  color: #fff;
-
-  &::after {
-    content: "";
-    clear: both;
-    display: table;
-  }
-
-  .chip__sprite {
-    img {
-      display: inline !important;
-      width: 32px;
-      height: 32px;
-      margin: 3px 10px 7px 2px;
-      float: left;
-    }
-  }
-
-  .wrap--text {
-    display: inline;
-    width: 100% !important;
-
-    * {
-      display: inline;
-      text-align: justify;
-    }
-  }
-
-  h2 {
-    font-size: 20px;
-    padding: 0 !important;
-    display: inline !important;
-  }
-
-  p {
-    font-size: 14px;
-    padding: 0 !important;
-    display: inline;
-  }
-
-  a {
-    display: inline !important;
-  }
-
-  .chip__arrow {
-    width: 12px !important;
-    height: auto !important;
-    top: 2px;
-    margin: 0 2px 0 1px !important;
-  }
-
-  .chip__spacer {
-    margin: 0 3px 0 3px;
-    font-weight: 700;
-  }
-}
-
-.chip--full {
-  border-radius: 5px;
-}
-
-.chip__options {
-  display: none;
-  border: none;
-  width: 100%;
-  padding: 5px 10px;
-
-  .chip__options_button {
-    display: inline-block;
-    border: none;
-    font-size: 13px !important;
 
     &:hover {
       cursor: pointer;
     }
   }
-}
 
-.close {
-  content: "close" !important;
-}
+  .chip,
+  .chip--full {
+    background-color: var(--primary-light);
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px 5px 0 0;
+    color: #fff;
 
-.chip__footer {
-  width: 100%;
-  padding: 5px 10px 4px 10px !important;
-  border-radius: 0 0 5px 5px;
-  font-size: 12px !important;
-  font-weight: 700 !important;
-  color: #fff !important;
+    &::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+
+    .chip__sprite {
+      img {
+        display: inline !important;
+        width: 32px;
+        height: 32px;
+        margin: 3px 10px 7px 2px;
+        float: left;
+      }
+    }
+
+    .wrap--text {
+      display: inline;
+      width: 100% !important;
+
+      * {
+        display: inline;
+        text-align: justify;
+      }
+    }
+
+    h2 {
+      font-size: 20px;
+      padding: 0 !important;
+      display: inline !important;
+    }
+
+    p {
+      font-size: 14px;
+      padding: 0 !important;
+      display: inline;
+    }
+
+    a {
+      display: inline !important;
+    }
+
+    .chip__arrow {
+      width: 12px !important;
+      height: auto !important;
+      top: 2px;
+      margin: 0 2px 0 1px !important;
+    }
+
+    .chip__spacer {
+      margin: 0;
+      font-weight: 700;
+      color: var(--surface);
+    }
+  }
+
+  .chip--full {
+    border-radius: 5px;
+  }
+
+  .chip__options {
+    display: none;
+    border: none;
+    width: 100%;
+    padding: 5px 10px;
+
+    background-color: var(--primary--variant-dark);
+
+    .chip__options__button {
+      display: inline-block;
+      border: none;
+      font-size: 13px !important;
+
+      transition: color 0.1s linear;
+
+      &:hover {
+        cursor: pointer;
+        color: var(--secondary);
+      }
+    }
+
+    .chip__options_spacer {
+      color: var(--surface);
+    }
+  }
+
+  .close {
+    content: "close" !important;
+  }
+
+  .chip__footer {
+    width: 100%;
+    padding: 5px 10px 4px 10px !important;
+    border-radius: 0 0 5px 5px;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    color: #fff !important;
+
+    &.stable {
+      background-color: var(--success);
+    }
+
+    &.semi-stable {
+      background-color: var(--warning);
+    }
+
+    &.unstable {
+      background-color: var(--error);
+    }
+
+    &.undefined {
+      background-color: var(--undefined);
+    }
+
+  }
+
 }
 
 .wrap--market {
-  .chip__options_button {
+  .chip__options__button {
     display: inline-block;
     border: none;
     font-size: 13px !important;

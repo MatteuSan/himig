@@ -56,3 +56,24 @@ closeButton.addEventListener('click', function () {
     searchButton.classList.remove('invisible')
 
 });
+
+// CHIP__OPTIONS
+
+/*
+const optionsTrigger = document.querySelector('.chip__options__trigger');
+const optionsMenu = document.querySelector('.chip__options')
+*/
+
+$(document).ready(function () {
+    $('.chip__options__trigger').on("click", function () {
+        $(this).parent().children('.chip__options').slideToggle("fast");
+        var option = $(this).next();
+        if (option.hasClass("visible")) {
+            $(this).html("menu");
+            option.removeClass("visible");
+        } else {
+            $(this).html("close");
+            option.addClass("visible");
+        }
+    });
+});
