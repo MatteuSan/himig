@@ -9,8 +9,8 @@
 * SASS/SCSS Live Watcher or Live Compiler (refer to your IDE's plugins marketplace)
 
 # Installation Instructions
-1. Download or clone this repository.
-2. Import the stack folder into your project's root folder.
+1. Download or clone this repository. (also make sure to remove the  `.gitignore` file ;) )
+2. Import the stack folder into your project's public folder.
 3. Add the style.css file in the `<head></head>` tags.
 
 ```html
