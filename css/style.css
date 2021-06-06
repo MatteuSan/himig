@@ -10,7 +10,7 @@
     "Why did you put that in there?!" - from that one jackbox game we played last friday
 
 */
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 :root {
   --surface: #000b18;
   --transparent: rgba(0, 0, 0, 0.0);
@@ -73,7 +73,7 @@ h6,
 p {
   --font-name: "Roboto";
   --font-type: sans-serif;
-  --font-weight: 300;
+  --font-weight: 400;
 }
 
 .nav__container {
@@ -1130,6 +1130,9 @@ body::-webkit-scrollbar-thumb:hover {
 }
 .contain--item .chip__footer.semi-stable {
   background-color: var(--warning);
+}
+.contain--item .chip__footer.semi-stable p {
+  color: var(--on-secondary);
 }
 .contain--item .chip__footer.unstable {
   background-color: var(--error);

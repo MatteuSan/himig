@@ -143,6 +143,10 @@
 
     &.semi-stable {
       background-color: var(--warning);
+
+      p {
+        color: var(--on-secondary);
+      }
     }
 
     &.unstable {
