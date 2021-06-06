@@ -1,5 +1,7 @@
 /* MENU DRAWER */
 
+@use './mixins';
+
 .drawer__overlay {
     display: block;
     position: fixed;
@@ -59,18 +61,7 @@
         font-size: 17px;
     }
 
-    &::-webkit-scrollbar-track {
-        background: var(--primary--variant-light);
-    }
-
-    &::-webkit-scrollbar-thumb {
-        background-color: var(--scroll-thumb);
-        border: 4px solid var(--primary--variant-light);
-
-        &:hover {
-            background-color: var(--scroll-hover);
-        }
-    }
+    @include mixins.scrollbar(var(--primary--variant-light));
 }
 
 .drawer__divider {

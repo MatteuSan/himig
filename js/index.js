@@ -16,7 +16,9 @@ search.search = true*/
 const header = document.querySelector('.header--scrollable')
 const banner = document.querySelector('.banner')
 
-const options = {}
+const options = {
+    rootMargin: "-100px 0px 0px 0px",
+}
 
 const observer = new IntersectionObserver(function (entries, observer) {
     entries.forEach(entry => {

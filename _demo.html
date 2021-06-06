@@ -15,9 +15,6 @@
     <!-- STACK CSS -->
     <link rel="stylesheet" href="css/style.css">
 
-    <!-- CSS LIBS -->
-    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
-
     <!-- JS LIBS -->
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -26,6 +23,11 @@
     <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
     <script src="https://kit.fontawesome.com/0fb562e3a8.js" crossorigin="anonymous"></script>
 
+    <!-- FAVICON -->
+    <link rel="icon" href="static/favicon.ico"><!-- 32×32 -->
+    <link rel="icon" href="static/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="static/apple-touch-icon.png"><!-- 180×180 -->
+    <!--<link rel="manifest" href="static/manifest.webmanifest">-->
 
 </head>
 <header class="header--scrollable">
@@ -73,7 +75,7 @@
 
 </header>
 
-<div class="search__predictive mdc-elevation--z5" @click.away="predictive_show = false" x-show.transition.opacity.duration.500ms="predictive_show">
+<div class="search__predictive elevation--z5" @click.away="predictive_show = false" x-show.transition.opacity.duration.500ms="predictive_show">
     <div class="search__predictive_result">
         <span class="material-icons">history</span>
         <p>Search Item</p>
@@ -81,7 +83,7 @@
 </div>
 
 <div class="drawer__overlay" x-show.transition.opacity.duration.400ms="drawer_open">
-    <div class="drawer mdc-elevation--z5" x-show.transition.origin.top.right="drawer_open" @click.away="drawer_open = false">
+    <div class="drawer elevation--z5" x-show.transition.origin.top.right="drawer_open" @click.away="drawer_open = false">
         <div class="wrap--text" style="margin: 0 auto;">
 
             <a class="drawer__item" target="_blank" href="https://github.com/GrowStocks/StackCSS">
@@ -155,12 +157,13 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum ex hic placeat! Atque consequuntur, ea esse exercitationem, facilis fugiat ipsa iusto libero necessitatibus numquam odit omnis repellendus voluptate. Optio, porro?</p>
 
             <div class="wrap--button">
-                <button class="btn--bold">LET'S START!</button>
+                <button class="btn--primary">LET'S START!</button>
+                <button class="btn">Other...</button>
             </div>
         </div>
 
         <section class="contain--grid">
-            <div class="card--y mdc-elevation--z3">
+            <div class="card--y elevation--z3">
                 <div class="card--y__img">
                     <img src="https://via.placeholder.com/150.png" alt="Photo">
                 </div>
@@ -172,7 +175,7 @@
                     </a>
                 </div>
             </div>
-            <div class="card--y mdc-elevation--z3">
+            <div class="card--y elevation--z3">
                 <div class="card--y__img">
                     <img src="https://via.placeholder.com/150.png" alt="Photo">
                 </div>
@@ -184,7 +187,7 @@
                     </a>
                 </div>
             </div>
-            <div class="card--y mdc-elevation--z3">
+            <div class="card--y elevation--z3">
                 <div class="card--y__img">
                     <img src="https://via.placeholder.com/150.png" alt="Photo">
                 </div>
@@ -196,7 +199,7 @@
                     </a>
                 </div>
             </div>
-            <div class="card--y mdc-elevation--z3">
+            <div class="card--y elevation--z3">
                 <div class="card--y__img">
                     <img src="https://via.placeholder.com/150.png" alt="Photo">
                 </div>
@@ -215,12 +218,13 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum ex hic placeat! Atque consequuntur, ea esse exercitationem, facilis fugiat ipsa iusto libero necessitatibus numquam odit omnis repellendus voluptate. Optio, porro?</p>
 
             <div class="wrap--button">
-                <button class="btn--bold">LET'S START!</button>
+                <button class="btn--primary">LET'S START!</button>
+                <button class="btn">Other...</button>
             </div>
         </div>
 
         <section class="contain--grid">
-            <div class="card--y mdc-elevation--z3">
+            <div class="card--y elevation--z3">
                 <div class="card--y__img">
                     <img src="https://via.placeholder.com/150.png" alt="Photo">
                 </div>
@@ -232,7 +236,7 @@
                     </a>
                 </div>
             </div>
-            <div class="card--y mdc-elevation--z3">
+            <div class="card--y elevation--z3">
                 <div class="card--y__img">
                     <img src="https://via.placeholder.com/150.png" alt="Photo">
                 </div>
@@ -244,7 +248,7 @@
                     </a>
                 </div>
             </div>
-            <div class="card--y mdc-elevation--z3">
+            <div class="card--y elevation--z3">
                 <div class="card--y__img">
                     <img src="https://via.placeholder.com/150.png" alt="Photo">
                 </div>
@@ -256,7 +260,7 @@
                     </a>
                 </div>
             </div>
-            <div class="card--y mdc-elevation--z3">
+            <div class="card--y elevation--z3">
                 <div class="card--y__img">
                     <img src="https://via.placeholder.com/150.png" alt="Photo">
                 </div>
@@ -272,7 +276,7 @@
 
     </section>
 
-<!--<div class="snackbar &#45;&#45;warning mdc-elevation&#45;&#45;z5">
+<!--<div class="snackbar &#45;&#45;warning elevation&#45;&#45;z5">
         <div class="snackbar__wrap">
             <p class="snackbar__label">Snackbar Label</p>
             <button class="snackbar__action">ACTION</button>

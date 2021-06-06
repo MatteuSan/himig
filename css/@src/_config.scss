@@ -2,8 +2,10 @@
 // Config (_globals and _defaults)
 //--------------------------------------------------------------------------
 //
-// Mixins are fun too ig lmao
+// globals, and general config
 //
+
+@use './mixins';
 
 * {
     box-sizing: border-box;
@@ -33,7 +35,7 @@ h1,
 h2,
 h3,
 b {
-    font-weight: 700;
+    font-weight: var(--font-weight);
     font-family: var(--font-name), var(--font-type);
 }
 
@@ -41,7 +43,7 @@ h4,
 h5,
 h6,
 p {
-    font-weight: 400;
+    font-weight: var(--font-weight);
     font-family: var(--font-name), var(--font-type);
 }
 
@@ -67,16 +69,5 @@ body {
 
     background-color: var(--surface);
 
-    &::-webkit-scrollbar-track {
-        background: var(--surface);
-    }
-
-    &::-webkit-scrollbar-thumb {
-        background-color: var(--scroll-thumb);
-        border: 4px solid var(--surface);
-
-        &:hover {
-            background-color: var(--scroll-hover);
-        }
-    }
+    @include mixins.scrollbar(var(--surface));
 }

@@ -1,45 +1,45 @@
 .btn {
-    padding: 7px 9px;
-    border: none;
-    border-radius: 5px;
+    padding: 7px 10px;
+    border-radius: 25px;
     margin: 5px 0;
     font-size: 15px;
     transition:
-            all 0.2s ease;
+       all 0.1s linear;
     ;
 
-    background-color: var(--secondary);
-    color: var(--on-secondary);
+    border: 1px solid var(--secondary);
+    background-color: var(--transparent);
+    color: var(--on-primary);
 
     &:hover {
-        opacity: 0.7;
         cursor: pointer;
-        transform: scale(var(--ts-scale)) !important;
+        background-color: var(--secondary);
+        color: var(--on-secondary);
     }
 
-    @at-root #{&}--bold {
-        padding: 7px 9px;
-        border: none;
-        border-radius: 5px;
+    @at-root #{&}--primary {
+        padding: 7px 10px;
+        border-radius: 25px;
         font-size: 15px;
         font-weight: 700;
         margin: 5px 0 7px 0;
         transition:
-            all 0.2s ease;
+           all 0.1s linear;
         ;
 
+        border: 1px solid var(--secondary);
         background-color: var(--secondary);
         color: var(--on-secondary);
 
         &:hover {
             opacity: 0.7;
             cursor: pointer;
-            transform: scale(var(--ts-scale)) !important;
         }
 
     }
 }
 
+// LEGACY
 .market__button {
     width: 100%;
     padding: 10px;
