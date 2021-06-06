@@ -11,7 +11,9 @@
 
     @media (min-width: 850px) {
         width: 0;
-        top: 0.25rem;
+        height: 0;
+        top: 0;
+        bottom: inherit;
         background-color: transparent !important;
     }
 

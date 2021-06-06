@@ -352,7 +352,9 @@ body::-webkit-scrollbar-thumb:hover {
 @media (min-width: 850px) {
   .nav {
     width: 0;
-    top: 0.25rem;
+    height: 0;
+    top: 0;
+    bottom: inherit;
     background-color: transparent !important;
   }
 }
