@@ -1,3 +1,5 @@
+@use './mixins';
+
 .footer {
     margin-top: auto;
     padding: 1.5rem;
@@ -17,7 +19,8 @@
         h3 {
             width: 140px;
             margin: 0 auto;
-            transition: all 0.1s ease;
+
+            @include mixins.prefix(transition, all 0.1s ease);
 
             &:hover {
                 color: var(--secondary);

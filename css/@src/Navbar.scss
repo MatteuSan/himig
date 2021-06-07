@@ -1,5 +1,7 @@
 /* NAVBAR */
 
+@use './mixins';
+
 .nav {
     width: 100%;
     position: fixed;
@@ -28,24 +30,26 @@
             position: fixed;
             right: 17px;
             width: 200px;
+            top: 12px;
         }
 
         .nav__item {
             margin: 0 auto;
             cursor: pointer;
 
-            .nav__item_icon {
+            .nav__item__icon {
                 font-size: 24px;
                 font-weight: 200 !important;
-                transition: color .1s ease-in-out, background-color .1s ease-in-out;
                 color: var(--on-primary) !important;
+
+                @include mixins.prefix(transition, all 0.1s ease);
 
                 &:hover {
                     opacity: 0.6;
                 }
             }
 
-            .nav__item_text {
+            .nav__item__text {
                 font-size: 12px !important;
                 margin-top: -3px;
                 color: var(--on-primary) !important;

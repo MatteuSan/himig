@@ -14,6 +14,13 @@
     color: var(--on-surface);
     font-family: var(--font-name), var(--font-type);
 
+    &::before,
+    &::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
     &::-webkit-scrollbar {
         width: 0.7em;
     }
@@ -37,6 +44,7 @@ h3,
 b {
     font-weight: var(--font-weight);
     font-family: var(--font-name), var(--font-type);
+    color: inherit;
 }
 
 h4,
@@ -45,6 +53,7 @@ h6,
 p {
     font-weight: var(--font-weight);
     font-family: var(--font-name), var(--font-type);
+    color: inherit;
 }
 
 html {
@@ -69,5 +78,6 @@ body {
 
     background-color: var(--surface);
 
+    //SCROLLBAR
     @include mixins.scrollbar(var(--surface));
 }

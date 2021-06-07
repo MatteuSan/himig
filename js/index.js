@@ -59,10 +59,12 @@ closeButton.addEventListener('click', function () {
 
 // CHIP__OPTIONS
 
-/*
-const optionsTrigger = document.querySelector('.chip__options__trigger');
-const optionsMenu = document.querySelector('.chip__options')
-*/
+/*const optionsTrigger = document.querySelector('.chip__options__trigger');
+const optionsMenu = document.querySelector('.chip__options');
+
+optionsTrigger.addEventListener('click', function() {
+    this.parentElement.firstChild
+});*/
 
 $(document).ready(function () {
     $('.chip__options__trigger').on("click", function () {

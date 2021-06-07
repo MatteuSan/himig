@@ -1,3 +1,5 @@
+@use './mixins';
+
 *[data-tooltip] {
   position: relative;
 
@@ -22,9 +24,11 @@
     right: -5%;
     z-index: 999;
     opacity: 0;
-    transition: opacity ease-in-out 200ms;
+
     pointer-events: none;
     text-align: center;
+
+    @include mixins.prefix(transition, all 0.1s ease);
   }
 
   &:hover::after {

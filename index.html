@@ -10,7 +10,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>StackCSS - PLAYGROUND</title>
+    <title>Stack - PLAYGROUND</title>
 
     <!-- STACK CSS -->
     <link rel="stylesheet" href="css/style.css">
@@ -35,7 +35,7 @@
     <div class="header__wrap">
 
         <div class="header__text">
-            <a href="./"><h2>StackCSS</h2></a>
+            <a href="./"><h2>Stack</h2></a>
         </div>
 
         <div class="search">
@@ -53,20 +53,20 @@
         <nav class="nav">
             <div class="nav__container">
                 <div class="nav__item">
-                    <a class="nav__item_icon material-icons" href="#">home</a>
-                    <p class="nav__item_text">Home</p>
+                    <a class="nav__item__icon material-icons" href="#">home</a>
+                    <p class="nav__item__text">Home</p>
                 </div>
                 <div class="nav__item">
-                    <a class="nav__item_icon material-icons" href="#">description</a>
-                    <p class="nav__item_text">Docs</p>
+                    <a class="nav__item__icon material-icons" href="#">description</a>
+                    <p class="nav__item__text">Docs</p>
                 </div>
                 <div class="nav__item">
-                    <a class="nav__item_icon material-icons" href="#">code</a>
-                    <p class="nav__item_text">Dev Center</p>
+                    <a class="nav__item__icon material-icons" href="#">code</a>
+                    <p class="nav__item__text">Dev Center</p>
                 </div>
                 <div class="nav__item">
-                    <p @click="drawer_open = !drawer_open" class="nav__item_icon material-icons" href="#" x-text="drawer_open ? 'close' : 'menu'"></p>
-                    <p class="nav__item_text">More</p>
+                    <p @click="drawer_open = !drawer_open" class="nav__item__icon material-icons" href="#" x-text="drawer_open ? 'close' : 'menu'"></p>
+                    <p class="nav__item__text">More</p>
                 </div>
             </div>
         </nav>
@@ -75,20 +75,20 @@
 
 </header>
 
-<div class="search__predictive elevation--z5" @click.away="predictive_show = false" x-show.transition.opacity.duration.500ms="predictive_show">
+<div class="search__predictive elevation--z5" @click.away="predictive_show = false" x-show.transition.opacity.duration.250ms="predictive_show" style="display: none">
     <div class="search__predictive_result">
         <span class="material-icons">history</span>
         <p>Search Item</p>
     </div>
 </div>
 
-<div class="drawer__overlay" x-show.transition.opacity.duration.400ms="drawer_open">
-    <div class="drawer elevation--z5" x-show.transition.origin.top.right="drawer_open" @click.away="drawer_open = false">
+<div class="drawer__overlay" x-show.transition.opacity.duration.400ms="drawer_open" style="display: none">
+    <div class="drawer elevation--z5" x-show.transition.origin.top.right="drawer_open" @click.away="drawer_open = false" style="display: none">
         <div class="wrap--text" style="margin: 0 auto;">
 
             <a class="drawer__item" target="_blank" href="https://github.com/GrowStocks/StackCSS">
                 <span class="drawer__icon fab fa-github"></span>
-                <p>StackCSS Repository</p>
+                <p>Stack Repository</p>
             </a>
             <a class="drawer__item" href="#">
                 <span class="drawer__icon material-icons">language</span>
@@ -145,8 +145,8 @@
 
     <div class="banner">
         <div class="wrap--text">
-            <h1>StackCSS</h1>
-            <p>GrowStocks' CSS Library for building user interfaces.</p>
+            <h1>Stack</h1>
+            <p>GrowStocks' frontend Library for building user interfaces.</p>
         </div>
     </div>
 
@@ -155,11 +155,6 @@
         <h2 class="title-bar--on-surface">CARDS DEMO</h2>
         <div class="card--on-surface">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum ex hic placeat! Atque consequuntur, ea esse exercitationem, facilis fugiat ipsa iusto libero necessitatibus numquam odit omnis repellendus voluptate. Optio, porro?</p>
-
-            <div class="wrap--button">
-                <button class="btn--primary">LET'S START!</button>
-                <button class="btn">Other...</button>
-            </div>
         </div>
 
         <section class="contain--grid">
@@ -171,7 +166,7 @@
                     <h3>CARD TITLE</h3>
                     <h5>Card subtitle</h5>
                     <a href="#" target="_blank">
-                        <button class="card--y__button">Card action...</button>
+                        <button class="card--y__action">ACTION</button>
                     </a>
                 </div>
             </div>
@@ -183,7 +178,7 @@
                     <h3>CARD TITLE</h3>
                     <h5>Card subtitle</h5>
                     <a href="#" target="_blank">
-                        <button class="card--y__button">Card action...</button>
+                        <button class="card--y__action">ACTION</button>
                     </a>
                 </div>
             </div>
@@ -195,7 +190,7 @@
                     <h3>CARD TITLE</h3>
                     <h5>Card subtitle</h5>
                     <a href="#" target="_blank">
-                        <button class="card--y__button">Card action...</button>
+                        <button class="card--y__action">ACTION</button>
                     </a>
                 </div>
             </div>
@@ -207,19 +202,90 @@
                     <h3>CARD TITLE</h3>
                     <h5>Card subtitle</h5>
                     <a href="#" target="_blank">
-                        <button class="card--y__button">Card action...</button>
+                        <button class="card--y__action">ACTION</button>
                     </a>
                 </div>
             </div>
         </section>
 
+        <section class="contain--grid--large">
+
+            <div class="card--x">
+                <div class="card--x__img">
+                    <img src="https://via.placeholder.com/150.png" alt="Photo">
+                </div>
+                <div class="card--x__container">
+                    <div class="wrap--text">
+                        <h2>CARD TITLE</h2>
+                        <p class="card--x__text">Lorem ipsum dolor sit amet.</p>
+                        <div class="card--x__icons--wrap">
+                            <a class="fab fa-twitter-square" href="https://twitter.com/InvestmentGt" target="_blank"></a>
+                            <a class="fab fa-instagram" href="https://instagram.com/investment.gt" target="_blank"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card--x">
+                <div class="card--x__img">
+                    <img src="https://via.placeholder.com/150.png" alt="Photo">
+                </div>
+                <div class="card--x__container">
+                    <div class="wrap--text">
+                        <h2>CARD TITLE</h2>
+                        <p class="card--x__text">Lorem ipsum dolor sit amet.</p>
+                        <div class="card--x__icons--wrap">
+                            <a class="fab fa-twitter-square" href="https://twitter.com/InvestmentGt" target="_blank"></a>
+                            <a class="fab fa-instagram" href="https://instagram.com/investment.gt" target="_blank"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card--x">
+                <div class="card--x__img">
+                    <img src="https://via.placeholder.com/150.png" alt="Photo">
+                </div>
+                <div class="card--x__container">
+                    <div class="wrap--text">
+                        <h2>CARD TITLE</h2>
+                        <p class="card--x__text">Lorem ipsum dolor sit amet.</p>
+                        <div class="card--x__icons--wrap">
+                            <a class="fab fa-twitter-square" href="https://twitter.com/InvestmentGt" target="_blank"></a>
+                            <a class="fab fa-instagram" href="https://instagram.com/investment.gt" target="_blank"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
         <h2 class="title-bar--on-surface">CHIPS DEMO</h2>
         <div class="card--on-surface">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum ex hic placeat! Atque consequuntur, ea esse exercitationem, facilis fugiat ipsa iusto libero necessitatibus numquam odit omnis repellendus voluptate. Optio, porro?</p>
+        </div>
 
-            <div class="wrap--button">
-                <button class="btn--primary">LET'S START!</button>
-                <button class="btn">Other...</button>
+
+        <div class="search__filter">
+            <div class="search__filter__item">
+                <label title="Filter items" class="material-icons search__filter__label">filter_alt</label>
+                <select aria-label="Filter Items" class="search__filter__select mdc-elevation--z3">
+                    <option value="#">All Items</option>
+                    <option value="#">Filter Option 1</option>
+                    <option value="#">Filter Option 2</option>
+                </select>
+                <span class="search__filter__arrow"></span>
+            </div>
+            <div class="search__filter__item">
+                <label title="Sort by"  class="material-icons search__filter__label">sort</label>
+                <select aria-label="Filter Items" class="search__filter__select mdc-elevation--z3">
+                    <option value="#">Latest update</option>
+                    <option value="#">By price (low to high)</option>
+                    <option value="#">By price (high to low)</option>
+                    <option value="#">By stability (low to high)</option>
+                    <option value="#">By stability (high to low)</option>
+                </select>
+                <span class="search__filter__arrow"></span>
             </div>
         </div>
 
@@ -247,7 +313,7 @@
                     <a class="chip__options__button" href="#">Search marketplace</a>
                 </div>
                 <div class="chip__footer stable">
-                    <p>Price is STABLE | Edited 2d ago</p>
+                    <p>Price is <b>STABLE</b> | Edited 2d ago</p>
                 </div>
             </div>
 
@@ -273,7 +339,7 @@
                     <a class="chip__options__button" href="#">Search marketplace</a>
                 </div>
                 <div class="chip__footer semi-stable">
-                    <p>Price is SEMI-STABLE | Edited 2d ago</p>
+                    <p>Price is <b>SEMI-STABLE</b> | Edited 2d ago</p>
                 </div>
             </div>
 
@@ -299,7 +365,7 @@
                     <a class="chip__options__button" href="#">Search marketplace</a>
                 </div>
                 <div class="chip__footer unstable">
-                    <p>Price is UNSTABLE | Edited 2d ago</p>
+                    <p>Price is <b>UNSTABLE</b> | Edited 2d ago</p>
                 </div>
             </div>
 
@@ -325,7 +391,7 @@
                     <a class="chip__options__button" href="#">Search marketplace</a>
                 </div>
                 <div class="chip__footer undefined">
-                    <p>Price is UNDEFINED | Edited 2d ago</p>
+                    <p>Price is <b>UNDEFINED</b> | Edited 2d ago</p>
                 </div>
             </div>
 

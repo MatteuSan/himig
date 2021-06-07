@@ -1,4 +1,5 @@
 // HEADER (Namespace: Header__[component]
+@use './mixins';
 
 .header {
     width: 100%;
@@ -9,7 +10,7 @@
 
     background-color: var(--primary-dark);
 
-    transition: all 0.1s ease-in-out;
+    @include mixins.prefix(transition, all 0.1s ease);
 }
 
 .header__wrap {
@@ -22,7 +23,7 @@
         padding: 0.5rem 0.7rem;
         font-size: 1.2rem;
 
-        transition: all 0.2s ease!important;
+        @include mixins.prefix(transition, all 0.1s ease);
 
         @media (min-width: 850px) {
             padding: 0.5rem;
@@ -48,10 +49,10 @@
 
     background-color: var(--transparent);
 
-    transition: all 0.1s ease-in-out;
+    @include mixins.prefix(transition, all 0.1s ease);
 
     * {
-        transition: all 0.2s ease-in-out;
+        @include mixins.prefix(transition, all 0.1s ease);
         color: var(--banner-color);
     }
 
