@@ -4,13 +4,31 @@
     display: flex;
     justify-content: space-evenly;
     flex-flow: row wrap;
-    gap: 1rem;
+
+    @supports(gap: 1rem) {
+        gap: 1rem;
+    }
+
+    @supports not (gap: 1rem) {
+        & > * + * {
+            margin-top: 1rem;
+        }
+    }
 }
 
 .contain--flex--column {
     display: flex;
     flex-flow: column;
-    gap: 1rem;
+
+    @supports(gap: 1rem) {
+        gap: 1rem;
+    }
+
+    @supports not (gap: 1rem) {
+        & > * + * {
+            margin-top: 1rem;
+        }
+    }
 }
 
 .contain--flex--centered {
