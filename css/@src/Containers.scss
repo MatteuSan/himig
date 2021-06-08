@@ -4,6 +4,7 @@
     display: flex;
     justify-content: space-evenly;
     flex-flow: row wrap;
+    margin: 17px auto;
 
     @supports(gap: 1rem) {
         gap: 1rem;
@@ -19,6 +20,7 @@
 .contain--flex--column {
     display: flex;
     flex-flow: column;
+    margin: 17px auto;
 
     @supports(gap: 1rem) {
         gap: 1rem;
