@@ -138,15 +138,20 @@
     .search__predictive_result {
         padding: 0.7rem;
         display: flex;
+        color: var(--surface);
+
+        @include mixins.prefix(transition, all 0.1s ease);
 
         &:hover {
-            background-color: var(--primary--variant);
+            background-color: var(--primary-light);
+            color: var(--on-primary);
         }
 
         span {
             position: relative;
             margin-right: 7px;
             font-size: 18px;
+            color: inherit;
         }
 
         p {

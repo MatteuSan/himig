@@ -5,9 +5,7 @@
 
     Copyright 2021 (c) Matteu and the GrowStocks Development Group
 
-    The CSS Library for building quick, beautiful, responsive, and flexible user interfaces.
-
-    "Why did you put that in there?!" - from that one jackbox game we played last friday
+    The Design System for building quick, beautiful, responsive, and flexible user interfaces.
 
 */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
@@ -30,9 +28,10 @@
   --on-warning: #000;
   --on-success: #fff;
   --on-surface: #fff;
-  --placeholder: #3c3c3c;
   --on-code: #48ff5f;
   --input: #b0bfcd;
+  --input-disabled: #708196;
+  --placeholder: #606060;
   --error: #b00020;
   --warning: #ffa000;
   --success: #25a53f;
@@ -49,7 +48,7 @@
   /*============================================
   --scroll-track is ALWAYS the --surface color
   ============================================*/
-  --other-preference: light;
+  --other-preference: dark;
   --ts-scale: 1.1;
 }
 
@@ -205,7 +204,7 @@ body::-webkit-scrollbar-thumb:hover {
   gap: 10px;
   justify-content: flex-end !important;
   align-content: flex-end !important;
-  margin: 7px auto 0 auto;
+  margin: 0.8rem auto 0 auto;
 }
 
 .wrap--text {
@@ -606,6 +605,12 @@ body::-webkit-scrollbar-thumb:hover {
 .search__predictive .search__predictive_result {
   padding: 0.7rem;
   display: flex;
+  color: var(--surface);
+  -webkit-transition: all 0.1s ease;
+  -ms-transition: all 0.1s ease;
+  -moz-transition: all 0.1s ease;
+  -o-transition: all 0.1s ease;
+  transition: all 0.1s ease;
   /*&::after {
     font-family: 'Material Icons';
     content: 'north_west';
@@ -613,12 +618,14 @@ body::-webkit-scrollbar-thumb:hover {
   }*/
 }
 .search__predictive .search__predictive_result:hover {
-  background-color: var(--primary--variant);
+  background-color: var(--primary-light);
+  color: var(--on-primary);
 }
 .search__predictive .search__predictive_result span {
   position: relative;
   margin-right: 7px;
   font-size: 18px;
+  color: inherit;
 }
 .search__predictive .search__predictive_result p {
   position: relative;
@@ -942,10 +949,9 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .btn {
-  padding: 7px 10px;
-  border-radius: 0.5rem;
-  margin: 5px 0;
-  font-size: 15px;
+  padding: 8px 12px;
+  border-radius: 0.3rem;
+  font-size: 14px;
   -webkit-transition: all 0.1s linear;
   -ms-transition: all 0.1s linear;
   -moz-transition: all 0.1s linear;
@@ -961,11 +967,10 @@ body::-webkit-scrollbar-thumb:hover {
   color: var(--on-secondary);
 }
 .btn--primary {
-  padding: 7px 10px;
-  border-radius: 0.5rem;
-  font-size: 15px;
+  padding: 8px 12px;
+  border-radius: 0.3rem;
+  font-size: 14px;
   font-weight: 700;
-  margin: 5px 0 7px 0;
   -webkit-transition: all 0.1s linear;
   -ms-transition: all 0.1s linear;
   -moz-transition: all 0.1s linear;
@@ -978,6 +983,24 @@ body::-webkit-scrollbar-thumb:hover {
 .btn--primary:hover {
   border: 1px solid var(--secondary-dark);
   background-color: var(--secondary-dark);
+  cursor: pointer;
+}
+
+.btn--text-only {
+  padding: 8px 12px;
+  font-size: 14px;
+  font-weight: 700;
+  -webkit-transition: all 0.1s linear;
+  -ms-transition: all 0.1s linear;
+  -moz-transition: all 0.1s linear;
+  -o-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+  border: none;
+  background-color: var(--transparent);
+  color: var(--secondary);
+}
+.btn--text-only:hover {
+  color: var(--secondary-dark);
   cursor: pointer;
 }
 
@@ -1000,7 +1023,7 @@ body::-webkit-scrollbar-thumb:hover {
   height: auto;
   padding: 8px 10px;
   margin-bottom: 10px;
-  border-radius: 5px;
+  border-radius: 0.5rem;
   font-size: 20px;
   font-weight: 700;
   background-color: var(--primary);
@@ -1010,9 +1033,10 @@ body::-webkit-scrollbar-thumb:hover {
   height: auto;
   padding: 3px 0;
   margin-bottom: 7px;
+  border-radius: 0.5rem;
   font-size: 20px;
   font-weight: 700;
-  background-color: transparent !important;
+  background-color: var(--transparent) !important;
 }
 
 .title-bar--on-surface {
@@ -1020,9 +1044,10 @@ body::-webkit-scrollbar-thumb:hover {
   height: auto;
   padding: 0 5px;
   margin-bottom: 7px;
+  border-radius: 0.5rem;
   font-size: 20px;
   font-weight: 700;
-  background-color: transparent !important;
+  background-color: var(--transparent) !important;
 }
 
 .card {
@@ -1030,12 +1055,14 @@ body::-webkit-scrollbar-thumb:hover {
   height: auto;
   padding: 10px;
   border-radius: 5px;
+  margin-bottom: 0;
   background-color: var(--primary-light);
 }
 .card--on-surface {
   width: 100%;
   height: auto;
   padding: 5px;
+  border-radius: 5px;
   margin-bottom: 10px;
   background-color: transparent !important;
 }
@@ -1359,7 +1386,7 @@ body::-webkit-scrollbar-thumb:hover {
 .faq--open .material-icons {
   display: inline;
 }
-.faq--open h2 {
+.faq--open .faq__trigger {
   position: relative;
   top: -5px;
   display: inline;
@@ -1370,45 +1397,63 @@ body::-webkit-scrollbar-thumb:hover {
   max-width: 670px;
   display: flex;
   flex-direction: column;
-  padding: 1rem;
+  padding: 0.7rem 1rem;
   background-color: var(--primary);
-  border-radius: 0.8rem;
+  color: var(--on-primary);
+  border-radius: 0.5rem;
   -webkit-transition: all 0.1s ease;
   -ms-transition: all 0.1s ease;
   -moz-transition: all 0.1s ease;
   -o-transition: all 0.1s ease;
   transition: all 0.1s ease;
-}
-.form:focus-within {
-  transform: scale(1.01);
 }
 .form .form__field {
-  display: flex;
-  flex-direction: column;
-  margin: 5px 0;
+  position: relative;
+  margin: 7px 0;
 }
-.form .form__field label {
+.form .form__field .form__label {
   width: 100%;
-  color: var(--on-primary);
-  font-size: 13px;
-  margin-bottom: 5px;
+  font-size: 14px;
+  padding: 0 0.7rem;
+  position: absolute;
+  top: 0.57rem;
+  left: 0;
+  --placeholder: #b1b1b1;
+  color: var(--placeholder);
+  -webkit-transition: all 70ms ease;
+  -ms-transition: all 70ms ease;
+  -moz-transition: all 70ms ease;
+  -o-transition: all 70ms ease;
+  transition: all 70ms ease;
 }
-.form .form__field input {
+.form .form__field .form__input {
   width: 100%;
-  background-color: var(--input);
-  color: var(--on-input);
+  background-color: var(--transparent);
+  border: 1px solid var(--input);
   padding: 0.5rem 0.7rem;
-  border: none;
-  border-radius: 5px;
+  border-radius: 0.3rem;
   -webkit-transition: all 0.1s ease;
   -ms-transition: all 0.1s ease;
   -moz-transition: all 0.1s ease;
   -o-transition: all 0.1s ease;
   transition: all 0.1s ease;
-  font-size: min(14px, 18px);
+  font-size: 14px;
+  resize: none;
 }
-.form .form__field input::placeholder {
-  color: var(--placeholder);
+.form .form__field .form__input::placeholder {
+  color: var(--transparent);
+}
+.form .form__field .form__input:focus {
+  border: 2px solid var(--input);
+  outline: none !important;
+}
+.form .form__field .form__input:focus-within + .form__label, .form .form__field .form__input:not(:placeholder-shown) + .form__label {
+  width: max-content;
+  margin: 0 0 0 0.5rem;
+  padding: 0 0.2rem;
+  top: -0.5rem;
+  background-color: var(--primary);
+  pointer-events: none;
 }
 .form .form__field .error {
   background-color: var(--error);

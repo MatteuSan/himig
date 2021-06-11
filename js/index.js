@@ -1,11 +1,12 @@
 "use strict";
-var header = document.querySelector('.header--scrollable');
-var banner = document.querySelector('.banner');
-var options = {
+const header = document.querySelector('.header--scrollable');
+const banner = document.querySelector('.banner');
+const options = {
     rootMargin: "-100px 0px 0px 0px",
 };
-var observer = new IntersectionObserver(function (entries, observer) {
-    entries.forEach(function (entry) {
+// @ts-ignore
+const observer = new IntersectionObserver(function (entries, observer) {
+    entries.forEach(entry => {
         if (!entry.isIntersecting) {
             header.classList.add('scrolled');
         }
@@ -15,10 +16,10 @@ var observer = new IntersectionObserver(function (entries, observer) {
     });
 }, options);
 observer.observe(banner);
-var search = document.querySelector('.search');
-var searchButton = document.querySelector('.search-button');
-var closeButton = document.querySelector('.close-button');
-var headerText = document.querySelector('.header__text');
+const search = document.querySelector('.search');
+const searchButton = document.querySelector('.search-button');
+const closeButton = document.querySelector('.close-button');
+const headerText = document.querySelector('.header__text');
 searchButton.addEventListener('click', function () {
     headerText.classList.add('invisible');
     searchButton.classList.add('invisible');
@@ -45,7 +46,7 @@ $(document).ready(function () {
         // @ts-ignore
         $(this).parent().children('.chip__options').slideToggle("fast");
         // @ts-ignore
-        var option = $(this).next();
+        let option = $(this).next();
         if (option.hasClass("visible")) {
             // @ts-ignore
             $(this).html("menu");
@@ -58,3 +59,4 @@ $(document).ready(function () {
         }
     });
 });
+//# sourceMappingURL=index.js.map

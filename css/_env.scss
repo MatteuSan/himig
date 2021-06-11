@@ -5,9 +5,7 @@
 
     Copyright 2021 (c) Matteu and the GrowStocks Development Group
 
-    The CSS Library for building quick, beautiful, responsive, and flexible user interfaces.
-
-    "Why did you put that in there?!" - from that one jackbox game we played last friday
+    The Design System for building quick, beautiful, responsive, and flexible user interfaces.
 
 */
 
@@ -50,11 +48,12 @@
     --on-warning: #000;
     --on-success: #fff;
     --on-surface: #fff;
-    --placeholder: #3c3c3c;
     --on-code: #48ff5f;
 
     // INPUT COLORS
     --input: #b0bfcd;
+    --input-disabled: #708196;
+    --placeholder: #606060;
 
     // ALERT COLORS
     --error: #b00020;
@@ -84,7 +83,7 @@
     ============================================*/
 
     // SET OTHER DEVICE PREFERENCE
-    --other-preference: light;
+    --other-preference: dark;
 
     // SET TRANSITIONS
     --ts-scale: 1.1;
@@ -179,5 +178,7 @@ p {
 //
 
 @media (prefers-color-scheme: var(--other-preference)) {
-    // CODE
+    .dark-mode {
+        //
+    }
 }

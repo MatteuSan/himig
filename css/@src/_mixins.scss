@@ -50,10 +50,10 @@
 @mixin prefix($property, $value) {
 
     $prefixes-map: (
-            'webkit',
-            'ms',
-            'moz',
-            'o'
+        'webkit',
+        'ms',
+        'moz',
+        'o'
     );
 
     @each $prefix in $prefixes-map {
@@ -100,4 +100,36 @@
         }
     }
 
+}
+
+@mixin title-bar(
+    $width: 100%,
+    $height: auto,
+    $padding: 8px 10px,
+    $margin-bottom: 10px,
+    $border-radius: 0.5rem,
+    $font-size: 20px,
+    $font-weight: 700
+) {
+    width: $width;
+    height: $height;
+    padding: $padding;
+    margin-bottom: $margin-bottom;
+    border-radius: $border-radius;
+    font-size: $font-size;
+    font-weight: $font-weight;
+}
+
+@mixin card(
+    $width: 100%,
+    $height: auto,
+    $padding: 10px,
+    $border-radius: 5px,
+    $margin-bottom: 0
+) {
+    width: $width;
+    height: $height;
+    padding: $padding;
+    border-radius: $border-radius;
+    margin-bottom: $margin-bottom;
 }

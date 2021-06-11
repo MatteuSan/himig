@@ -1,13 +1,14 @@
 @use './mixins';
 
+// SETUP
+$btn-radius: 0.3rem;
+$btn-font-size: 14px;
+$btn-padding: 8px 12px;
+
 .btn {
-
-    $btn-radius: 0.5rem;
-
-    padding: 7px 10px;
+    padding: $btn-padding;
     border-radius: $btn-radius;
-    margin: 5px 0;
-    font-size: 15px;
+    font-size: $btn-font-size;
 
     @include mixins.prefix(transition, all 0.1s linear);
 
@@ -22,11 +23,10 @@
     }
 
     @at-root #{&}--primary {
-        padding: 7px 10px;
+        padding: $btn-padding;
         border-radius: $btn-radius;
-        font-size: 15px;
+        font-size: 14px;
         font-weight: 700;
-        margin: 5px 0 7px 0;
 
         @include mixins.prefix(transition, all 0.1s linear);
 
@@ -37,6 +37,24 @@
         &:hover {
             border: 1px solid var(--secondary-dark);
             background-color: var(--secondary-dark);
+            cursor: pointer;
+        }
+
+    }
+
+    @at-root #{&}--text-only {
+        padding: $btn-padding;
+        font-size: 14px;
+        font-weight: 700;
+
+        @include mixins.prefix(transition, all 0.1s linear);
+
+        border: none;
+        background-color: var(--transparent);
+        color: var(--secondary);
+
+        &:hover {
+            color: var(--secondary-dark);
             cursor: pointer;
         }
 

@@ -1,50 +1,45 @@
 @use './mixins';
 
 .title-bar {
-    width: 100%;
-    height: auto;
-    padding: 8px 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    font-size: 20px;
-    font-weight: 700;
+
+    @include mixins.title-bar();
 
     background-color: var(--primary);
 
     @at-root #{&}--on-card {
-        width: 100%;
-        height: auto;
-        padding: 3px 0;
-        margin-bottom: 7px;
-        font-size: 20px;
-        font-weight: 700;
-        background-color: transparent !important;
+
+        @include mixins.title-bar(
+            $padding: 3px 0,
+            $margin-bottom: 7px,
+            $border-radius: 0.5rem
+        );
+
+        background-color: var(--transparent) !important;
     }
 
     @at-root #{&}--on-surface {
-        width: 100%;
-        height: auto;
-        padding: 0 5px;
-        margin-bottom: 7px;
-        font-size: 20px;
-        font-weight: 700;
-        background-color: transparent !important;
+
+        @include mixins.title-bar(
+            $padding: 0 5px,
+            $margin-bottom: 7px,
+            $border-radius: 0.5rem
+        );
+
+        background-color: var(--transparent) !important;
     }
 }
 
 .card {
-    width: 100%;
-    height: auto;
-    padding: 10px;
-    border-radius: 5px;
-
+    @include mixins.card();
     background-color: var(--primary-light);
 
     @at-root #{&}--on-surface {
-        width: 100%;
-        height: auto;
-        padding: 5px;
-        margin-bottom: 10px;
+
+        @include mixins.card(
+            $padding: 5px,
+            $margin-bottom: 10px
+        );
+
         background-color: transparent !important;
 
         p {

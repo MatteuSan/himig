@@ -7,45 +7,68 @@
     display: flex;
     flex-direction: column;
 
-    padding: 1rem;
+    padding: 0.7rem 1rem;
 
     background-color: var(--primary);
-    border-radius: 0.8rem;
+    color: var(--on-primary);
+    border-radius: 0.5rem;
 
     @include mixins.prefix(transition, all 0.1s ease);
 
-    &:focus-within {
-        transform: scale(1.01);
-    }
-
     .form__field {
-        display: flex;
-        flex-direction: column;
+        position: relative;
+        margin: 7px 0;
 
-        margin: 5px 0;
-
-        label {
+        .form__label {
             width: 100%;
-            color: var(--on-primary);
-            font-size: 13px;
-            margin-bottom: 5px;
+            font-size: 14px;
+            padding: 0 0.7rem;
+
+            position: absolute;
+            top: 0.57rem;
+            left: 0;
+
+            --placeholder: #b1b1b1;
+            color: var(--placeholder);
+
+            @include mixins.prefix(transition, all 70ms ease);
         }
 
-        input {
+        .form__input {
             width: 100%;
-            background-color: var(--input);
-            color: var(--on-input);
+            background-color: var(--transparent);
+            border: 1px solid var(--input);
 
             padding: 0.5rem 0.7rem;
-            border: none;
-            border-radius: 5px;
+            border-radius: 0.3rem;
 
             @include mixins.prefix(transition, all 0.1s ease);
 
-            font-size: min(14px, 18px);
+            font-size: 14px;
+
+            resize: none;
 
             &::placeholder {
-                color: var(--placeholder);
+                color: var(--transparent);
+            }
+
+            &:focus {
+                border: 2px solid var(--input);
+                outline: none!important;
+            }
+
+            &:focus-within,
+            &:not(:placeholder-shown) {
+                & + .form__label {
+                    width: max-content;
+                    margin: 0 0 0 0.5rem;
+                    padding: 0 0.2rem;
+
+                    top: -0.5rem;
+
+                    background-color: var(--primary);
+                    pointer-events: none;
+                }
             }
         }
 

@@ -29,9 +29,6 @@
     <link rel="apple-touch-icon" href="static/apple-touch-icon.png"><!-- 180×180 -->
     <!--<link rel="manifest" href="static/manifest.webmanifest">-->
 
-    <!-- LIT -->
-    <script type="module" src="components/simple-greeting.js"></script>
-
 </head>
 <header class="header--scrollable">
 
@@ -155,9 +152,7 @@
 
     <section class="wrap--content--no-margin-top">
 
-        <h2 class="title-bar--on-surface">
-            <simple-greeting name="World!"></simple-greeting>
-        </h2>
+        <h2 class="title-bar--on-surface">Card Components</h2>
         <div class="card--on-surface">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum ex hic placeat! Atque consequuntur, ea esse exercitationem, facilis fugiat ipsa iusto libero necessitatibus numquam odit omnis repellendus voluptate. Optio, porro?</p>
         </div>
@@ -265,10 +260,10 @@
 
         </section>
 
-        <h2 class="title-bar--on-surface">CHIPS DEMO</h2>
-        <div class="card--on-surface">
+        <title-bar class="title-bar--on-surface">Chips Component</title-bar>
+        <card class="card--on-surface">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum ex hic placeat! Atque consequuntur, ea esse exercitationem, facilis fugiat ipsa iusto libero necessitatibus numquam odit omnis repellendus voluptate. Optio, porro?</p>
-        </div>
+        </card>
 
 
         <div class="search__filter">
@@ -402,18 +397,51 @@
 
         </section>
 
-        <h2 class="title-bar--on-surface">OTHER COMPONENTS</h2>
+        <h2 class="title-bar--on-surface">Other Components</h2>
         <div class="card--on-surface">
             <p>Here's a demo for the other components</p>
         </div>
 
         <section class="contain">
+            <!-- TITLE BARS -->
             <h2 class="title-bar">Title Bar</h2>
             <h2 class="title-bar--on-surface">Title Bar on surface</h2>
             <div class="card">
                 <h2 class="title-bar--on-card">Title Bar on card</h2>
                 <p>Card text Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam culpa delectus dolores ducimus impedit ipsa, itaque iure magnam magni, maiores molestiae natus odit placeat possimus quibusdam quidem quis, quos temporibus.</p>
             </div>
+
+            <!-- BUTTONS -->
+            <div class="wrap--button">
+                <button class="btn--primary">Button Primary</button>
+                <button class="btn">Button Regular</button>
+                <button class="btn--text-only">Button Text-Only</button>
+            </div>
+        </section>
+
+        <section class="contain--flex--row">
+            <form class="form">
+                <h2 class="title-bar--on-card">Example form</h2>
+
+                <div class="form__field">
+                    <input class="form__input" type="text" id="input-text-1" placeholder="a" required/>
+                    <label class="form__label" for="input-text-1">Text Input</label>
+                </div>
+                <div class="form__field">
+                    <textarea
+                        id="input-text-2"
+                        rows="5"
+                        placeholder="a"
+                        class="form__input"
+                        required
+                    ></textarea>
+                    <label class="form__label" for="input-text-2">Textarea Input</label>
+                </div>
+                <div class="wrap--button">
+                    <button type="submit" class="btn--primary">Submit Primary</button>
+                    <button type="submit" class="btn">Submit Regular</button>
+                </div>
+            </form>
         </section>
 
     </section>
