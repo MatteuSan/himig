@@ -1449,24 +1449,22 @@ body::-webkit-scrollbar-thumb:hover {
 }
 .form .form__field .form__input:focus-within + .form__label, .form .form__field .form__input:not(:placeholder-shown) + .form__label {
   width: max-content;
-  margin: 0 0 0 0.5rem;
+  margin: 0 0 0 0.3rem;
   padding: 0 0.2rem;
   top: -0.5rem;
+  font-size: 12px;
   background-color: var(--primary);
   pointer-events: none;
 }
-.form .form__field .error {
-  background-color: var(--error);
-  color: var(--on-error);
-  padding: 3px 5px;
-  border-radius: 3px;
-  margin: 5px 0 0 0;
-  font-size: 13px;
+.form .form__field.error {
   -webkit-transition: all 0.1s ease;
   -ms-transition: all 0.1s ease;
   -moz-transition: all 0.1s ease;
   -o-transition: all 0.1s ease;
   transition: all 0.1s ease;
+}
+.form .form__field.error > * {
+  border-color: var(--error) !important;
 }
 .form .form__button {
   border: none;

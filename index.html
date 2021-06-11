@@ -423,9 +423,17 @@
             <form class="form">
                 <h2 class="title-bar--on-card">Example form</h2>
 
-                <div class="form__field">
+                <div class="form__field error">
                     <input class="form__input" type="text" id="input-text-1" placeholder="a" required/>
                     <label class="form__label" for="input-text-1">Text Input</label>
+                </div>
+                <div class="form__field">
+                    <input min="0" class="form__input" type="number" id="input-text-3" placeholder="a" required/>
+                    <label class="form__label" for="input-text-3">Number Input</label>
+                </div>
+                <div class="form__field">
+                    <input class="form__input" type="file" id="input-text-4" placeholder="a" required/>
+                    <label class="form__label" for="input-text-4">File Input</label>
                 </div>
                 <div class="form__field">
                     <textarea
