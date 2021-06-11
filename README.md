@@ -1,4 +1,5 @@
 # Stack
+Check out the demo [here](https://growstocks.github.io/stack)!
 - [GrowStocks](https://growstocks.xyz)' open source lightweight Frontend Library for building beautiful, quick, responsive, and flexible user interfaces based on GrowStocks' design system.
 
 # Features
@@ -21,7 +22,7 @@
 
 ```html
 
-<script src="js/index.js"></script>
+<script src="stack/js/index.js"></script>
 ```
 5. Configure your theme settings in the `stack/css/_env.scss` file.
 6. Add your theme overrides in the `stack/css/_overrides.scss` file.
