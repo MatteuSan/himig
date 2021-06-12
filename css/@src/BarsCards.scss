@@ -156,6 +156,8 @@
 
         background-color: var(--primary-light);
 
+        @include mixins.rainbow-factory();
+
         @media (min-width: 850px) {
             padding: 10px;
         }
@@ -165,11 +167,13 @@
 
             .card--x__text {
                 position: relative;
+                color: inherit;
             }
         }
 
         h2 {
             font-size: 18px;
+            color: inherit;
         }
 
         .card--x__icons--wrap {
@@ -181,11 +185,12 @@
             a {
                 margin: 0 7px 0 0;
                 font-size: 24px;
+                color: inherit;
 
                 @include mixins.prefix(transition, all 0.1s linear);
 
                 &:hover {
-                    color: var(--secondary);
+                    opacity: 0.5;
                 }
             }
         }
@@ -200,7 +205,7 @@
     display: flex;
     flex-direction: column;
     border-radius: 5px;
-    background-color: var(--primary);
+    background-color: var(--primary-light);
     width: 100%;
     margin: 0;
 

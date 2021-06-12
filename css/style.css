@@ -1257,6 +1257,62 @@ body::-webkit-scrollbar-thumb:hover {
   border-radius: 0 5px 5px 0;
   background-color: var(--primary-light);
 }
+.card--x .card--x__container.dark-red {
+  background-color: #7f0000 !important;
+  color: #fff !important;
+}
+.card--x .card--x__container.red {
+  background-color: #b00020 !important;
+  color: #fff !important;
+}
+.card--x .card--x__container.orange {
+  background-color: #e65100 !important;
+  color: #fff !important;
+}
+.card--x .card--x__container.light-orange {
+  background-color: #ff8f00 !important;
+  color: #c43e00 !important;
+}
+.card--x .card--x__container.yellow {
+  background-color: #fbc02d !important;
+  color: #bc5100 !important;
+}
+.card--x .card--x__container.lime-green {
+  background-color: #7cb342 !important;
+  color: #005005 !important;
+}
+.card--x .card--x__container.green {
+  background-color: #25a53f !important;
+  color: #fff !important;
+}
+.card--x .card--x__container.dark-green {
+  background-color: #005005 !important;
+  color: #fff !important;
+}
+.card--x .card--x__container.light-blue {
+  background-color: #039be5 !important;
+  color: #002f6c !important;
+}
+.card--x .card--x__container.blue {
+  background-color: #01579b !important;
+  color: #fff !important;
+}
+.card--x .card--x__container.dark-blue {
+  background-color: #002f6c !important;
+  color: #fff !important;
+}
+.card--x .card--x__container.pink {
+  background-color: #f48fb1 !important;
+  color: #bf5f82 !important;
+}
+.card--x .card--x__container.magenta {
+  background-color: #d500f9 !important;
+  color: #fff !important;
+}
+.card--x .card--x__container.purple {
+  background-color: #4a148c !important;
+  color: #fff !important;
+}
 @media (min-width: 850px) {
   .card--x .card--x__container {
     padding: 10px;
@@ -1267,9 +1323,11 @@ body::-webkit-scrollbar-thumb:hover {
 }
 .card--x .card--x__container .wrap--text .card--x__text {
   position: relative;
+  color: inherit;
 }
 .card--x .card--x__container h2 {
   font-size: 18px;
+  color: inherit;
 }
 .card--x .card--x__container .card--x__icons--wrap {
   display: block;
@@ -1280,6 +1338,7 @@ body::-webkit-scrollbar-thumb:hover {
 .card--x .card--x__container .card--x__icons--wrap a {
   margin: 0 7px 0 0;
   font-size: 24px;
+  color: inherit;
   -webkit-transition: all 0.1s linear;
   -ms-transition: all 0.1s linear;
   -moz-transition: all 0.1s linear;
@@ -1287,13 +1346,13 @@ body::-webkit-scrollbar-thumb:hover {
   transition: all 0.1s linear;
 }
 .card--x .card--x__container .card--x__icons--wrap a:hover {
-  color: var(--secondary);
+  opacity: 0.5;
 }
 .card--y {
   display: flex;
   flex-direction: column;
   border-radius: 5px;
-  background-color: var(--primary);
+  background-color: var(--primary-light);
   width: 100%;
   margin: 0;
   -webkit-transition: all 0.1s ease !important;

@@ -80,3 +80,51 @@
     }
 
 }
+
+// RAINBOW MIXIN
+@mixin rainbow-factory() {
+
+    $palette: (
+        //$color: $base
+        'dark-red': #7f0000,
+        'red': #b00020,
+        'orange': #e65100,
+        'light-orange': #ff8f00,
+        'yellow': #fbc02d,
+        'lime-green': #7cb342,
+        'green': #25a53f,
+        'dark-green': #005005,
+        'light-blue': #039be5,
+        'blue': #01579b,
+        'dark-blue': #002f6c,
+        'pink': #f48fb1,
+        'magenta': #d500f9,
+        'purple': #4a148c
+    );
+
+    $text-palette: (
+        //$color: $text
+        'dark-red': #fff,
+        'red': #fff,
+        'orange': #fff,
+        'light-orange': #c43e00,
+        'yellow': #bc5100,
+        'lime-green': #005005,
+        'green': #fff,
+        'dark-green': #fff,
+        'light-blue': #002f6c,
+        'blue': #fff,
+        'dark-blue': #fff,
+        'pink': #bf5f82,
+        'magenta': #fff,
+        'purple': #fff
+    );
+
+    @each $color, $base in $palette {
+        &.#{$color} {
+            background-color: $base!important;
+            color: map.get($text-palette, $color)!important;
+        }
+    }
+
+}
