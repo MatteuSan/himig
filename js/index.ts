@@ -5,6 +5,7 @@ const options = {
     rootMargin: "-100px 0px 0px 0px",
 }
 
+// @ts-ignore
 const observer = new IntersectionObserver(function (entries, observer) {
     entries.forEach(entry => {
         if(!entry.isIntersecting) {
