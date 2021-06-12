@@ -8,10 +8,10 @@ const options = {
 const observer = new IntersectionObserver(function (entries, observer) {
     entries.forEach(entry => {
         if (!entry.isIntersecting) {
-            header.classList.add('scrolled');
+            header.classList.add('scrolled', 'elevation--z3');
         }
         else {
-            header.classList.remove('scrolled');
+            header.classList.remove('scrolled', 'elevation--z3');
         }
     });
 }, options);
@@ -31,6 +31,28 @@ closeButton.addEventListener('click', function () {
     closeButton.classList.remove('visible');
     headerText.classList.remove('invisible');
     searchButton.classList.remove('invisible');
+});
+// FILE PREVIEW
+const fileInput = document.querySelector('.type--file');
+const previewImg = document.querySelector('.form__file-preview__image');
+const previewText = document.querySelector('.form__file-preview__label');
+fileInput.addEventListener('change', function () {
+    // @ts-ignore
+    const file = this.files[0];
+    if (!file) {
+        previewImg.style.display = null;
+        previewText.style.display = null;
+    }
+    else {
+        const reader = new FileReader();
+        previewImg.style.display = "block";
+        previewText.style.display = "none";
+        reader.addEventListener("load", function () {
+            console.log(this);
+            previewImg.setAttribute('src', this.result);
+        });
+        reader.readAsDataURL(file);
+    }
 });
 // CHIP__OPTIONS
 /*const optionsTrigger = document.querySelector('.chip__options__trigger');

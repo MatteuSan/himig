@@ -10,10 +10,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Stack - PLAYGROUND</title>
+    <title>HOME - Stack</title>
 
-    <!-- STACK CSS -->
+    <!-- STACK -->
     <link rel="stylesheet" href="css/style.css">
+    <script type="module" src="js/index.js"></script>
 
     <!-- JS LIBS -->
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js"></script>
@@ -40,31 +41,40 @@
 
         <div class="search">
             <form method="GET" action="#">
-                <label @click.prevent="predictive_show = true" for="search" class="material-icons">search</label>
-                <input @click.prevent="predictive_show = true" id="search" type="text" name="s" placeholder="Search the docs..." required>
+                <label
+                   @click.prevent="predictive_show = true"
+                   for="search"
+                   class="material-icons"
+                >search
+                </label>
+                <input
+                   @click.prevent="predictive_show = true"
+                   id="search"
+                   type="text"
+                   name="s"
+                   placeholder="Search bar..."
+                   x-ref="searchInput"
+                   required
+                />
             </form>
         </div>
 
         <div class="search__buttons">
-            <button @click="predictive_show = true" class="material-icons search-button">search</button>
+            <button @click="predictive_show = true; $refs.searchInput.focus()" class="material-icons search-button">search</button>
             <button @click="predictive_show = false" class="material-icons close-button">close</button>
         </div>
 
         <nav class="nav">
             <div class="nav__container">
-                <div class="nav__item">
+                <div class="nav__item" data-tooltip="Home">
                     <a class="nav__item__icon material-icons" href="#">home</a>
                     <p class="nav__item__text">Home</p>
                 </div>
-                <div class="nav__item">
+                <div class="nav__item" data-tooltip="Docs">
                     <a class="nav__item__icon material-icons" href="#">description</a>
                     <p class="nav__item__text">Docs</p>
                 </div>
-                <div class="nav__item">
-                    <a class="nav__item__icon material-icons" href="#">code</a>
-                    <p class="nav__item__text">Dev Center</p>
-                </div>
-                <div class="nav__item">
+                <div class="nav__item" data-tooltip="More...">
                     <p @click="drawer_open = !drawer_open" class="nav__item__icon material-icons" href="#" x-text="drawer_open ? 'close' : 'menu'"></p>
                     <p class="nav__item__text">More</p>
                 </div>
@@ -152,7 +162,7 @@
 
     <section class="wrap--content--no-margin-top">
 
-        <h2 class="title-bar--on-surface">Card Components</h2>
+        <h2 class="title-bar--on-surface">Components Demo</h2>
         <div class="card--on-surface">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum ex hic placeat! Atque consequuntur, ea esse exercitationem, facilis fugiat ipsa iusto libero necessitatibus numquam odit omnis repellendus voluptate. Optio, porro?</p>
         </div>
@@ -210,7 +220,7 @@
 
         <section class="contain--grid--large">
 
-            <div class="card--x">
+            <div class="card--x elevation--z3">
                 <div class="card--x__img">
                     <img src="https://via.placeholder.com/150.png" alt="Photo">
                 </div>
@@ -226,7 +236,7 @@
                 </div>
             </div>
 
-            <div class="card--x">
+            <div class="card--x elevation--z3">
                 <div class="card--x__img">
                     <img src="https://via.placeholder.com/150.png" alt="Photo">
                 </div>
@@ -242,7 +252,7 @@
                 </div>
             </div>
 
-            <div class="card--x">
+            <div class="card--x elevation--z3">
                 <div class="card--x__img">
                     <img src="https://via.placeholder.com/150.png" alt="Photo">
                 </div>
@@ -259,12 +269,6 @@
             </div>
 
         </section>
-
-        <title-bar class="title-bar--on-surface">Chips Component</title-bar>
-        <card class="card--on-surface">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum ex hic placeat! Atque consequuntur, ea esse exercitationem, facilis fugiat ipsa iusto libero necessitatibus numquam odit omnis repellendus voluptate. Optio, porro?</p>
-        </card>
-
 
         <div class="search__filter">
             <div class="search__filter__item">
@@ -397,30 +401,44 @@
 
         </section>
 
-        <h2 class="title-bar--on-surface">Other Components</h2>
-        <div class="card--on-surface">
-            <p>Here's a demo for the other components</p>
-        </div>
-
         <section class="contain">
             <!-- TITLE BARS -->
-            <h2 class="title-bar">Title Bar</h2>
+            <h2 class="title-bar elevation--z3">Title Bar</h2>
             <h2 class="title-bar--on-surface">Title Bar on surface</h2>
-            <div class="card">
+            <div class="card elevation--z3">
                 <h2 class="title-bar--on-card">Title Bar on card</h2>
                 <p>Card text Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam culpa delectus dolores ducimus impedit ipsa, itaque iure magnam magni, maiores molestiae natus odit placeat possimus quibusdam quidem quis, quos temporibus.</p>
             </div>
 
             <!-- BUTTONS -->
             <div class="wrap--button">
-                <button class="btn--primary">Button Primary</button>
+                <button class="btn--primary elevation--z1">Button Primary</button>
                 <button class="btn">Button Regular</button>
                 <button class="btn--text-only">Button Text-Only</button>
             </div>
         </section>
 
+        <section class="contain--grid">
+            <div class="card stable elevation--z3">
+                <p class="card__small-text">Stability</p>
+                <h1 class="card__big-text">STABLE</h1>
+            </div>
+            <div class="card semi-stable elevation--z3">
+                <p class="card__small-text">Stability</p>
+                <h1 class="card__big-text">SEMI-STABLE</h1>
+            </div>
+            <div class="card unstable elevation--z3">
+                <p class="card__small-text">Stability</p>
+                <h1 class="card__big-text">UNSTABLE</h1>
+            </div>
+            <div class="card undefined elevation--z3">
+                <p class="card__small-text">Stability</p>
+                <h1 class="card__big-text">UNDEFINED</h1>
+            </div>
+        </section>
+
         <section class="contain--flex--row">
-            <form class="form">
+            <form class="form elevation--z3">
                 <h2 class="title-bar--on-card">Example form</h2>
 
                 <div class="form__field error">
@@ -432,10 +450,6 @@
                     <label class="form__label" for="input-text-3">Number Input</label>
                 </div>
                 <div class="form__field">
-                    <input class="form__input" type="file" id="input-text-4" placeholder="a" required/>
-                    <label class="form__label" for="input-text-4">File Input</label>
-                </div>
-                <div class="form__field">
                     <textarea
                         id="input-text-2"
                         rows="5"
@@ -445,8 +459,17 @@
                     ></textarea>
                     <label class="form__label" for="input-text-2">Textarea Input</label>
                 </div>
+                <div class="form__field">
+                    <input data-label="Upload picture" class="form__input type--file" type="file" id="input-file" placeholder="a" required/>
+                    <label class="form__label" for="input-file">Upload Input</label>
+
+                    <div class="form__file-preview">
+                        <img src="" alt="" class="form__file-preview__image" />
+                        <span class="form__file-preview__label">Image Preview</span>
+                    </div>
+                </div>
                 <div class="wrap--button">
-                    <button type="submit" class="btn--primary">Submit Primary</button>
+                    <button type="submit" class="btn--primary elevation--z1">Submit Primary</button>
                     <button type="submit" class="btn">Submit Regular</button>
                 </div>
             </form>
@@ -454,14 +477,12 @@
 
     </section>
 
-<!--<div class="snackbar &#45;&#45;warning elevation&#45;&#45;z5">
+    <!--<div class="snackbar warning elevation&#45;&#45;z5">
         <div class="snackbar__wrap">
             <p class="snackbar__label">Snackbar Label</p>
             <button class="snackbar__action">ACTION</button>
         </div>
     </div>-->
-
-    <script type="module" src="js/index.js" defer></script>
 </body>
 <footer class="footer">
     <div class="wrap--text">

@@ -5,6 +5,7 @@
     justify-content: space-evenly;
     flex-flow: row wrap;
     margin: 17px auto;
+    padding: 0 5px;
 
     @supports(gap: 1rem) {
         gap: 1rem;
@@ -21,6 +22,7 @@
     display: flex;
     flex-flow: column;
     margin: 17px auto;
+    padding: 0 5px;
 
     @supports(gap: 1rem) {
         gap: 1rem;
@@ -40,6 +42,7 @@
     align-items: center;
 
     margin: 0 auto!important;
+    padding: 0 5px;
 
     width: 100%;
     top: 20px;

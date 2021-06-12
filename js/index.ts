@@ -6,12 +6,12 @@ const options = {
 }
 
 // @ts-ignore
-const observer = new IntersectionObserver(function (entries, observer) {
+const observer: any = new IntersectionObserver(function (entries, observer) {
     entries.forEach(entry => {
         if(!entry.isIntersecting) {
-            header.classList.add('scrolled');
+            header.classList.add('scrolled', 'elevation--z3');
         } else {
-            header.classList.remove('scrolled');
+            header.classList.remove('scrolled', 'elevation--z3');
         }
     });
 }, options);
@@ -41,6 +41,33 @@ closeButton.addEventListener('click', function () {
     headerText.classList.remove('invisible')
     searchButton.classList.remove('invisible')
 
+});
+
+// FILE PREVIEW
+const fileInput: any = document.querySelector('.type--file');
+const previewImg: any = document.querySelector('.form__file-preview__image');
+const previewText: any = document.querySelector('.form__file-preview__label');
+
+fileInput.addEventListener('change', function() {
+    // @ts-ignore
+    const file: any = this.files[0];
+
+    if (!file) {
+        previewImg.style.display = null;
+        previewText.style.display = null;
+    } else {
+        const reader = new FileReader();
+
+        previewImg.style.display = "block";
+        previewText.style.display = "none";
+
+        reader.addEventListener("load", function() {
+            console.log(this);
+            previewImg.setAttribute('src', this.result);
+        });
+
+        reader.readAsDataURL(file);
+    }
 });
 
 // CHIP__OPTIONS

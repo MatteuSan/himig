@@ -4,23 +4,15 @@
     background-color: rgba(0, 0, 0, 0) !important;
     width: calc(100% - 20px);
     max-width: 1077px;
-    margin: 67px auto 65px auto;
+    margin: 67px auto 25px auto;
     min-height: 25vh;
 
     @at-root #{&}--no-margin-top {
         background-color: rgba(0, 0, 0, 0) !important;
         width: calc(100% - 20px);
         max-width: 1077px;
-        margin: 25px auto 65px auto;
+        margin: 25px auto 25px auto;
         min-height: 25vh;
-
-        @media (min-width: 850px) {
-            margin: 25px auto 25px auto;
-        }
-    }
-
-    @media (min-width: 850px) {
-        margin: 67px auto 25px auto;
     }
 }
 
