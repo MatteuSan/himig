@@ -167,6 +167,7 @@ body::-webkit-scrollbar-thumb:hover {
   max-width: 1077px;
   margin: 67px auto 25px auto;
   min-height: 25vh;
+  padding: 0 5px;
 }
 .wrap--content--no-margin-top {
   background-color: rgba(0, 0, 0, 0) !important;
@@ -174,6 +175,7 @@ body::-webkit-scrollbar-thumb:hover {
   max-width: 1077px;
   margin: 25px auto 25px auto;
   min-height: 25vh;
+  padding: 0 5px;
 }
 
 .wrap--section {
@@ -237,7 +239,6 @@ body::-webkit-scrollbar-thumb:hover {
   justify-content: space-evenly;
   flex-flow: row wrap;
   margin: 17px auto;
-  padding: 0 5px;
 }
 @supports (gap: 1rem) {
   .contain--flex--row {
@@ -254,7 +255,6 @@ body::-webkit-scrollbar-thumb:hover {
   display: flex;
   flex-flow: column;
   margin: 17px auto;
-  padding: 0 5px;
 }
 @supports (gap: 1rem) {
   .contain--flex--column {
@@ -273,7 +273,6 @@ body::-webkit-scrollbar-thumb:hover {
   justify-content: center;
   align-items: center;
   margin: 0 auto !important;
-  padding: 0 5px;
   width: 100%;
   top: 20px;
 }
@@ -284,7 +283,6 @@ body::-webkit-scrollbar-thumb:hover {
   grid-template-columns: repeat(1, 1fr);
   grid-gap: 1rem;
   margin: 17px auto;
-  padding: 0 5px;
 }
 @media (min-width: 482px) {
   .contain--grid {
@@ -308,7 +306,6 @@ body::-webkit-scrollbar-thumb:hover {
   grid-template-columns: repeat(1, 1fr);
   grid-gap: 1rem;
   margin: 17px auto;
-  padding: 0 5px;
 }
 @media (min-width: 482px) {
   .contain--grid--large {
