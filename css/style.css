@@ -966,6 +966,106 @@ body::-webkit-scrollbar-thumb:hover {
   font-weight: 700;
 }
 
+.alert--success {
+  width: 100%;
+  padding: 0.5rem 0.7rem;
+  background-color: var(--success);
+  border-radius: 0.3rem;
+  color: var(--on-primary);
+}
+.alert--success .alert__icon {
+  display: inline-block;
+  font-size: 24px;
+  margin-right: 3px;
+  color: inherit;
+}
+.alert--success .alert__text {
+  display: inline-block;
+  position: relative;
+  bottom: 5px;
+  color: inherit;
+}
+
+.alert--warning {
+  width: 100%;
+  padding: 0.5rem 0.7rem;
+  background-color: var(--warning);
+  border-radius: 0.3rem;
+  color: var(--on-warning);
+}
+.alert--warning .alert__icon {
+  display: inline-block;
+  font-size: 24px;
+  margin-right: 3px;
+  color: inherit;
+}
+.alert--warning .alert__text {
+  display: inline-block;
+  position: relative;
+  bottom: 5px;
+  color: inherit;
+}
+
+.alert--error {
+  width: 100%;
+  padding: 0.5rem 0.7rem;
+  background-color: var(--error);
+  border-radius: 0.3rem;
+  color: var(--on-primary);
+}
+.alert--error .alert__icon {
+  display: inline-block;
+  font-size: 24px;
+  margin-right: 3px;
+  color: inherit;
+}
+.alert--error .alert__text {
+  display: inline-block;
+  position: relative;
+  bottom: 5px;
+  color: inherit;
+}
+
+.alert--undefined {
+  width: 100%;
+  padding: 0.5rem 0.7rem;
+  background-color: var(--undefined);
+  border-radius: 0.3rem;
+  color: var(--on-primary);
+}
+.alert--undefined .alert__icon {
+  display: inline-block;
+  font-size: 24px;
+  margin-right: 3px;
+  color: inherit;
+}
+.alert--undefined .alert__text {
+  display: inline-block;
+  position: relative;
+  bottom: 5px;
+  color: inherit;
+}
+
+.alert {
+  width: 100%;
+  padding: 0.5rem 0.7rem;
+  background-color: var(--primary-light);
+  border-radius: 0.3rem;
+  color: var(--on-primary);
+}
+.alert .alert__icon {
+  display: inline-block;
+  font-size: 24px;
+  margin-right: 3px;
+  color: inherit;
+}
+.alert .alert__text {
+  display: inline-block;
+  position: relative;
+  bottom: 5px;
+  color: inherit;
+}
+
 .btn {
   padding: 8px 12px;
   border-radius: 0.3rem;

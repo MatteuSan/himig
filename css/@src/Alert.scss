@@ -1,0 +1,60 @@
+@use './mixins';
+
+@mixin alert(
+    $width: 100%,
+    $padding: 0.5rem 0.7rem,
+    $border-radius: 0.3rem,
+) {
+
+    $types: (
+       'success': var(--success),
+       'warning': var(--warning),
+       'error': var(--error),
+       'undefined': var(--undefined),
+       'default': var(--primary-light)
+    );
+
+    @each $type, $value in $types {
+
+        $color: var(--on-primary);
+        $separator: '--';
+
+        @if($type == 'warning') {
+            $color: var(--on-warning);
+        } @else {
+            $color: var(--on-primary);
+        }
+
+        @if($type == 'default') {
+            $separator: '';
+            $type: '';
+        }
+
+        // MANUAL VARIABLES
+        $display: inline-block;
+
+        .alert#{$separator}#{$type} {
+            width: $width;
+            padding: $padding;
+            background-color: $value;
+            border-radius: $border-radius;
+            color: $color;
+
+            .alert__icon {
+                display: $display;
+                font-size: 24px;
+                margin-right: 3px;
+                color: inherit;
+            }
+
+            .alert__text {
+                display: $display;
+                position: relative;
+                bottom: 5px;
+                color: inherit;
+            }
+        }
+    }
+}
+
+@include alert();
