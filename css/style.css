@@ -1324,6 +1324,12 @@ body::-webkit-scrollbar-thumb:hover {
 .card--x .card--x__container .wrap--text .card--x__text {
   position: relative;
   color: inherit;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.card--x .card--x__container .wrap--text .card--x__text::before, .card--x .card--x__container .wrap--text .card--x__text::after {
+  content: '"';
 }
 .card--x .card--x__container h2 {
   font-size: 18px;
@@ -1380,8 +1386,17 @@ body::-webkit-scrollbar-thumb:hover {
 .card--y .card--y__info {
   padding: 7px;
 }
-.card--y .card--y__info .wrap--text h4 {
-  font-weight: 700;
+.card--y .card--y__info .card--y__info__title {
+  font-size: 18px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.card--y .card--y__info .card--y__info__subtitle {
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .card--y .card--y__info .card--y__action {
   color: var(--secondary);

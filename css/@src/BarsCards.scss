@@ -168,6 +168,14 @@
             .card--x__text {
                 position: relative;
                 color: inherit;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+
+                &::before,
+                &::after {
+                    content: '"';
+                }
             }
         }
 
@@ -235,10 +243,18 @@
     .card--y__info {
         padding: 7px;
 
-        .wrap--text {
-            h4 {
-                font-weight: 700;
-            }
+        .card--y__info__title {
+            font-size: 18px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card--y__info__subtitle {
+            font-size: 14px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .card--y__action {
