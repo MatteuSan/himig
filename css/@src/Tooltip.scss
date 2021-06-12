@@ -82,10 +82,10 @@ button[data-tooltip] {
     position: absolute;
     background-color: #333;
     color: #fff;
-    padding: 0.8em 1em;
+    padding: 0.5em 0.7em;
     border-radius: 5px;
     font-size: .75em;
-    bottom: calc(-100% - 5px);
+    bottom: -100%;
     left: auto;
     right: auto;
     z-index: 100;
