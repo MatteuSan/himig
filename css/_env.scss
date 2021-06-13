@@ -59,7 +59,7 @@
     --error: #b00020;
     --warning: #ffa000;
     --success: #25a53f;
-    --undefined: #757575;
+    --undefined: #6d6d6d;
 
     // BANNER STYLING
     // COULD BE SOLID COLOR, GRADIENT, OR IMAGE
@@ -179,27 +179,27 @@ p {
 
 .dark-mode {
     // SURFACE COLOR AND GENERAL COLORS
-    --surface: #000b18;
+    --surface: #181818;
     --transparent: rgba(0, 0, 0, 0.0);
 
     // PRIMARY COLORS
-    --primary-dark: #001334;
-    --primary: #12395eff;
-    --primary-light: #44638b;
+    --primary-dark: #272727;
+    --primary: #585858;
+    --primary-light: #888888;
 
-    --primary--variant-dark: #1c4c86;
-    --primary--variant: #1d69a9;
-    --primary--variant-light: #7d9fcb;
+    --primary--variant-dark: #8c8c8c;
+    --primary--variant: #aeaeae;
+    --primary--variant-light: #cdcdcd;
 
     // SECONDARY COLORS
-    --secondary-dark: #c67100;
-    --secondary: #ffa000;
-    --secondary-light: #ffd149;
+    --secondary-dark: #12395e;
+    --secondary: #44638b;
+    --secondary-light: #7390bb;
 
     // TEXT COLORS
     --on-primary: #fff;
-    --on-secondary: #000;
-    --on-input: #000;
+    --on-secondary: #fff;
+    --on-input: #fff;
     --on-error: #fff;
     --on-warning: #000;
     --on-success: #fff;
@@ -207,15 +207,15 @@ p {
     --on-code: #48ff5f;
 
     // INPUT COLORS
-    --input: #b0bfcd;
-    --input-disabled: #708196;
-    --placeholder: #606060;
+    --input: #181818;
+    --input-disabled: #585858;
+    --placeholder: #989898;
 
     // ALERT COLORS
-    --error: #b00020;
+    --error: #c40c2e;
     --warning: #ffa000;
     --success: #25a53f;
-    --undefined: #757575;
+    --undefined: #6d6d6d;
 
     // BANNER STYLING
     // COULD BE SOLID COLOR, GRADIENT, OR IMAGE

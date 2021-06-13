@@ -35,7 +35,7 @@
   --error: #b00020;
   --warning: #ffa000;
   --success: #25a53f;
-  --undefined: #757575;
+  --undefined: #6d6d6d;
   --banner: linear-gradient(45deg, #001334 0%, #44638b 100%);
   --banner-color: #fff;
   --hover-dark: #3c3c3c;
@@ -89,32 +89,32 @@ p {
 }
 
 .dark-mode {
-  --surface: #000b18;
+  --surface: #181818;
   --transparent: rgba(0, 0, 0, 0.0);
-  --primary-dark: #001334;
-  --primary: #12395eff;
-  --primary-light: #44638b;
-  --primary--variant-dark: #1c4c86;
-  --primary--variant: #1d69a9;
-  --primary--variant-light: #7d9fcb;
-  --secondary-dark: #c67100;
-  --secondary: #ffa000;
-  --secondary-light: #ffd149;
+  --primary-dark: #272727;
+  --primary: #585858;
+  --primary-light: #888888;
+  --primary--variant-dark: #8c8c8c;
+  --primary--variant: #aeaeae;
+  --primary--variant-light: #cdcdcd;
+  --secondary-dark: #12395e;
+  --secondary: #44638b;
+  --secondary-light: #7390bb;
   --on-primary: #fff;
-  --on-secondary: #000;
-  --on-input: #000;
+  --on-secondary: #fff;
+  --on-input: #fff;
   --on-error: #fff;
   --on-warning: #000;
   --on-success: #fff;
   --on-surface: #fff;
   --on-code: #48ff5f;
-  --input: #b0bfcd;
-  --input-disabled: #708196;
-  --placeholder: #606060;
-  --error: #b00020;
+  --input: #181818;
+  --input-disabled: #585858;
+  --placeholder: #989898;
+  --error: #c40c2e;
   --warning: #ffa000;
   --success: #25a53f;
-  --undefined: #757575;
+  --undefined: #6d6d6d;
   --banner: linear-gradient(45deg, #001334 0%, #44638b 100%);
   --banner-color: #fff;
   --hover-dark: #3c3c3c;
@@ -129,6 +129,61 @@ p {
   ============================================*/
   --other-preference: dark;
   --ts-scale: 1.1;
+}
+
+.dark-mode .search__predictive {
+  background-color: var(--primary-dark);
+}
+.dark-mode .search__predictive .search__predictive_result {
+  border-bottom: var(--border);
+  color: var(--on-primary);
+}
+.dark-mode .search__predictive .search__predictive_result:hover {
+  background-color: var(--primary);
+}
+.dark-mode .search__predictive::-webkit-scrollbar-track {
+  background: var(--primary-dark);
+}
+.dark-mode .search__predictive::-webkit-scrollbar-thumb {
+  background-color: var(--scroll-thumb);
+  border: 4px solid var(--primary-dark);
+}
+.dark-mode .search__predictive::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scroll-hover);
+}
+.dark-mode .search__filter .search__filter__select {
+  background-color: var(--primary-dark);
+}
+.dark-mode .search__filter option {
+  background-color: var(--primary-dark);
+}
+.dark-mode .drawer {
+  --on-drawer: var(--on-primary);
+  background: var(--primary-dark);
+}
+.dark-mode .title-bar,
+.dark-mode .card {
+  background-color: var(--primary-dark);
+}
+.dark-mode .chip,
+.dark-mode .chip--full,
+.dark-mode .card--x,
+.dark-mode .card--y {
+  background-color: var(--surface) !important;
+  border: 1px solid rgba(255, 255, 255, 0.102);
+}
+.dark-mode .chip__options {
+  background-color: var(--primary-dark);
+}
+.dark-mode .form {
+  background-color: var(--primary-dark);
+}
+.dark-mode .form .form__file-preview {
+  border: 1px solid var(--primary-light) !important;
+  color: var(--primary-light) !important;
+}
+.dark-mode .alert {
+  background-color: var(--primary-dark);
 }
 
 * {
@@ -652,12 +707,13 @@ body::-webkit-scrollbar-thumb:hover {
   top: 50px;
   z-index: 100;
   transform-origin: right;
-  overflow-y: scroll;
+  overflow-y: auto;
   background-color: var(--primary--variant-light);
 }
 @media (min-width: 850px) {
   .search__predictive {
     position: fixed;
+    height: max-content;
     max-width: calc(320px - 22px);
     max-height: 400px;
     right: 225px;
@@ -684,13 +740,14 @@ body::-webkit-scrollbar-thumb:hover {
 }
 .search__predictive .search__predictive_result span {
   position: relative;
-  margin-right: 7px;
+  margin-right: 10px;
   font-size: 18px;
   color: inherit;
 }
 .search__predictive .search__predictive_result p {
   position: relative;
   font-size: 16px;
+  top: 7px;
 }
 .search__predictive .search__predictive_result:hover {
   cursor: pointer;
@@ -821,7 +878,7 @@ body::-webkit-scrollbar-thumb:hover {
   right: 0 !important;
   top: 50px;
   z-index: 99;
-  overflow-y: scroll;
+  overflow-y: auto;
   background-color: var(--primary--variant-light);
 }
 .drawer * {

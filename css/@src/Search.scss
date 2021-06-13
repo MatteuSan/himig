@@ -149,12 +149,13 @@
     top: 50px;
     z-index: 100;
     transform-origin: right;
-    overflow-y: scroll;
+    overflow-y: auto;
 
     background-color: var(--primary--variant-light);
 
     @media (min-width: 850px) {
         position: fixed;
+        height: max-content;
         max-width: calc(320px - 22px);
         max-height: 400px;
         right: 225px;
@@ -174,7 +175,7 @@
 
         span {
             position: relative;
-            margin-right: 7px;
+            margin-right: 10px;
             font-size: 18px;
             color: inherit;
         }
@@ -182,6 +183,7 @@
         p {
             position: relative;
             font-size: 16px;
+            top: 7px;
         }
 
         &:hover {

@@ -14,8 +14,9 @@ Check out the demo [here](https://growstocks.github.io/stack)!
 2. Import the stack folder into your project's public folder.
 3. Add the style.css and the index.js file in the `<head></head>` tags.
 ```html
-
+<!-- @StackStyles -->
 <link rel=stylesheet type="text/css" href="stack/css/style.css">
+<!-- @StackScripts -->
 <script src="stack/js/index.js"></script>
 ```
 4. Configure your theme settings in the `stack/css/_env.scss` file.

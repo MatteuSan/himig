@@ -10,3 +10,96 @@
 // NOTE: for a massive success rate (Dream; 1 in 7 million moment), use !important
 // on these overrides.
 //
+
+
+
+
+
+
+
+
+
+
+
+
+// @DarkMode overrides (do not touch unless you actually know what you're doing :> )
+.dark-mode {
+    .search__predictive {
+        background-color: var(--primary-dark);
+
+        .search__predictive_result {
+            border-bottom: var(--border);
+            color: var(--on-primary);
+            &:hover {
+                background-color: var(--primary);
+            }
+        }
+        &::-webkit-scrollbar-track {
+            background: var(--primary-dark);
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: var(--scroll-thumb);
+            border: 4px solid var(--primary-dark);
+
+            &:hover {
+                background-color: var(--scroll-hover);
+            }
+        }
+    }
+
+    .search__filter {
+
+        .search__filter__select {
+            background-color: var(--primary-dark);
+        }
+
+        option {
+            background-color: var(--primary-dark);
+        }
+
+    }
+
+    //  DRAWER
+    .drawer {
+        --on-drawer: var(--on-primary);
+
+        background: var(--primary-dark);
+    }
+
+    //  CONTENTS
+    .title-bar,
+    .card {
+        background-color: var(--primary-dark);
+    }
+
+    .chip,
+    .chip--full,
+    .card--x,
+    .card--y {
+        background-color: var(--surface) !important;
+        border: 1px solid rgba(255,255,255,0.102);
+    }
+
+    .chip__options {
+        background-color: var(--primary-dark);
+    }
+
+    .card--y__action {
+        //color: ;
+    }
+
+    .form {
+        background-color: var(--primary-dark);
+
+        .form__file-preview {
+            border: 1px solid var(--primary-light) !important;
+            color: var(--primary-light) !important;
+        }
+    }
+
+    .alert {
+        background-color: var(--primary-dark);
+    }
+
+}
