@@ -5,7 +5,7 @@
         drawer_open: false,
         predictive_show: false
     }"
-    class="dark-mode"
+    class=""
 >
 <head>
     <meta charset="UTF-8">
@@ -135,6 +135,10 @@
     <div class="drawer elevation--z5" x-show.transition.origin.top.right="drawer_open" @click.away="drawer_open = false" style="display: none">
         <div class="wrap--text" style="margin: 0 auto;">
 
+            <a id="dark-mode__toggle" class="drawer__item">
+                <span id="dark-mode__icon" class="drawer__icon material-icons">brightness_4</span>
+                <p id="dark-mode__text">Toggle Themes</p>
+            </a>
             <a class="drawer__item" target="_blank" href="https://github.com/GrowStocks/StackCSS">
                 <span class="drawer__icon fab fa-github"></span>
                 <p>Stack Repository</p>

@@ -11,4 +11,9 @@ declare const headerText: any;
 declare const fileInput: any;
 declare const previewImg: any;
 declare const previewText: any;
+declare let darkMode: any;
+declare const theme: any;
+declare const toggle: any;
+declare function enable(): void;
+declare function disable(): void;
 //# sourceMappingURL=index.d.ts.map
