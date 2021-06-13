@@ -177,8 +177,70 @@ p {
 // Place dark mode/light mode specifications here
 //
 
-@media (prefers-color-scheme: var(--other-preference)) {
-    .dark-mode {
-        //
-    }
+.dark-mode {
+    // SURFACE COLOR AND GENERAL COLORS
+    --surface: #000b18;
+    --transparent: rgba(0, 0, 0, 0.0);
+
+    // PRIMARY COLORS
+    --primary-dark: #001334;
+    --primary: #12395eff;
+    --primary-light: #44638b;
+
+    --primary--variant-dark: #1c4c86;
+    --primary--variant: #1d69a9;
+    --primary--variant-light: #7d9fcb;
+
+    // SECONDARY COLORS
+    --secondary-dark: #c67100;
+    --secondary: #ffa000;
+    --secondary-light: #ffd149;
+
+    // TEXT COLORS
+    --on-primary: #fff;
+    --on-secondary: #000;
+    --on-input: #000;
+    --on-error: #fff;
+    --on-warning: #000;
+    --on-success: #fff;
+    --on-surface: #fff;
+    --on-code: #48ff5f;
+
+    // INPUT COLORS
+    --input: #b0bfcd;
+    --input-disabled: #708196;
+    --placeholder: #606060;
+
+    // ALERT COLORS
+    --error: #b00020;
+    --warning: #ffa000;
+    --success: #25a53f;
+    --undefined: #757575;
+
+    // BANNER STYLING
+    // COULD BE SOLID COLOR, GRADIENT, OR IMAGE
+    --banner: linear-gradient(45deg, #001334 0%, #44638b 100%);
+    --banner-color: #fff;
+
+    // HOVER COLORS
+    --hover-dark: #3c3c3c;
+    --hover: #5a5a5a;
+    --hover-light: #a9adb2;
+
+    // SCROLL COLORS
+    --scroll-thumb: #929292;
+    --scroll-hover: #5a5a5a;
+
+    // HIDDEN ELEMENT COLORS
+    --tooltip: #232323;
+    --snackbar: #232323;
+    /*============================================
+    --scroll-track is ALWAYS the --surface color
+    ============================================*/
+
+    // SET OTHER DEVICE PREFERENCE
+    --other-preference: dark;
+
+    // SET TRANSITIONS
+    --ts-scale: 1.1;
 }

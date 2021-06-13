@@ -88,6 +88,49 @@ p {
   --on-drawer: var(--surface);
 }
 
+.dark-mode {
+  --surface: #000b18;
+  --transparent: rgba(0, 0, 0, 0.0);
+  --primary-dark: #001334;
+  --primary: #12395eff;
+  --primary-light: #44638b;
+  --primary--variant-dark: #1c4c86;
+  --primary--variant: #1d69a9;
+  --primary--variant-light: #7d9fcb;
+  --secondary-dark: #c67100;
+  --secondary: #ffa000;
+  --secondary-light: #ffd149;
+  --on-primary: #fff;
+  --on-secondary: #000;
+  --on-input: #000;
+  --on-error: #fff;
+  --on-warning: #000;
+  --on-success: #fff;
+  --on-surface: #fff;
+  --on-code: #48ff5f;
+  --input: #b0bfcd;
+  --input-disabled: #708196;
+  --placeholder: #606060;
+  --error: #b00020;
+  --warning: #ffa000;
+  --success: #25a53f;
+  --undefined: #757575;
+  --banner: linear-gradient(45deg, #001334 0%, #44638b 100%);
+  --banner-color: #fff;
+  --hover-dark: #3c3c3c;
+  --hover: #5a5a5a;
+  --hover-light: #a9adb2;
+  --scroll-thumb: #929292;
+  --scroll-hover: #5a5a5a;
+  --tooltip: #232323;
+  --snackbar: #232323;
+  /*============================================
+  --scroll-track is ALWAYS the --surface color
+  ============================================*/
+  --other-preference: dark;
+  --ts-scale: 1.1;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
