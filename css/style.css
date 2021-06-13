@@ -432,6 +432,12 @@ body::-webkit-scrollbar-thumb:hover {
   margin: 0 auto;
   cursor: pointer;
 }
+.nav .nav__container .nav__item > a, .nav .nav__container .nav__item > p {
+  display: block;
+}
+.nav .nav__container .nav__item > a:hover, .nav .nav__container .nav__item > p:hover {
+  opacity: 0.6;
+}
 .nav .nav__container .nav__item .nav__item__icon {
   font-size: 24px;
   font-weight: 200 !important;
@@ -441,9 +447,6 @@ body::-webkit-scrollbar-thumb:hover {
   -moz-transition: all 0.1s ease;
   -o-transition: all 0.1s ease;
   transition: all 0.1s ease;
-}
-.nav .nav__container .nav__item .nav__item__icon:hover {
-  opacity: 0.6;
 }
 .nav .nav__container .nav__item .nav__item__text {
   font-size: 12px !important;
@@ -965,7 +968,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 .alert--success {
   width: 100%;
-  padding: 0.5rem 0.7rem;
+  padding: 0.3rem 0.5rem;
   background-color: var(--success);
   border-radius: 0.3rem;
   color: var(--on-primary);
@@ -975,17 +978,20 @@ body::-webkit-scrollbar-thumb:hover {
   font-size: 24px;
   margin-right: 3px;
   color: inherit;
+  position: relative;
+  top: 0.1rem;
 }
 .alert--success .alert__text {
   display: inline-block;
-  position: relative;
-  bottom: 5px;
   color: inherit;
+  font-size: 14px;
+  position: relative;
+  bottom: 0.34rem;
 }
 
 .alert--warning {
   width: 100%;
-  padding: 0.5rem 0.7rem;
+  padding: 0.3rem 0.5rem;
   background-color: var(--warning);
   border-radius: 0.3rem;
   color: var(--on-warning);
@@ -995,17 +1001,20 @@ body::-webkit-scrollbar-thumb:hover {
   font-size: 24px;
   margin-right: 3px;
   color: inherit;
+  position: relative;
+  top: 0.1rem;
 }
 .alert--warning .alert__text {
   display: inline-block;
-  position: relative;
-  bottom: 5px;
   color: inherit;
+  font-size: 14px;
+  position: relative;
+  bottom: 0.34rem;
 }
 
 .alert--error {
   width: 100%;
-  padding: 0.5rem 0.7rem;
+  padding: 0.3rem 0.5rem;
   background-color: var(--error);
   border-radius: 0.3rem;
   color: var(--on-primary);
@@ -1015,17 +1024,20 @@ body::-webkit-scrollbar-thumb:hover {
   font-size: 24px;
   margin-right: 3px;
   color: inherit;
+  position: relative;
+  top: 0.1rem;
 }
 .alert--error .alert__text {
   display: inline-block;
-  position: relative;
-  bottom: 5px;
   color: inherit;
+  font-size: 14px;
+  position: relative;
+  bottom: 0.34rem;
 }
 
 .alert--undefined {
   width: 100%;
-  padding: 0.5rem 0.7rem;
+  padding: 0.3rem 0.5rem;
   background-color: var(--undefined);
   border-radius: 0.3rem;
   color: var(--on-primary);
@@ -1035,17 +1047,20 @@ body::-webkit-scrollbar-thumb:hover {
   font-size: 24px;
   margin-right: 3px;
   color: inherit;
+  position: relative;
+  top: 0.1rem;
 }
 .alert--undefined .alert__text {
   display: inline-block;
-  position: relative;
-  bottom: 5px;
   color: inherit;
+  font-size: 14px;
+  position: relative;
+  bottom: 0.34rem;
 }
 
 .alert {
   width: 100%;
-  padding: 0.5rem 0.7rem;
+  padding: 0.3rem 0.5rem;
   background-color: var(--primary-light);
   border-radius: 0.3rem;
   color: var(--on-primary);
@@ -1055,12 +1070,15 @@ body::-webkit-scrollbar-thumb:hover {
   font-size: 24px;
   margin-right: 3px;
   color: inherit;
+  position: relative;
+  top: 0.1rem;
 }
 .alert .alert__text {
   display: inline-block;
-  position: relative;
-  bottom: 5px;
   color: inherit;
+  font-size: 14px;
+  position: relative;
+  bottom: 0.34rem;
 }
 
 .btn {
@@ -1183,7 +1201,7 @@ body::-webkit-scrollbar-thumb:hover {
   padding: 0 3px;
 }
 .card .card__big-text {
-  font-size: 22px;
+  font-size: 18px;
 }
 .card .card__small-text {
   font-size: 12px;
@@ -1661,7 +1679,7 @@ body::-webkit-scrollbar-thumb:hover {
 }
 .form .form__field {
   position: relative;
-  margin: 7px 0;
+  margin: 13px 0;
 }
 .form .form__field .form__label {
   width: 100%;
@@ -1670,7 +1688,6 @@ body::-webkit-scrollbar-thumb:hover {
   position: absolute;
   top: 0.57rem;
   left: 0;
-  --placeholder: #b1b1b1;
   color: var(--placeholder);
   -webkit-transition: all 70ms ease;
   -ms-transition: all 70ms ease;
@@ -1680,8 +1697,9 @@ body::-webkit-scrollbar-thumb:hover {
 }
 .form .form__field .form__input {
   width: 100%;
-  background-color: var(--transparent);
-  border: 1px solid var(--input);
+  background-color: var(--input);
+  color: var(--on-input);
+  border: 2px solid var(--input);
   padding: 0.5rem 0.7rem;
   border-radius: 0.3rem;
   -webkit-transition: all 0.1s ease;
@@ -1696,16 +1714,16 @@ body::-webkit-scrollbar-thumb:hover {
   color: var(--transparent);
 }
 .form .form__field .form__input:focus {
-  border: 2px solid var(--input);
+  border: 2px solid var(--secondary);
   outline: none !important;
 }
 .form .form__field .form__input:focus-within + .form__label, .form .form__field .form__input:not(:placeholder-shown) + .form__label {
+  --placeholder: #e2e2e2;
   width: auto;
   margin: 0 0 0 0.3rem;
-  padding: 0 0.2rem;
-  top: -0.47rem;
+  padding: 0;
+  top: -1.17rem;
   font-size: 12px;
-  background-color: var(--primary);
   pointer-events: none;
 }
 .form .form__field .form__input[type=file], .form .form__field .form__input.type--file {
@@ -1721,6 +1739,7 @@ body::-webkit-scrollbar-thumb:hover {
   content: attr(data-label);
   display: inline-block;
   background-color: var(--transparent);
+  color: var(--on-primary);
   border: 1px solid var(--secondary);
   border-radius: 0.3rem;
   padding: 8px 12px;
@@ -1754,6 +1773,10 @@ body::-webkit-scrollbar-thumb:hover {
 }
 .form .form__field.error > * {
   border-color: var(--error) !important;
+  color: var(--error);
+}
+.form .form__field.error > .form__label {
+  --placeholder: #e2e2e2!important;
 }
 .form .form__field .form__file-preview {
   width: 100%;

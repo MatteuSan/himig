@@ -37,16 +37,20 @@
             margin: 0 auto;
             cursor: pointer;
 
+            & > a,
+            & > p {
+                display: block;
+                &:hover {
+                    opacity: 0.6;
+                }
+            }
+
             .nav__item__icon {
                 font-size: 24px;
                 font-weight: 200 !important;
                 color: var(--on-primary) !important;
 
                 @include mixins.prefix(transition, all 0.1s ease);
-
-                &:hover {
-                    opacity: 0.6;
-                }
             }
 
             .nav__item__text {

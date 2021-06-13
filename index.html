@@ -67,20 +67,28 @@
         <nav class="nav">
             <div class="nav__container">
                 <div class="nav__item" data-tooltip="Home">
-                    <a class="nav__item__icon material-icons" href="#">home</a>
-                    <p class="nav__item__text">Home</p>
+                    <a href="#">
+                        <p class="nav__item__icon material-icons">home</p>
+                        <p class="nav__item__text">Home</p>
+                    </a>
                 </div>
-                <div class="nav__item" data-tooltip="Docs">
-                    <a class="nav__item__icon material-icons" href="#">description</a>
-                    <p class="nav__item__text">Docs</p>
+                <div class="nav__item" data-tooltip="Documentation">
+                    <a href="#">
+                        <p class="nav__item__icon material-icons">description</p>
+                        <p class="nav__item__text">Docs</p>
+                    </a>
                 </div>
                 <div class="nav__item" data-tooltip="Notifications">
-                    <a class="nav__item__icon material-icons" href="#">notifications</a>
-                    <p class="nav__item__text">Notifications</p>
+                    <a href="#">
+                        <p class="nav__item__icon material-icons">notifications</p>
+                        <p class="nav__item__text">Inbox</p>
+                    </a>
                 </div>
                 <div class="nav__item" data-tooltip="More...">
-                    <p @click="drawer_open = !drawer_open" class="nav__item__icon material-icons" href="#" x-text="drawer_open ? 'close' : 'menu'"></p>
-                    <p class="nav__item__text">More</p>
+                    <a href="#">
+                        <p @click.prevent="drawer_open = !drawer_open" class="nav__item__icon material-icons" x-text="drawer_open ? 'close' : 'menu'"></p>
+                        <p class="nav__item__text">More</p>
+                    </a>
                 </div>
             </div>
         </nav>

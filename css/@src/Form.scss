@@ -17,7 +17,7 @@
 
     .form__field {
         position: relative;
-        margin: 7px 0;
+        margin: 13px 0;
 
         .form__label {
             width: 100%;
@@ -28,7 +28,6 @@
             top: 0.57rem;
             left: 0;
 
-            --placeholder: #b1b1b1;
             color: var(--placeholder);
 
             @include mixins.prefix(transition, all 70ms ease);
@@ -36,8 +35,9 @@
 
         .form__input {
             width: 100%;
-            background-color: var(--transparent);
-            border: 1px solid var(--input);
+            background-color: var(--input);
+            color: var(--on-input);
+            border: 2px solid var(--input);
 
             padding: 0.5rem 0.7rem;
             border-radius: 0.3rem;
@@ -53,22 +53,23 @@
             }
 
             &:focus {
-                border: 2px solid var(--input);
+                border: 2px solid var(--secondary);
                 outline: none!important;
             }
 
             &:focus-within,
             &:not(:placeholder-shown) {
                 & + .form__label {
+                    --placeholder: #e2e2e2;
+
                     width: auto;
                     margin: 0 0 0 0.3rem;
-                    padding: 0 0.2rem;
+                    padding: 0;
 
-                    top: -0.47rem;
+                    top: -1.17rem;
 
                     font-size: 12px;
 
-                    background-color: var(--primary);
                     pointer-events: none;
                 }
             }
@@ -89,6 +90,7 @@
                     content: attr(data-label);
                     display: inline-block;
                     background-color: var(--transparent);
+                    color: var(--on-primary);
                     border: 1px solid var(--secondary);
                     border-radius: 0.3rem;
                     padding: 8px 12px;
@@ -119,6 +121,11 @@
 
             > * {
                 border-color: var(--error) !important;
+                color: var(--error);
+            }
+
+            > .form__label {
+                --placeholder: #e2e2e2!important;
             }
         }
 
