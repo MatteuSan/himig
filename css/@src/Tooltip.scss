@@ -1,110 +1,111 @@
 @use './mixins';
 
 *[data-tooltip] {
-  position: relative;
+    position: relative;
 
-  &:hover {
-    cursor: help;
-  }
+    &:hover {
+        cursor: help;
+    }
 
-  &::after {
-    // TAKE CONTENT DATA
-    content: attr(data-tooltip);
+    &::after {
+        // TAKE CONTENT DATA
+        content: attr(data-tooltip);
 
-    // STYLING
-    display: block;
-    position: absolute;
-    background-color: #333;
-    color: #fff;
-    padding: 0.8em 1em;
-    border-radius: 5px;
-    font-size: .75em;
-    bottom: calc(100% + 2px);
-    left: -5%;
-    right: -5%;
-    z-index: 999;
-    opacity: 0;
+        // STYLING
+        display: block;
+        position: absolute;
+        background-color: #333;
+        color: #fff;
+        padding: 0.8em 1em;
+        border-radius: 5px;
+        font-size: .75em;
+        bottom: calc(100% + 2px);
+        left: -5%;
+        right: -5%;
+        z-index: 999;
+        opacity: 0;
 
-    pointer-events: none;
-    text-align: center;
+        pointer-events: none;
+        text-align: center;
 
-    @include mixins.prefix(transition, all 0.1s ease);
-  }
+        @include mixins.prefix(transition, all 0.1s ease);
+    }
 
-  &:hover::after {
-    opacity: 1;
-  }
+    &:hover::after {
+        opacity: 1;
+    }
 }
 
 button[data-tooltip] {
-  position: relative;
+    position: relative;
 
-  &:hover {
-    cursor: help;
-  }
+    &:hover {
+        cursor: help;
+    }
 
-  &::after {
-    // TAKE CONTENT DATA
-    content: attr(data-tooltip);
-    // STYLING
-    display: block;
-    position: absolute;
-    background-color: #333;
-    color: #fff;
-    padding: 0.8em 1em;
-    border-radius: 5px;
-    font-size: .75em;
-    bottom: calc(100% + 5px);
-    left: -5%;
-    right: -5%;
-    z-index: 999;
-    opacity: 0;
-    transition: opacity ease-in-out 200ms;
-    pointer-events: none;
-    text-align: center;
+    &::after {
+        // TAKE CONTENT DATA
+        content: attr(data-tooltip);
+        // STYLING
+        display: block;
+        position: absolute;
+        background-color: #333;
+        color: #fff;
+        padding: 0.8em 1em;
+        border-radius: 5px;
+        font-size: .75em;
+        bottom: calc(100% + 5px);
+        left: -5%;
+        right: -5%;
+        z-index: 999;
+        opacity: 0;
+        transition: opacity ease-in-out 200ms;
+        pointer-events: none;
+        text-align: center;
 
-    @include mixins.prefix(transition, all 0.1s ease);
-  }
+        @include mixins.prefix(transition, all 0.1s ease);
+    }
 
-  &:hover::after {
-    opacity: 1;
-  }
+    &:hover::after {
+        opacity: 1;
+    }
 }
 
 .nav__item[data-tooltip] {
-  position: relative;
+    position: relative;
 
-  &::after {
-    // TAKE CONTENT DATA
-    content: attr(data-tooltip);
-    // STYLING
-    display: block;
-    position: absolute;
-    background-color: #333;
-    color: #fff;
-    padding: 0.5em 0.7em;
-    border-radius: 5px;
-    font-size: .75em;
-    bottom: -100%;
-    left: auto;
-    right: auto;
-    z-index: 100;
-    opacity: 0;
-    transition: opacity ease-in-out 200ms;
-    pointer-events: none;
-    text-align: center;
+    &::after {
+        // TAKE CONTENT DATA
+        content: attr(data-tooltip);
+        // STYLING
+        display: block;
+        position: absolute;
+        background-color: #333;
+        color: #fff;
+        padding: 0.5em 0.7em;
+        border-radius: 5px;
+        font-size: .75em;
+        bottom: calc(-100%);
+        left: auto;
+        right: auto;
+        z-index: 100;
+        opacity: 0;
+        transition: opacity ease-in-out 200ms;
+        pointer-events: none;
+        text-align: center;
+        white-space: nowrap;
 
-    box-shadow: 0 2px 4px -1px rgba(0 0 0 / 20%), 0 4px 5px 0 rgba(0 0 0 / 14%), 0 1px 10px 0 rgba(0 0 0 / 12%);
+        box-shadow: 0 2px 4px -1px rgba(0 0 0 / 20%), 0 4px 5px 0 rgba(0 0 0 / 14%), 0 1px 10px 0 rgba(0 0 0 / 12%);
 
-    @include mixins.prefix(transition, all 0.1s ease);
+        @include mixins.prefix(transition, all 0.1s ease);
 
-    // MAKE IT NOT DISPLAY WHEN MOBILE VIEW
-    @media (max-width: 849px) {
-      display: none!important;
+        // MAKE IT NOT DISPLAY WHEN MOBILE VIEW
+        @media (max-width: 849px) {
+            display: none !important;
+        }
     }
-  }
 
-  &:hover::after {
-    opacity: 1;
-  }
+    &:hover::after {
+        opacity: 1;
+    }
 }

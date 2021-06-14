@@ -19,6 +19,9 @@
     padding: $padding;
     border-radius: $border-radius;
 
+    display: grid;
+    grid-template-columns: 42px 1fr 42px;
+
     background-color: var(--primary-light);
 
     &::after {
@@ -80,6 +83,7 @@
 .contain--item {
     height: max-content;
     border-radius: 0.3rem;
+    position: relative;
 
     .item__status__sym {
         display: inline !important;
@@ -90,9 +94,10 @@
         font-weight: 400 !important;
     }
 
-    .chip__options__trigger, .material-icons {
+    .chip__options__trigger,
+    .chip__modal__trigger {
         display: block;
-        position: relative;
+        position: absolute;
 
         background-color: var(--transparent);
         border: none;
@@ -141,7 +146,7 @@
         }
     }
 
-    .chip__options_spacer {
+    .chip__options__spacer {
         color: var(--surface);
     }
 }
@@ -181,6 +186,8 @@
     &.undefined {
         background-color: var(--undefined);
     }
+
+    @include mixins.rainbow-factory();
 
 }
 

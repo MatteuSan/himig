@@ -97,6 +97,10 @@
     align-items: center;
     padding-right: 10px;
 
+    @media (min-width: 850px) {
+        padding-right: 0;
+    }
+
     button {
         width: 30px !important;
         height: 30px !important;
@@ -151,7 +155,7 @@
     transform-origin: right;
     overflow-y: auto;
 
-    background-color: var(--primary--variant-light);
+    background-color: var(--primary-light);
 
     @media (min-width: 850px) {
         position: fixed;
@@ -161,15 +165,15 @@
         right: 225px;
     }
 
-    .search__predictive_result {
+    .search__predictive__result {
         padding: 0.7rem;
         display: flex;
-        color: var(--surface);
+        color: var(--on-primary);
 
         @include mixins.prefix(transition, all 0.1s ease);
 
         &:hover {
-            background-color: var(--primary-light);
+            background-color: var(--primary);
             color: var(--on-primary);
         }
 
@@ -184,6 +188,7 @@
             position: relative;
             font-size: 16px;
             top: 7px;
+            color: inherit;
         }
 
         &:hover {

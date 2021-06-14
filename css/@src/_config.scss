@@ -81,3 +81,15 @@ body {
     //SCROLLBAR
     @include mixins.scrollbar(var(--surface));
 }
+
+.visible {
+    display: block!important;
+
+    @include mixins.prefix(transition, display 0.1s ease);
+}
+
+.invisible {
+    display: none!important;
+
+    @include mixins.prefix(transition, display 0.1s ease);
+}

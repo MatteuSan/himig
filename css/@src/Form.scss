@@ -2,12 +2,11 @@
 
 .form {
     width: 100%;
-    max-width: 670px;
 
     display: flex;
     flex-direction: column;
 
-    padding: 0.7rem 1rem;
+    padding: 0.7rem;
 
     background-color: var(--primary);
     color: var(--on-primary);
@@ -18,139 +17,153 @@
     .form__field {
         position: relative;
         margin: 13px 0;
+    }
 
-        .form__label {
-            width: 100%;
-            font-size: 14px;
-            padding: 0 0.7rem;
+    .form__field--inline {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr 0.3fr;
+        grid-gap: 10px;
 
-            position: absolute;
-            top: 0.57rem;
-            left: 0;
+        .form__field {
+            margin: 0;
+        }
+    }
 
-            color: var(--placeholder);
+    .form__label {
+        font-size: 14px;
+        padding: 0 0.7rem;
 
-            @include mixins.prefix(transition, all 70ms ease);
+        position: absolute;
+        top: 0.57rem;
+        left: 0;
+
+        color: var(--placeholder);
+        cursor: text;
+
+        @include mixins.prefix(transition, all 70ms ease);
+    }
+
+    .form__input {
+        width: 100%;
+        background-color: var(--input);
+        color: var(--on-input);
+        border: 2px solid var(--input);
+
+        padding: 0.5rem 0.7rem;
+        border-radius: 0.3rem;
+
+        @include mixins.prefix(transition, all 0.1s ease);
+
+        font-size: 14px;
+
+        resize: none;
+
+        &::placeholder {
+            color: var(--transparent);
         }
 
-        .form__input {
-            width: 100%;
-            background-color: var(--input);
-            color: var(--on-input);
-            border: 2px solid var(--input);
+        &:focus {
+            border: 2px solid var(--secondary);
+            outline: none!important;
+        }
 
-            padding: 0.5rem 0.7rem;
-            border-radius: 0.3rem;
+        &:focus-within,
+        &:not(:placeholder-shown) {
+            margin: 1.17rem 0 0 0;
 
-            @include mixins.prefix(transition, all 0.1s ease);
+            & + .form__label {
+                --placeholder: #e2e2e2;
 
-            font-size: 14px;
+                width: auto;
+                margin: 0 0 0 0.15rem;
+                padding: 0;
 
-            resize: none;
+                top: 0.08rem;
 
-            &::placeholder {
-                color: var(--transparent);
+                font-size: 12px;
+
+                pointer-events: none;
+                cursor: default;
             }
+        }
 
-            &:focus {
-                border: 2px solid var(--secondary);
-                outline: none!important;
-            }
+        // when type=file, remove label
+        @at-root #{&}[type=file],
+        &.type--file {
+            margin: 3px 0 0 0;
+            padding: 0.3rem 0;
+            visibility: hidden;
 
-            &:focus-within,
-            &:not(:placeholder-shown) {
-                & + .form__label {
-                    --placeholder: #e2e2e2;
-
-                    width: auto;
-                    margin: 0 0 0 0.3rem;
-                    padding: 0;
-
-                    top: -1.17rem;
-
-                    font-size: 12px;
-
-                    pointer-events: none;
-                }
-            }
-
-            // when type=file, remove label
-            @at-root #{&}[type=file],
-            &.type--file {
-                margin: 3px 0 0 0;
-                padding: 0.3rem 0;
+            &::-webkit-file-upload-button {
                 visibility: hidden;
+            }
 
-                &::-webkit-file-upload-button {
-                    visibility: hidden;
-                }
+            &::before {
+                visibility: visible;
+                content: attr(data-label);
+                display: inline-block;
+                background-color: var(--transparent);
+                color: var(--on-primary);
+                border: 1px solid var(--secondary);
+                border-radius: 0.3rem;
+                padding: 8px 12px;
+                outline: none;
+                white-space: nowrap;
+                user-select: none;
+                cursor: pointer;
+                font-size: 12px;
 
-                &::before {
-                    visibility: visible;
-                    content: attr(data-label);
-                    display: inline-block;
-                    background-color: var(--transparent);
-                    color: var(--on-primary);
-                    border: 1px solid var(--secondary);
-                    border-radius: 0.3rem;
-                    padding: 8px 12px;
-                    outline: none;
-                    white-space: nowrap;
-                    user-select: none;
-                    cursor: pointer;
-                    font-size: 12px;
+                @include mixins.prefix(transition, all 0.1s ease);
+            }
 
-                    @include mixins.prefix(transition, all 0.1s ease);
-                }
+            &:hover::before {
+                background-color: var(--secondary);
+                color: var(--on-secondary);
+            }
 
-                &:hover::before {
-                    background-color: var(--secondary);
-                    color: var(--on-secondary);
-                }
-
-                & ~ .form__label {
-                    background-color: var(--transparent);
-                    top: -0.5rem;
-                    padding: 0;
-                }
+            & ~ .form__label {
+                background-color: var(--transparent);
+                top: -0.5rem;
+                padding: 0;
             }
         }
+    }
 
-        &.error {
-            @include mixins.prefix(transition, all 0.1s ease);
+    &.error {
+        @include mixins.prefix(transition, all 0.1s ease);
 
-            > * {
-                border-color: var(--error) !important;
-                color: var(--error);
-            }
-
-            > .form__label {
-                --placeholder: #e2e2e2!important;
-            }
+        > * {
+            border-color: var(--error) !important;
+            color: var(--error);
         }
 
-        .form__file-preview {
+        > .form__label {
+            --placeholder: #e2e2e2!important;
+        }
+    }
+
+    .form__file-preview {
+        width: 100%;
+        min-height: 100px;
+        margin: 5px 0 0 0;
+
+        border: 1px solid var(--input);
+        border-radius: 0.3rem;
+
+        display: grid;
+        place-items: center;
+
+        color: var(--input);
+
+        .form__file-preview__image {
             width: 100%;
-            min-height: 100px;
-            margin: 5px 0 0 0;
+            height: 100%;
+            display: none;
+        }
 
-            border: 1px solid var(--input);
-            border-radius: 0.3rem;
-
-            display: grid;
-            place-items: center;
-
-            color: var(--input);
-
-            .form__file-preview__image {
-                width: 100%;
-                height: 100%;
-                display: none;
-            }
-
-            .form__file-preview__label {
-                color: inherit;
-            }
+        .form__file-preview__label {
+            color: inherit;
         }
     }
 

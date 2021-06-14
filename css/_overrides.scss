@@ -15,23 +15,14 @@
 
 
 
-
-
-
-
-
-
-
 // @DarkMode overrides (do not touch unless you actually know what you're doing :> )
 .dark-mode {
     .search__predictive {
         background-color: var(--primary-dark);
 
         .search__predictive_result {
-            border-bottom: var(--border);
-            color: var(--on-primary);
             &:hover {
-                background-color: var(--primary);
+                background-color: var(--primary-dark);
             }
         }
         &::-webkit-scrollbar-track {
@@ -76,13 +67,19 @@
     .chip,
     .chip--full,
     .card--x,
-    .card--y {
+    .card--y,
+    .card {
         background-color: var(--surface) !important;
         border: 1px solid rgba(255,255,255,0.102);
     }
 
     .chip__options {
         background-color: var(--primary-dark);
+    }
+
+    .chip__spacer,
+    .chip__options__spacer {
+        color: var(--primary-light) !important;
     }
 
     .card--y__action {
@@ -101,5 +98,14 @@
     .alert {
         background-color: var(--primary-dark);
     }
+
+    .modal__header {
+        background-color: var(--surface);
+    }
+
+    .modal__contents {
+        background-color: var(--primary-dark);
+    }
+
 
 }

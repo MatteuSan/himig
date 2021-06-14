@@ -50,28 +50,49 @@
     max-width: 300px;
 }
 
+.wrap--33-66 {
+    display: grid;
+
+    @media (min-width: 850px) {
+        grid-template-columns: 1fr 2fr;
+        grid-gap: 15px;
+    }
+}
+
+.wrap--50-50 {
+    display: grid;
+
+    @media (min-width: 850px) {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 15px;
+    }
+}
+
+.wrap--66-33 {
+    display: grid;
+
+    @media (min-width: 850px) {
+        grid-template-columns: 2fr 1fr;
+        grid-gap: 15px;
+    }
+}
+
 @media (min-width: 850px) {
 
     .col--33 {
-        width: calc(33% - 2px) !important;
-        padding-right: 5px !important;
-        float: left;
+        // FOR LABELING ONLY
     }
 
     .col--66 {
-        width: calc(66% - 5px) !important;
-        float: right;
-        margin-top: 0;
+        // FOR LABELING ONLY
     }
 
     .col--50--l {
-        float: left;
-        width: calc(50% - 5px) !important;
+        // FOR LABELING ONLY
     }
 
     .col--50--r {
-        float: right;
-        width: calc(50% - 5px) !important;
+        // FOR LABELING ONLY
     }
 
 }

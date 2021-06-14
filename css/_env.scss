@@ -28,7 +28,7 @@
 
     // PRIMARY COLORS
     --primary-dark: #001334;
-    --primary: #12395eff;
+    --primary: #12305e;
     --primary-light: #44638b;
 
     --primary--variant-dark: #1c4c86;
@@ -102,11 +102,19 @@
 //
 
 // IMPORT FONT
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@font-face {
+    font-family: "SF UI Display";
+    src: url("../../assets/font/SF-UI-Display-Regular.ttf");
+}
+
+@font-face {
+    font-family: "SF UI Display Bold";
+    src: url("../../assets/font/SF-UI-Display-Bold.ttf");
+}
 
 * {
     // SPECIFY FONT
-    --font-name: 'Roboto';
+    --font-name: 'SF UI Display';
     --font-type: sans-serif;
 }
 
@@ -114,7 +122,7 @@ h1,
 h2,
 h3,
 b {
-    --font-name: 'Roboto';
+    --font-name: 'SF UI Display Bold';
     --font-type: sans-serif;
 
     // @FONT WEIGHT DEFAULT: 700
@@ -125,7 +133,7 @@ h4,
 h5,
 h6,
 p {
-    --font-name: 'Roboto';
+    --font-name: 'SF UI Display';
     --font-type: sans-serif;
 
     // @FONT WEIGHT DEFAULT: 400
@@ -192,13 +200,13 @@ p {
     --primary--variant-light: #cdcdcd;
 
     // SECONDARY COLORS
-    --secondary-dark: #12395e;
-    --secondary: #44638b;
-    --secondary-light: #7390bb;
+    --secondary-dark: #44638b;
+    --secondary: #7390bb;
+    --secondary-light: #a4c0ee;
 
     // TEXT COLORS
     --on-primary: #fff;
-    --on-secondary: #fff;
+    --on-secondary: #000;
     --on-input: #fff;
     --on-error: #fff;
     --on-warning: #000;

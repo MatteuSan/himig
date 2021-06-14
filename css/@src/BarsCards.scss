@@ -6,7 +6,7 @@
     $padding: 8px 10px,
     $margin-bottom: 10px,
     $border-radius: 0.3rem,
-    $font-size: 20px,
+    $font-size: 18px,
     $font-weight: 700
 ) {
     width: $width;
@@ -23,6 +23,18 @@
     @include title-bar();
 
     background-color: var(--primary);
+
+    .title-bar__icon {
+        position: relative;
+        top: 2px;
+        margin-right: 5px;
+    }
+
+    h2 {
+        position: relative;
+        top: -3px;
+        display: inline-block;
+    }
 
     @at-root #{&}--on-card {
 
@@ -83,20 +95,20 @@
     }
 
     &.stable {
-        background-color: var(--success);
+        background-color: var(--success) !important;
     }
 
     &.semi-stable {
-        background-color: var(--warning);
-        color: var(--on-warning);
+        background-color: var(--warning) !important;
+        color: var(--on-warning) !important;
     }
 
     &.unstable {
-        background-color: var(--error);
+        background-color: var(--error) !important;
     }
 
     &.undefined {
-        background-color: var(--undefined);
+        background-color: var(--undefined) !important;
     }
 
     @at-root #{&}--on-surface {
@@ -114,6 +126,7 @@
     height: 110px;
     font-size: 13px;
     border-radius: 5px;
+    width: 100%;
 
     display: grid;
     grid-template-columns: 110px auto;

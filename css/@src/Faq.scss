@@ -1,20 +1,24 @@
+@use './mixins';
+
 .faq {
-  display: none;
-  margin-bottom: 10px;
-  /*transition: ease 200ms 200ms;
-  transform-origin: top;*/
+    display: none;
+    margin-bottom: 10px;
+    /*transition: ease 200ms 200ms;
+    transform-origin: top;*/
+
+    @include mixins.prefix(transition, display 0.1s ease);
 }
 
 .faq--open {
-  cursor: pointer;
+    cursor: pointer;
 
-  .material-icons {
-    display: inline;
-  }
+    .material-icons {
+        display: inline;
+    }
 
-  .faq__trigger {
-    position: relative;
-    top: -5px;
-    display: inline;
-  }
+    .faq__trigger {
+        position: relative;
+        top: -5px;
+        display: inline;
+    }
 }
