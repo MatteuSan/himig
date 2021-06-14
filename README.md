@@ -10,7 +10,7 @@ Check out the demo [here](https://growstocks.github.io/stack)!
 * SASS/SCSS Live Watcher or Live Compiler (refer to your IDE's plugins marketplace)
 
 # Installation Instructions
-1. Download or clone this repository. (also make sure to remove the  `.gitignore` file ;) )
+1. Download or clone this repository. (also make sure to remove the  `.gitignore`, `tsconfig.json`, `package.json`, and `package.lock` files ;) )
 2. Import the stack folder into your project's public folder.
 3. Add the style.css and the index.js file in the `<head></head>` tags.
 ```html
