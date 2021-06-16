@@ -25,7 +25,7 @@
 
         @include mixins.prefix(transition, all 0.1s ease);
 
-        @media (min-width: 850px) {
+        @media (min-width: mixins.$full-min) {
             padding: 0.5rem 0.5rem 0.5rem 0;
         }
 
@@ -34,7 +34,7 @@
         }
     }
 
-    @media (min-width: 850px) {
+    @media (min-width: mixins.$full-min) {
         width: calc(100% - 34px);
         margin: 0 auto;
     }

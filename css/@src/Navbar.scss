@@ -11,7 +11,7 @@
 
     background-color: var(--primary-dark);
 
-    @media (min-width: 850px) {
+    @media (min-width: mixins.$full-min) {
         width: 0;
         height: 0;
         top: 0;
@@ -26,7 +26,7 @@
         grid-gap: 0.5rem;
         text-align: center;
 
-        @media (min-width: 850px) {
+        @media (min-width: mixins.$full-min) {
             position: fixed;
             right: 17px;
             width: 200px;
@@ -67,7 +67,7 @@
                 margin-top: -3px;
                 color: inherit;
 
-                @media (min-width: 850px) {
+                @media (min-width: mixins.$full-min) {
                     display: none !important;
                     /*font-size: 16px!important;
                     margin-top: 0;*/
@@ -80,7 +80,7 @@
 .header--scrollable {
     .nav__item_icon,
     .nav__item_text {
-        @media (min-width: 850px) {
+        @media (min-width: mixins.$full-min) {
             color: var(--banner-color);
         }
     }

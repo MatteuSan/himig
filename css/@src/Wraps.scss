@@ -1,4 +1,4 @@
-/* WRAPPERS */
+@use './mixins';
 
 .wrap--content {
     background-color: rgba(0, 0, 0, 0) !important;
@@ -53,7 +53,7 @@
 .wrap--33-66 {
     display: grid;
 
-    @media (min-width: 850px) {
+    @media (min-width: mixins.$full-min) {
         grid-template-columns: 1fr 2fr;
         grid-gap: 15px;
     }
@@ -62,7 +62,7 @@
 .wrap--50-50 {
     display: grid;
 
-    @media (min-width: 850px) {
+    @media (min-width: mixins.$full-min) {
         grid-template-columns: repeat(2, 1fr);
         grid-gap: 15px;
     }
@@ -71,13 +71,13 @@
 .wrap--66-33 {
     display: grid;
 
-    @media (min-width: 850px) {
+    @media (min-width: mixins.$full-min) {
         grid-template-columns: 2fr 1fr;
         grid-gap: 15px;
     }
 }
 
-@media (min-width: 850px) {
+@media (min-width: mixins.$full-min) {
 
     .col--33 {
         // FOR LABELING ONLY

@@ -7,7 +7,7 @@
 
     background-color: var(--primary-dark);
 
-    @media (min-width: 850px) {
+    @media (min-width: mixins.$full-min) {
         margin-bottom: 0;
     }
 

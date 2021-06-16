@@ -100,7 +100,7 @@ button[data-tooltip] {
         @include mixins.prefix(transition, all 0.1s ease);
 
         // MAKE IT NOT DISPLAY WHEN MOBILE VIEW
-        @media (max-width: 849px) {
+        @media (max-width: mixins.$full-max) {
             display: none !important;
         }
     }

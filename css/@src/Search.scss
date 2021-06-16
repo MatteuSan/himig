@@ -7,7 +7,7 @@
 
     transition: all 0.2s ease !important;
 
-    @media (min-width: 850px) {
+    @media (min-width: mixins.$full-min) {
         display: block;
         position: fixed;
         max-width: calc(320px + 22px);
@@ -30,7 +30,7 @@
         left: 10px;
         display: flex;
 
-        @media (min-width: 850px) {
+        @media (min-width: mixins.$full-min) {
             width: 100%;
             margin-top: -1px;
         }
@@ -38,7 +38,7 @@
         label {
             display: none;
 
-            @media (min-width: 850px) {
+            @media (min-width: mixins.$full-min) {
                 display: block;
                 position: relative;
                 margin-right: 7px;
@@ -58,7 +58,7 @@
             background-color: var(--transparent);
             color: var(--on-primary);
 
-            @media (min-width: 850px) {
+            @media (min-width: mixins.$full-min) {
                 background-color: var(--input);
                 color: var(--on-input);
             }
@@ -66,7 +66,7 @@
             &:focus-within {
                 outline: none;
 
-                @media (min-width: 850px) {
+                @media (min-width: mixins.$full-min) {
                     outline: auto;
                 }
             }
@@ -75,7 +75,7 @@
                 --placeholder: #b1b1b1;
                 color: var(--placeholder);
 
-                @media (min-width: 850px) {
+                @media (min-width: mixins.$full-min) {
                     --placeholder: #606060!important;
                     color: var(--placeholder);
                 }
@@ -97,7 +97,7 @@
     align-items: center;
     padding-right: 10px;
 
-    @media (min-width: 850px) {
+    @media (min-width: mixins.$full-min) {
         padding-right: 0;
     }
 
@@ -110,7 +110,7 @@
         font-size: 20px !important;
         border-radius: 50%;
 
-        @media (min-width: 850px) {
+        @media (min-width: mixins.$full-min) {
             display: none !important;
         }
     }
@@ -135,7 +135,7 @@
         color: var(--on-primary) !important;
         transition: all 0.2s ease !important;
 
-        @media (min-width: 850px) {
+        @media (min-width: mixins.$full-min) {
             display: none !important;
             color: var(--surface) !important;
         }
@@ -157,7 +157,7 @@
 
     background-color: var(--primary-light);
 
-    @media (min-width: 850px) {
+    @media (min-width: mixins.$full-min) {
         position: fixed;
         height: max-content;
         max-width: calc(320px - 22px);

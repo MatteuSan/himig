@@ -1,6 +1,6 @@
 /*
 
-    StackCSS by GrowStocks v.1.2.3
+    StackCSS by GrowStocks v.1.2.4-alpha
     Made by Matteu#0001
 
     Copyright 2021 (c) Matteu and the GrowStocks Development Group
@@ -87,6 +87,15 @@
 
     // SET TRANSITIONS
     --ts-scale: 1.1;
+
+    // SET MEDIA QUERY SIZING
+    --mobile-min: 320px;
+    --medium-min: 540px;
+    --full-min: 850px;
+
+    --mobile-max: 319px;
+    --medium-max: 539px;
+    --full-max: 849px;
 }
 
 //--------------------------------------------------------------------------

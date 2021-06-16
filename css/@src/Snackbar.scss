@@ -1,3 +1,5 @@
+@use './mixins';
+
 .snackbar {
     position: fixed;
     width: calc(100% - 40px);
@@ -25,7 +27,7 @@
         border-left: 5px solid var(--warning);
     }
 
-    @media (min-width: 850px) {
+    @media (min-width: mixins.$full-min) {
         bottom: 30px;
         right: 30px;
         left: auto;

@@ -8,40 +8,48 @@
 @use 'sass:map';
 @use 'sass:math';
 
+$mobile-min: var(--mobile-min);
+$medium-min: var(--medium-min);
+$full-min: var(--full-min);
+
+$mobile-max: var(--mobile-max);
+$medium-max: var(--medium-max);
+$full-max: var(--full-max);
+
 // MIN MEDIA
 @mixin mobile-min() {
-    @media(min-width: 320px) {
+    @media(min-width: $mobile-min) {
         @content
     }
 }
 
 @mixin medium-min() {
-    @media(min-width: 540px) {
+    @media(min-width: $medium-min) {
         @content
     }
 }
 
 // MAX MEDIA
 @mixin full-min() {
-    @media(min-width: 850px) {
+    @media(min-width: $full-min) {
         @content
     }
 }
 
 @mixin mobile-max() {
-    @media(max-width: 319px) {
+    @media(max-width: $mobile-max) {
         @content
     }
 }
 
 @mixin medium-max() {
-    @media(max-width: 539px) {
+    @media(max-width: $medium-max) {
         @content
     }
 }
 
 @mixin full-max() {
-    @media(max-width: 849px) {
+    @media(max-width: $full-max) {
         @content
     }
 }

@@ -139,14 +139,6 @@
         transform: scale(1.03);
     }
 
-    @media (min-width: 850px) {
-        &:hover,
-        &:focus,
-        &:focus-within {
-            transform: scale(1.03);
-        }
-    }
-
     .card--x__img {
         width: 110px;
         height: 110px;
@@ -232,12 +224,10 @@
 
     @include mixins.prefix(transition, all 0.1s ease!important);
 
-    @media (min-width: 850px) {
-        &:hover,
-        &:focus,
-        &:focus-within {
-            transform: scale(1.03);
-        }
+    &:hover,
+    &:focus,
+    &:focus-within {
+        transform: scale(1.03);
     }
 
     .card--y__img {
