@@ -8,6 +8,7 @@
     The Design System for building quick, beautiful, responsive, and flexible user interfaces.
 
 */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 :root {
   --surface: #000b18;
   --transparent: rgba(0, 0, 0, 0.0);
@@ -51,16 +52,8 @@
   --ts-scale: 1.1;
 }
 
-@font-face {
-  font-family: "SF UI Display";
-  src: url("../../assets/font/SF-UI-Display-Regular.ttf");
-}
-@font-face {
-  font-family: "SF UI Display Bold";
-  src: url("../../assets/font/SF-UI-Display-Bold.ttf");
-}
 * {
-  --font-name: "SF UI Display";
+  --font-name: "Roboto";
   --font-type: sans-serif;
 }
 
@@ -68,7 +61,7 @@ h1,
 h2,
 h3,
 b {
-  --font-name: "SF UI Display Bold";
+  --font-name: "Roboto";
   --font-type: sans-serif;
   --font-weight: 700;
 }
@@ -77,7 +70,7 @@ h4,
 h5,
 h6,
 p {
-  --font-name: "SF UI Display";
+  --font-name: "Roboto";
   --font-type: sans-serif;
   --font-weight: 400;
 }
