@@ -28,7 +28,7 @@
 @mixin core-styles($component) {
     .#{$component}__field {
         position: relative;
-        margin: 10px 0;
+        margin: 0 0 13px 0;
 
         .#{$component}__label {
             width: 100%;

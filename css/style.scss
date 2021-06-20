@@ -40,6 +40,8 @@
 @use '../src/@stack/css/Modal';
 @use '../src/@stack/css/Navbar';
 @use '../src/@stack/css/Search';
+@use '../src/@stack/css/SearchPredictive';
+@use '../src/@stack/css/SearchFilter';
 @use '../src/@stack/css/TitleBar';
 @use '../src/@stack/css/Tooltip';
 @use '../src/@stack/css/Wraps';
@@ -142,6 +144,8 @@
     $nav-contents: 4
 );
 @include Search.render();
+@include SearchPredictive.render();
+@include SearchFilter.render();
 @include TitleBar.render();
 @include Tooltip.render();
 @include Wraps.render();
