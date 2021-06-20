@@ -1,0 +1,91 @@
+//
+//
+//    Stack by GrowStocks
+//    Made by Matteu#0001
+//
+//    Copyright 2021 (c) Matteu and the GrowStocks Development Group
+//
+//    The Design System for building quick, beautiful, responsive, and flexible user interfaces.
+//
+//
+//@use 'sass:map';
+//@use 'sass:list';
+@use 'sass:math';
+
+// FILLS
+$primary: () !default;
+$primary-light: () !default;
+$primary-dark: () !default;
+
+$primary-variant: () !default;
+$primary-variant-light: () !default;
+$primary-variant-dark: () !default;
+
+$secondary: () !default;
+$secondary-light: () !default;
+$secondary-dark: () !default;
+
+$surface: () !default;
+
+$error: #b00020 !default;
+$warning: #ffa000 !default;
+$success: #25a53f !default;
+$undefined: #696969 !default;
+
+$input: () !default;
+$input-disabled: () !default;
+$placeholder: () !default;
+
+//TYPOGRAPHY
+$on-primary: () !default;
+$on-secondary: () !default;
+$on-surface: () !default;
+$on-error: () !default;
+$on-warning: () !default;
+$on-success: () !default;
+$on-undefined: () !default;
+$on-input: () !default;
+
+$transparent: rgba(0 0 0 / 0) !default;
+
+$fill-properties: (
+    primary: $primary,
+    primary-light: $primary-light,
+    primary-dark: $primary-dark,
+    primary--variant: $primary-variant,
+    primary--variant-light: $primary-variant-light,
+    primary--variant-dark: $primary-variant-dark,
+    secondary: $secondary,
+    secondary-dark: $secondary-dark,
+    secondary-light: $secondary-light,
+    surface: $surface,
+    error: $error,
+    warning: $warning,
+    success: $success,
+    undefined: $undefined,
+    input: $input,
+    input-disabled: $input-disabled,
+    clear: $transparent
+);
+
+$text-properties: (
+    on-primary: $on-primary,
+    on-secondary: $on-secondary,
+    on-surface: $on-surface,
+    on-error: $on-error,
+    on-warning: $on-warning,
+    on-success: $on-success,
+    on-input: $on-input,
+    on-undefined: $on-undefined,
+    placeholder: $placeholder,
+);
+
+:root {
+    @each $property, $value in $fill-properties {
+        --#{$property}: #{$value};
+    }
+
+    @each $property, $value in $text-properties {
+        --#{$property}: #{$value};
+    }
+}

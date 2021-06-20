@@ -1,0 +1,97 @@
+//
+//
+//    Stack by GrowStocks
+//    Made by Matteu#0001
+//
+//    Copyright 2021 (c) Matteu and the GrowStocks Development Group
+//
+//    The Design System for building quick, beautiful, responsive, and flexible user interfaces.
+//
+//
+@use 'mixins';
+
+@mixin render(
+    $fill: var(--primary-dark),
+    $ink: var(--on-primary),
+    $icon-ink: $ink,
+    $padding: 1.5rem,
+    $clip-path: none
+) {
+    .footer {
+        margin-top: auto;
+        padding: $padding;
+        margin-bottom: 55px;
+
+        background-color: $fill;
+
+        color: $ink;
+
+        clip-path: $clip-path;
+
+        @media (min-width: mixins.$full-min) {
+            margin-bottom: 0;
+        }
+
+        .wrap--text {
+            display: block;
+            margin: 0 auto;
+            text-align: center;
+
+            h3 {
+                width: 140px;
+                margin: 0 auto;
+
+                @include mixins.prefix(transition, all 0.1s ease);
+
+                &:hover {
+                    color: var(--secondary);
+                    cursor: default;
+                }
+            }
+        }
+
+        .footer__links {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 10px;
+            margin: 0 auto;
+
+            .footer__links__item {
+                p {
+                    font-size: 12px !important;
+                }
+            }
+        }
+
+        .footer__socials {
+            //
+        }
+
+        .footer__language__wrap {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+            gap: 7px;
+            width: 250px;
+            margin: 10px auto 5px auto;
+
+            .footer__language,
+            .footer__language p {
+                font-size: 13px !important;
+                text-align: center;
+            }
+
+            .footer__language__spacer {
+                font-size: 13px !important;
+                margin: 0 1px;
+            }
+        }
+
+        .footer__language--active {
+            p {
+                font-weight: 700;
+            }
+        }
+    }
+}

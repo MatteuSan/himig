@@ -1,0 +1,25 @@
+//
+//
+//    Stack by GrowStocks
+//    Made by Matteu#0001
+//
+//    Copyright 2021 (c) Matteu and the GrowStocks Development Group
+//
+//    The Design System for building quick, beautiful, responsive, and flexible user interfaces.
+//
+//
+@mixin core-style($background) {
+
+    &::-webkit-scrollbar-track {
+        background: $background;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: #929292;
+        border: 4px solid $background;
+
+        &:hover {
+            background-color: #5a5a5a;
+        }
+    }
+}

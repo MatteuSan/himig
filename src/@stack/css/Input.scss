@@ -1,0 +1,134 @@
+//
+//
+//    Stack by GrowStocks
+//    Made by Matteu#0001
+//
+//    Copyright 2021 (c) Matteu and the GrowStocks Development Group
+//
+//    The Design System for building quick, beautiful, responsive, and flexible user interfaces.
+//
+//
+@use 'mixins';
+@use 'Typography' as typography;
+
+@mixin core-styles($component) {
+    .#{$component}__field {
+        position: relative;
+        margin: 10px 0;
+
+        .#{$component}__label {
+            width: 100%;
+            font-size: 14px;
+            padding: 0 0.7rem;
+
+            position: absolute;
+            top: 0.57rem;
+            left: 0;
+
+            color: var(--placeholder);
+
+            @include mixins.prefix(transition, all 70ms ease);
+        }
+
+        .#{$component}__input {
+            width: 100%;
+            background-color: var(--input);
+            color: var(--on-input);
+            border: 2px solid var(--input);
+
+            padding: 0.5rem 0.7rem;
+            border-radius: 0.3rem;
+
+            @include mixins.prefix(transition, all 0.1s ease);
+
+            @include typography.generate(body-14);
+
+            resize: none;
+
+            &::placeholder {
+                color: var(--clear) !important;
+            }
+
+            &:focus {
+                border: 2px solid var(--secondary);
+                outline: none !important;
+            }
+
+            &:focus-within,
+            &:not(:placeholder-shown) {
+                padding: 1.3rem 0.7rem 0.5rem 0.7rem;
+
+                & + .#{$component}__label {
+                    width: auto;
+                    margin: 0 0 0 0.3rem;
+                    padding: 0 0.3rem;
+
+                    top: 0.4rem;
+
+                    font-size: 12px;
+
+                    pointer-events: none;
+                }
+            }
+
+            // when type=file, remove label
+            @at-root #{&}[type=file],
+            &.type--file {
+                margin: 3px 0 0 0;
+                padding: 0.3rem 0;
+                visibility: hidden;
+
+                &::-webkit-file-upload-button {
+                    display: none;
+                }
+
+                &::before {
+                    visibility: visible;
+                    content: attr(data-label);
+                    display: block;
+
+                    background-color: var(--clear);
+                    color: var(--on-primary);
+                    border: 1px solid var(--secondary);
+                    border-radius: 0.3rem;
+
+                    padding: 8px 12px;
+
+                    outline: none;
+                    white-space: nowrap;
+
+                    //@include mixins.prefix(user-select, none);
+
+                    cursor: pointer;
+                    font-size: 12px;
+
+                    @include mixins.prefix(transition, all 0.1s ease);
+                }
+
+                &:hover::before {
+                    background-color: var(--secondary);
+                    color: var(--on-secondary);
+                }
+
+                & ~ .#{$component}__label {
+                    background-color: var(--transparent);
+                    top: -0.5rem;
+                    padding: 0;
+                }
+            }
+        }
+
+        &.error {
+            @include mixins.prefix(transition, all 0.1s ease);
+
+            > * {
+                border-color: var(--error) !important;
+                color: var(--error);
+            }
+
+            > .#{$component}__label {
+                --placeholder: #e2e2e2 !important;
+            }
+        }
+    }
+}

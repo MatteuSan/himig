@@ -1,0 +1,92 @@
+//
+//
+//    Stack by GrowStocks
+//    Made by Matteu#0001
+//
+//    Copyright 2021 (c) Matteu and the GrowStocks Development Group
+//
+//    The Design System for building quick, beautiful, responsive, and flexible user interfaces.
+//
+//
+@mixin render(
+    $level-1: 482px,
+    $level-2: 721px,
+    $level-3: 975px,
+    $gap: 1rem
+) {
+    .contain--flex--row {
+        display: flex;
+        justify-content: space-evenly;
+        flex-flow: row wrap;
+        margin: 17px auto;
+
+        & > * + * {
+            margin-top: $gap;
+        }
+    }
+
+    .contain--flex--column {
+        display: flex;
+        flex-flow: column;
+        margin: 17px auto;
+
+        & > * + * {
+            margin-top: $gap;
+        }
+    }
+
+    .contain--flex--centered {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        margin: 0 auto!important;
+
+        width: 100%;
+        top: 20px;
+    }
+
+    .contain--grid {
+        grid-column: 1/-1;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: $gap;
+        margin: 17px auto;
+
+        @media (min-width: $level-1) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (min-width: $level-2) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        @media (min-width: $level-3) {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+    }
+
+    .contain--grid--large {
+        grid-column: 1/-1;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: $gap;
+        margin: 17px auto;
+
+        @media (min-width: $level-1) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (min-width: $level-2) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (min-width: $level-3) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+    }
+
+}

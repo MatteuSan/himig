@@ -1,3 +1,4 @@
+@mixin render() {
 //--------------------------------------------------------------------------
 // Overrides file
 //--------------------------------------------------------------------------
@@ -11,101 +12,136 @@
 // on these overrides.
 //
 
+    // @DarkMode overrides (do not touch unless you actually know what you're doing :> )
+    .dark-mode {
 
+        // SURFACE COLOR AND GENERAL COLORS
+        --surface: #181818;
+        --transparent: rgba(0, 0, 0, 0.0);
 
+        // PRIMARY COLORS
+        --primary-dark: #272727;
+        --primary: #585858;
+        --primary-light: #888888;
 
+        --primary--variant-dark: #8c8c8c;
+        --primary--variant: #aeaeae;
+        --primary--variant-light: #cdcdcd;
 
-// @DarkMode overrides (do not touch unless you actually know what you're doing :> )
-.dark-mode {
-    .search__predictive {
-        background-color: var(--primary-dark);
+        // SECONDARY COLORS
+        --secondary-dark: #44638b;
+        --secondary: #7390bb;
+        --secondary-light: #a4c0ee;
 
-        .search__predictive_result {
-            &:hover {
-                background-color: var(--primary-dark);
+        // TEXT COLORS
+        --on-primary: #fff;
+        --on-secondary: #000;
+        --on-input: #fff;
+        --on-error: #fff;
+        --on-warning: #000;
+        --on-success: #fff;
+        --on-surface: #fff;
+        --on-code: #48ff5f;
+
+        // INPUT COLORS
+        --input: #181818;
+        --input-disabled: #585858;
+        --placeholder: #989898;
+
+        // ALERT COLORS
+        --error: #c40c2e;
+        --warning: #ffa000;
+        --success: #25a53f;
+        --undefined: #6d6d6d;
+
+        .search__predictive {
+            background-color: var(--primary-dark);
+
+            .search__predictive_result {
+                &:hover {
+                    background-color: var(--primary-dark);
+                }
+            }
+            &::-webkit-scrollbar-track {
+                background: var(--primary-dark);
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background-color: var(--scroll-thumb);
+                border: 4px solid var(--primary-dark);
+
+                &:hover {
+                    background-color: var(--scroll-hover);
+                }
             }
         }
-        &::-webkit-scrollbar-track {
+
+        .search__filter {
+
+            .search__filter__select {
+                background-color: var(--primary-dark);
+            }
+
+            option {
+                background-color: var(--primary-dark);
+            }
+
+        }
+
+        //  DRAWER
+        .drawer {
+            --on-drawer: var(--on-primary);
+
             background: var(--primary-dark);
         }
 
-        &::-webkit-scrollbar-thumb {
-            background-color: var(--scroll-thumb);
-            border: 4px solid var(--primary-dark);
-
-            &:hover {
-                background-color: var(--scroll-hover);
-            }
-        }
-    }
-
-    .search__filter {
-
-        .search__filter__select {
+        //  CONTENTS
+        .title-bar,
+        .card {
             background-color: var(--primary-dark);
         }
 
-        option {
+        .chip,
+        .chip--full,
+        .card--x,
+        .card--y,
+        .card {
+            background-color: var(--surface) !important;
+            border: 1px solid rgba(255,255,255,0.102);
+        }
+
+        .chip__options {
             background-color: var(--primary-dark);
         }
 
-    }
-
-    //  DRAWER
-    .drawer {
-        --on-drawer: var(--on-primary);
-
-        background: var(--primary-dark);
-    }
-
-    //  CONTENTS
-    .title-bar,
-    .card {
-        background-color: var(--primary-dark);
-    }
-
-    .chip,
-    .chip--full,
-    .card--x,
-    .card--y,
-    .card {
-        background-color: var(--surface) !important;
-        border: 1px solid rgba(255,255,255,0.102);
-    }
-
-    .chip__options {
-        background-color: var(--primary-dark);
-    }
-
-    .chip__spacer,
-    .chip__options__spacer {
-        color: var(--primary-light) !important;
-    }
-
-    .card--y__action {
-        //color: ;
-    }
-
-    .form {
-        background-color: var(--primary-dark);
-
-        .form__file-preview {
-            border: 1px solid var(--primary-light) !important;
+        .chip__spacer,
+        .chip__options__spacer {
             color: var(--primary-light) !important;
         }
+
+        .card--y__action {
+            //color: ;
+        }
+
+        .form {
+            background-color: var(--primary-dark);
+
+            .form__file-preview {
+                border: 1px solid var(--primary-light) !important;
+                color: var(--primary-light) !important;
+            }
+        }
+
+        .alert {
+            background-color: var(--primary-dark);
+        }
+
+        .modal__header {
+            background-color: var(--surface);
+        }
+
+        .modal__contents {
+            background-color: var(--primary-dark);
+        }
     }
-
-    .alert {
-        background-color: var(--primary-dark);
-    }
-
-    .modal__header {
-        background-color: var(--surface);
-    }
-
-    .modal__contents {
-        background-color: var(--primary-dark);
-    }
-
-
 }

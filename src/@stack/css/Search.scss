@@ -1,0 +1,336 @@
+//
+//
+//    Stack by GrowStocks
+//    Made by Matteu#0001
+//
+//    Copyright 2021 (c) Matteu and the GrowStocks Development Group
+//
+//    The Design System for building quick, beautiful, responsive, and flexible user interfaces.
+//
+//
+@use 'mixins';
+
+@mixin render(
+    $label-fill: var(--primary-light),
+    $label-ink: var(--on-primary),
+    $form-ink: var(--on-primary),
+    $predictive-fill: var(--primary-light),
+    $predictive-fill-hover: var(--primary),
+    $predictive-ink: var(--on-primary),
+    $filter-fill: var(--primary-light)
+) {
+    .search {
+        width: calc(100% + 22px);
+        display: none;
+        padding: 9px 0;
+
+        transition: all 0.2s ease !important;
+
+        @media (min-width: mixins.$full-min) {
+            display: block;
+            position: fixed;
+            max-width: calc(320px + 22px);
+            padding: 0.5rem 0;
+            right: 235px;
+        }
+
+        &.visible {
+            display: block !important;
+        }
+
+        label {
+            background-color: $label-fill;
+            color: $label-ink;
+        }
+
+        form {
+            width: calc(100% + 22px);
+            border: none;
+            position: relative;
+            left: 10px;
+            display: flex;
+
+            @media (min-width: mixins.$full-min) {
+                width: 100%;
+                margin-top: -1px;
+            }
+
+            label {
+                display: none;
+
+                @media (min-width: mixins.$full-min) {
+                    display: block;
+                    position: relative;
+                    margin-right: 7px;
+                    padding: 7px;
+                    font-size: 22px;
+                    border-radius: 25px;
+                }
+            }
+
+            input[type="text"] {
+                border: none;
+                font-size: 15px;
+                border-radius: 20px;
+                width: 100%;
+                padding: 7px 12px;
+
+                background-color: var(--clear);
+                color: $form-ink;
+
+                @media (min-width: mixins.$full-min) {
+                    background-color: var(--input);
+                    color: var(--on-input);
+                }
+
+                &:focus-within {
+                    outline: none;
+
+                    @media (min-width: mixins.$full-min) {
+                        outline: auto;
+                    }
+                }
+
+                &::placeholder {
+                    --placeholder: #b1b1b1;
+                    color: var(--placeholder);
+
+                    @media (min-width: mixins.$full-min) {
+                        --placeholder: #606060!important;
+                        color: var(--placeholder);
+                    }
+                }
+
+                /*&::before {
+                    content: 'Search';
+
+                    --placeholder: #b1b1b1;
+                    color: var(--placeholder);
+                }*/
+            }
+        }
+    }
+
+    .search__buttons {
+        position: relative;
+        display: flex;
+        align-items: center;
+        padding-right: 10px;
+
+        @media (min-width: mixins.$full-min) {
+            padding-right: 0;
+        }
+
+        button {
+            width: 30px !important;
+            height: 30px !important;
+            display: block;
+            border: none;
+            background-color: rgba(0, 0, 0, 0);
+            font-size: 20px !important;
+            border-radius: 50%;
+
+            @media (min-width: mixins.$full-min) {
+                display: none !important;
+            }
+        }
+
+        .search-button {
+            transition: all 0.2s ease !important;
+
+            &.invisible {
+                display: none !important;
+            }
+        }
+
+        .close-button {
+            width: 30px;
+            height: 30px;
+            display: none;
+            border: none;
+            background-color: rgba(0, 0, 0, 0);
+            font-size: 20px !important;
+            border-radius: 50%;
+
+            color: $form-ink !important;
+            transition: all 0.2s ease !important;
+
+            @media (min-width: mixins.$full-min) {
+                display: none !important;
+            }
+
+            &.visible {
+                display: block !important;
+            }
+        }
+    }
+
+    .search__predictive {
+        width: 100%;
+        position: fixed;
+        height: 100%;
+        top: 50px;
+        z-index: 100;
+        transform-origin: right;
+        overflow-y: auto;
+
+        background-color: $predictive-fill;
+
+        @media (min-width: mixins.$full-min) {
+            position: fixed;
+            height: max-content;
+            max-width: calc(320px - 22px);
+            max-height: 400px;
+            right: 225px;
+        }
+
+        .search__predictive__result {
+            padding: 0.7rem;
+            display: flex;
+            color: $predictive-ink;
+
+            @include mixins.prefix(transition, all 0.1s ease);
+
+            &:hover {
+                background-color: $predictive-fill-hover;
+                color: $predictive-ink;
+            }
+
+            span {
+                position: relative;
+                margin-right: 10px;
+                font-size: 18px;
+                color: inherit;
+            }
+
+            p {
+                position: relative;
+                font-size: 16px;
+                top: 7px;
+                color: inherit;
+            }
+
+            &:hover {
+                cursor: pointer;
+            }
+
+            /*&::after {
+              font-family: 'Material Icons';
+              content: 'north_west';
+              font-size: 18px;
+            }*/
+
+            @include mixins.scrollbar(var(--primary--variant-light));
+
+        }
+    }
+
+    .search__filter {
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: flex-start;
+
+        .title-bar {
+            margin-bottom: 0!important;
+            width: 50%;
+        }
+
+        .search__filter__item {
+            width: 170px;
+            display: flex;
+            position: relative;
+
+            .search__filter__select {
+                font-size: 15px;
+                width: 100%;
+                padding: 5px 7px;
+                border-radius: 5px;
+                cursor: pointer;
+                appearance: none;
+
+                border: 1px solid #{$filter-fill};
+                background-color: var(--transparent);
+
+                @include mixins.prefix(transition, all 0.1s ease);
+
+                &:hover,
+                &:focus,
+                &:focus-within {
+                    background-color: $filter-fill;
+                }
+
+                option {
+                    border: none;
+                    font-size: 15px;
+                    max-width: 170px;
+                    width: 100%;
+                    padding: 8px 10px;
+                    cursor: pointer;
+                }
+            }
+
+            .search__filter__arrow {
+
+                position: absolute;
+                top: 0;
+                right: 0;
+                display: block;
+                height: 100%;
+                width: 1.5em;
+                pointer-events: none;
+
+                &::before, &::after {
+                    content: "";
+                    position: absolute;
+                    width: 0;
+                    height: 0;
+                    left: 40%;
+                    top: 35%;
+                    transform: translate(-50%, -50%);
+                }
+
+                &::before {
+                    --size: 0.3em;
+                    border-left: var(--size) solid transparent;
+                    border-right: var(--size) solid transparent;
+                    border-top: var(--size) solid #fff;
+
+                    top: 65%;
+                }
+
+                &::after {
+                    --size: 0.3em;
+                    border-left: var(--size) solid transparent;
+                    border-right: var(--size) solid transparent;
+                    border-bottom: var(--size) solid #fff;
+
+                    bottom: 35%;
+                }
+            }
+
+            .search__filter__label {
+                padding: 5px;
+            }
+        }
+    }
+
+    // LEGACY
+    .market__search {
+        width: 100%;
+        border-radius: 5px;
+        padding: 5px;
+
+        form {
+            width: 100%;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            border-radius: 5px;
+            padding: 7px;
+            border: none;
+            font-size: 14px;
+        }
+    }
+
+}

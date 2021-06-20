@@ -1,0 +1,103 @@
+//
+//
+//    Stack by GrowStocks
+//    Made by Matteu#0001
+//
+//    Copyright 2021 (c) Matteu and the GrowStocks Development Group
+//
+//    The Design System for building quick, beautiful, responsive, and flexible user interfaces.
+//
+//
+@use 'mixins';
+
+@mixin base(
+    $fill,
+    $ink,
+    $padding,
+    $border-radius,
+    $font-size,
+    $bottom-position,
+    $show-on-mobile: false
+) {
+    position: relative;
+
+    &::after {
+        // TAKE CONTENT DATA
+        content: attr(data-tooltip);
+        // STYLING
+        display: block;
+        position: absolute;
+        background-color: $fill;
+        color: $ink;
+        padding: $padding;
+        border-radius: $border-radius;
+        font-size: $font-size;
+        bottom: $bottom-position;
+        left: auto;
+        right: auto;
+        z-index: 100;
+        opacity: 0;
+        transition: opacity ease-in-out 200ms;
+        pointer-events: none;
+        text-align: center;
+        white-space: nowrap;
+
+        box-shadow: 0 2px 4px -1px rgba(0 0 0 / 20%), 0 4px 5px 0 rgba(0 0 0 / 14%), 0 1px 10px 0 rgba(0 0 0 / 12%);
+
+        @include mixins.prefix(transition, all 0.1s ease);
+
+        @if $show-on-mobile == false {
+            @media (max-width: mixins.$full-max) {
+                display: none !important;
+            }
+        }
+    }
+
+    &:hover::after {
+        opacity: 1;
+    }
+}
+
+@mixin render(
+    $fill: #232323,
+    $ink: #fff,
+    $padding: 0.5rem 0.7rem,
+    $border-radius: 0.3rem,
+    $font-size: 0.75rem
+) {
+    *[data-tooltip] {
+        @include base(
+            $fill: $fill,
+            $ink: $ink,
+            $padding: $padding,
+            $border-radius: $border-radius,
+            $font-size: $font-size,
+            $bottom-position: calc(100% + 2px),
+            $show-on-mobile: true
+        );
+    }
+
+    button[data-tooltip] {
+        @include base(
+            $fill: $fill,
+            $ink: $ink,
+            $padding: $padding,
+            $border-radius: $border-radius,
+            $font-size: $font-size,
+            $bottom-position: calc(100% + 5px),
+            $show-on-mobile: true
+        );
+    }
+
+    .nav__item[data-tooltip] {
+        @include base(
+            $fill: $fill,
+            $ink: $ink,
+            $padding: $padding,
+            $border-radius: $border-radius,
+            $font-size: $font-size,
+            $bottom-position: calc(-100%),
+            $show-on-mobile: false
+        );
+    }
+}

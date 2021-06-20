@@ -1,0 +1,63 @@
+//
+//
+//    Stack by GrowStocks
+//    Made by Matteu#0001
+//
+//    Copyright 2021 (c) Matteu and the GrowStocks Development Group
+//
+//    The Design System for building quick, beautiful, responsive, and flexible user interfaces.
+//
+//
+@use 'mixins';
+@use 'Input' as input;
+
+@mixin render(
+    $fill: var(--primary),
+    $ink: var(--on-primary),
+    $border-radius: 0.5rem,
+    $border: none,
+    $padding: 0.7rem
+) {
+    .form {
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+
+        padding: $padding;
+
+        background-color: $fill;
+        color: $ink;
+        border-radius: $border-radius;
+
+        border: $border;
+
+        @include mixins.prefix(transition, all 0.1s ease);
+
+        @include input.core-styles(form);
+
+        .form__file-preview {
+            width: 100%;
+            min-height: 100px;
+            margin: 5px 0 0 0;
+
+            border: 1px solid var(--input);
+            border-radius: $border-radius;
+
+            display: grid;
+            place-items: center;
+
+            color: var(--input);
+
+            .form__file-preview__image {
+                width: 100%;
+                height: 100%;
+                display: none;
+            }
+
+            .form__file-preview__label {
+                color: inherit;
+            }
+        }
+    }
+}

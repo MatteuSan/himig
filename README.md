@@ -12,12 +12,12 @@ Check out the demo [here](https://growstocks.github.io/stack)!
 # Installation Instructions
 1. Download or clone this repository. (also make sure to remove the  `.gitignore`, `tsconfig.json`, `package.json`, and `package.lock` files ;) )
 2. Import the stack folder into your project's public folder.
-3. Add the style.css and the index.js file in the `<head></head>` tags.
+3. Add the style.css and the _core.js file in the `<head></head>` tags.
 ```html
 <!-- @StackStyles -->
 <link rel=stylesheet type="text/css" href="stack/css/style.css">
 <!-- @StackScripts -->
-<script src="stack/js/index.js"></script>
+<script src="stack/js/_core.js"></script>
 ```
 4. Configure your theme settings in the `stack/css/_env.scss` file.
 5. Add your theme overrides in the `stack/css/_overrides.scss` file.

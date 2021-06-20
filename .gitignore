@@ -2,7 +2,7 @@
 /.idea
 /node_modules
 /components
-/stack-preact-default
+stack-core
 
 *.d.ts
 *.d.ts.map

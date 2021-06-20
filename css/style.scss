@@ -1,32 +1,137 @@
-@use 'env';
+/*
+
+    Stack by GrowStocks v.1.3.0-alpha
+    Made by Matteu#0001
+
+    Copyright 2021 (c) Matteu and the GrowStocks Development Group
+
+    The Design System for building quick, beautiful, responsive, and flexible user interfaces.
+
+*/
+
+@use '../src/@stack/css/config' as config;
+@use '../src/@stack/css/Typography' as typography;
+
+@use '../src/@stack/css/Alert';
+@use '../src/@stack/css/Banner';
+@use '../src/@stack/css/Button';
+@use '../src/@stack/css/Card';
+@use '../src/@stack/css/Chip';
+@use '../src/@stack/css/Containers';
+@use '../src/@stack/css/Drawer';
+@use '../src/@stack/css/Elevation';
+@use '../src/@stack/css/Faq';
+@use '../src/@stack/css/Footer';
+@use '../src/@stack/css/Form';
+@use '../src/@stack/css/Header';
+@use '../src/@stack/css/Modal';
+@use '../src/@stack/css/Navbar';
+@use '../src/@stack/css/Search';
+@use '../src/@stack/css/TitleBar';
+@use '../src/@stack/css/Tooltip';
+@use '../src/@stack/css/Wraps';
+
 @use 'overrides';
 
-@use '@src/config';
-@use '@src/functions';
-@use '@src/mixins';
+//--------------------------------------------------------------------------
+// Theme settings
+//--------------------------------------------------------------------------
+//
+// This is where you set your theme's colors. You can enter the primary,
+// secondary, and other colors in here and the library will automatically
+// apply it to your theme. Specific instructions are written with the
+// setting inputs.
+//
 
-@use '@src/Wraps';
-@use '@src/Containers';
-@use '@src/Header';
-@use '@src/Navbar';
-@use '@src/Search';
-@use '@src/Drawer';
-@use '@src/Banner';
-@use '@src/Footer';
+@use '../src/@stack/css/Theme' with (
+    $primary: #12305e,
+    $primary-light: #44638b,
+    $primary-dark: #001334,
 
-// COMPONENTS
-@use '@src/Alert';
-@use '@src/Button';
-@use '@src/BarsCards';
-@use '@src/Chip';
-@use '@src/Codeblock';
-@use '@src/Faq';
-@use '@src/Form';
-@use '@src/Modal';
-@use '@src/Snackbar';
-@use '@src/Staff';
-@use '@src/Tooltip';
-@use '@src/Elevation';
+    $primary-variant: #1d69a9,
+    $primary-variant-light: #7d9fcb,
+    $primary-variant-dark: #1c4c86,
 
-// CUSTOM
-@use 'custom';
+    $secondary: #ffa000,
+    $secondary-light: #ffd149,
+    $secondary-dark: #c67100,
+
+    $surface: #000b18,
+
+    $input: #b0bfcd,
+    $input-disabled: #708196,
+    $placeholder: #606060,
+
+    $on-primary: #fff,
+    $on-secondary: #000,
+    $on-surface: #fff,
+    $on-error: #fff,
+    $on-warning: #000,
+    $on-success: #fff,
+    $on-undefined: #fff,
+    $on-input: #000
+);
+
+//--------------------------------------------------------------------------
+// Font Settings
+//--------------------------------------------------------------------------
+//
+// This is where you set your theme's fonts. --font-link is where you import
+// your font link (from Google Fonts or wherever you get it). Then specify the
+// font-family name and whether if it's sans-serif or serif. Then that's it!
+//
+// The --font-link variable is null on default whenever you want to use a system
+// font.
+//
+
+@include typography.import-font('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap');
+
+@include config.set(
+    $global-font: 'Inter',
+    $title-font-weight: 700,
+    $subtitle-font-weight: 400,
+    $body-font-weight: 400
+);
+
+//--------------------------------------------------------------------------
+// Render Components Section
+//--------------------------------------------------------------------------
+//
+// This is where you call out the Component's render() function. You can add custom style
+// overrides to the component inside the render function. To know more about the theme over-
+// riding API, please refer to the docs.
+//
+// You can also remove components whenever you're not going to use them.
+//
+
+@include Alert.render(
+    $icon-ink: var(--secondary)
+);
+@include Banner.render(
+    $fill: linear-gradient(45deg, #001334 0%, #44638b 100%),
+    $ink: #fff
+);
+@include Button.render();
+@include Card.render();
+@include Card.render($type: x);
+@include Card.render($type: y);
+@include Chip.render();
+@include Containers.render();
+@include Drawer.render();
+@include Elevation.render();
+@include Faq.render();
+@include Footer.render();
+@include Form.render();
+@include Header.render();
+@include Header.render($type: scrollable);
+@include Modal.render();
+@include Navbar.render(
+    $nav-contents: 4
+);
+@include Search.render();
+@include TitleBar.render();
+@include Tooltip.render();
+@include Wraps.render();
+
+// OVERRIDES
+@include overrides.render();

@@ -1,0 +1,128 @@
+//
+//
+//    Stack by GrowStocks
+//    Made by Matteu#0001
+//
+//    Copyright 2021 (c) Matteu and the GrowStocks Development Group
+//
+//    The Design System for building quick, beautiful, responsive, and flexible user interfaces.
+//
+//
+//--------------------------------------------------------------------------
+// Config (_globals and _defaults)
+//--------------------------------------------------------------------------
+//
+// globals, and general config
+//
+
+@use 'mixins';
+@use 'Typography' as typography;
+@use 'Scroll' as scroll;
+
+@mixin set(
+    $global-font,
+
+    $title-font: $global-font,
+    $title-font-weight,
+
+    $subtitle-font: $global-font,
+    $subtitle-font-weight,
+
+    $body-font: $global-font,
+    $body-font-weight
+) {
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        color: var(--on-surface);
+
+        @include typography.font-family($global-font);
+
+        &::before,
+        &::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        &::-webkit-scrollbar {
+            width: 0.7em;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    h1,
+    h2,
+    h3 {
+        font-weight: $title-font-weight;
+        @include typography.font-family($title-font);
+        color: inherit;
+    }
+
+    h4,
+    h5,
+    h6 {
+        font-weight: $subtitle-font-weight;
+        @include typography.font-family($subtitle-font);
+        color: inherit;
+    }
+
+    p {
+        font-weight: $body-font-weight;
+        @include typography.font-family($body-font);
+        color: inherit;
+    }
+
+    b {
+        font-weight: 700;
+        color: inherit;
+    }
+
+    html {
+        width: 100%;
+        height: auto;
+    }
+
+    body {
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+
+        //TEXT STUFF
+        font-size: 1rem;
+
+        //BACKGROUND STUFF
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        overflow-x: hidden;
+
+        background-color: var(--surface);
+
+        //SCROLLBAR
+        @include scroll.core-style(var(--surface));
+    }
+
+    .visible {
+        display: block!important;
+        @include mixins.prefix(transition, display 0.1s ease);
+    }
+
+    .invisible {
+        display: none!important;
+        @include mixins.prefix(transition, display 0.1s ease);
+    }
+}

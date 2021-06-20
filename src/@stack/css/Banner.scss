@@ -1,0 +1,59 @@
+//
+//
+//    Stack by GrowStocks
+//    Made by Matteu#0001
+//
+//    Copyright 2021 (c) Matteu and the GrowStocks Development Group
+//
+//    The Design System for building quick, beautiful, responsive, and flexible user interfaces.
+//
+//
+@use 'mixins';
+
+@mixin render(
+    $fill: linear-gradient(45deg, #001334 0%, #44638b 100%),
+    $ink: #fff,
+    $clip-path: none
+) {
+    .banner {
+        height: 37vh;
+        overflow-x: hidden;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        position: relative;
+        clip-path: $clip-path;
+
+        background: $fill;
+
+        .wrap--text {
+            width: calc(100% - 100px);
+            max-width: 1077px;
+            text-align: left;
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            h1 {
+                font-weight: 700;
+            }
+
+            * {
+                color: $ink;
+            }
+
+            .banner__socials {
+                display: flex;
+                justify-content: space-between;
+                width: 90px;
+                margin: 10px 0 0 0;
+
+                i {
+                    color: $ink;
+                    font-size: 24px !important;
+                }
+            }
+        }
+    }
+}
