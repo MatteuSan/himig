@@ -1,0 +1,168 @@
+//
+//  MIT License
+//
+//  Copyright (c) 2021 GrowStocks
+//
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in all
+//  copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+//  SOFTWARE.
+//
+
+@use '../mixins';
+@use '../Typography/Typography' as typography;
+
+// @BaseStyling
+@mixin base(
+    $padding,
+    $margin-bottom,
+    $border-radius,
+    $font-size,
+    $clip-path
+) {
+    width: 100%;
+    height: auto;
+
+    padding: $padding;
+    margin-bottom: $margin-bottom;
+    border-radius: $border-radius;
+
+    font-size: typography.px-to-rem($font-size);
+
+    clip-path: $clip-path;
+}
+
+// @RenderStyle
+@mixin render(
+    $padding: 8px 10px,
+    $margin-bottom: 10px,
+    $font-size: 18px,
+    $fill: var(--primary),
+    $ink: var(--on-primary),
+    $icon-ink: var(--on-primary),
+    $border: none,
+    $border-radius: 0.3rem,
+    $clip-path: none
+) {
+    .title-bar {
+        @include base($padding, $margin-bottom, $border-radius, $font-size, $clip-path);
+        @include fill($fill);
+        @include ink($ink);
+
+        // WHEN TITLE BAR BECOMES A DIV
+        .title-bar__icon {
+            position: relative;
+            top: 2px;
+            margin-right: 5px;
+            font-size: inherit;
+            @include icon-ink($icon-ink);
+        }
+
+        h2 {
+            position: relative;
+            top: -3px;
+            display: inline-block;
+            font-size: inherit;
+            color: inherit;
+        }
+
+        // .title-bar--on-card
+        @at-root #{&}--on-card {
+
+            @include base(
+                3px 0,
+                7px,
+                $border-radius,
+                $font-size,
+                $clip-path
+            );
+
+            @include fill(var(--clear)!important);
+            @include ink($ink);
+
+            // WHEN TITLE BAR BECOMES A DIV
+            .title-bar__icon {
+                position: relative;
+                top: 2px;
+                margin-right: 5px;
+                font-size: inherit;
+                @include icon-ink($icon-ink);
+            }
+
+            h2 {
+                position: relative;
+                top: -3px;
+                display: inline-block;
+                font-size: inherit;
+                color: inherit;
+            }
+        }
+
+        // .title-bar--on-surface
+        @at-root #{&}--on-surface {
+
+            @include base(
+                0 5px,
+                7px,
+                $border-radius,
+                $font-size,
+                $clip-path
+            );
+
+            @include fill(var(--clear)!important);
+            @include ink(var(--on-surface));
+
+            // WHEN TITLE BAR BECOMES A DIV
+            .title-bar__icon {
+                position: relative;
+                top: 2px;
+                margin-right: 5px;
+                font-size: inherit;
+                @include icon-ink($icon-ink);
+            }
+
+            h2 {
+                position: relative;
+                top: -3px;
+                display: inline-block;
+                font-size: inherit;
+                color: inherit;
+            }
+        }
+    }
+}
+
+// @API
+@mixin fill($fill-value) {
+    background-color: $fill-value;
+}
+
+@mixin ink($ink-value) {
+    color: $ink-value;
+}
+
+@mixin icon-ink($icon-ink-value) {
+    color: $icon-ink-value;
+}
+
+@mixin border($border-style, $border-radius) {
+    border: $border-style;
+    border-radius: $border-radius;
+}
+
+@mixin shape($clip-path) {
+    clip-path: $clip-path;
+}

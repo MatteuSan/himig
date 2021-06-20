@@ -1,0 +1,67 @@
+@use '../mixins';
+
+@mixin render(
+    $fill: var(--primary-light),
+    $fill-hover: var(--primary),
+    $ink: var(--on-primary),
+) {
+    .search__predictive {
+        width: 100%;
+        position: fixed;
+        height: 100%;
+        top: 50px;
+        z-index: 100;
+        transform-origin: right;
+        overflow-y: auto;
+
+        background-color: $fill;
+
+        @media (min-width: mixins.$full-min) {
+            position: fixed;
+            height: max-content;
+            max-width: calc(320px - 22px);
+            max-height: 400px;
+            right: 225px;
+        }
+
+        .search__predictive__result {
+            padding: 0.7rem;
+            display: flex;
+            color: $ink;
+
+            @include mixins.prefix(transition, all 0.1s ease);
+
+            &:hover {
+                background-color: $fill-hover;
+                color: $ink;
+            }
+
+            span {
+                position: relative;
+                margin-right: 10px;
+                font-size: 18px;
+                color: inherit;
+            }
+
+            p {
+                position: relative;
+                font-size: 16px;
+                top: 7px;
+                color: inherit;
+            }
+
+            &:hover {
+                cursor: pointer;
+            }
+
+            /*&::after {
+              font-family: 'Material Icons';
+              content: 'north_west';
+              font-size: 18px;
+            }*/
+
+            @include mixins.scrollbar(var(--primary--variant-light));
+
+        }
+    }
+}

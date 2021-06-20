@@ -1,7 +1,4 @@
-/docs
 /.idea
-/node_modules
-/components
 
 *.d.ts
 *.d.ts.map
