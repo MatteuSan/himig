@@ -2,7 +2,6 @@
 /.idea
 /node_modules
 /components
-stack-core
 
 *.d.ts
 *.d.ts.map
