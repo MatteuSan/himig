@@ -3,6 +3,8 @@
 /node_modules
 /components
 
+/src/package.json
+
 *.d.ts
 *.d.ts.map
 *.js.map

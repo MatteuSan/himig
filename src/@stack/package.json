@@ -4,7 +4,7 @@
   "description": "The Design System for building quick, beautiful, responsive, and flexible user interfaces.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"There's no test command :>\" && exit 1"
   },
   "repository": {
     "type": "git",
