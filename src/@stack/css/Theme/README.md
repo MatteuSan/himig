@@ -25,7 +25,7 @@
 | `$input`<br>`$input-disabled` | Sets the `input` and `input-disabled` fill color properties in the theme
 | `$on-primary`<br>`$on-secondary`<br>`$on-surface`<br>`$on-input` | Sets the `on-〇〇` ink color properties in the theme for their corresponding fill colors. (e.g. `$primary` related fill colors are all going to use the `$on-primary` ink color value for their text)
 
-#### Theming API Implementatation Example
+#### Theming API Implementation Example
 
 ```scss
 // @GrowStocks default theme
