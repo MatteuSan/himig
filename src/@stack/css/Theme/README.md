@@ -29,7 +29,7 @@
 
 ```scss
 // @GrowStocks default theme
-@use '../src/@stack/css/Theme' with (
+@use '../node_modules/@stack/css/Theme' with (
     $primary: #12305e,
     $primary-light: #44638b,
     $primary-dark: #001334,
