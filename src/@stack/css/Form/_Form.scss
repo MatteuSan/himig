@@ -24,13 +24,16 @@
 
 @use '../mixins';
 @use '../Input' as input;
+@use '../Button';
 
 @mixin render(
     $fill: var(--primary),
     $ink: var(--on-primary),
     $border-radius: 0.5rem,
     $border: none,
-    $padding: 0.7rem
+    $padding: 0.7rem,
+    $shape: default,
+    $clip-size: 0.7rem
 ) {
     .form {
         width: 100%;
@@ -38,17 +41,19 @@
         display: flex;
         flex-direction: column;
 
-        padding: $padding;
-
         background-color: $fill;
         color: $ink;
-        border-radius: $border-radius;
+
+        @include mixins.shape($shape, $padding, $border-radius, $clip-size);
 
         border: $border;
 
         @include mixins.prefix(transition, all 0.1s ease);
 
-        @include input.core-styles(form);
+        @include input.core-styles(
+            $component: form,
+            $shape: $shape
+        );
 
         .form__file-preview {
             width: 100%;
@@ -56,7 +61,7 @@
             margin: 5px 0 0 0;
 
             border: 1px solid var(--input);
-            border-radius: $border-radius;
+            @include mixins.shape($shape, 0, $border-radius, $clip-size);
 
             display: grid;
             place-items: center;
@@ -73,5 +78,9 @@
                 color: inherit;
             }
         }
+
+        @include Button.render(
+            $shape: $shape
+        );
     }
 }

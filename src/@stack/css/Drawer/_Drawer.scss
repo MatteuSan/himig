@@ -28,7 +28,10 @@
 @mixin render(
     $fill: var(--primary--variant-light),
     $ink: var(--surface),
-    $scaling: 1.03
+    $scaling: 1.03,
+    $shape: round,
+    $border-radius: 1rem,
+    $clip-size: 0.7rem
 ) {
     .drawer__overlay {
         display: block;
@@ -47,7 +50,7 @@
         width: 100%;
         max-width: 370px;
         padding: 15px;
-        height: 100%;
+        height: calc(100% - 50px);
         position: fixed;
         right: 0!important;
         top: 50px;
@@ -55,6 +58,25 @@
         overflow-y: auto;
 
         background-color: $fill;
+
+        @if $shape == round {
+            border-radius: #{$border-radius} 0 0 0;
+        } @else if $shape == clipped {
+            clip-path:
+                polygon(
+                    0% $clip-size,
+                    $clip-size 0%,
+                    calc(100% - #{$clip-size}) 0%,
+                    100% 0%,
+                    100% calc(100% - #{$clip-size}),
+                    calc(100% - #{$clip-size}) 100%,
+                    $clip-size 100%,
+                    0% calc(100% - #{$clip-size})
+                )
+            ;
+        } @else {
+            border-radius: 0;
+        }
 
         * {
             color: $ink;

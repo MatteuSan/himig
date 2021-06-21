@@ -27,16 +27,16 @@
 @use 'Scroll' as scroll;
 
 @mixin set(
-    $global-font,
+    $global-font: 'Inter',
 
     $title-font: $global-font,
-    $title-font-weight,
+    $title-font-weight: 700,
 
     $subtitle-font: $global-font,
-    $subtitle-font-weight,
+    $subtitle-font-weight: 400,
 
     $body-font: $global-font,
-    $body-font-weight
+    $body-font-weight: 400
 ) {
     * {
         box-sizing: border-box;

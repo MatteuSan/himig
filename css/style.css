@@ -129,18 +129,17 @@ body::-webkit-scrollbar-thumb:hover {
 
 .alert--success {
   width: 100%;
-  padding: 0.3rem 0.5rem;
   background-color: var(--success);
   border-radius: 0.3rem;
+  padding: 0.3rem 0.5rem;
   color: var(--on-success);
   border: none;
-  clip-path: none;
 }
 .alert--success .alert__icon {
   display: inline-block;
   font-size: 1.5rem;
   margin-right: 3px;
-  color: var(--secondary);
+  color: var(--on-primary);
   position: relative;
   top: 0.1rem;
 }
@@ -154,12 +153,11 @@ body::-webkit-scrollbar-thumb:hover {
 
 .alert--warning {
   width: 100%;
-  padding: 0.3rem 0.5rem;
   background-color: var(--warning);
   border-radius: 0.3rem;
+  padding: 0.3rem 0.5rem;
   color: var(--on-warning);
   border: none;
-  clip-path: none;
 }
 .alert--warning .alert__icon {
   display: inline-block;
@@ -179,18 +177,17 @@ body::-webkit-scrollbar-thumb:hover {
 
 .alert--error {
   width: 100%;
-  padding: 0.3rem 0.5rem;
   background-color: var(--error);
   border-radius: 0.3rem;
+  padding: 0.3rem 0.5rem;
   color: var(--on-error);
   border: none;
-  clip-path: none;
 }
 .alert--error .alert__icon {
   display: inline-block;
   font-size: 1.5rem;
   margin-right: 3px;
-  color: var(--secondary);
+  color: var(--on-primary);
   position: relative;
   top: 0.1rem;
 }
@@ -204,18 +201,17 @@ body::-webkit-scrollbar-thumb:hover {
 
 .alert--undefined {
   width: 100%;
-  padding: 0.3rem 0.5rem;
   background-color: var(--undefined);
   border-radius: 0.3rem;
+  padding: 0.3rem 0.5rem;
   color: var(--on-undefined);
   border: none;
-  clip-path: none;
 }
 .alert--undefined .alert__icon {
   display: inline-block;
   font-size: 1.5rem;
   margin-right: 3px;
-  color: var(--secondary);
+  color: var(--on-primary);
   position: relative;
   top: 0.1rem;
 }
@@ -229,18 +225,17 @@ body::-webkit-scrollbar-thumb:hover {
 
 .alert {
   width: 100%;
-  padding: 0.3rem 0.5rem;
   background-color: var(--primary-light);
   border-radius: 0.3rem;
+  padding: 0.3rem 0.5rem;
   color: var(--on-primary);
   border: none;
-  clip-path: none;
 }
 .alert .alert__icon {
   display: inline-block;
   font-size: 1.5rem;
   margin-right: 3px;
-  color: var(--secondary);
+  color: var(--on-primary);
   position: relative;
   top: 0.1rem;
 }
@@ -271,9 +266,6 @@ body::-webkit-scrollbar-thumb:hover {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.banner .wrap--text h1 {
-  font-weight: 700;
-}
 .banner .wrap--text * {
   color: #fff;
 }
@@ -289,8 +281,8 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .btn {
-  padding: 8px 12px;
   border-radius: 0.3rem;
+  padding: 8px 12px;
   font-size: 0.875rem;
   -webkit-transition: all 0.1s linear;
   -ms-transition: all 0.1s linear;
@@ -298,22 +290,67 @@ body::-webkit-scrollbar-thumb:hover {
   -o-transition: all 0.1s linear;
   transition: all 0.1s linear;
   border: 1px solid var(--secondary);
-  background-color: var(--clear);
+  background: var(--clear);
   color: var(--on-primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row nowrap;
 }
 .btn:hover {
   cursor: pointer;
-  background-color: var(--secondary);
+  background: var(--secondary);
   color: var(--on-secondary);
 }
+.btn:hover[data-icon-before]::before {
+  color: var(--on-secondary);
+}
+
+.btn:hover[data-icon-after]::after {
+  color: var(--on-secondary);
+}
+
 .btn:disabled {
   cursor: not-allowed;
-  background-color: var(--undefined);
+  background: var(--undefined);
   color: var(--on-undefined);
 }
+.btn[data-icon-before]::before {
+  content: attr(data-icon-before);
+  font-family: "Material Icons";
+  font-size: 1.125rem;
+  color: var(--on-primary);
+  margin-right: 4px;
+  position: relative;
+  -webkit-transition: all 0.1s linear;
+  -ms-transition: all 0.1s linear;
+  -moz-transition: all 0.1s linear;
+  -o-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+
+.btn[data-icon-after]::after {
+  content: attr(data-icon-after);
+  font-family: "Material Icons";
+  font-size: 1.125rem;
+  color: var(--on-primary);
+  margin-left: 4px;
+  position: relative;
+  -webkit-transition: all 0.1s linear;
+  -ms-transition: all 0.1s linear;
+  -moz-transition: all 0.1s linear;
+  -o-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+
 .btn--primary {
-  padding: 8px 12px;
   border-radius: 0.3rem;
+  padding: 8px 12px;
+  -webkit-transition: all 0.1s linear;
+  -ms-transition: all 0.1s linear;
+  -moz-transition: all 0.1s linear;
+  -o-transition: all 0.1s linear;
+  transition: all 0.1s linear;
   font-size: 0.875rem;
   font-weight: 700;
   -webkit-transition: all 0.1s linear;
@@ -322,8 +359,12 @@ body::-webkit-scrollbar-thumb:hover {
   -o-transition: all 0.1s linear;
   transition: all 0.1s linear;
   border: 1px solid var(--secondary);
-  background-color: var(--secondary);
+  background: var(--secondary);
   color: var(--on-secondary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row nowrap;
 }
 .btn--primary:hover {
   filter: brightness(70%);
@@ -333,6 +374,33 @@ body::-webkit-scrollbar-thumb:hover {
   cursor: not-allowed;
   background-color: var(--undefined);
   color: var(--on-undefined);
+}
+.btn--primary[data-icon-before]::before {
+  content: attr(data-icon-before);
+  font-family: "Material Icons";
+  font-size: 1.125rem;
+  color: var(--on-secondary);
+  margin-right: 4px;
+  position: relative;
+  -webkit-transition: all 0.1s linear;
+  -ms-transition: all 0.1s linear;
+  -moz-transition: all 0.1s linear;
+  -o-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+
+.btn--primary[data-icon-after]::after {
+  content: attr(data-icon-after);
+  font-family: "Material Icons";
+  font-size: 1.125rem;
+  color: var(--on-secondary);
+  margin-left: 4px;
+  position: relative;
+  -webkit-transition: all 0.1s linear;
+  -ms-transition: all 0.1s linear;
+  -moz-transition: all 0.1s linear;
+  -o-transition: all 0.1s linear;
+  transition: all 0.1s linear;
 }
 
 .btn--text-only {
@@ -345,8 +413,12 @@ body::-webkit-scrollbar-thumb:hover {
   -o-transition: all 0.1s linear;
   transition: all 0.1s linear;
   border: none;
-  background-color: var(--clear);
+  background: var(--clear);
   color: var(--secondary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row nowrap;
 }
 .btn--text-only:hover {
   filter: brightness(70%);
@@ -355,6 +427,35 @@ body::-webkit-scrollbar-thumb:hover {
 .btn--text-only:disabled {
   cursor: not-allowed;
   color: var(--undefined);
+}
+.btn--text-only[data-icon-before]::before {
+  content: attr(data-icon-before);
+  font-family: "Material Icons";
+  font-size: 1.125rem;
+  color: var(--secondary);
+  margin-right: 4px;
+  margin-left: 5px;
+  position: relative;
+  -webkit-transition: all 0.1s linear;
+  -ms-transition: all 0.1s linear;
+  -moz-transition: all 0.1s linear;
+  -o-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+
+.btn--text-only[data-icon-after]::after {
+  content: attr(data-icon-after);
+  font-family: "Material Icons";
+  font-size: 1.125rem;
+  color: var(--secondary);
+  margin-left: 4px;
+  margin-right: 5px;
+  position: relative;
+  -webkit-transition: all 0.1s linear;
+  -ms-transition: all 0.1s linear;
+  -moz-transition: all 0.1s linear;
+  -o-transition: all 0.1s linear;
+  transition: all 0.1s linear;
 }
 
 .market__button {
@@ -445,15 +546,9 @@ body::-webkit-scrollbar-thumb:hover {
 }
 .card .card__big-text {
   font-size: 1.5rem;
-  font-weight: 700;
-  text-decoration: inherit;
-  text-transform: inherit;
 }
 .card .card__small-text {
   font-size: 0.75rem;
-  font-weight: 400;
-  text-decoration: inherit;
-  text-transform: inherit;
 }
 .card.stable {
   background-color: var(--success) !important;
@@ -485,8 +580,9 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .card--x {
-  height: 110px;
   border-radius: 0.3rem;
+  padding: 0;
+  height: 110px;
   width: 100%;
   overflow: hidden;
   display: grid;
@@ -595,7 +691,7 @@ body::-webkit-scrollbar-thumb:hover {
   content: '"';
 }
 .card--x .card--x__container h2 {
-  font-size: 18px;
+  font-size: 1.125rem;
   color: inherit;
 }
 .card--x .card--x__container .card--x__icons--wrap {
@@ -618,9 +714,10 @@ body::-webkit-scrollbar-thumb:hover {
   opacity: 0.5;
 }
 .card--y {
+  border-radius: 0.3rem;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  border-radius: 0.3rem;
   overflow: hidden;
   width: 100%;
   margin: 0;
@@ -647,19 +744,13 @@ body::-webkit-scrollbar-thumb:hover {
   padding: 10px;
 }
 .card--y .card--y__info .card--y__info__title {
-  font-size: 1.125rem;
-  font-weight: 700;
-  text-decoration: inherit;
-  text-transform: inherit;
+  font-size: 1.25rem;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 .card--y .card--y__info .card--y__info__subtitle {
   font-size: 0.875rem;
-  font-weight: 400;
-  text-decoration: inherit;
-  text-transform: inherit;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -685,7 +776,9 @@ body::-webkit-scrollbar-thumb:hover {
 .contain--item {
   height: max-content;
   border-radius: 0.3rem;
+  padding: 0;
   position: relative;
+  overflow: hidden;
 }
 .contain--item .item__status__sym {
   display: inline !important;
@@ -716,10 +809,9 @@ body::-webkit-scrollbar-thumb:hover {
 
 .chip {
   width: 100%;
-  padding: 10px;
-  border-radius: 0.3rem 0.3rem 0 0;
   display: grid;
   grid-template-columns: 42px 1fr 42px;
+  padding: 10px;
   background-color: var(--primary-light);
 }
 .chip::after {
@@ -770,10 +862,9 @@ body::-webkit-scrollbar-thumb:hover {
 
 .chip--full {
   width: 100%;
-  padding: 10px;
-  border-radius: 0.3rem;
   display: grid;
   grid-template-columns: 42px 1fr 42px;
+  padding: 10px;
   background-color: var(--primary-light);
 }
 .chip--full::after {
@@ -1038,13 +1129,14 @@ body::-webkit-scrollbar-thumb:hover {
   width: 100%;
   max-width: 370px;
   padding: 15px;
-  height: 100%;
+  height: calc(100% - 50px);
   position: fixed;
   right: 0 !important;
   top: 50px;
   z-index: 99;
   overflow-y: auto;
   background-color: var(--primary--variant-light);
+  border-radius: 1rem 0 0 0;
 }
 .drawer * {
   color: var(--surface);
@@ -1183,37 +1275,13 @@ body::-webkit-scrollbar-thumb:hover {
   box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
 }
 
-.faq {
-  display: none;
-  margin-bottom: 10px;
-  /*transition: ease 200ms 200ms;
-  transform-origin: top;*/
-  -webkit-transition: display 0.1s ease;
-  -ms-transition: display 0.1s ease;
-  -moz-transition: display 0.1s ease;
-  -o-transition: display 0.1s ease;
-  transition: display 0.1s ease;
-}
-
-.faq--open {
-  cursor: pointer;
-}
-.faq--open .material-icons {
-  display: inline;
-}
-.faq--open .faq__trigger {
-  position: relative;
-  top: -5px;
-  display: inline;
-}
-
 .footer {
   margin-top: auto;
   padding: 1.5rem;
   margin-bottom: 55px;
   background-color: var(--primary-dark);
   color: var(--on-primary);
-  clip-path: none;
+  border-radius: 0;
 }
 @media (min-width: 850px) {
   .footer {
@@ -1273,10 +1341,10 @@ body::-webkit-scrollbar-thumb:hover {
   width: 100%;
   display: flex;
   flex-direction: column;
-  padding: 0.7rem;
   background-color: var(--primary);
   color: var(--on-primary);
   border-radius: 0.5rem;
+  padding: 0.7rem;
   border: none;
   -webkit-transition: all 0.1s ease;
   -ms-transition: all 0.1s ease;
@@ -1293,7 +1361,7 @@ body::-webkit-scrollbar-thumb:hover {
   font-size: 14px;
   padding: 0 0.7rem;
   position: absolute;
-  top: 0.57rem;
+  top: 1.1rem;
   left: 0;
   color: var(--placeholder);
   -webkit-transition: all 70ms ease;
@@ -1304,21 +1372,20 @@ body::-webkit-scrollbar-thumb:hover {
 }
 .form .form__field .form__input {
   width: 100%;
+  height: 100%;
   background-color: var(--input);
   color: var(--on-input);
   border: 2px solid var(--input);
-  padding: 0.5rem 0.7rem;
-  border-radius: 0.3rem;
   -webkit-transition: all 0.1s ease;
   -ms-transition: all 0.1s ease;
   -moz-transition: all 0.1s ease;
   -o-transition: all 0.1s ease;
   transition: all 0.1s ease;
-  font-size: 0.875rem;
-  font-weight: 400;
-  text-decoration: inherit;
-  text-transform: inherit;
+  border-radius: 0.3rem 0.3rem 0 0;
+  padding: 1.4rem 0.5rem 0.4rem 0.5rem;
+  font-size: 0.9375rem;
   resize: none;
+  border-bottom: 2px solid var(--secondary);
 }
 .form .form__field .form__input::placeholder {
   color: var(--clear) !important;
@@ -1333,15 +1400,16 @@ body::-webkit-scrollbar-thumb:hover {
 .form .form__field .form__input:focus-within + .form__label, .form .form__field .form__input:not(:placeholder-shown) + .form__label {
   width: auto;
   margin: 0 0 0 0.3rem;
-  padding: 0 0.3rem;
+  padding: 0 0.4rem;
   top: 0.4rem;
-  font-size: 12px;
+  font-size: 0.75rem;
   pointer-events: none;
 }
 .form .form__field .form__input[type=file], .form .form__field .form__input.type--file {
   margin: 3px 0 0 0;
   padding: 0.3rem 0;
   visibility: hidden;
+  height: max-content;
 }
 .form .form__field .form__input[type=file]::-webkit-file-upload-button, .form .form__field .form__input.type--file::-webkit-file-upload-button {
   display: none;
@@ -1350,10 +1418,12 @@ body::-webkit-scrollbar-thumb:hover {
   visibility: visible;
   content: attr(data-label);
   display: block;
+  width: max-content;
   background-color: var(--clear);
   color: var(--on-primary);
   border: 1px solid var(--secondary);
   border-radius: 0.3rem;
+  padding: 1.4rem 0.5rem 0.4rem 0.5rem;
   padding: 8px 12px;
   outline: none;
   white-space: nowrap;
@@ -1373,6 +1443,7 @@ body::-webkit-scrollbar-thumb:hover {
   background-color: var(--transparent);
   top: -0.5rem;
   padding: 0;
+  color: var(--on-primary);
 }
 
 .form .form__field.error {
@@ -1383,11 +1454,15 @@ body::-webkit-scrollbar-thumb:hover {
   transition: all 0.1s ease;
 }
 .form .form__field.error > * {
-  border-color: var(--error) !important;
+  border-bottom: 2px solid var(--error) !important;
   color: var(--error);
+}
+.form .form__field.error > *:focus {
+  border: 2px solid var(--error) !important;
 }
 .form .form__field.error > .form__label {
   --placeholder: #e2e2e2 !important;
+  border-bottom: none !important;
 }
 .form .form__file-preview {
   width: 100%;
@@ -1395,6 +1470,7 @@ body::-webkit-scrollbar-thumb:hover {
   margin: 5px 0 0 0;
   border: 1px solid var(--input);
   border-radius: 0.5rem;
+  padding: 0;
   display: grid;
   place-items: center;
   color: var(--input);
@@ -1407,6 +1483,253 @@ body::-webkit-scrollbar-thumb:hover {
 .form .form__file-preview .form__file-preview__label {
   color: inherit;
 }
+.form .btn {
+  border-radius: 0.3rem;
+  padding: 8px 12px;
+  font-size: 0.875rem;
+  -webkit-transition: all 0.1s linear;
+  -ms-transition: all 0.1s linear;
+  -moz-transition: all 0.1s linear;
+  -o-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+  border: 1px solid var(--secondary);
+  background: var(--clear);
+  color: var(--on-primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row nowrap;
+}
+.form .btn:hover {
+  cursor: pointer;
+  background: var(--secondary);
+  color: var(--on-secondary);
+}
+.form .btn:hover[data-icon-before]::before {
+  color: var(--on-secondary);
+}
+
+.form .btn:hover[data-icon-after]::after {
+  color: var(--on-secondary);
+}
+
+.form .btn:disabled {
+  cursor: not-allowed;
+  background: var(--undefined);
+  color: var(--on-undefined);
+}
+.form .btn[data-icon-before]::before {
+  content: attr(data-icon-before);
+  font-family: "Material Icons";
+  font-size: 1.125rem;
+  color: var(--on-primary);
+  margin-right: 4px;
+  position: relative;
+  -webkit-transition: all 0.1s linear;
+  -ms-transition: all 0.1s linear;
+  -moz-transition: all 0.1s linear;
+  -o-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+
+.form .btn[data-icon-after]::after {
+  content: attr(data-icon-after);
+  font-family: "Material Icons";
+  font-size: 1.125rem;
+  color: var(--on-primary);
+  margin-left: 4px;
+  position: relative;
+  -webkit-transition: all 0.1s linear;
+  -ms-transition: all 0.1s linear;
+  -moz-transition: all 0.1s linear;
+  -o-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+
+.form .btn--primary {
+  border-radius: 0.3rem;
+  padding: 8px 12px;
+  -webkit-transition: all 0.1s linear;
+  -ms-transition: all 0.1s linear;
+  -moz-transition: all 0.1s linear;
+  -o-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+  font-size: 0.875rem;
+  font-weight: 700;
+  -webkit-transition: all 0.1s linear;
+  -ms-transition: all 0.1s linear;
+  -moz-transition: all 0.1s linear;
+  -o-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+  border: 1px solid var(--secondary);
+  background: var(--secondary);
+  color: var(--on-secondary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row nowrap;
+}
+.form .btn--primary:hover {
+  filter: brightness(70%);
+  cursor: pointer;
+}
+.form .btn--primary:disabled {
+  cursor: not-allowed;
+  background-color: var(--undefined);
+  color: var(--on-undefined);
+}
+.form .btn--primary[data-icon-before]::before {
+  content: attr(data-icon-before);
+  font-family: "Material Icons";
+  font-size: 1.125rem;
+  color: var(--on-secondary);
+  margin-right: 4px;
+  position: relative;
+  -webkit-transition: all 0.1s linear;
+  -ms-transition: all 0.1s linear;
+  -moz-transition: all 0.1s linear;
+  -o-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+
+.form .btn--primary[data-icon-after]::after {
+  content: attr(data-icon-after);
+  font-family: "Material Icons";
+  font-size: 1.125rem;
+  color: var(--on-secondary);
+  margin-left: 4px;
+  position: relative;
+  -webkit-transition: all 0.1s linear;
+  -ms-transition: all 0.1s linear;
+  -moz-transition: all 0.1s linear;
+  -o-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+
+.form .btn--text-only {
+  padding: 8px 12px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  -webkit-transition: all 0.1s linear;
+  -ms-transition: all 0.1s linear;
+  -moz-transition: all 0.1s linear;
+  -o-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+  border: none;
+  background: var(--clear);
+  color: var(--secondary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row nowrap;
+}
+.form .btn--text-only:hover {
+  filter: brightness(70%);
+  cursor: pointer;
+}
+.form .btn--text-only:disabled {
+  cursor: not-allowed;
+  color: var(--undefined);
+}
+.form .btn--text-only[data-icon-before]::before {
+  content: attr(data-icon-before);
+  font-family: "Material Icons";
+  font-size: 1.125rem;
+  color: var(--secondary);
+  margin-right: 4px;
+  margin-left: 5px;
+  position: relative;
+  -webkit-transition: all 0.1s linear;
+  -ms-transition: all 0.1s linear;
+  -moz-transition: all 0.1s linear;
+  -o-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+
+.form .btn--text-only[data-icon-after]::after {
+  content: attr(data-icon-after);
+  font-family: "Material Icons";
+  font-size: 1.125rem;
+  color: var(--secondary);
+  margin-left: 4px;
+  margin-right: 5px;
+  position: relative;
+  -webkit-transition: all 0.1s linear;
+  -ms-transition: all 0.1s linear;
+  -moz-transition: all 0.1s linear;
+  -o-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+
+.form .market__button {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: transparent;
+  margin-bottom: 3px;
+  margin-top: 3px;
+}
+.form .market__button.dark-red {
+  background-color: #7f0000 !important;
+  color: #fff !important;
+}
+.form .market__button.red {
+  background-color: #b00020 !important;
+  color: #fff !important;
+}
+.form .market__button.orange {
+  background-color: #e65100 !important;
+  color: #fff !important;
+}
+.form .market__button.light-orange {
+  background-color: #ff8f00 !important;
+  color: #000 !important;
+}
+.form .market__button.yellow {
+  background-color: #fbc02d !important;
+  color: #000 !important;
+}
+.form .market__button.lime-green {
+  background-color: #7cb342 !important;
+  color: #000 !important;
+}
+.form .market__button.green {
+  background-color: #25a53f !important;
+  color: #fff !important;
+}
+.form .market__button.dark-green {
+  background-color: #005005 !important;
+  color: #fff !important;
+}
+.form .market__button.light-blue {
+  background-color: #039be5 !important;
+  color: #000 !important;
+}
+.form .market__button.blue {
+  background-color: #01579b !important;
+  color: #fff !important;
+}
+.form .market__button.dark-blue {
+  background-color: #002f6c !important;
+  color: #fff !important;
+}
+.form .market__button.pink {
+  background-color: #f48fb1 !important;
+  color: #000 !important;
+}
+.form .market__button.magenta {
+  background-color: #d500f9 !important;
+  color: #fff !important;
+}
+.form .market__button.purple {
+  background-color: #4a148c !important;
+  color: #fff !important;
+}
+.form .market__button:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
 
 .header {
   width: 100%;
@@ -1415,7 +1738,7 @@ body::-webkit-scrollbar-thumb:hover {
   z-index: 100;
   height: 50px;
   background-color: var(--primary-dark);
-  clip-path: none;
+  border-radius: 0;
   -webkit-transition: all 0.1s ease;
   -ms-transition: all 0.1s ease;
   -moz-transition: all 0.1s ease;
@@ -1451,34 +1774,6 @@ body::-webkit-scrollbar-thumb:hover {
     width: calc(100% - 34px);
     margin: 0 auto;
   }
-}
-
-.header--scrollable {
-  width: 100%;
-  position: fixed;
-  top: 0;
-  z-index: 100;
-  height: 50px;
-  background-color: var(--clear);
-  -webkit-transition: all 0.1s ease;
-  -ms-transition: all 0.1s ease;
-  -moz-transition: all 0.1s ease;
-  -o-transition: all 0.1s ease;
-  transition: all 0.1s ease;
-}
-.header--scrollable * {
-  -webkit-transition: all 0.1s ease;
-  -ms-transition: all 0.1s ease;
-  -moz-transition: all 0.1s ease;
-  -o-transition: all 0.1s ease;
-  transition: all 0.1s ease;
-  color: #fff;
-}
-.header--scrollable.scrolled {
-  background-color: var(--primary-dark);
-}
-.header--scrollable.scrolled * {
-  color: var(--on-primary);
 }
 
 .modal__overlay {
@@ -1578,7 +1873,7 @@ body::-webkit-scrollbar-thumb:hover {
   font-size: 14px;
   padding: 0 0.7rem;
   position: absolute;
-  top: 0.57rem;
+  top: 1.1rem;
   left: 0;
   color: var(--placeholder);
   -webkit-transition: all 70ms ease;
@@ -1589,21 +1884,20 @@ body::-webkit-scrollbar-thumb:hover {
 }
 .modal__contents .modal__field .modal__input {
   width: 100%;
+  height: 100%;
   background-color: var(--input);
   color: var(--on-input);
   border: 2px solid var(--input);
-  padding: 0.5rem 0.7rem;
-  border-radius: 0.3rem;
   -webkit-transition: all 0.1s ease;
   -ms-transition: all 0.1s ease;
   -moz-transition: all 0.1s ease;
   -o-transition: all 0.1s ease;
   transition: all 0.1s ease;
-  font-size: 0.875rem;
-  font-weight: 400;
-  text-decoration: inherit;
-  text-transform: inherit;
+  border-radius: 0.3rem 0.3rem 0 0;
+  padding: 1.4rem 0.5rem 0.4rem 0.5rem;
+  font-size: 0.9375rem;
   resize: none;
+  border-bottom: 2px solid var(--secondary);
 }
 .modal__contents .modal__field .modal__input::placeholder {
   color: var(--clear) !important;
@@ -1618,15 +1912,16 @@ body::-webkit-scrollbar-thumb:hover {
 .modal__contents .modal__field .modal__input:focus-within + .modal__label, .modal__contents .modal__field .modal__input:not(:placeholder-shown) + .modal__label {
   width: auto;
   margin: 0 0 0 0.3rem;
-  padding: 0 0.3rem;
+  padding: 0 0.4rem;
   top: 0.4rem;
-  font-size: 12px;
+  font-size: 0.75rem;
   pointer-events: none;
 }
 .modal__contents .modal__field .modal__input[type=file], .modal__contents .modal__field .modal__input.type--file {
   margin: 3px 0 0 0;
   padding: 0.3rem 0;
   visibility: hidden;
+  height: max-content;
 }
 .modal__contents .modal__field .modal__input[type=file]::-webkit-file-upload-button, .modal__contents .modal__field .modal__input.type--file::-webkit-file-upload-button {
   display: none;
@@ -1635,10 +1930,12 @@ body::-webkit-scrollbar-thumb:hover {
   visibility: visible;
   content: attr(data-label);
   display: block;
+  width: max-content;
   background-color: var(--clear);
   color: var(--on-primary);
   border: 1px solid var(--secondary);
   border-radius: 0.3rem;
+  padding: 1.4rem 0.5rem 0.4rem 0.5rem;
   padding: 8px 12px;
   outline: none;
   white-space: nowrap;
@@ -1658,6 +1955,7 @@ body::-webkit-scrollbar-thumb:hover {
   background-color: var(--transparent);
   top: -0.5rem;
   padding: 0;
+  color: var(--on-primary);
 }
 
 .modal__contents .modal__field.error {
@@ -1668,11 +1966,15 @@ body::-webkit-scrollbar-thumb:hover {
   transition: all 0.1s ease;
 }
 .modal__contents .modal__field.error > * {
-  border-color: var(--error) !important;
+  border-bottom: 2px solid var(--error) !important;
   color: var(--error);
+}
+.modal__contents .modal__field.error > *:focus {
+  border: 2px solid var(--error) !important;
 }
 .modal__contents .modal__field.error > .modal__label {
   --placeholder: #e2e2e2 !important;
+  border-bottom: none !important;
 }
 .modal__contents .modal__file-preview {
   width: 100%;
@@ -1819,15 +2121,15 @@ body::-webkit-scrollbar-thumb:hover {
     position: relative;
     margin-right: 7px;
     padding: 7px;
-    font-size: 22px;
+    font-size: 1.375rem;
     border-radius: 25px;
   }
 }
 .search form input[type=text] {
   border: none;
-  font-size: 15px;
-  border-radius: 20px;
+  font-size: 0.9375rem;
   width: 100%;
+  border-radius: 500px;
   padding: 7px 12px;
   background-color: var(--clear);
   color: var(--on-primary);
@@ -2011,8 +2313,8 @@ body::-webkit-scrollbar-thumb:hover {
 .search__filter .search__filter__item .search__filter__select {
   font-size: 0.9375rem;
   width: 100%;
-  padding: 5px 7px;
   border-radius: 0.3rem;
+  padding: 5px 7px;
   cursor: pointer;
   appearance: none;
   border: 1px solid var(--primary-light);
@@ -2056,14 +2358,14 @@ body::-webkit-scrollbar-thumb:hover {
   --size: 0.3em;
   border-left: var(--size) solid transparent;
   border-right: var(--size) solid transparent;
-  border-top: var(--size) solid #fff;
+  border-top: var(--size) solid #bfbfbf;
   top: 65%;
 }
 .search__filter .search__filter__item .search__filter__arrow::after {
   --size: 0.3em;
   border-left: var(--size) solid transparent;
   border-right: var(--size) solid transparent;
-  border-bottom: var(--size) solid #fff;
+  border-bottom: var(--size) solid #bfbfbf;
   bottom: 35%;
 }
 .search__filter .search__filter__item .search__filter__label {
@@ -2077,7 +2379,6 @@ body::-webkit-scrollbar-thumb:hover {
   margin-bottom: 10px;
   border-radius: 0.3rem;
   font-size: 1.125rem;
-  clip-path: none;
   background-color: var(--primary);
   color: var(--on-primary);
 }
@@ -2102,7 +2403,6 @@ body::-webkit-scrollbar-thumb:hover {
   margin-bottom: 7px;
   border-radius: 0.3rem;
   font-size: 1.125rem;
-  clip-path: none;
   background-color: var(--clear) !important;
   color: var(--on-primary);
 }
@@ -2128,7 +2428,6 @@ body::-webkit-scrollbar-thumb:hover {
   margin-bottom: 7px;
   border-radius: 0.3rem;
   font-size: 1.125rem;
-  clip-path: none;
   background-color: var(--clear) !important;
   color: var(--on-surface);
 }

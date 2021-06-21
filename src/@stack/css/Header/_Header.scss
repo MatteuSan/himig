@@ -30,9 +30,11 @@
     $fill: var(--primary-dark),
     $ink: var(--on-primary),
     $non-scrolled-ink: #fff,
-    $clip-path: none,
     $font-size: 20px,
-    $padding: 0.5rem 0.7rem
+    $padding: 0.5rem 0.7rem,
+    $border-radius: 1rem,
+    $clip-size: 0.7rem,
+    $shape: default
 ) {
     @if $type == default {
         .header {
@@ -44,7 +46,24 @@
 
             background-color: $fill;
 
-            clip-path: $clip-path;
+            @if $shape == round {
+                border-radius: 0 0 #{$border-radius} #{$border-radius};
+            } @else if $shape == clipped {
+                clip-path:
+                    polygon(
+                        0% 0%,
+                        $clip-size 0%,
+                        100% 0%,
+                        100% $clip-size,
+                        100% calc(100% - #{$clip-size}),
+                        calc(100% - #{$clip-size}) 100%,
+                        $clip-size 100%,
+                        0% calc(100% - #{$clip-size})
+                    )
+                ;
+            } @else {
+                border-radius: 0;
+            }
 
             @include mixins.prefix(transition, all 0.1s ease);
         }

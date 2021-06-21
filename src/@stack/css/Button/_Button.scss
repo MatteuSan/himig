@@ -26,48 +26,103 @@
 @use '../Typography/Typography' as typography;
 
 @mixin render(
-    $border-radius: 0.3rem,
+    $shape: default,
     $font-size: 14px,
     $padding: 8px 12px,
     $fill: var(--secondary),
     $ink: var(--on-secondary),
     $ink-reverse: var(--on-primary),
-    $font-weight: 700
+    $font-weight: 700,
+    $clip-size: 0.5rem,
+    $border-radius: 0.3rem,
+    $icon-size: 18px,
+    $icon-ink: var(--on-secondary)
 ) {
     .btn {
-        padding: $padding;
-        border-radius: $border-radius;
+        @include mixins.shape($shape, $padding, $border-radius, $clip-size);
+
         font-size: typography.px-to-rem($font-size);
 
         @include mixins.prefix(transition, all 0.1s linear);
 
         border: 1px solid #{$fill};
-        background-color: var(--clear);
+        background: var(--clear);
         color: $ink-reverse;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: row nowrap;
 
         &:hover {
             cursor: pointer;
-            background-color: $fill;
+            background: $fill;
             color: $ink;
+
+            @at-root #{&}[data-icon-before] {
+                &::before {
+                    color: $icon-ink;
+                }
+            }
+
+            @at-root #{&}[data-icon-after] {
+                &::after {
+                    color: $icon-ink;
+                }
+            }
         }
 
         &:disabled {
             cursor: not-allowed;
-            background-color: var(--undefined);
+            background: var(--undefined);
             color: var(--on-undefined);
         }
 
+        @at-root #{&}[data-icon-before] {
+            &::before {
+                content: attr(data-icon-before);
+                font-family: 'Material Icons';
+                font-size: typography.px-to-rem($icon-size);
+                color: $ink-reverse;
+                margin-right: 4px;
+                position: relative;
+
+                @include mixins.prefix(transition, all 0.1s linear);
+            }
+        }
+
+        @at-root #{&}[data-icon-after] {
+            &::after {
+                content: attr(data-icon-after);
+                font-family: 'Material Icons';
+                font-size: typography.px-to-rem($icon-size);
+                color: $ink-reverse;
+                margin-left: 4px;
+                position: relative;
+
+                @include mixins.prefix(transition, all 0.1s linear);
+            }
+        }
+
         @at-root #{&}--primary {
-            padding: $padding;
-            border-radius: $border-radius;
+
+            @include mixins.shape($shape, $padding, $border-radius, $clip-size);
+
+            @include mixins.prefix(transition, all 0.1s linear);
+
             font-size: typography.px-to-rem($font-size);
             font-weight: $font-weight;
 
             @include mixins.prefix(transition, all 0.1s linear);
 
             border: 1px solid #{$fill};
-            background-color: $fill;
+            background: $fill;
             color: $ink;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-flow: row nowrap;
 
             &:hover {
                 filter: brightness(70%);
@@ -79,6 +134,32 @@
                 background-color: var(--undefined);
                 color: var(--on-undefined);
             }
+
+            @at-root #{&}[data-icon-before] {
+                &::before {
+                    content: attr(data-icon-before);
+                    font-family: 'Material Icons';
+                    font-size: typography.px-to-rem($icon-size);
+                    color: $icon-ink;
+                    margin-right: 4px;
+                    position: relative;
+
+                    @include mixins.prefix(transition, all 0.1s linear);
+                }
+            }
+
+            @at-root #{&}[data-icon-after] {
+                &::after {
+                    content: attr(data-icon-after);
+                    font-family: 'Material Icons';
+                    font-size: typography.px-to-rem($icon-size);
+                    color: $icon-ink;
+                    margin-left: 4px;
+                    position: relative;
+
+                    @include mixins.prefix(transition, all 0.1s linear);
+                }
+            }
         }
 
         @at-root #{&}--text-only {
@@ -89,8 +170,13 @@
             @include mixins.prefix(transition, all 0.1s linear);
 
             border: none;
-            background-color: var(--clear);
+            background: var(--clear);
             color: $fill;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-flow: row nowrap;
 
             &:hover {
                 filter: brightness(70%);
@@ -102,6 +188,33 @@
                 color: var(--undefined);
             }
 
+            @at-root #{&}[data-icon-before] {
+                &::before {
+                    content: attr(data-icon-before);
+                    font-family: 'Material Icons';
+                    font-size: typography.px-to-rem($icon-size);
+                    color: $fill;
+                    margin-right: 4px;
+                    margin-left: 5px;
+                    position: relative;
+
+                    @include mixins.prefix(transition, all 0.1s linear);
+                }
+            }
+
+            @at-root #{&}[data-icon-after] {
+                &::after {
+                    content: attr(data-icon-after);
+                    font-family: 'Material Icons';
+                    font-size: typography.px-to-rem($icon-size);
+                    color: $fill;
+                    margin-left: 4px;
+                    margin-right: 5px;
+                    position: relative;
+
+                    @include mixins.prefix(transition, all 0.1s linear);
+                }
+            }
         }
     }
 

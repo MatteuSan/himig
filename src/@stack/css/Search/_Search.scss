@@ -23,11 +23,16 @@
 //
 
 @use '../mixins';
+@use '../Typography' as typography;
 
 @mixin render(
     $label-fill: var(--primary-light),
     $label-ink: var(--on-primary),
-    $ink: var(--on-primary)
+    $ink: var(--on-primary),
+    $border-radius: 0.5rem,
+    $clip-size: 0.3rem,
+    $shape: pill,
+    $padding: 7px 12px
 ) {
     .search {
         width: calc(100% + 22px);
@@ -73,17 +78,17 @@
                     position: relative;
                     margin-right: 7px;
                     padding: 7px;
-                    font-size: 22px;
+                    font-size: typography.px-to-rem(22px);
                     border-radius: 25px;
                 }
             }
 
             input[type="text"] {
                 border: none;
-                font-size: 15px;
-                border-radius: 20px;
+                font-size: typography.px-to-rem(15px);
                 width: 100%;
-                padding: 7px 12px;
+
+                @include mixins.shape($shape, $padding, $border-radius, $clip-size);
 
                 background-color: var(--clear);
                 color: $ink;

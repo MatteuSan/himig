@@ -123,7 +123,7 @@ $styles-map: (
 );
 
 // API
-@mixin import-font($url) {
+@mixin import-font($url: 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap') {
     @import url($url);
 }
 

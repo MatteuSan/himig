@@ -115,6 +115,52 @@ $full-max: 849px !default;
     }
 }
 
+@mixin shape($imported-shape: (), $imported-padding: (), $imported-border-radius: (), $imported-clip-size: ()) {
+
+    @if $imported-shape == pill {
+        border-radius: 500px;
+        @if $imported-padding {
+            padding: $imported-padding;
+        }
+    } @else if $imported-shape == round {
+        @if $imported-border-radius {
+            border-radius: $imported-border-radius;
+        }
+        @if $imported-padding {
+            padding: $imported-padding;
+        }
+    } @else if $imported-shape == block {
+        border-radius: 0;
+        @if $imported-padding {
+            padding: $imported-padding;
+        }
+    } @else if $imported-shape == clipped and $imported-clip-size {
+        @if $imported-clip-size {
+            clip-path:
+                polygon(
+                    0% $imported-clip-size,
+                    $imported-clip-size 0%, calc(100% - #{$imported-clip-size}) 0%,
+                    100% $imported-clip-size,
+                    100% calc(100% - #{$imported-clip-size}),
+                    calc(100% - #{$imported-clip-size}) 100%,
+                    $imported-clip-size 100%,
+                    0% calc(100% - #{$imported-clip-size})
+                )
+            ;
+        }
+        @if $imported-padding {
+            padding: $imported-padding;
+        }
+    } @else if $imported-shape == default {
+        @if $imported-border-radius {
+            border-radius: $imported-border-radius;
+        }
+        @if $imported-padding {
+            padding: $imported-padding;
+        }
+    }
+}
+
 
 // MIN MEDIA
 @mixin mobile-min() {

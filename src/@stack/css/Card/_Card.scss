@@ -51,19 +51,49 @@
     $ink: var(--on-primary),
     $icon-ink: var(--on-primary),
     $scaling: 1.03,
+    $shape: default,
+    $clip-size: 0.7em
 ) {
     @if $type == default {
         .card {
-            @include base($padding, $border-radius, $margin-bottom);
+            $shape-border-radius: () !default;
+            $shape-padding: () !default;
+
+            @if $shape == round {
+                $shape-border-radius: $border-radius;
+                $shape-padding: $padding;
+            } @else if $shape == block {
+                $shape-border-radius: 0;
+                $shape-padding: $padding;
+            } @else if $shape == clipped {
+                $shape-border-radius: 0;
+                $shape-padding: $padding;
+                clip-path:
+                    polygon(
+                        0% $clip-size,
+                        $clip-size 0%,
+                        calc(100% - #{$clip-size}) 0%,
+                        100% $clip-size,
+                        100% calc(100% - #{$clip-size}),
+                        calc(100% - #{$clip-size}) 100%,
+                        $clip-size 100%,
+                        0% calc(100% - #{$clip-size})
+                    );
+            } @else {
+                $shape-border-radius: $border-radius;
+                $shape-padding: $padding;
+            }
+
+            @include base($shape-padding, $shape-border-radius, $margin-bottom);
             @include fill($fill);
             @include ink($ink);
 
             .card__big-text {
-                @include typography.generate(title-24);
+                font-size: typography.px-to-rem(24px);
             }
 
             .card__small-text {
-                @include typography.generate(body-12);
+                font-size: typography.px-to-rem(12px);
             }
 
             &.stable {
@@ -92,8 +122,10 @@
         }
     } @else if $type == x {
         .card--x {
+
+            @include mixins.shape($shape, 0, $border-radius, $clip-size);
+
             height: 110px;
-            border-radius: $border-radius;
             width: 100%;
             overflow: hidden;
 
@@ -155,7 +187,7 @@
                 }
 
                 h2 {
-                    font-size: 18px;
+                    font-size: typography.px-to-rem(18px);
                     color: inherit;
                 }
 
@@ -185,9 +217,11 @@
         }
     } @else if $type == y {
         .card--y {
+
+            @include mixins.shape($shape, 0, $border-radius, $clip-size);
+
             display: flex;
             flex-direction: column;
-            border-radius: $border-radius;
             overflow: hidden;
             width: 100%;
             margin: 0;
@@ -219,15 +253,14 @@
                 padding: $padding;
 
                 .card--y__info__title {
-                    @include typography.generate(title-18);
-
+                    font-size: typography.px-to-rem(20px);
                     white-space: nowrap;
                     overflow: hidden;
                     text-overflow: ellipsis;
                 }
 
                 .card--y__info__subtitle {
-                    @include typography.generate(subtitle-14);
+                    font-size: typography.px-to-rem(14px);
 
                     white-space: nowrap;
                     overflow: hidden;

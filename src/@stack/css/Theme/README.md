@@ -14,7 +14,7 @@
 
 ## API
 ### Theming API
-- This API is for overriding the current theme for the Alert component using the `.render()` function in your styling file. You can override the following `$parameters` inside the `.render()` function.
+- *Use the `with ($parameters: $value);` for this API. (Please refer to the example below this API table)*
 
 | $parameter | Effect |   
 |---|---|

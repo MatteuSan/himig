@@ -31,8 +31,10 @@
     $padding: 5px 7px,
     $margin-bottom: 10px,
     $placement-x: flex-start,
-    $arrow-fill: #fff,
-    $outline: true
+    $arrow-fill: #bfbfbf,
+    $outline: true,
+    $clip-size: 0.3rem,
+    $shape: default
 ) {
     .search__filter {
         margin-bottom: $margin-bottom;
@@ -52,8 +54,9 @@
             .search__filter__select {
                 font-size: typography.px-to-rem(15px);
                 width: 100%;
-                padding: $padding;
-                border-radius: $border-radius;
+
+                @include mixins.shape($shape, $padding, $border-radius, $clip-size);
+
                 cursor: pointer;
                 appearance: none;
 

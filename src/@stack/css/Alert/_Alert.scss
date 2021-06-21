@@ -28,12 +28,13 @@
 
 @mixin render(
     $padding: 0.3rem 0.5rem,
+    $border-radius: 0.3rem,
     $fill: var(--primary-light),
     $ink: var(--on-primary),
     $icon-ink: var(--on-primary),
     $border: none,
-    $border-radius: 0.3rem,
-    $clip-path: none
+    $shape: default,
+    $clip-size: none
 ) {
 
     $types: (
@@ -67,13 +68,12 @@
 
         .alert#{$separator}#{$type} {
             width: 100%;
-            padding: $padding;
             background-color: $value;
-            border-radius: $border-radius;
-            color: $color;
 
+            @include mixins.shape($shape, $padding, $border-radius, $clip-size);
+
+            color: $color;
             border: $border;
-            clip-path: $clip-path;
 
             .alert__icon {
                 display: $display;
@@ -115,9 +115,9 @@
     color: $icon-ink-value;
 }
 
-@mixin border($border-style, $border-radius) {
+@mixin border($border-style, $shape) {
     border: $border-style;
-    border-radius: $border-radius;
+    border-radius: $shape;
 }
 
 @mixin shape($clip-path) {

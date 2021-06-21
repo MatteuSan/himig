@@ -27,15 +27,14 @@
 
 @mixin base(
     $padding,
-    $border-radius,
     $spacer-ink
 ) {
     width: 100%;
-    padding: $padding;
-    border-radius: $border-radius;
 
     display: grid;
     grid-template-columns: 42px 1fr 42px;
+
+    padding: $padding;
 
     background-color: var(--primary-light);
 
@@ -115,12 +114,15 @@
     $spacer-ink: var(--surface),
     $border: none,
     $border-radius: 0.3rem,
-    $padding: 10px
+    $padding: 10px,
+    $shape: default,
+    $clip-size: 0.5rem
 ) {
     .contain--item {
         height: max-content;
-        border-radius: 0.3rem;
+        @include mixins.shape($shape, 0, $border-radius, $clip-size);
         position: relative;
+        overflow: hidden;
 
         .item__status__sym {
             display: inline !important;
@@ -156,11 +158,11 @@
     }
 
     .chip {
-        @include base($padding, 0.3rem 0.3rem 0 0, $spacer-ink);
+        @include base($padding, $spacer-ink);
     }
 
     .chip--full {
-        @include base($padding, $border-radius, $spacer-ink);
+        @include base($padding, $spacer-ink);
     }
 
     .chip__options {

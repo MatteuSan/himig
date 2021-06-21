@@ -31,7 +31,6 @@
     $margin-bottom,
     $border-radius,
     $font-size,
-    $clip-path
 ) {
     width: 100%;
     height: auto;
@@ -41,8 +40,6 @@
     border-radius: $border-radius;
 
     font-size: typography.px-to-rem($font-size);
-
-    clip-path: $clip-path;
 }
 
 // @RenderStyle
@@ -55,10 +52,41 @@
     $icon-ink: var(--on-primary),
     $border: none,
     $border-radius: 0.3rem,
-    $clip-path: none
+    $clip-size: 0.5rem,
+    $shape: default
 ) {
     .title-bar {
-        @include base($padding, $margin-bottom, $border-radius, $font-size, $clip-path);
+
+        $shape-border-radius: () !default;
+        $shape-padding: () !default;
+        $clip-path: () !default;
+
+        @if $shape == round {
+            $shape-border-radius: $border-radius;
+            $shape-padding: $padding;
+        } @else if $shape == block {
+            $shape-border-radius: 0;
+            $shape-padding: $padding;
+        } @else if $shape == clipped {
+            $shape-border-radius: 0;
+            $shape-padding: $padding;
+            clip-path:
+                polygon(
+                    0% $clip-size,
+                    $clip-size 0%,
+                    calc(100% - #{$clip-size}) 0%,
+                    100% $clip-size,
+                    100% calc(100% - #{$clip-size}),
+                    calc(100% - #{$clip-size}) 100%,
+                    $clip-size 100%,
+                    0% calc(100% - #{$clip-size})
+                );
+        } @else {
+            $shape-border-radius: $border-radius;
+            $shape-padding: $padding;
+        }
+
+        @include base($shape-padding, $margin-bottom, $shape-border-radius, $font-size);
         @include fill($fill);
         @include ink($ink);
 
@@ -86,8 +114,7 @@
                 3px 0,
                 7px,
                 $border-radius,
-                $font-size,
-                $clip-path
+                $font-size
             );
 
             @include fill(var(--clear)!important);
@@ -118,8 +145,7 @@
                 0 5px,
                 7px,
                 $border-radius,
-                $font-size,
-                $clip-path
+                $font-size
             );
 
             @include fill(var(--clear)!important);

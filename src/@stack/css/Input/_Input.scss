@@ -25,7 +25,13 @@
 @use '../mixins';
 @use '../Typography/Typography' as typography;
 
-@mixin core-styles($component) {
+@mixin core-styles(
+    $component,
+    $padding: 1.4rem 0.5rem 0.4rem 0.5rem,
+    $border-radius: 0.3rem,
+    $shape: default,
+    $clip-size: 0.3rem
+) {
     .#{$component}__field {
         position: relative;
         margin: 0 0 13px 0;
@@ -36,7 +42,7 @@
             padding: 0 0.7rem;
 
             position: absolute;
-            top: 0.57rem;
+            top: 1.1rem;
             left: 0;
 
             color: var(--placeholder);
@@ -46,18 +52,22 @@
 
         .#{$component}__input {
             width: 100%;
+            height: 100%;
             background-color: var(--input);
             color: var(--on-input);
             border: 2px solid var(--input);
 
-            padding: 0.5rem 0.7rem;
-            border-radius: 0.3rem;
+            $compiled-border-radius: #{$border-radius} #{$border-radius} 0 0;
 
             @include mixins.prefix(transition, all 0.1s ease);
 
-            @include typography.generate(body-14);
+            @include mixins.shape($shape, $padding, $compiled-border-radius, $clip-size);
+
+            font-size: typography.px-to-rem(15px);
 
             resize: none;
+
+            border-bottom: 2px solid var(--secondary);
 
             &::placeholder {
                 color: var(--clear) !important;
@@ -75,11 +85,11 @@
                 & + .#{$component}__label {
                     width: auto;
                     margin: 0 0 0 0.3rem;
-                    padding: 0 0.3rem;
+                    padding: 0 0.4rem;
 
                     top: 0.4rem;
 
-                    font-size: 12px;
+                    font-size: typography.px-to-rem(12px);
 
                     pointer-events: none;
                 }
@@ -91,6 +101,7 @@
                 margin: 3px 0 0 0;
                 padding: 0.3rem 0;
                 visibility: hidden;
+                height: max-content;
 
                 &::-webkit-file-upload-button {
                     display: none;
@@ -100,11 +111,13 @@
                     visibility: visible;
                     content: attr(data-label);
                     display: block;
+                    width: max-content;
 
                     background-color: var(--clear);
                     color: var(--on-primary);
                     border: 1px solid var(--secondary);
-                    border-radius: 0.3rem;
+
+                    @include mixins.shape($shape, $padding, $border-radius, $clip-size);
 
                     padding: 8px 12px;
 
@@ -128,6 +141,7 @@
                     background-color: var(--transparent);
                     top: -0.5rem;
                     padding: 0;
+                    color: var(--on-primary);
                 }
             }
         }
@@ -136,12 +150,17 @@
             @include mixins.prefix(transition, all 0.1s ease);
 
             > * {
-                border-color: var(--error) !important;
+                border-bottom: 2px solid var(--error) !important;
                 color: var(--error);
+
+                &:focus {
+                    border: 2px solid var(--error) !important;
+                }
             }
 
             > .#{$component}__label {
                 --placeholder: #e2e2e2 !important;
+                border-bottom: none!important;
             }
         }
     }

@@ -115,26 +115,32 @@
 // You can also remove components whenever you're not going to use them.
 //
 
-@include Alert.render(
-    $icon-ink: var(--secondary)
-);
+@include Alert.render();
 @include Banner.render(
     $fill: linear-gradient(45deg, #001334 0%, #44638b 100%),
     $ink: #fff
 );
 @include Button.render();
-@include Card.render();
-@include Card.render($type: x);
-@include Card.render($type: y);
+@include Card.render(
+    $shape: round
+);
+@include Card.render(
+    $type: x,
+    $shape: round
+);
+@include Card.render(
+    $type: y,
+    $shape: round
+);
 @include Chip.render();
 @include Containers.render();
 @include Drawer.render();
 @include Elevation.render();
-@include Faq.render();
 @include Footer.render();
-@include Form.render();
+@include Form.render(
+    $shape: round,
+);
 @include Header.render();
-@include Header.render($type: scrollable);
 @include Modal.render();
 @include Navbar.render(
     $nav-contents: 4

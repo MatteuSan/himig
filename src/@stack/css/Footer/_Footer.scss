@@ -29,7 +29,9 @@
     $ink: var(--on-primary),
     $icon-ink: $ink,
     $padding: 1.5rem,
-    $clip-path: none
+    $clip-size: 0.7rem,
+    $border-radius: 1rem,
+    $shape: default,
 ) {
     .footer {
         margin-top: auto;
@@ -40,7 +42,23 @@
 
         color: $ink;
 
-        clip-path: $clip-path;
+        @if $shape == round {
+            border-radius: #{$border-radius} #{$border-radius} 0 0;
+        } @else if $shape == clipped {
+            clip-path:
+                polygon(
+                    0% $clip-size,
+                    $clip-size 0%, calc(100% - #{$clip-size}) 0%,
+                    100% $clip-size,
+                    100% 100%,
+                    calc(100% - #{$clip-size}) 100%,
+                    0% 100%,
+                    0% calc(100% - #{$clip-size})
+                )
+            ;
+        } @else {
+            border-radius: 0;
+        }
 
         @media (min-width: mixins.$full-min) {
             margin-bottom: 0;
