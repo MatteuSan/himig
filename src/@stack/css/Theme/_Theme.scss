@@ -52,10 +52,10 @@ $placeholder: () !default;
 $on-primary: () !default;
 $on-secondary: () !default;
 $on-surface: () !default;
-$on-error: () !default;
-$on-warning: () !default;
-$on-success: () !default;
-$on-undefined: () !default;
+$on-error: #fff !default;
+$on-warning: #000 !default;
+$on-success: #fff !default;
+$on-undefined: #fff !default;
 $on-input: () !default;
 
 $transparent: rgba(0 0 0 / 0) !default;

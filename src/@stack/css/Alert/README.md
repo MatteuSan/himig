@@ -35,7 +35,7 @@
   
 
 ### Overriding API
-- This API is for overriding the current theme for the Alert component using the `.render()` function. You can override the following `$parameters` inside the `.render()` function.
+- This API is for overriding the current theme for the Alert component using the `.render()` function in your styling file. You can override the following `$parameters` inside the `.render()` function.
 
 | $parameter | Effect |   
 |---|---|
