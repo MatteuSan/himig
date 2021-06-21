@@ -90,9 +90,11 @@
 
         //  DRAWER
         .drawer {
-            --on-drawer: var(--on-primary);
-
             background: var(--primary-dark);
+
+            * {
+                color: var(--on-primary);
+            }
         }
 
         //  CONTENTS
@@ -106,7 +108,7 @@
         .card--x,
         .card--y,
         .card {
-            background-color: var(--surface) !important;
+            background-color: var(--surface);
             border: 1px solid rgba(255,255,255,0.102);
         }
 

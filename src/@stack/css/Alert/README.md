@@ -41,13 +41,14 @@
 |---|---|
 | `$fill` | Overrides the current `background` related properties (minus the --type classes)
 | `$ink` | Overrides the current `color` text-related properties (minus the ---type classes)
-| `$ink` | Overrides the current `color` icon-related properties (minus the ---type classes)
+| `$icon-ink` | Overrides the current `color` icon-related properties (minus the ---type classes)
 | `$padding` | Overrides the current `padding` property of the component
 | `$border` | Overrides the current `border` property of the component
 | `$border-radius` | Overrides the current `border-radius` property of the component
-| `$clip-path` | Overrides the current shape of the element using the `clip-path` property of the component
+| `$shape` | Alters the shape of your component. Available shapes include `default`, `rounded`, `clipped`, and `block`
+| `$clip-size` | Overrides the clipping size of the element with the `clipped` shape state.
 
-#### Overriding API Implementatation Example
+#### Overriding API Implementation Example
 
 ```scss
 ...

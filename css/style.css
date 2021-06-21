@@ -2677,8 +2677,10 @@ button[data-tooltip]:hover::after {
   background-color: var(--primary-dark);
 }
 .dark-mode .drawer {
-  --on-drawer: var(--on-primary);
   background: var(--primary-dark);
+}
+.dark-mode .drawer * {
+  color: var(--on-primary);
 }
 .dark-mode .title-bar,
 .dark-mode .card {
@@ -2689,7 +2691,7 @@ button[data-tooltip]:hover::after {
 .dark-mode .card--x,
 .dark-mode .card--y,
 .dark-mode .card {
-  background-color: var(--surface) !important;
+  background-color: var(--surface);
   border: 1px solid rgba(255, 255, 255, 0.102);
 }
 .dark-mode .chip__options {
