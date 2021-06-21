@@ -33,7 +33,7 @@ Check out the demo [here](https://growstocks.github.io/stack)!
     $primary-variant-light: #yourc...
     ...
    ```
-   *The API for the style theming is located [here...](https://youtube.com)*
+   *The API for the style theming is located [here...](https://github.com/GrowStocks/stack/tree/unstable/src/%40stack/css/Theme)*
    
 5. Call out the components using the following format:
    ```scss
