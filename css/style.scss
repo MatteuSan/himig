@@ -22,29 +22,29 @@
 //  SOFTWARE.
 //
 
-@use '../src/@stack/css/config' as config;
-@use '../src/@stack/css/Typography' as typography;
+@use '../src/css/config' as config;
+@use '../src/css/Typography' as typography;
 
-@use '../src/@stack/css/Alert';
-@use '../src/@stack/css/Banner';
-@use '../src/@stack/css/Button';
-@use '../src/@stack/css/Card';
-@use '../src/@stack/css/Chip';
-@use '../src/@stack/css/Containers';
-@use '../src/@stack/css/Drawer';
-@use '../src/@stack/css/Elevation';
-@use '../src/@stack/css/Faq';
-@use '../src/@stack/css/Footer';
-@use '../src/@stack/css/Form';
-@use '../src/@stack/css/Header';
-@use '../src/@stack/css/Modal';
-@use '../src/@stack/css/Navbar';
-@use '../src/@stack/css/Search';
-@use '../src/@stack/css/SearchPredictive';
-@use '../src/@stack/css/SearchFilter';
-@use '../src/@stack/css/TitleBar';
-@use '../src/@stack/css/Tooltip';
-@use '../src/@stack/css/Wraps';
+@use '../src/css/Alert';
+@use '../src/css/Banner';
+@use '../src/css/Button';
+@use '../src/css/Card';
+@use '../src/css/Chip';
+@use '../src/css/Containers';
+@use '../src/css/Drawer';
+@use '../src/css/Elevation';
+@use '../src/css/Faq';
+@use '../src/css/Footer';
+@use '../src/css/Form';
+@use '../src/css/Header';
+@use '../src/css/Modal';
+@use '../src/css/Navbar';
+@use '../src/css/Search';
+@use '../src/css/SearchPredictive';
+@use '../src/css/SearchFilter';
+@use '../src/css/TitleBar';
+@use '../src/css/Tooltip';
+@use '../src/css/Wraps';
 
 @use 'overrides';
 
@@ -58,7 +58,7 @@
 // setting inputs.
 //
 
-@use '../src/@stack/css/Theme' with (
+@use '../src/css/Theme' with (
     $primary: #12305e,
     $primary-light: #44638b,
     $primary-dark: #001334,
@@ -120,10 +120,30 @@
     $fill: linear-gradient(45deg, #001334 0%, #44638b 100%),
     $ink: #fff
 );
-@include Button.render();
-@include Card.render(
-    $shape: round
+
+@include Button.render(
+    $type: (
+        text: true,
+    )
 );
+
+@include Button.render(
+    $shape: clipped,
+    $type: (
+        outlined: true,
+        filled: true
+    )
+);
+
+/*@include Button.render(
+    $type: (
+        outlined: true,
+        filled: true
+    )
+);*/
+
+@include Card.render();
+
 @include Card.render(
     $type: x,
     $shape: round

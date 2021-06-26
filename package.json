@@ -7,6 +7,7 @@
     "doc": "docs"
   },
   "dependencies": {
+    "@growstocks/stack": "^1.3.0-beta",
     "lit": "^2.0.0-rc.2",
     "typescript": "^4.3.2"
   },

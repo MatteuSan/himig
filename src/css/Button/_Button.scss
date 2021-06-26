@@ -1,0 +1,164 @@
+//
+//  MIT License
+//
+//  Copyright (c) 2021 GrowStocks
+//
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in all
+//  copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+//  SOFTWARE.
+//
+
+@use '../mixins';
+@use '../Typography' as typography;
+@use 'sass:map';
+
+// Button component template (can be used anywhere)
+@mixin base(
+    $component-name: button,
+    $base-padding: undefined,
+
+    $base-fill: undefined,
+    $base-ink: undefined,
+
+    $base-font-size: undefined,
+    $base-font-weight: undefined,
+
+    $base-icon-size: undefined,
+    $base-icon-ink: undefined,
+
+    $base-shape: default,
+    $base-shape-exceptions: undefined,
+
+    $base-border: none,
+    $base-border-radius: undefined,
+    $base-clip-size: undefined
+) {
+    .#{$component-name} {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: row nowrap;
+
+        font-weight: $base-font-weight;
+        font-size: typography.px-to-rem($base-font-size);
+
+        padding: $base-padding;
+        border: $base-border;
+        background-color: $base-fill;
+        color: $base-ink;
+
+        .#{$component-name}__label {
+            color: inherit;
+            font-weight: inherit;
+            font-size: inherit;
+        }
+
+        .#{$component-name}__icon {
+            font-size: typography.px-to-rem($base-icon-size);
+            color: $base-icon-ink;
+            margin-right: 4px;
+            position: relative;
+        }
+
+        @include mixins.prefix(transition, all 0.1s linear);
+        @include mixins.shape($base-shape, $base-border-radius, $base-clip-size, $base-shape-exceptions);
+
+        &:hover {
+            filter: brightness(80%);
+            cursor: pointer;
+        }
+    }
+}
+
+// Button.render($parameters)
+@mixin render(
+    $font-size: 14px,
+    $font-weight: 700,
+
+    $shape: default,
+    $border-radius: 0.3rem,
+    $padding: 8px 12px,
+    $clip-size: 0.5rem,
+
+    $fill: var(--secondary),
+    $ink: $fill,
+
+    $icon-size: 18px,
+    $icon-ink: $ink,
+
+    $type: ()
+) {
+
+    @if check-type($type, text) == true {
+        // .button
+        @include base(
+            $component-name: button,
+            $base-padding: $padding,
+            $base-border-radius: $border-radius,
+            $base-fill: var(--clear),
+            $base-ink: $fill,
+            $base-font-size: $font-size,
+            $base-font-weight: $font-weight,
+            $base-icon-size: $icon-size,
+            $base-icon-ink: $fill,
+            $base-shape: $shape,
+            $base-shape-exceptions: ()
+        );
+    }
+
+    @if check-type($type, outlined) == true {
+        // .button--outlined
+        @include base(
+            $component-name: button--outlined,
+            $base-padding: $padding,
+            $base-border-radius: $border-radius,
+            $base-border: 1px solid #{$fill},
+            $base-fill: var(--clear),
+            $base-font-size: $font-size,
+            $base-font-weight: $font-weight,
+            $base-icon-size: $icon-size,
+            $base-shape: $shape,
+            $base-shape-exceptions: (
+                clipped: true
+            )
+        );
+    }
+
+    @if check-type($type, filled) == true {
+        @include base(
+            $component-name: button--filled,
+            $base-padding: $padding,
+            $base-border-radius: $border-radius,
+            $base-border: 1px solid #{$fill},
+            $base-fill: var(--secondary),
+            $base-ink: var(--on-secondary),
+            $base-icon-ink: var(--on-secondary),
+            $base-font-size: $font-size,
+            $base-font-weight: $font-weight,
+            $base-icon-size: $icon-size,
+            $base-shape: $shape,
+            $base-shape-exceptions: (),
+            $base-clip-size: $clip-size
+        );
+    }
+}
+
+@function check-type($type-map, $type-to-check) {
+    $query: map.get($type-map, $type-to-check);
+
+    @return $query;
+}
