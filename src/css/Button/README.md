@@ -54,6 +54,7 @@
 | `$border-radius` | Overrides the current `border-radius` property of the component
 | `$shape` | Alters the shape of your component. Available shapes include `default`, `rounded`, `clipped`, and `block`
 | `$clip-size` | Overrides the clipping size of the element with the `clipped` shape state.
+| `$type: (...)` | Sets the button type to render, may it be a single type or multiple types. Available types to set are `text`, `outlined`, and `filled` |
 
 #### Overriding API Implementation Example
 
