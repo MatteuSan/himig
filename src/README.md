@@ -16,13 +16,12 @@ Check out the demo [here](https://growstocks.github.io/stack)!
    ```
 2. Make an scss file with your preferred name (e.g. `main.scss`, `style.scss`, `index.scss`.
 3. Add the style.css and the _core.js file in the `<head></head>` tags.
-
-```html
-<!-- @StackStyles -->
-<link rel=stylesheet type="text/css" href="css/filename.css">
-<!-- @StackScripts -->
-<script src="node_modules/@stack/js/_core.js"></script>
-```
+   ```html
+   <!-- @StackStyles -->
+   <link rel=stylesheet type="text/css" href="css/filename.css">
+   <!-- @StackScripts -->
+   <script src="node_modules/@stack/js/_core.js"></script>
+   ```
 4. Configure your theme settings in the style file you made using the StackTheme API.
    ```scss
    @use '../node_modules/@stack/css/Theme' with (
@@ -54,9 +53,8 @@ Check out the demo [here](https://growstocks.github.io/stack)!
        $on-input: #000
    );
    ```
-5. Add your theme overrides in the `stack/css/_overrides.scss` file.
-6. Add your theme's custom styles in the `stack/css/_custom.scss` file.
-7. DONE!
+5. Add your components in the same file. (Use the component importing documentation--preferably with the component specific ones)
+6. DONE!
 
 # Addons
-- There's an included `_demo.html` file that you can use to see the library in action!
+- There's an included `index.html` file that you can use to see the library in action!
