@@ -8,31 +8,7 @@
 //
 //
 import Header from "./structs/Header";
-
-const search: any = document.querySelector('.search')
-const searchButton: any = document.querySelector('.search-button')
-const closeButton: any = document.querySelector('.close-button')
-const headerText: any = document.querySelector('.header__text')
-
-searchButton.addEventListener('click', function () {
-
-    headerText.classList.add('invisible')
-    searchButton.classList.add('invisible')
-
-    search.classList.add('visible')
-    closeButton.classList.add('visible')
-
-});
-
-closeButton.addEventListener('click', function () {
-
-    search.classList.remove('visible')
-    closeButton.classList.remove('visible')
-
-    headerText.classList.remove('invisible')
-    searchButton.classList.remove('invisible')
-
-});
+import PredictiveSearch from "./structs/PredictiveSearch";
 
 // FILE PREVIEW
 const fileInput: any = document.querySelector('.type--file');
