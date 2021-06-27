@@ -9,6 +9,8 @@
 //
 import HeaderScrollable from "./structs/HeaderScrollable";
 import PredictiveSearch from "./structs/PredictiveSearch";
+new HeaderScrollable().call({ breakingPoint: ".your-mom" });
+new PredictiveSearch().call({});
 
 // FILE PREVIEW
 const fileInput: any = document.querySelector('.type--file');

@@ -6,12 +6,14 @@ export interface PredictiveSearchOptions {
 }
 
 class PredictiveSearch {
-	call({
-		searchSelector = ".search",
-		searchButtonSelector = ".search-button",
-		closeButtonSelector = ".close-button",
-		headerTextSelector = ".header__text"
-	}: PredictiveSearchOptions) {
+	call(opt?: PredictiveSearchOptions) {
+		
+		const {
+			searchSelector = ".search",
+			searchButtonSelector = ".search-button",
+			closeButtonSelector = ".close-button",
+			headerTextSelector = ".header__text"
+		} = opt || {};
 
 		const searchElement = document.querySelector(searchSelector);
 		const searchButtonElement = document.querySelector(searchButtonSelector);
