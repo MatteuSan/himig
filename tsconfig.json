@@ -1,12 +1,8 @@
 {
   "compilerOptions": {
-    "target": "es2019",
-    "module": "es2020",
-    "lib": ["es2020", "DOM", "DOM.Iterable"],
+    "target": "es5",
+    "module": "commonjs",
     "declaration": true,
-    "declarationMap": true,
-    "sourceMap": true,
-    "inlineSources": true,
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
@@ -19,11 +15,4 @@
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
   },
-  "include": [
-    "components/**/*.ts",
-    "node_modules/lit/**",
-    "node_modules/lit-element/**",
-    "node_modules/lit-html/**"
-  ],
-  "exclude": []
 }
