@@ -1,8 +1,13 @@
-class Header {
-	scrollable(
-		headerClass: string = ".header--scrollable",
-		breakingPoint: string = ".banner",
-	) {
+export interface HeaderScrollableOptions {
+	headerClass?: string;
+	breakingPoint?: string;
+}
+
+class HeaderScrollable {
+	call({
+		headerClass = ".header--scrollable",
+		breakingPoint = ".banner",
+	}: HeaderScrollableOptions) {
 		const headerElement = document.querySelector(headerClass)
 		const breakingPointElement = document.querySelector(breakingPoint);
 
@@ -28,4 +33,4 @@ class Header {
 	}
 }
 
-export default Header;
+export default HeaderScrollable;

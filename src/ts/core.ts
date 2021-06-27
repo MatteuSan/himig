@@ -7,7 +7,7 @@
 //    The Design System for building quick, beautiful, responsive, and flexible user interfaces.
 //
 //
-import Header from "./structs/Header";
+import HeaderScrollable from "./structs/HeaderScrollable";
 import PredictiveSearch from "./structs/PredictiveSearch";
 
 // FILE PREVIEW
