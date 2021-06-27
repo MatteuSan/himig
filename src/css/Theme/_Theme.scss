@@ -93,6 +93,17 @@ $text-properties: (
     placeholder: $placeholder,
 );
 
+//@Depricated until further notice
+//  $_prefix: 'gs';
+
+//  @function create-property($name) {
+//       @return --#{$_prefix}-#{$name};
+//  }
+
+//  @function get-property($property) {
+//       @return map.get($property, 'varname')
+//  }
+
 :root {
     @each $property, $value in $fill-properties {
         --#{$property}: #{$value};
@@ -101,14 +112,4 @@ $text-properties: (
     @each $property, $value in $text-properties {
         --#{$property}: #{$value};
     }
-}
-
-$_prefix: 'gs';
-
-@function create-property($name) {
-    @return --#{$_prefix}-#{$name};
-}
-
-@function get-property($property) {
-    @return map.get($property, 'varname')
 }

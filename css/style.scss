@@ -115,7 +115,13 @@
 // You can also remove components whenever you're not going to use them.
 //
 
-@include Alert.render();
+@include Alert.render(
+    $type: (
+        filled: true,
+        outlined: true
+    )
+);
+
 @include Banner.render(
     $fill: linear-gradient(45deg, #001334 0%, #44638b 100%),
     $ink: #fff
@@ -128,7 +134,7 @@
 );
 
 @include Button.render(
-    $shape: clipped,
+    $shape: rounded,
     $type: (
         outlined: true,
         filled: true

@@ -26,6 +26,59 @@
 @use 'sass:map';
 @use '../Typography' as typography;
 
+@mixin base(
+    $component-name: (),
+    $base-padding: undefined,
+
+    $base-fill: undefined,
+    $base-ink: undefined,
+
+    $base-font-size: undefined,
+    $base-font-weight: undefined,
+
+    $base-icon-size: undefined,
+    $base-icon-ink: undefined,
+
+    $base-shape: default,
+    $base-shape-exceptions: undefined,
+
+    $base-border: none,
+    $base-border-radius: undefined,
+    $base-clip-size: undefined,
+    $base-custom-clip: ()
+) {
+
+    $base-display: inline-block;
+
+    .#{$component-name} {
+        width: 100%;
+        background-color: $base-fill;
+
+        @include mixins.shape($base-shape, $base-border-radius, $base-clip-size, $base-shape-exceptions, $base-custom-clip);
+
+        color: $base-ink;
+        border: $base-border;
+        padding: $base-padding;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+        align-items: center;
+
+        .alert__icon {
+            display: $base-display;
+            font-size: typography.px-to-rem($base-icon-size);
+            margin-right: 5px;
+            color: $base-icon-ink;
+        }
+
+        .alert__text {
+            display: $base-display;
+            color: $base-ink;
+            font-size: typography.px-to-rem($base-font-size);
+        }
+    }
+}
+
 @mixin render(
     $padding: 0.3rem 0.5rem,
     $border-radius: 0.3rem,
@@ -33,9 +86,15 @@
     $ink: var(--on-primary),
     $icon-ink: var(--on-primary),
     $border: none,
+    $border-fill: $fill,
     $shape: default,
-    $clip-size: none,
-    $shape-exceptions: ()
+    $clip-size: 0.5rem,
+    $shape-exceptions: (),
+    $custom-clip: (),
+    $font-size: 14px,
+    $icon-size: 20px,
+    $font-weight: 400,
+    $type: ()
 ) {
 
     $types: (
@@ -54,73 +113,63 @@
         'default': $ink
     );
 
-    @each $type, $value in $types {
+    @each $state, $list-fill in $types {
 
         $separator: '--';
-        $color: map.get($inks, $type);
+        $list-ink: map.get($inks, $state);
 
-        @if($type == 'default') {
+        @if($state == 'default') {
             $separator: '';
-            $type: '';
+            $state: '';
         }
 
-        // MANUAL VARIABLES
-        $display: inline-block;
+        $_name: alert#{$separator}#{$state};
+        $_name-outlined: alert--outlined#{$separator}#{$state};
 
-        .alert#{$separator}#{$type} {
-            width: 100%;
-            background-color: $value;
+        @if check($type, filled) == true {
+            @include base(
+                $component-name: $_name,
+                $base-padding: $padding,
+                $base-border-radius: $border-radius,
+                $base-border: 1px solid #{$list-fill},
+                $base-fill: $list-fill,
+                $base-ink: $list-ink,
+                $base-icon-ink: $list-ink,
+                $base-font-size: $font-size,
+                $base-font-weight: $font-weight,
+                $base-icon-size: $icon-size,
+                $base-shape: $shape,
+                $base-shape-exceptions: (),
+                $base-clip-size: $clip-size,
+                $base-custom-clip: $custom-clip
+            );
+        }
 
-            @include mixins.shape($shape, $border-radius, $clip-size, $shape-exceptions);
-
-            color: $color;
-            border: $border;
-
-            .alert__icon {
-                display: $display;
-                font-size: typography.px-to-rem(24px);
-                margin-right: 3px;
-
-                @if $type == warning {
-                    @include icon-ink($color);
-                } @else {
-                    @include icon-ink($icon-ink);
-                }
-
-                position: relative;
-                top: 0.1rem;
-            }
-
-            .alert__text {
-                display: $display;
-                color: inherit;
-                font-size: typography.px-to-rem(14px);
-
-                position: relative;
-                bottom: 0.34rem;
-            }
+        @if check($type, outlined) {
+            @include base(
+                $component-name: $_name-outlined,
+                $base-padding: $padding,
+                $base-border-radius: $border-radius,
+                $base-border: 1px solid #{$list-fill},
+                $base-fill: var(--clear),
+                $base-ink: $ink,
+                $base-icon-ink: $icon-ink,
+                $base-font-size: $font-size,
+                $base-font-weight: $font-weight,
+                $base-icon-size: $icon-size,
+                $base-shape: $shape,
+                $base-shape-exceptions: (
+                    clipped: true
+                ),
+                $base-clip-size: $clip-size,
+                $base-custom-clip: $custom-clip
+            );
         }
     }
 }
 
-// @API
-@mixin fill($fill-value) {
-    background-color: $fill-value;
-}
+@function check($map, $to-check) {
+    $query: map.get($map, $to-check);
 
-@mixin ink($ink-value) {
-    color: $ink-value;
-}
-
-@mixin icon-ink($icon-ink-value) {
-    color: $icon-ink-value;
-}
-
-@mixin border($border-style, $shape) {
-    border: $border-style;
-    border-radius: $shape;
-}
-
-@mixin shape($clip-path) {
-    clip-path: $clip-path;
+    @return $query;
 }

@@ -4,7 +4,7 @@
 ## Integration
 - Once Stack is in your node modules folder, put this in the styling file that you've made for your project:
 ```scss
-@use '../node_modules/@stack/css/Banner';
+@use '../node_modules/@growstocks/css/Banner';
 
 ...
 
@@ -49,7 +49,7 @@
 @include Banner.render(
     $fill: #232323,
     $ink: #cacaca,
-    $clip-path: polygon($parameters)
+    $clip-path: polygon(...)
 );
 ```
 

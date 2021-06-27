@@ -119,12 +119,13 @@ $full-max: 849px !default;
     $imported-shape: (),
     $imported-border-radius: (),
     $imported-clip-size: (),
-    $imported-shape-exceptions: ()
+    $imported-shape-exceptions: (),
+    $imported-custom-clip: ()
 ) {
 
     @if check-exception($imported-shape-exceptions, pill) == true {
         @if $imported-shape == pill {
-            @error 'The pill shape is disabled in this component, please try other shapes.';
+            @error 'The pill shape is currently disabled in this component, please try other shapes.';
         }
     } @else {
         @if $imported-shape == pill {
@@ -132,12 +133,12 @@ $full-max: 849px !default;
         }
     }
 
-    @if check-exception($imported-shape-exceptions, round) == true {
-        @if $imported-shape == round {
-            @error 'The round shape is disabled in this component, please try other shapes.';
+    @if check-exception($imported-shape-exceptions, rounded) == true {
+        @if $imported-shape == rounded {
+            @error 'The round shape is currently disabled in this component, please try other shapes.';
         }
     } @else {
-        @if $imported-shape == round {
+        @if $imported-shape == rounded {
             @if $imported-border-radius {
                 border-radius: $imported-border-radius;
             }
@@ -146,7 +147,7 @@ $full-max: 849px !default;
 
     @if check-exception($imported-shape-exceptions, block) == true {
         @if $imported-shape == block {
-            @error 'The block shape is disabled in this component, please try other shapes.';
+            @error 'The block shape is currently disabled in this component, please try other shapes.';
         }
     } @else {
         @if $imported-shape == block {
@@ -156,22 +157,26 @@ $full-max: 849px !default;
 
     @if check-exception($imported-shape-exceptions, clipped) == true {
         @if $imported-shape == clipped {
-            @error 'The clipped shape is disabled in this component, please try other shapes.';
+            @error 'The clipped shape is currently disabled in this component, please try other shapes.';
         }
     } @else {
         @if $imported-shape == clipped and $imported-clip-size {
             @if $imported-clip-size {
-                clip-path:
-                    polygon(
-                        0% $imported-clip-size,
-                        $imported-clip-size 0%, calc(100% - #{$imported-clip-size}) 0%,
-                        100% $imported-clip-size,
-                        100% calc(100% - #{$imported-clip-size}),
-                        calc(100% - #{$imported-clip-size}) 100%,
-                        $imported-clip-size 100%,
-                        0% calc(100% - #{$imported-clip-size})
-                    )
-                ;
+                @if not empty($imported-custom-clip) {
+                    clip-path: $imported-custom-clip;
+                } @else {
+                    clip-path:
+                        polygon(
+                            0% $imported-clip-size,
+                            $imported-clip-size 0%, calc(100% - #{$imported-clip-size}) 0%,
+                            100% $imported-clip-size,
+                            100% calc(100% - #{$imported-clip-size}),
+                            calc(100% - #{$imported-clip-size}) 100%,
+                            $imported-clip-size 100%,
+                            0% calc(100% - #{$imported-clip-size})
+                        )
+                    ;
+                }
             }
         }
     }
@@ -181,6 +186,18 @@ $full-max: 849px !default;
             border-radius: $imported-border-radius;
         }
     }
+}
+
+@function empty($value) {
+    @if not $value
+       or $value == ""
+       or $value == 0
+       or $value == ()
+       or $value == none
+       or length($value) == 0 {
+         @return true;
+    }
+    @return false;
 }
 
 @function check-exception($shape-exception-map, $exception) {

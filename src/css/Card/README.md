@@ -1,19 +1,30 @@
-# Button Component
-- This is the documentation on how to use the Button component on your stack theme.
+# Card Component
+- This is the documentation on how to use the Card component on your stack theme.
 
 ## Integration
 - Once Stack is in your node modules folder, put this in the styling file that you've made for your project:
 ```scss
-@use '../node_modules/@stack/css/Button';
+@use '../node_modules/@stack/css/Card';
 
 ...
 
-@include Button.render();
+@include Card.render();
 ```
 
 ## HTML Component
 ```html
-<button data-icon-before="favorite" type="submit" class="btn--primary elevation--z1">Button Primary</button>
+<!doctype html>
+<html lang="en">
+<head>      
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- CONTENT -->
+</body>
+</html>
 ```
 
 ## API

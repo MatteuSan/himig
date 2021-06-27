@@ -4,7 +4,7 @@
 ## Integration
 - Once Stack is in your node modules folder, put this in the styling file that you've made for your project:
 ```scss
-@use '../node_modules/@stack/css/Button';
+@use '../node_modules/@growstocks/css/Button';
 
 ...
 
@@ -51,9 +51,11 @@
 | `$font-weight` | Overrides the current `weight` text-related properties
 | `$padding` | Overrides the current `padding` property of the component
 | `$border` | Overrides the current `border` property of the component
+| `$border-fill` | Overrides the current `border-color` property of the component
 | `$border-radius` | Overrides the current `border-radius` property of the component
-| `$shape` | Alters the shape of your component. Available shapes include `default`, `rounded`, `clipped`, and `block`
+| `$shape` | Alters the shape of your component. Available shapes include `default`, `rounded`, `clipped`, `pill`, and `block`
 | `$clip-size` | Overrides the clipping size of the element with the `clipped` shape state.
+| `$custom-clip` | Overrides current clip path to your own custom clip path
 | `$type: (...)` | Sets the button type to render, may it be a single type or multiple types. Available types to set are `text`, `outlined`, and `filled` |
 
 #### Overriding API Implementation Example

@@ -45,12 +45,12 @@
 
     $base-border: none,
     $base-border-radius: undefined,
-    $base-clip-size: undefined
+    $base-clip-size: undefined,
+    $base-custom-clip: ()
 ) {
     .#{$component-name} {
         display: inline-flex;
         justify-content: center;
-        align-items: center;
         flex-flow: row nowrap;
 
         font-weight: $base-font-weight;
@@ -61,13 +61,13 @@
         background-color: $base-fill;
         color: $base-ink;
 
-        .#{$component-name}__label {
+        .button__label {
             color: inherit;
             font-weight: inherit;
             font-size: inherit;
         }
 
-        .#{$component-name}__icon {
+        .button__icon {
             font-size: typography.px-to-rem($base-icon-size);
             color: $base-icon-ink;
             margin-right: 4px;
@@ -75,7 +75,7 @@
         }
 
         @include mixins.prefix(transition, all 0.1s linear);
-        @include mixins.shape($base-shape, $base-border-radius, $base-clip-size, $base-shape-exceptions);
+        @include mixins.shape($base-shape, $base-border-radius, $base-clip-size, $base-shape-exceptions, $base-custom-clip);
 
         &:hover {
             filter: brightness(80%);
@@ -93,8 +93,10 @@
     $border-radius: 0.3rem,
     $padding: 8px 12px,
     $clip-size: 0.5rem,
+    $custom-clip: (),
 
     $fill: var(--secondary),
+    $border-fill: $fill,
     $ink: $fill,
 
     $icon-size: 18px,
@@ -103,48 +105,52 @@
     $type: ()
 ) {
 
-    @if check-type($type, text) == true {
+    @if check($type, text) == true {
         // .button
         @include base(
             $component-name: button,
             $base-padding: $padding,
             $base-border-radius: $border-radius,
             $base-fill: var(--clear),
-            $base-ink: $fill,
+            $base-ink: $ink,
             $base-font-size: $font-size,
             $base-font-weight: $font-weight,
             $base-icon-size: $icon-size,
-            $base-icon-ink: $fill,
+            $base-icon-ink: $icon-ink,
             $base-shape: $shape,
-            $base-shape-exceptions: ()
+            $base-shape-exceptions: (),
+            $base-custom-clip: $custom-clip
         );
     }
 
-    @if check-type($type, outlined) == true {
+    @if check($type, outlined) == true {
         // .button--outlined
         @include base(
             $component-name: button--outlined,
             $base-padding: $padding,
             $base-border-radius: $border-radius,
-            $base-border: 1px solid #{$fill},
+            $base-border: 1px solid #{$border-fill},
             $base-fill: var(--clear),
+            $base-ink: $ink,
             $base-font-size: $font-size,
             $base-font-weight: $font-weight,
             $base-icon-size: $icon-size,
+            $base-icon-ink: $icon-ink,
             $base-shape: $shape,
             $base-shape-exceptions: (
                 clipped: true
-            )
+            ),
+            $base-custom-clip: $custom-clip
         );
     }
 
-    @if check-type($type, filled) == true {
+    @if check($type, filled) == true {
         @include base(
             $component-name: button--filled,
             $base-padding: $padding,
             $base-border-radius: $border-radius,
             $base-border: 1px solid #{$fill},
-            $base-fill: var(--secondary),
+            $base-fill: $fill,
             $base-ink: var(--on-secondary),
             $base-icon-ink: var(--on-secondary),
             $base-font-size: $font-size,
@@ -152,13 +158,14 @@
             $base-icon-size: $icon-size,
             $base-shape: $shape,
             $base-shape-exceptions: (),
-            $base-clip-size: $clip-size
+            $base-clip-size: $clip-size,
+            $base-custom-clip: $custom-clip
         );
     }
 }
 
-@function check-type($type-map, $type-to-check) {
-    $query: map.get($type-map, $type-to-check);
+@function check($map, $to-check) {
+    $query: map.get($map, $to-check);
 
     @return $query;
 }

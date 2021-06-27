@@ -4,7 +4,7 @@
 ## Integration
 - Once Stack is in your node modules folder, put this in the styling file that you've made for your project:
 ```scss
-@use '../node_modules/@stack/css/Alert';
+@use '../node_modules/@growstocks/css/Alert';
 
 ...
 
@@ -15,7 +15,7 @@
 ```html
 <div class="alert elevation--z3">
     <span class="alert__icon material-icons-outlined">info</span>
-    <p class="alert__text">This is a daily quest price</p>
+    <p class="alert__text">This is an alert</p>
 </div>
 ```
 
@@ -26,10 +26,9 @@
 |  Class | Output |   
 |---|---|
 | `.alert`  | Outputs the regular Alert component  |
-| `.alert--error`  | Outputs the Alert component in its `error` state |
-|  `.alert--success` | Outputs the Alert component in its `success` state |
-| `.alert--warning` | Outputs the Alert component in its `warning` state |
-| `.alert--undefined` | Outputs the Alert component in its `undefined` state 
+| `.alert--{state}`  | Outputs the Alert component in a particular state. Available states: `success`, `warning`, `error`, and `undefined` |
+|  `.alert--outlined` | Outputs the Alert component in its outlined version. |
+| `.alert--outlined--{state}` | Outputs the Alert component in its outlined version. Available states: `success`, `warning`, `error`, and `undefined` |
 | `.alert__text` | The text of the Alert component
 | `.alert__icon` | The icon of the Alert component |
   
@@ -44,9 +43,12 @@
 | `$icon-ink` | Overrides the current `color` icon-related properties (minus the ---type classes)
 | `$padding` | Overrides the current `padding` property of the component
 | `$border` | Overrides the current `border` property of the component
+| `$border-fill` | Overrides the current `border-color` property of the component
 | `$border-radius` | Overrides the current `border-radius` property of the component
-| `$shape` | Alters the shape of your component. Available shapes include `default`, `rounded`, `clipped`, and `block`
+| `$shape` | Alters the shape of your component. Available shapes include `default`, `rounded`, `clipped`, `pill`, and `block`
 | `$clip-size` | Overrides the clipping size of the element with the `clipped` shape state.
+| `$custom-clip` | Overrides current clip path to your custom clip path
+| `$type: (...)` | Sets the button type to render, may it be a single type or multiple types. Available types to set are `filled`, and `outlined` |
 
 #### Overriding API Implementation Example
 
@@ -56,8 +58,13 @@
 @include Alert.render(
     $fill: #232323,
     $ink: #cacaca,
-    $border: 1px solid blue,
-    $border-radius: 0
+    $border: 1px solid var(--secondary),
+    $border-radius: 0,
+    $shape: pill,
+    $type: (
+        outlined: true,
+        filled: true,
+    )
 );
 ```
 
