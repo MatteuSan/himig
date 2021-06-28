@@ -129,7 +129,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 .alert--success {
   width: 100%;
-  background-color: var(--success);
+  background: var(--success);
   border-radius: 0.3rem;
   color: var(--on-success);
   border: 1px solid var(--success);
@@ -153,7 +153,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 .alert--outlined--success {
   width: 100%;
-  background-color: var(--clear);
+  background: var(--clear);
   border-radius: 0.3rem;
   color: var(--on-primary);
   border: 1px solid var(--success);
@@ -177,7 +177,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 .alert--warning {
   width: 100%;
-  background-color: var(--warning);
+  background: var(--warning);
   border-radius: 0.3rem;
   color: var(--on-warning);
   border: 1px solid var(--warning);
@@ -201,7 +201,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 .alert--outlined--warning {
   width: 100%;
-  background-color: var(--clear);
+  background: var(--clear);
   border-radius: 0.3rem;
   color: var(--on-primary);
   border: 1px solid var(--warning);
@@ -225,7 +225,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 .alert--error {
   width: 100%;
-  background-color: var(--error);
+  background: var(--error);
   border-radius: 0.3rem;
   color: var(--on-error);
   border: 1px solid var(--error);
@@ -249,7 +249,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 .alert--outlined--error {
   width: 100%;
-  background-color: var(--clear);
+  background: var(--clear);
   border-radius: 0.3rem;
   color: var(--on-primary);
   border: 1px solid var(--error);
@@ -273,7 +273,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 .alert--undefined {
   width: 100%;
-  background-color: var(--undefined);
+  background: var(--undefined);
   border-radius: 0.3rem;
   color: var(--on-undefined);
   border: 1px solid var(--undefined);
@@ -297,7 +297,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 .alert--outlined--undefined {
   width: 100%;
-  background-color: var(--clear);
+  background: var(--clear);
   border-radius: 0.3rem;
   color: var(--on-primary);
   border: 1px solid var(--undefined);
@@ -321,7 +321,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 .alert {
   width: 100%;
-  background-color: var(--primary-light);
+  background: var(--primary-light);
   border-radius: 0.3rem;
   color: var(--on-primary);
   border: 1px solid var(--primary-light);
@@ -345,7 +345,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 .alert--outlined {
   width: 100%;
-  background-color: var(--clear);
+  background: var(--clear);
   border-radius: 0.3rem;
   color: var(--on-primary);
   border: 1px solid var(--primary-light);
@@ -404,13 +404,12 @@ body::-webkit-scrollbar-thumb:hover {
   width: max-content;
   display: inline-grid;
   place-items: center;
-  grid-template-columns: 1.125rem 1fr;
-  grid-gap: 4px;
+  grid-template-columns: max-content 1fr;
   font-weight: 700;
   font-size: 0.875rem;
   padding: 8px 12px;
   border: none;
-  background-color: var(--clear);
+  background: var(--clear);
   color: var(--secondary);
   -webkit-transition: all 0.1s linear;
   -ms-transition: all 0.1s linear;
@@ -419,10 +418,14 @@ body::-webkit-scrollbar-thumb:hover {
   transition: all 0.1s linear;
   border-radius: 0.3rem;
 }
+.button > * + * {
+  margin-left: 4px;
+}
 .button .button__label {
   color: inherit;
   font-weight: inherit;
   font-size: inherit;
+  text-align: left;
 }
 .button .button__icon {
   font-size: 1.125rem;
@@ -438,24 +441,28 @@ body::-webkit-scrollbar-thumb:hover {
   width: max-content;
   display: inline-grid;
   place-items: center;
-  grid-template-columns: 1.125rem 1fr;
-  grid-gap: 4px;
+  grid-template-columns: max-content 1fr;
   font-weight: 700;
   font-size: 0.875rem;
   padding: 8px 12px;
   border: 1px solid var(--secondary);
-  background-color: var(--clear);
+  background: var(--clear);
   color: var(--secondary);
   -webkit-transition: all 0.1s linear;
   -ms-transition: all 0.1s linear;
   -moz-transition: all 0.1s linear;
   -o-transition: all 0.1s linear;
   transition: all 0.1s linear;
+  border-radius: 0.3rem;
+}
+.button--outlined > * + * {
+  margin-left: 4px;
 }
 .button--outlined .button__label {
   color: inherit;
   font-weight: inherit;
   font-size: inherit;
+  text-align: left;
 }
 .button--outlined .button__icon {
   font-size: 1.125rem;
@@ -471,24 +478,28 @@ body::-webkit-scrollbar-thumb:hover {
   width: max-content;
   display: inline-grid;
   place-items: center;
-  grid-template-columns: 1.125rem 1fr;
-  grid-gap: 4px;
+  grid-template-columns: max-content 1fr;
   font-weight: 700;
   font-size: 0.875rem;
   padding: 8px 12px;
   border: 1px solid var(--secondary);
-  background-color: var(--secondary);
+  background: var(--secondary);
   color: var(--on-secondary);
   -webkit-transition: all 0.1s linear;
   -ms-transition: all 0.1s linear;
   -moz-transition: all 0.1s linear;
   -o-transition: all 0.1s linear;
   transition: all 0.1s linear;
+  border-radius: 0.3rem;
+}
+.button--filled > * + * {
+  margin-left: 4px;
 }
 .button--filled .button__label {
   color: inherit;
   font-weight: inherit;
   font-size: inherit;
+  text-align: left;
 }
 .button--filled .button__icon {
   font-size: 1.125rem;
@@ -504,13 +515,12 @@ body::-webkit-scrollbar-thumb:hover {
   width: max-content;
   display: inline-grid;
   place-items: center;
-  grid-template-columns: 1.125rem 1fr;
-  grid-gap: 4px;
+  grid-template-columns: max-content 1fr;
   font-weight: undefined;
   font-size: 0.875rem;
   padding: 8px 10px;
   border: none;
-  background-color: #00ffea;
+  background: #00ffea;
   color: var(--surface);
   -webkit-transition: all 0.1s linear;
   -ms-transition: all 0.1s linear;
@@ -519,10 +529,14 @@ body::-webkit-scrollbar-thumb:hover {
   transition: all 0.1s linear;
   border-radius: 500px;
 }
+.jabutton > * + * {
+  margin-left: 4px;
+}
 .jabutton .button__label {
   color: inherit;
   font-weight: inherit;
   font-size: inherit;
+  text-align: left;
 }
 .jabutton .button__icon {
   font-size: 1.125rem;
@@ -537,11 +551,10 @@ body::-webkit-scrollbar-thumb:hover {
 .card {
   width: 100%;
   height: auto;
-  padding: 10px;
+  padding: 10px 10px 7px 10px;
   border-radius: 0.3rem;
   margin-bottom: 0;
-  background-color: var(--primary-light);
-  color: var(--on-primary);
+  border-radius: 0.3rem;
 }
 .card p {
   font-size: 0.875rem;
@@ -569,23 +582,9 @@ body::-webkit-scrollbar-thumb:hover {
 .card.undefined {
   background-color: var(--undefined) !important;
 }
-.card--on-surface {
-  width: 100%;
-  height: auto;
-  padding: 5px;
-  border-radius: 0.3rem;
-  margin-bottom: 10px;
-  background-color: var(--clear) !important;
-}
-.card--on-surface p {
-  font-size: 0.875rem;
-  font-weight: 400;
-  text-decoration: inherit;
-  text-transform: inherit;
-  text-align: justify;
-}
 
 .card--x {
+  border-radius: 0.3rem;
   height: 110px;
   width: 100%;
   overflow: hidden;
@@ -619,7 +618,8 @@ body::-webkit-scrollbar-thumb:hover {
   padding: 10px;
   overflow: hidden !important;
   word-break: break-word;
-  background-color: var(--primary-light);
+  background: var(--primary-light);
+  color: var(--on-primary);
 }
 .card--x .card--x__container.dark-red {
   background-color: #7f0000 !important;
@@ -722,12 +722,13 @@ body::-webkit-scrollbar-thumb:hover {
   opacity: 0.5;
 }
 .card--y {
+  border-radius: 0.3rem;
   display: flex;
   flex-direction: column;
   overflow: hidden;
   width: 100%;
   margin: 0;
-  background-color: var(--primary-light);
+  background: var(--primary-light);
   -webkit-transition: all 0.1s ease !important;
   -ms-transition: all 0.1s ease !important;
   -moz-transition: all 0.1s ease !important;
@@ -747,71 +748,59 @@ body::-webkit-scrollbar-thumb:hover {
   height: auto !important;
 }
 .card--y .card--y__info {
-  padding: 10px;
+  padding: 10px 10px 7px 10px;
+  color: var(--on-primary);
 }
 .card--y .card--y__info .card--y__info__title {
   font-size: 1.25rem;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  color: inherit;
 }
 .card--y .card--y__info .card--y__info__subtitle {
   font-size: 0.875rem;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  color: inherit;
 }
 .card--y .card--y__info .card--y__action {
-  color: var(--secondary);
-  background-color: var(--transparent);
-  padding: 0;
-  border: none;
-  border-radius: 5px;
+  width: max-content;
+  display: inline-grid;
+  place-items: center;
+  grid-template-columns: max-content 1fr;
   font-weight: 700;
-  margin-top: 7px;
-  -webkit-transition: all 0.1s ease !important;
-  -ms-transition: all 0.1s ease !important;
-  -moz-transition: all 0.1s ease !important;
-  -o-transition: all 0.1s ease !important;
-  transition: all 0.1s ease !important;
+  font-size: 0.875rem;
+  padding: 8px 0 0 0;
+  border: none;
+  background: var(--clear);
+  color: var(--secondary);
+  -webkit-transition: all 0.1s linear;
+  -ms-transition: all 0.1s linear;
+  -moz-transition: all 0.1s linear;
+  -o-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+  border-radius: 0;
+}
+.card--y .card--y__info .card--y__action > * + * {
+  margin-left: 4px;
+}
+.card--y .card--y__info .card--y__action .button__label {
+  color: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+  text-align: left;
+}
+.card--y .card--y__info .card--y__action .button__icon {
+  font-size: 1.125rem;
+  color: var(--secondary);
+  position: relative;
 }
 .card--y .card--y__info .card--y__action:hover {
-  color: var(--secondary-dark);
+  filter: brightness(80%);
   cursor: pointer;
 }
-.contain--item {
-  height: max-content;
-  border-radius: 0.3rem;
-  position: relative;
-  overflow: hidden;
-}
-.contain--item .item__status__sym {
-  display: inline !important;
-  position: relative !important;
-  top: 2px !important;
-  right: 0 !important;
-  font-size: 16px !important;
-  font-weight: 400 !important;
-}
-.contain--item .chip__options__trigger,
-.contain--item .chip__modal__trigger {
-  display: block;
-  position: absolute;
-  background-color: var(--transparent);
-  color: var(--on-primary);
-  border: none;
-  width: 32px;
-  height: 32px;
-  float: right;
-  padding: 0;
-  top: 4px;
-  right: 7px;
-}
-.contain--item .chip__options__trigger:hover,
-.contain--item .chip__modal__trigger:hover {
-  cursor: pointer;
-}
-
 .chip {
   width: 100%;
   display: grid;
@@ -916,6 +905,39 @@ body::-webkit-scrollbar-thumb:hover {
   font-weight: 700;
   color: var(--surface);
   font-size: 0.875rem;
+}
+
+.contain--item {
+  height: max-content;
+  border-radius: 0.3rem;
+  position: relative;
+  overflow: hidden;
+}
+.contain--item .item__status__sym {
+  display: inline !important;
+  position: relative !important;
+  top: 2px !important;
+  right: 0 !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+}
+.contain--item .chip__options__trigger,
+.contain--item .chip__modal__trigger {
+  display: block;
+  position: absolute;
+  background-color: var(--transparent);
+  color: var(--on-primary);
+  border: none;
+  width: 32px;
+  height: 32px;
+  float: right;
+  padding: 0;
+  top: 4px;
+  right: 7px;
+}
+.contain--item .chip__options__trigger:hover,
+.contain--item .chip__modal__trigger:hover {
+  cursor: pointer;
 }
 
 .chip__options {

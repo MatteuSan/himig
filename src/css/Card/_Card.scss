@@ -24,71 +24,51 @@
 
 @use '../mixins';
 @use '../Typography' as typography;
+@use 'sass:map';
+@use '../Button';
 
 @mixin base(
-    $padding,
-    $border-radius,
-    $margin-bottom
+    $component-name: '.card',
+    $base-padding: undefined,
+    $base-margin-bottom: undefined,
+
+    $base-fill: undefined,
+    $base-ink: undefined,
+
+    $base-font-size: undefined,
+    $base-font-weight: undefined,
+
+    $base-icon-size: undefined,
+    $base-icon-ink: undefined,
+
+    $base-shape: default,
+    $base-shape-exceptions: (),
+
+    $base-border: none,
+    $base-border-radius: undefined,
+    $base-clip-size: undefined,
+    $base-custom-clip: (),
+
+    $base-scaling: (),
+
+    $base-type: (
+        default: true
+    )
 ) {
-    width: 100%;
-    height: auto;
-    padding: $padding;
-    border-radius: $border-radius;
-    margin-bottom: $margin-bottom;
+    @if check($base-type, default) == true {
+        #{unquote($component-name)} {
+            width: 100%;
+            height: auto;
+            padding: $base-padding;
+            border-radius: $base-border-radius;
+            margin-bottom: $base-margin-bottom;
 
-    p {
-        @include typography.generate(body-14);
-        text-align: justify;
-    }
-}
+            @include mixins.shape($base-shape, $base-border-radius, $base-clip-size, $base-shape-exceptions, $base-custom-clip);
 
-@mixin render(
-    $type: default,
-    $padding: 10px,
-    $border-radius: 0.3rem,
-    $margin-bottom: 0,
-    $fill: var(--primary-light),
-    $ink: var(--on-primary),
-    $icon-ink: var(--on-primary),
-    $scaling: 1.03,
-    $shape: default,
-    $shape-exceptions: (),
-    $clip-size: 0.7em,
-    $custom-clip: ()
-) {
-    @if $type == default {
-        .card {
-            $shape-border-radius: () !default;
-            $shape-padding: () !default;
-
-            @if $shape == round {
-                $shape-border-radius: $border-radius;
-                $shape-padding: $padding;
-            } @else if $shape == block {
-                $shape-border-radius: 0;
-                $shape-padding: $padding;
-            } @else if $shape == clipped {
-                $shape-border-radius: 0;
-                $shape-padding: $padding;
-                clip-path:
-                    polygon(
-                        0% $clip-size,
-                        $clip-size 0%,
-                        calc(100% - #{$clip-size}) 0%,
-                        100% $clip-size,
-                        100% calc(100% - #{$clip-size}),
-                        calc(100% - #{$clip-size}) 100%,
-                        $clip-size 100%,
-                        0% calc(100% - #{$clip-size})
-                    );
-            } @else {
-                $shape-border-radius: $border-radius;
-                $shape-padding: $padding;
+            p {
+                @include typography.generate(body-14);
+                text-align: justify;
             }
-
-            @include base($shape-padding, $shape-border-radius, $margin-bottom);
-            @include fill($fill);
-            @include ink($ink);
 
             .card__big-text {
                 font-size: typography.px-to-rem(24px);
@@ -114,18 +94,13 @@
             &.undefined {
                 background-color: var(--undefined) !important;
             }
-
-            @at-root #{&}--on-surface {
-
-                @include base(5px, $border-radius, 10px);
-
-                background-color: var(--clear) !important;
-            }
         }
-    } @else if $type == x {
-        .card--x {
+    }
 
-            //@include mixins.shape($shape, 0, $border-radius, $clip-size);
+    @if check($base-type, x-oriented) == true {
+        #{unquote($component-name)}--x {
+
+            @include mixins.shape($base-shape, $base-border-radius, $base-clip-size, $base-shape-exceptions, $base-custom-clip);
 
             height: 110px;
             width: 100%;
@@ -140,7 +115,7 @@
             &:hover,
             &:focus,
             &:focus-within {
-                transform: scale($scaling);
+                transform: scale($base-scaling);
             }
 
             .card--x__img {
@@ -164,7 +139,8 @@
                 word-break: break-word;
                 //border-radius: 0 5px 5px 0;
 
-                @include fill(var(--primary-light));
+                @include fill($base-fill);
+                @include ink($base-ink);
 
                 @include mixins.rainbow-factory();
 
@@ -206,7 +182,7 @@
                     a {
                         margin: 0 7px 0 0;
                         font-size: 24px;
-                        color: $icon-ink;
+                        color: $base-icon-ink;
 
                         @include mixins.prefix(transition, all 0.1s linear);
 
@@ -221,10 +197,12 @@
                 }
             }
         }
-    } @else if $type == y {
-        .card--y {
+    }
 
-            //@include mixins.shape($shape, 0, $border-radius, $clip-size);
+    @if check($base-type, y-oriented) == true {
+        #{unquote($component-name)}--y {
+
+            @include mixins.shape($base-shape, $base-border-radius, $base-clip-size, $base-shape-exceptions, $base-custom-clip);
 
             display: flex;
             flex-direction: column;
@@ -232,14 +210,14 @@
             width: 100%;
             margin: 0;
 
-            @include fill(var(--primary-light));
+            @include fill($base-fill);
 
             @include mixins.prefix(transition, all 0.1s ease!important);
 
             &:hover,
             &:focus,
             &:focus-within {
-                transform: scale($scaling);
+                transform: scale($base-scaling);
             }
 
             .card--y__img {
@@ -256,39 +234,36 @@
             }
 
             .card--y__info {
-                padding: $padding;
+                padding: $base-padding;
+                color: $base-ink;
 
                 .card--y__info__title {
                     font-size: typography.px-to-rem(20px);
                     white-space: nowrap;
                     overflow: hidden;
                     text-overflow: ellipsis;
+                    color: inherit;
                 }
 
                 .card--y__info__subtitle {
                     font-size: typography.px-to-rem(14px);
-
                     white-space: nowrap;
                     overflow: hidden;
                     text-overflow: ellipsis;
+                    color: inherit;
                 }
 
-                .card--y__action {
-                    color: var(--secondary);
-                    background-color: var(--transparent);
-                    padding: 0;
-                    border: none;
-                    border-radius: 5px;
-                    font-weight: 700;
-                    margin-top: 7px;
-
-                    @include mixins.prefix(transition, all 0.1s ease!important);
-
-                    &:hover {
-                        color: var(--secondary-dark);
-                        cursor: pointer;
-                    }
-                }
+                @include Button.base(
+                    $component-name: '.card--y__action',
+                    $base-font-size: 14px,
+                    $base-icon-size: 18px,
+                    $base-ink: var(--secondary),
+                    $base-icon-ink: var(--secondary),
+                    $base-padding: 8px 0 0 0,
+                    $base-shape: block,
+                    $base-fill: var(--clear),
+                    $base-font-weight: 700
+                );
 
             }
 
@@ -299,9 +274,115 @@
     }
 }
 
-// @API
+@mixin render(
+    $padding: 10px 10px 7px 10px,
+    $margin-bottom: 0,
+    $border-radius: 0.3rem,
+
+    $fill: var(--primary-light),
+    $ink: var(--on-primary),
+    $icon-ink: var(--on-primary),
+
+    $font-size: 14px,
+    $scaling: 1.03,
+
+    $shape: default,
+    $shape-exceptions: (),
+    $clip-size: 0.7em,
+    $custom-clip: (),
+
+    $type: (
+        default: true
+    )
+) {
+    @if check($type, default) == true {
+        @include base(
+            $component-name: '.card',
+            $base-padding: $padding,
+            $base-margin-bottom: $margin-bottom,
+            $base-fill: $fill,
+            $base-ink: $ink,
+            $base-font-size: $font-size,
+            $base-font-weight: (),
+            $base-icon-size: 18px,
+            $base-icon-ink: $icon-ink,
+            $base-shape: $shape,
+            $base-shape-exceptions: (
+                pill: true
+            ),
+            $base-border: (),
+            $base-border-radius: $border-radius,
+            $base-clip-size: $clip-size,
+            $base-custom-clip: $custom-clip,
+            $base-scaling: $scaling,
+            $base-type: (
+                default: true
+            )
+        );
+    }
+
+    @if check($type, x) == true {
+        @include base(
+            $component-name: '.card',
+            $base-padding: $padding,
+            $base-margin-bottom: $margin-bottom,
+            $base-fill: $fill,
+            $base-ink: $ink,
+            $base-font-size: $font-size,
+            $base-font-weight: (),
+            $base-icon-size: 18px,
+            $base-icon-ink: $icon-ink,
+            $base-shape: $shape,
+            $base-shape-exceptions: (
+                pill: true
+            ),
+            $base-border: (),
+            $base-border-radius: $border-radius,
+            $base-clip-size: $clip-size,
+            $base-custom-clip: $custom-clip,
+            $base-scaling: $scaling,
+            $base-type: (
+                x-oriented: true
+            )
+        );
+    }
+    @if check($type, y) == true {
+        @include base(
+            $component-name: '.card',
+            $base-padding: $padding,
+            $base-margin-bottom: $margin-bottom,
+            $base-fill: $fill,
+            $base-ink: $ink,
+            $base-font-size: $font-size,
+            $base-font-weight: (),
+            $base-icon-size: 18px,
+            $base-icon-ink: $icon-ink,
+            $base-shape: $shape,
+            $base-shape-exceptions: (
+                pill: true
+            ),
+            $base-border: (),
+            $base-border-radius: $border-radius,
+            $base-clip-size: $clip-size,
+            $base-custom-clip: $custom-clip,
+            $base-scaling: $scaling,
+            $base-type: (
+                y-oriented: true
+            )
+        );
+    }
+}
+
+@function check($map, $to-check) {
+    $query: map.get($map, $to-check);
+
+    @return $query;
+}
+
+
+// @API (Depricated)
 @mixin fill($fill-value) {
-    background-color: $fill-value;
+    background: $fill-value;
 }
 
 @mixin ink($ink-value) {

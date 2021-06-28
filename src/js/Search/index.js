@@ -1,9 +1,18 @@
-export class Search {
-    call(searchClass = '.search', searchButtonClass = '.search-button', closeButtonClass = '.close-button', headerTextClass = '.header__text') {
-        const search = document.querySelector(searchClass);
-        const searchButton = document.querySelector(searchButtonClass);
-        const closeButton = document.querySelector(closeButtonClass);
-        const headerText = document.querySelector(headerTextClass);
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Search = void 0;
+var Search = /** @class */ (function () {
+    function Search() {
+    }
+    Search.prototype.call = function (searchClass, searchButtonClass, closeButtonClass, headerTextClass) {
+        if (searchClass === void 0) { searchClass = '.search'; }
+        if (searchButtonClass === void 0) { searchButtonClass = '.search-button'; }
+        if (closeButtonClass === void 0) { closeButtonClass = '.close-button'; }
+        if (headerTextClass === void 0) { headerTextClass = '.header__text'; }
+        var search = document.querySelector(searchClass);
+        var searchButton = document.querySelector(searchButtonClass);
+        var closeButton = document.querySelector(closeButtonClass);
+        var headerText = document.querySelector(headerTextClass);
         searchButton.addEventListener('click', function () {
             headerText.classList.add('invisible');
             searchButton.classList.add('invisible');
@@ -16,6 +25,7 @@ export class Search {
             headerText.classList.remove('invisible');
             searchButton.classList.remove('invisible');
         });
-    }
-}
-//# sourceMappingURL=index.js.map
+    };
+    return Search;
+}());
+exports.Search = Search;

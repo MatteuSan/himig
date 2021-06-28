@@ -134,7 +134,7 @@
 );
 
 @include Button.render(
-    $shape: round,
+    $shape: rounded,
     $type: (
         outlined: true,
         filled: true
@@ -143,7 +143,7 @@
 
 // .jabutton
 @include Button.base(
-    $component-name: 'jabutton',
+    $component-name: '.jabutton',
     $base-font-size: 14px,
     $base-icon-size: 18px,
     $base-ink: var(--surface),
@@ -153,15 +153,13 @@
     $base-shape: pill,
 );
 
-@include Card.render();
-
 @include Card.render(
-    $type: x,
-    $shape: round
-);
-@include Card.render(
-    $type: y,
-    $shape: round
+    $shape: rounded,
+    $type: (
+        default: true,
+        x: true,
+        y: true
+    )
 );
 @include Chip.render();
 @include Containers.render();

@@ -1,3 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 //
 //    Stack by GrowStocks
 //    Made by Matteu#0001
@@ -7,17 +9,14 @@
 //    The Design System for building quick, beautiful, responsive, and flexible user interfaces.
 //
 //
-import HeaderScrollable from "./structs/HeaderScrollable";
-import PredictiveSearch from "./structs/PredictiveSearch";
-new HeaderScrollable().call({ breakingPoint: ".your-mom" });
-new PredictiveSearch().call({});
-
+var HeaderScrollable_1 = require("./structs/HeaderScrollable");
+var PredictiveSearch_1 = require("./structs/PredictiveSearch");
+new HeaderScrollable_1.default().call({ breakingPoint: ".your-mom" });
+new PredictiveSearch_1.default().call({});
 // CHIP__OPTIONS
-
 //
 //  PLEASE HELP ME CONVERT THIS JQUERY CRINGE TO TS THANKS <3
 //
-
 // @ts-ignore
 $(document).ready(function () {
     // @ts-ignore
@@ -25,12 +24,13 @@ $(document).ready(function () {
         // @ts-ignore
         $(this).parent().children('.chip__options').slideToggle("fast");
         // @ts-ignore
-        let option = $(this).next();
+        var option = $(this).next();
         if (option.hasClass("visible")) {
             // @ts-ignore
             $(this).html("menu");
             option.removeClass("visible");
-        } else {
+        }
+        else {
             // @ts-ignore
             $(this).html("close");
             option.addClass("visible");

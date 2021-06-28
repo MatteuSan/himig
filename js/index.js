@@ -1,6 +1,7 @@
-import { HeaderScrollable } from "../src/js/Header";
-import { Search } from "../src/js/Search";
-new HeaderScrollable().call();
-const search = new Search();
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var Header_1 = require("../src/js/Header");
+var Search_1 = require("../src/js/Search");
+new Header_1.HeaderScrollable().call();
+var search = new Search_1.Search();
 search.call();
-//# sourceMappingURL=index.js.map

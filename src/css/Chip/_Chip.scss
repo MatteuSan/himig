@@ -119,6 +119,15 @@
     $clip-size: 0.5rem,
     $shape-exceptions: ()
 ) {
+
+    .chip {
+        @include base($padding, $spacer-ink);
+    }
+
+    .chip--full {
+        @include base($padding, $spacer-ink);
+    }
+
     .contain--item {
         height: max-content;
         @include mixins.shape($shape, $border-radius, $clip-size, $shape-exceptions);
@@ -156,14 +165,6 @@
                 cursor: pointer;
             }
         }
-    }
-
-    .chip {
-        @include base($padding, $spacer-ink);
-    }
-
-    .chip--full {
-        @include base($padding, $spacer-ink);
     }
 
     .chip__options {

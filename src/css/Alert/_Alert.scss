@@ -50,9 +50,9 @@
 
     $base-display: inline-block;
 
-    .#{$component-name} {
+    .#{unquote($component-name)} {
         width: 100%;
-        background-color: $base-fill;
+        background: $base-fill;
 
         @include mixins.shape($base-shape, $base-border-radius, $base-clip-size, $base-shape-exceptions, $base-custom-clip);
 
@@ -123,8 +123,8 @@
             $state: '';
         }
 
-        $_name: alert#{$separator}#{$state};
-        $_name-outlined: alert--outlined#{$separator}#{$state};
+        $_name: quote(alert#{$separator}#{$state});
+        $_name-outlined: quote(alert--outlined#{$separator}#{$state});
 
         @if check($type, filled) == true {
             @include base(

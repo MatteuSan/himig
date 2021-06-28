@@ -28,7 +28,7 @@
 
 // Button component template (can be used anywhere)
 @mixin base(
-    $component-name: button,
+    $component-name: 'button',
     $base-padding: undefined,
 
     $base-fill: undefined,
@@ -46,27 +46,33 @@
     $base-border: none,
     $base-border-radius: undefined,
     $base-clip-size: undefined,
-    $base-custom-clip: ()
+    $base-custom-clip: (),
+
+    $base-width: max-content
 ) {
-    .#{$component-name} {
-        width: max-content;
+    #{unquote($component-name)} {
+        width: $base-width;
         display: inline-grid;
         place-items: center;
-        grid-template-columns: typography.px-to-rem($base-icon-size) 1fr;
-        grid-gap: 4px;
+        grid-template-columns: max-content 1fr;
 
         font-weight: $base-font-weight;
         font-size: typography.px-to-rem($base-font-size);
 
         padding: $base-padding;
         border: $base-border;
-        background-color: $base-fill;
+        background: $base-fill;
         color: $base-ink;
+
+        > * + * {
+            margin-left: 4px;
+        }
 
         .button__label {
             color: inherit;
             font-weight: inherit;
             font-size: inherit;
+            text-align: left;
         }
 
         .button__icon {
@@ -109,7 +115,7 @@
     @if check($type, text) == true {
         // .button
         @include base(
-            $component-name: button,
+            $component-name: '.button',
             $base-padding: $padding,
             $base-border-radius: $border-radius,
             $base-fill: var(--clear),
@@ -127,7 +133,7 @@
     @if check($type, outlined) == true {
         // .button--outlined
         @include base(
-            $component-name: button--outlined,
+            $component-name: '.button--outlined',
             $base-padding: $padding,
             $base-border-radius: $border-radius,
             $base-border: 1px solid #{$border-fill},
@@ -147,7 +153,7 @@
 
     @if check($type, filled) == true {
         @include base(
-            $component-name: button--filled,
+            $component-name: '.button--filled',
             $base-padding: $padding,
             $base-border-radius: $border-radius,
             $base-border: 1px solid #{$fill},
