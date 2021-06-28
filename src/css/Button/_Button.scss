@@ -41,7 +41,7 @@
     $base-icon-ink: undefined,
 
     $base-shape: default,
-    $base-shape-exceptions: undefined,
+    $base-shape-exceptions: (),
 
     $base-border: none,
     $base-border-radius: undefined,
@@ -49,9 +49,11 @@
     $base-custom-clip: ()
 ) {
     .#{$component-name} {
-        display: inline-flex;
-        justify-content: center;
-        flex-flow: row nowrap;
+        width: max-content;
+        display: inline-grid;
+        place-items: center;
+        grid-template-columns: typography.px-to-rem($base-icon-size) 1fr;
+        grid-gap: 4px;
 
         font-weight: $base-font-weight;
         font-size: typography.px-to-rem($base-font-size);
@@ -70,7 +72,6 @@
         .button__icon {
             font-size: typography.px-to-rem($base-icon-size);
             color: $base-icon-ink;
-            margin-right: 4px;
             position: relative;
         }
 

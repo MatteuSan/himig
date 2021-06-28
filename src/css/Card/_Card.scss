@@ -52,7 +52,9 @@
     $icon-ink: var(--on-primary),
     $scaling: 1.03,
     $shape: default,
-    $clip-size: 0.7em
+    $shape-exceptions: (),
+    $clip-size: 0.7em,
+    $custom-clip: ()
 ) {
     @if $type == default {
         .card {

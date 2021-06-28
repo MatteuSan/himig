@@ -134,19 +134,24 @@
 );
 
 @include Button.render(
-    $shape: rounded,
+    $shape: round,
     $type: (
         outlined: true,
         filled: true
     )
 );
 
-/*@include Button.render(
-    $type: (
-        outlined: true,
-        filled: true
-    )
-);*/
+// .jabutton
+@include Button.base(
+    $component-name: 'jabutton',
+    $base-font-size: 14px,
+    $base-icon-size: 18px,
+    $base-ink: var(--surface),
+    $base-icon-ink: var(--surface),
+    $base-fill: #00ffea,
+    $base-padding: 8px 10px,
+    $base-shape: pill,
+);
 
 @include Card.render();
 

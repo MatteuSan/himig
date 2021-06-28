@@ -401,9 +401,11 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .button {
-  display: inline-flex;
-  justify-content: center;
-  flex-flow: row nowrap;
+  width: max-content;
+  display: inline-grid;
+  place-items: center;
+  grid-template-columns: 1.125rem 1fr;
+  grid-gap: 4px;
   font-weight: 700;
   font-size: 0.875rem;
   padding: 8px 12px;
@@ -425,7 +427,6 @@ body::-webkit-scrollbar-thumb:hover {
 .button .button__icon {
   font-size: 1.125rem;
   color: var(--secondary);
-  margin-right: 4px;
   position: relative;
 }
 .button:hover {
@@ -434,9 +435,11 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .button--outlined {
-  display: inline-flex;
-  justify-content: center;
-  flex-flow: row nowrap;
+  width: max-content;
+  display: inline-grid;
+  place-items: center;
+  grid-template-columns: 1.125rem 1fr;
+  grid-gap: 4px;
   font-weight: 700;
   font-size: 0.875rem;
   padding: 8px 12px;
@@ -448,7 +451,6 @@ body::-webkit-scrollbar-thumb:hover {
   -moz-transition: all 0.1s linear;
   -o-transition: all 0.1s linear;
   transition: all 0.1s linear;
-  border-radius: 0.3rem;
 }
 .button--outlined .button__label {
   color: inherit;
@@ -458,7 +460,6 @@ body::-webkit-scrollbar-thumb:hover {
 .button--outlined .button__icon {
   font-size: 1.125rem;
   color: var(--secondary);
-  margin-right: 4px;
   position: relative;
 }
 .button--outlined:hover {
@@ -467,9 +468,11 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .button--filled {
-  display: inline-flex;
-  justify-content: center;
-  flex-flow: row nowrap;
+  width: max-content;
+  display: inline-grid;
+  place-items: center;
+  grid-template-columns: 1.125rem 1fr;
+  grid-gap: 4px;
   font-weight: 700;
   font-size: 0.875rem;
   padding: 8px 12px;
@@ -481,7 +484,6 @@ body::-webkit-scrollbar-thumb:hover {
   -moz-transition: all 0.1s linear;
   -o-transition: all 0.1s linear;
   transition: all 0.1s linear;
-  border-radius: 0.3rem;
 }
 .button--filled .button__label {
   color: inherit;
@@ -491,7 +493,6 @@ body::-webkit-scrollbar-thumb:hover {
 .button--filled .button__icon {
   font-size: 1.125rem;
   color: var(--on-secondary);
-  margin-right: 4px;
   position: relative;
 }
 .button--filled:hover {
@@ -499,12 +500,40 @@ body::-webkit-scrollbar-thumb:hover {
   cursor: pointer;
 }
 
-/*@include Button.render(
-    $type: (
-        outlined: true,
-        filled: true
-    )
-);*/
+.jabutton {
+  width: max-content;
+  display: inline-grid;
+  place-items: center;
+  grid-template-columns: 1.125rem 1fr;
+  grid-gap: 4px;
+  font-weight: undefined;
+  font-size: 0.875rem;
+  padding: 8px 10px;
+  border: none;
+  background-color: #00ffea;
+  color: var(--surface);
+  -webkit-transition: all 0.1s linear;
+  -ms-transition: all 0.1s linear;
+  -moz-transition: all 0.1s linear;
+  -o-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+  border-radius: 500px;
+}
+.jabutton .button__label {
+  color: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+}
+.jabutton .button__icon {
+  font-size: 1.125rem;
+  color: var(--surface);
+  position: relative;
+}
+.jabutton:hover {
+  filter: brightness(80%);
+  cursor: pointer;
+}
+
 .card {
   width: 100%;
   height: auto;
