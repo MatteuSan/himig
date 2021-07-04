@@ -1,32 +1,202 @@
-@use 'env';
+//
+// Copyright (c) 2021 GrowStocks
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
+//
+
+@use '../src/css/config' as config;
+@use '../src/css/Typography' as typography;
+
+@use '../src/css/Alert';
+@use '../src/css/Banner';
+@use '../src/css/Button';
+@use '../src/css/Card';
+@use '../src/css/Chip';
+@use '../src/css/Codeblock';
+@use '../src/css/Containers';
+@use '../src/css/Drawer';
+@use '../src/css/Elevation';
+@use '../src/css/Faq';
+@use '../src/css/Footer';
+@use '../src/css/Form';
+@use '../src/css/Header';
+@use '../src/css/Modal';
+@use '../src/css/Navbar';
+@use '../src/css/Snackbar';
+@use '../src/css/Search';
+@use '../src/css/SearchPredictive';
+@use '../src/css/SearchFilter';
+@use '../src/css/TitleBar';
+@use '../src/css/Tooltip';
+@use '../src/css/Wraps';
+
 @use 'overrides';
 
-@use '@src/config';
-@use '@src/functions';
-@use '@src/mixins';
+//--------------------------------------------------------------------------
+// Theme settings
+//--------------------------------------------------------------------------
+//
+// This is where you set your theme's colors. You can enter the primary,
+// secondary, and other colors in here and the library will automatically
+// apply it to your theme. Specific instructions are written with the
+// setting inputs.
+//
 
-@use '@src/Wraps';
-@use '@src/Containers';
-@use '@src/Header';
-@use '@src/Navbar';
-@use '@src/Search';
-@use '@src/Drawer';
-@use '@src/Banner';
-@use '@src/Footer';
+@use '../src/css/Theme' with (
+    $primary: #12305e,
+    $primary-light: #44638b,
+    $primary-dark: #001334,
 
-// COMPONENTS
-@use '@src/Alert';
-@use '@src/Button';
-@use '@src/BarsCards';
-@use '@src/Chip';
-@use '@src/Codeblock';
-@use '@src/Faq';
-@use '@src/Form';
-@use '@src/Modal';
-@use '@src/Snackbar';
-@use '@src/Staff';
-@use '@src/Tooltip';
-@use '@src/Elevation';
+    $primary-variant: #1d69a9,
+    $primary-variant-light: #7d9fcb,
+    $primary-variant-dark: #1c4c86,
 
-// CUSTOM
-@use 'custom';
+    $secondary: #ffa000,
+    $secondary-light: #ffd149,
+    $secondary-dark: #c67100,
+
+    $surface: #000b18,
+
+    $input: #b0bfcd,
+    $input-disabled: #708196,
+    $placeholder: #606060,
+
+    $on-primary: #fff,
+    $on-secondary: #000,
+    $on-surface: #fff,
+    $on-input: #000
+);
+
+//--------------------------------------------------------------------------
+// Font Settings
+//--------------------------------------------------------------------------
+//
+// This is where you set your theme's fonts. --font-link is where you import
+// your font link (from Google Fonts or wherever you get it). Then specify the
+// font-family name and whether if it's sans-serif or serif. Then that's it!
+//
+// The --font-link variable is null on default whenever you want to use a system
+// font.
+//
+
+@include typography.import-font('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap');
+
+@include config.set(
+    $global-font: 'Inter',
+    $title-font-weight: 700,
+    $subtitle-font-weight: 400,
+    $body-font-weight: 400
+);
+
+//--------------------------------------------------------------------------
+// Render Components Section
+//--------------------------------------------------------------------------
+//
+// This is where you call out the Component's render() function. You can add custom style
+// overrides to the component inside the render function. To know more about the theme over-
+// riding API, please refer to the docs.
+//
+// You can also remove components whenever you're not going to use them.
+//
+
+@include Alert.render(
+    $type: (
+        filled: true,
+        outlined: true
+    )
+);
+
+@include Banner.render(
+    $fill: linear-gradient(45deg, #001334 0%, #44638b 100%),
+    $ink: #fff
+);
+
+@include Button.render(
+    $type: (
+        text: true,
+    )
+);
+
+@include Button.render(
+    $shape: rounded,
+    $type: (
+        outlined: true,
+        filled: true
+    )
+);
+
+@include Card.render(
+    $shape: rounded,
+    $type: (
+        default: true,
+        x: true,
+        y: true
+    ),
+    $feature-exceptions: (
+        animation: true
+    )
+);
+
+@include Chip.render();
+
+@include Codeblock.render();
+
+@include Containers.render();
+
+@include Drawer.render();
+
+@include Elevation.render();
+
+@include Footer.render();
+
+@include Form.render(
+    $border-radius: 0.5rem
+);
+
+@include Header.render();
+
+@include Modal.render();
+
+@include Navbar.render(
+    $nav-contents: 4
+);
+
+@include Snackbar.render();
+
+@include Search.render();
+
+@include SearchPredictive.render();
+
+@include SearchFilter.render();
+
+@include TitleBar.render(
+    $type: (
+        default: true,
+        on-card: true,
+        on-surface: true,
+        outlined: true
+    )
+);
+
+@include Tooltip.render();
+
+@include Wraps.render();
+
+// OVERRIDES
+@include overrides.render();

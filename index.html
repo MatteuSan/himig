@@ -32,7 +32,8 @@
     <!--<link rel="manifest" href="static/manifest.webmanifest">-->
 
 </head>
-<header class="header--scrollable">
+
+<header class="header">
 
     <div class="header__wrap">
 
@@ -43,19 +44,19 @@
         <div class="search">
             <form method="GET" action="#">
                 <label
-                   @click.prevent="predictive_show = true"
-                   for="search"
-                   class="material-icons"
+                    @click.prevent="predictive_show = true"
+                    for="search"
+                    class="material-icons"
                 >search
                 </label>
                 <input
-                   @click.prevent="predictive_show = true"
-                   id="search"
-                   type="text"
-                   name="s"
-                   placeholder="Search bar..."
-                   x-ref="searchInput"
-                   required
+                    @click.prevent="predictive_show = true"
+                    id="search"
+                    type="text"
+                    name="s"
+                    placeholder="Search bar..."
+                    x-ref="searchInput"
+                    required
                 />
             </form>
         </div>
@@ -98,7 +99,7 @@
 
 </header>
 
-<div class="search__predictive elevation--z5" @click.away="predictive_show = false" x-show.transition.opacity.duration.250ms="predictive_show" style="display: none">
+<section class="search__predictive elevation--z5" @click.away="predictive_show = false" x-show.transition.opacity.duration.250ms="predictive_show" style="display: none">
     <div class="search__predictive__result">
         <span class="material-icons">
             <img loading="lazy" title="All assets related to Growtopia are owned by Ubisoft Entertainment® and used with permission from the WIKI" src="https://cdn.growstocks.xyz/item/5638.png" alt="icon">
@@ -129,31 +130,23 @@
         </span>
         <p>Search Item</p>
     </div>
-</div>
+</section>
 
-<div class="drawer__overlay" x-show.transition.opacity.duration.400ms="drawer_open" style="display: none">
+<section class="drawer__overlay" x-show.transition.opacity.duration.400ms="drawer_open" style="display: none">
     <div class="drawer elevation--z5" x-show.transition.origin.top.right="drawer_open" @click.away="drawer_open = false" style="display: none">
         <div class="wrap--text" style="margin: 0 auto;">
 
             <a id="dark-mode__toggle" class="drawer__item">
-                <span id="dark-mode__icon" class="drawer__icon material-icons">brightness_4</span>
-                <p id="dark-mode__text">Toggle Themes</p>
+                <i class="button__icon material-icons">brightness_4</i>
+                <span class="button__label">Toggle Themes</span>
             </a>
             <a class="drawer__item" target="_blank" href="https://github.com/GrowStocks/StackCSS">
-                <span class="drawer__icon fab fa-github"></span>
-                <p>Stack Repository</p>
+                <i class="button__icon material-icons-outlined">book</i>
+                <span class="button__label">Stack Repository</span>
             </a>
             <a class="drawer__item" href="#">
-                <span class="drawer__icon material-icons">language</span>
-                <p>GrowStocks Website</p>
-            </a>
-            <a class="drawer__item" href="#">
-                <span class="drawer__icon material-icons">lock</span>
-                <p>Privacy Policy</p>
-            </a>
-            <a class="drawer__item" href="#">
-                <span class="drawer__icon material-icons">verified_user</span>
-                <p>Terms of Use</p>
+                <i class="button__icon material-icons">language</i>
+                <span class="button__label">GrowStocks Website</span>
             </a>
 
 
@@ -179,7 +172,7 @@
             <div class="drawer__language-wrap">
 
                 <a href="#" class="drawer__language">
-                    <p>English</p>
+                    <span class="button__label">English</span>
                 </a>
 
                 <!--<span class="spacer">|</span>
@@ -192,24 +185,86 @@
 
         </div>
     </div>
-</div>
+</section>
+
 
 <body>
 
-    <div class="banner">
-        <div class="wrap--text">
-            <h1>Stack</h1>
-            <p>GrowStocks' frontend Library for building user interfaces.</p>
-        </div>
-    </div>
+    <main class="wrap--content">
+        <h2 class="title-bar--on-surface">
+            Buttons
+        </h2>
+        <section class="contain--flex--row">
+            <!-- BUTTONS -->
+            <button class="button">
+                <i class="material-icons button__icon" aria-hidden="true">thumb_up</i>
+                <span class="button__label">Liked</span>
+            </button>
+            <button class="button--outlined">
+                <i class="material-icons button__icon" aria-hidden="true">thumb_up</i>
+                <span class="button__label">Liked</span>
+            </button>
+            <button class="button--filled">
+                <i class="material-icons button__icon" aria-hidden="true">thumb_up</i>
+                <span class="button__label">Liked</span>
+            </button>
 
-    <section class="wrap--content--no-margin-top">
+            <button class="jabutton">
+                <i class="material-icons button__icon" aria-hidden="true">thumb_up</i>
+                <span class="button__label">Liked</span>
+            </button>
+        </section>
 
-        <h2 class="title-bar--on-surface">Components Demo</h2>
-        <div class="card--on-surface">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum ex hic placeat! Atque consequuntur, ea esse exercitationem, facilis fugiat ipsa iusto libero necessitatibus numquam odit omnis repellendus voluptate. Optio, porro?</p>
-        </div>
+        <h2 class="title-bar--on-surface">
+            Alerts
+        </h2>
+        <section class="contain--flex--column">
+            <!-- ALERTS -->
+            <div class="alert elevation--z3">
+                <span class="alert__icon material-icons-outlined">info</span>
+                <p class="alert__text">This is an alert</p>
+            </div>
+            <div class="alert--success elevation--z3">
+                <span class="alert__icon material-icons-outlined">info</span>
+                <p class="alert__text">This is an alert</p>
+            </div>
+            <div class="alert--warning elevation--z3">
+                <span class="alert__icon material-icons-outlined">info</span>
+                <p class="alert__text">This is an alert</p>
+            </div>
+            <div class="alert--error elevation--z3">
+                <span class="alert__icon material-icons-outlined">info</span>
+                <p class="alert__text">This is an alert</p>
+            </div>
+            <div class="alert--undefined elevation--z3">
+                <span class="alert__icon material-icons-outlined">info</span>
+                <p class="alert__text">This is an alert</p>
+            </div>
+            <div class="alert--outlined elevation--z3">
+                <span class="alert__icon material-icons-outlined">info</span>
+                <p class="alert__text">This is an alert</p>
+            </div>
+            <div class="alert--outlined--success elevation--z3">
+                <span class="alert__icon material-icons-outlined">info</span>
+                <p class="alert__text">This is an alert</p>
+            </div>
+            <div class="alert--outlined--warning elevation--z3">
+                <span class="alert__icon material-icons-outlined">info</span>
+                <p class="alert__text">This is an alert</p>
+            </div>
+            <div class="alert--outlined--error elevation--z3">
+                <span class="alert__icon material-icons-outlined">info</span>
+                <p class="alert__text">This is an alert</p>
+            </div>
+            <div class="alert--outlined--undefined elevation--z3">
+                <span class="alert__icon material-icons-outlined">info</span>
+                <p class="alert__text">This is an alert</p>
+            </div>
+        </section>
 
+        <h2 class="title-bar--on-surface">
+            Cards
+        </h2>
         <section class="contain--grid">
             <div class="card--y elevation--z3">
                 <div class="card--y__img">
@@ -219,7 +274,9 @@
                     <h3 class="card--y__info__title">CARD TITLE</h3>
                     <h5 class="card--y__info__subtitle">Card subtitle</h5>
                     <a href="#" target="_blank">
-                        <button class="card--y__action">ACTION</button>
+                        <button class="card--y__action">
+                            <span class="button__label">ACTION</span>
+                        </button>
                     </a>
                 </div>
             </div>
@@ -231,7 +288,9 @@
                     <h3 class="card--y__info__title">CARD TITLE</h3>
                     <h5 class="card--y__info__subtitle">Card subtitle</h5>
                     <a href="#" target="_blank">
-                        <button class="card--y__action">ACTION</button>
+                        <button class="card--y__action">
+                            <span class="button__label">ACTION</span>
+                        </button>
                     </a>
                 </div>
             </div>
@@ -243,7 +302,9 @@
                     <h3 class="card--y__info__title">CARD TITLE</h3>
                     <h5 class="card--y__info__subtitle">Card subtitle</h5>
                     <a href="#" target="_blank">
-                        <button class="card--y__action">ACTION</button>
+                        <button class="card--y__action">
+                            <span class="button__label">ACTION</span>
+                        </button>
                     </a>
                 </div>
             </div>
@@ -255,14 +316,15 @@
                     <h3 class="card--y__info__title">CARD TITLE</h3>
                     <h5 class="card--y__info__subtitle">Card subtitle</h5>
                     <a href="#" target="_blank">
-                        <button class="card--y__action">ACTION</button>
+                        <button class="card--y__action">
+                            <i class="button__icon material-icons">favorite</i>
+                            <span class="button__label">ACTION</span>
+                        </button>
                     </a>
                 </div>
             </div>
         </section>
-
         <section class="contain--grid--large">
-
             <div class="card--x elevation--z3">
                 <div class="card--x__img">
                     <img src="https://via.placeholder.com/150.png" alt="Photo">
@@ -278,12 +340,11 @@
                     </div>
                 </div>
             </div>
-
             <div class="card--x elevation--z3">
                 <div class="card--x__img">
                     <img src="https://via.placeholder.com/150.png" alt="Photo">
                 </div>
-                <div class="card--x__container orange">
+                <div class="card--x__container dark-red">
                     <div class="wrap--text">
                         <h2>CARD TITLE</h2>
                         <p class="card--x__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, suscipit.</p>
@@ -294,12 +355,11 @@
                     </div>
                 </div>
             </div>
-
             <div class="card--x elevation--z3">
                 <div class="card--x__img">
                     <img src="https://via.placeholder.com/150.png" alt="Photo">
                 </div>
-                <div class="card--x__container light-orange">
+                <div class="card--x__container dark-red">
                     <div class="wrap--text">
                         <h2>CARD TITLE</h2>
                         <p class="card--x__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, suscipit.</p>
@@ -310,35 +370,9 @@
                     </div>
                 </div>
             </div>
-
         </section>
-
-        <div class="search__filter">
-            <div class="search__filter__item">
-                <label title="Filter items" class="material-icons search__filter__label">filter_alt</label>
-                <select aria-label="Filter Items" class="search__filter__select mdc-elevation--z3">
-                    <option value="#">All Items</option>
-                    <option value="#">Filter Option 1</option>
-                    <option value="#">Filter Option 2</option>
-                </select>
-                <span class="search__filter__arrow"></span>
-            </div>
-            <div class="search__filter__item">
-                <label title="Sort by"  class="material-icons search__filter__label">sort</label>
-                <select aria-label="Filter Items" class="search__filter__select mdc-elevation--z3">
-                    <option value="#">Latest update</option>
-                    <option value="#">By price (low to high)</option>
-                    <option value="#">By price (high to low)</option>
-                    <option value="#">By stability (low to high)</option>
-                    <option value="#">By stability (high to low)</option>
-                </select>
-                <span class="search__filter__arrow"></span>
-            </div>
-        </div>
-
         <section class="contain--flex--column">
-
-            <div class="contain--item elevation--z3">
+            <div class="chip__container elevation--z3">
                 <button class="chip__options__trigger mdc-icon-button material-icons mdc-card__action mdc-card__action--icon--unbounded p-0 s-32 fl-R" title="Options" data-mdc-ripple-is-unbounded="true">menu</button>
                 <a href="#">
                     <div class="chip">
@@ -347,36 +381,11 @@
                         </div>
                         <div class="wrap--text">
                             <h2>Item Name</h2>
-                            <br>
-                            <p>Field 1: <b>Data 1</b></p>
-                            <span class="chip__spacer">|</span>
-                            <p>Field 2: <b>Data 2</b></p>
-                        </div>
-                    </div>
-                </a>
-                <div class="chip__options">
-                    <a class="chip__options__button">Report</a>
-                    <span class="chip__options_spacer">|</span>
-                    <a class="chip__options__button" href="#">Search marketplace</a>
-                </div>
-                <div class="chip__footer stable">
-                    <p>Price is <b>STABLE</b> | Edited 2d ago</p>
-                </div>
-            </div>
-
-            <div class="contain--item elevation--z3">
-                <button class="chip__options__trigger mdc-icon-button material-icons mdc-card__action mdc-card__action--icon--unbounded p-0 s-32 fl-R" title="Options" data-mdc-ripple-is-unbounded="true">menu</button>
-                <a href="#">
-                    <div class="chip">
-                        <div class="chip__sprite">
-                            <img loading="lazy" title="All assets related to Growtopia are owned by Ubisoft Entertainment&reg; and used with permission from the WIKI" src="https://cdn.growstocks.xyz/item/5638.png" alt="icon">
-                        </div>
-                        <div class="wrap--text">
-                            <h2>Item Name</h2>
-                            <br>
-                            <p>Field 1: <b>Data 1</b></p>
-                            <span class="chip__spacer">|</span>
-                            <p>Field 2: <b>Data 2</b></p>
+                            <div class="chip__info">
+                                <p>Field 1: <b>Data 1</b></p>
+                                <span class="chip__spacer">|</span>
+                                <p>Field 2: <b>Data 2</b></p>
+                            </div>
                         </div>
                     </div>
                 </a>
@@ -386,167 +395,73 @@
                     <a class="chip__options__button" href="#">Search marketplace</a>
                 </div>
                 <div class="chip__footer semi-stable">
-                    <p>Price is <b>SEMI-STABLE</b> | Edited 2d ago</p>
+                    <p>Price is <b>SEMI-STABLE</b> <span class="chip__footer__spacer">|</span> Edited 2d ago</p>
                 </div>
             </div>
 
-            <div class="contain--item elevation--z3">
-                <button class="chip__options__trigger mdc-icon-button material-icons mdc-card__action mdc-card__action--icon--unbounded p-0 s-32 fl-R" title="Options" data-mdc-ripple-is-unbounded="true">menu</button>
-                <a href="#">
-                    <div class="chip">
-                        <div class="chip__sprite">
-                            <img loading="lazy" title="All assets related to Growtopia are owned by Ubisoft Entertainment&reg; and used with permission from the WIKI" src="https://cdn.growstocks.xyz/item/5638.png" alt="icon">
-                        </div>
-                        <div class="wrap--text">
-                            <h2>Item Name</h2>
-                            <br>
-                            <p>Field 1: <b>Data 1</b></p>
-                            <span class="chip__spacer">|</span>
-                            <p>Field 2: <b>Data 2</b></p>
-                        </div>
+            <div class="chip__container mdc-elevation--z3">
+                <div class="chip">
+                    <div class="chip__sprite">
+                        <img loading="lazy" title="All assets related to Growtopia are owned by Ubisoft Entertainment&reg; and used with permission from the WIKI" src="https://cdn.growstocks.xyz/item/5494.png" alt="icon">
                     </div>
-                </a>
-                <div class="chip__options">
-                    <a class="chip__options__button">Report</a>
-                    <span class="chip__options_spacer">|</span>
-                    <a class="chip__options__button" href="#">Search marketplace</a>
-                </div>
-                <div class="chip__footer unstable">
-                    <p>Price is <b>UNSTABLE</b> | Edited 2d ago</p>
-                </div>
-            </div>
-
-            <div class="contain--item elevation--z3">
-                <button class="chip__options__trigger mdc-icon-button material-icons mdc-card__action mdc-card__action--icon--unbounded p-0 s-32 fl-R" title="Options" data-mdc-ripple-is-unbounded="true">menu</button>
-                <a href="#">
-                    <div class="chip">
-                        <div class="chip__sprite">
-                            <img loading="lazy" title="All assets related to Growtopia are owned by Ubisoft Entertainment&reg; and used with permission from the WIKI" src="https://cdn.growstocks.xyz/item/5638.png" alt="icon">
-                        </div>
-                        <div class="wrap--text">
-                            <h2>Item Name</h2>
-                            <br>
-                            <p>Field 1: <b>Data 1</b></p>
-                            <span class="chip__spacer">|</span>
-                            <p>Field 2: <b>Data 2</b></p>
-                        </div>
-                    </div>
-                </a>
-                <div class="chip__options">
-                    <a class="chip__options__button">Report</a>
-                    <span class="chip__options_spacer">|</span>
-                    <a class="chip__options__button" href="#">Search marketplace</a>
-                </div>
-                <div class="chip__footer undefined">
-                    <p>Price is <b>UNDEFINED</b> | Edited 2d ago</p>
-                </div>
-            </div>
-
-        </section>
-
-        <section class="contain">
-            <!-- TITLE BARS -->
-            <h2 class="title-bar elevation--z3">Title Bar</h2>
-            <h2 class="title-bar--on-surface">Title Bar on surface</h2>
-            <div class="card elevation--z3">
-                <h2 class="title-bar--on-card">Title Bar on card</h2>
-                <p>Card text Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam culpa delectus dolores ducimus impedit ipsa, itaque iure magnam magni, maiores molestiae natus odit placeat possimus quibusdam quidem quis, quos temporibus.</p>
-            </div>
-
-            <!-- BUTTONS -->
-            <div class="wrap--button">
-                <button class="btn--primary elevation--z1">Button Primary</button>
-                <button class="btn">Button Regular</button>
-                <button class="btn--text-only">Button Text-Only</button>
-            </div>
-        </section>
-
-        <section class="contain--grid">
-            <div class="card stable elevation--z3">
-                <p class="card__small-text">Stability</p>
-                <h1 class="card__big-text">STABLE</h1>
-            </div>
-            <div class="card semi-stable elevation--z3">
-                <p class="card__small-text">Stability</p>
-                <h1 class="card__big-text">SEMI-STABLE</h1>
-            </div>
-            <div class="card unstable elevation--z3">
-                <p class="card__small-text">Stability</p>
-                <h1 class="card__big-text">UNSTABLE</h1>
-            </div>
-            <div class="card undefined elevation--z3">
-                <p class="card__small-text">Stability</p>
-                <h1 class="card__big-text">UNDEFINED</h1>
-            </div>
-        </section>
-
-        <section class="contain--flex--row">
-            <div class="alert elevation--z3">
-                <span class="alert__icon material-icons-outlined">info</span>
-                <p class="alert__text">This is a daily quest price</p>
-            </div>
-            <div class="alert--success elevation--z3">
-                <span class="alert__icon material-icons-outlined">new_releases</span>
-                <p class="alert__text">This item is newly released</p>
-            </div>
-            <div class="alert--warning elevation--z3">
-                <span class="alert__icon material-icons-outlined">warning_amber</span>
-                <p class="alert__text">This price might be outdated!</p>
-            </div>
-            <div class="alert--error elevation--z3">
-                <span class="alert__icon material-icons-outlined">lock</span>
-                <p class="alert__text">This item is locked!</p>
-            </div>
-            <form class="form elevation--z3">
-                <h2 class="title-bar--on-card">Example form</h2>
-
-                <div class="form__field error">
-                    <input class="form__input" type="text" id="input-text-1" placeholder="a" required/>
-                    <label class="form__label" for="input-text-1">Text Input</label>
-                </div>
-                <div class="form__field">
-                    <input min="0" class="form__input" type="number" id="input-text-3" placeholder="a" required/>
-                    <label class="form__label" for="input-text-3">Number Input</label>
-                </div>
-                <div class="form__field">
-                    <textarea
-                        id="input-text-2"
-                        rows="5"
-                        placeholder="a"
-                        class="form__input"
-                        required
-                    ></textarea>
-                    <label class="form__label" for="input-text-2">Textarea Input</label>
-                </div>
-                <div class="form__field">
-                    <input data-label="Upload picture" class="form__input type--file" type="file" id="input-file" placeholder="a" required/>
-                    <label class="form__label" for="input-file">Upload Input</label>
-
-                    <div class="form__file-preview">
-                        <img src="" alt="" class="form__file-preview__image" />
-                        <span class="form__file-preview__label">Image Preview</span>
+                    <div class="wrap--text">
+                        <h2>WHOOPS!</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus at, atque maiores nam numquam placeat quos reprehenderit voluptatum! Accusamus, ducimus, veritatis. Architecto cum deleniti hic illum modi suscipit totam veniam? Adipisci assumenda doloribus eaque illum, inventore molestiae nostrum optio repellat similique suscipit tempora, temporibus? Atque enim et nulla numquam possimus?</p>
                     </div>
                 </div>
-                <div class="wrap--button">
-                    <button type="submit" class="btn--primary elevation--z1">Submit Primary</button>
-                    <button type="submit" class="btn">Submit Regular</button>
+            </div>
+
+            <div class="codeblock">
+                <code>
+                    @import '../node_modules/@growstocks/stack/css/Button';<br>
+                    <br>
+                    @use Button.render();
+                </code>
+            </div>
+
+
+            <section class="contain">
+                <form class="form elevation--z3">
+                    <h2 class="title-bar--on-card">Example form</h2>
+
+                    <div class="form__field error">
+                        <input class="form__input" type="text" id="input-text-1" placeholder="a" required/>
+                        <label class="form__label" for="input-text-1">Text Input</label>
+                    </div>
+                    <div class="form__field">
+                        <input min="0" class="form__input" type="number" id="input-text-3" placeholder="a" required/>
+                        <label class="form__label" for="input-text-3">Number Input</label>
+                    </div>
+                    <div class="form__field">
+                        <textarea
+                            id="input-text-2"
+                            rows="5"
+                            placeholder="a"
+                            class="form__input"
+                            required
+                        ></textarea>
+                        <label class="form__label" for="input-text-2">Textarea Input</label>
+                    </div>
+                    <div class="wrap--button">
+                        <button type="submit" class="button--filled elevation--z1">
+                            <i class="button__icon material-icons">send</i>
+                            <span class="button__label">Submit Primary</span>
+                        </button>
+                        <button type="submit" class="button--outlined">
+                            <i class="button__icon material-icons">send</i>
+                            <span class="button__label">Submit Primary</span>
+                        </button>
+                    </div>
+                </form>
+            </section>
+            <div class="snackbar warning elevation--z5">
+                <div class="snackbar__wrap">
+                    <p class="snackbar__label">Snackbar Label</p>
+                    <button class="snackbar__action">ACTION</button>
                 </div>
-            </form>
+            </div>
         </section>
+    </main>
 
-    </section>
-
-    <!--<div class="snackbar warning elevation&#45;&#45;z5">
-        <div class="snackbar__wrap">
-            <p class="snackbar__label">Snackbar Label</p>
-            <button class="snackbar__action">ACTION</button>
-        </div>
-    </div>-->
 </body>
-<footer class="footer">
-    <div class="wrap--text">
-        <h3>StackCSS</h3>
-        <h5>Copyright GrowStocks &copy; 2021</h5>
-    </div>
-</footer>
 </html>

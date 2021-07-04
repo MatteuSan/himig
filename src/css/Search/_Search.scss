@@ -1,0 +1,207 @@
+//
+// Copyright (c) 2021 GrowStocks
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
+//
+
+@use '../mixins';
+@use '../Typography/index' as typography;
+
+@use '../Core';
+
+@mixin render(
+    $label-fill: var(--primary-light),
+    $label-ink: var(--on-primary),
+    $label-icon-size: 22px,
+    $input-fill: var(--input),
+    $input-ink: var(--on-input),
+    $input-font-size: 15px,
+    $button-fill: var(--clear),
+    $ink: var(--on-primary),
+
+    $padding: 7px 12px,
+    $border-radius: 0.5rem,
+    $clip-size: 0.3rem,
+    $custom-clip: (),
+    $shape: pill,
+    $shape-exceptions: (
+        clipped: true
+    ),
+) {
+    .search {
+        width: calc(100% + 22px);
+        display: none;
+        padding: 9px 0;
+
+        transition: all 0.2s ease !important;
+
+        @media (min-width: mixins.$full-min) {
+            display: block;
+            position: fixed;
+            max-width: calc(320px + 22px);
+            padding: 0.5rem 0;
+            right: 235px;
+        }
+
+        &.visible {
+            display: block !important;
+        }
+
+        label {
+            background-color: $label-fill;
+            color: $label-ink;
+        }
+
+        form {
+            width: calc(100% + 22px);
+            border: none;
+            position: relative;
+            left: 10px;
+            display: flex;
+
+            @media (min-width: mixins.$full-min) {
+                width: 100%;
+                margin-top: -1px;
+            }
+
+            label {
+                display: none;
+
+                @media (min-width: mixins.$full-min) {
+                    display: block;
+                    position: relative;
+                    margin-right: 7px;
+                    padding: 7px;
+                    font-size: typography.px-to-rem($label-icon-size);
+                    border-radius: 25px;
+                }
+            }
+
+            input[type="text"] {
+                border: none;
+                font-size: typography.px-to-rem($input-font-size);
+                width: 100%;
+
+                @include Core.shape($shape, $border-radius, $clip-size, $shape-exceptions, $custom-clip);
+
+                padding: $padding;
+
+                background-color: var(--clear);
+                color: $ink;
+
+                @media (min-width: mixins.$full-min) {
+                    background-color: $input-fill;
+                    color: $input-ink;
+                }
+
+                &:focus-within {
+                    outline: none;
+
+                    @media (min-width: mixins.$full-min) {
+                        outline: auto;
+                    }
+                }
+
+                &::placeholder {
+                    --placeholder: #b1b1b1;
+                    color: var(--placeholder);
+
+                    @media (min-width: mixins.$full-min) {
+                        --placeholder: #606060!important;
+                        color: var(--placeholder);
+                    }
+                }
+            }
+        }
+    }
+
+    .search__buttons {
+        position: relative;
+        display: flex;
+        align-items: center;
+        padding-right: 10px;
+
+        @media (min-width: mixins.$full-min) {
+            padding-right: 0;
+        }
+
+        button {
+            width: 30px !important;
+            height: 30px !important;
+            display: block;
+            border: none;
+            background-color: $button-fill;
+            font-size: 20px !important;
+            border-radius: 50%;
+
+            @media (min-width: mixins.$full-min) {
+                display: none !important;
+            }
+        }
+
+        .search-button {
+            transition: all 0.2s ease !important;
+
+            &.invisible {
+                display: none !important;
+            }
+        }
+
+        .close-button {
+            width: 30px;
+            height: 30px;
+            display: none;
+            border: none;
+            background-color: $button-fill;
+            font-size: 20px !important;
+            border-radius: 50%;
+
+            color: $ink !important;
+            transition: all 0.2s ease !important;
+
+            @media (min-width: mixins.$full-min) {
+                display: none !important;
+            }
+
+            &.visible {
+                display: block !important;
+            }
+        }
+    }
+
+    // LEGACY
+    .market__search {
+        width: 100%;
+        border-radius: 5px;
+        padding: 5px;
+
+        form {
+            width: 100%;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            border-radius: 5px;
+            padding: 7px;
+            border: none;
+            font-size: 14px;
+        }
+    }
+
+}

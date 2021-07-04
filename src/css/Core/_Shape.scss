@@ -1,0 +1,135 @@
+//
+// Copyright (c) 2021 GrowStocks
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
+//
+
+@use 'sass:map';
+@use 'sass:math';
+@use 'sass:list';
+@use 'sass:meta';
+
+$valid-shapes: (
+    default,
+    rounded,
+    block,
+    pill,
+    clipped
+);
+
+@mixin shape(
+    $imported-shape: default,
+    $imported-border-radius: (),
+    $imported-clip-size: (),
+    $imported-shape-exceptions: (),
+    $imported-custom-clip: ()
+) {
+
+    // Check if shape is valid from $valid-shapes list.
+    @if not index($valid-shapes, $imported-shape) {
+        @error '(#{$imported-shape}) is not a valid shape! Please select from the following: default, rounded, block, pill, and clipped.';
+    } @else {
+
+        // PILL
+        @if check($imported-shape-exceptions, pill) == true {
+            @if $imported-shape == pill {
+                @error 'The pill shape is currently disabled in this component, please try other shapes.';
+            }
+        } @else {
+            @if $imported-shape == pill {
+                border-radius: 500px;
+            }
+        }
+
+        // ROUNDED
+        @if check($imported-shape-exceptions, rounded) == true {
+            @if $imported-shape == rounded {
+                @error 'The round shape is currently disabled in this component, please try other shapes.';
+            }
+        } @else {
+            @if $imported-shape == rounded {
+                @if $imported-border-radius {
+                    border-radius: $imported-border-radius;
+                }
+            }
+        }
+
+        // BLOCK
+        @if check($imported-shape-exceptions, block) == true {
+            @if $imported-shape == block {
+                @error 'The block shape is currently disabled in this component, please try other shapes.';
+            }
+        } @else {
+            @if $imported-shape == block {
+                border-radius: 0;
+            }
+        }
+
+        // CLIPPED
+        @if check($imported-shape-exceptions, clipped) == true {
+            @if $imported-shape == clipped {
+                @error 'The clipped shape is currently disabled in this component, please try other shapes.';
+            }
+        } @else {
+            @if $imported-shape == clipped and $imported-clip-size {
+                @if $imported-clip-size {
+                    @if not empty($imported-custom-clip) {
+                        clip-path: $imported-custom-clip;
+                    } @else {
+                        clip-path:
+                            polygon(
+                                0% $imported-clip-size,
+                                $imported-clip-size 0%, calc(100% - #{$imported-clip-size}) 0%,
+                                100% $imported-clip-size,
+                                100% calc(100% - #{$imported-clip-size}),
+                                calc(100% - #{$imported-clip-size}) 100%,
+                                $imported-clip-size 100%,
+                                0% calc(100% - #{$imported-clip-size})
+                            )
+                        ;
+                    }
+                }
+            }
+        }
+        // DEFAULT
+        @if $imported-shape == default {
+            @if $imported-border-radius {
+                border-radius: $imported-border-radius;
+            }
+        }
+    }
+}
+
+@function empty($value) {
+    @if not $value
+       or $value == ""
+       or $value == 0
+       or $value == ()
+       or $value == none
+       or length($value) == 0 {
+        @return true;
+    }
+    @return false;
+}
+
+@function check($shape-exception-map, $exception) {
+    $imported-shape-exceptions: $shape-exception-map;
+    $query: map.get($imported-shape-exceptions, $exception);
+    @return $query;
+}

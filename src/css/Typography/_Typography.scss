@@ -1,0 +1,138 @@
+//
+// Copyright (c) 2021 GrowStocks
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
+//
+
+@use 'sass:math';
+@use 'sass:map';
+
+@function get-letter-spacing($tracking, $font-size) {
+    $spacing: ($tracking / $font-size * 16) * 1em;
+    @return $spacing
+}
+
+@function px-to-rem($px) {
+    $rem-converted: ($px / 16px) * 1rem;
+    @return $rem-converted;
+}
+
+$font-family: () !default;
+$font-type: sans-serif !default;
+
+// IMPORT WITH:
+$headline-font-weight: 700;
+$subtitle-font-weight: 400;
+$body-font-weight: 400;
+$action-font-weight: 700;
+
+$styles-map: (
+    title-64: (
+        font-size: px-to-rem(64px),
+        font-weight: $headline-font-weight,
+        text-decoration: inherit,
+        text-transform: inherit,
+    ),
+    title-48: (
+        font-size: px-to-rem(48px),
+        font-weight: $headline-font-weight,
+        text-decoration: inherit,
+        text-transform: inherit,
+    ),
+    title-32: (
+        font-size: px-to-rem(32px),
+        font-weight: $headline-font-weight,
+        text-decoration: inherit,
+        text-transform: inherit,
+    ),
+    title-24: (
+        font-size: px-to-rem(24px),
+        font-weight: $headline-font-weight,
+        text-decoration: inherit,
+        text-transform: inherit,
+    ),
+    title-18: (
+        font-size: px-to-rem(18px),
+        font-weight: $headline-font-weight,
+        text-decoration: inherit,
+        text-transform: inherit,
+    ),
+
+    subtitle-20: (
+        font-size: px-to-rem(20px),
+        font-weight: $subtitle-font-weight,
+        text-decoration: inherit,
+        text-transform: inherit,
+    ),
+    subtitle-16: (
+        font-size: px-to-rem(16px),
+        font-weight: $subtitle-font-weight,
+        text-decoration: inherit,
+        text-transform: inherit,
+    ),
+    subtitle-14: (
+        font-size: px-to-rem(14px),
+        font-weight: $subtitle-font-weight,
+        text-decoration: inherit,
+        text-transform: inherit,
+    ),
+
+    body-16: (
+        font-size: px-to-rem(16px),
+        font-weight: $body-font-weight,
+        text-decoration: inherit,
+        text-transform: inherit,
+    ),
+    body-14: (
+        font-size: px-to-rem(14px),
+        font-weight: $body-font-weight,
+        text-decoration: inherit,
+        text-transform: inherit,
+    ),
+    body-12: (
+        font-size: px-to-rem(12px),
+        font-weight: $body-font-weight,
+        text-decoration: inherit,
+        text-transform: inherit,
+    ),
+
+    action: (
+        font-size: px-to-rem(14px),
+        font-weight: $action-font-weight,
+        text-decoration: inherit,
+        text-transform: uppercase,
+    ),
+);
+
+// API
+@mixin import-font($url: 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap') {
+    @import url($url);
+}
+
+@mixin font-family($family, $type: sans-serif) {
+    font-family: $family, $type;
+}
+
+@mixin generate($type) {
+    $type-map: map.get($styles-map, $type);
+
+    @each $property, $value in $type-map {
+        #{$property}: #{$value};
+    }
+}
