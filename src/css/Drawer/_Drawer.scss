@@ -75,9 +75,15 @@
         z-index: 99;
         overflow-y: auto;
 
-        background-color: $fill;
+        color: $ink;
+
+        background: $fill;
 
         @include Core.shape($shape, $composed-border-radius, $clip-size, $shape-exceptions, $custom-clip);
+
+        * {
+            color: inherit;
+        }
 
         @include Button.base(
             $component-name: '.drawer__item',
@@ -88,7 +94,9 @@
             $base-padding: 8px 0 0 0,
             $base-shape: block,
             $base-fill: var(--clear),
-            $base-font-weight: 700
+            $base-font-weight: 400,
+
+            $base-display: grid,
         );
 
         .drawer__icon {
@@ -129,12 +137,18 @@
     .drawer__language-wrap {
         text-align: center;
 
-        .drawer__language,
-        .drawer__language p {
-            display: inline-block !important;
-            font-size: typography.px-to-rem(14px) !important;
-            text-align: center;
-        }
+        @include Button.base(
+            $component-name: '.drawer__language',
+            $base-font-size: 14px,
+            $base-icon-size: 1px,
+            $base-ink: var(--surface),
+            $base-icon-ink: var(--surface),
+            $base-padding: 0,
+            $base-shape: default,
+            $base-fill: var(--clear),
+            $base-font-weight: 400,
+            $base-display: inline-block
+        );
 
         .drawer__language__spacer {
             display: inline-block;

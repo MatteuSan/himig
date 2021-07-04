@@ -33,6 +33,8 @@
     $component-name: 'button',
     $base-padding: undefined,
 
+    $base-display: inline-grid,
+
     $base-fill: undefined,
     $base-ink: undefined,
 
@@ -50,11 +52,14 @@
     $base-clip-size: undefined,
     $base-custom-clip: (),
 
-    $base-width: max-content
+    $base-width: max-content,
+    $base-settings: (
+        hover-states: true
+    )
 ) {
     #{unquote($component-name)} {
         width: $base-width;
-        display: inline-grid;
+        display: $base-display;
         place-items: center;
         grid-template-columns: max-content 1fr;
 
@@ -87,9 +92,15 @@
 
         @include Core.shape($base-shape, $base-border-radius, $base-clip-size, $base-shape-exceptions, $base-custom-clip);
 
-        &:hover {
-            filter: brightness(80%);
-            cursor: pointer;
+        @if Core.check-parameters($base-settings, hover-states) == true {
+            &:hover {
+                cursor: pointer;
+                filter: brightness(80%);
+
+                .button__label {
+                    text-decoration: underline!important;
+                }
+            }
         }
 
         &[data-tooltip] {

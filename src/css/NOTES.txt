@@ -56,6 +56,8 @@ Feature List (for Feature Targeting + API) (found in $settings):
 - Typography
 - Structure
 - Shape
+- Hover States:
+    + Text-decoration (underline...)
 
 ||=========================================
 ||       StackCSS (Frontend) Notes:

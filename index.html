@@ -99,6 +99,95 @@
 
 </header>
 
+<section class="search__predictive elevation--z5" @click.away="predictive_show = false" x-show.transition.opacity.duration.250ms="predictive_show" style="display: none">
+    <div class="search__predictive__result">
+        <span class="material-icons">
+            <img loading="lazy" title="All assets related to Growtopia are owned by Ubisoft Entertainment® and used with permission from the WIKI" src="https://cdn.growstocks.xyz/item/5638.png" alt="icon">
+        </span>
+        <p>Search Item</p>
+    </div>
+    <div class="search__predictive__result">
+        <span class="material-icons">
+            <img loading="lazy" title="All assets related to Growtopia are owned by Ubisoft Entertainment® and used with permission from the WIKI" src="https://cdn.growstocks.xyz/item/5638.png" alt="icon">
+        </span>
+        <p>Search Item</p>
+    </div>
+    <div class="search__predictive__result">
+        <span class="material-icons">
+            <img loading="lazy" title="All assets related to Growtopia are owned by Ubisoft Entertainment® and used with permission from the WIKI" src="https://cdn.growstocks.xyz/item/5638.png" alt="icon">
+        </span>
+        <p>Search Item</p>
+    </div>
+    <div class="search__predictive__result">
+        <span class="material-icons">
+            <img loading="lazy" title="All assets related to Growtopia are owned by Ubisoft Entertainment® and used with permission from the WIKI" src="https://cdn.growstocks.xyz/item/5638.png" alt="icon">
+        </span>
+        <p>Search Item</p>
+    </div>
+    <div class="search__predictive__result">
+        <span class="material-icons">
+            <img loading="lazy" title="All assets related to Growtopia are owned by Ubisoft Entertainment® and used with permission from the WIKI" src="https://cdn.growstocks.xyz/item/5638.png" alt="icon">
+        </span>
+        <p>Search Item</p>
+    </div>
+</section>
+
+<section class="drawer__overlay" x-show.transition.opacity.duration.400ms="drawer_open" style="display: none">
+    <div class="drawer elevation--z5" x-show.transition.origin.top.right="drawer_open" @click.away="drawer_open = false" style="display: none">
+        <div class="wrap--text" style="margin: 0 auto;">
+
+            <a id="dark-mode__toggle" class="drawer__item">
+                <i class="button__icon material-icons">brightness_4</i>
+                <span class="button__label">Toggle Themes</span>
+            </a>
+            <a class="drawer__item" target="_blank" href="https://github.com/GrowStocks/StackCSS">
+                <i class="button__icon material-icons-outlined">book</i>
+                <span class="button__label">Stack Repository</span>
+            </a>
+            <a class="drawer__item" href="#">
+                <i class="button__icon material-icons">language</i>
+                <span class="button__label">GrowStocks Website</span>
+            </a>
+
+
+            <div class="drawer__divider">SOCIAL MEDIA ACCOUNTS</div>
+
+            <div class="drawer__socials">
+                <a href="https://twitter.com/InvestmentGt" target="_blank">
+                    <i class="fab fa-twitter-square"></i>
+                </a>
+                <a href="https://instagram.com/investment.gt" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://discord.io/growstocks" target="_blank">
+                    <i class="fab fa-discord"></i>
+                </a>
+                <a href="https://patreon.com/growstocks" target="_blank">
+                    <i class="fab fa-patreon"></i>
+                </a>
+            </div>
+
+            <div class="drawer__divider">LANGUAGES</div>
+
+            <div class="drawer__language-wrap">
+
+                <a href="#" class="drawer__language">
+                    <span class="button__label">English</span>
+                </a>
+
+                <!--<span class="spacer">|</span>
+
+                <a href="#" class="drawer__language">
+                    <p>日本語</p>
+                </a>-->
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
 <body>
 
     <main class="wrap--content">

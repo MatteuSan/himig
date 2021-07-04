@@ -429,8 +429,11 @@ body::-webkit-scrollbar-thumb:hover {
   position: relative;
 }
 .button:hover {
-  filter: brightness(80%);
   cursor: pointer;
+  filter: brightness(80%);
+}
+.button:hover .button__label {
+  text-decoration: underline !important;
 }
 .button[data-tooltip] {
   position: relative;
@@ -501,8 +504,11 @@ body::-webkit-scrollbar-thumb:hover {
   position: relative;
 }
 .button--outlined:hover {
-  filter: brightness(80%);
   cursor: pointer;
+  filter: brightness(80%);
+}
+.button--outlined:hover .button__label {
+  text-decoration: underline !important;
 }
 .button--outlined[data-tooltip] {
   position: relative;
@@ -573,8 +579,11 @@ body::-webkit-scrollbar-thumb:hover {
   position: relative;
 }
 .button--filled:hover {
-  filter: brightness(80%);
   cursor: pointer;
+  filter: brightness(80%);
+}
+.button--filled:hover .button__label {
+  text-decoration: underline !important;
 }
 .button--filled[data-tooltip] {
   position: relative;
@@ -856,8 +865,11 @@ body::-webkit-scrollbar-thumb:hover {
   position: relative;
 }
 .card--y .card--y__info .card--y__action:hover {
-  filter: brightness(80%);
   cursor: pointer;
+  filter: brightness(80%);
+}
+.card--y .card--y__info .card--y__action:hover .button__label {
+  text-decoration: underline !important;
 }
 .card--y .card--y__info .card--y__action[data-tooltip] {
   position: relative;
@@ -1223,15 +1235,19 @@ body::-webkit-scrollbar-thumb:hover {
   top: 50px;
   z-index: 99;
   overflow-y: auto;
-  background-color: var(--primary--variant-light);
+  color: var(--surface);
+  background: var(--primary--variant-light);
   border-radius: 1rem 0 0 0;
+}
+.drawer * {
+  color: inherit;
 }
 .drawer .drawer__item {
   width: max-content;
-  display: inline-grid;
+  display: grid;
   place-items: center;
   grid-template-columns: max-content 1fr;
-  font-weight: 700;
+  font-weight: 400;
   font-size: 1rem;
   padding: 8px 0 0 0;
   border: none;
@@ -1259,8 +1275,11 @@ body::-webkit-scrollbar-thumb:hover {
   position: relative;
 }
 .drawer .drawer__item:hover {
-  filter: brightness(80%);
   cursor: pointer;
+  filter: brightness(80%);
+}
+.drawer .drawer__item:hover .button__label {
+  text-decoration: underline !important;
 }
 .drawer .drawer__item[data-tooltip] {
   position: relative;
@@ -1343,11 +1362,79 @@ body::-webkit-scrollbar-thumb:hover {
 .drawer__language-wrap {
   text-align: center;
 }
-.drawer__language-wrap .drawer__language,
-.drawer__language-wrap .drawer__language p {
-  display: inline-block !important;
-  font-size: 0.875rem !important;
+.drawer__language-wrap .drawer__language {
+  width: max-content;
+  display: inline-block;
+  place-items: center;
+  grid-template-columns: max-content 1fr;
+  font-weight: 400;
+  font-size: 0.875rem;
+  padding: 0;
+  border: none;
+  background: var(--clear);
+  color: var(--surface);
+  -webkit-transition: all 0.1s linear;
+  -ms-transition: all 0.1s linear;
+  -moz-transition: all 0.1s linear;
+  -o-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+  border-radius: undefined;
+}
+.drawer__language-wrap .drawer__language > * + * {
+  margin-left: 4px;
+}
+.drawer__language-wrap .drawer__language .button__label {
+  color: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+  text-align: left;
+}
+.drawer__language-wrap .drawer__language .button__icon {
+  font-size: 0.0625rem;
+  color: var(--surface);
+  position: relative;
+}
+.drawer__language-wrap .drawer__language:hover {
+  cursor: pointer;
+  filter: brightness(80%);
+}
+.drawer__language-wrap .drawer__language:hover .button__label {
+  text-decoration: underline !important;
+}
+.drawer__language-wrap .drawer__language[data-tooltip] {
+  position: relative;
+}
+.drawer__language-wrap .drawer__language[data-tooltip]::after {
+  content: attr(data-tooltip);
+  display: block;
+  position: absolute;
+  background-color: #232323;
+  color: #fff;
+  padding: 0.5rem 0.7rem;
+  border-radius: 0.3rem;
+  font-size: 0.75rem;
+  bottom: calc(100% + 5px);
+  margin-left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  opacity: 0;
+  transition: opacity ease-in-out 200ms;
+  pointer-events: none;
   text-align: center;
+  white-space: nowrap;
+  -webkit-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
+  -ms-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
+  -moz-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
+  -o-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
+  -webkit-transition: all 0.1s ease;
+  -ms-transition: all 0.1s ease;
+  -moz-transition: all 0.1s ease;
+  -o-transition: all 0.1s ease;
+  transition: all 0.1s ease;
+}
+.drawer__language-wrap .drawer__language[data-tooltip]:hover::after {
+  opacity: 1;
 }
 .drawer__language-wrap .drawer__language__spacer {
   display: inline-block;
@@ -1646,8 +1733,11 @@ body::-webkit-scrollbar-thumb:hover {
   position: relative;
 }
 .form .button--outlined:hover {
-  filter: brightness(80%);
   cursor: pointer;
+  filter: brightness(80%);
+}
+.form .button--outlined:hover .button__label {
+  text-decoration: underline !important;
 }
 .form .button--outlined[data-tooltip] {
   position: relative;
@@ -1717,8 +1807,11 @@ body::-webkit-scrollbar-thumb:hover {
   position: relative;
 }
 .form .button--filled:hover {
-  filter: brightness(80%);
   cursor: pointer;
+  filter: brightness(80%);
+}
+.form .button--filled:hover .button__label {
+  text-decoration: underline !important;
 }
 .form .button--filled[data-tooltip] {
   position: relative;
@@ -2193,8 +2286,11 @@ body::-webkit-scrollbar-thumb:hover {
   position: relative;
 }
 .snackbar .snackbar__wrap .snackbar__action:hover {
-  filter: brightness(80%);
   cursor: pointer;
+  filter: brightness(80%);
+}
+.snackbar .snackbar__wrap .snackbar__action:hover .button__label {
+  text-decoration: underline !important;
 }
 .snackbar .snackbar__wrap .snackbar__action[data-tooltip] {
   position: relative;
