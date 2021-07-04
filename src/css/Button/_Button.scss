@@ -1,30 +1,32 @@
 //
-//  MIT License
+// Copyright (c) 2021 GrowStocks
 //
-//  Copyright (c) 2021 GrowStocks
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
 //
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
 //
-//  The above copyright notice and this permission notice shall be included in all
-//  copies or substantial portions of the Software.
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
 //
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-//  SOFTWARE.
-//
+
+@use 'sass:map';
 
 @use '../mixins';
 @use '../Typography' as typography;
-@use 'sass:map';
+@use '../Tooltip';
+
+@use '../Core';
 
 // Button component template (can be used anywhere)
 @mixin base(
@@ -82,11 +84,26 @@
         }
 
         @include mixins.prefix(transition, all 0.1s linear);
-        @include mixins.shape($base-shape, $base-border-radius, $base-clip-size, $base-shape-exceptions, $base-custom-clip);
+
+        @include Core.shape($base-shape, $base-border-radius, $base-clip-size, $base-shape-exceptions, $base-custom-clip);
 
         &:hover {
             filter: brightness(80%);
             cursor: pointer;
+        }
+
+        &[data-tooltip] {
+            @include Tooltip.base(
+                $base-fill: #232323,
+                $base-ink: #fff,
+                $base-padding:  0.5rem 0.7rem,
+                $base-border-radius: 0.3rem,
+                $base-font-size: 0.75rem,
+                $base-bottom-position: calc(100% + 5px),
+                $base-settings: (
+                    mobile-visible: true
+                )
+            );
         }
     }
 }
@@ -112,7 +129,7 @@
     $type: ()
 ) {
 
-    @if check($type, text) == true {
+    @if Core.check-parameters($type, text) == true {
         // .button
         @include base(
             $component-name: '.button',
@@ -130,7 +147,7 @@
         );
     }
 
-    @if check($type, outlined) == true {
+    @if Core.check-parameters($type, outlined) == true {
         // .button--outlined
         @include base(
             $component-name: '.button--outlined',
@@ -145,13 +162,13 @@
             $base-icon-ink: $icon-ink,
             $base-shape: $shape,
             $base-shape-exceptions: (
-                clipped: true
+                    clipped: true
             ),
             $base-custom-clip: $custom-clip
         );
     }
 
-    @if check($type, filled) == true {
+    @if Core.check-parameters($type, filled) == true {
         @include base(
             $component-name: '.button--filled',
             $base-padding: $padding,
@@ -166,13 +183,7 @@
             $base-shape: $shape,
             $base-shape-exceptions: (),
             $base-clip-size: $clip-size,
-            $base-custom-clip: $custom-clip
+            $base-custom-clip: $custom-clip,
         );
     }
-}
-
-@function check($map, $to-check) {
-    $query: map.get($map, $to-check);
-
-    @return $query;
 }

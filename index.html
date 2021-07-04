@@ -15,7 +15,7 @@
 
     <!-- STACK -->
     <link rel="stylesheet" href="css/style.css">
-    <script type="module" src="src/js/_core.js"></script>
+    <script type="module" src="js/index.js"></script>
 
     <!-- JS LIBS -->
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js"></script>
@@ -32,6 +32,72 @@
     <!--<link rel="manifest" href="static/manifest.webmanifest">-->
 
 </head>
+
+<header class="header">
+
+    <div class="header__wrap">
+
+        <div class="header__text">
+            <a href="./"><h2>Stack</h2></a>
+        </div>
+
+        <div class="search">
+            <form method="GET" action="#">
+                <label
+                    @click.prevent="predictive_show = true"
+                    for="search"
+                    class="material-icons"
+                >search
+                </label>
+                <input
+                    @click.prevent="predictive_show = true"
+                    id="search"
+                    type="text"
+                    name="s"
+                    placeholder="Search bar..."
+                    x-ref="searchInput"
+                    required
+                />
+            </form>
+        </div>
+
+        <div class="search__buttons">
+            <button @click="predictive_show = true; $refs.searchInput.focus()" class="material-icons search-button">search</button>
+            <button @click="predictive_show = false" class="material-icons close-button">close</button>
+        </div>
+
+        <nav class="nav">
+            <div class="nav__container">
+                <div class="nav__item" data-tooltip="Home">
+                    <a href="#">
+                        <p class="nav__item__icon material-icons">home</p>
+                        <p class="nav__item__text">Home</p>
+                    </a>
+                </div>
+                <div class="nav__item" data-tooltip="Documentation">
+                    <a href="#">
+                        <p class="nav__item__icon material-icons">description</p>
+                        <p class="nav__item__text">Docs</p>
+                    </a>
+                </div>
+                <div class="nav__item" data-tooltip="Notifications">
+                    <a href="#">
+                        <p class="nav__item__icon material-icons">notifications</p>
+                        <p class="nav__item__text">Inbox</p>
+                    </a>
+                </div>
+                <div class="nav__item" data-tooltip="More...">
+                    <a href="#">
+                        <p @click.prevent="drawer_open = !drawer_open" class="nav__item__icon material-icons" x-text="drawer_open ? 'close' : 'menu'"></p>
+                        <p class="nav__item__text">More</p>
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+    </div>
+
+</header>
 
 <body>
 
@@ -213,6 +279,96 @@
                             <a class="fab fa-instagram" href="https://instagram.com/investment.gt" target="_blank"></a>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+        <section class="contain--flex--column">
+            <div class="chip__container elevation--z3">
+                <button class="chip__options__trigger mdc-icon-button material-icons mdc-card__action mdc-card__action--icon--unbounded p-0 s-32 fl-R" title="Options" data-mdc-ripple-is-unbounded="true">menu</button>
+                <a href="#">
+                    <div class="chip">
+                        <div class="chip__sprite">
+                            <img loading="lazy" title="All assets related to Growtopia are owned by Ubisoft Entertainment&reg; and used with permission from the WIKI" src="https://cdn.growstocks.xyz/item/5638.png" alt="icon">
+                        </div>
+                        <div class="wrap--text">
+                            <h2>Item Name</h2>
+                            <div class="chip__info">
+                                <p>Field 1: <b>Data 1</b></p>
+                                <span class="chip__spacer">|</span>
+                                <p>Field 2: <b>Data 2</b></p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <div class="chip__options">
+                    <a class="chip__options__button">Report</a>
+                    <span class="chip__options_spacer">|</span>
+                    <a class="chip__options__button" href="#">Search marketplace</a>
+                </div>
+                <div class="chip__footer semi-stable">
+                    <p>Price is <b>SEMI-STABLE</b> <span class="chip__footer__spacer">|</span> Edited 2d ago</p>
+                </div>
+            </div>
+
+            <div class="chip__container mdc-elevation--z3">
+                <div class="chip">
+                    <div class="chip__sprite">
+                        <img loading="lazy" title="All assets related to Growtopia are owned by Ubisoft Entertainment&reg; and used with permission from the WIKI" src="https://cdn.growstocks.xyz/item/5494.png" alt="icon">
+                    </div>
+                    <div class="wrap--text">
+                        <h2>WHOOPS!</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus at, atque maiores nam numquam placeat quos reprehenderit voluptatum! Accusamus, ducimus, veritatis. Architecto cum deleniti hic illum modi suscipit totam veniam? Adipisci assumenda doloribus eaque illum, inventore molestiae nostrum optio repellat similique suscipit tempora, temporibus? Atque enim et nulla numquam possimus?</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="codeblock">
+                <code>
+                    @import '../node_modules/@growstocks/stack/css/Button';<br>
+                    <br>
+                    @use Button.render();
+                </code>
+            </div>
+
+
+            <section class="contain">
+                <form class="form elevation--z3">
+                    <h2 class="title-bar--on-card">Example form</h2>
+
+                    <div class="form__field error">
+                        <input class="form__input" type="text" id="input-text-1" placeholder="a" required/>
+                        <label class="form__label" for="input-text-1">Text Input</label>
+                    </div>
+                    <div class="form__field">
+                        <input min="0" class="form__input" type="number" id="input-text-3" placeholder="a" required/>
+                        <label class="form__label" for="input-text-3">Number Input</label>
+                    </div>
+                    <div class="form__field">
+                        <textarea
+                            id="input-text-2"
+                            rows="5"
+                            placeholder="a"
+                            class="form__input"
+                            required
+                        ></textarea>
+                        <label class="form__label" for="input-text-2">Textarea Input</label>
+                    </div>
+                    <div class="wrap--button">
+                        <button type="submit" class="button--filled elevation--z1">
+                            <i class="button__icon material-icons">send</i>
+                            <span class="button__label">Submit Primary</span>
+                        </button>
+                        <button type="submit" class="button--outlined">
+                            <i class="button__icon material-icons">send</i>
+                            <span class="button__label">Submit Primary</span>
+                        </button>
+                    </div>
+                </form>
+            </section>
+            <div class="snackbar warning elevation--z5">
+                <div class="snackbar__wrap">
+                    <p class="snackbar__label">Snackbar Label</p>
+                    <button class="snackbar__action">ACTION</button>
                 </div>
             </div>
         </section>

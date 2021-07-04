@@ -1,7 +1,2 @@
-import { HeaderScrollable } from "../src/js/Header";
-import { Search } from "../src/js/Search";
-
-new HeaderScrollable().call();
-
-const search = new Search();
-search.call();
+import Chip from '../src/js/structs/Chip';
+new Chip().call();

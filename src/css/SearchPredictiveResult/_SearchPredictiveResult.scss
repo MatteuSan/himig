@@ -20,29 +20,61 @@
 // SOFTWARE.
 //
 
+@use '../mixins';
+@use '../Typography' as typography;
+
+@use '../Core';
+
 @mixin base(
-    $base-background,
-    $base-thumb-fill: #929292,
-    $base-width: 0.7rem,
-    $base-border-radius: 500px
+    $component-name: '.search__predictive',
+    $base-ink: var(--on-primary),
+    $base-fill: var(--primary-light),
+    $base-fill-hover: var(--primary),
+
+    $base-padding: 0.7rem,
+
+    $base-font-size: 16px,
+    $base-icon-size: 18px,
+    $base-sprite-size: 32px,
 ) {
+    #{unquote($component-name)}__result {
+        padding: $base-padding;
+        display: flex;
+        color: $base-ink;
 
-    &::-webkit-scrollbar {
-        width: $base-width;
-    }
+        @include mixins.prefix(transition, all 0.1s ease);
 
-    &::-webkit-scrollbar-track {
-        background: $base-background;
-    }
+        &:hover {
+            background-color: $base-fill-hover;
+            color: $base-ink;
+        }
 
-    &::-webkit-scrollbar-thumb {
-        border-radius: $base-border-radius;
-        background-color: #929292;
-        border: 4px solid $base-background;
+        span {
+            position: relative;
+            margin-right: 10px;
+            font-size: typography.px-to-rem($base-icon-size);
+            color: inherit;
+        }
+
+        p {
+            position: relative;
+            font-size: typography.px-to-rem($base-font-size);
+            top: 7px;
+            color: inherit;
+        }
 
         &:hover {
             cursor: pointer;
-            filter: brightness(80%);
         }
+
+        /*&::after {
+          font-family: 'Material Icons';
+          content: 'north_west';
+          font-size: 18px;
+        }*/
+
+        @include mixins.scrollbar(var(--primary--variant-light));
+
     }
 }
+

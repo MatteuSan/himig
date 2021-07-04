@@ -1,8 +1,31 @@
+//
+// Copyright (c) 2021 GrowStocks
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
+//
+
 @use '../mixins';
+
+@use '../SearchPredictiveResult';
 
 @mixin render(
     $fill: var(--primary-light),
-    $fill-hover: var(--primary),
     $ink: var(--on-primary),
 ) {
     .search__predictive {
@@ -14,7 +37,8 @@
         transform-origin: right;
         overflow-y: auto;
 
-        background-color: $fill;
+        background: $fill;
+        color: $ink;
 
         @media (min-width: mixins.$full-min) {
             position: fixed;
@@ -24,44 +48,6 @@
             right: 225px;
         }
 
-        .search__predictive__result {
-            padding: 0.7rem;
-            display: flex;
-            color: $ink;
-
-            @include mixins.prefix(transition, all 0.1s ease);
-
-            &:hover {
-                background-color: $fill-hover;
-                color: $ink;
-            }
-
-            span {
-                position: relative;
-                margin-right: 10px;
-                font-size: 18px;
-                color: inherit;
-            }
-
-            p {
-                position: relative;
-                font-size: 16px;
-                top: 7px;
-                color: inherit;
-            }
-
-            &:hover {
-                cursor: pointer;
-            }
-
-            /*&::after {
-              font-family: 'Material Icons';
-              content: 'north_west';
-              font-size: 18px;
-            }*/
-
-            @include mixins.scrollbar(var(--primary--variant-light));
-
-        }
+        @include SearchPredictiveResult.base();
     }
 }

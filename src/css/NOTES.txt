@@ -1,0 +1,67 @@
+/r = repeatable
+
+Large Components:
+- Header
+- Navbar
+    + NavItem /r
+- Drawer
+    + Button
+- Footer
+- Banner
+
+Medium Components:
+- Modal /r
+    + Input /r
+- Search
+- SearchPredictive
+    + SearchPredictiveResult /r
+- Form /r
+    + Input /r
+    + Button /r
+
+Small Components:
+- Alert /r
+- Button /r
+- Card (default, x, y) /r
+    + Button
+- Chip /r
+- Codeblock /r
+- Faq (???)
+- Input /r
+- InputSelect /r
+- SearchFilter (???)
+- Snackbar /r
+    + Button
+- Staff (???)
+- TitleBar /r
+- Tooltip /r
+
+Abstracts:
+- Wrappers
+- Containers
+- Core
+- Mixins
+- Functions
+- Config
+- Theme
+- Elevation
+- Typography
+- Scroll
+
+
+Feature List (for Feature Targeting + API) (found in $settings):
+- Animation
+- {screen}-Visibility (mobile, tablet, desktop)
+- Color
+- Typography
+- Structure
+- Shape
+
+||=========================================
+||       StackCSS (Frontend) Notes:
+||=========================================
+
+- base() command and API is only available for small and repeating components (e.g. Buttons, Cards, etc.)
+- render() command and API is available to all components
+- TODO: Divide the components based on size and repetitiveness
+- Cleanup the code as much as possible to avoid confusion (refer to src/Button)

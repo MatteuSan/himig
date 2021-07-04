@@ -1,94 +1,67 @@
 //
-//  MIT License
+// Copyright (c) 2021 GrowStocks
 //
-//  Copyright (c) 2021 GrowStocks
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
 //
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
 //
-//  The above copyright notice and this permission notice shall be included in all
-//  copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-//  SOFTWARE.
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
 //
 
 @use '../mixins';
 @use '../Typography/Typography' as typography;
 
+@use '../Core';
+
 // @BaseStyling
 @mixin base(
-    $padding,
-    $margin-bottom,
-    $border-radius,
-    $font-size,
+    $component-name: '.title-bar',
+
+    $base-padding: undefined,
+    $base-margin-bottom: 10px,
+    $base-border-radius: undefined,
+    $base-border: none,
+
+    $base-clip-size: undefined,
+    $base-custom-clip: undefined,
+
+    $base-fill: undefined,
+    $base-ink: undefined,
+    $base-icon-ink: undefined,
+    $base-font-size: undefined,
+    $base-icon-size: undefined,
+
+    $base-shape: default,
+    $base-shape-exceptions: (),
 ) {
-    width: 100%;
-    height: auto;
+    #{unquote($component-name)} {
+        width: 100%;
+        height: auto;
 
-    padding: $padding;
-    margin-bottom: $margin-bottom;
-    border-radius: $border-radius;
+        @include fill($base-fill);
+        @include ink($base-ink);
 
-    font-size: typography.px-to-rem($font-size);
-}
+        padding: $base-padding;
+        margin-bottom: $base-margin-bottom;
+        border-radius: $base-border-radius;
 
-// @RenderStyle
-@mixin render(
-    $padding: 8px 10px,
-    $margin-bottom: 10px,
-    $font-size: 18px,
-    $fill: var(--primary),
-    $ink: var(--on-primary),
-    $icon-ink: var(--on-primary),
-    $border: none,
-    $border-radius: 0.3rem,
-    $clip-size: 0.5rem,
-    $shape: default
-) {
-    .title-bar {
+        border: $base-border;
 
-        $shape-border-radius: () !default;
-        $shape-padding: () !default;
-        $clip-path: () !default;
+        font-size: typography.px-to-rem($base-font-size);
 
-        @if $shape == round {
-            $shape-border-radius: $border-radius;
-            $shape-padding: $padding;
-        } @else if $shape == block {
-            $shape-border-radius: 0;
-            $shape-padding: $padding;
-        } @else if $shape == clipped {
-            $shape-border-radius: 0;
-            $shape-padding: $padding;
-            clip-path:
-                polygon(
-                    0% $clip-size,
-                    $clip-size 0%,
-                    calc(100% - #{$clip-size}) 0%,
-                    100% $clip-size,
-                    100% calc(100% - #{$clip-size}),
-                    calc(100% - #{$clip-size}) 100%,
-                    $clip-size 100%,
-                    0% calc(100% - #{$clip-size})
-                );
-        } @else {
-            $shape-border-radius: $border-radius;
-            $shape-padding: $padding;
-        }
-
-        @include base($shape-padding, $margin-bottom, $shape-border-radius, $font-size);
-        @include fill($fill);
-        @include ink($ink);
+        @include Core.shape($base-shape, $base-border-radius, $base-clip-size, $base-shape-exceptions, $base-custom-clip);
 
         // WHEN TITLE BAR BECOMES A DIV
         .title-bar__icon {
@@ -96,7 +69,7 @@
             top: 2px;
             margin-right: 5px;
             font-size: inherit;
-            @include icon-ink($icon-ink);
+            @include icon-ink($base-icon-ink);
         }
 
         h2 {
@@ -106,74 +79,122 @@
             font-size: inherit;
             color: inherit;
         }
+    }
+}
 
-        // .title-bar--on-card
-        @at-root #{&}--on-card {
+@mixin render(
+    $padding: 8px 10px,
 
-            @include base(
-                3px 0,
-                7px,
-                $border-radius,
-                $font-size
-            );
+    $fill: var(--primary),
+    $ink: var(--on-primary),
+    $icon-ink: var(--on-primary),
 
-            @include fill(var(--clear)!important);
-            @include ink($ink);
+    $font-size: 18px,
+    $icon-size: 18px,
 
-            // WHEN TITLE BAR BECOMES A DIV
-            .title-bar__icon {
-                position: relative;
-                top: 2px;
-                margin-right: 5px;
-                font-size: inherit;
-                @include icon-ink($icon-ink);
-            }
+    $border: none,
+    $border-radius: 0.3rem,
 
-            h2 {
-                position: relative;
-                top: -3px;
-                display: inline-block;
-                font-size: inherit;
-                color: inherit;
-            }
-        }
+    $shape: default,
 
-        // .title-bar--on-surface
-        @at-root #{&}--on-surface {
+    $clip-size: 0.5rem,
+    $custom-clip: (),
 
-            @include base(
-                0 5px,
-                7px,
-                $border-radius,
-                $font-size
-            );
+    $type: (
+        default: true
+    )
+) {
+    // .title-bar
+    @if Core.check-parameters($type, default) == true {
+        @include base(
+            $base-padding: $padding,
+            $base-margin-bottom: 10px,
+            $base-border-radius: $border-radius,
+            $base-border: 1px solid #{$fill},
 
-            @include fill(var(--clear)!important);
-            @include ink(var(--on-surface));
+            $base-clip-size: $clip-size,
+            $base-custom-clip: $custom-clip,
 
-            // WHEN TITLE BAR BECOMES A DIV
-            .title-bar__icon {
-                position: relative;
-                top: 2px;
-                margin-right: 5px;
-                font-size: inherit;
-                @include icon-ink($icon-ink);
-            }
+            $base-fill: $fill,
+            $base-ink: $ink,
+            $base-icon-ink: $icon-ink,
+            $base-font-size: $font-size,
+            $base-icon-size: $icon-size,
 
-            h2 {
-                position: relative;
-                top: -3px;
-                display: inline-block;
-                font-size: inherit;
-                color: inherit;
-            }
-        }
+            $base-shape: $shape,
+        );
+    }
+    // &--on-card
+    @if Core.check-parameters($type, on-card) == true {
+        @include base(
+            $component-name: '.title-bar--on-card',
+            $base-padding: 3px 0,
+            $base-margin-bottom: 7px,
+            $base-border-radius: none,
+            $base-border: none,
+
+            $base-clip-size: none,
+            $base-custom-clip: (),
+
+            $base-fill: var(--clear),
+            $base-ink: $ink,
+            $base-icon-ink: $icon-ink,
+            $base-font-size: $font-size,
+            $base-icon-size: $icon-size,
+
+            $base-shape: default,
+        );
+    }
+    // &--on-surface
+    @if Core.check-parameters($type, on-surface) == true {
+        @include base(
+            $component-name: '.title-bar--on-surface',
+            $base-padding: 0 5px,
+            $base-margin-bottom: 7px,
+            $base-border-radius: none,
+            $base-border: none,
+
+            $base-clip-size: none,
+            $base-custom-clip: (),
+
+            $base-fill: var(--clear),
+            $base-ink: $ink,
+            $base-icon-ink: $icon-ink,
+            $base-font-size: $font-size,
+            $base-icon-size: $icon-size,
+
+            $base-shape: default,
+        );
+    }
+    // &--outlined
+    @if Core.check-parameters($type, outlined) == true {
+        @include base(
+            $component-name: '.title-bar--outlined',
+            $base-padding: $padding,
+            $base-margin-bottom: 10px,
+            $base-border-radius: $border-radius,
+            $base-border: 1px solid #{$fill},
+
+            $base-clip-size: $clip-size,
+            $base-custom-clip: $custom-clip,
+
+            $base-fill: var(--clear),
+            $base-ink: $ink,
+            $base-icon-ink: $icon-ink,
+            $base-font-size: $font-size,
+            $base-icon-size: $icon-size,
+
+            $base-shape: $shape,
+            $base-shape-exceptions: (
+                    clipped: true
+            )
+        );
     }
 }
 
 // @API
 @mixin fill($fill-value) {
-    background-color: $fill-value;
+    background: $fill-value;
 }
 
 @mixin ink($ink-value) {
@@ -182,13 +203,4 @@
 
 @mixin icon-ink($icon-ink-value) {
     color: $icon-ink-value;
-}
-
-@mixin border($border-style, $border-radius) {
-    border: $border-style;
-    border-radius: $border-radius;
-}
-
-@mixin shape($clip-path) {
-    clip-path: $clip-path;
 }

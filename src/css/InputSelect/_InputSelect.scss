@@ -1,49 +1,55 @@
 //
-//  MIT License
+// Copyright (c) 2021 GrowStocks
 //
-//  Copyright (c) 2021 GrowStocks
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
 //
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
 //
-//  The above copyright notice and this permission notice shall be included in all
-//  copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-//  SOFTWARE.
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
 //
 
 @use '../mixins';
 @use '../Typography/index' as typography;
 
-@mixin render(
-    $padding,
-    $border-radius: 0.3rem,
-    $fill: var(--primary-light),
-    $outline: true,
-    $arrow-fill: #bfbfbf,
-    $clip-size: 0.3rem,
-    $shape: default
+@use '../Core';
+
+@mixin base(
+    $component-name: '.select',
+    $base-padding: undefined,
+    $base-border-radius: undefined,
+    $base-fill: undefined,
+    $base-ink: undefined,
+    $base-arrow-fill: undefined,
+    $base-clip-size: undefined,
+    $base-custom-clip: (),
+    $base-shape: default,
+    $base-shape-exceptions: (),
+    $base-settings: (
+        outline: true
+    ),
 ) {
-    .select {
+    #{unquote($component-name)} {
         font-size: typography.px-to-rem(15px);
         width: 100%;
 
-        @include mixins.shape($shape, $padding, $border-radius, $clip-size);
+        @include Core.shape($base-shape, $base-border-radius, $base-clip-size, $base-shape-exceptions, $base-custom-clip);
 
         cursor: pointer;
         appearance: none;
 
-        border: 1px solid #{$fill};
+        border: 1px solid #{$base-fill};
         background-color: var(--transparent);
 
         @include mixins.prefix(transition, all 0.1s ease);
@@ -51,9 +57,9 @@
         &:hover,
         &:focus,
         &:focus-within {
-            background-color: $fill;
+            background-color: $base-fill;
 
-            @if $outline == false {
+            @if Core.check-parameters($base-settings, outline) == false {
                 outline: none;
             }
         }
@@ -68,7 +74,7 @@
         }
     }
 
-    .select__arrow {
+    #{unquote($component-name)}__arrow {
         position: absolute;
         top: 0;
         right: 0;
@@ -91,7 +97,7 @@
             --size: 0.3em;
             border-left: var(--size) solid transparent;
             border-right: var(--size) solid transparent;
-            border-top: var(--size) solid #{$arrow-fill};
+            border-top: var(--size) solid #{$base-arrow-fill};
 
             top: 65%;
         }
@@ -100,9 +106,21 @@
             --size: 0.3em;
             border-left: var(--size) solid transparent;
             border-right: var(--size) solid transparent;
-            border-bottom: var(--size) solid #{$arrow-fill};
+            border-bottom: var(--size) solid #{$base-arrow-fill};
 
             bottom: 35%;
         }
     }
+}
+
+@mixin render(
+    $padding,
+    $border-radius: 0.3rem,
+    $fill: var(--primary-light),
+    $outline: true,
+    $arrow-fill: #bfbfbf,
+    $clip-size: 0.3rem,
+    $shape: default
+) {
+    //
 }

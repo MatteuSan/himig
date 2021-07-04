@@ -1,31 +1,32 @@
 //
-//  MIT License
+// Copyright (c) 2021 GrowStocks
 //
-//  Copyright (c) 2021 GrowStocks
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
 //
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
 //
-//  The above copyright notice and this permission notice shall be included in all
-//  copies or substantial portions of the Software.
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
 //
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-//  SOFTWARE.
-//
+
+@use 'sass:map';
 
 @use '../mixins';
 @use '../Typography' as typography;
-@use 'sass:map';
 @use '../Button';
+
+@use '../Core';
 
 @mixin base(
     $component-name: '.card',
@@ -53,9 +54,13 @@
 
     $base-type: (
         default: true
+    ),
+
+    $base-feature-exceptions: (
+        animation: true
     )
 ) {
-    @if check($base-type, default) == true {
+    @if Core.check-parameters($base-type, default) == true {
         #{unquote($component-name)} {
             width: 100%;
             height: auto;
@@ -63,7 +68,17 @@
             border-radius: $base-border-radius;
             margin-bottom: $base-margin-bottom;
 
-            @include mixins.shape($base-shape, $base-border-radius, $base-clip-size, $base-shape-exceptions, $base-custom-clip);
+            @include Core.shape($base-shape, $base-border-radius, $base-clip-size, $base-shape-exceptions, $base-custom-clip);
+
+            @if Core.check-parameters($base-feature-exceptions, animation) == true {
+                // Do nothing :>
+            } @else {
+                &:hover,
+                &:focus,
+                &:focus-within {
+                    transform: scale($base-scaling);
+                }
+            }
 
             p {
                 @include typography.generate(body-14);
@@ -97,10 +112,10 @@
         }
     }
 
-    @if check($base-type, x-oriented) == true {
+    @if Core.check-parameters($base-type, x-oriented) == true {
         #{unquote($component-name)}--x {
 
-            @include mixins.shape($base-shape, $base-border-radius, $base-clip-size, $base-shape-exceptions, $base-custom-clip);
+            @include Core.shape($base-shape, $base-border-radius, $base-clip-size, $base-shape-exceptions, $base-custom-clip);
 
             height: 110px;
             width: 100%;
@@ -112,10 +127,14 @@
             @include typography.generate(body-12);
             @include mixins.prefix(transition, all 0.1s ease);
 
-            &:hover,
-            &:focus,
-            &:focus-within {
-                transform: scale($base-scaling);
+            @if Core.check-parameters($base-feature-exceptions, animation) == true {
+                //
+            } @else {
+                &:hover,
+                &:focus,
+                &:focus-within {
+                    transform: scale($base-scaling);
+                }
             }
 
             .card--x__img {
@@ -187,7 +206,7 @@
                         @include mixins.prefix(transition, all 0.1s linear);
 
                         &:hover {
-                            opacity: 0.5;
+                            opacity: 0.7;
                         }
                     }
                 }
@@ -199,10 +218,10 @@
         }
     }
 
-    @if check($base-type, y-oriented) == true {
+    @if Core.check-parameters($base-type, y-oriented) == true {
         #{unquote($component-name)}--y {
 
-            @include mixins.shape($base-shape, $base-border-radius, $base-clip-size, $base-shape-exceptions, $base-custom-clip);
+            @include Core.shape($base-shape, $base-border-radius, $base-clip-size, $base-shape-exceptions, $base-custom-clip);
 
             display: flex;
             flex-direction: column;
@@ -214,10 +233,14 @@
 
             @include mixins.prefix(transition, all 0.1s ease!important);
 
-            &:hover,
-            &:focus,
-            &:focus-within {
-                transform: scale($base-scaling);
+            @if Core.check-parameters($base-feature-exceptions, animation) == true {
+                //
+            } @else {
+                &:hover,
+                &:focus,
+                &:focus-within {
+                    transform: scale($base-scaling);
+                }
             }
 
             .card--y__img {
@@ -287,15 +310,18 @@
     $scaling: 1.03,
 
     $shape: default,
-    $shape-exceptions: (),
     $clip-size: 0.7em,
     $custom-clip: (),
 
     $type: (
         default: true
+    ),
+
+    $feature-exceptions: (
+        animation: true
     )
 ) {
-    @if check($type, default) == true {
+    @if Core.check-parameters($type, default) == true {
         @include base(
             $component-name: '.card',
             $base-padding: $padding,
@@ -317,11 +343,12 @@
             $base-scaling: $scaling,
             $base-type: (
                 default: true
-            )
+            ),
+            $base-feature-exceptions: $feature-exceptions
         );
     }
 
-    @if check($type, x) == true {
+    @if Core.check-parameters($type, x) == true {
         @include base(
             $component-name: '.card',
             $base-padding: $padding,
@@ -343,10 +370,11 @@
             $base-scaling: $scaling,
             $base-type: (
                 x-oriented: true
-            )
+            ),
+            $base-feature-exceptions: $feature-exceptions
         );
     }
-    @if check($type, y) == true {
+    @if Core.check-parameters($type, y) == true {
         @include base(
             $component-name: '.card',
             $base-padding: $padding,
@@ -368,17 +396,11 @@
             $base-scaling: $scaling,
             $base-type: (
                 y-oriented: true
-            )
+            ),
+            $base-feature-exceptions: $feature-exceptions
         );
     }
 }
-
-@function check($map, $to-check) {
-    $query: map.get($map, $to-check);
-
-    @return $query;
-}
-
 
 // @API (Depricated)
 @mixin fill($fill-value) {

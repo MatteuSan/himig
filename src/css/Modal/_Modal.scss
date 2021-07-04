@@ -1,35 +1,42 @@
 //
-//  MIT License
+// Copyright (c) 2021 GrowStocks
 //
-//  Copyright (c) 2021 GrowStocks
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
 //
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
 //
-//  The above copyright notice and this permission notice shall be included in all
-//  copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-//  SOFTWARE.
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
 //
 
 @use '../mixins';
 @use '../Input/index' as input;
 
-@mixin render(
-    $header-fill: var(--primary),
-    $content-fill: var(--primary-light),
-    $header-ink: var(--on-primary),
-    $content-ink: var(--on-primary)
+@use '../Core';
+
+@mixin base(
+    $component-name: '.modal',
+    $base-header-fill: undefined,
+    $base-header-ink: undefined,
+    $base-content-fill: undefined,
+    $base-content-ink: undefined,
+    $base-padding: undefined,
+    $base-shape: default,
+    $base-border-radius: undefined,
+    $base-clip-size: undefined,
+    $base-custom-clip: (),
+    $base-shape-exceptions: ()
 ) {
     .modal__overlay {
         position: fixed;
@@ -47,11 +54,15 @@
         align-items: center;
     }
 
-    .modal {
+    #{unquote($component-name)} {
         width: 95%;
         max-width: 570px;
         z-index: 99999!important;
         border-radius: 0.5rem;
+
+        @include Core.shape($base-shape, $base-border-radius, $base-clip-size, $base-shape-exceptions, $base-custom-clip);
+
+        overflow: hidden;
 
         @media (min-width: 850px) {
             margin: 60px auto 0 auto;
@@ -64,9 +75,8 @@
         align-content: space-between!important;
         padding: 10px 20px;
         opacity: 100%;
-        border-radius: 0.5rem 0.5rem 0 0;
-        background-color: $header-fill;
-        color: $header-ink;
+        background-color: $base-header-fill;
+        color: $base-header-ink;
 
         h2 {
             margin: 0;
@@ -94,11 +104,10 @@
     }
 
     .modal__contents {
-        padding: 10px 20px;
+        padding: $base-padding;
         opacity: 100%;
-        border-radius: 0 0 0.5rem 0.5rem;
-        background-color: $content-fill;
-        color: $content-ink;
+        background-color: $base-content-fill;
+        color: $base-content-ink;
 
         h3 {
             margin-bottom: 15px;
@@ -128,34 +137,40 @@
             }
         }
 
-        @include input.core-styles(modal);
-
-        .modal__file-preview {
-            width: 100%;
-            min-height: 100px;
-            margin: 5px 0 0 0;
-
-            border: 1px solid var(--input);
-            border-radius: 0.3rem;
-
-            display: grid;
-            place-items: center;
-
-            color: var(--input);
-
-            .modal__file-preview__image {
-                width: 100%;
-                height: 100%;
-                display: none;
-            }
-
-            .modal__file-preview__label {
-                color: inherit;
-            }
-        }
+        // Input -> .modal__field... (etc)
+        @include input.base(modal);
     }
 
     #wp_hidden {
         display: none;
     }
+}
+
+@mixin render(
+    $header-fill: var(--primary),
+    $content-fill: var(--primary-light),
+    $header-ink: var(--on-primary),
+    $content-ink: var(--on-primary),
+    $padding: 10px 20px,
+    $border-radius: 1rem,
+    $clip-size: 0.7rem,
+    $custom-clip: (),
+    $shape: default,
+    $shape-exceptions: (
+        pill: true
+    )
+) {
+    // .modal
+    @include base(
+        $base-header-fill: $header-fill,
+        $base-header-ink: $header-ink,
+        $base-content-fill: $content-fill,
+        $base-content-ink: $content-ink,
+        $base-padding: $padding,
+        $base-shape: $shape,
+        $base-border-radius: $border-radius,
+        $base-clip-size: $clip-size,
+        $base-custom-clip: $custom-clip,
+        $base-shape-exceptions: $shape-exceptions
+    );
 }

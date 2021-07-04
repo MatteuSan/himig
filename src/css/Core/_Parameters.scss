@@ -20,4 +20,9 @@
 // SOFTWARE.
 //
 
-@forward 'Faq';
+@use 'sass:map';
+
+@function check-parameters($map, $to-check) {
+    $query: map.get($map, $to-check);
+    @return $query;
+}
