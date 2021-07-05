@@ -66,4 +66,5 @@ Feature List (for Feature Targeting + API) (found in $settings):
 - base() command and API is only available for small and repeating components (e.g. Buttons, Cards, etc.)
 - render() command and API is available to all components
 - TODO: Divide the components based on size and repetitiveness
+- Be able to do a grouped shape() API
 - Cleanup the code as much as possible to avoid confusion (refer to src/Button)

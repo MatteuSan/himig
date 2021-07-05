@@ -981,7 +981,7 @@ body::-webkit-scrollbar-thumb:hover {
 .chip__container .chip p {
   font-size: 0.875rem;
   width: 100% !important;
-  word-break: break-all;
+  word-break: break-word;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -1020,6 +1020,7 @@ body::-webkit-scrollbar-thumb:hover {
 .chip__container .chip__options .chip__options__button:hover {
   cursor: pointer;
   color: var(--secondary);
+  text-decoration: underline;
 }
 .chip__container .chip__options .chip__options__spacer {
   color: var(--surface);
@@ -1238,7 +1239,7 @@ body::-webkit-scrollbar-thumb:hover {
   overflow-y: auto;
   color: var(--surface);
   background: var(--primary--variant-light);
-  border-radius: 1rem 0 0 0;
+  border-radius: 0;
 }
 .drawer * {
   color: inherit;
@@ -1514,6 +1515,7 @@ body::-webkit-scrollbar-thumb:hover {
 .drawer__language-wrap .drawer__language__spacer {
   display: inline-block;
   margin: 0 1px;
+  font-size: 0.75rem;
 }
 
 .drawer__language--active p {
@@ -1989,7 +1991,7 @@ body::-webkit-scrollbar-thumb:hover {
   max-width: 570px;
   z-index: 99999 !important;
   border-radius: 0.5rem;
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   overflow: hidden;
 }
 @media (min-width: 850px) {
@@ -2714,7 +2716,6 @@ body::-webkit-scrollbar-thumb:hover {
 }
 .title-bar h2 {
   position: relative;
-  top: -3px;
   display: inline-block;
   font-size: inherit;
   color: inherit;
@@ -2741,7 +2742,6 @@ body::-webkit-scrollbar-thumb:hover {
 }
 .title-bar--on-card h2 {
   position: relative;
-  top: -3px;
   display: inline-block;
   font-size: inherit;
   color: inherit;
@@ -2768,7 +2768,6 @@ body::-webkit-scrollbar-thumb:hover {
 }
 .title-bar--on-surface h2 {
   position: relative;
-  top: -3px;
   display: inline-block;
   font-size: inherit;
   color: inherit;
@@ -2795,7 +2794,6 @@ body::-webkit-scrollbar-thumb:hover {
 }
 .title-bar--outlined h2 {
   position: relative;
-  top: -3px;
   display: inline-block;
   font-size: inherit;
   color: inherit;

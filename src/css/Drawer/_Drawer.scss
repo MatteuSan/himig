@@ -30,7 +30,7 @@
     $fill: var(--primary--variant-light),
     $ink: var(--surface),
     $scaling: 1.03,
-    $shape: rounded,
+    $shape: block,
     $border-radius: 1rem,
     $clip-size: 0.7rem,
     $shape-exceptions: (
@@ -165,6 +165,7 @@
         .drawer__language__spacer {
             display: inline-block;
             margin: 0 1px;
+            font-size: typography.px-to-rem(12px);
         }
     }
 
