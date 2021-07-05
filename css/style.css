@@ -627,6 +627,7 @@ body::-webkit-scrollbar-thumb:hover {
   padding: 10px 10px 7px 10px;
   border-radius: 0.3rem;
   margin-bottom: 0;
+  background: var(--primary-light);
   border-radius: 0.3rem;
 }
 .card p {

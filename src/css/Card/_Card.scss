@@ -68,6 +68,8 @@
             border-radius: $base-border-radius;
             margin-bottom: $base-margin-bottom;
 
+            background: $base-fill;
+
             @include Core.shape($base-shape, $base-border-radius, $base-clip-size, $base-shape-exceptions, $base-custom-clip);
 
             @if Core.check-parameters($base-feature-exceptions, animation) == true {
