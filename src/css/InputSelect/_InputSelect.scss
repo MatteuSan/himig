@@ -46,6 +46,8 @@
 
         @include Core.shape($base-shape, $base-border-radius, $base-clip-size, $base-shape-exceptions, $base-custom-clip);
 
+        padding: $base-padding;
+
         cursor: pointer;
         appearance: none;
 

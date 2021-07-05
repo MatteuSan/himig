@@ -58,6 +58,8 @@
 
                 @include Core.shape($shape, $border-radius, $clip-size, $shape-exceptions);
 
+                padding: $padding;
+
                 cursor: pointer;
                 appearance: none;
 

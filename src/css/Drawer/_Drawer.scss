@@ -95,7 +95,6 @@
             $base-shape: block,
             $base-fill: var(--clear),
             $base-font-weight: 400,
-
             $base-display: grid,
         );
 
@@ -148,6 +147,19 @@
             $base-fill: var(--clear),
             $base-font-weight: 400,
             $base-display: inline-block
+        );
+
+        @include Button.base(
+            $component-name: '.drawer__language--active',
+            $base-font-size: 16px,
+            $base-icon-size: 17px,
+            $base-ink: var(--surface),
+            $base-icon-ink: var(--surface),
+            $base-padding: 8px 0 0 0,
+            $base-shape: block,
+            $base-fill: var(--clear),
+            $base-font-weight: 700,
+            $base-display: inline-block,
         );
 
         .drawer__language__spacer {

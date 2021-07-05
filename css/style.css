@@ -1437,6 +1437,80 @@ body::-webkit-scrollbar-thumb:hover {
 .drawer__language-wrap .drawer__language[data-tooltip]:hover::after {
   opacity: 1;
 }
+.drawer__language-wrap .drawer__language--active {
+  width: max-content;
+  display: inline-block;
+  place-items: center;
+  grid-template-columns: max-content 1fr;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 8px 0 0 0;
+  border: none;
+  background: var(--clear);
+  color: var(--surface);
+  -webkit-transition: all 0.1s linear;
+  -ms-transition: all 0.1s linear;
+  -moz-transition: all 0.1s linear;
+  -o-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+  border-radius: 0;
+}
+.drawer__language-wrap .drawer__language--active > * + * {
+  margin-left: 4px;
+}
+.drawer__language-wrap .drawer__language--active .button__label {
+  color: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+  text-align: left;
+}
+.drawer__language-wrap .drawer__language--active .button__icon {
+  font-size: 1.0625rem;
+  color: var(--surface);
+  position: relative;
+}
+.drawer__language-wrap .drawer__language--active:hover {
+  cursor: pointer;
+  filter: brightness(80%);
+}
+.drawer__language-wrap .drawer__language--active:hover .button__label {
+  text-decoration: underline !important;
+}
+.drawer__language-wrap .drawer__language--active[data-tooltip] {
+  position: relative;
+}
+.drawer__language-wrap .drawer__language--active[data-tooltip]::after {
+  content: attr(data-tooltip);
+  display: block;
+  position: absolute;
+  background-color: #232323;
+  color: #fff;
+  padding: 0.5rem 0.7rem;
+  border-radius: 0.3rem;
+  font-size: 0.75rem;
+  bottom: calc(100% + 5px);
+  margin-left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  opacity: 0;
+  transition: opacity ease-in-out 200ms;
+  pointer-events: none;
+  text-align: center;
+  white-space: nowrap;
+  -webkit-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
+  -ms-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
+  -moz-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
+  -o-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
+  -webkit-transition: all 0.1s ease;
+  -ms-transition: all 0.1s ease;
+  -moz-transition: all 0.1s ease;
+  -o-transition: all 0.1s ease;
+  transition: all 0.1s ease;
+}
+.drawer__language-wrap .drawer__language--active[data-tooltip]:hover::after {
+  opacity: 1;
+}
 .drawer__language-wrap .drawer__language__spacer {
   display: inline-block;
   margin: 0 1px;
@@ -2561,6 +2635,7 @@ body::-webkit-scrollbar-thumb:hover {
   font-size: 0.9375rem;
   width: 100%;
   border-radius: 0.3rem;
+  padding: 5px 7px;
   cursor: pointer;
   appearance: none;
   border: 1px solid var(--primary-light);
