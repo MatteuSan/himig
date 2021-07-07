@@ -41,12 +41,14 @@ $valid-properties: (text, outlined, filled);
         @if exists($fill-map, hover) {
             &:hover {
                 color: get-color_($fill-map, hover);
+                cursor: pointer;
             }
         }
 
         @if exists($fill-map, focus) {
             &:focus {
                 color: get-color_($fill-map, focus);
+                cursor: pointer;
             }
         }
 
@@ -71,6 +73,7 @@ $valid-properties: (text, outlined, filled);
                 color: get-color_($ink-map, default);
                 background: get-color_($fill-map, default);
                 border: 1px solid get-color_($fill-map, default);
+                cursor: pointer;
             }
         }
 
@@ -79,6 +82,7 @@ $valid-properties: (text, outlined, filled);
                 color: get-color_($ink-map, default);
                 background: get-color_($fill-map, default);
                 border: 1px solid get-color_($fill-map, default);
+                cursor: pointer;
             }
         }
 
@@ -115,6 +119,7 @@ $valid-properties: (text, outlined, filled);
                 color: get-color_($ink-map, hover);
                 border: 1px solid get-color_($fill-map, hover);
                 background: get-color_($fill-map, hover);
+                cursor: pointer;
             }
         }
 
@@ -123,6 +128,7 @@ $valid-properties: (text, outlined, filled);
                 color: get-color_($ink-map, focus);
                 border: 1px solid get-color_($fill-map, focus);
                 background: get-color_($fill-map, focus);
+                cursor: pointer;
             }
         }
 

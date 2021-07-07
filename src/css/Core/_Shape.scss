@@ -120,6 +120,7 @@ $valid-shapes: (default, rounded, block, pill, clipped);
        or $value == 0
        or $value == ()
        or $value == none
+       or $value == null
        or length($value) == 0 {
         @return true;
     }
@@ -137,9 +138,12 @@ $valid-shapes: (default, rounded, block, pill, clipped);
 }
 
 @function get-shape($map) {
-    $settings: ();
-    @each $query in $map {
-        $settings: list.append($settings, map.get($map, $query));
-    }
+    $settings: (
+        map.get($map, shape),
+        map.get($map, border-radius),
+        map.get($map, clip-size),
+        map.get($map, shape-exceptions),
+        map.get($map, custom-clip)
+    );
     @return $settings
 }

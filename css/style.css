@@ -125,7 +125,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 .sc-button {
   width: max-content;
-  min-width: 60px;
+  min-width: 57px;
   display: inline-flex;
   justify-content: center;
   padding: 8px 12px;
@@ -135,31 +135,30 @@ body::-webkit-scrollbar-thumb:hover {
   color: var(--sc-theme-secondary);
   border: none;
   background: rgba(0, 0, 0, 0);
+  border-radius: 500px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
   -webkit-transition: all 0.1s linear;
   -ms-transition: all 0.1s linear;
   -moz-transition: all 0.1s linear;
   -o-transition: all 0.1s linear;
   transition: all 0.1s linear;
-  font-size: 0.875rem;
-  font-weight: 700;
-  text-decoration: none;
-  text-transform: uppercase;
-  border-radius: 0.3rem;
 }
 .sc-button > * + * {
   margin-left: 4px;
 }
 .sc-button:hover {
   color: var(--sc-theme-secondary-dark);
+  cursor: pointer;
 }
 .sc-button:focus {
   color: var(--sc-theme-secondary-dark);
+  cursor: pointer;
 }
 .sc-button:disabled {
   color: var(--sc-theme-undefined);
-}
-.sc-button:hover {
-  cursor: pointer;
 }
 .sc-button .sc-button__label {
   font-weight: inherit;
@@ -210,7 +209,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 .sc-button--outlined {
   width: max-content;
-  min-width: 60px;
+  min-width: 57px;
   display: inline-flex;
   justify-content: center;
   padding: 8px 12px;
@@ -220,16 +219,16 @@ body::-webkit-scrollbar-thumb:hover {
   color: var(--sc-theme-secondary);
   border: 1px solid var(--sc-theme-secondary);
   background: rgba(0, 0, 0, 0);
+  border-radius: 500px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
   -webkit-transition: all 0.1s linear;
   -ms-transition: all 0.1s linear;
   -moz-transition: all 0.1s linear;
   -o-transition: all 0.1s linear;
   transition: all 0.1s linear;
-  font-size: 0.875rem;
-  font-weight: 700;
-  text-decoration: none;
-  text-transform: uppercase;
-  border-radius: 0.3rem;
 }
 .sc-button--outlined > * + * {
   margin-left: 4px;
@@ -238,11 +237,13 @@ body::-webkit-scrollbar-thumb:hover {
   color: var(--sc-theme-on-secondary);
   background: var(--sc-theme-secondary);
   border: 1px solid var(--sc-theme-secondary);
+  cursor: pointer;
 }
 .sc-button--outlined:focus {
   color: var(--sc-theme-on-secondary);
   background: var(--sc-theme-secondary);
   border: 1px solid var(--sc-theme-secondary);
+  cursor: pointer;
 }
 .sc-button--outlined:disabled {
   color: var(--sc-theme-undefined);
@@ -251,9 +252,6 @@ body::-webkit-scrollbar-thumb:hover {
 .sc-button--outlined:disabled:hover {
   cursor: not-allowed;
   background: none;
-}
-.sc-button--outlined:hover {
-  cursor: pointer;
 }
 .sc-button--outlined .sc-button__label {
   font-weight: inherit;
@@ -304,7 +302,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 .sc-button--filled {
   width: max-content;
-  min-width: 60px;
+  min-width: 57px;
   display: inline-flex;
   justify-content: center;
   padding: 8px 12px;
@@ -314,16 +312,16 @@ body::-webkit-scrollbar-thumb:hover {
   color: var(--sc-theme-on-secondary);
   border: 1px solid var(--sc-theme-secondary);
   background: var(--sc-theme-secondary);
+  border-radius: 500px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
   -webkit-transition: all 0.1s linear;
   -ms-transition: all 0.1s linear;
   -moz-transition: all 0.1s linear;
   -o-transition: all 0.1s linear;
   transition: all 0.1s linear;
-  font-size: 0.875rem;
-  font-weight: 700;
-  text-decoration: none;
-  text-transform: uppercase;
-  border-radius: 0.3rem;
 }
 .sc-button--filled > * + * {
   margin-left: 4px;
@@ -332,11 +330,13 @@ body::-webkit-scrollbar-thumb:hover {
   color: var(--sc-theme-on-secondary);
   border: 1px solid var(--sc-theme-secondary-dark);
   background: var(--sc-theme-secondary-dark);
+  cursor: pointer;
 }
 .sc-button--filled:focus {
   color: var(--sc-theme-on-secondary);
   border: 1px solid var(--sc-theme-secondary-dark);
   background: var(--sc-theme-secondary-dark);
+  cursor: pointer;
 }
 .sc-button--filled:disabled {
   color: #cccccc;
@@ -345,9 +345,6 @@ body::-webkit-scrollbar-thumb:hover {
 }
 .sc-button--filled:disabled:hover {
   cursor: not-allowed;
-}
-.sc-button--filled:hover {
-  cursor: pointer;
 }
 .sc-button--filled .sc-button__label {
   font-weight: inherit;

@@ -21,6 +21,7 @@
 //
 
 @use 'sass:map';
+@use 'sass:list';
 
 @use '../mixins';
 @use '../Typography' as typography;
@@ -34,37 +35,54 @@ $valid-types: (text, outlined, filled);
 @mixin base(
     $component-name: '.sc-button',
     $base-style: text,
-    $base-fill-settings: (
+    $base-fill-settings: (),
+    $base-ink-settings: (),
+    $base-shape-settings: (),
+    $base-component-settings: (
+        child-contents: true
+    )
+) {
+
+    $init-fill-settings: (
         default: var(--sc-theme-secondary),
         hover: var(--sc-theme-secondary-dark),
         focus: var(--sc-theme-secondary-dark),
         disabled: var(--sc-theme-undefined)
-    ),
-    $base-ink-settings: (
+    );
+
+    $init-ink-settings: (
         default: var(--sc-theme-on-secondary),
         hover: var(--sc-theme-on-secondary),
         focus: var(--sc-theme-on-secondary),
         disabled: hsl(1, 0%, 80%)
-    ),
-    $base-shape-settings: (
+    );
+
+    $init-shape-settings: (
         shape: default,
         border-radius: 0.3rem,
         clip-size: 0.3rem,
         shape-exceptions: (),
         custom-clip: ()
-    ),
-    $base-shape: default,
-    $base-border-radius: 0.3rem,
-    $base-clip-size: 0.3rem,
-    $base-custom-clip: (),
-    $base-shape-exceptions: (),
-    $base-settings: (
-        child-contents: true
-    )
-) {
+    );
+
+    // Color Settings
+    $fill-settings: map.merge($init-fill-settings, $base-fill-settings);
+    $ink-settings: map.merge($init-ink-settings, $base-ink-settings);
+
+    // Shape
+    $shape-settings: map.merge($init-shape-settings, $base-shape-settings);
+    $shape-parameters: Core.get-shape($shape-settings);
+
+    // Extract Shape
+    $base-shape: list.nth($shape-parameters, 1);
+    $base-border-radius: list.nth($shape-parameters, 2);
+    $base-clip-size: list.nth($shape-parameters, 3);
+    $base-shape-exceptions: list.nth($shape-parameters, 4);
+    $base-custom-clip: list.nth($shape-parameters, 5);
+
     #{unquote($component-name)} {
         width: max-content;
-        min-width: 60px;
+        min-width: 57px;
 
         display: inline-flex;
         justify-content: center;
@@ -81,22 +99,13 @@ $valid-types: (text, outlined, filled);
         }
 
         // Color
-        @include Core.color($base-style, $base-fill-settings, $base-ink-settings);
-
-        // Generate transitions
-        @include mixins.prefix(transition, all 0.1s linear);
-
+        @include Core.color($base-style, $fill-settings, $ink-settings);
+        // Shape
+        @include Core.shape($base-shape, $base-border-radius, $base-clip-size, $base-shape-exceptions, $base-custom-clip);
         // Get typography
         @include typography.generate(button);
-
-        $shape-parameters: Core.get-shape($base-shape-settings);
-        @debug $shape-parameters;
-
-        @include Core.shape($base-shape, $base-border-radius, $base-clip-size, $base-shape-exceptions, $base-custom-clip);
-
-        &:hover {
-            cursor: pointer;
-        }
+        // Generate transitions
+        @include mixins.prefix(transition, all 0.1s linear);
 
         .sc-button__label {
             font-weight: inherit;
@@ -125,7 +134,7 @@ $valid-types: (text, outlined, filled);
             );
         }
 
-        @if Core.check-setting($base-settings, child-contents) == true {
+        @if Core.check-setting($base-component-settings, child-contents) {
             @content
         }
     }

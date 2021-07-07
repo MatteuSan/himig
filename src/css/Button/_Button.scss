@@ -20,61 +20,45 @@
 // SOFTWARE.
 //
 
-@use 'sass:map';
-
-@use '../mixins';
-@use '../Typography' as typography;
 @use '../Tooltip';
-
 @use '../Core';
+@use 'base';
 
-@use 'base' as button-base;
-
-@mixin icon($icon-size, $icon-ink) {
-    font-size: typography.px-to-rem($icon-size);
-    color: $icon-ink;
-    position: relative;
-}
-
-// Button.render($parameters)
 @mixin render(
-    $font-size: 14px,
-    $font-weight: 700,
-
-    $shape: default,
-    $border-radius: 0.3rem,
-    $padding: 8px 12px,
-    $clip-size: 0.5rem,
-    $custom-clip: (),
-
-    $fill: var(--secondary),
-    $border-fill: $fill,
-    $ink: $fill,
-
-    $icon-size: 18px,
-    $icon-ink: $ink,
-
+    $shape-settings: (),
+    $fill-settings: (),
+    $ink-settings: (),
     $type: ()
 ) {
 
     @if Core.check-parameters($type, text) == true {
         // .sc-button
-        @include button-base.base();
+        @include base.base(
+            $base-fill-settings: $fill-settings,
+            $base-ink-settings: $ink-settings,
+            $base-shape-settings: $shape-settings,
+        );
     }
 
     @if Core.check-parameters($type, outlined) == true {
         // .sc-button--outlined
-        @include button-base.base(
+        @include base.base(
             $component-name: '.sc-button--outlined',
-            $base-style: outlined
+            $base-style: outlined,
+            $base-fill-settings: $fill-settings,
+            $base-ink-settings: $ink-settings,
+            $base-shape-settings: $shape-settings,
         );
     }
 
     @if Core.check-parameters($type, filled) == true {
         // .sc-button--filled
-        @include button-base.base(
+        @include base.base(
             $component-name: '.sc-button--filled',
-            $base-style: filled
+            $base-style: filled,
+            $base-fill-settings: $fill-settings,
+            $base-ink-settings: $ink-settings,
+            $base-shape-settings: $shape-settings,
         );
     }
 

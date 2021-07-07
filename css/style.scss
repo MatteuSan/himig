@@ -95,7 +95,9 @@
 //
 
 @include Button.render(
-    $shape: rounded,
+    $shape-settings: (
+        shape: pill
+    ),
     $type: (
         text: true,
         outlined: true,
