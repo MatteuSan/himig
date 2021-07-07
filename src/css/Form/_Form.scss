@@ -90,40 +90,5 @@
                 color: inherit;
             }
         }
-
-        @include Button.base(
-            $component-name: '.button--outlined',
-            $base-padding: 8px 12px,
-            $base-border-radius: 0.3rem,
-            $base-border: 1px solid var(--secondary),
-            $base-fill: var(--clear),
-            $base-ink: var(--secondary),
-            $base-font-size: 14px,
-            $base-font-weight: 700,
-            $base-icon-size: 18px,
-            $base-icon-ink: var(--secondary),
-            $base-shape: $shape,
-            $base-shape-exceptions: (
-                clipped: true
-            ),
-            $base-custom-clip: $custom-clip
-        );
-
-        @include Button.base(
-            $component-name: '.button--filled',
-            $base-padding: 8px 12px,
-            $base-border-radius: 0.3rem,
-            $base-border: 1px solid var(--secondary),
-            $base-fill: var(--secondary),
-            $base-ink: var(--on-secondary),
-            $base-icon-ink: var(--on-secondary),
-            $base-font-size: 14px,
-            $base-font-weight: 700,
-            $base-icon-size: 18px,
-            $base-shape: $shape,
-            $base-shape-exceptions: (),
-            $base-clip-size: 0.3rem,
-            $base-custom-clip: $custom-clip
-        );
     }
 }

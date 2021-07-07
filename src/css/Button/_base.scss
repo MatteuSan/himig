@@ -1,0 +1,132 @@
+//
+// Copyright (c) 2021 GrowStocks
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
+//
+
+@use 'sass:map';
+
+@use '../mixins';
+@use '../Typography' as typography;
+@use '../Tooltip';
+
+@use '../Core';
+
+$valid-types: (text, outlined, filled);
+
+// Button component template (can be used anywhere)
+@mixin base(
+    $component-name: '.sc-button',
+    $base-style: text,
+    $base-fill-settings: (
+        default: var(--sc-theme-secondary),
+        hover: var(--sc-theme-secondary-dark),
+        focus: var(--sc-theme-secondary-dark),
+        disabled: var(--sc-theme-undefined)
+    ),
+    $base-ink-settings: (
+        default: var(--sc-theme-on-secondary),
+        hover: var(--sc-theme-on-secondary),
+        focus: var(--sc-theme-on-secondary),
+        disabled: hsl(1, 0%, 80%)
+    ),
+    $base-shape-settings: (
+        shape: default,
+        border-radius: 0.3rem,
+        clip-size: 0.3rem,
+        shape-exceptions: (),
+        custom-clip: ()
+    ),
+    $base-shape: default,
+    $base-border-radius: 0.3rem,
+    $base-clip-size: 0.3rem,
+    $base-custom-clip: (),
+    $base-shape-exceptions: (),
+    $base-settings: (
+        child-contents: true
+    )
+) {
+    #{unquote($component-name)} {
+        width: max-content;
+        min-width: 60px;
+
+        display: inline-flex;
+        justify-content: center;
+
+        padding: 8px 12px;
+
+        border: none;
+        outline: none;
+
+        user-select: none;
+
+        > * + * {
+            margin-left: 4px;
+        }
+
+        // Color
+        @include Core.color($base-style, $base-fill-settings, $base-ink-settings);
+
+        // Generate transitions
+        @include mixins.prefix(transition, all 0.1s linear);
+
+        // Get typography
+        @include typography.generate(button);
+
+        $shape-parameters: Core.get-shape($base-shape-settings);
+        @debug $shape-parameters;
+
+        @include Core.shape($base-shape, $base-border-radius, $base-clip-size, $base-shape-exceptions, $base-custom-clip);
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        .sc-button__label {
+            font-weight: inherit;
+            font-size: inherit;
+            text-align: left;
+            color: inherit;
+        }
+
+        .sc-button__icon {
+            font-size: typography.px-to-rem(18px);
+            position: relative;
+            color: inherit;
+        }
+
+        &[data-tooltip] {
+            @include Tooltip.base(
+                $base-fill: #232323,
+                $base-ink: #fff,
+                $base-padding:  0.5rem 0.7rem,
+                $base-border-radius: 0.3rem,
+                $base-font-size: 0.75rem,
+                $base-bottom-position: calc(100% + 5px),
+                $base-settings: (
+                    mobile-visible: true
+                )
+            );
+        }
+
+        @if Core.check-setting($base-settings, child-contents) == true {
+            @content
+        }
+    }
+}

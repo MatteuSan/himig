@@ -25,13 +25,7 @@
 @use 'sass:list';
 @use 'sass:meta';
 
-$valid-shapes: (
-    default,
-    rounded,
-    block,
-    pill,
-    clipped
-);
+$valid-shapes: (default, rounded, block, pill, clipped);
 
 @mixin shape(
     $imported-shape: default,
@@ -42,12 +36,12 @@ $valid-shapes: (
 ) {
 
     // Check if shape is valid from $valid-shapes list.
-    @if not index($valid-shapes, $imported-shape) {
-        @error '(#{$imported-shape}) is not a valid shape! Please select from the following: default, rounded, block, pill, and clipped.';
+    @if not list.index($valid-shapes, $imported-shape) {
+        @error 'Invalid shape: #{$imported-shape}! Please select from the following: #{$valid-shapes}.';
     } @else {
 
         // PILL
-        @if check($imported-shape-exceptions, pill) == true {
+        @if check_($imported-shape-exceptions, pill) {
             @if $imported-shape == pill {
                 @error 'The pill shape is currently disabled in this component, please try other shapes.';
             }
@@ -58,7 +52,7 @@ $valid-shapes: (
         }
 
         // ROUNDED
-        @if check($imported-shape-exceptions, rounded) == true {
+        @if check_($imported-shape-exceptions, rounded) {
             @if $imported-shape == rounded {
                 @error 'The round shape is currently disabled in this component, please try other shapes.';
             }
@@ -71,7 +65,7 @@ $valid-shapes: (
         }
 
         // BLOCK
-        @if check($imported-shape-exceptions, block) == true {
+        @if check_($imported-shape-exceptions, block) {
             @if $imported-shape == block {
                 @error 'The block shape is currently disabled in this component, please try other shapes.';
             }
@@ -82,14 +76,14 @@ $valid-shapes: (
         }
 
         // CLIPPED
-        @if check($imported-shape-exceptions, clipped) == true {
+        @if check_($imported-shape-exceptions, clipped) {
             @if $imported-shape == clipped {
                 @error 'The clipped shape is currently disabled in this component, please try other shapes.';
             }
         } @else {
             @if $imported-shape == clipped and $imported-clip-size {
                 @if $imported-clip-size {
-                    @if not empty($imported-custom-clip) {
+                    @if not empty_($imported-custom-clip) {
                         clip-path: $imported-custom-clip;
                     } @else {
                         clip-path:
@@ -116,7 +110,11 @@ $valid-shapes: (
     }
 }
 
-@function empty($value) {
+// =================
+// Package Internals
+// =================
+
+@function empty_($value) {
     @if not $value
        or $value == ""
        or $value == 0
@@ -128,8 +126,20 @@ $valid-shapes: (
     @return false;
 }
 
-@function check($shape-exception-map, $exception) {
+@function check_($shape-exception-map, $exception) {
     $imported-shape-exceptions: $shape-exception-map;
-    $query: map.get($imported-shape-exceptions, $exception);
+    $query: list.index($imported-shape-exceptions, $exception);
     @return $query;
+}
+
+@function verify-shape_($shape) {
+    @return list.index($valid-shapes, $shape)
+}
+
+@function get-shape($map) {
+    $settings: ();
+    @each $query in $map {
+        $settings: list.append($settings, map.get($map, $query));
+    }
+    @return $settings
 }

@@ -1,0 +1,196 @@
+//
+// Copyright (c) 2021 GrowStocks
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
+//
+
+@use 'sass:map';
+@use 'sass:list';
+@use 'sass:meta';
+@use 'sass:math';
+
+@use 'Features';
+
+$valid-colors: (default, hover, focus, disabled);
+$valid-properties: (text, outlined, filled);
+
+@mixin color($imported-property, $fill-map, $ink-map) {
+    $property: get-property_($imported-property);
+
+    @if Features.list-has($property, text) {
+        color: get-color_($fill-map, default);
+        border: none;
+        background: hsl(0 0% 0% / 0);
+
+        @if exists($fill-map, hover) {
+            &:hover {
+                color: get-color_($fill-map, hover);
+            }
+        }
+
+        @if exists($fill-map, focus) {
+            &:focus {
+                color: get-color_($fill-map, focus);
+            }
+        }
+
+        @if exists($fill-map, disabled) {
+            &:disabled {
+                color: get-color_($fill-map, disabled)
+            }
+        } @else {
+            &:disabled {
+                color: var(--disabled)
+            }
+        }
+    }
+
+    @if Features.list-has($property, outlined) {
+        color: get-color_($fill-map, default);
+        border: 1px solid get-color_($fill-map, default);
+        background: rgba(0 0 0 / 0);
+
+        @if exists($fill-map, hover) {
+            &:hover {
+                color: get-color_($ink-map, default);
+                background: get-color_($fill-map, default);
+                border: 1px solid get-color_($fill-map, default);
+            }
+        }
+
+        @if exists($fill-map, focus) {
+            &:focus {
+                color: get-color_($ink-map, default);
+                background: get-color_($fill-map, default);
+                border: 1px solid get-color_($fill-map, default);
+            }
+        }
+
+        @if exists($fill-map, disabled) {
+            &:disabled {
+                color: get-color_($fill-map, disabled);
+                border: 1px solid get-color_($fill-map, disabled);
+
+                &:hover {
+                    cursor: not-allowed;
+                    background: none;
+                }
+            }
+        } @else {
+            &:disabled {
+                color: var(--disabled);
+                border: 1px solid get-color_($fill-map, disabled);
+
+                &:hover {
+                    cursor: not-allowed;
+                    background: none;
+                }
+            }
+        }
+    }
+
+    @if Features.list-has($property, filled) {
+        color: get-color_($ink-map, default);
+        border: 1px solid get-color_($fill-map, default);
+        background: get-color_($fill-map, default);
+
+        @if exists($fill-map, hover) {
+            &:hover {
+                color: get-color_($ink-map, hover);
+                border: 1px solid get-color_($fill-map, hover);
+                background: get-color_($fill-map, hover);
+            }
+        }
+
+        @if exists($fill-map, focus) {
+            &:focus {
+                color: get-color_($ink-map, focus);
+                border: 1px solid get-color_($fill-map, focus);
+                background: get-color_($fill-map, focus);
+            }
+        }
+
+        @if exists($fill-map, disabled) {
+            &:disabled {
+                color: get-color_($ink-map, disabled);
+                border: 1px solid get-color_($fill-map, disabled);
+                background: get-color_($fill-map, disabled);
+
+                &:hover {
+                    cursor: not-allowed;
+                }
+            }
+        } @else {
+            &:disabled {
+                color: var(--on-undefined);
+                border: 1px solid var(--undefined);
+                background: var(--undefined);
+
+                &:hover {
+                    cursor: not-allowed;
+                }
+            }
+        }
+    }
+}
+
+@function get-color_($color-map, $color) {
+    $valid: verify-color_($color);
+    @if $valid == false {
+        @error 'Invalid color type. Please use a valid color type: #{$valid-colors}'
+    } @else {
+        $query: map.get($color-map, $color);
+        @return $query
+    }
+}
+
+@function get-property_($property) {
+    $valid: verify-property_($property);
+    @if $valid == false {
+        @error 'Invalid property. Please use a valid color type: #{$valid-properties}'
+    } @else {
+        @return $property
+    }
+}
+
+@function exists($color-map, $color) {
+    @if map.has-key($color-map, $color) {
+        @return true
+    } @else {
+        @return false
+    }
+}
+
+// Verifies the color type
+@function verify-color_($color-type) {
+
+    @if not list.index($valid-colors, $color-type) {
+        @error 'Invalid color type #{$color-type}! Please select from the following valid color types: #{$valid-colors}.'
+    }
+
+    @return true
+}
+
+@function verify-property_($property) {
+    @if not list.index($valid-properties, $property) {
+        @error 'Invalid property #{$property}! Please select from the following valid properties: #{$valid-properties}.'
+    }
+
+    @return true
+}

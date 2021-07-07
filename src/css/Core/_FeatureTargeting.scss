@@ -60,8 +60,7 @@ $all-query-operators: (any, all, without);
     @return $feature-target;
 }
 
-// Parses a list of feature targets to produce a map containing the feature query and list of
-// available features.
+// Parses a list of feature targets to produce a map containing the feature query and list of available features.
 @function parse-targets($feature-targets) {
     $valid: verify-target_($feature-targets...);
     $available-features: ();

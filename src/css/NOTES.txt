@@ -51,7 +51,7 @@ Abstracts:
 
 Feature List (for Feature Targeting + API) (found in $settings):
 - Animation
-- {screen}-Visibility (mobile, tablet, desktop)
+- {screen}-Visibility (mobile, tablet, desktop) (only for Tooltip)
 - Color
 - Typography
 - Structure

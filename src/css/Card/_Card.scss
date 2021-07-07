@@ -276,17 +276,9 @@
                     color: inherit;
                 }
 
-                @include Button.base(
-                    $component-name: '.card--y__action',
-                    $base-font-size: 14px,
-                    $base-icon-size: 18px,
-                    $base-ink: var(--secondary),
-                    $base-icon-ink: var(--secondary),
-                    $base-padding: 8px 0 0 0,
-                    $base-shape: block,
-                    $base-fill: var(--clear),
-                    $base-font-weight: 700
-                );
+                .card--y__action {
+                    //
+                }
 
             }
 

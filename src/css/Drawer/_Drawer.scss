@@ -85,20 +85,6 @@
             color: inherit;
         }
 
-        @include Button.base(
-            $component-name: '.drawer__item',
-            $base-font-size: 16px,
-            $base-icon-size: 17px,
-            $base-ink: var(--surface),
-            $base-icon-ink: var(--surface),
-            $base-padding: 8px 0 0 0,
-            $base-shape: block,
-            $base-fill: var(--clear),
-            $base-font-weight: 400,
-
-            $base-display: grid,
-        );
-
         .drawer__icon {
             display: inline-block;
             position: relative;
@@ -136,19 +122,6 @@
 
     .drawer__language-wrap {
         text-align: center;
-
-        @include Button.base(
-            $component-name: '.drawer__language',
-            $base-font-size: 14px,
-            $base-icon-size: 1px,
-            $base-ink: var(--surface),
-            $base-icon-ink: var(--surface),
-            $base-padding: 0,
-            $base-shape: default,
-            $base-fill: var(--clear),
-            $base-font-weight: 400,
-            $base-display: inline-block
-        );
 
         .drawer__language__spacer {
             display: inline-block;

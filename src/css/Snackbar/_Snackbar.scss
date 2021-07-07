@@ -75,14 +75,6 @@
             }
 
             // .snackbaar__action
-            @include Button.base(
-                $component-name: '.snackbar__action',
-                $base-fill: var(--clear),
-                $base-ink: $base-action-ink,
-                $base-font-size: 15px,
-                $base-icon-size: 1px,
-                $base-font-weight: 700,
-            );
         }
     }
 }

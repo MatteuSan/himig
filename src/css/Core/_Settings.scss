@@ -20,5 +20,11 @@
 // SOFTWARE.
 //
 
-@forward 'Button';
-@forward 'base';
+@use 'sass:map';
+
+$valid-settings: (hover-states, child-contents);
+
+@function check-setting($settings-map, $setting) {
+    $query: map.get($settings-map, $setting);
+    @return $query
+}

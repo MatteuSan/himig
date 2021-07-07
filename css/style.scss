@@ -23,30 +23,9 @@
 @use '../src/css/config' as config;
 @use '../src/css/Typography' as typography;
 
-@use '../src/css/Alert';
-@use '../src/css/Banner';
 @use '../src/css/Button';
-@use '../src/css/Card';
-@use '../src/css/Chip';
-@use '../src/css/Codeblock';
 @use '../src/css/Containers';
-@use '../src/css/Drawer';
-@use '../src/css/Elevation';
-@use '../src/css/Faq';
-@use '../src/css/Footer';
-@use '../src/css/Form';
-@use '../src/css/Header';
-@use '../src/css/Modal';
-@use '../src/css/Navbar';
-@use '../src/css/Snackbar';
-@use '../src/css/Search';
-@use '../src/css/SearchPredictive';
-@use '../src/css/SearchFilter';
-@use '../src/css/TitleBar';
-@use '../src/css/Tooltip';
 @use '../src/css/Wraps';
-
-@use 'overrides';
 
 //--------------------------------------------------------------------------
 // Theme settings
@@ -59,17 +38,17 @@
 //
 
 @use '../src/css/Theme' with (
-    $primary: #12305e,
-    $primary-light: #44638b,
-    $primary-dark: #001334,
+    $primary: hsl(216, 68%, 20%),
+    $primary-light: hsl(216, 34%, 40%),
+    $primary-dark: hsl(216, 100%, 10%),
 
-    $primary-variant: #1d69a9,
-    $primary-variant-light: #7d9fcb,
-    $primary-variant-dark: #1c4c86,
+    $primary-variant: hsl(207, 71%, 39%),
+    $primary-variant-light: hsl(207, 43%, 64%),
+    $primary-variant-dark: hsl(207, 65%, 32%),
 
-    $secondary: #ffa000,
-    $secondary-light: #ffd149,
-    $secondary-dark: #c67100,
+    $secondary: hsl(38, 100%, 50%),
+    $secondary-light: hsl(38, 100%, 64%),
+    $secondary-dark: hsl(38, 100%, 39%),
 
     $surface: #000b18,
 
@@ -115,88 +94,16 @@
 // You can also remove components whenever you're not going to use them.
 //
 
-@include Alert.render(
-    $type: (
-        filled: true,
-        outlined: true
-    )
-);
-
-@include Banner.render(
-    $fill: linear-gradient(45deg, #001334 0%, #44638b 100%),
-    $ink: #fff
-);
-
-@include Button.render(
-    $type: (
-        text: true,
-    )
-);
-
 @include Button.render(
     $shape: rounded,
     $type: (
+        text: true,
         outlined: true,
         filled: true
     )
 );
 
-@include Card.render(
-    $shape: rounded,
-    $type: (
-        default: true,
-        x: true,
-        y: true
-    ),
-    $feature-exceptions: (
-        animation: true
-    )
-);
-
-@include Chip.render();
-
-@include Codeblock.render();
-
 @include Containers.render();
-
-@include Drawer.render();
-
-@include Elevation.render();
-
-@include Footer.render();
-
-@include Form.render(
-    $border-radius: 0.5rem
-);
-
-@include Header.render();
-
-@include Modal.render();
-
-@include Navbar.render(
-    $nav-contents: 4
-);
-
-@include Snackbar.render();
-
-@include Search.render();
-
-@include SearchPredictive.render();
-
-@include SearchFilter.render();
-
-@include TitleBar.render(
-    $type: (
-        default: true,
-        on-card: true,
-        on-surface: true,
-        outlined: true
-    )
-);
-
-@include Tooltip.render();
 
 @include Wraps.render();
 
-// OVERRIDES
-@include overrides.render();
