@@ -23,11 +23,12 @@
 @use 'sass:map';
 @use 'sass:list';
 
-@use '../mixins';
+@use '../Core';
 @use '../Typography' as typography;
 @use '../Tooltip';
 
-@use '../Core';
+@use '../mixins';
+
 
 $valid-types: (text, outlined, filled);
 
@@ -38,14 +39,15 @@ $valid-types: (text, outlined, filled);
     $base-fill-settings: (),
     $base-ink-settings: (),
     $base-shape-settings: (),
-    $base-component-settings: (
-        child-contents: true
-    )
 ) {
 
     //
     // Internal Configurations (Shouldn't be accessible outside)
     //
+
+    $_component-settings: (
+        child-contents: true
+    );
 
     $_init-fill-settings: (
         default: var(--sc-theme-secondary),
@@ -84,6 +86,7 @@ $valid-types: (text, outlined, filled);
     $_base-shape-exceptions: list.nth($_shape-parameters, 4);
     $_base-custom-clip: list.nth($_shape-parameters, 5);
 
+    // ======= GENERATE STYLE ======= //
     #{unquote($component-name)} {
         width: max-content;
         min-width: 57px;
@@ -138,7 +141,7 @@ $valid-types: (text, outlined, filled);
             );
         }
 
-        @if Core.check-setting($base-component-settings, child-contents) {
+        @if Core.check-setting($_component-settings, child-contents) {
             @content
         }
     }

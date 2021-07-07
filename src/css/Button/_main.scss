@@ -25,9 +25,9 @@
 @use 'base';
 
 @mixin render(
-    $shape-settings: (),
     $fill-settings: (),
     $ink-settings: (),
+    $shape-settings: (),
     $type: ()
 ) {
 
