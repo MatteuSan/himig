@@ -43,21 +43,25 @@ $valid-types: (text, outlined, filled);
     )
 ) {
 
-    $init-fill-settings: (
+    //
+    // Internal Configurations (Shouldn't be accessible outside)
+    //
+
+    $_init-fill-settings: (
         default: var(--sc-theme-secondary),
         hover: var(--sc-theme-secondary-dark),
         focus: var(--sc-theme-secondary-dark),
         disabled: var(--sc-theme-undefined)
     );
 
-    $init-ink-settings: (
+    $_init-ink-settings: (
         default: var(--sc-theme-on-secondary),
         hover: var(--sc-theme-on-secondary),
         focus: var(--sc-theme-on-secondary),
         disabled: hsl(1, 0%, 80%)
     );
 
-    $init-shape-settings: (
+    $_init-shape-settings: (
         shape: default,
         border-radius: 0.3rem,
         clip-size: 0.3rem,
@@ -66,19 +70,19 @@ $valid-types: (text, outlined, filled);
     );
 
     // Color Settings
-    $fill-settings: map.merge($init-fill-settings, $base-fill-settings);
-    $ink-settings: map.merge($init-ink-settings, $base-ink-settings);
+    $_fill-settings: map.merge($_init-fill-settings, $base-fill-settings);
+    $_ink-settings: map.merge($_init-ink-settings, $base-ink-settings);
 
     // Shape
-    $shape-settings: map.merge($init-shape-settings, $base-shape-settings);
-    $shape-parameters: Core.get-shape($shape-settings);
+    $_shape-settings: map.merge($_init-shape-settings, $base-shape-settings);
+    $_shape-parameters: Core.get-shape($_shape-settings);
 
     // Extract Shape
-    $base-shape: list.nth($shape-parameters, 1);
-    $base-border-radius: list.nth($shape-parameters, 2);
-    $base-clip-size: list.nth($shape-parameters, 3);
-    $base-shape-exceptions: list.nth($shape-parameters, 4);
-    $base-custom-clip: list.nth($shape-parameters, 5);
+    $_base-shape: list.nth($_shape-parameters, 1);
+    $_base-border-radius: list.nth($_shape-parameters, 2);
+    $_base-clip-size: list.nth($_shape-parameters, 3);
+    $_base-shape-exceptions: list.nth($_shape-parameters, 4);
+    $_base-custom-clip: list.nth($_shape-parameters, 5);
 
     #{unquote($component-name)} {
         width: max-content;
@@ -99,9 +103,9 @@ $valid-types: (text, outlined, filled);
         }
 
         // Color
-        @include Core.color($base-style, $fill-settings, $ink-settings);
+        @include Core.color($base-style, $_fill-settings, $_ink-settings);
         // Shape
-        @include Core.shape($base-shape, $base-border-radius, $base-clip-size, $base-shape-exceptions, $base-custom-clip);
+        @include Core.shape($_base-shape, $_base-border-radius, $_base-clip-size, $_base-shape-exceptions, $_base-custom-clip);
         // Get typography
         @include typography.generate(button);
         // Generate transitions
