@@ -20,34 +20,28 @@
 // SOFTWARE.
 //
 
-@use '../mixins';
+@use 'sass:map';
 
-@use '../SearchPredictiveResult';
+@use '../Core';
+@use 'base';
 
 @mixin render(
-    $fill: var(--primary-light),
-    $ink: var(--on-primary),
+    $fill-settings: (),
+    $ink-settings: (),
+    $shape-settings: (),
+    $type: (
+        default
+    )
 ) {
-    .search__predictive {
-        width: 100%;
-        position: fixed;
-        height: 100%;
-        top: 50px;
-        z-index: 100;
-        transform-origin: right;
-        overflow-y: auto;
 
-        background: $fill;
-        color: $ink;
-
-        @media (min-width: mixins.$full-min) {
-            position: fixed;
-            height: max-content;
-            max-width: calc(320px - 22px);
-            max-height: 400px;
-            right: 225px;
-        }
-
-        @include SearchPredictiveResult.base();
+    @if Core.check-parameters($type, default) or Core.check-parameters($type, filled) {
+        @include base.base(
+            $base-fill-settings: $fill-settings,
+            $base-ink-settings: $ink-settings,
+            $base-shape-settings: $shape-settings,
+        ) {
+            @content
+        };
     }
+
 }

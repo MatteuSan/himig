@@ -20,4 +20,24 @@
 // SOFTWARE.
 //
 
-@forward 'Staff';
+@use '../mixins';
+@use '../Button';
+
+@use '../Core';
+
+@use 'base';
+
+@mixin render(
+    $fill-settings: (),
+    $ink-settings: (),
+    $shape-settings: (),
+    $type: (
+        default
+    )
+) {
+    @include base.base(
+        $base-fill-settings: $fill-settings,
+        $base-ink-settings: $ink-settings,
+        $base-shape-settings: $shape-settings
+    );
+}

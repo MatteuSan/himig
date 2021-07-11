@@ -20,21 +20,18 @@
 // SOFTWARE.
 //
 
+$valid-types: (outlined, filled);
+
 @use 'sass:map';
 @use 'sass:list';
 
 @use '../Core';
 @use '../Typography' as typography;
-@use '../Tooltip';
 
 @use '../mixins';
 
-
-$valid-types: (text, outlined, filled);
-
-// Button component template (can be used anywhere)
 @mixin base(
-    $component-name: '.sc-button',
+    $component-name: '.sc-alert',
     $base-style: text,
     $base-fill-settings: (),
     $base-ink-settings: (),
@@ -46,17 +43,11 @@ $valid-types: (text, outlined, filled);
     );
 
     $_init-fill-settings: (
-        default: var(--sc-theme--secondary),
-        hover: var(--sc-theme--secondary),
-        focus: var(--sc-theme--secondary-dark),
-        disabled: var(--sc-theme--undefined)
+        default: var(--sc-theme--primary-light)
     );
 
     $_init-ink-settings: (
-        default: var(--sc-theme--on-secondary),
-        hover: var(--sc-theme--on-secondary),
-        focus: var(--sc-theme--on-secondary),
-        disabled: hsl(1, 0%, 80%)
+        default: var(--sc-theme--on-primary)
     );
 
     $_init-shape-settings: (
@@ -72,54 +63,33 @@ $valid-types: (text, outlined, filled);
     // Shape
     $_shape-settings: map.merge($_init-shape-settings, $base-shape-settings);
 
-    // ======= GENERATE STYLE ======= //
     #{unquote($component-name)} {
-        width: max-content;
-        min-width: 57px;
-
-        display: inline-flex;
-        justify-content: center;
-        place-items: center;
-
-        padding: 8px 12px;
-
-        border: none;
-        outline: none;
-
-        user-select: none;
-
-        > * + * {
-            margin-left: 4px;
-        }
+        width: 100%;
 
         // Color
         @include Core.color($base-style, $_fill-settings, $_ink-settings);
         // Shape
         @include Core.shape($_shape-settings);
         // Get typography
-        @include typography.generate(button);
-        // Generate transitions
-        @include mixins.prefix(transition, all 0.1s linear);
+        @include typography.generate(body-14);
 
-        .sc-button__label {
-            font-weight: inherit;
-            font-size: inherit;
-            text-align: left;
+        padding: 0.3rem 0.5rem;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+        align-items: center;
+
+        .sc-alert__icon {
+            display: inline-block;
+            font-size: typography.px-to-rem(18px);
+            margin-right: 5px;
             color: inherit;
         }
 
-        .sc-button__icon {
-            font-size: typography.px-to-rem(20px);
-            position: relative;
+        .sc-alert__text {
+            display: inline-block;
             color: inherit;
-        }
-
-        &[data-tooltip] {
-            @include Tooltip.base(
-                $base-settings: (
-                    mobile-visible: true
-                )
-            );
+            font-size: typography.px-to-rem(14px);
         }
 
         @if Core.check-setting($_component-settings, child-contents) {

@@ -37,7 +37,7 @@ $level-map: (
 
     @each $z-level, $param in $level-map {
 
-        .elevation--z#{$z-level} {
+        .sc-elevation--z#{$z-level} {
             @include mixins.prefix(box-shadow, $param);
         }
 

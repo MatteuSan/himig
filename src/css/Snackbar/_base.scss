@@ -25,38 +25,28 @@
 
 @use '../Core';
 @use '../Typography' as typography;
-@use '../Tooltip';
+@use '../Button';
 
 @use '../mixins';
 
-
-$valid-types: (text, outlined, filled);
-
-// Button component template (can be used anywhere)
 @mixin base(
-    $component-name: '.sc-button',
-    $base-style: text,
+    $component-name: '.sc-snackbar',
+    $base-style: filled,
     $base-fill-settings: (),
     $base-ink-settings: (),
     $base-shape-settings: (),
 ) {
 
     $_component-settings: (
-        child-contents: true
+        child-contents: false
     );
 
     $_init-fill-settings: (
-        default: var(--sc-theme--secondary),
-        hover: var(--sc-theme--secondary),
-        focus: var(--sc-theme--secondary-dark),
-        disabled: var(--sc-theme--undefined)
+        default: #232323,
     );
 
     $_init-ink-settings: (
-        default: var(--sc-theme--on-secondary),
-        hover: var(--sc-theme--on-secondary),
-        focus: var(--sc-theme--on-secondary),
-        disabled: hsl(1, 0%, 80%)
+        default: #fff,
     );
 
     $_init-shape-settings: (
@@ -72,58 +62,58 @@ $valid-types: (text, outlined, filled);
     // Shape
     $_shape-settings: map.merge($_init-shape-settings, $base-shape-settings);
 
-    // ======= GENERATE STYLE ======= //
     #{unquote($component-name)} {
-        width: max-content;
-        min-width: 57px;
+        position: fixed;
+        width: calc(100% - 40px);
+        max-width: 420px;
+        padding: 14px 16px;
+        z-index: 1000;
 
-        display: inline-flex;
-        justify-content: center;
-        place-items: center;
+        bottom: 70px;
+        right: 20px;
 
-        padding: 8px 12px;
+        border-left: none;
 
-        border: none;
-        outline: none;
-
-        user-select: none;
-
-        > * + * {
-            margin-left: 4px;
+        &.sc-error {
+            border-left: 5px solid var(--sc-theme--error);
+        }
+        &.sc-success {
+            border-left: 5px solid var(--sc-theme--success);
+        }
+        &.sc-warning {
+            border-left: 5px solid var(--sc-theme--warning);
         }
 
         // Color
         @include Core.color($base-style, $_fill-settings, $_ink-settings);
         // Shape
         @include Core.shape($_shape-settings);
-        // Get typography
-        @include typography.generate(button);
-        // Generate transitions
-        @include mixins.prefix(transition, all 0.1s linear);
+        // Get transitions
+        @include mixins.prefix(transition, all 0.1s ease);
 
-        .sc-button__label {
-            font-weight: inherit;
-            font-size: inherit;
-            text-align: left;
-            color: inherit;
+        @include mixins.mq-min(mixins.$full-min) {
+            bottom: 30px;
+            right: 30px;
+            left: auto;
         }
 
-        .sc-button__icon {
-            font-size: typography.px-to-rem(20px);
-            position: relative;
-            color: inherit;
-        }
+        .sc-snackbar__wrap {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
 
-        &[data-tooltip] {
-            @include Tooltip.base(
-                $base-settings: (
-                    mobile-visible: true
-                )
-            );
-        }
+            .sc-snackbar__label {
+                font-size: 15px;
+            }
 
-        @if Core.check-setting($_component-settings, child-contents) {
-            @content
+            @include Button.base(
+                $component-name: '.sc-snackbar__action',
+                $base-fill-settings: (),
+                $base-ink-settings: (),
+                $base-shape-settings: (),
+            ) {
+                padding: 0 !important;
+            };
         }
     }
 }

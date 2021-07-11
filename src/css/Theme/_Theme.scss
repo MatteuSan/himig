@@ -104,10 +104,10 @@ $_prefix: 'sc';
 
 :root {
     @each $property, $value in $fill-properties {
-        --#{$_prefix}-theme-#{$property}: #{$value};
+        --#{$_prefix}-theme--#{$property}: #{$value};
     }
 
     @each $property, $value in $text-properties {
-        --#{$_prefix}-theme-#{$property}: #{$value};
+        --#{$_prefix}-theme--#{$property}: #{$value};
     }
 }

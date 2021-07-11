@@ -20,61 +20,80 @@
 // SOFTWARE.
 //
 
+@use 'sass:map';
+
 @use '../mixins';
-@use '../Typography' as typography;
+@use '../Typography/index' as typography;
 
 @use '../Core';
 
-@mixin render(
-    $fill: var(--primary-light),
-    $border-radius: 0.3rem,
-    $padding: 5px 7px,
-    $margin-bottom: 10px,
-    $placement: flex-start,
-    $arrow-fill: #bfbfbf,
-    $outline: true,
-    $clip-size: 0.3rem,
-    $shape: default,
-    $shape-exceptions: ()
+@mixin base(
+    $component-name: '.sc-select',
+    $base-style: outlined,
+    $base-fill-settings: (),
+    $base-ink-settings: (),
+    $base-shape-settings: (),
 ) {
-    .search__filter {
-        margin-bottom: $margin-bottom;
+
+    $_component-settings: (
+        child-contents: false
+    );
+
+    $_init-fill-settings: (
+        default: var(--sc-theme--input),
+        hover: var(--sc-theme--input),
+        focus: var(--sc-theme--input),
+        disabled: var(--sc-theme--input-disabled)
+    );
+
+    $_init-ink-settings: (
+        default: var(--sc-theme--on-input),
+        hover: var(--sc-theme--on-input),
+        focus: var(--sc-theme--on-input),
+        disabled: hsl(1, 0%, 80%)
+    );
+
+    $_init-shape-settings: (
+        shape: default,
+        border-radius: 0.3rem,
+        shape-exceptions: (),
+    );
+
+    // Color Settings
+    $_fill-settings: map.merge($_init-fill-settings, $base-fill-settings);
+    $_ink-settings: map.merge($_init-ink-settings, $base-ink-settings);
+
+    // Shape
+    $_shape-settings: map.merge($_init-shape-settings, $base-shape-settings);
+
+    .sc-select__wrap {
+        margin-bottom: 10px;
         display: flex;
-        justify-content: $placement;
+        justify-content: flex-start;
 
-        .title-bar {
-            margin-bottom: 0!important;
-            width: 50%;
-        }
-
-        .search__filter__item {
+        .sc-select__item {
             width: 170px;
             display: flex;
             position: relative;
+            margin-right: 10px;
 
-            .search__filter__select {
+            #{unquote($component-name)} {
                 font-size: typography.px-to-rem(15px);
                 width: 100%;
 
-                @include Core.shape($shape, $border-radius, $clip-size, $shape-exceptions);
+                // Color
+                @include Core.color($base-style, $_fill-settings, $_ink-settings);
+                // Shape
+                @include Core.shape($_shape-settings);
 
                 cursor: pointer;
                 appearance: none;
 
-                border: 1px solid #{$fill};
+                padding: 5px 7px;
+
                 background-color: var(--transparent);
 
                 @include mixins.prefix(transition, all 0.1s ease);
-
-                &:hover,
-                &:focus,
-                &:focus-within {
-                    background-color: $fill;
-
-                    @if $outline == false {
-                        outline: none;
-                    }
-                }
 
                 option {
                     border: none;
@@ -83,11 +102,11 @@
                     width: 100%;
                     padding: 8px 10px;
                     cursor: pointer;
+                    color: currentColor;
                 }
             }
 
-            .search__filter__arrow {
-
+            .sc-select__arrow {
                 position: absolute;
                 top: 0;
                 right: 0;
@@ -97,7 +116,7 @@
                 pointer-events: none;
 
                 &::before, &::after {
-                    content: "";
+                    content: '';
                     position: absolute;
                     width: 0;
                     height: 0;
@@ -110,7 +129,7 @@
                     --size: 0.3em;
                     border-left: var(--size) solid transparent;
                     border-right: var(--size) solid transparent;
-                    border-top: var(--size) solid #{$arrow-fill};
+                    border-top: var(--size) solid #bfbfbf;
 
                     top: 65%;
                 }
@@ -119,13 +138,13 @@
                     --size: 0.3em;
                     border-left: var(--size) solid transparent;
                     border-right: var(--size) solid transparent;
-                    border-bottom: var(--size) solid #{$arrow-fill};
+                    border-bottom: var(--size) solid #bfbfbf;
 
                     bottom: 35%;
                 }
             }
 
-            .search__filter__label {
+            .sc-select__label {
                 padding: 5px;
             }
         }

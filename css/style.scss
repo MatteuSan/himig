@@ -23,9 +23,21 @@
 @use '../src/css/config' as config;
 @use '../src/css/Typography' as typography;
 
+@use '../src/css/Alert';
 @use '../src/css/Button';
+@use '../src/css/Card';
+@use '../src/css/Input';
+@use '../src/css/InputSelect';
+@use '../src/css/Profile';
+@use '../src/css/Snackbar';
+@use '../src/css/TitleBar';
+
+@use '../src/css/Core';
+@use '../src/css/Elevation';
 @use '../src/css/Containers';
 @use '../src/css/Wraps';
+
+@use '../src/css/mixins';
 
 //--------------------------------------------------------------------------
 // Theme settings
@@ -38,17 +50,17 @@
 //
 
 @use '../src/css/Theme' with (
-    $primary: hsl(216, 68%, 20%),
-    $primary-light: hsl(216, 34%, 40%),
-    $primary-dark: hsl(216, 100%, 10%),
+    $primary: #12305e,
+    $primary-light: #44638b,
+    $primary-dark: #001334,
 
-    $primary-variant: hsl(207, 71%, 39%),
-    $primary-variant-light: hsl(207, 43%, 64%),
-    $primary-variant-dark: hsl(207, 65%, 32%),
+    $primary-variant: #1d69a9,
+    $primary-variant-light: #7d9fcb,
+    $primary-variant-dark: #1c4c86,
 
-    $secondary: hsl(38, 100%, 50%),
-    $secondary-light: hsl(38, 100%, 64%),
-    $secondary-dark: hsl(38, 100%, 39%),
+    $secondary: #e5961f,
+    $secondary-light: #ffc754,
+    $secondary-dark: #ae6800,
 
     $surface: #000b18,
 
@@ -61,7 +73,6 @@
     $on-surface: #fff,
     $on-input: #000
 );
-
 //--------------------------------------------------------------------------
 // Font Settings
 //--------------------------------------------------------------------------
@@ -94,18 +105,69 @@
 // You can also remove components whenever you're not going to use them.
 //
 
-@include Button.render(
-    $shape-settings: (
-        shape: pill
-    ),
+@include Alert.render(
     $type: (
-        text: true,
-        outlined: true,
-        filled: true
+        default,
+        outlined
     )
 );
 
-@include Containers.render();
+@include Button.render(
+    $type: (
+        text,
+        outlined,
+        filled
+    )
+);
 
+@include Card.render(
+    $type: (
+        default,
+        outlined,
+    )
+);
+
+@include Input.base();
+
+@include InputSelect.render();
+
+@include Profile.render() {
+    @include Core.get-color-from-rainbow('orange', filled); // Founder
+    @include Core.get-color-from-rainbow('light-orange', filled); // Owner
+    @include Core.get-color-from-rainbow('dark-red', filled); // Admin
+    @include Core.get-color-from-rainbow('light-blue', filled); // Developer
+    @include Core.get-color-from-rainbow('blue', filled); // Guardian
+    @include Core.get-color-from-rainbow('dark-blue', filled); // Head Editor
+    @include Core.get-color-from-rainbow('green', filled); // Editor
+};
+
+@include Snackbar.render();
+
+@include TitleBar.render(
+    $type: (
+        default,
+        on-card,
+        on-surface
+    )
+);
+
+@include Elevation.render();
+@include Containers.render();
 @include Wraps.render();
 
+.faq {
+    display: none;
+    @include mixins.prefix(transition, display 0.1s ease);
+}
+
+.faq--open {
+    cursor: pointer;
+
+    .material-icons {
+        //
+    }
+
+    .faq__trigger {
+        cursor: pointer;
+    }
+}

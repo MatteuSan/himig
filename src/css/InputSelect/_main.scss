@@ -20,4 +20,23 @@
 // SOFTWARE.
 //
 
-@forward 'Codeblock';
+@use 'base';
+
+@use '../Core';
+
+@mixin render(
+    $fill-settings: (),
+    $ink-settings: (),
+    $shape-settings: (),
+    $type: (
+        default
+    )
+) {
+    @if Core.check-parameters($type, default) {
+        @include base.base(
+            $base-fill-settings: $fill-settings,
+            $base-ink-settings: $ink-settings,
+            $base-shape-settings: $shape-settings,
+        );
+    }
+}

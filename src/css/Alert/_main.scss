@@ -22,8 +22,10 @@
 
 @use 'sass:map';
 
-@use '../Tooltip';
+@use '../mixins';
+@use '../Typography' as typography;
 @use '../Core';
+
 @use 'base';
 
 @mixin render(
@@ -35,13 +37,37 @@
     )
 ) {
 
-    @if Core.check-parameters($type, default) or Core.check-parameters($type, text) {
-        // .sc-button
+    $_fill-variations: (
+        'passing': var(--sc-theme--success),
+        'warning': var(--sc-theme--warning),
+        'danger': var(--sc-theme--error),
+        'undefined': var(--sc-theme--undefined)
+    );
+
+    $_ink-variations: (
+        'passing': var(--sc-theme--on-success),
+        'warning': var(--sc-theme--on-warning),
+        'danger': var(--sc-theme--on-error),
+        'undefined': var(--sc-theme--on-undefined)
+    );
+
+    @if Core.check-parameters($type, default) {
+        // .sc-alert
         @include base.base(
+            $component-name: '.sc-alert',
+            $base-style: filled,
             $base-fill-settings: $fill-settings,
             $base-ink-settings: $ink-settings,
             $base-shape-settings: $shape-settings,
         ) {
+            @each $property, $value in $_fill-variations {
+                &.sc-#{$property} {
+                    background: $value !important;
+                    border: 1px solid #{$value} !important;
+                    color: map.get($_ink-variations, $property) !important;
+                }
+            }
+
             @content
         };
     }
@@ -49,30 +75,25 @@
     @if Core.check-parameters($type, outlined) {
         // .sc-button--outlined
         @include base.base(
-            $component-name: '.sc-button--outlined',
+            $component-name: '.sc-alert--outlined',
             $base-style: outlined,
             $base-fill-settings: $fill-settings,
             $base-ink-settings: $ink-settings,
-            $base-shape-settings: $shape-settings,
+            $base-shape-settings: $shape-settings
         ) {
+
+            color: var(--sc-theme--on-surface) !important;
+
+            @each $property, $value in $_fill-variations {
+                &.sc-#{$property} {
+                    border: 1px solid #{$value} !important;
+                    color: var(--sc-theme--on-surface);
+                }
+            }
+
             @content
         };
     }
 
-    @if Core.check-parameters($type, filled) {
-        // .sc-button--filled
-        @include base.base(
-            $component-name: '.sc-button--filled',
-            $base-style: filled,
-            $base-fill-settings: $fill-settings,
-            $base-ink-settings: $ink-settings,
-            $base-shape-settings: $shape-settings,
-        ) {
-            @content
-        };
-    }
 
-    .sc-button--icon-only {
-        min-width: 0 !important;
-    }
 }

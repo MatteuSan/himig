@@ -21,8 +21,9 @@
 //
 
 @use 'sass:map';
+@use 'sass:list';
 
 @function check-parameters($map, $to-check) {
-    $query: map.get($map, $to-check);
+    $query: list.index($map, $to-check);
     @return $query;
 }

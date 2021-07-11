@@ -23,19 +23,14 @@
 @use 'sass:map';
 @use 'sass:list';
 
-@use '../Core';
-@use '../Typography' as typography;
-@use '../Tooltip';
-
 @use '../mixins';
+@use '../Typography' as typography;
 
+@use '../Core';
 
-$valid-types: (text, outlined, filled);
-
-// Button component template (can be used anywhere)
 @mixin base(
-    $component-name: '.sc-button',
-    $base-style: text,
+    $component-name: '.sc-title-bar',
+    $base-style: filled,
     $base-fill-settings: (),
     $base-ink-settings: (),
     $base-shape-settings: (),
@@ -46,23 +41,19 @@ $valid-types: (text, outlined, filled);
     );
 
     $_init-fill-settings: (
-        default: var(--sc-theme--secondary),
-        hover: var(--sc-theme--secondary),
-        focus: var(--sc-theme--secondary-dark),
-        disabled: var(--sc-theme--undefined)
+        default: var(--sc-theme--primary),
     );
 
     $_init-ink-settings: (
-        default: var(--sc-theme--on-secondary),
-        hover: var(--sc-theme--on-secondary),
-        focus: var(--sc-theme--on-secondary),
-        disabled: hsl(1, 0%, 80%)
+        default: var(--sc-theme--on-primary),
     );
 
     $_init-shape-settings: (
         shape: default,
         border-radius: 0.3rem,
-        shape-exceptions: (),
+        shape-exceptions: (
+            pill
+        ),
     );
 
     // Color Settings
@@ -72,58 +63,44 @@ $valid-types: (text, outlined, filled);
     // Shape
     $_shape-settings: map.merge($_init-shape-settings, $base-shape-settings);
 
-    // ======= GENERATE STYLE ======= //
     #{unquote($component-name)} {
-        width: max-content;
-        min-width: 57px;
+        width: 100%;
+        height: auto;
+        padding: 8px 10px;
+        margin-bottom: 10px;
 
-        display: inline-flex;
-        justify-content: center;
-        place-items: center;
-
-        padding: 8px 12px;
-
-        border: none;
-        outline: none;
-
-        user-select: none;
-
-        > * + * {
-            margin-left: 4px;
-        }
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-flow: row nowrap;
 
         // Color
         @include Core.color($base-style, $_fill-settings, $_ink-settings);
         // Shape
         @include Core.shape($_shape-settings);
-        // Get typography
-        @include typography.generate(button);
-        // Generate transitions
-        @include mixins.prefix(transition, all 0.1s linear);
+        // Typography
+        @include typography.generate(title-18);
 
-        .sc-button__label {
-            font-weight: inherit;
-            font-size: inherit;
-            text-align: left;
-            color: inherit;
-        }
-
-        .sc-button__icon {
-            font-size: typography.px-to-rem(20px);
+        // WHEN TITLE BAR BECOMES A DIV
+        .sc-title-bar__icon {
             position: relative;
+            margin-right: 5px;
+            font-size: inherit;
             color: inherit;
         }
 
-        &[data-tooltip] {
-            @include Tooltip.base(
-                $base-settings: (
-                    mobile-visible: true
-                )
-            );
+        .sc-title-bar__label,
+        h2 {
+            position: relative;
+            display: inline-block;
+            font-size: inherit;
+            color: inherit;
+
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
-        @if Core.check-setting($_component-settings, child-contents) {
-            @content
-        }
+        @content
     }
 }

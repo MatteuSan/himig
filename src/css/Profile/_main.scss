@@ -20,4 +20,43 @@
 // SOFTWARE.
 //
 
-@forward 'Modal';
+@use 'sass:map';
+
+@use '../Tooltip';
+@use '../Core';
+@use 'base';
+
+@mixin render(
+    $fill-settings: (),
+    $ink-settings: (),
+    $shape-settings: (),
+    $type: (
+        default
+    )
+) {
+    @if Core.check-parameters($type, default) or Core.check-parameters($type, filled) {
+        // .sc-profile
+        @include base.base(
+            $base-fill-settings: $fill-settings,
+            $base-ink-settings: $ink-settings,
+            $base-shape-settings: $shape-settings,
+        ) {
+            @content
+        };
+    }
+
+    @if Core.check-parameters($type, outlined) {
+        // .sc-profile--outlined
+        @include base.base(
+            $component-name: '.sc-profile--outlined',
+            $base-style: outlined,
+            $base-fill-settings: $fill-settings,
+            $base-ink-settings: $ink-settings,
+            $base-shape-settings: $shape-settings,
+        ) {
+            color: var(--sc-theme--on-surface) !important;
+
+            @content
+        };
+    }
+}

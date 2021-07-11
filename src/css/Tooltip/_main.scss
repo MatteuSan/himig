@@ -20,4 +20,28 @@
 // SOFTWARE.
 //
 
-@forward 'SearchFilter';
+@use '../mixins';
+@use '../Core';
+@use '../Elevation';
+
+@mixin render(
+    $fill: #232323,
+    $ink: #fff,
+    $padding: 0.5rem 0.7rem,
+    $border-radius: 0.3rem,
+    $font-size: 0.75rem
+) {
+    *[data-tooltip] {
+        @include base(
+            $base-fill: $fill,
+            $base-ink: $ink,
+            $base-padding: $padding,
+            $base-border-radius: $border-radius,
+            $base-font-size: $font-size,
+            $base-bottom-position: calc(100% + 2px),
+            $base-settings: (
+                mobile-visible: true
+            )
+        );
+    }
+}

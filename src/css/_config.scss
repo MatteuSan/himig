@@ -40,7 +40,7 @@
         box-sizing: border-box;
         margin: 0;
         padding: 0;
-        color: var(--sc-theme-on-surface);
+        color: var(--sc-theme--on-surface);
 
         @include typography.font-family($global-font);
 
@@ -103,10 +103,10 @@
         background-attachment: fixed;
         overflow-x: hidden;
 
-        background-color: var(--sc-theme-surface);
+        background-color: var(--sc-theme--surface);
 
         //SCROLLBAR
-        @include Scroll.base(var(--sc-theme-surface));
+        @include Scroll.base(var(--sc-theme--surface));
     }
 
     .visible {

@@ -1,53 +1,50 @@
 /r = repeatable
+/! = required
+/opt = optional
+/core = for library internals only
 
 Large Components:
 - Header
 - Navbar
     + NavItem /r
 - Drawer
-    + Button
+    ->Button
 - Footer
 - Banner
-
-Medium Components:
-- Modal /r
-    + Input /r
-- Search
-- SearchPredictive
-    + SearchPredictiveResult /r
-- Form /r
-    + Input /r
-    + Button /r
 
 Small Components:
 - Alert /r
 - Button /r
-- Card (default, x, y) /r
-    + Button
-- Chip /r
-- Codeblock /r
-- Faq (???)
+- Card /r
+    ->Button
 - Input /r
 - InputSelect /r
-- SearchFilter (???)
+- Profile (formerly Card X) /r
+    ->Button (icon only)
 - Snackbar /r
-    + Button
-- Staff (???)
+    ->Button
 - TitleBar /r
 - Tooltip /r
 
 Abstracts:
-- Wrappers
-- Containers
-- Core
-- Mixins
-- Functions
-- Config
-- Theme
-- Elevation
-- Typography
-- Scroll
+- Wrappers /opt
+- Containers /opt
+- Core /core
+- Mixins /core
+- Functions /core
+- Config /!
+- Theme /!
+- Elevation /opt
+- Typography /core
+- Scroll /opt
 
+Custom GS Components:
+- Chip /r
+- Faq (???) (Custom Implementation)
+- Search
+- SearchPredictive
+    + SearchPredictiveResult /r
+- SearchFilter (???)
 
 Feature List (for Feature Targeting + API) (found in $settings):
 - Animation

@@ -25,17 +25,15 @@
 
 @use '../Core';
 @use '../Typography' as typography;
-@use '../Tooltip';
+@use '../Button';
 
 @use '../mixins';
 
+$valid-types: (filled);
 
-$valid-types: (text, outlined, filled);
-
-// Button component template (can be used anywhere)
 @mixin base(
-    $component-name: '.sc-button',
-    $base-style: text,
+    $component-name: '.sc-card',
+    $base-style: filled,
     $base-fill-settings: (),
     $base-ink-settings: (),
     $base-shape-settings: (),
@@ -46,23 +44,19 @@ $valid-types: (text, outlined, filled);
     );
 
     $_init-fill-settings: (
-        default: var(--sc-theme--secondary),
-        hover: var(--sc-theme--secondary),
-        focus: var(--sc-theme--secondary-dark),
-        disabled: var(--sc-theme--undefined)
+        default: var(--sc-theme--primary-light),
     );
 
     $_init-ink-settings: (
-        default: var(--sc-theme--on-secondary),
-        hover: var(--sc-theme--on-secondary),
-        focus: var(--sc-theme--on-secondary),
-        disabled: hsl(1, 0%, 80%)
+        default: var(--sc-theme--on-primary),
     );
 
     $_init-shape-settings: (
         shape: default,
         border-radius: 0.3rem,
-        shape-exceptions: (),
+        shape-exceptions: (
+            pill
+        ),
     );
 
     // Color Settings
@@ -72,55 +66,78 @@ $valid-types: (text, outlined, filled);
     // Shape
     $_shape-settings: map.merge($_init-shape-settings, $base-shape-settings);
 
-    // ======= GENERATE STYLE ======= //
     #{unquote($component-name)} {
-        width: max-content;
-        min-width: 57px;
-
-        display: inline-flex;
-        justify-content: center;
-        place-items: center;
-
-        padding: 8px 12px;
-
-        border: none;
-        outline: none;
-
-        user-select: none;
-
-        > * + * {
-            margin-left: 4px;
-        }
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        width: 100%;
+        margin: 0;
 
         // Color
         @include Core.color($base-style, $_fill-settings, $_ink-settings);
         // Shape
         @include Core.shape($_shape-settings);
-        // Get typography
-        @include typography.generate(button);
         // Generate transitions
         @include mixins.prefix(transition, all 0.1s linear);
 
-        .sc-button__label {
-            font-weight: inherit;
-            font-size: inherit;
-            text-align: left;
-            color: inherit;
+        .sc-card__img {
+            width: 100%;
+            height: 120px !important;
+            overflow-y: hidden;
+
+            img {
+                width: 100%;
+                height: auto !important;
+            }
         }
 
-        .sc-button__icon {
-            font-size: typography.px-to-rem(20px);
-            position: relative;
+        .sc-card__info {
+            padding: 10px 10px 5px 10px;
             color: inherit;
+
+            .sc-card__info__title {
+
+                @include typography.generate(title-24);
+
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                color: inherit;
+            }
+
+            .sc-card__info__subtitle {
+
+                @include typography.generate(body-12);
+
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                color: inherit;
+            }
+
+            .sc-card__action__wrap {
+                display: flex;
+                justify-content: flex-end;
+                margin-top: 5px;
+
+                a {
+                    width: max-content;
+
+                    @include Button.base(
+                        $component-name: '.sc-card__action',
+                        $base-fill-settings: (),
+                        $base-ink-settings: (),
+                        $base-shape-settings: (),
+                    ) {
+                        padding-right: 0 !important;
+                        padding-bottom: 0 !important;
+                    };
+                }
+            }
+
         }
 
-        &[data-tooltip] {
-            @include Tooltip.base(
-                $base-settings: (
-                    mobile-visible: true
-                )
-            );
-        }
+        // .card--y__footer { }
 
         @if Core.check-setting($_component-settings, child-contents) {
             @content

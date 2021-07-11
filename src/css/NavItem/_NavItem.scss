@@ -75,11 +75,6 @@
 
         &[data-tooltip] {
             @include Tooltip.base(
-                $base-fill: #232323,
-                $base-ink: #fff,
-                $base-padding:  0.5rem 0.7rem,
-                $base-border-radius: 0.3rem,
-                $base-font-size: 0.75rem,
                 $base-bottom-position: calc(-100%),
             );
         }
