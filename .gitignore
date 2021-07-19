@@ -1,8 +1,5 @@
 /.idea
 /node_modules
-/src/css
-/src/js
-/docs
 
 *.d.ts
 *.d.ts.map
