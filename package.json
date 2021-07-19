@@ -1,7 +1,7 @@
 {
   "name": "stack",
   "version": "1.4.0-unstable",
-  "description": "GrowStocks' open source lightweight Frontend Library for building beautiful, quick, responsive, and flexible user interfaces based on GrowStocks' design system.",
+  "description": "GrowStocks' design system's open source UI components library for building beautiful, quick, responsive, and flexible user interfaces.",
   "main": "index.js",
   "directories": {
     "doc": "docs"
