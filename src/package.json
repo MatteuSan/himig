@@ -4,21 +4,25 @@
   "description": "GrowStocks' design system's open source UI components library for building beautiful, quick, responsive, and flexible user interfaces.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"There's no test command :>\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/GrowStocks/stack.git"
   },
   "keywords": [
+    "css",
+    "sass",
     "theme",
+    "web",
+    "scss",
     "component-library",
     "design-system",
     "growtopia",
-    "growtopiagame",
-    "growstocks"
+    "growstocks",
+    "css-framework"
   ],
-  "author": "Matteu & The GrowStocks Development Team",
+  "author": "Matteu",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/GrowStocks/stack/issues"

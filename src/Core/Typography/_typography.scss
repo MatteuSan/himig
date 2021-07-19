@@ -1,0 +1,107 @@
+//
+//  Copyright (c) 2021 GrowStocks
+//
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in all
+//  copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+//  SOFTWARE.
+//
+
+@use 'sass:math';
+@use 'sass:map';
+@use 'sass:list';
+
+@use '../Feature';
+
+@mixin config(
+    $global-font: (),
+    // TITLE (1,2,3)
+    $title-font: $global-font,
+    $title-font-weight: 700,
+    // SUBTITLE (4,5,6)
+    $subtitle-font: $global-font,
+    $subtitle-font-weight: 400,
+    // BODY (p...)
+    $body-font: $global-font,
+    $body-font-weight: 400
+) {
+    * {
+        @include font-family($global-font);
+
+        &::before,
+        &::after {
+            @include font-family($global-font);
+        }
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    h1,
+    h2,
+    h3 {
+        font-weight: $title-font-weight;
+        @include font-family($title-font);
+    }
+
+    h4,
+    h5,
+    h6 {
+        font-weight: $subtitle-font-weight;
+        @include font-family($subtitle-font);
+    }
+
+    p {
+        font-weight: $body-font-weight;
+        @include font-family($body-font);
+    }
+
+    b {
+        font-weight: 700;
+        color: inherit;
+    }
+
+    html {
+        font-size: 100%;
+    }
+}
+
+@mixin apply($typography-theme) {
+    $_font-size: map.get($typography-theme, 'font-size');
+    $_font-weight: map.get($typography-theme, 'font-weight');
+    $_letter-spacing: map.get($typography-theme, 'letter-spacing');
+    $_text-decoration: map.get($typography-theme, 'text-decoration');
+    $_text-transform: map.get($typography-theme, 'text-transform');
+
+    font-size: $_font-size;
+    font-weight: $_font-weight;
+    letter-spacing: $_letter-spacing;
+    text-decoration: $_text-decoration;
+    text-transform: $_text-transform;
+}
+
+@mixin font-family($family, $type: sans-serif) {
+    font-family: $family, $type;
+}
+
+@function px-to-rem($px) {
+    @return ($px / 16px) * 1rem;
+}
+
+@function get-letter-spacing($font-size) {
+    @return ($font-size / 16px) * 1rem;
+}
