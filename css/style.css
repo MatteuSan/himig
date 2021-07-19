@@ -105,10 +105,26 @@ body {
   transition: all 0.2s linear !important;
 }
 .sc-button:disabled {
-  cursor: not-allowed !important;
+  pointer-events: none;
 }
-.sc-button:disabled:hover {
-  cursor: not-allowed !important;
+.sc-button:disabled .sc-button__icon--loading {
+  animation: rotate 1.7s linear infinite;
+}
+@keyframes rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }
 .sc-button .sc-button__label {
   font-weight: inherit;
@@ -128,8 +144,8 @@ body {
   font-size: 0.875rem;
   font-weight: 700;
   letter-spacing: 0.0625rem;
-  text-decoration: none;
-  text-transform: uppercase;
+  text-decoration: inherit;
+  text-transform: inherit;
   border-radius: 0.3rem;
 }
 .sc-button.sc-button:hover {
@@ -154,8 +170,8 @@ body {
   font-size: 0.875rem;
   font-weight: 700;
   letter-spacing: 0.0625rem;
-  text-decoration: none;
-  text-transform: uppercase;
+  text-decoration: inherit;
+  text-transform: inherit;
   border-radius: 0.3rem;
 }
 .sc-button.sc-button--outlined:hover {
@@ -190,8 +206,8 @@ body {
   font-size: 0.875rem;
   font-weight: 700;
   letter-spacing: 0.0625rem;
-  text-decoration: none;
-  text-transform: uppercase;
+  text-decoration: inherit;
+  text-transform: inherit;
   border-radius: 0.3rem;
 }
 .sc-button.sc-button--filled:hover {

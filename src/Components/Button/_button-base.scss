@@ -23,6 +23,8 @@
 @use '../../Core/Typography';
 @use '../../Core/Tools';
 @use '../../Core/Color';
+@use '../../Core/Animation';
+
 @use 'button-theme' as theme;
 
 @mixin core-style() {
@@ -56,10 +58,10 @@
         }
 
         &:disabled {
-            cursor: not-allowed!important;
+            pointer-events: none;
 
-            &:hover {
-                cursor: not-allowed!important;
+            .sc-button__icon--loading {
+                @include Animation.apply(loading);
             }
         }
 

@@ -1,261 +1,66 @@
-<!doctype html>
-<html
-    lang="en"
-    x-data="{
-        drawer_open: false,
-        predictive_show: false
-    }"
-    class=""
->
+<!--
+  ~
+  ~  Copyright (c) 2021 GrowStocks
+  ~
+  ~  Permission is hereby granted, free of charge, to any person obtaining a copy
+  ~  of this software and associated documentation files (the "Software"), to deal
+  ~  in the Software without restriction, including without limitation the rights
+  ~  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  ~  copies of the Software, and to permit persons to whom the Software is
+  ~  furnished to do so, subject to the following conditions:
+  ~
+  ~  The above copyright notice and this permission notice shall be included in all
+  ~  copies or substantial portions of the Software.
+  ~
+  ~  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  ~  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  ~  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  ~  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  ~  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  ~  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  ~  SOFTWARE.
+  ~
+  -->
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>HOME - Stack</title>
+    <title>Scaffold Test</title>
 
-    <!-- STACK -->
     <link rel="stylesheet" href="css/style.css">
-    <script type="module" src="js/index.js"></script>
 
-    <!-- JS LIBS -->
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-
-    <!-- ICONS -->
     <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/0fb562e3a8.js" crossorigin="anonymous"></script>
-
-    <!-- FAVICON -->
-    <link rel="icon" href="static/favicon.ico"><!-- 32×32 -->
-    <link rel="icon" href="static/icon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="static/apple-touch-icon.png"><!-- 180×180 -->
-    <!--<link rel="manifest" href="static/manifest.webmanifest">-->
-
 </head>
-
 <body>
 
-    <main class="wrap--content">
+    <button class="sc-button">
+        <i class="material-icons sc-button__icon">thumb_up</i>
+        <span class="sc-button__label">Button</span>
+    </button>
 
-        <div class="sc-title-bar--on-surface">
-            <i class="material-icons sc-title-bar__icon" aria-hidden="true">grid_view</i>
-            <h2 class="sc-title-bar__label">Small Components</h2>
-        </div>
+    <button class="sc-button sc-button--outlined">
+        <span class="sc-button__label">Button</span>
+    </button>
 
-        <div class="sc-select__wrap">
-            <div class="sc-select__item">
-                <label title="Filter items" class="material-icons sc-select__label">filter_alt</label>
-                <select aria-label="Filter Items" class="sc-select mdc-elevation--z3">
-                    <option value="#">All Items</option>
-                    <option value="#">Filter Option 1</option>
-                    <option value="#">Filter Option 2</option>
-                </select>
-                <span class="sc-select__arrow"></span>
-            </div>
-            <div class="sc-select__item">
-                <label title="Sort by"  class="material-icons sc-select__label">sort</label>
-                <select aria-label="Filter Items" class="sc-select mdc-elevation--z3">
-                    <option value="#">Latest update</option>
-                    <option value="#">By price (low to high)</option>
-                    <option value="#">By price (high to low)</option>
-                    <option value="#">By stability (low to high)</option>
-                    <option value="#">By stability (high to low)</option>
-                </select>
-                <span class="sc-select__arrow"></span>
-            </div>
-        </div>
+    <button class="sc-button sc-button--filled">
+        <span class="sc-button__label">Button</span>
+    </button>
 
-        <div class="sc-input__field sc-input--error">
-            <input min="0" class="sc-input" type="text" id="input-text-3" placeholder="a" required="" data-form-type="other">
-            <label class="sc-input__label" for="input-text-3">Text Input Error</label>
-            <span class="sc-input__helper">Helper text</span>
-        </div>
+    <button class="sc-button" disabled>
+        <i class="material-icons sc-button__icon sc-button__icon--loading">autorenew</i>
+        <span class="sc-button__label">Loading...</span>
+    </button>
 
-        <div class="sc-input__field">
-            <input min="0" class="sc-input" type="text" id="input-text-4" placeholder="a" required="" data-form-type="other">
-            <label class="sc-input__label" for="input-text-4">Text Input</label>
-            <span class="sc-input__helper">Helper text</span>
-        </div>
+    <button class="sc-button sc-button--outlined" disabled>
+        <i class="material-icons sc-button__icon sc-button__icon--loading">autorenew</i>
+        <span class="sc-button__label">Loading...</span>
+    </button>
 
-        <section class="contain--flex--row">
-            <!-- BUTTONS -->
-            <button class="sc-button">
-                <i class="material-icons sc-button__icon" aria-hidden="true">thumb_up</i>
-                <span class="sc-button__label">Liked</span>
-            </button>
-            <button class="sc-button--outlined">
-                <i class="material-icons sc-button__icon" aria-hidden="true">thumb_up</i>
-                <span class="sc-button__label">Liked</span>
-            </button>
-            <button class="sc-button--filled sc-elevation--z3">
-                <i class="material-icons sc-button__icon" aria-hidden="true">thumb_up</i>
-                <span class="sc-button__label">Liked</span>
-            </button>
-            <button class="sc-button sc-button--icon-only">
-                <i class="material-icons sc-button__icon" aria-hidden="true">thumb_up</i>
-            </button>
-            <button class="sc-button--outlined sc-button--icon-only">
-                <i class="material-icons sc-button__icon" aria-hidden="true">thumb_up</i>
-            </button>
-            <button class="sc-button--filled sc-button--icon-only sc-elevation--z3">
-                <i class="material-icons sc-button__icon" aria-hidden="true">thumb_up</i>
-            </button>
-        </section>
-
-        <section class="contain--flex--column">
-            <div class="sc-alert">
-                <i class="material-icons-outlined sc-alert__icon">info</i>
-                <span class="sc-alert__text">This is an alert</span>
-            </div>
-
-            <div class="sc-alert--outlined">
-                <i class="material-icons-outlined sc-alert__icon">info</i>
-                <span class="sc-alert__text">This is an alert</span>
-            </div>
-        </section>
-
-        <div class="sc-title-bar">
-            <i class="sc-title-bar__icon material-icons">event</i>
-            <h2 class="sc-title-bar__label">Long-ass motherfucking title bitch lmaoooo</h2>
-        </div>
-
-        <section class="contain--grid">
-
-            <div class="sc-card sc-elevation--z3">
-                <div class="sc-card__info">
-                    <h3 class="sc-card__info__title">GS Theme Plugin</h3>
-                    <h5 class="sc-card__info__subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum, temporibus!</h5>
-                    <div class="sc-card__action__wrap">
-                        <a href="#">
-                            <button class="sc-card__action sc-button--icon-only" data-tooltip="Download plugin">
-                                <span class="sc-button__icon material-icons" aria-hidden="true">download</span>
-                            </button>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="sc-card sc-elevation--z3">
-                <div class="sc-card__info">
-                    <h3 class="sc-card__info__title">Live Search Plugin</h3>
-                    <h5 class="sc-card__info__subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum, temporibus!</h5>
-                    <div class="sc-card__action__wrap">
-                        <a href="#">
-                            <button class="sc-card__action sc-button--icon-only" data-tooltip="Up to date">
-                                <span class="sc-button__icon material-icons-outlined" aria-hidden="true">check_circle</span>
-                            </button>
-                        </a>
-                        <a href="#">
-                            <button class="sc-card__action sc-button--icon-only" data-tooltip="Remove plugin">
-                                <span class="sc-button__icon material-icons-outlined" aria-hidden="true">delete</span>
-                            </button>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="sc-card sc-elevation--z3">
-                <div class="sc-card__info">
-                    <h3 class="sc-card__info__title">GrowCord Plugin</h3>
-                    <h5 class="sc-card__info__subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum, temporibus!</h5>
-                    <div class="sc-card__action__wrap">
-                        <a href="#">
-                            <button class="sc-card__action sc-button--icon-only" data-tooltip="Download plugin">
-                                <span class="sc-button__icon material-icons" aria-hidden="true">download</span>
-                            </button>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="sc-card sc-elevation--z3">
-                <div class="sc-card__info">
-                    <h3 class="sc-card__info__title">Discord Mod Simulator Plugin</h3>
-                    <h5 class="sc-card__info__subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum, temporibus!</h5>
-                    <div class="sc-card__action__wrap">
-                        <a href="#">
-                            <button class="sc-card__action sc-button--icon-only" data-tooltip="Update plugin">
-                                <span class="sc-button__icon material-icons" aria-hidden="true">update</span>
-                            </button>
-                        </a>
-                        <a href="#">
-                            <button class="sc-card__action sc-button--icon-only" data-tooltip="Remove plugin">
-                                <span class="sc-button__icon material-icons-outlined" aria-hidden="true">delete</span>
-                            </button>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="contain--grid--large">
-            <div class="sc-profile sc-elevation--z3">
-                <div class="sc-profile__img">
-                    <img src="https://via.placeholder.com/150.png" alt="Photo">
-                </div>
-                <div class="sc-profile__container">
-                    <div class="wrap--text">
-                        <h2>CARD TITLE</h2>
-                        <p class="sc-profile__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, suscipit.</p>
-                        <div class="sc-profile__actions--wrap">
-                            <a class="sc-profile__action sc-button--icon-only" href="https://twitter.com/InvestmentGt" target="_blank" aria-hidden="true">
-                                <span class="sc-button__icon fab fa-twitter"></span>
-                            </a>
-                            <a class="sc-profile__action sc-button--icon-only" href="https://twitter.com/InvestmentGt" target="_blank" aria-hidden="true">
-                                <span class="sc-button__icon fab fa-instagram"></span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="sc-profile sc-elevation--z3">
-                <div class="sc-profile__img">
-                    <img src="https://via.placeholder.com/150.png" alt="Photo">
-                </div>
-                <div class="sc-profile__container">
-                    <div class="wrap--text">
-                        <h2>CARD TITLE</h2>
-                        <p class="sc-profile__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, suscipit.</p>
-                        <div class="sc-profile__actions--wrap">
-                            <a class="sc-profile__action sc-button--icon-only" href="https://twitter.com/InvestmentGt" target="_blank" aria-hidden="true" data-tooltip="Hell">
-                                <span class="sc-button__icon fab fa-twitter"></span>
-                            </a>
-                            <a class="sc-profile__action sc-button--icon-only" href="https://twitter.com/InvestmentGt" target="_blank" aria-hidden="true" data-tooltip="Instagram">
-                                <span class="sc-button__icon fab fa-instagram"></span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="sc-profile sc-light-blue sc-elevation--z3">
-                <div class="sc-profile__img">
-                    <img src="https://via.placeholder.com/150.png" alt="Photo">
-                </div>
-                <div class="sc-profile__container">
-                    <div class="wrap--text">
-                        <h2>CARD TITLE</h2>
-                        <p class="sc-profile__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, suscipit.</p>
-                        <div class="sc-profile__actions--wrap">
-                            <a class="sc-profile__action sc-button--icon-only" href="https://twitter.com/InvestmentGt" target="_blank" aria-hidden="true">
-                                <span class="sc-button__icon fab fa-twitter"></span>
-                            </a>
-                            <a class="sc-profile__action sc-button--icon-only" href="https://twitter.com/InvestmentGt" target="_blank" aria-hidden="true">
-                                <span class="sc-button__icon fab fa-instagram"></span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <div class="sc-snackbar sc-warning sc-elevation--z5">
-        <div class="sc-snackbar__wrap">
-            <p class="sc-snackbar__label">Snackbar w/ Action</p>
-            <button class="sc-snackbar__action">
-                <span class="sc-button__label">ACTION</span>
-            </button>
-        </div>
-    </div>
+    <button class="sc-button sc-button--filled" disabled>
+        <i class="material-icons sc-button__icon sc-button__icon--loading">autorenew</i>
+        <span class="sc-button__label">Loading...</span>
+    </button>
 
 </body>
 </html>

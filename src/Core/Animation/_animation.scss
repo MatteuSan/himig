@@ -20,3 +20,25 @@
 //  SOFTWARE.
 //
 
+@use '../Tools';
+@use '../Feature';
+
+$_valid-animations: (loading);
+
+@mixin apply(
+    $animation-type
+) {
+    @if Feature.item-exists($animation-type, loading) {
+
+        animation: rotate 1.7s linear infinite;
+
+        @keyframes rotate {
+            from {
+                @include Tools.prefix(transform, rotate(0deg));
+            }
+            to {
+                @include Tools.prefix(transform, rotate(360deg));
+            }
+        }
+    }
+}
