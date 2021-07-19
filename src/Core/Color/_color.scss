@@ -42,8 +42,14 @@ $_valid-scopes: (
     'filled'
 );
 
-@mixin apply($scope, $color-theme) {
+@mixin apply($scope, $color-theme, $scope-exceptions: ()) {
     $_scope: get-scope_($scope);
+    $_scope-exceptions: $scope-exceptions;
+
+    // Handles scope-exceptions map
+    @if Feature.item-exists($_scope-exceptions, $_scope) {
+        @error 'The color scope #{$_scope} is disabled in this component. Please select another color scope.'
+    }
 
     // $_scope == text
     @if Feature.item-exists($_scope, 'text') {

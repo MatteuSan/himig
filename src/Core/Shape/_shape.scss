@@ -27,89 +27,51 @@
 
 @use '../Feature';
 
-$valid-shapes: (rounded, block, pill); // temporarily removed 'clipped' as a shape due to bugs
+$valid-shapes: (default, rounded, block, pill); // temporarily removed 'clipped' as a shape due to bugs
 
 @mixin apply(
     $shape-theme: (),
 ) {
     // Separate into variables
-    $_imported-shape: map.get($shape-theme, shape);
-    $_imported-border-radius: map.get($shape-theme, border-radius);
-    $_imported-shape-exceptions: map.get($shape-theme, shape-exceptions);
-    $_imported-clip-size: map.get($shape-theme, clip-size);
-    $_imported-custom-clip: map.get($shape-theme, custom-clip);
+    $_imported-shape: map.get($shape-theme, 'shape');
+    $_imported-border-radius: map.get($shape-theme, 'border-radius');
+    $_imported-shape-exceptions: map.get($shape-theme, 'shape-exceptions');
+    $_imported-clip-size: map.get($shape-theme, 'clip-size');
+    $_imported-custom-clip: map.get($shape-theme, 'custom-clip');
 
     // Check if shape is valid from $valid-shapes list.
     @if not Feature.item-exists($valid-shapes, $_imported-shape) {
         @error 'Invalid shape: #{$_imported-shape}! Please select from the following: #{$valid-shapes}.';
-    } @else {
+    }
 
-        // PILL
-        @if Feature.item-exists($_imported-shape-exceptions, pill) {
-            @if $_imported-shape == pill {
-                @error 'The pill shape is currently disabled in this component, please try other shapes.';
-            }
-        } @else {
-            @if $_imported-shape == pill {
-                border-radius: 500px;
-            }
+    @if Feature.item-exists($_imported-shape-exceptions, $_imported-shape) {
+        @error 'The #{$_imported-shape} shape is currently disabled in this component. Please try other shapes.';
+    }
+
+    // PILL
+    @if $_imported-shape == pill {
+        border-radius: 500px;
+    }
+
+    // ROUNDED
+    @if $_imported-shape == rounded {
+        @if $_imported-border-radius {
+            border-radius: $_imported-border-radius;
         }
+    }
 
-        // ROUNDED
-        @if Feature.item-exists($_imported-shape-exceptions, rounded) {
-            @if $_imported-shape == rounded {
-                @error 'The round shape is currently disabled in this component, please try other shapes.';
-            }
-        } @else {
-            @if $_imported-shape == rounded {
-                @if $_imported-border-radius {
-                    border-radius: $_imported-border-radius;
-                }
-            }
-        }
+    // BLOCK
+    @if $_imported-shape == block {
+        border-radius: 0;
+    }
 
-        // BLOCK
-        @if Feature.item-exists($_imported-shape-exceptions, block) {
-            @if $_imported-shape == block {
-                @error 'The block shape is currently disabled in this component, please try other shapes.';
-            }
-        } @else {
-            @if $_imported-shape == block {
-                border-radius: 0;
-            }
-        }
+    // CLIPPED (Disabled 'clipped' shape)
+    // @location: _DEPRICATED.scss
 
-        // CLIPPED (Disabled 'clipped' shape)
-        //@if check_($_imported-shape-exceptions, clipped) {
-        //    @if $_imported-shape == clipped {
-        //        @error 'The clipped shape is currently disabled in this component, please try other shapes.';
-        //    }
-        //} @else {
-        //    @if $_imported-shape == clipped and $_imported-clip-size {
-        //        @if $_imported-clip-size {
-        //            @if not empty_($_imported-custom-clip) {
-        //               clip-path: $_imported-custom-clip;
-        //            } @else {
-        //                clip-path:
-        //                    polygon(
-        //                        0% $_imported-clip-size,
-        //                        $_imported-clip-size 0%, calc(100% - #{$_imported-clip-size}) 0%,
-        //                        100% $_imported-clip-size,
-        //                        100% calc(100% - #{$_imported-clip-size}),
-        //                        calc(100% - #{$_imported-clip-size}) 100%,
-        //                        $_imported-clip-size 100%,
-        //                        0% calc(100% - #{$_imported-clip-size})
-        //                    )
-        //               ;
-        //            }
-        //        }
-        //    }
-        //}
-        // DEFAULT
-        @if $_imported-shape == default {
-            @if $_imported-border-radius {
-                border-radius: $_imported-border-radius;
-            }
+    // DEFAULT
+    @if $_imported-shape == default {
+        @if $_imported-border-radius {
+            border-radius: $_imported-border-radius;
         }
     }
 }
@@ -129,12 +91,6 @@ $valid-shapes: (rounded, block, pill); // temporarily removed 'clipped' as a sha
         @return true;
     }
     @return false;
-}
-
-@function check_($shape-exception-map, $exception) {
-    $_imported-shape-exceptions: $shape-exception-map;
-    $query: list.index($_imported-shape-exceptions, $exception);
-    @return $query;
 }
 
 @function verify-shape_($shape) {

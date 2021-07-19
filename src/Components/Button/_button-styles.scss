@@ -39,6 +39,8 @@
     )
 ) {
 
+    $_scope-exceptions: ();
+
     $_color-theme: map.merge(button-theme.$init-color-theme, $color-settings);
     $_shape-theme: map.merge(button-theme.$init-shape-theme, $shape-settings);
     $_typography-theme: map.merge(button-theme.$init-typography-theme, $typography-settings);
@@ -47,7 +49,7 @@
     @include button-base.core-style() {
         @if Feature.item-exists($type, default) or Feature.item-exists($type, text) {
             &.sc-button {
-                @include Color.apply('text', $_color-theme);
+                @include Color.apply('text', $_color-theme, $_scope-exceptions);
                 @include Typography.apply($_typography-theme);
                 @include Shape.apply($_shape-theme);
             }
@@ -55,7 +57,7 @@
 
         @if Feature.item-exists($type, outlined) {
             &.sc-button--outlined {
-                @include Color.apply('outlined', $_color-theme);
+                @include Color.apply('outlined', $_color-theme, $_scope-exceptions);
                 @include Typography.apply($_typography-theme);
                 @include Shape.apply($_shape-theme);
             }
@@ -63,7 +65,7 @@
 
         @if Feature.item-exists($type, filled) {
             &.sc-button--filled {
-                @include Color.apply('filled', $_color-theme);
+                @include Color.apply('filled', $_color-theme, $_scope-exceptions);
                 @include Typography.apply($_typography-theme);
                 @include Shape.apply($_shape-theme);
             }

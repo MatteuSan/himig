@@ -34,3 +34,8 @@
         @return false
     }
 }
+
+// @depricated
+@function check-exception($exceptions-map, $exception) {
+    @return list.index($exceptions-map, $exception) != null;
+}

@@ -63,7 +63,7 @@ body {
 
 @include Button.render(
     $shape-settings: (
-        'shape': rounded
+        'shape': pill
     ),
     $type: (
         'default',
