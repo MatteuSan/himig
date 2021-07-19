@@ -24,7 +24,7 @@
     "url": "git+https://github.com/GrowStocks/stack.git"
   },
   "author": "Matteu",
-  "license": "SEE LICENSE IN LICENSE",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/GrowStocks/stack/issues"
   },
