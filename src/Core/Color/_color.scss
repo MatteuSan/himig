@@ -27,6 +27,7 @@
 @use 'sass:color';
 
 @use '../Feature';
+@use '../Elevation';
 
 $_valid-color-types: (
     'default',
@@ -56,6 +57,7 @@ $_valid-scopes: (
         color: get-color_($color-theme, 'fill', 'default');
         border: none;
         background: hsl(0 0% 0% / 0);
+        @include Elevation.generate(0);
 
         @if Feature.property-exists($color-theme, 'hover') {
             &:hover {
@@ -91,6 +93,7 @@ $_valid-scopes: (
         color: get-color_($color-theme, 'fill', 'default');
         border: 1px solid get-color_($color-theme, 'fill', 'default');
         background: rgba(0 0 0 / 0);
+        @include Elevation.generate(0);
 
         @if Feature.property-exists($color-theme, 'hover') {
             &:hover {
@@ -98,6 +101,7 @@ $_valid-scopes: (
                 background: get-color_($color-theme, 'fill', 'default');
                 border: 1px solid get-color_($color-theme, 'fill', 'default');
                 cursor: pointer;
+                @include Elevation.generate(1);
             }
         }
 
@@ -107,6 +111,7 @@ $_valid-scopes: (
                 background: get-color_($color-theme, 'fill', 'focus');
                 border: 1px solid get-color_($color-theme, 'fill', 'focus');
                 cursor: pointer;
+                @include Elevation.generate(1);
             }
         }
 
@@ -116,6 +121,7 @@ $_valid-scopes: (
                 background: get-color_($color-theme, 'fill', 'active');
                 border: 1px solid get-color_($color-theme, 'fill', 'active');
                 cursor: pointer;
+                @include Elevation.generate(5);
             }
         }
 
@@ -136,6 +142,7 @@ $_valid-scopes: (
         color: get-color_($color-theme, 'ink', 'default');
         border: 1px solid get-color_($color-theme, 'fill', 'default');
         background: get-color_($color-theme, 'fill', 'default');
+        @include Elevation.generate(0);
 
         @if Feature.property-exists($color-theme, 'hover') {
             &:hover {
@@ -143,6 +150,7 @@ $_valid-scopes: (
                 border: 1px solid get-color_($color-theme, 'fill', 'hover');
                 background: get-color_($color-theme, 'fill', 'hover');
                 cursor: pointer;
+                @include Elevation.generate(3);
             }
         }
 
@@ -152,6 +160,7 @@ $_valid-scopes: (
                 border: 1px solid get-color_($color-theme, 'fill', 'focus');
                 background: get-color_($color-theme, 'fill', 'focus');
                 cursor: pointer;
+                @include Elevation.generate(3);
             }
         }
 
@@ -161,6 +170,7 @@ $_valid-scopes: (
                 border: 1px solid get-color_($color-theme, 'fill', 'active');
                 background: get-color_($color-theme, 'fill', 'active');
                 cursor: pointer;
+                @include Elevation.generate(5);
             }
         }
 
@@ -169,6 +179,7 @@ $_valid-scopes: (
                 color: get-color_($color-theme, 'ink', 'disabled');
                 border: 1px solid get-color_($color-theme, 'fill', 'disabled');
                 background: get-color_($color-theme, 'fill', 'disabled');
+                @include Elevation.generate(0);
 
                 &:hover {
                     cursor: not-allowed;
@@ -179,6 +190,7 @@ $_valid-scopes: (
                 color: var(--on-undefined);
                 border: 1px solid var(--undefined);
                 background: var(--undefined);
+                @include Elevation.generate(0);
             }
         }
     }
