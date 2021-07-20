@@ -1,0 +1,103 @@
+//
+//  Copyright (c) 2021 GrowStocks
+//
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in all
+//  copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+//  SOFTWARE.
+//
+
+@use 'sass:map';
+@use 'sass:list';
+@use 'sass:meta';
+@use 'sass:math';
+
+// Related Modules
+@use '../Color';
+@use '../Shape';
+@use '../Typography';
+
+$_prefix: 'sc';
+
+@mixin config(
+    $primary-color,
+    $secondary-color: Color.color-get-complement($primary-color),
+    $args...
+) {
+
+    $_primary-map: Color.color-split($primary-color);
+    $_secondary-map: Color.color-split($secondary-color);
+
+    $_state-map: (
+        'error': (#b00020, #fff),
+        'warning': (#ffa000, #000),
+        'success': (#25a53f, #fff),
+    );
+
+    // Get properties for $_primary-map
+    @each $property, $value in $_primary-map {
+        @if $property == 'default' {
+            --#{$_prefix}-theme--primary: #{$value};
+        } @else {
+            --#{$_prefix}-theme--primary-#{$property}: #{$value};
+        }
+    }
+
+    // Get properties for $_secondary-map
+    @each $property, $value in $_secondary-map {
+        @if $property == 'default' {
+            --#{$_prefix}-theme--secondary: #{$value};
+        } @else {
+            --#{$_prefix}-theme--secondary-#{$property}: #{$value};
+        }
+    }
+
+    // Get ink properties for $_primary-map
+    --#{$_prefix}-theme--on-primary: #{Color.get-ink($primary-color)};
+    --#{$_prefix}-theme--on-secondary: #{Color.get-ink($secondary-color)};
+
+    /* STATES */
+
+    // Get state fill
+    @each $property, $value in $_state-map {
+        --#{$_prefix}-theme--#{$property}: #{list.nth($value, 1)};
+    }
+
+    // Get state ink
+    @each $property, $value in $_state-map {
+        --#{$_prefix}-theme--on-#{$property}: #{list.nth($value, 2)};
+    }
+
+    //other variables (using meta.keywords)
+    /* CUSTOM PROPERTIES */
+    @each $property, $value in meta.keywords($args) {
+        --#{$_prefix}-theme--#{$property}: #{$value};
+    }
+}
+
+// @depricated - DO NOT USE!!!!
+@mixin apply-theme() {
+    //
+}
+
+// @depricated - DO NOT USE!!!!
+@mixin create-property_($property, $value, $property-type: fill) {
+    @if $property-type == fill {
+        --#{$_prefix}--#{$property}: #{$value};
+    } @else if $property-type == ink {
+        --#{$_prefix}--on-#{$property}: #{$value};
+    }
+}

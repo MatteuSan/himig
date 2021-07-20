@@ -20,54 +20,5 @@
 //  SOFTWARE.
 //
 
-@use '../src/Core/Theme';
-@use '../src/Core/Typography';
-@use '../src/Core/Color';
-
-@use '../src/Components/Button';
-
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
-
-$primary: #12305e;
-$secondary: #d49a10;
-//$secondary: desaturate(Color.color-darken($_secondary), 30%);
-
-:root {
-    @include Theme.config(
-        $primary,
-        $secondary,
-        $input: #232323,
-        $on-input: #fff,
-        $surface: #010b16,
-        $on-surface: #fff
-    );
-}
-
-@include Typography.config(
-    $global-font: 'Nunito'
-);
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    background-color: var(--sc-theme--primary-dark);
-    display: grid;
-    place-items: center;
-    min-height: 100vh;
-}
-
-@include Button.render(
-    $shape-settings: (
-        'shape': pill
-    ),
-    $type: (
-        'default',
-        'outlined',
-        'filled'
-    )
-);
+@forward 'main';
+@forward 'button-base';

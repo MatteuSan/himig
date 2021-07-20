@@ -1,469 +1,68 @@
-<!doctype html>
-<html
-    lang="en"
-    x-data="{
-        drawer_open: false,
-        predictive_show: false
-    }"
-    class=""
->
+<!--
+  ~
+  ~  Copyright (c) 2021 GrowStocks
+  ~
+  ~  Permission is hereby granted, free of charge, to any person obtaining a copy
+  ~  of this software and associated documentation files (the "Software"), to deal
+  ~  in the Software without restriction, including without limitation the rights
+  ~  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  ~  copies of the Software, and to permit persons to whom the Software is
+  ~  furnished to do so, subject to the following conditions:
+  ~
+  ~  The above copyright notice and this permission notice shall be included in all
+  ~  copies or substantial portions of the Software.
+  ~
+  ~  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  ~  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  ~  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  ~  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  ~  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  ~  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  ~  SOFTWARE.
+  ~
+  -->
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>HOME - Stack</title>
+    <title>Scaffold Test</title>
 
-    <!-- STACK -->
     <link rel="stylesheet" href="css/style.css">
-    <script type="module" src="js/index.js"></script>
 
-    <!-- JS LIBS -->
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-
-    <!-- ICONS -->
     <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/0fb562e3a8.js" crossorigin="anonymous"></script>
-
-    <!-- FAVICON -->
-    <link rel="icon" href="static/favicon.ico"><!-- 32×32 -->
-    <link rel="icon" href="static/icon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="static/apple-touch-icon.png"><!-- 180×180 -->
-    <!--<link rel="manifest" href="static/manifest.webmanifest">-->
-
 </head>
-
-<header class="header">
-
-    <div class="header__wrap">
-
-        <div class="header__text">
-            <a href="./"><h2>Stack</h2></a>
-        </div>
-
-        <div class="search">
-            <form method="GET" action="#">
-                <label
-                    @click.prevent="predictive_show = true"
-                    for="search"
-                    class="material-icons"
-                >search
-                </label>
-                <input
-                    @click.prevent="predictive_show = true"
-                    id="search"
-                    type="text"
-                    name="s"
-                    placeholder="Search bar..."
-                    x-ref="searchInput"
-                    required
-                />
-            </form>
-        </div>
-
-        <div class="search__buttons">
-            <button @click="predictive_show = true; $refs.searchInput.focus()" class="material-icons search-button">search</button>
-            <button @click="predictive_show = false" class="material-icons close-button">close</button>
-        </div>
-
-        <nav class="nav">
-            <div class="nav__container">
-                <div class="nav__item" data-tooltip="Home">
-                    <a href="#">
-                        <p class="nav__item__icon material-icons">home</p>
-                        <p class="nav__item__text">Home</p>
-                    </a>
-                </div>
-                <div class="nav__item" data-tooltip="Documentation">
-                    <a href="#">
-                        <p class="nav__item__icon material-icons">description</p>
-                        <p class="nav__item__text">Docs</p>
-                    </a>
-                </div>
-                <div class="nav__item" data-tooltip="Notifications">
-                    <a href="#">
-                        <p class="nav__item__icon material-icons">notifications</p>
-                        <p class="nav__item__text">Inbox</p>
-                    </a>
-                </div>
-                <div class="nav__item" data-tooltip="More...">
-                    <a href="#">
-                        <p @click.prevent="drawer_open = !drawer_open" class="nav__item__icon material-icons" x-text="drawer_open ? 'close' : 'menu'"></p>
-                        <p class="nav__item__text">More</p>
-                    </a>
-                </div>
-            </div>
-        </nav>
-
-    </div>
-
-</header>
-
-<section class="search__predictive elevation--z5" @click.away="predictive_show = false" x-show.transition.opacity.duration.250ms="predictive_show" style="display: none">
-    <div class="search__predictive__result">
-        <span class="material-icons">
-            <img loading="lazy" title="All assets related to Growtopia are owned by Ubisoft Entertainment® and used with permission from the WIKI" src="https://cdn.growstocks.xyz/item/5638.png" alt="icon">
-        </span>
-        <p>Search Item</p>
-    </div>
-    <div class="search__predictive__result">
-        <span class="material-icons">
-            <img loading="lazy" title="All assets related to Growtopia are owned by Ubisoft Entertainment® and used with permission from the WIKI" src="https://cdn.growstocks.xyz/item/5638.png" alt="icon">
-        </span>
-        <p>Search Item</p>
-    </div>
-    <div class="search__predictive__result">
-        <span class="material-icons">
-            <img loading="lazy" title="All assets related to Growtopia are owned by Ubisoft Entertainment® and used with permission from the WIKI" src="https://cdn.growstocks.xyz/item/5638.png" alt="icon">
-        </span>
-        <p>Search Item</p>
-    </div>
-    <div class="search__predictive__result">
-        <span class="material-icons">
-            <img loading="lazy" title="All assets related to Growtopia are owned by Ubisoft Entertainment® and used with permission from the WIKI" src="https://cdn.growstocks.xyz/item/5638.png" alt="icon">
-        </span>
-        <p>Search Item</p>
-    </div>
-    <div class="search__predictive__result">
-        <span class="material-icons">
-            <img loading="lazy" title="All assets related to Growtopia are owned by Ubisoft Entertainment® and used with permission from the WIKI" src="https://cdn.growstocks.xyz/item/5638.png" alt="icon">
-        </span>
-        <p>Search Item</p>
-    </div>
-</section>
-
-<section class="drawer__overlay" x-show.transition.opacity.duration.400ms="drawer_open" style="display: none">
-    <div class="drawer elevation--z5" x-show.transition.origin.top.right="drawer_open" @click.away="drawer_open = false" style="display: none">
-        <div class="wrap--text" style="margin: 0 auto;">
-
-            <a id="dark-mode__toggle" class="drawer__item">
-                <i class="button__icon material-icons">brightness_4</i>
-                <span class="button__label">Toggle Themes</span>
-            </a>
-            <a class="drawer__item" target="_blank" href="https://github.com/GrowStocks/StackCSS">
-                <i class="button__icon material-icons-outlined">book</i>
-                <span class="button__label">Stack Repository</span>
-            </a>
-            <a class="drawer__item" href="#">
-                <i class="button__icon material-icons">language</i>
-                <span class="button__label">GrowStocks Website</span>
-            </a>
-
-
-            <div class="drawer__divider">SOCIAL MEDIA ACCOUNTS</div>
-
-            <div class="drawer__socials">
-                <a href="https://twitter.com/InvestmentGt" target="_blank">
-                    <i class="fab fa-twitter-square"></i>
-                </a>
-                <a href="https://instagram.com/investment.gt" target="_blank">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://discord.io/growstocks" target="_blank">
-                    <i class="fab fa-discord"></i>
-                </a>
-                <a href="https://patreon.com/growstocks" target="_blank">
-                    <i class="fab fa-patreon"></i>
-                </a>
-            </div>
-
-            <div class="drawer__divider">LANGUAGES</div>
-
-            <div class="drawer__language-wrap">
-
-                <a href="#" class="drawer__language">
-                    <span class="button__label">English</span>
-                </a>
-
-                <!--<span class="spacer">|</span>
-
-                <a href="#" class="drawer__language">
-                    <p>日本語</p>
-                </a>-->
-
-            </div>
-
-        </div>
-    </div>
-</section>
-
-
 <body>
 
-    <main class="wrap--content">
-        <h2 class="title-bar--on-surface">
-            Buttons
-        </h2>
-        <section class="contain--flex--row">
-            <!-- BUTTONS -->
-            <button class="button">
-                <i class="material-icons button__icon" aria-hidden="true">thumb_up</i>
-                <span class="button__label">Liked</span>
-            </button>
-            <button class="button--outlined">
-                <i class="material-icons button__icon" aria-hidden="true">thumb_up</i>
-                <span class="button__label">Liked</span>
-            </button>
-            <button class="button--filled">
-                <i class="material-icons button__icon" aria-hidden="true">thumb_up</i>
-                <span class="button__label">Liked</span>
-            </button>
+    <button class="sc-button">
+        <i class="material-icons sc-button__icon">thumb_up</i>
+        <span class="sc-button__label">Button</span>
+    </button>
 
-            <button class="jabutton">
-                <i class="material-icons button__icon" aria-hidden="true">thumb_up</i>
-                <span class="button__label">Liked</span>
-            </button>
-        </section>
+    <button class="sc-button sc-button--outlined">
+        <i class="material-icons sc-button__icon">thumb_up</i>
+        <span class="sc-button__label">Button</span>
+    </button>
 
-        <h2 class="title-bar--on-surface">
-            Alerts
-        </h2>
-        <section class="contain--flex--column">
-            <!-- ALERTS -->
-            <div class="alert elevation--z3">
-                <span class="alert__icon material-icons-outlined">info</span>
-                <p class="alert__text">This is an alert</p>
-            </div>
-            <div class="alert--success elevation--z3">
-                <span class="alert__icon material-icons-outlined">info</span>
-                <p class="alert__text">This is an alert</p>
-            </div>
-            <div class="alert--warning elevation--z3">
-                <span class="alert__icon material-icons-outlined">info</span>
-                <p class="alert__text">This is an alert</p>
-            </div>
-            <div class="alert--error elevation--z3">
-                <span class="alert__icon material-icons-outlined">info</span>
-                <p class="alert__text">This is an alert</p>
-            </div>
-            <div class="alert--undefined elevation--z3">
-                <span class="alert__icon material-icons-outlined">info</span>
-                <p class="alert__text">This is an alert</p>
-            </div>
-            <div class="alert--outlined elevation--z3">
-                <span class="alert__icon material-icons-outlined">info</span>
-                <p class="alert__text">This is an alert</p>
-            </div>
-            <div class="alert--outlined--success elevation--z3">
-                <span class="alert__icon material-icons-outlined">info</span>
-                <p class="alert__text">This is an alert</p>
-            </div>
-            <div class="alert--outlined--warning elevation--z3">
-                <span class="alert__icon material-icons-outlined">info</span>
-                <p class="alert__text">This is an alert</p>
-            </div>
-            <div class="alert--outlined--error elevation--z3">
-                <span class="alert__icon material-icons-outlined">info</span>
-                <p class="alert__text">This is an alert</p>
-            </div>
-            <div class="alert--outlined--undefined elevation--z3">
-                <span class="alert__icon material-icons-outlined">info</span>
-                <p class="alert__text">This is an alert</p>
-            </div>
-        </section>
+    <button class="sc-button sc-button--filled">
+        <i class="material-icons sc-button__icon">thumb_up</i>
+        <span class="sc-button__label">Button</span>
+    </button>
 
-        <h2 class="title-bar--on-surface">
-            Cards
-        </h2>
-        <section class="contain--grid">
-            <div class="card--y elevation--z3">
-                <div class="card--y__img">
-                    <img src="https://via.placeholder.com/150.png" alt="Photo">
-                </div>
-                <div class="card--y__info">
-                    <h3 class="card--y__info__title">CARD TITLE</h3>
-                    <h5 class="card--y__info__subtitle">Card subtitle</h5>
-                    <a href="#" target="_blank">
-                        <button class="card--y__action">
-                            <span class="button__label">ACTION</span>
-                        </button>
-                    </a>
-                </div>
-            </div>
-            <div class="card--y elevation--z3">
-                <div class="card--y__img">
-                    <img src="https://via.placeholder.com/150.png" alt="Photo">
-                </div>
-                <div class="card--y__info">
-                    <h3 class="card--y__info__title">CARD TITLE</h3>
-                    <h5 class="card--y__info__subtitle">Card subtitle</h5>
-                    <a href="#" target="_blank">
-                        <button class="card--y__action">
-                            <span class="button__label">ACTION</span>
-                        </button>
-                    </a>
-                </div>
-            </div>
-            <div class="card--y elevation--z3">
-                <div class="card--y__img">
-                    <img src="https://via.placeholder.com/150.png" alt="Photo">
-                </div>
-                <div class="card--y__info">
-                    <h3 class="card--y__info__title">CARD TITLE</h3>
-                    <h5 class="card--y__info__subtitle">Card subtitle</h5>
-                    <a href="#" target="_blank">
-                        <button class="card--y__action">
-                            <span class="button__label">ACTION</span>
-                        </button>
-                    </a>
-                </div>
-            </div>
-            <div class="card--y elevation--z3">
-                <div class="card--y__img">
-                    <img src="https://via.placeholder.com/150.png" alt="Photo">
-                </div>
-                <div class="card--y__info">
-                    <h3 class="card--y__info__title">CARD TITLE</h3>
-                    <h5 class="card--y__info__subtitle">Card subtitle</h5>
-                    <a href="#" target="_blank">
-                        <button class="card--y__action">
-                            <i class="button__icon material-icons">favorite</i>
-                            <span class="button__label">ACTION</span>
-                        </button>
-                    </a>
-                </div>
-            </div>
-        </section>
-        <section class="contain--grid--large">
-            <div class="card--x elevation--z3">
-                <div class="card--x__img">
-                    <img src="https://via.placeholder.com/150.png" alt="Photo">
-                </div>
-                <div class="card--x__container dark-red">
-                    <div class="wrap--text">
-                        <h2>CARD TITLE</h2>
-                        <p class="card--x__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, suscipit.</p>
-                        <div class="card--x__icons--wrap">
-                            <a class="fab fa-twitter-square" href="https://twitter.com/InvestmentGt" target="_blank"></a>
-                            <a class="fab fa-instagram" href="https://instagram.com/investment.gt" target="_blank"></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card--x elevation--z3">
-                <div class="card--x__img">
-                    <img src="https://via.placeholder.com/150.png" alt="Photo">
-                </div>
-                <div class="card--x__container dark-red">
-                    <div class="wrap--text">
-                        <h2>CARD TITLE</h2>
-                        <p class="card--x__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, suscipit.</p>
-                        <div class="card--x__icons--wrap">
-                            <a class="fab fa-twitter-square" href="https://twitter.com/InvestmentGt" target="_blank"></a>
-                            <a class="fab fa-instagram" href="https://instagram.com/investment.gt" target="_blank"></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card--x elevation--z3">
-                <div class="card--x__img">
-                    <img src="https://via.placeholder.com/150.png" alt="Photo">
-                </div>
-                <div class="card--x__container dark-red">
-                    <div class="wrap--text">
-                        <h2>CARD TITLE</h2>
-                        <p class="card--x__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, suscipit.</p>
-                        <div class="card--x__icons--wrap">
-                            <a class="fab fa-twitter-square" href="https://twitter.com/InvestmentGt" target="_blank"></a>
-                            <a class="fab fa-instagram" href="https://instagram.com/investment.gt" target="_blank"></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="contain--flex--column">
-            <div class="chip__container elevation--z3">
-                <button class="chip__options__trigger mdc-icon-button material-icons mdc-card__action mdc-card__action--icon--unbounded p-0 s-32 fl-R" title="Options" data-mdc-ripple-is-unbounded="true">menu</button>
-                <a href="#">
-                    <div class="chip">
-                        <div class="chip__sprite">
-                            <img loading="lazy" title="All assets related to Growtopia are owned by Ubisoft Entertainment&reg; and used with permission from the WIKI" src="https://cdn.growstocks.xyz/item/5638.png" alt="icon">
-                        </div>
-                        <div class="wrap--text">
-                            <h2>Item Name</h2>
-                            <div class="chip__info">
-                                <p>Field 1: <b>Data 1</b></p>
-                                <span class="chip__spacer">|</span>
-                                <p>Field 2: <b>Data 2</b></p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <div class="chip__options">
-                    <a class="chip__options__button">Report</a>
-                    <span class="chip__options__spacer">|</span>
-                    <a class="chip__options__button" href="#">Search marketplace</a>
-                </div>
-                <div class="chip__footer semi-stable">
-                    <p>Price is <b>SEMI-STABLE</b> <span class="chip__footer__spacer">|</span> Edited 2d ago</p>
-                </div>
-            </div>
+    <button class="sc-button" disabled>
+        <i class="material-icons sc-button__icon sc-button__icon--loading">hourglass_empty</i>
+        <span class="sc-button__label">Loading...</span>
+    </button>
 
-            <div class="chip__container mdc-elevation--z3">
-                <div class="chip">
-                    <div class="chip__sprite">
-                        <img loading="lazy" title="All assets related to Growtopia are owned by Ubisoft Entertainment&reg; and used with permission from the WIKI" src="https://cdn.growstocks.xyz/item/5494.png" alt="icon">
-                    </div>
-                    <div class="wrap--text">
-                        <h2>WHOOPS!</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus at, atque maiores nam numquam placeat quos reprehenderit voluptatum! Accusamus, ducimus, veritatis. Architecto cum deleniti hic illum modi suscipit totam veniam? Adipisci assumenda doloribus eaque illum, inventore molestiae nostrum optio repellat similique suscipit tempora, temporibus? Atque enim et nulla numquam possimus?</p>
-                    </div>
-                </div>
-            </div>
+    <button class="sc-button sc-button--outlined" disabled>
+        <i class="material-icons sc-button__icon sc-button__icon--loading">hourglass_empty</i>
+        <span class="sc-button__label">Loading...</span>
+    </button>
 
-            <div class="codeblock">
-                <code>
-                    @import '../node_modules/@growstocks/stack/css/Button';<br>
-                    <br>
-                    @use Button.render();
-                </code>
-            </div>
-
-
-            <section class="contain">
-                <form class="form elevation--z3">
-                    <h2 class="title-bar--on-card">Example form</h2>
-
-                    <div class="form__field error">
-                        <input class="form__input" type="text" id="input-text-1" placeholder="a" required/>
-                        <label class="form__label" for="input-text-1">Text Input</label>
-                    </div>
-                    <div class="form__field">
-                        <input min="0" class="form__input" type="number" id="input-text-3" placeholder="a" required/>
-                        <label class="form__label" for="input-text-3">Number Input</label>
-                    </div>
-                    <div class="form__field">
-                        <textarea
-                            id="input-text-2"
-                            rows="5"
-                            placeholder="a"
-                            class="form__input"
-                            required
-                        ></textarea>
-                        <label class="form__label" for="input-text-2">Textarea Input</label>
-                    </div>
-                    <div class="wrap--button">
-                        <button type="submit" class="button--filled elevation--z1">
-                            <i class="button__icon material-icons">send</i>
-                            <span class="button__label">Submit Primary</span>
-                        </button>
-                        <button type="submit" class="button--outlined">
-                            <i class="button__icon material-icons">send</i>
-                            <span class="button__label">Submit Primary</span>
-                        </button>
-                    </div>
-                </form>
-            </section>
-            <div class="snackbar warning elevation--z5">
-                <div class="snackbar__wrap">
-                    <p class="snackbar__label">Snackbar w/ Action</p>
-                    <button class="snackbar__action">
-                        <span class="button__label">ACTION</span>
-                    </button>
-                </div>
-            </div>
-        </section>
-    </main>
+    <button class="sc-button sc-button--filled" disabled>
+        <i class="material-icons sc-button__icon sc-button__icon--loading">hourglass_empty</i>
+        <span class="sc-button__label">Loading...</span>
+    </button>
 
 </body>
 </html>

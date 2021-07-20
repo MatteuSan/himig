@@ -1,6 +1,10 @@
 /.idea
 /node_modules
+*.css
+*.css.map
 
+*.php
+*.html
 *.d.ts
 *.d.ts.map
 *.js.map
