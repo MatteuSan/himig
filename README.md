@@ -1,5 +1,9 @@
 # Stack
-[![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)<br>
+![lang](https://img.shields.io/badge/lang-SCSS-%23c69)
+[![version_badge](https://img.shields.io/npm/v/@growstocks/stack)](https://www.npmjs.com/package/@growstocks/stack)
+![license_badge](https://img.shields.io/npm/l/@growstocks/stack)
+![stars](https://img.shields.io/github/stars/GrowStocks/stack?style=social)
+
 Check out the demo [here](https://growstocks.github.io/stack)!
 - [GrowStocks](https://growstocks.xyz)' open source Design System for building beautiful, quick, responsive, and flexible user interfaces based on GrowStocks' design system.
 
