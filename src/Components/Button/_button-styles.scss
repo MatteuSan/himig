@@ -46,7 +46,7 @@
     $_typography-theme: map.merge(button-theme.$init-typography-theme, $typography-settings);
 
     // Base
-    @include button-base.core-style() {
+    @include button-base.base() {
         @if Feature.item-exists($type, default) or Feature.item-exists($type, text) {
             &.sc-button {
                 @include Color.apply('text', $_color-theme, $_scope-exceptions);

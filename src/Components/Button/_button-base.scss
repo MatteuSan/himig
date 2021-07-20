@@ -28,7 +28,7 @@
 
 @use 'button-theme' as theme;
 
-@mixin core-style() {
+@mixin base() {
     .sc-button {
         width: max-content;
         min-width: 57px;
@@ -55,7 +55,7 @@
         &:focus,
         &:active {
             outline: none;
-            @include Tools.prefix(transition, all 0.2s linear !important);
+            @include Tools.prefix(transition, all 0.125s linear !important);
         }
 
         &:disabled {

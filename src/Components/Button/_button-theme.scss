@@ -31,7 +31,8 @@ $init-color-theme: (
     'hover': (var(--sc-theme--secondary), var(--sc-theme--on-secondary)),
     'focus': (var(--sc-theme--secondary), var(--sc-theme--on-secondary)),
     'active': (var(--sc-theme--secondary-light), var(--sc-theme--on-secondary)),
-    'disabled': (var(--sc-theme--secondary-dark), var(--sc-theme--on-secondary))
+    'disabled': (var(--sc-theme--secondary-dark), var(--sc-theme--on-secondary)),
+    'elevation': #000
 );
 
 // Clips are disabled until further notice

@@ -1,0 +1,11 @@
+{
+  "name": "@growstocks/stack-core",
+  "version": "1.4.0-unstable",
+  "description": "Core framework of the Stack UI Components library",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Matteu",
+  "license": "MIT"
+}

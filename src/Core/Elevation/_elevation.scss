@@ -22,32 +22,38 @@
 
 @use '../Tools';
 @use 'sass:map';
+@use 'sass:meta';
+@use 'sass:math';
 
-$level-map: (
-    0: (0px 0px 0px 0px rgba(0 0 0 / 20%), 0px 0px 0px 0px rgba(0 0 0 / 14%), 0px 0px 0px 0px rgba(0 0 0 / 12%)),
-    1: (0px 2px 1px -1px rgba(0 0 0 / 20%), 0px 1px 1px 0px rgba(0 0 0 / 14%), 0px 1px 3px 0px rgba(0 0 0 / 12%)),
-    2: (0px 3px 1px -2px rgba(0 0 0 / 20%), 0px 2px 2px 0px rgba(0 0 0 / 14%), 0px 1px 5px 0px rgba(0 0 0 / 12%)),
-    3: (0px 3px 3px -2px rgba(0 0 0 / 20%), 0px 3px 4px 0px rgba(0 0 0 / 14%), 0px 1px 8px 0px rgba(0 0 0 / 12%)),
-    4: (0px 2px 4px -1px rgba(0 0 0 / 20%), 0px 4px 5px 0px rgba(0 0 0 / 14%), 0px 1px 10px 0px rgba(0 0 0 / 12%)),
-    5: (0px 3px 5px -1px rgba(0 0 0 / 20%), 0px 5px 8px 0px rgba(0 0 0 / 14%), 0px 1px 10px 0px rgba(0 0 0 / 12%))
-) !default;
+@use 'elevation-variables' as vars;
 
+@mixin apply($level, $color: #000, $opacity-boost: 0) {
 
-// API
-@mixin generate($z-level) {
-    $value: map.get($level-map, $z-level);
-    @include Tools.prefix(box-shadow, $value);
-}
+    $_umbra-opacity: 0.2 !default;
+    $_penumbra-opacity: 0.14 !default;
+    $_ambient-opacity: 0.12 !default;
 
-// ELEVATION
-@mixin render() {
-
-    @each $z-level, $param in $level-map {
-
-        .sc-elevation--z#{$z-level} {
-            @include Tools.prefix(box-shadow, $param);
-        }
-
+    @if meta.type-of($level) != number or not math.is-unitless($level) {
+        @error "Got '#{$level}'. $z-value must be a unitless number";
     }
 
+    @if $level < 0 or $level > 24 {
+        @error "Got '#{$level}'. $z-value must be between 0 and 24";
+    }
+
+    $_umbra: map.get(vars.$umbra-map, $level);
+    $_penumbra: map.get(vars.$penumbra-map, $level);
+    $_ambient: map.get(vars.$ambient-map, $level);
+
+    $_umbra-color: rgba($color, $_umbra-opacity + $opacity-boost);
+    $_penumbra-color: rgba($color, $_penumbra-opacity + $opacity-boost);
+    $_ambient-color: rgba($color, $_ambient-opacity + $opacity-boost);
+
+    $_umbra-value: #{'#{$_umbra} #{$_umbra-color}'};
+    $_penumbra-value: #{'#{$_penumbra} #{$_penumbra-color}'};
+    $_ambient-value: #{'#{$_ambient} #{$_ambient-color}'};
+
+    $_value: (#{$_umbra-value}, #{$_penumbra-value}, #{$_ambient-value});
+
+    @include Tools.prefix(box-shadow, $_value);
 }

@@ -24,6 +24,8 @@
 @use '../src/Core/Typography';
 @use '../src/Core/Color';
 
+@use '../src/Core/Elevation';
+
 @use '../src/Components/Button';
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap');
@@ -55,13 +57,17 @@ $secondary: #d49a10;
 }
 
 body {
-    background-color: var(--sc-theme--primary-dark);
+    background-color: var(--sc-theme--surface);
+    color: var(--sc-theme--on-surface);
     display: grid;
     place-items: center;
     min-height: 100vh;
 }
 
 @include Button.render(
+    $color-settings: (
+        'elevation': #fff
+    ),
     $shape-settings: (
         'shape': pill
     ),
