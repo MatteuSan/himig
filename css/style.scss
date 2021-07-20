@@ -65,9 +65,6 @@ body {
 }
 
 @include Button.render(
-    $color-settings: (
-        'elevation': #fff
-    ),
     $shape-settings: (
         'shape': pill
     ),
