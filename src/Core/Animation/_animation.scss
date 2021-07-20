@@ -23,12 +23,20 @@
 @use '../Tools';
 @use '../Feature';
 
-$_valid-animations: (loading);
+@use 'sass:map';
+@use 'sass:list';
+
+$_valid-animations: (none, loading, scale, rotate, translate);
+$_valid-settings: (none, scaling, translate, rotation);
 
 @mixin apply(
-    $animation-type
+    $animation-type: none,
+    $animation-settings: none
 ) {
-    @if Feature.item-exists($animation-type, loading) {
+    $_animation-type: verify-type_($animation-type);
+    $_animation-settings: $animation-settings;
+
+    @if Feature.item-exists($_animation-type, loading) {
 
         animation: rotate 1.7s linear infinite;
 
@@ -41,4 +49,59 @@ $_valid-animations: (loading);
             }
         }
     }
+
+    @if Feature.item-exists($_animation-type, scale) {
+        $scaling: map.get($animation-settings, scaling);
+        transform: scale($scaling);
+    }
+
+    @if Feature.item-exists($_animation-type, rotate) {
+        $_setting-map: map.get($animation-settings, rotation);
+        $_direction: list.nth($_setting-map, 1);
+        $_rotation: list.nth($_setting-map, 2);
+
+        @if $_direction == x {
+            transform: rotateX($_rotation);
+        } @else if $_direction == y {
+            transform: rotateY($_rotation);
+        } @else if $_direction == z {
+            transform: rotateZ($_rotation);
+        } @else if $_direction == default {
+            transform: rotate($_rotation);
+        }
+    }
+
+    @if Feature.item-exists($_animation-type, translate) {
+        $_setting-map: map.get($animation-settings, translate);
+        $_direction: list.nth($_setting-map, 1);
+        $_translation: list.nth($_setting-map, 2);
+
+        @if $_direction == x {
+            transform: translateX($_translation);
+        } @else if $_direction == y {
+            transform: translateY($_translation);
+        } @else if $_direction == z {
+            transform: translateZ($_translation);
+        } @else if $_direction == default {
+            transform: translate($_translation);
+        }
+    }
+}
+
+@function verify-setting_($query) {
+    $valid: Feature.property-exists($_valid-settings, $query);
+    @if $valid == false {
+        @error 'The setting #{$query} is not valid! Please select from the following valid settings: #{$_valid-settings}'
+    }
+
+    @return $query;
+}
+
+@function verify-type_($query) {
+    $valid: Feature.item-exists($_valid-animations, $query);
+    @if $valid == false {
+        @error 'The animation type #{$query} is not valid! Please select from the following valid animation types: #{$_valid-animations}'
+    }
+
+    @return $query;
 }

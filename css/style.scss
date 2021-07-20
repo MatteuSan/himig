@@ -23,6 +23,7 @@
 @use '../src/Core/Theme';
 @use '../src/Core/Typography';
 @use '../src/Core/Color';
+@use '../src/Core/Animation';
 
 @use '../src/Core/Elevation';
 
@@ -41,13 +42,13 @@ $secondary: #d49a10;
         $secondary,
         $input: #232323,
         $on-input: #fff,
-        $surface: #010b16,
+        $surface: #001021,
         $on-surface: #fff
     );
 }
 
 @include Typography.config(
-    $global-font: 'Nunito'
+    $global-font: 'Roboto Condensed'
 );
 
 * {

@@ -70,5 +70,7 @@
                 @include Shape.apply($_shape-theme);
             }
         }
+
+        @content
     }
 }

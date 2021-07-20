@@ -55,7 +55,7 @@
         &:focus,
         &:active {
             outline: none;
-            @include Tools.prefix(transition, all 0.125s linear !important);
+            @include Tools.prefix(transition, all 0.125s ease !important);
         }
 
         &:disabled {
@@ -77,6 +77,9 @@
             font-size: Typography.px-to-rem(20px);
             position: relative;
             color: inherit;
+            /* @fallback */
+            width: Typography.px-to-rem(20px);
+            height: Typography.px-to-rem(20px);
         }
 
         @content
