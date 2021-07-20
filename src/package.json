@@ -1,6 +1,6 @@
 {
   "name": "@growstocks/stack",
-  "version": "1.4.0-unstable",
+  "version": "1.4.0-alpha",
   "description": "GrowStocks' design system's open source UI components library for building beautiful, quick, responsive, and flexible user interfaces.",
   "main": "index.js",
   "scripts": {
