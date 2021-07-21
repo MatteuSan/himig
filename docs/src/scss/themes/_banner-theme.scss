@@ -20,17 +20,9 @@
 // SOFTWARE.
 //
 
+$clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+
 $default-color-theme: (
-    'default': (var(--sc-theme--primary), var(--sc-theme--on-primary)),
-    'elevation': transparent,
-);
-
-$default-shape-theme: (
-    'shape': default,
-    'border-radius': 0.3rem,
-);
-
-$default-typography-theme: (
-    'font-size': 20px,
-    'font-weight': 700
+    'default': (linear-gradient(45deg, #001334 0%, #44638b 100%), #fff),
+    'elevation': #000,
 );

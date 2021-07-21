@@ -20,17 +20,45 @@
 // SOFTWARE.
 //
 
-$default-color-theme: (
-    'default': (var(--sc-theme--primary), var(--sc-theme--on-primary)),
-    'elevation': transparent,
-);
+@use '~@growstocks/stack/Core/Elevation';
+@use '~@growstocks/stack/Core/Tools';
 
-$default-shape-theme: (
-    'shape': default,
-    'border-radius': 0.3rem,
-);
+@use '../abstracts/variables' as vars;
 
-$default-typography-theme: (
-    'font-size': 20px,
-    'font-weight': 700
-);
+@mixin base($bottom-position: calc(100% + 2px)) {
+    position: relative;
+
+    &::after {
+        content: attr(data-tooltip);
+        display: block;
+        position: absolute;
+        background-color: #232323;
+        color: #fff;
+        padding: 0.5rem 0.7rem;
+        border-radius: 0.3rem;
+        font-size: 0.75rem;
+        bottom: $bottom-position;
+
+        margin-left: 50%;
+        transform: translateX(-50%);
+
+        z-index: 100;
+        opacity: 0;
+        transition: opacity ease-in-out 200ms;
+        pointer-events: none;
+        text-align: center;
+        white-space: nowrap;
+
+        @include Elevation.apply(3);
+
+        @include Tools.prefix(transition, all 0.1s ease);
+
+        @media (min-width: vars.$medium) {
+            display: none !important;
+        }
+    }
+
+    &:hover::after {
+        opacity: 1;
+    }
+}

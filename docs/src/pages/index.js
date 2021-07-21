@@ -1,20 +1,27 @@
 import * as React from "react"
 import '../scss/style.scss';
+import Header from "./components/Header";
+import {Helmet} from "react-helmet";
+import TitleBar from "./components/TitleBar";
+import Banner from "./components/Banner";
 
-// styles
-const pageStyles = {
-  color: "#232129",
-  padding: 96,
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-}
-
-// markup
 const IndexPage = () => {
   return (
-    <main className="wrap--content">
-      <div className="title-bar">
-        <h2>Welcome to StackCSS</h2>
-      </div>
+    <main>
+        <Helmet>
+            <title>HOME - StackCSS</title>
+            <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet" />
+        </Helmet>
+        <Header />
+        <Banner
+            title="Stack"
+            subtitle="The intuitive library for building user interfaces"
+        />
+        <section>
+            <div className="wrap--content">
+                <TitleBar>CONTENT TITLE</TitleBar>
+            </div>
+        </section>
     </main>
   )
 }

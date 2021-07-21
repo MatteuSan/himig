@@ -20,17 +20,53 @@
 // SOFTWARE.
 //
 
-$default-color-theme: (
-    'default': (var(--sc-theme--primary), var(--sc-theme--on-primary)),
-    'elevation': transparent,
-);
+@use '~@growstocks/stack/Core/Color';
+@use '~@growstocks/stack/Core/Shape';
+@use '~@growstocks/stack/Core/Typography';
+@use '~@growstocks/stack/Core/Tools';
 
-$default-shape-theme: (
-    'shape': default,
-    'border-radius': 0.3rem,
-);
+@use '../abstracts/variables' as vars;
+@use '../themes/navbar-theme' as theme;
 
-$default-typography-theme: (
-    'font-size': 20px,
-    'font-weight': 700
-);
+@use 'tooltip' as Tooltip;
+
+.nav__item {
+    margin: 0 auto;
+    cursor: pointer;
+    color: inherit;
+
+    & > a,
+    & > p {
+        display: block;
+        &:hover {
+            filter: brightness(80%);
+        }
+    }
+
+    .active {
+        @include Color.apply('text', theme.$nav-item-theme);
+    }
+
+    .nav__item__icon {
+        font-size: Typography.px-to-rem(24px);
+        color: inherit;
+
+        @include Tools.prefix(transition, all 0.1s ease);
+    }
+
+    .nav__item__text {
+        font-size: Typography.px-to-rem(12px) !important;
+        margin-top: -4px;
+        color: inherit;
+
+        @media (min-width: vars.$medium) {
+            display: none !important;
+            /*font-size: 16px!important;
+            margin-top: 0;*/
+        }
+    }
+
+    &[data-tooltip] {
+        @include Tooltip.base($bottom-position: calc(-100%));
+    }
+}

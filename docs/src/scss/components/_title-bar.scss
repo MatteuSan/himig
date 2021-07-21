@@ -20,17 +20,36 @@
 // SOFTWARE.
 //
 
-$default-color-theme: (
-    'default': (var(--sc-theme--primary), var(--sc-theme--on-primary)),
-    'elevation': transparent,
-);
+@use '~@growstocks/stack/Core/Color';
+@use '~@growstocks/stack/Core/Shape';
+@use '~@growstocks/stack/Core/Typography';
+@use '~@growstocks/stack/Core/Tools';
+@use '../themes/title-bar-theme' as theme;
 
-$default-shape-theme: (
-    'shape': default,
-    'border-radius': 0.3rem,
-);
+.title-bar {
+    @include Color.apply('filled', theme.$default-color-theme);
+    @include Shape.apply(theme.$default-shape-theme);
+    @include Typography.apply(theme.$default-typography-theme);
 
-$default-typography-theme: (
-    'font-size': 20px,
-    'font-weight': 700
-);
+    padding: 8px 10px;
+
+    * {
+        font-size: inherit;
+        font-weight: inherit;
+    }
+
+    &.title-bar--on-surface {
+        background: transparent!important;
+        padding: 0 5px;
+        color: var(--sc-theme--on-surface);
+        box-shadow: none;
+        border: none;
+
+        @include Typography.apply(theme.$default-typography-theme);
+
+        * {
+            font-size: inherit;
+            font-weight: inherit;
+        }
+    }
+}

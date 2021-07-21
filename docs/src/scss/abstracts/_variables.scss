@@ -20,17 +20,6 @@
 // SOFTWARE.
 //
 
-$default-color-theme: (
-    'default': (var(--sc-theme--primary), var(--sc-theme--on-primary)),
-    'elevation': transparent,
-);
-
-$default-shape-theme: (
-    'shape': default,
-    'border-radius': 0.3rem,
-);
-
-$default-typography-theme: (
-    'font-size': 20px,
-    'font-weight': 700
-);
+$mobile: 320px;
+$medium: 540px;
+$full: 890px;

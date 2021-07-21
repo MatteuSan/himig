@@ -20,17 +20,20 @@
 // SOFTWARE.
 //
 
+$nav-contents: 3;
+
 $default-color-theme: (
-    'default': (var(--sc-theme--primary), var(--sc-theme--on-primary)),
-    'elevation': transparent,
+    'default': (var(--sc-theme--primary), #fff),
+    'elevation': #000
 );
 
 $default-shape-theme: (
-    'shape': default,
-    'border-radius': 0.3rem,
+    'shape': block,
+    'shape-exceptions': (default, rounded, pill)
 );
 
-$default-typography-theme: (
-    'font-size': 20px,
-    'font-weight': 700
+$nav-item-theme: (
+    'default': (var(--sc-theme--secondary), #fff),
+    'hover': (var(--sc-theme--secondary), #fff),
+    'elevation': opacify(#000, 0%)
 );
