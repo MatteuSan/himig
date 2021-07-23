@@ -29,7 +29,7 @@
 @use '../Feature';
 @use '../Elevation';
 
-$_valid-color-types: (
+$_valid-color-queries: (
     'default',
     'hover',
     'focus',
@@ -44,12 +44,22 @@ $_valid-scopes: (
     'filled'
 );
 
-@mixin apply($scope, $color-theme, $scope-exceptions: ()) {
+$_valid-query-settings: (
+    'has-elevation'
+);
+
+@mixin apply(
+    $scope,
+    $color-theme,
+    $scope-exceptions: (),
+    $query-settings: (
+        'has-elevation'
+    )
+) {
     $_scope: get-scope_($scope);
     $_scope-exceptions: $scope-exceptions;
+    $_query-settings: $query-settings;
     $_elevation-color: get-color_($color-theme, 'fill', 'elevation');
-    // @future
-    $_application-settings: ();
 
     // Handles scope-exceptions map
     @if Feature.has-item($_scope-exceptions, $_scope) {
@@ -105,7 +115,10 @@ $_valid-scopes: (
                 background: get-color_($color-theme, 'fill', 'default');
                 border: 1px solid get-color_($color-theme, 'fill', 'default');
                 cursor: pointer;
-                @include Elevation.apply(3, $_elevation-color);
+
+                @if Feature.has-item($_query-settings, 'has-elevation') {
+                    @include Elevation.apply(3, $_elevation-color);
+                }
             }
         }
 
@@ -115,7 +128,10 @@ $_valid-scopes: (
                 background: get-color_($color-theme, 'fill', 'focus');
                 border: 1px solid get-color_($color-theme, 'fill', 'focus');
                 cursor: pointer;
-                @include Elevation.apply(3, $_elevation-color);
+
+                @if Feature.has-item($_query-settings, 'has-elevation') {
+                    @include Elevation.apply(3, $_elevation-color);
+                }
             }
         }
 
@@ -125,7 +141,10 @@ $_valid-scopes: (
                 background: get-color_($color-theme, 'fill', 'active');
                 border: 1px solid get-color_($color-theme, 'fill', 'active');
                 cursor: pointer;
-                @include Elevation.apply(7, $_elevation-color);
+
+                @if Feature.has-item($_query-settings, 'has-elevation') {
+                    @include Elevation.apply(7, $_elevation-color);
+                }
             }
         }
 
@@ -146,7 +165,10 @@ $_valid-scopes: (
         color: get-color_($color-theme, 'ink', 'default');
         border: 1px solid get-color_($color-theme, 'fill', 'default');
         background: get-color_($color-theme, 'fill', 'default');
-        @include Elevation.apply(3, $_elevation-color);
+
+        @if Feature.has-item($_query-settings, 'has-elevation') {
+            @include Elevation.apply(3, $_elevation-color);
+        }
 
         @if Feature.has-property($color-theme, 'hover') {
             &:hover {
@@ -154,7 +176,10 @@ $_valid-scopes: (
                 border: 1px solid get-color_($color-theme, 'fill', 'hover');
                 background: get-color_($color-theme, 'fill', 'hover');
                 cursor: pointer;
-                @include Elevation.apply(5, $_elevation-color);
+
+                @if Feature.has-item($_query-settings, 'has-elevation') {
+                    @include Elevation.apply(5, $_elevation-color);
+                }
             }
         }
 
@@ -164,7 +189,10 @@ $_valid-scopes: (
                 border: 1px solid get-color_($color-theme, 'fill', 'focus');
                 background: get-color_($color-theme, 'fill', 'focus');
                 cursor: pointer;
-                @include Elevation.apply(5, $_elevation-color);
+
+                @if Feature.has-item($_query-settings, 'has-elevation') {
+                    @include Elevation.apply(5, $_elevation-color);
+                }
             }
         }
 
@@ -174,7 +202,10 @@ $_valid-scopes: (
                 border: 1px solid get-color_($color-theme, 'fill', 'active');
                 background: get-color_($color-theme, 'fill', 'active');
                 cursor: pointer;
-                @include Elevation.apply(10, $_elevation-color);
+
+                @if Feature.has-item($_query-settings, 'has-elevation') {
+                    @include Elevation.apply(10, $_elevation-color);
+                }
             }
         }
 
@@ -183,7 +214,10 @@ $_valid-scopes: (
                 color: get-color_($color-theme, 'ink', 'disabled');
                 border: 1px solid get-color_($color-theme, 'fill', 'disabled');
                 background: get-color_($color-theme, 'fill', 'disabled');
-                @include Elevation.apply(2, $_elevation-color);
+
+                @if Feature.has-item($_query-settings, 'has-elevation') {
+                    @include Elevation.apply(2, $_elevation-color);
+                }
 
                 &:hover {
                     cursor: not-allowed;
@@ -194,7 +228,10 @@ $_valid-scopes: (
                 color: var(--on-undefined);
                 border: 1px solid var(--undefined);
                 background: var(--undefined);
-                @include Elevation.apply(2, $_elevation-color);
+
+                @if Feature.has-item($_query-settings, 'has-elevation') {
+                    @include Elevation.apply(2, $_elevation-color);
+                }
             }
         }
     }
@@ -255,8 +292,8 @@ $_valid-scopes: (
 }
 
 @function is-color-type_($color-type) {
-    @if not list.index($_valid-color-types, $color-type) {
-        @error 'Invalid color: #{$color-type}. Please select from the following color types: #{$_valid-color-types}';
+    @if not list.index($_valid-color-queries, $color-type) {
+        @error 'Invalid color query: #{$color-type}. Please select from the following color queries: #{$_valid-color-queries}';
     }
 
     @return true
