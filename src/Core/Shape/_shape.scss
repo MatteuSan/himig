@@ -40,11 +40,11 @@ $valid-shapes: (default, rounded, block, pill); // temporarily removed 'clipped'
     $_imported-custom-clip: map.get($shape-theme, 'custom-clip');
 
     // Check if shape is valid from $valid-shapes list.
-    @if not Feature.item-exists($valid-shapes, $_imported-shape) {
+    @if not Feature.has-item($valid-shapes, $_imported-shape) {
         @error 'Invalid shape: #{$_imported-shape}! Please select from the following: #{$valid-shapes}.';
     }
 
-    @if Feature.item-exists($_imported-shape-exceptions, $_imported-shape) {
+    @if Feature.has-item($_imported-shape-exceptions, $_imported-shape) {
         @error 'The #{$_imported-shape} shape is currently disabled in this component. Please try other shapes.';
     }
 
@@ -80,7 +80,7 @@ $valid-shapes: (default, rounded, block, pill); // temporarily removed 'clipped'
 // Package Internals
 // =================
 
-@function empty_($value) {
+@function is-empty_($value) {
     @if not $value
        or $value == ''
        or $value == 0
@@ -93,7 +93,7 @@ $valid-shapes: (default, rounded, block, pill); // temporarily removed 'clipped'
     @return false;
 }
 
-@function verify-shape_($shape) {
+@function is-shape_($shape) {
     @return list.index($valid-shapes, $shape)
 }
 

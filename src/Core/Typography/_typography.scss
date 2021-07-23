@@ -26,24 +26,36 @@
 
 @use '../Feature';
 
+$_valid-typography-queries: (
+    'font-size',
+    'font-weight',
+    'letter-spacing',
+    'text-decoration',
+    'text-transform'
+);
+
 @mixin config(
     $global-font: (),
+    $global-font-type: sans-serif,
     // TITLE (1,2,3)
     $title-font: $global-font,
+    $title-font-type: $global-font-type,
     $title-font-weight: 700,
     // SUBTITLE (4,5,6)
     $subtitle-font: $global-font,
+    $subtitle-font-type: $global-font-type,
     $subtitle-font-weight: 400,
     // BODY (p...)
     $body-font: $global-font,
+    $body-font-type: $global-font-type,
     $body-font-weight: 400
 ) {
     * {
-        @include font-family($global-font);
+        @include font-family($global-font, $global-font-type);
 
         &::before,
         &::after {
-            @include font-family($global-font);
+            @include font-family($global-font, $global-font-type);
         }
     }
 
@@ -55,19 +67,19 @@
     h2,
     h3 {
         font-weight: $title-font-weight;
-        @include font-family($title-font);
+        @include font-family($title-font, $title-font-type);
     }
 
     h4,
     h5,
     h6 {
         font-weight: $subtitle-font-weight;
-        @include font-family($subtitle-font);
+        @include font-family($subtitle-font, $subtitle-font-type);
     }
 
     p {
         font-weight: $body-font-weight;
-        @include font-family($body-font);
+        @include font-family($body-font, $body-font-type);
     }
 
     b {
@@ -81,21 +93,56 @@
 }
 
 @mixin apply($typography-theme) {
-    $_font-size: map.get($typography-theme, 'font-size');
-    $_font-weight: map.get($typography-theme, 'font-weight');
-    $_letter-spacing: map.get($typography-theme, 'letter-spacing');
-    $_text-decoration: map.get($typography-theme, 'text-decoration');
-    $_text-transform: map.get($typography-theme, 'text-transform');
+    $_valid-typography-theme: Feature.validate-data-type('map', $typography-theme);
 
-    font-size: $_font-size;
-    font-weight: $_font-weight;
-    letter-spacing: $_letter-spacing;
-    text-decoration: $_text-decoration;
-    text-transform: $_text-transform;
+    @if $_valid-typography-theme {
+
+        @if Feature.has-property($typography-theme, 'font-size') {
+            $_font-size: map.get($typography-theme, 'font-size');
+            font-size: $_font-size;
+        }
+
+        @if Feature.has-property($typography-theme, 'font-weight') {
+            $_font-weight: map.get($typography-theme, 'font-weight');
+            font-weight: $_font-weight;
+        }
+
+        @if Feature.has-property($typography-theme, 'letter-spacing') {
+            $_letter-spacing: map.get($typography-theme, 'letter-spacing');
+            letter-spacing: $_letter-spacing;
+        }
+
+        @if Feature.has-property($typography-theme, 'text-decoration') {
+            $_text-decoration: map.get($typography-theme, 'text-decoration');
+            text-decoration: $_text-decoration;
+        }
+
+        @if Feature.has-property($typography-theme, 'text-transform') {
+            $_text-transform: map.get($typography-theme, 'text-transform');
+            text-transform: $_text-transform;
+        }
+
+    }
 }
 
 @mixin font-family($family, $type: sans-serif) {
-    font-family: $family, $type;
+    font-family: quote($family), $type;
+}
+
+@function get-typography_($typography-map, $query) {
+    $valid: is-typography_($_valid-typography-queries, $query);
+    @if not $valid {
+        //
+    }
+    @return map.get($typography-map, $query);
+}
+
+@function is-typography_($query) {
+    @if Feature.has-item($_valid-typography-queries, $query) {
+        @return true
+    } @else {
+        @return false
+    }
 }
 
 @function px-to-rem($px) {

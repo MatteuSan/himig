@@ -22,17 +22,25 @@
 
 @use 'sass:list';
 @use 'sass:map';
+@use 'sass:meta';
 
-@function item-exists($reference, $query) {
+@function has-item($reference, $query) {
     @return list.index($reference, $query) != null;
 }
 
-@function property-exists($reference, $query) {
+@function has-property($reference, $query) {
     @if map.has-key($reference, $query) {
         @return true
     } @else {
         @return false
     }
+}
+
+@function validate-data-type($reference, $query) {
+    @if meta.type-of($query) != unquote($reference) {
+        @error 'Invalid #{$reference}: #{$query}. Expecting a #{$reference}';
+    }
+    @return true
 }
 
 // @depricated
