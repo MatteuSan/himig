@@ -45,7 +45,8 @@ $_valid-scopes: (
 );
 
 $_valid-query-settings: (
-    'has-elevation'
+    'has-elevation',
+    'no-elevation'
 );
 
 @mixin apply(
