@@ -22,23 +22,5 @@
  *
  */
 
-import React from 'react';
-import '../../scss/components/_nav-item.scss';
-import Link from "gatsby-link";
+import {  } from './component';
 
-import '../../scss/components/_tooltip.scss';
-
-const NavItem = (props) => {
-
-    return (
-        <div className="nav__item" data-tooltip={props.label}>
-            <Link to={props.link} activeClassName={`active`}>
-                <p className={`nav__item__icon material-icons`} title={props.label}
-                   data-mdc-ripple-is-unbounded="true">{props.icon}</p>
-                <p className="nav__item__text">{props.label}</p>
-            </Link>
-        </div>
-    );
-};
-
-export default NavItem;

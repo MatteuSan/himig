@@ -6,7 +6,7 @@
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is 
+ * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
  *
  * The above copyright notice and this permission notice shall be included in all
@@ -22,31 +22,30 @@
  *
  */
 
-import React from 'react';
-import {Helmet} from "react-helmet";
-import Header from "./components/Header";
-import TitleBar from "./components/TitleBar";
-import Banner from "./components/Banner";
+class SCInputComponent {
 
-const TeamPage = () => {
-    return (
-        <main>
-            <Helmet>
-                <title>DEV TEAM - StackCSS</title>
-                <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet" />
-            </Helmet>
-            <Header />
-            <Banner
-                title="Stack Dev Team"
-                subtitle="The people who made Stack come to life."
-            />
-            <section>
-                <div className="wrap--content">
-                    <TitleBar>TEAM</TitleBar>
-                </div>
-            </section>
-        </main>
-    );
-};
+    private passwordInput: any = document.getElementById('password');
+    private togglePasswordButton: any = document.getElementById('toggle-password');
 
-export default TeamPage;
+    constructor() {
+        //
+    }
+
+    togglePassword() {
+        if (this.passwordInput.type === 'password') {
+            this.passwordInput.type = 'text';
+            this.togglePasswordButton.textContent = 'Hide password';
+            this.togglePasswordButton.setAttribute('aria-label',
+                'Hide password.');
+        } else {
+            this.passwordInput.type = 'password';
+            this.togglePasswordButton.textContent = 'Show password';
+            this.togglePasswordButton.setAttribute('aria-label',
+                'Show password as plain text. ' +
+                'Warning: this will display your password on the screen.');
+        }
+    }
+
+}
+
+export default SCInputComponent;

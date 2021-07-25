@@ -1,3 +1,4 @@
+"use strict";
 /*
  *
  * Copyright (c) 2021 GrowStocks
@@ -21,19 +22,4 @@
  * SOFTWARE.
  *
  */
-
-import React from 'react';
-import '../../scss/components/_banner.scss';
-
-const Banner = (props) => {
-    return (
-        <div className="banner">
-            <div className="wrap--text">
-                <h1 className="banner__title">{props.title}</h1>
-                <h4 className="banner__subtitle">{props.subtitle}</h4>
-            </div>
-        </div>
-    );
-};
-
-export default Banner;
+Object.defineProperty(exports, "__esModule", { value: true });

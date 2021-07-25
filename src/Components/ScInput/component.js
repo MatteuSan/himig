@@ -1,3 +1,4 @@
+"use strict";
 /*
  *
  * Copyright (c) 2021 GrowStocks
@@ -21,16 +22,26 @@
  * SOFTWARE.
  *
  */
-
-import React from 'react';
-import '../../scss/components/_title-bar.scss';
-
-const TitleBar = ({children, value}) => {
-    return (
-        <div className="title-bar title-bar--on-surface">
-            <h2>{ value || children }</h2>
-        </div>
-    );
-};
-
-export default TitleBar;
+Object.defineProperty(exports, "__esModule", { value: true });
+var SCInputComponent = /** @class */ (function () {
+    function SCInputComponent() {
+        this.passwordInput = document.getElementById('password');
+        this.togglePasswordButton = document.getElementById('toggle-password');
+        //
+    }
+    SCInputComponent.prototype.togglePassword = function () {
+        if (this.passwordInput.type === 'password') {
+            this.passwordInput.type = 'text';
+            this.togglePasswordButton.textContent = 'Hide password';
+            this.togglePasswordButton.setAttribute('aria-label', 'Hide password.');
+        }
+        else {
+            this.passwordInput.type = 'password';
+            this.togglePasswordButton.textContent = 'Show password';
+            this.togglePasswordButton.setAttribute('aria-label', 'Show password as plain text. ' +
+                'Warning: this will display your password on the screen.');
+        }
+    };
+    return SCInputComponent;
+}());
+exports.default = SCInputComponent;
