@@ -27,7 +27,10 @@
 
 @use '../../src/Core/Elevation';
 
-@use '../../src/Components/Button';
+@use '../../src/Components/SCButton';
+@use '../../src/Components/SCNavbar';
+
+@use 'sass:meta';
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
@@ -36,10 +39,19 @@ $primary: #12305e;
 $secondary: #d49a10;
 //$secondary: desaturate(Color.color-darken($_secondary), 30%);
 
+$test: default !important;
+
+$_screen-sizes: (
+    'small': 320px,
+    'medium': 540px,
+    'large': 890px,
+);
+
 :root {
     @include Theme.config(
         $primary,
         $secondary,
+        $_screen-sizes,
         $input: #232323,
         $on-input: #fff,
         $surface: #001021,
@@ -65,7 +77,7 @@ body {
     min-height: 100vh;
 }
 
-@include Button.render(
+@include SCButton.render(
     $shape-settings: (
         'shape': pill
     ),
@@ -75,3 +87,5 @@ body {
         'filled'
     )
 );
+
+@include SCNavbar.render();

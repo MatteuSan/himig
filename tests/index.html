@@ -23,16 +23,68 @@
   -->
 
 <!DOCTYPE html>
-<html lang="en">
+<html
+    lang="en"
+>
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Scaffold Test</title>
 
     <link rel="stylesheet" href="css/style.css">
 
+    <!-- JS LIBS -->
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
     <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
 </head>
+
 <body>
+
+    <section class="header-section">
+
+        <header class="header" x-data="{ drawer_open: false }">
+
+            <div class="header__wrap">
+
+                <div class="header__text">
+                    <a href="./"><h2>Stack</h2></a>
+                </div>
+
+                <nav class="sc-nav">
+                    <div class="sc-nav__container">
+                        <div class="sc-nav__item active" data-tooltip="Home">
+                            <a href="#">
+                                <p class="sc-nav__item__icon material-icons">home</p>
+                                <p class="sc-nav__item__text">Home</p>
+                            </a>
+                        </div>
+                        <div class="sc-nav__item" data-tooltip="Documentation">
+                            <a href="#">
+                                <p class="sc-nav__item__icon material-icons">description</p>
+                                <p class="sc-nav__item__text">Docs</p>
+                            </a>
+                        </div>
+                        <div class="sc-nav__item" data-tooltip="Notifications">
+                            <a href="#">
+                                <p class="sc-nav__item__icon material-icons">notifications</p>
+                                <p class="sc-nav__item__text">Inbox</p>
+                            </a>
+                        </div>
+                        <div class="sc-nav__item" data-tooltip="More...">
+                            <a href="#">
+                                <p @click.prevent="drawer_open = !drawer_open" class="sc-nav__item__icon material-icons" x-text="drawer_open ? 'close' : 'menu'"></p>
+                                <p class="sc-nav__item__text">More</p>
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+
+            </div>
+
+        </header>
+    </section>
 
     <button class="sc-button my-custom-button">
         <i class="material-icons sc-button__icon">thumb_up</i>

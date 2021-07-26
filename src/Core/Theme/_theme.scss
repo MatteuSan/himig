@@ -29,12 +29,17 @@
 @use '../Color';
 @use '../Shape';
 @use '../Typography';
+@use '../Feature';
 
 $_prefix: 'sc';
+$_valid-screen-properties: ('small', 'medium', 'large', 'xlarge');
+
+$breakpoints: () !default;
 
 @mixin config(
     $primary-color,
     $secondary-color: Color.color-get-complement($primary-color),
+    $screen-sizes: (),
     $args...
 ) {
 
@@ -86,6 +91,24 @@ $_prefix: 'sc';
     @each $property, $value in meta.keywords($args) {
         --#{$_prefix}-theme--#{$property}: #{$value};
     }
+
+    @if (Feature.is-empty($screen-sizes)) == false {
+        @each $property, $value in $screen-sizes {
+
+            $_valid-property: Feature.has-item($_valid-screen-properties, $property);
+
+            @if $_valid-property == true {
+                $breakpoints: map.merge($breakpoints, $screen-sizes);
+            } @else {
+                @error 'Screen property: #{$property} is invalid. Please select from the following valid screen properties: #{$_valid-screen-properties}';
+            }
+
+        }
+    }
+}
+
+@function get-breakpoint($query) {
+    @return map.get($breakpoints, $query);
 }
 
 // @depricated - DO NOT USE!!!!

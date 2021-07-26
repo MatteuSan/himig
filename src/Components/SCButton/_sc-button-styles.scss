@@ -27,8 +27,8 @@
 @use '../../Core/Feature';
 
 @use 'sass:map';
-@use 'button-base';
-@use 'button-theme';
+@use 'sc-button-base' as button-base;
+@use 'sc-button-theme' as button-theme;
 
 @mixin render(
     $color-settings: (),

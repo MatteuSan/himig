@@ -22,11 +22,10 @@
 
 @use '../../Core/Typography';
 @use '../../Core/Tools';
-@use '../../Core/Color';
 @use '../../Core/Animation';
 @use '../../Core/Elevation';
 
-@use 'button-theme' as theme;
+@use 'sc-button-theme' as theme;
 
 @mixin base() {
     .sc-button {
