@@ -50,7 +50,6 @@
 
         .sc-text-field__input {
             width: 100%;
-            height: calc(100% + 2px);
 
             @include Tools.prefix(transition, all 0.1s ease);
 

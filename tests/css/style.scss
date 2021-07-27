@@ -30,9 +30,12 @@
 @use '../../src/Components/SCAlert';
 @use '../../src/Components/SCButton';
 @use '../../src/Components/SCCard';
+//@use '../../src/Components/SCDrawer';
 @use '../../src/Components/SCHeader';
 @use '../../src/Components/SCNavbar';
+@use '../../src/Components/SCProfile';
 @use '../../src/Components/SCTextField';
+//@use '../../src/Components/SCTitleBar';
 @use '../../src/Components/SCTooltip';
 @use '../../src/Components/SCSnackbar';
 
@@ -80,9 +83,9 @@ body {
 
 .wrap--content {
     display: grid;
-    place-items: center;
+    grid-gap: 20px;
     min-height: 100vh;
-    padding: 55px 0 60px 0;
+    padding: 65px 0 60px 0;
     width: calc(100% - 20px);
     max-width: 1077px;
     margin: 0 auto;
@@ -102,5 +105,6 @@ body {
 @include SCCard.render();
 @include SCHeader.render();
 @include SCNavbar.render($nav-contents: 4);
+@include SCProfile.render();
 @include SCTextField.render();
 @include SCSnackbar.render();
