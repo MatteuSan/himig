@@ -20,9 +20,9 @@
 // SOFTWARE.
 //
 
-
 $init-color-theme: (
-    'default': (var(--sc-theme--primary), #fff)
+    'default': (var(--sc-theme--primary), #fff),
+    'elevation': #000,
 );
 
 $init-shape-theme: (

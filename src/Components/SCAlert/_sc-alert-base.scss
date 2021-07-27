@@ -20,32 +20,28 @@
 // SOFTWARE.
 //
 
-@use '../../Core/Color';
-@use '../../Core/Shape';
 @use '../../Core/Typography';
-@use '../../Core/Elevation';
 
-@use 'sc-navbar-base' as base;
-@use 'sc-navbar-theme' as theme;
 
-@use 'sass:map';
+@mixin base() {
+    .sc-alert {
+        width: 100%;
+        padding: 0.3rem 0.5rem;
+        display: grid;
+        grid-gap: 0.7rem;
+        grid-template-columns: 20px auto;
+        align-items: center;
 
-@mixin render(
-    $color-theme: (),
-    $shape-theme: (),
-    $typography-theme: (),
-    $nav-contents: 4
-) {
+        .alert__icon {
+            display: inline-block;
+            font-size: Typography.px-to-rem(20px);
+        }
 
-    $_color-theme: map.merge(theme.$init-color-theme, $color-theme);
-    $_shape-theme: map.merge(theme.$init-shape-theme, $shape-theme);
-    $_typography-theme: map.merge(theme.$init-typography-theme, $typography-theme);
+        .alert__text {
+            display: inline-block;
+            font-size: Typography.px-to-rem(14px);
+        }
 
-    @include base.base($nav-contents) {
-        @include Color.apply('filled', $_color-theme, $query-settings: ('no-elevation'));
-        @include Shape.apply($_shape-theme);
-        @include Typography.apply($_typography-theme);
-        @include Elevation.apply(5, Color.get-color_($_color-theme, 'fill', 'elevation'));
-    };
-
+        @content;
+    }
 }

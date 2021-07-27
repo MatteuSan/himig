@@ -20,32 +20,3 @@
 // SOFTWARE.
 //
 
-@use '../../Core/Color';
-@use '../../Core/Shape';
-@use '../../Core/Typography';
-@use '../../Core/Elevation';
-
-@use 'sc-navbar-base' as base;
-@use 'sc-navbar-theme' as theme;
-
-@use 'sass:map';
-
-@mixin render(
-    $color-theme: (),
-    $shape-theme: (),
-    $typography-theme: (),
-    $nav-contents: 4
-) {
-
-    $_color-theme: map.merge(theme.$init-color-theme, $color-theme);
-    $_shape-theme: map.merge(theme.$init-shape-theme, $shape-theme);
-    $_typography-theme: map.merge(theme.$init-typography-theme, $typography-theme);
-
-    @include base.base($nav-contents) {
-        @include Color.apply('filled', $_color-theme, $query-settings: ('no-elevation'));
-        @include Shape.apply($_shape-theme);
-        @include Typography.apply($_typography-theme);
-        @include Elevation.apply(5, Color.get-color_($_color-theme, 'fill', 'elevation'));
-    };
-
-}

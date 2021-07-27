@@ -20,32 +20,31 @@
 // SOFTWARE.
 //
 
-@use '../../Core/Color';
-@use '../../Core/Shape';
-@use '../../Core/Typography';
-@use '../../Core/Elevation';
+$init-color-theme: (
+    'default': (var(--sc-theme--primary-light), var(--sc-theme--on-primary)),
+    'elevation': #000
+);
 
-@use 'sc-navbar-base' as base;
-@use 'sc-navbar-theme' as theme;
+$success-theme: (
+    'default': (var(--sc-theme--success), #fff),
+    'elevation': #000
+);
 
-@use 'sass:map';
+$warning-theme: (
+    'default': (var(--sc-theme--warning), #000),
+    'elevation': #000
+);
 
-@mixin render(
-    $color-theme: (),
-    $shape-theme: (),
-    $typography-theme: (),
-    $nav-contents: 4
-) {
+$error-theme: (
+    'default': (var(--sc-theme--error), #fff),
+    'elevation': #000
+);
 
-    $_color-theme: map.merge(theme.$init-color-theme, $color-theme);
-    $_shape-theme: map.merge(theme.$init-shape-theme, $shape-theme);
-    $_typography-theme: map.merge(theme.$init-typography-theme, $typography-theme);
+$init-shape-theme: (
+    'shape': default,
+    'border-radius': 0.3rem,
+);
 
-    @include base.base($nav-contents) {
-        @include Color.apply('filled', $_color-theme, $query-settings: ('no-elevation'));
-        @include Shape.apply($_shape-theme);
-        @include Typography.apply($_typography-theme);
-        @include Elevation.apply(5, Color.get-color_($_color-theme, 'fill', 'elevation'));
-    };
-
-}
+$init-typography-theme: (
+    'font-size': 14px
+);

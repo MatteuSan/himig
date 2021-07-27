@@ -27,8 +27,8 @@
 @use '../../Core/Feature';
 
 @use 'sass:map';
-@use 'sc-button-base' as button-base;
-@use 'sc-button-theme' as button-theme;
+@use 'sc-button-base' as base;
+@use 'sc-button-theme' as theme;
 
 @mixin render(
     $color-settings: (),
@@ -41,18 +41,16 @@
 
     $_scope-exceptions: ();
 
-    $_color-theme: map.merge(button-theme.$init-color-theme, $color-settings);
-    $_shape-theme: map.merge(button-theme.$init-shape-theme, $shape-settings);
-    $_typography-theme: map.merge(button-theme.$init-typography-theme, $typography-settings);
+    $_color-theme: map.merge(theme.$init-color-theme, $color-settings);
+    $_shape-theme: map.merge(theme.$init-shape-theme, $shape-settings);
+    $_typography-theme: map.merge(theme.$init-typography-theme, $typography-settings);
 
     // Base
-    @include button-base.base() {
+    @include base.base() {
         @if Feature.has-item($type, default) or Feature.has-item($type, text) {
-            &.sc-button {
-                @include Color.apply('text', $_color-theme, $_scope-exceptions);
-                @include Typography.apply($_typography-theme);
-                @include Shape.apply($_shape-theme);
-            }
+            @include Color.apply('text', $_color-theme, $_scope-exceptions);
+            @include Typography.apply($_typography-theme);
+            @include Shape.apply($_shape-theme);
         }
 
         @if Feature.has-item($type, outlined) {

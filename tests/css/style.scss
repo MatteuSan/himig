@@ -27,13 +27,15 @@
 
 @use '../../src/Core/Elevation';
 
+@use '../../src/Components/SCAlert';
 @use '../../src/Components/SCButton';
+@use '../../src/Components/SCHeader';
 @use '../../src/Components/SCNavbar';
 
 @use 'sass:meta';
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
 $primary: #12305e;
 $secondary: #d49a10;
@@ -60,7 +62,7 @@ $_screen-sizes: (
 }
 
 @include Typography.config(
-    $global-font: 'Roboto Condensed'
+    $global-font: 'Inter'
 );
 
 * {
@@ -72,11 +74,18 @@ $_screen-sizes: (
 body {
     background-color: var(--sc-theme--surface);
     color: var(--sc-theme--on-surface);
+}
+
+.wrap--content {
     display: grid;
     place-items: center;
     min-height: 100vh;
+    padding: 55px 0 60px 0;
+    width: calc(100% - 20px);
+    margin: 0 auto;
 }
 
+@include SCAlert.render();
 @include SCButton.render(
     $shape-settings: (
         'shape': pill
@@ -87,5 +96,5 @@ body {
         'filled'
     )
 );
-
-@include SCNavbar.render();
+@include SCHeader.render();
+@include SCNavbar.render($nav-contents: 4);

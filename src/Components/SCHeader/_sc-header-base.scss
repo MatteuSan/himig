@@ -20,60 +20,50 @@
 // SOFTWARE.
 //
 
-@use '../../../Core/Typography';
-@use '../../../Core/Tools';
-@use '../../../Core/Theme';
-
-@use 'sass:map';
+@use '../../Core/Typography';
+@use '../../Core/Theme';
+@use '../../Core/Tools';
 
 @mixin base() {
-    .sc-nav__item {
-        margin: 0 auto;
-        cursor: pointer;
-        color: currentColor !important;
-        display: flex;
-        align-items: center;
-        height: 24px;
+    .sc-header {
+        width: 100%;
+        position: fixed;
+        top: 0;
+        z-index: 100;
+        height: auto;
 
-        & > a,
-        & > p {
-            display: block;
-            color: inherit;
+        @include Tools.prefix(transition, all 0.1s ease);
 
-            &:hover {
-                filter: brightness(70%);
+        .sc-header__wrap {
+            display: flex;
+            justify-content: space-between !important;
+            align-items: center !important;
+            position: relative;
+
+            .sc-header__text {
+                padding: 0.3rem 0.7rem;
+                font-size: Typography.px-to-rem(20px);
+                @include Tools.prefix(transition, all 0.1s ease);
+
+                & > * {
+                    color: inherit;
+                }
+
+                @media (min-width: Theme.get-breakpoint('medium')) {
+                    padding: 0.3rem 0.7rem 0.3rem 0;
+                }
+
+                &.invisible {
+                    display: none;
+                }
             }
-        }
-
-        &.active {
-            color: var(--sc-theme--secondary) !important;
-        }
-
-        .sc-nav__item__icon {
-            font-size: Typography.px-to-rem(24px);
-            color: inherit !important;
-
-            @include Tools.prefix(transition, all 0.1s ease);
 
             @media (min-width: Theme.get-breakpoint('medium')) {
-                margin-top: 4px;
+                width: calc(100% - 34px);
+                margin: 0 auto;
             }
         }
 
-        .sc-nav__item__text {
-            font-size: Typography.px-to-rem(12px) !important;
-            margin-top: -3px;
-            color: inherit !important;
-
-            @media (min-width: Theme.get-breakpoint('medium')) {
-                display: none !important;
-                /*font-size: 16px!important;
-                margin-top: 0;*/
-            }
-        }
-
-        &[data-tooltip] {
-            //Tooltip
-        }
+        @content;
     }
 }

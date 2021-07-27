@@ -98,7 +98,7 @@ $_valid-typography-queries: (
     @if $_valid-typography-theme {
 
         @if Feature.has-property($typography-theme, 'font-size') {
-            $_font-size: map.get($typography-theme, 'font-size');
+            $_font-size: px-to-rem(map.get($typography-theme, 'font-size'));
             font-size: $_font-size;
         }
 
@@ -109,7 +109,7 @@ $_valid-typography-queries: (
 
         @if Feature.has-property($typography-theme, 'letter-spacing') {
             $_letter-spacing: map.get($typography-theme, 'letter-spacing');
-            letter-spacing: $_letter-spacing;
+            letter-spacing: get-letter-spacing($_letter-spacing);
         }
 
         @if Feature.has-property($typography-theme, 'text-decoration') {

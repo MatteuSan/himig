@@ -40,81 +40,82 @@
     <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
 </head>
 
+
+<header class="sc-header" x-data="{ drawer_open: false }">
+
+    <div class="sc-header__wrap">
+
+        <div class="sc-header__text">
+            <a href="./"><h2>Stack</h2></a>
+        </div>
+
+        <nav class="sc-nav">
+            <div class="sc-nav__container">
+                <div class="sc-nav__item active" data-tooltip="Home">
+                    <a href="#">
+                        <p class="sc-nav__item__icon material-icons">home</p>
+                        <p class="sc-nav__item__text">Home</p>
+                    </a>
+                </div>
+                <div class="sc-nav__item" data-tooltip="Documentation">
+                    <a href="#">
+                        <p class="sc-nav__item__icon material-icons">description</p>
+                        <p class="sc-nav__item__text">Docs</p>
+                    </a>
+                </div>
+                <div class="sc-nav__item" data-tooltip="Notifications">
+                    <a href="#">
+                        <p class="sc-nav__item__icon material-icons">notifications</p>
+                        <p class="sc-nav__item__text">Inbox</p>
+                    </a>
+                </div>
+                <div @click.prevent="drawer_open = !drawer_open" class="sc-nav__item" :data-tooltip="drawer_open ? 'Close' : 'More...'">
+                    <a href="#">
+                        <p class="sc-nav__item__icon material-icons" x-text="drawer_open ? 'close' : 'menu'">pending</p>
+                        <p class="sc-nav__item__text" x-text="drawer_open ? 'Close' : 'More'"></p>
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+    </div>
+
+</header>
+
+
 <body>
 
-    <section class="header-section">
+    <main class="wrap--content">
+        <div class="sc-alert">
+            <span class="sc-alert__icon material-icons-outlined">info</span>
+            <p class="sc-alert__text">This is an alert</p>
+        </div>
 
-        <header class="header" x-data="{ drawer_open: false }">
+        <div class="sc-alert sc-alert--error">
+            <span class="sc-alert__icon material-icons-outlined">error_outline</span>
+            <p class="sc-alert__text">This is an alert</p>
+        </div>
 
-            <div class="header__wrap">
+        <div class="sc-alert sc-alert--warning">
+            <span class="sc-alert__icon material-icons-outlined">warning_amber</span>
+            <p class="sc-alert__text">This is an alert</p>
+        </div>
 
-                <div class="header__text">
-                    <a href="./"><h2>Stack</h2></a>
-                </div>
+        <div class="sc-alert sc-alert--success">
+            <span class="sc-alert__icon material-icons-outlined">check_circle</span>
+            <p class="sc-alert__text">This is an alert</p>
+        </div>
 
-                <nav class="sc-nav">
-                    <div class="sc-nav__container">
-                        <div class="sc-nav__item active" data-tooltip="Home">
-                            <a href="#">
-                                <p class="sc-nav__item__icon material-icons">home</p>
-                                <p class="sc-nav__item__text">Home</p>
-                            </a>
-                        </div>
-                        <div class="sc-nav__item" data-tooltip="Documentation">
-                            <a href="#">
-                                <p class="sc-nav__item__icon material-icons">description</p>
-                                <p class="sc-nav__item__text">Docs</p>
-                            </a>
-                        </div>
-                        <div class="sc-nav__item" data-tooltip="Notifications">
-                            <a href="#">
-                                <p class="sc-nav__item__icon material-icons">notifications</p>
-                                <p class="sc-nav__item__text">Inbox</p>
-                            </a>
-                        </div>
-                        <div class="sc-nav__item" data-tooltip="More...">
-                            <a href="#">
-                                <p @click.prevent="drawer_open = !drawer_open" class="sc-nav__item__icon material-icons" x-text="drawer_open ? 'close' : 'menu'"></p>
-                                <p class="sc-nav__item__text">More</p>
-                            </a>
-                        </div>
-                    </div>
-                </nav>
+        <button class="sc-button sc-button--filled">
+            <i class="material-icons sc-button__icon">thumb_up</i>
+            <span class="sc-button__label">Button</span>
+        </button>
 
-            </div>
-
-        </header>
-    </section>
-
-    <button class="sc-button my-custom-button">
-        <i class="material-icons sc-button__icon">thumb_up</i>
-        <span class="sc-button__label">Button</span>
-    </button>
-
-    <button class="sc-button sc-button--outlined">
-        <i class="material-icons sc-button__icon">thumb_up</i>
-        <span class="sc-button__label">Button</span>
-    </button>
-
-    <button class="sc-button sc-button--filled">
-        <i class="material-icons sc-button__icon">thumb_up</i>
-        <span class="sc-button__label">Button</span>
-    </button>
-
-    <button class="sc-button" disabled>
-        <i class="material-icons sc-button__icon sc-button__icon--loading">hourglass_empty</i>
-        <span class="sc-button__label">Loading...</span>
-    </button>
-
-    <button class="sc-button sc-button--outlined" disabled>
-        <i class="material-icons sc-button__icon sc-button__icon--loading">hourglass_empty</i>
-        <span class="sc-button__label">Loading...</span>
-    </button>
-
-    <button class="sc-button sc-button--filled" disabled>
-        <i class="material-icons sc-button__icon sc-button__icon--loading">hourglass_empty</i>
-        <span class="sc-button__label">Loading...</span>
-    </button>
+        <button class="sc-button sc-button--filled" disabled>
+            <i class="material-icons sc-button__icon sc-button__icon--loading">hourglass_empty</i>
+            <span class="sc-button__label">Loading...</span>
+        </button>
+    </main>
 
 </body>
 </html>

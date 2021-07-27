@@ -45,9 +45,8 @@ $init-shape-theme: (
 );
 
 $init-typography-theme: (
-    'font-size': Typography.px-to-rem(14px),
+    'font-size': 14px,
     'font-weight': 700,
-    'letter-spacing': Typography.get-letter-spacing(1px),
     'text-decoration': inherit,
     'text-transform': inherit,
 );
