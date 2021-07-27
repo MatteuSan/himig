@@ -20,3 +20,12 @@
 // SOFTWARE.
 //
 
+$init-color-theme: (
+    'default': (#232323, #fff),
+    'elevation': #000
+);
+
+$init-shape-theme: (
+    'shape': default,
+    'border-radius': 0.3rem
+);

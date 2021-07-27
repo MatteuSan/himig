@@ -24,6 +24,8 @@
 @use '../../../Core/Tools';
 @use '../../../Core/Theme';
 
+@use '../../SCTooltip';
+
 @use 'sass:map';
 
 @mixin base() {
@@ -72,8 +74,6 @@
             }
         }
 
-        &[data-tooltip] {
-            //Tooltip
-        }
+        @include SCTooltip.render($bottom-position: calc(-100% - 10px));
     }
 }

@@ -20,3 +20,30 @@
 // SOFTWARE.
 //
 
+@use '../../Core/Color';
+@use '../../Core/Shape';
+@use '../../Core/Typography';
+@use '../../Core/Elevation';
+
+@use 'sass:map';
+
+@use 'sc-tooltip-base' as base;
+@use 'sc-tooltip-theme' as theme;
+
+@mixin render(
+    $color-theme: (),
+    $shape-theme: (),
+    $typography-theme: (),
+    $bottom-position: (),
+    $mobile-visibility: false
+) {
+
+    $_color-theme: map.merge(theme.$init-color-theme, $color-theme);
+    $_shape-theme: map.merge(theme.$init-shape-theme, $shape-theme);
+
+    @include base.base($bottom-position, $mobile-visibility) {
+        @include Color.apply('filled', $_color-theme, $query-settings: ('no-elevation'));
+        @include Shape.apply($_shape-theme);
+    }
+
+}

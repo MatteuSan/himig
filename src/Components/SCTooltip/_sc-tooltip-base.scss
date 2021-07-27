@@ -20,3 +20,49 @@
 // SOFTWARE.
 //
 
+@use '../../Core/Elevation';
+@use '../../Core/Feature';
+@use '../../Core/Tools';
+@use '../../Core/Theme';
+
+@mixin base($bottom-position: calc(100% + 2px), $is-mobile-visible: false) {
+    &[data-tooltip] {
+        position: relative;
+
+        &::after {
+            // TAKE CONTENT DATA
+            content: attr(data-tooltip);
+            // STYLING
+            display: block;
+            position: absolute;
+            padding: 0.5rem 0.7rem;
+            font-size: 0.75rem;
+            bottom: $bottom-position;
+
+            margin-left: 50%;
+            transform: translateX(-50%);
+
+            z-index: 100;
+            opacity: 0;
+            transition: opacity ease-in-out 200ms;
+            pointer-events: none;
+            text-align: center;
+            white-space: nowrap;
+
+            @include Elevation.apply(5);
+            @include Tools.prefix(transition, all 0.1s ease);
+
+            @content;
+
+            @if $is-mobile-visible == false {
+                @media (max-width: Theme.get-breakpoint('medium')) {
+                    display: none !important;
+                }
+            }
+        }
+
+        &:hover::after {
+            opacity: 1;
+        }
+    }
+}
