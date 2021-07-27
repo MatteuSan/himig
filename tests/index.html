@@ -33,9 +33,10 @@
     <title>Scaffold Test</title>
 
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/index.js" defer></script>
 
     <!-- JS LIBS -->
-    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 
     <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
     <script src="https://kit.fontawesome.com/0fb562e3a8.js" crossorigin="anonymous"></script>
@@ -71,10 +72,10 @@
                         <p class="sc-nav__item__text">Inbox</p>
                     </a>
                 </div>
-                <div @click.prevent="drawer_open = !drawer_open" class="sc-nav__item" :data-tooltip="drawer_open ? 'Close' : 'More...'">
+                <div class="sc-nav__item sc-drawer__trigger" data-tooltip="More...">
                     <a href="#">
-                        <p class="sc-nav__item__icon material-icons" x-text="drawer_open ? 'close' : 'menu'">pending</p>
-                        <p class="sc-nav__item__text" x-text="drawer_open ? 'Close' : 'More'"></p>
+                        <p class="sc-nav__item__icon sc-drawer__trigger__icon material-icons">pending</p>
+                        <p class="sc-nav__item__text">More</p>
                     </a>
                 </div>
             </div>
@@ -88,6 +89,11 @@
 <body>
 
     <main class="wrap--content">
+
+        <div class="sc-drawer">
+            drawer
+        </div>
+
         <div class="sc-alert">
             <span class="sc-alert__icon material-icons-outlined">info</span>
             <p class="sc-alert__text">This is an alert</p>
