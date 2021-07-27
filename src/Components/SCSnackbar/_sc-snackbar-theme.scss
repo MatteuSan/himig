@@ -20,10 +20,16 @@
 // SOFTWARE.
 //
 
-@use '../../Core/Theme';
-@use '../../Core/Tools';
-@use '../../Core/Feature';
+$init-color-theme: (
+    'default': (#232323, #fff),
+    'elevation': #000
+);
 
-@mixin base() {
-    //
-}
+$init-shape-theme: (
+    'shape': default,
+    'border-radius': 0.3rem
+);
+
+$init-typography-theme: (
+    'font-size': 14px
+);

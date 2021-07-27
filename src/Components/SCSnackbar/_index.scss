@@ -20,6 +20,5 @@
 // SOFTWARE.
 //
 
-$init-color-theme: ();
-$init-shape-theme: ();
-$init-typography-theme: ();
+@forward 'sc-snackbar-styles' show render;
+@forward 'sc-snackbar-base' show base;

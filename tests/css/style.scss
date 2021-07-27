@@ -29,8 +29,11 @@
 
 @use '../../src/Components/SCAlert';
 @use '../../src/Components/SCButton';
+@use '../../src/Components/SCCard';
 @use '../../src/Components/SCHeader';
 @use '../../src/Components/SCNavbar';
+@use '../../src/Components/SCTextField';
+@use '../../src/Components/SCSnackbar';
 
 @use 'sass:meta';
 
@@ -54,8 +57,6 @@ $_screen-sizes: (
         $primary,
         $secondary,
         $_screen-sizes,
-        $input: #232323,
-        $on-input: #fff,
         $surface: #001021,
         $on-surface: #fff
     );
@@ -82,6 +83,7 @@ body {
     min-height: 100vh;
     padding: 55px 0 60px 0;
     width: calc(100% - 20px);
+    max-width: 1077px;
     margin: 0 auto;
 }
 
@@ -96,5 +98,8 @@ body {
         'filled'
     )
 );
+@include SCCard.render();
 @include SCHeader.render();
 @include SCNavbar.render($nav-contents: 4);
+@include SCTextField.render();
+@include SCSnackbar.render();

@@ -20,5 +20,14 @@
 // SOFTWARE.
 //
 
-@forward 'sc-card-styles' show render;
-@forward 'sc-card-base' show base;
+$init-color-theme: (
+    'default': (var(--sc-theme--primary-light), #fff),
+    'elevation': #000
+);
+
+$init-shape-theme: (
+    'shape': default,
+    'border-radius': 0.3rem
+);
+
+$init-typography-theme: ();

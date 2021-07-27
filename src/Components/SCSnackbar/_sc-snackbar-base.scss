@@ -20,5 +20,44 @@
 // SOFTWARE.
 //
 
-@forward 'sc-card-styles' show render;
-@forward 'sc-card-base' show base;
+@use '../../Core/Tools';
+@use '../../Core/Theme';
+
+@mixin base() {
+    .sc-snackbar {
+        position: fixed;
+        width: calc(100% - 40px);
+        max-width: 420px;
+        padding: 14px 16px;
+        z-index: 1000;
+
+        bottom: 70px;
+        right: 20px;
+
+        border-left: none;
+
+        @content;
+
+        @include Tools.prefix(transition, all 0.1s ease);
+
+        @media (min-width: Theme.get-breakpoint('medium')) {
+            bottom: 30px;
+            right: 30px;
+            left: auto;
+        }
+
+        .sc-snackbar__wrap {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+
+            .sc-snackbar__label {
+                font-size: 15px;
+            }
+
+            .sc-snackbar__action {
+                padding: 0 !important;
+            }
+        }
+    }
+}

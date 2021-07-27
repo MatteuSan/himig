@@ -1,0 +1,36 @@
+@use '../Feature';
+
+// List of all valid structure properties
+$_valid-structs: (
+    'padding',
+    'margin',
+    'z-index',
+    ... (more will come)
+);
+
+// Initial concept:
+
+@include Structure.apply($structure-args);
+
+// ... = can take multiple arguments as long as we check that everything in the map is valid
+
+$structure-args: (
+    'property-in-string': value,
+    ...
+);
+
+@mixin apply($structure-theme) {
+    @each $property, $value in $structure-theme {
+        @if validate-structure_($property) == true {
+            #{$property}: #{$value};
+        }
+    }
+}
+
+@function validate-structure_($query) {
+    if not Feature.has-item($_valid-structs, $query) {
+        @error 'Structure property #{$query} is not a valid property. Please select from the following valid properties: #{$_valid-structs}.';
+    }
+
+    @return true
+}
