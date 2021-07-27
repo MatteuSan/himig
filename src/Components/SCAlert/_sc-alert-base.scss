@@ -28,16 +28,16 @@
         width: 100%;
         padding: 0.3rem 0.5rem;
         display: grid;
-        grid-gap: 0.7rem;
-        grid-template-columns: 20px auto;
+        grid-gap: 0.5rem;
+        grid-template-columns: 18px auto;
         align-items: center;
 
-        .alert__icon {
+        .sc-alert__icon {
             display: inline-block;
-            font-size: Typography.px-to-rem(20px);
+            font-size: Typography.px-to-rem(18px);
         }
 
-        .alert__text {
+        .sc-alert__text {
             display: inline-block;
             font-size: Typography.px-to-rem(14px);
         }
