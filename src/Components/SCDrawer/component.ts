@@ -62,9 +62,9 @@ class SCDrawer {
 
         Alpine.effect(() => {
             drawer.style.width = drawerData.drawer_open ? '100%' : '0';
-            drawerOverlay.style.opacity = drawerData.drawer_open ? '1' : '0';
+            drawer.style.opacity = drawerData.drawer_open ? '1' : '0';
+            drawerOverlay.style.width = drawerData.drawer_open ? '100%' : '0';
             drawerTriggerIcon.textContent = drawerData.drawer_open ? 'close' : 'menu';
-            console.log(drawerData.drawer_open);
         });
 
         drawerTrigger.addEventListener('click', () => {
