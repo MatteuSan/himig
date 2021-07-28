@@ -92,7 +92,7 @@ body {
 
 @include SCAlert.render();
 @include SCButton.render(
-    $shape-settings: (
+    $shape-theme: (
         'shape': pill
     ),
     $type: (
