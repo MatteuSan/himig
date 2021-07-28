@@ -1,10 +1,13 @@
 /.idea
 /node_modules
 /src/node_modules
-*.css
+
+/src/*.css
 *.css.map
 
-*.js
+/src/*.js
+scripts.js
 *.d.ts
 *.d.ts.map
 *.js.map
+/src/Components/SCDrawer/component.js

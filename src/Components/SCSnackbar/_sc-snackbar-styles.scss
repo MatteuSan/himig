@@ -41,9 +41,10 @@
     $_typography-theme: map.merge(theme.$init-typography-theme, $typography-theme);
 
     @include base.base() {
-        @include Color.apply('filled', $_color-theme);
+        @include Color.apply('filled', $_color-theme, $query-settings: ('no-elevation'));
         @include Shape.apply($_shape-theme);
         @include Typography.apply($_typography-theme);
+        @include Elevation.apply(5, $color: Color.get-color_(theme.$init-color-theme, 'fill', 'elevation'));
 
         &.sc-snackbar--error {
             border-left: 5px solid var(--sc-theme--error);

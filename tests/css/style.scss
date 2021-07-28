@@ -30,12 +30,11 @@
 @use '../../src/Components/SCAlert';
 @use '../../src/Components/SCButton';
 @use '../../src/Components/SCCard';
-//@use '../../src/Components/SCDrawer';
+@use '../../src/Components/SCDrawer';
 @use '../../src/Components/SCHeader';
 @use '../../src/Components/SCNavbar';
 @use '../../src/Components/SCProfile';
 @use '../../src/Components/SCTextField';
-//@use '../../src/Components/SCTitleBar';
 @use '../../src/Components/SCTooltip';
 @use '../../src/Components/SCSnackbar';
 
@@ -103,6 +102,7 @@ body {
     )
 );
 @include SCCard.render();
+@include SCDrawer.render();
 @include SCHeader.render();
 @include SCNavbar.render($nav-contents: 4);
 @include SCProfile.render();

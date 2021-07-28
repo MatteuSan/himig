@@ -44,6 +44,7 @@
     @include base.base($bottom-position, $mobile-visibility) {
         @include Color.apply('filled', $_color-theme, $query-settings: ('no-elevation'));
         @include Shape.apply($_shape-theme);
+        @include Elevation.apply(5, $color: Color.get-color_(theme.$init-color-theme, 'fill', 'elevation'));
     }
 
 }

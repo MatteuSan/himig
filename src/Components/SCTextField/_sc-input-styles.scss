@@ -44,7 +44,6 @@
         @include Color.apply('filled', $_color-theme, $query-settings: ('no-elevation'));
         @include Shape.apply($_shape-theme);
         @include Typography.apply($_typography-theme);
-        @include Elevation.apply(0);
     }
 
 }

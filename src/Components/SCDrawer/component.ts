@@ -28,22 +28,26 @@ import Alpine from 'alpinejs';
 export interface SCDrawerConstructor {
     trigger?: string;
     triggerIcon?: string;
-    drawerClass?: string
+    drawerClass?: any
 }
 
 class SCDrawer {
 
-    call(opt?: SCDrawerConstructor) {
+    enable(opt?: SCDrawerConstructor) {
 
         const {
             trigger = ".sc-drawer__trigger",
             triggerIcon = ".sc-drawer__trigger__icon",
-            drawerClass = ".sc-drawer"
+            drawerClass = {
+                component: ".sc-drawer",
+                overlay: ".sc-drawer__overlay"
+            }
         } = opt || {};
 
         const drawerTrigger: any = document.querySelector(trigger);
         const drawerTriggerIcon: any = document.querySelector(triggerIcon);
-        const drawer: any = document.querySelector(drawerClass);
+        const drawer: any = document.querySelector(drawerClass.component);
+        const drawerOverlay: any = document.querySelector(drawerClass.overlay);
 
         if (!drawerTrigger) {
             throw new Error('Drawer trigger class is not provided! Please provide a trigger class')
@@ -52,21 +56,23 @@ class SCDrawer {
             throw new Error('Drawer class is not provided! Please provide a class')
         }
 
-        let drawerData = Alpine.reactive({ drawer_open: true });
+        let drawerData = Alpine.reactive({
+            drawer_open: false
+        });
 
         Alpine.effect(() => {
-            drawer.show = drawerData.drawer_open;
+            drawer.style.width = drawerData.drawer_open ? '100%' : '0';
+            drawerOverlay.style.opacity = drawerData.drawer_open ? '1' : '0';
             drawerTriggerIcon.textContent = drawerData.drawer_open ? 'close' : 'menu';
             console.log(drawerData.drawer_open);
         });
 
-        drawerTrigger.addEventListener('click', function(){
-            drawerData = !drawerData;
+        drawerTrigger.addEventListener('click', () => {
+            drawerData.drawer_open = !drawerData.drawer_open;
         });
 
     }
 
 }
-
 
 export default SCDrawer;

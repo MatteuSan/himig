@@ -36,7 +36,7 @@
     <script src="js/index.js" defer></script>
 
     <!-- JS LIBS -->
-    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <!--<script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>-->
 
     <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
     <script src="https://kit.fontawesome.com/0fb562e3a8.js" crossorigin="anonymous"></script>
@@ -44,7 +44,7 @@
 </head>
 
 
-<header class="sc-header" x-data="{ drawer_open: false }">
+<header class="sc-header">
 
     <div class="sc-header__wrap">
 
@@ -85,14 +85,37 @@
 
 </header>
 
+<div class="sc-drawer__overlay" x-show="drawer_open">
+    <div class="sc-drawer" x-show="drawer_open">
+        <div class="wrap--text">
+
+            <a class="sc-drawer__item sc-button">
+                <i class="sc-button__icon material-icons">dns</i>
+                <span class="sc-button__label">Stack Repository</span>
+            </a>
+
+            <a class="sc-drawer__item sc-button">
+                <i class="sc-button__icon material-icons">fastfood</i>
+                <span class="sc-button__label">Fast Food</span>
+            </a>
+
+            <a class="sc-drawer__item sc-button">
+                <i class="sc-button__icon material-icons">person</i>
+                <span class="sc-button__label">Hit list</span>
+            </a>
+
+            <a class="sc-drawer__item sc-button">
+                <i class="sc-button__icon material-icons">event_seat</i>
+                <span class="sc-button__label">Cock and Ball Torture</span>
+            </a>
+
+        </div>
+    </div>
+</div>
 
 <body>
 
     <main class="wrap--content">
-
-        <div class="sc-drawer">
-            drawer
-        </div>
 
         <div class="sc-alert">
             <span class="sc-alert__icon material-icons-outlined">info</span>

@@ -22,6 +22,5 @@
  *
  */
 
-// Experimental
 import SCDrawer from '../../src/Components/SCDrawer/component';
-new SCDrawer().call();
+new SCDrawer().enable();

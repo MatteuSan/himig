@@ -20,3 +20,13 @@
 // SOFTWARE.
 //
 
+$init-color-theme: (
+    'default': (var(--sc-theme--primary-light), var(--sc-theme--primary-dark)),
+    'elevation': #000
+);
+
+$init-shape-theme: (
+    'shape': block
+);
+
+$init-typography-theme: ();
