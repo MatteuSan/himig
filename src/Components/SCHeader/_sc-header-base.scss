@@ -49,7 +49,7 @@
                     color: inherit;
                 }
 
-                @media (min-width: Theme.get-breakpoint('medium')) {
+                @media (Theme.get-breakpoint('medium')) {
                     padding: 0.3rem 0.7rem 0.3rem 0;
                 }
 
@@ -58,7 +58,7 @@
                 }
             }
 
-            @media (min-width: Theme.get-breakpoint('medium')) {
+            @media (Theme.get-breakpoint('medium')) {
                 width: calc(100% - 34px);
                 margin: 0 auto;
             }
