@@ -34,7 +34,11 @@
 $_prefix: 'sc';
 $_valid-screen-properties: ('small', 'medium', 'large', 'xlarge');
 
-$breakpoints: () !default;
+$breakpoints: (
+    'small': 320px,
+    'medium': 540px,
+    'large': 850px,
+) !default;
 
 @mixin config(
     $primary-color,
