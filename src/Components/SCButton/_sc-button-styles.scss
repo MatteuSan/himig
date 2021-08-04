@@ -47,6 +47,22 @@
 
     // Base
     @include base.base() {
+
+        .sc-button__ripple {
+            position: absolute;
+            border-radius: 50%;
+            transform: scale(0);
+            animation: ripple 600ms linear;
+            background-color: rgba(Color.get-color_($_color-theme, 'fill', 'ripple'), 0.25);
+        }
+
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
         @if Feature.has-item($type, default) or Feature.has-item($type, text) {
             @include Color.apply('text', $_color-theme, $_scope-exceptions);
             @include Typography.apply($_typography-theme);

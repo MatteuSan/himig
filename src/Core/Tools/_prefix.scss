@@ -22,13 +22,54 @@
 
 $_valid-prefixes: ('webkit', 'ms', 'moz', 'o');
 
-@mixin prefix($property, $value) {
+//
+// IMPORTANT NOTE:
+// The current mixin will be changed with a more abstracted and efficient one.
+// The only reason for doing it light this is for quick CSS fixing.
+//
 
-    $prefixes-map: $_valid-prefixes;
+@mixin prefix($property, $value, $targets: all) {
 
-    @each $prefix in $prefixes-map {
-        #{'-' + $prefix + '-' + $property}: $value;
+    @if not ($targets == all) {
+
+        $prefixes-map: $targets;
+
+        @each $prefix in $prefixes-map {
+            #{'-' + $prefix + '-' + $property}: $value;
+        }
+
+        #{$property}: $value;
+
+    } @else if ($property == box-shadow) {
+
+        $prefixes-map: ('webkit', 'ms');
+
+        @each $prefix in $prefixes-map {
+            #{'-' + $prefix + '-' + $property}: $value;
+        }
+
+        #{$property}: $value;
+
+    } @else if ($property == transition) {
+
+        $prefixes-map: ('webkit');
+
+        @each $prefix in $prefixes-map {
+            #{'-' + $prefix + '-' + $property}: $value;
+        }
+
+        #{$property}: $value;
+
+    } @else {
+
+        $prefixes-map: $_valid-prefixes;
+
+        @each $prefix in $prefixes-map {
+            #{'-' + $prefix + '-' + $property}: $value;
+        }
+
+        #{$property}: $value;
+
     }
 
-    #{$property}: $value;
 }

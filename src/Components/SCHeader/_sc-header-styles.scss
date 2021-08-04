@@ -47,4 +47,20 @@
         @include Elevation.apply(5, $color: Color.get-color_($_color-theme, 'fill', 'elevation'));
     }
 
+    @include base.base() {
+        &.sc-header--scrollable {
+            background: Color.get-color_($_color-theme, 'fill', 'scrollable');
+            border-color: Color.get-color_($_color-theme, 'fill', 'scrollable');
+            color: Color.get-color_($_color-theme, 'ink', 'scrollable');
+            @include Elevation.apply(0, $color: Color.get-color_($_color-theme, 'fill', 'elevation'));
+
+            &.scrolled {
+                @include Color.apply('filled', $_color-theme);
+                @include Shape.apply($_shape-theme);
+                @include Typography.apply($_typography-theme);
+                @include Elevation.apply(5, $color: Color.get-color_($_color-theme, 'fill', 'elevation'));
+            }
+        }
+    }
+
 }

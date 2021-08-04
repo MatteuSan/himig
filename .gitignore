@@ -11,3 +11,5 @@ scripts.js
 *.d.ts.map
 *.js.map
 /src/Components/SCDrawer/component.js
+/src/Components/SCButton/component.js
+/src/Components/SCHeader/component.js

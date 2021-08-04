@@ -32,7 +32,8 @@ $init-color-theme: (
     'focus': (var(--sc-theme--secondary), var(--sc-theme--on-secondary)),
     'active': (var(--sc-theme--secondary-light), var(--sc-theme--on-secondary)),
     'disabled': (var(--sc-theme--secondary-dark), var(--sc-theme--on-secondary)),
-    'elevation': #000
+    'elevation': #000,
+    'ripple': var(--sc-theme--secondary-light),
 );
 
 // Clips are disabled until further notice

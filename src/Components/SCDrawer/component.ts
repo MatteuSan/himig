@@ -28,26 +28,26 @@ import Alpine from 'alpinejs';
 export interface SCDrawerConstructor {
     trigger?: string;
     triggerIcon?: string;
-    drawerClass?: any
+    drawerClasses?: any;
 }
 
 class SCDrawer {
 
-    enable(opt?: SCDrawerConstructor) {
+    render(opt?: SCDrawerConstructor) {
 
         const {
-            trigger = ".sc-drawer__trigger",
-            triggerIcon = ".sc-drawer__trigger__icon",
-            drawerClass = {
+            drawerClasses = {
                 component: ".sc-drawer",
                 overlay: ".sc-drawer__overlay"
-            }
+            },
+            trigger = ".sc-drawer__trigger",
+            triggerIcon = ".sc-drawer__trigger__icon"
         } = opt || {};
 
         const drawerTrigger: any = document.querySelector(trigger);
         const drawerTriggerIcon: any = document.querySelector(triggerIcon);
-        const drawer: any = document.querySelector(drawerClass.component);
-        const drawerOverlay: any = document.querySelector(drawerClass.overlay);
+        const drawer: any = document.querySelector(drawerClasses.component);
+        const drawerOverlay: any = document.querySelector(drawerClasses.overlay);
 
         if (!drawerTrigger) {
             throw new Error('Drawer trigger class is not provided! Please provide a trigger class')

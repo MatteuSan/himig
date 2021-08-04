@@ -21,7 +21,7 @@
 //
 
 $init-color-theme: (
-    'default': (var(--sc-theme--primary-light), #fff),
+    'default': (var(--sc-theme--primary-light), var(--sc-theme--on-primary)),
     'elevation': #000
 );
 

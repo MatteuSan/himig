@@ -22,8 +22,37 @@
  *
  */
 
-import SCDrawer from '../../src/Components/SCDrawer/component';
-import SCHeader from '../../src/Components/SCHeader/component';
+// @ts-ignore
+import Alpine from 'alpinejs';
 
-new SCDrawer().render();
-new SCHeader().renderScrollable({ breakpointElement: '.banner' });
+class SCButton {
+    ripple() {
+        function createRipple(event: any) {
+            const button: any = event.currentTarget;
+            const circle: any = document.createElement('span');
+            const diameter: any = Math.max(button.clientWidth, button.clientHeight);
+            const radius: any = diameter / 2;
+
+            circle.style.width = circle.style.height = `${diameter}px`;
+            circle.style.left = `${event.clientX - button.offsetLeft - radius}px`;
+            circle.style.top = `${event.clientY - button.offsetTop - radius}px`;
+            circle.classList.add('sc-button__ripple');
+
+            const ripple = button.getElementsByClassName('sc-button__ripple')[0];
+
+            if (ripple) {
+                ripple.remove();
+            }
+
+            button.appendChild(circle);
+        }
+
+        const buttons: any = document.querySelector('.sc-button');
+
+        for (const button of buttons) {
+            button.addEventListener("click", createRipple);
+        }
+    }
+}
+
+export default SCButton;
