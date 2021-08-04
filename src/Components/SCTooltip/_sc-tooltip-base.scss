@@ -57,6 +57,7 @@
             @if $is-mobile-visible == false {
                 @media (max-width: Theme.get-breakpoint('medium')) {
                     display: none !important;
+                    opacity: 0 !important;
                 }
             }
         }

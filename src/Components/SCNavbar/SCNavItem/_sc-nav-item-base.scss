@@ -53,7 +53,7 @@
 
         .sc-nav__item__icon {
             font-size: Typography.px-to-rem(24px);
-            color: inherit !important;
+            color: inherit;
 
             @include Tools.prefix(transition, all 0.1s ease);
 
