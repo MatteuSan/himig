@@ -43,12 +43,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
-$primary: #12305e;
-$secondary: #d49a10;
-//$secondary: desaturate(Color.color-darken($_secondary), 30%);
-
-$test: default !important;
-
 $_screen-sizes: (
     'small': 320px,
     'medium': 540px,
@@ -57,8 +51,8 @@ $_screen-sizes: (
 
 :root {
     @include Theme.config(
-        $primary,
-        $secondary,
+        #12305e,
+        #d49a10,
         $_screen-sizes,
         $surface: #001021,
         $on-surface: #fff

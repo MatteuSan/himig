@@ -23,5 +23,7 @@
  */
 
 import SCHeader from '../../src/Components/SCHeader/component';
+import SCDrawer from "../../src/Components/SCDrawer/component";
 
+new SCDrawer().render();
 new SCHeader().renderScrollable({ breakpointElement: '.banner' });

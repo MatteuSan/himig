@@ -27,6 +27,7 @@
 
 $_valid-prefixes: ('webkit', 'ms', 'moz', 'o');
 $_pref-prop-reference: p.$prefix-properties;
+$_pref-value-reference: p.$prefix-values;
 
 @mixin prefix-property($property, $value, $targets: all) {
 
@@ -54,7 +55,7 @@ $_pref-prop-reference: p.$prefix-properties;
 
 }
 
-@mixin prefix-value($value, $targets: all) {
+@function prefix-value($value, $targets: all) {
 
     //
 
