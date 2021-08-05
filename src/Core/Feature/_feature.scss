@@ -29,18 +29,17 @@
 }
 
 @function has-property($reference, $query) {
-    @if map.has-key($reference, $query) {
-        @return true
-    } @else {
-        @return false
+    @if not map.has-key($reference, $query) {
+        @return false;
     }
+    @return true;
 }
 
 @function validate-data-type($reference, $query) {
     @if meta.type-of($query) != unquote($reference) {
         @error 'Invalid #{$reference}: #{$query}. Expecting a #{$reference}';
     }
-    @return true
+    @return true;
 }
 
 @function is-empty($value) {

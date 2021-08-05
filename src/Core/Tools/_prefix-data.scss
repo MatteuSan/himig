@@ -20,30 +20,39 @@
 // SOFTWARE.
 //
 
-@use '../../Core/Color';
-@use '../../Core/Shape';
-@use '../../Core/Typography';
-@use '../../Core/Elevation';
+$prefix-properties: (
+    transition: (
+        'webkit'
+    ),
+    box-shadow: (
+        'webkit',
+        'ms'
+    ),
+    background-clip: (
+        'webkit'
+    ),
+    box-reflect: (
+        'webkit'
+    ),
+    filter: (
+        'webkit'
+    ),
+    word-break: (
+        'ms'
+    ),
+    object-fit: (
+        'o'
+    ),
+    transform: (
+        'webkit',
+        'ms'
+    ),
+    appearance: (
+        'webkit',
+        'moz'
+    )
+);
 
-@use 'sass:map';
-
-@use 'sc-card-base' as base;
-@use 'sc-card-theme' as theme;
-
-@mixin render(
-    $color-theme: (),
-    $shape-theme: (),
-    $typography-theme: ()
-) {
-
-    $_color-theme: map.merge(theme.$init-color-theme, $color-theme);
-    $_shape-theme: map.merge(theme.$init-shape-theme, $shape-theme);
-    $_typography-theme: map.merge(theme.$init-typography-theme, $typography-theme);
-
-    @include base.base() {
-        @include Color.apply('filled', $_color-theme);
-        @include Shape.apply($_shape-theme);
-        @include Typography.apply($_typography-theme);
-    }
-
-}
+$prefix-values: (
+    //
+);

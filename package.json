@@ -1,6 +1,6 @@
 {
   "name": "stack",
-  "version": "2.0.2",
+  "version": "2.0.5",
   "description": "GrowStocks' design system's open source UI components library for building beautiful, quick, responsive, and flexible user interfaces.",
   "main": "index.js",
   "directories": {

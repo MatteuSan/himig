@@ -20,7 +20,6 @@
 // SOFTWARE.
 //
 
-@use '../../Core/Elevation';
 @use '../../Core/Feature';
 @use '../../Core/Tools';
 @use '../../Core/Theme';
@@ -49,7 +48,6 @@
             text-align: center;
             white-space: nowrap;
 
-            @include Elevation.apply(5);
             @include Tools.prefix(transition, all 0.1s ease);
 
             @content;

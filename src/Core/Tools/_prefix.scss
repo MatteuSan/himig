@@ -20,7 +20,45 @@
 //  SOFTWARE.
 //
 
+@use '../Feature';
+@use 'sass:map';
+
+@use 'prefix-data' as p;
+
 $_valid-prefixes: ('webkit', 'ms', 'moz', 'o');
+$_pref-prop-reference: p.$prefix-properties;
+
+@mixin prefix-property($property, $value, $targets: all) {
+
+    @if Feature.has-property($_pref-prop-reference, $property) {
+
+        $_prefix-map: map.get($_pref-prop-reference, $property);
+
+        @each $prefix in $_prefix-map {
+            #{'-' + $prefix + '-' + $property}: $value;
+        }
+
+        #{$property}: $value;
+
+    } @else {
+
+        $_prefix-map: $_valid-prefixes;
+
+        @each $prefix in $_prefix-map {
+            #{'-' + $prefix + '-' + $property}: $value;
+        }
+
+        #{$property}: $value;
+
+    }
+
+}
+
+@mixin prefix-value($value, $targets: all) {
+
+    //
+
+}
 
 //
 // IMPORTANT NOTE:
@@ -30,46 +68,6 @@ $_valid-prefixes: ('webkit', 'ms', 'moz', 'o');
 
 @mixin prefix($property, $value, $targets: all) {
 
-    @if not ($targets == all) {
-
-        $prefixes-map: $targets;
-
-        @each $prefix in $prefixes-map {
-            #{'-' + $prefix + '-' + $property}: $value;
-        }
-
-        #{$property}: $value;
-
-    } @else if ($property == box-shadow) {
-
-        $prefixes-map: ('webkit', 'ms');
-
-        @each $prefix in $prefixes-map {
-            #{'-' + $prefix + '-' + $property}: $value;
-        }
-
-        #{$property}: $value;
-
-    } @else if ($property == transition) {
-
-        $prefixes-map: ('webkit');
-
-        @each $prefix in $prefixes-map {
-            #{'-' + $prefix + '-' + $property}: $value;
-        }
-
-        #{$property}: $value;
-
-    } @else {
-
-        $prefixes-map: $_valid-prefixes;
-
-        @each $prefix in $prefixes-map {
-            #{'-' + $prefix + '-' + $property}: $value;
-        }
-
-        #{$property}: $value;
-
-    }
+    @include prefix-property($property, $value, $targets);
 
 }
