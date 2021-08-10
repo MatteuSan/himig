@@ -103,7 +103,7 @@ body {
 );
 @include SCCard.render();
 @include SCDrawer.render();
-@include SCHeader.render();
+@include SCHeader.render($is-scrollable: true);
 @include SCNavbar.render($nav-contents: 4);
 @include SCProfile.render();
 @include SCTextField.render(

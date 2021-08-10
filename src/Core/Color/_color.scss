@@ -226,16 +226,6 @@ $_valid-query-settings: (
                     cursor: not-allowed;
                 }
             }
-        } @else {
-            &:disabled {
-                color: var(--on-undefined);
-                border: 1px solid var(--undefined);
-                background: var(--undefined);
-
-                @if Feature.has-item($_query-settings, 'has-elevation') {
-                    @include Elevation.apply(2, $_elevation-color);
-                }
-            }
         }
     }
 }
