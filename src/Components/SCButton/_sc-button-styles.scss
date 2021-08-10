@@ -20,10 +20,10 @@
 //  SOFTWARE.
 //
 
+@use '../../Core/Structure';
 @use '../../Core/Color';
 @use '../../Core/Shape';
 @use '../../Core/Typography';
-
 @use '../../Core/Feature';
 
 @use 'sass:map';
@@ -35,7 +35,7 @@
     $shape-theme: (),
     $typography-theme: (),
     $type: (
-        'default'
+        'all'
     )
 ) {
 
@@ -47,29 +47,13 @@
 
     // Base
     @include base.base() {
-
-        .sc-button__ripple {
-            position: absolute;
-            border-radius: 50%;
-            transform: scale(0);
-            animation: ripple 600ms linear;
-            background-color: rgba(Color.get-color_($_color-theme, 'fill', 'ripple'), 0.25);
-        }
-
-        @keyframes ripple {
-            to {
-                transform: scale(4);
-                opacity: 0;
-            }
-        }
-
-        @if Feature.has-item($type, default) or Feature.has-item($type, text) {
+        @if Feature.has-item($type, default) or Feature.has-item($type, text) or Feature.has-item($type, all) {
             @include Color.apply('text', $_color-theme, $_scope-exceptions);
             @include Typography.apply($_typography-theme);
             @include Shape.apply($_shape-theme);
         }
 
-        @if Feature.has-item($type, outlined) {
+        @if Feature.has-item($type, outlined) or Feature.has-item($type, all) {
             &.sc-button--outlined {
                 @include Color.apply('outlined', $_color-theme, $_scope-exceptions);
                 @include Typography.apply($_typography-theme);
@@ -77,14 +61,12 @@
             }
         }
 
-        @if Feature.has-item($type, filled) {
+        @if Feature.has-item($type, filled) or Feature.has-item($type, all) {
             &.sc-button--filled {
                 @include Color.apply('filled', $_color-theme, $_scope-exceptions);
                 @include Typography.apply($_typography-theme);
                 @include Shape.apply($_shape-theme);
             }
         }
-
-        @content
     }
 }

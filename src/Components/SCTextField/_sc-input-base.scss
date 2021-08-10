@@ -28,7 +28,7 @@
 @mixin base() {
     .sc-text-field {
         position: relative;
-        margin: 0 0 13px 0;
+        margin: 0;
         cursor: text;
         min-width: 300px;
         width: 100%;
@@ -53,6 +53,7 @@
 
             @include Tools.prefix(transition, all 0.1s ease);
 
+            border-width: 2px !important;
             padding: 1.4rem 0.5rem 0.4rem 0.5rem;
             font-size: Typography.px-to-rem(15px);
             resize: none;
@@ -73,7 +74,7 @@
 
             &:focus-within,
             &:not(:placeholder-shown) {
-                padding: 1.3rem 0.7rem 0.5rem 0.7rem;
+                padding: 1.4rem 0.6rem 0.4rem 0.6rem;
 
                 & + .sc-text-field__label {
                     width: auto;
@@ -82,7 +83,7 @@
 
                     top: 0.4rem;
 
-                    font-size: Typography.px-to-rem(12px);
+                    font-size: Typography.px-to-rem(11px);
 
                     pointer-events: none;
                 }
@@ -93,7 +94,7 @@
 
         .sc-text-field__helper {
             color: var(--sc-theme--on-surface);
-            font-size: Typography.px-to-rem(13px);
+            font-size: Typography.px-to-rem(12px);
             margin-top: 7px;
         }
 

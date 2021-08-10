@@ -34,12 +34,6 @@
 $_prefix: 'sc';
 $_valid-screen-properties: ('small', 'medium', 'large', 'xlarge');
 
-$breakpoints: (
-    'small': 320px,
-    'medium': 540px,
-    'large': 850px,
-) !default;
-
 @mixin config(
     $primary-color,
     $secondary-color: Color.color-get-complement($primary-color),
@@ -111,8 +105,15 @@ $breakpoints: (
     }
 }
 
-@function get-breakpoint($query) {
-    @return map.get($breakpoints, $query);
+$breakpoints: (
+    'small': 320px,
+    'medium': 540px,
+    'large': 850px,
+) !default;
+
+
+@function get-breakpoint($query, $reference: $breakpoints) {
+    @return map.get($reference, $query);
 }
 
 // @depricated - DO NOT USE!!!!

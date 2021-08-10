@@ -21,43 +21,15 @@
 //
 
 @use '../Feature';
-@use 'sass:map';
+@use '../Tools';
+@use 'sass:meta';
 
-@use 'prefix-data' as p;
+@mixin apply($structure-theme) {
 
-$_valid-prefixes: ('webkit', 'ms', 'moz', 'o');
-$_pref-prop-reference: p.$prefix-properties;
-$_pref-value-reference: p.$prefix-values;
+    @each $property, $value in $structure-theme {
 
-@mixin prefix-property($property, $value, $targets: all) {
-
-    @if not Feature.has-property($_pref-prop-reference, $property) {
-
-        #{$property}: $value;
-
-    } @else {
-
-        $_prefix-map: map.get($_pref-prop-reference, $property);
-
-        @each $prefix in $_prefix-map {
-            #{'-' + $prefix + '-' + $property}: $value;
-        }
-
-        #{$property}: $value;
+        @include Tools.prefix($property, $value);
 
     }
-
-}
-
-@function prefix-value($value, $targets: all) {
-
-    //
-
-}
-
-// Retained for backwards compatability
-@mixin prefix($property, $value, $targets: all) {
-
-    @include prefix-property($property, $value, $targets);
 
 }

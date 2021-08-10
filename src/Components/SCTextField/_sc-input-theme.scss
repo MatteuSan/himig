@@ -26,7 +26,10 @@ $init-color-theme: (
 
 $init-shape-theme: (
     'shape': default,
-    'border-radius': 0.3rem
+    'border-radius': 0.3rem,
+    'shape-exceptions': (
+        pill
+    ),
 );
 
 $init-typography-theme: (

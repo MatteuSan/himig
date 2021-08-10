@@ -20,44 +20,4 @@
 // SOFTWARE.
 //
 
-$prefix-properties: (
-    transition: (
-        'webkit'
-    ),
-    box-shadow: (
-        'webkit',
-        'ms'
-    ),
-    background-clip: (
-        'webkit'
-    ),
-    box-reflect: (
-        'webkit'
-    ),
-    filter: (
-        'webkit'
-    ),
-    word-break: (
-        'ms'
-    ),
-    object-fit: (
-        'o'
-    ),
-    transform: (
-        'webkit',
-        'ms'
-    ),
-    appearance: (
-        'webkit',
-        'moz'
-    ),
-    user-select: (
-        'webkit',
-        'moz',
-        'ms'
-    )
-);
-
-$prefix-values: (
-    //
-);
+@forward 'struct';

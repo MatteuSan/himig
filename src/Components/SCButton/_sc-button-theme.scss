@@ -25,7 +25,6 @@
 @use '../../Core/Color';
 @use 'sass:meta';
 
-// @docs syntax(fill-color, ink-color)
 $init-color-theme: (
     'default': (var(--sc-theme--secondary), var(--sc-theme--on-secondary)),
     'hover': (var(--sc-theme--secondary), var(--sc-theme--on-secondary)),
@@ -36,13 +35,10 @@ $init-color-theme: (
     'ripple': var(--sc-theme--secondary-light),
 );
 
-// Clips are disabled until further notice
 $init-shape-theme: (
     'shape': default,
     'border-radius': 0.3rem,
-    'shape-exceptions': (),
-    'clip-size': 0.3rem,
-    'custom-clip': (),
+    'shape-exceptions': ()
 );
 
 $init-typography-theme: (

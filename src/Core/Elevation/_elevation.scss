@@ -25,7 +25,7 @@
 @use 'sass:meta';
 @use 'sass:math';
 
-@use 'elevation-variables' as vars;
+@use 'elevation-variables' as ev;
 
 @mixin apply($level, $color: #000, $opacity-boost: 0) {
 
@@ -41,9 +41,9 @@
         @error "Got '#{$level}'. $z-value must be between 0 and 24";
     }
 
-    $_umbra: map.get(vars.$umbra-map, $level);
-    $_penumbra: map.get(vars.$penumbra-map, $level);
-    $_ambient: map.get(vars.$ambient-map, $level);
+    $_umbra: map.get(ev.$umbra-map, $level);
+    $_penumbra: map.get(ev.$penumbra-map, $level);
+    $_ambient: map.get(ev.$ambient-map, $level);
 
     $_umbra-color: rgba($color, $_umbra-opacity + $opacity-boost);
     $_penumbra-color: rgba($color, $_penumbra-opacity + $opacity-boost);
@@ -56,4 +56,5 @@
     $_value: (#{$_umbra-value}, #{$_penumbra-value}, #{$_ambient-value});
 
     @include Tools.prefix(box-shadow, $_value);
+
 }
