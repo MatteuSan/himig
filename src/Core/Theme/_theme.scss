@@ -33,16 +33,16 @@
 
 $_prefix: 'sc';
 $_valid-screen-properties: ('small', 'medium', 'large', 'xlarge');
+$_valid-color-variants: ('default', 'light', 'dark', 'ink');
 
 @mixin config(
-    $primary-color,
-    $secondary-color: Color.color-get-complement($primary-color),
+    $primary-color: (),
+    $secondary-color: Color.get-complement_(map.get($primary-color, 'default')),
     $screen-sizes: (),
     $args...
 ) {
 
-    $_primary-map: Color.color-split($primary-color);
-    $_secondary-map: Color.color-split($secondary-color);
+    $_valid-primary-map: Feature.validate-data-type('map', $primary-color);
 
     $_state-map: (
         'error': (#b00020, #fff),
@@ -50,27 +50,52 @@ $_valid-screen-properties: ('small', 'medium', 'large', 'xlarge');
         'success': (#25a53f, #fff),
     );
 
-    // Get properties for $_primary-map
-    @each $property, $value in $_primary-map {
-        @if $property == 'default' {
-            --#{$_prefix}-theme--primary: #{$value};
-        } @else {
-            --#{$_prefix}-theme--primary-#{$property}: #{$value};
+    // $primary module
+    @if _inspect-variant($primary-color) {
+
+        $_properties: _check-variants($primary-color);
+
+        $_color-map: Color.fill-missing($_properties, $primary-color);
+
+        @each $property, $value in $_color-map {
+            @if $property == 'default' {
+                --#{$_prefix}-theme--primary: #{$value};
+            } @else {
+                --#{$_prefix}-theme--primary-#{$property}: #{$value};
+            }
         }
+
     }
 
-    // Get properties for $_secondary-map
-    @each $property, $value in $_secondary-map {
-        @if $property == 'default' {
-            --#{$_prefix}-theme--secondary: #{$value};
-        } @else {
-            --#{$_prefix}-theme--secondary-#{$property}: #{$value};
+    // $secondary module
+    @if _inspect-variant($secondary-color) {
+
+        $_properties: _check-variants($secondary-color);
+
+        $_color-map: Color.fill-missing($_properties, $secondary-color);
+
+        @each $property, $value in $_color-map {
+            @if $property == 'default' {
+                --#{$_prefix}-theme--secondary: #{$value};
+            } @else {
+                --#{$_prefix}-theme--secondary-#{$property}: #{$value};
+            }
         }
+
     }
 
-    // Get ink properties for $_primary-map
-    --#{$_prefix}-theme--on-primary: #{Color.get-ink($primary-color)};
-    --#{$_prefix}-theme--on-secondary: #{Color.get-ink($secondary-color)};
+    // Get ink properties for $_primary-map (already parsing maps) - to change in v2.0.0
+    @if Feature.has-property($primary-color, 'ink') {
+        --#{$_prefix}-theme--on-primary: #{map.get($primary-color, 'ink')};
+    } @else {
+        --#{$_prefix}-theme--on-primary: #{Color.get-ink_($primary-color)};
+    }
+
+    @if Feature.has-property($secondary-color, 'ink') {
+        --#{$_prefix}-theme--on-secondary: #{map.get($secondary-color, 'ink')};
+    } @else {
+        --#{$_prefix}-theme--on-secondary: #{Color.get-ink_($secondary-color)};
+    }
 
     /* STATES */
 
@@ -116,16 +141,36 @@ $breakpoints: (
     @return map.get($reference, $query);
 }
 
-// @depricated - DO NOT USE!!!!
-@mixin apply-theme() {
-    //
+@function _inspect-variant($query) {
+
+    @each $property, $value in $query {
+
+        @if not Feature.has-item($_valid-color-variants, $property) {
+            @error 'Invalid variant: #{$property}. The available queries are: #{$_valid-color-variants}';
+        }
+
+        @return true;
+
+    }
+
 }
 
-// @depricated - DO NOT USE!!!!
-@mixin create-property_($property, $value, $property-type: fill) {
-    @if $property-type == fill {
-        --#{$_prefix}--#{$property}: #{$value};
-    } @else if $property-type == ink {
-        --#{$_prefix}--on-#{$property}: #{$value};
+@function _check-variants($query) {
+
+    @if Feature.validate-data-type('map', $query) {
+
+        @return map.keys($query);
+
     }
+
+}
+
+@function _get-default($query) {
+
+    @if Feature.validate-data-type('map', $query) {
+
+        @return map.get($query, 'default');
+
+    }
+
 }

@@ -62,30 +62,30 @@ $_valid-query-settings: (
     $_scope: get-scope_($scope);
     $_scope-exceptions: $scope-exceptions;
     $_query-settings: $query-settings;
-    $_elevation-color: get-color_($color-theme, 'fill', 'elevation');
+    $_elevation-color: _get-color($color-theme, 'fill', 'elevation');
 
     // Handles scope-exceptions map
     @if Feature.has-item($_scope-exceptions, $_scope) {
-        @error 'The color scope #{$_scope} is disabled in this component. Please select another color scope.'
+        @error 'The color scope #{$_scope} is disabled in this component. Please select another color scope.';
     }
 
     // $_scope == text
     @if Feature.has-item($_scope, 'text') {
-        color: get-color_($color-theme, 'fill', 'default');
+        color: _get-color($color-theme, 'fill', 'default');
         border: none;
         background: hsl(0 0% 0% / 0);
         @include Elevation.apply(0, $_elevation-color);
 
         @if Feature.has-property($color-theme, 'hover') {
             &:hover {
-                color: get-color_($color-theme, 'fill', 'hover');
+                color: _get-color($color-theme, 'fill', 'hover');
                 cursor: pointer;
             }
         }
 
         @if Feature.has-property($color-theme, 'focus') {
             &:focus {
-                color: get-color_($color-theme, 'fill', 'focus');
+                color: _get-color($color-theme, 'fill', 'focus');
                 cursor: pointer;
                 //outline: solid rgba(#005cb1, 50%);
             }
@@ -93,30 +93,30 @@ $_valid-query-settings: (
 
         @if Feature.has-property($color-theme, 'active') {
             &:active {
-                color: get-color_($color-theme, 'fill', 'active');
+                color: _get-color($color-theme, 'fill', 'active');
                 cursor: pointer;
             }
         }
 
         @if Feature.has-property($color-theme, 'disabled') {
             &:disabled {
-                color: get-color_($color-theme, 'fill', 'disabled')
+                color: _get-color($color-theme, 'fill', 'disabled');
             }
         }
     }
 
     // $_scope == outlined
     @if Feature.has-item($_scope, 'outlined') {
-        color: get-color_($color-theme, 'fill', 'default');
-        border: 1px solid get-color_($color-theme, 'fill', 'default');
+        color: _get-color($color-theme, 'fill', 'default');
+        border: 1px solid _get-color($color-theme, 'fill', 'default');
         background: rgba(0 0 0 / 0);
         @include Elevation.apply(0, $_elevation-color);
 
         @if Feature.has-property($color-theme, 'hover') {
             &:hover {
-                color: get-color_($color-theme, 'ink', 'default');
-                background: get-color_($color-theme, 'fill', 'default');
-                border: 1px solid get-color_($color-theme, 'fill', 'default');
+                color: _get-color($color-theme, 'ink', 'default');
+                background: _get-color($color-theme, 'fill', 'default');
+                border: 1px solid _get-color($color-theme, 'fill', 'default');
                 cursor: pointer;
 
                 @if Feature.has-item($_query-settings, 'has-elevation') {
@@ -127,9 +127,9 @@ $_valid-query-settings: (
 
         @if Feature.has-property($color-theme, 'focus') {
             &:focus {
-                color: get-color_($color-theme, 'ink', 'focus');
-                background: get-color_($color-theme, 'fill', 'focus');
-                border: 1px solid get-color_($color-theme, 'fill', 'focus');
+                color: _get-color($color-theme, 'ink', 'focus');
+                background: _get-color($color-theme, 'fill', 'focus');
+                border: 1px solid _get-color($color-theme, 'fill', 'focus');
                 cursor: pointer;
 
                 @if Feature.has-item($_query-settings, 'has-elevation') {
@@ -140,9 +140,9 @@ $_valid-query-settings: (
 
         @if Feature.has-property($color-theme, 'active') {
             &:active {
-                color: get-color_($color-theme, 'ink', 'active');
-                background: get-color_($color-theme, 'fill', 'active');
-                border: 1px solid get-color_($color-theme, 'fill', 'active');
+                color: _get-color($color-theme, 'ink', 'active');
+                background: _get-color($color-theme, 'fill', 'active');
+                border: 1px solid _get-color($color-theme, 'fill', 'active');
                 cursor: pointer;
 
                 @if Feature.has-item($_query-settings, 'has-elevation') {
@@ -153,8 +153,8 @@ $_valid-query-settings: (
 
         @if Feature.has-property($color-theme, 'disabled') {
             &:disabled {
-                color: get-color_($color-theme, 'fill', 'disabled');
-                border: 1px solid get-color_($color-theme, 'fill', 'disabled');
+                color: _get-color($color-theme, 'fill', 'disabled');
+                border: 1px solid _get-color($color-theme, 'fill', 'disabled');
 
                 &:hover {
                     background: rgba(0 0 0 / 0%);
@@ -165,9 +165,9 @@ $_valid-query-settings: (
 
     // $_scope == filled
     @if Feature.has-item($_scope, 'filled') {
-        color: get-color_($color-theme, 'ink', 'default');
-        border: 1px solid get-color_($color-theme, 'fill', 'default');
-        background: get-color_($color-theme, 'fill', 'default');
+        color: _get-color($color-theme, 'ink', 'default');
+        border: 1px solid _get-color($color-theme, 'fill', 'default');
+        background: _get-color($color-theme, 'fill', 'default');
 
         @if Feature.has-item($_query-settings, 'has-elevation') {
             @include Elevation.apply(3, $_elevation-color);
@@ -175,9 +175,9 @@ $_valid-query-settings: (
 
         @if Feature.has-property($color-theme, 'hover') {
             &:hover {
-                color: get-color_($color-theme, 'ink', 'hover');
-                border: 1px solid get-color_($color-theme, 'fill', 'hover');
-                background: get-color_($color-theme, 'fill', 'hover');
+                color: _get-color($color-theme, 'ink', 'hover');
+                border: 1px solid _get-color($color-theme, 'fill', 'hover');
+                background: _get-color($color-theme, 'fill', 'hover');
                 cursor: pointer;
 
                 @if Feature.has-item($_query-settings, 'has-elevation') {
@@ -188,9 +188,9 @@ $_valid-query-settings: (
 
         @if Feature.has-property($color-theme, 'focus') {
             &:focus {
-                color: get-color_($color-theme, 'ink', 'focus');
-                border: 1px solid get-color_($color-theme, 'fill', 'focus');
-                background: get-color_($color-theme, 'fill', 'focus');
+                color: _get-color($color-theme, 'ink', 'focus');
+                border: 1px solid _get-color($color-theme, 'fill', 'focus');
+                background: _get-color($color-theme, 'fill', 'focus');
                 cursor: pointer;
 
                 @if Feature.has-item($_query-settings, 'has-elevation') {
@@ -201,9 +201,9 @@ $_valid-query-settings: (
 
         @if Feature.has-property($color-theme, 'active') {
             &:active {
-                color: get-color_($color-theme, 'ink', 'active');
-                border: 1px solid get-color_($color-theme, 'fill', 'active');
-                background: get-color_($color-theme, 'fill', 'active');
+                color: _get-color($color-theme, 'ink', 'active');
+                border: 1px solid _get-color($color-theme, 'fill', 'active');
+                background: _get-color($color-theme, 'fill', 'active');
                 cursor: pointer;
 
                 @if Feature.has-item($_query-settings, 'has-elevation') {
@@ -214,9 +214,9 @@ $_valid-query-settings: (
 
         @if Feature.has-property($color-theme, 'disabled') {
             &:disabled {
-                color: get-color_($color-theme, 'ink', 'disabled');
-                border: 1px solid get-color_($color-theme, 'fill', 'disabled');
-                background: get-color_($color-theme, 'fill', 'disabled');
+                color: _get-color($color-theme, 'ink', 'disabled');
+                border: 1px solid _get-color($color-theme, 'fill', 'disabled');
+                background: _get-color($color-theme, 'fill', 'disabled');
 
                 @if Feature.has-item($_query-settings, 'has-elevation') {
                     @include Elevation.apply(2, $_elevation-color);
@@ -230,7 +230,7 @@ $_valid-query-settings: (
     }
 }
 
-@function color-split($color) {
+@function split($color) {
 
     $_split-default: $color;
 
@@ -247,16 +247,73 @@ $_valid-query-settings: (
 
 }
 
+@function fill-missing($properties, $colors) {
+
+    @if Feature.validate-data-type('map', $colors) {
+
+        @if not Feature.has-property($colors, 'default') {
+
+            @error 'Missing crucial property "default". Please provide the "default" property and its value before overriding the other values';
+
+        }
+
+        @if not Feature.has-item($properties, 'light') and Feature.has-item($properties, 'dark') {
+
+            $_split-light: lighten(desaturate(map.get($colors, 'default'), 30%), 20%);
+
+            $_split-map: (
+                'light': $_split-light,
+                'default': map.get($colors, 'default'),
+                'dark': map.get($colors, 'dark')
+            );
+
+            @return $_split-map;
+
+        } @else if not Feature.has-item($properties, 'dark') and Feature.has-item($properties, 'light') {
+
+            $_split-dark: darken(map.get($colors, 'default'), 12.5%);
+
+            $_split-map: (
+                'light': map.get($colors, 'light'),
+                'default': map.get($colors, 'default'),
+                'dark': $_split-dark
+            );
+
+            @return $_split-map;
+
+        } @else if not Feature.has-item($properties, 'dark') and not Feature.has-item($properties, 'light') {
+
+            @return split(map.get($colors, 'default'));
+
+        } @else {
+
+            @return $colors;
+
+        }
+
+    }
+
+}
+
+// @depricated
+// Not removed for backwards compatability
+@function color-split($color) {
+
+    @return split($color);
+
+}
+
 @function get-scope_($scope) {
     $valid: is-scope_($scope);
     @if $valid == false {
         //
     } @else {
-        @return $scope
+        @return $scope;
     }
 }
 
-@function get-color_($color-map, $list-query, $query) {
+@function _get-color($color-map, $list-query, $query) {
+
     $valid: is-color-type_($query);
     $valid-map: is-map_($color-map);
     @if $valid == false {
@@ -271,9 +328,17 @@ $_valid-query-settings: (
         } @else if $list-query == 'ink' {
             @return list.nth($_color-map, 2);
         } @else {
-            @error 'Invalid query: #{$list-query}. Please choose from the following valid selectors: "fill", "ink".'
+            @error 'Invalid query: #{$list-query}. Please choose from the following valid selectors: "fill", "ink".';
         }
     }
+
+}
+
+// for backwards compatability + library internal extends Components
+@function get-color_($color-map, $list-query, $query) {
+
+    @return _get-color($color-map, $list-query, $query);
+
 }
 
 @function is-scope_($scope) {
@@ -281,7 +346,7 @@ $_valid-query-settings: (
         @error 'Invalid scope: #{$scope}. Please select from the following scopes: #{$_valid-scopes}';
     }
 
-    @return true
+    @return true;
 }
 
 @function is-color-type_($color-type) {
@@ -289,7 +354,7 @@ $_valid-query-settings: (
         @error 'Invalid color query: #{$color-type}. Please select from the following color queries: #{$_valid-color-queries}';
     }
 
-    @return true
+    @return true;
 }
 
 @function is-map_($map) {
@@ -300,29 +365,23 @@ $_valid-query-settings: (
     @return true;
 }
 
-// Special function for $fill properties
-@function get-ink($fill) {
-    @if lightness($fill) < 30% {
-        $ink: #fff;
-        @return $ink;
-    } @else {
-        $ink: #000;
-        @return $ink;
+//
+// Library internal functions (DO NOT USE!)
+//
+
+@function get-ink_($fill) {
+    @if is-map_($fill) {
+        @if lightness(map.get($fill, 'default')) < 30% {
+            $ink: #fff;
+            @return $ink;
+        } @else {
+            $ink: #000;
+            @return $ink;
+        }
     }
 }
 
-// @depricated
-@function color-get-complement($color) {
+@function get-complement_($color) {
     $_complement: saturate(lighten($color, 30%), 0%);
     @return adjust-hue($_complement, 180deg);
-}
-
-// @depricated
-@function color-darken($color) {
-    @return darken($color, 12.5%);
-}
-
-// @depricated
-@function color-lighten($color) {
-    @return lighten(desaturate($color, 30%), 20%);
 }

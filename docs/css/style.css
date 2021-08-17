@@ -8,7 +8,7 @@
   --sc-theme--secondary: #d49a10;
   --sc-theme--secondary-dark: #996f0c;
   --sc-theme--on-primary: #fff;
-  --sc-theme--on-secondary: #000;
+  --sc-theme--on-secondary: #241300;
   /* STATES */
   --sc-theme--error: #b00020;
   --sc-theme--warning: #ffa000;
@@ -354,10 +354,15 @@ body {
 }
 .sc-card .sc-card__info .sc-card__info__subtitle {
   font-size: 0.75rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
   color: inherit;
+  display: -webkit-box;
+  word-break: break-all;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 100% !important;
+  text-align: justify;
 }
 .sc-card .sc-card__action__wrap {
   display: flex;

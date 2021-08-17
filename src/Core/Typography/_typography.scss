@@ -23,6 +23,7 @@
 @use 'sass:math';
 @use 'sass:map';
 @use 'sass:list';
+@use 'sass:meta';
 
 @use '../Feature';
 
@@ -50,6 +51,19 @@ $_valid-typography-queries: (
     $body-font-type: $global-font-type,
     $body-font-weight: 400
 ) {
+
+    @if meta.type-of($global-font) == map {
+
+        @error 'This feature will be implemented on Stack v2.2.0. Until then, please be prepared for a lot of breaking changes when upgrading. :>';
+
+    }
+
+    //
+    // NOTE for v2.2.0
+    //  Abstract the parameters of the mixin to maps, it's easier that way :>
+    //  DO NOT FORGET IT YOU ABSOLUTE BAFOON! (I'm talking to you Matt)
+    //
+
     * {
         @include font-family($global-font, $global-font-type);
 

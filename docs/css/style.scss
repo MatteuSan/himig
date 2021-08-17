@@ -37,8 +37,6 @@
 @use '../../src/Components/SCTooltip';
 @use '../../src/Components/SCSnackbar';
 
-@use 'sass:meta';
-
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
@@ -50,8 +48,8 @@ $screen-sizes: (
 
 :root {
     @include Theme.config(
-        #12305e,
-        #d49a10,
+        ('default': #12305e),
+        ('default': #d49a10, 'ink': #241300),
         $screen-sizes,
         $surface: #001021,
         $on-surface: #fff

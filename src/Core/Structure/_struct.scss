@@ -24,6 +24,12 @@
 @use '../Tools';
 @use 'sass:meta';
 
+//
+// Brief explanation
+// - Select CSS properties can be modified by the developer for extra features and functionality on the
+//   library's components' structure.
+//
+
 @mixin apply($structure-theme) {
 
     @each $property, $value in $structure-theme {
