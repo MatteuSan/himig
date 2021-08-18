@@ -48,7 +48,7 @@ $screen-sizes: (
 
 :root {
     @include Theme.config(
-        ('default': #12305e),
+        #12305e,
         ('default': #d49a10, 'ink': #241300),
         $screen-sizes,
         $surface: #001021,

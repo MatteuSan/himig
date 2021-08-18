@@ -43,12 +43,10 @@ $breakpoints: (
 
 @mixin config(
     $primary-color: (),
-    $secondary-color: Color.get-complement_(map.get($primary-color, 'default')),
+    $secondary-color: Color.get-complement_($primary-color),
     $screen-sizes: (),
     $args...
 ) {
-
-    $_valid-primary-map: Feature.validate-data-type('map', $primary-color);
 
     $_state-map: (
         'error': (#b00020, #fff),
@@ -57,7 +55,19 @@ $breakpoints: (
     );
 
     // $primary module
-    @if _is-variant($primary-color) {
+    @if meta.type-of($primary-color) != map {
+
+        $_color-map: Color.split($primary-color);
+
+        @each $property, $value in $_color-map {
+            @if $property == 'default' {
+                --#{$_prefix}-theme--primary: #{$value};
+            } @else {
+                --#{$_prefix}-theme--primary-#{$property}: #{$value};
+            }
+        }
+
+    } @else if _is-variant($primary-color) {
 
         $_properties: _check-variants($primary-color);
 
@@ -73,8 +83,19 @@ $breakpoints: (
 
     }
 
-    // $secondary module
-    @if _is-variant($secondary-color) {
+    @if meta.type-of($secondary-color) != map {
+
+        $_color-map: Color.split($secondary-color);
+
+        @each $property, $value in $_color-map {
+            @if $property == 'default' {
+                --#{$_prefix}-theme--secondary: #{$value};
+            } @else {
+                --#{$_prefix}-theme--secondary-#{$property}: #{$value};
+            }
+        }
+
+    } @else if _is-variant($secondary-color) {
 
         $_properties: _check-variants($secondary-color);
 
@@ -90,11 +111,25 @@ $breakpoints: (
 
     }
 
-    // Get ink properties for $_primary-map (already parsing maps) - to change in v2.0.0
-    @if Feature.has-property($primary-color, 'ink') {
-        --#{$_prefix}-theme--on-primary: #{map.get($primary-color, 'ink')};
+    // Get ink properties for $_color-map (already parsing maps) - to change in v2.0.0
+    @if meta.type-of($primary-color) == map {
+        @if Feature.has-property($primary-color, 'ink') {
+            --#{$_prefix}-theme--on-secondary: #{map.get($primary-color, 'ink')};
+        } @else {
+            --#{$_prefix}-theme--on-secondary: #{Color.get-ink_($primary-color)};
+        }
     } @else {
-        --#{$_prefix}-theme--on-primary: #{Color.get-ink_($primary-color)};
+        --#{$_prefix}-theme--on-primary: #{Color.get-ink_(Color.split($primary-color))};
+    }
+
+    @if meta.type-of($secondary-color) == map {
+        @if Feature.has-property($secondary-color, 'ink') {
+            --#{$_prefix}-theme--on-secondary: #{map.get($secondary-color, 'ink')};
+        } @else {
+            --#{$_prefix}-theme--on-secondary: #{Color.get-ink_($secondary-color)};
+        }
+    } @else {
+        --#{$_prefix}-theme--on-primary: #{Color.get-ink_(Color.split($secondary-color))};
     }
 
     @if Feature.has-property($secondary-color, 'ink') {
