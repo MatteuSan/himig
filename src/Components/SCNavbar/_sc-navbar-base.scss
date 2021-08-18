@@ -24,7 +24,7 @@
 
 @use 'SCNavItem';
 
-@mixin base($nav-contents: 4) {
+@mixin base($nav-contents: 4, $breakpoint: 'medium') {
 
     $_container-width: (42px * $nav-contents) + (8px * $nav-contents);
 
@@ -36,7 +36,7 @@
         left: 0;
         z-index: 100;
 
-        @media (min-width: Theme.get-breakpoint('medium')) {
+        @media (min-width: Theme.get-breakpoint($breakpoint)) {
             width: max-content;
             bottom: inherit;
             position: relative;
@@ -61,13 +61,13 @@
             text-align: center;
             height: max-content;
 
-            @media (min-width: Theme.get-breakpoint('medium')) {
+            @media (min-width: Theme.get-breakpoint($breakpoint)) {
                 width: $_container-width;
                 padding: 0;
                 text-align: right;
             }
 
-            @include SCNavItem.base();
+            @include SCNavItem.base($breakpoint);
 
         }
 

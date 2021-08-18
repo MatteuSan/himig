@@ -24,7 +24,7 @@
 @use '../../Core/Theme';
 @use '../../Core/Tools';
 
-@mixin base() {
+@mixin base($breakpoint: 'medium') {
     .sc-header {
         width: 100%;
         position: fixed;
@@ -49,7 +49,7 @@
                     color: inherit;
                 }
 
-                @media (min-width: Theme.get-breakpoint('medium')) {
+                @media (min-width: Theme.get-breakpoint($breakpoint)) {
                     padding: 0.3rem 0.7rem 0.3rem 0;
                 }
 
@@ -58,7 +58,7 @@
                 }
             }
 
-            @media (min-width: Theme.get-breakpoint('medium')) {
+            @media (min-width: Theme.get-breakpoint($breakpoint)) {
                 width: calc(100% - 34px);
                 margin: 0 auto;
             }

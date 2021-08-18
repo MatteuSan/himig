@@ -28,7 +28,7 @@
 
 @use 'sass:map';
 
-@mixin base() {
+@mixin base($breakpoint: 'medium') {
     .sc-nav__item {
         margin: 0 auto;
         cursor: pointer;
@@ -57,7 +57,7 @@
 
             @include Tools.prefix(transition, all 0.1s ease);
 
-            @media (min-width: Theme.get-breakpoint('medium')) {
+            @media (min-width: Theme.get-breakpoint($breakpoint)) {
                 margin-top: 4px;
             }
         }
@@ -67,7 +67,7 @@
             margin-top: -3px;
             color: inherit !important;
 
-            @media (min-width: Theme.get-breakpoint('medium')) {
+            @media (min-width: Theme.get-breakpoint($breakpoint)) {
                 display: none !important;
                 /*font-size: 16px!important;
                 margin-top: 0;*/

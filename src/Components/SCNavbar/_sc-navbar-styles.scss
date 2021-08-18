@@ -34,14 +34,15 @@
     $color-theme: (),
     $shape-theme: (),
     $typography-theme: (),
-    $nav-contents: 4
+    $nav-contents: 4,
+    $breakpoint: 'medium'
 ) {
 
     $_color-theme: map.merge(theme.$init-color-theme, $color-theme);
     $_shape-theme: map.merge(theme.$init-shape-theme, $shape-theme);
     $_typography-theme: map.merge(theme.$init-typography-theme, $typography-theme);
 
-    @include base.base($nav-contents) {
+    @include base.base($nav-contents, $breakpoint) {
         @include Color.apply('filled', $_color-theme, $query-settings: ('no-elevation'));
         @include Shape.apply($_shape-theme);
         @include Typography.apply($_typography-theme);

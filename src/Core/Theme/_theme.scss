@@ -35,6 +35,12 @@ $_prefix: 'sc';
 $_valid-screen-properties: ('small', 'medium', 'large', 'xlarge');
 $_valid-color-variants: ('default', 'light', 'dark', 'ink');
 
+$breakpoints: (
+    'small': 320px,
+    'medium': 540px,
+    'large': 850px,
+) !default;
+
 @mixin config(
     $primary-color: (),
     $secondary-color: Color.get-complement_(map.get($primary-color, 'default')),
@@ -51,7 +57,7 @@ $_valid-color-variants: ('default', 'light', 'dark', 'ink');
     );
 
     // $primary module
-    @if _inspect-variant($primary-color) {
+    @if _is-variant($primary-color) {
 
         $_properties: _check-variants($primary-color);
 
@@ -68,7 +74,7 @@ $_valid-color-variants: ('default', 'light', 'dark', 'ink');
     }
 
     // $secondary module
-    @if _inspect-variant($secondary-color) {
+    @if _is-variant($secondary-color) {
 
         $_properties: _check-variants($secondary-color);
 
@@ -130,18 +136,14 @@ $_valid-color-variants: ('default', 'light', 'dark', 'ink');
     }
 }
 
-$breakpoints: (
-    'small': 320px,
-    'medium': 540px,
-    'large': 850px,
-) !default;
-
 
 @function get-breakpoint($query, $reference: $breakpoints) {
+
     @return map.get($reference, $query);
+
 }
 
-@function _inspect-variant($query) {
+@function _is-variant($query) {
 
     @each $property, $value in $query {
 

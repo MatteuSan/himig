@@ -35,13 +35,14 @@
     $shape-theme: (),
     $typography-theme: (),
     $is-scrollable: false,
+    $breakpoint: 'medium'
 ) {
 
     $_color-theme: map.merge(theme.$init-color-theme, $color-theme);
     $_shape-theme: map.merge(theme.$init-shape-theme, $shape-theme);
     $_typography-theme: map.merge(theme.$init-typography-theme, $typography-theme);
 
-    @include base.base() {
+    @include base.base($breakpoint) {
         @include Color.apply('filled', $_color-theme, $query-settings: ('no-elevation'));
         @include Shape.apply($_shape-theme);
         @include Typography.apply($_typography-theme);
@@ -49,7 +50,7 @@
     }
 
     @if $is-scrollable == true {
-        @include base.base() {
+        @include base.base($breakpoint) {
             &.sc-header--scrollable {
                 background: Color.get-color_($_color-theme, 'fill', 'scrollable');
                 border-color: Color.get-color_($_color-theme, 'fill', 'scrollable');
