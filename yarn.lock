@@ -7,17 +7,12 @@
   "resolved" "https://registry.npmjs.org/@discoveryjs/json-ext/-/json-ext-0.5.3.tgz"
   "version" "0.5.3"
 
-"@growstocks/stack@^2.0.5":
-  "integrity" "sha512-qK4SNwsEkjoAXbpQJ18aO2O1vrbdqEG8eYKKlp/aYy7VW16boWSQTQ/bA6nJTCvLzFStNlObj8tj5cjPWafbLw=="
-  "resolved" "https://registry.npmjs.org/@growstocks/stack/-/stack-2.0.5.tgz"
-  "version" "2.0.5"
+"@growstocks/stack@^2.1.0-beta":
+  "integrity" "sha512-8ay7hZba1+xcNURJfWptYipMZzVb2CQfgUg1jNgfLpmHI/e245v75DeAE0YPPxMtfZOTMxsXQ/hZ1vrLRrGoCw=="
+  "resolved" "https://registry.npmjs.org/@growstocks/stack/-/stack-2.1.0-beta.tgz"
+  "version" "2.1.0-beta"
   dependencies:
     "alpinejs" "^3.2.2"
-
-"@lit/reactive-element@^1.0.0-rc.2":
-  "integrity" "sha512-cujeIl5Ei8FC7UHf4/4Q3bRJOtdTe1vpJV/JEBYCggedmQ+2P8A2oz7eE+Vxi6OJ4nc0X+KZxXnBoH4QrEbmEQ=="
-  "resolved" "https://registry.npmjs.org/@lit/reactive-element/-/reactive-element-1.0.0-rc.2.tgz"
-  "version" "1.0.0-rc.2"
 
 "@types/eslint-scope@^3.7.0":
   "integrity" "sha512-O/ql2+rrCUe2W2rs7wMR+GqPRcgB6UiqN5RhrR5xruFlY7l9YLMn0ZkDzjoHLeiFkR8MCQZVudUuuvQ2BLC9Qw=="
@@ -49,11 +44,6 @@
   "integrity" "sha512-se3yX7UHv5Bscf8f1ERKvQOD6sTyycH3hdaoozvaLxgUiY5lIGEeH37AD0G0Qi9kPqihPn0HOfd2yaIEN9VwEg=="
   "resolved" "https://registry.npmjs.org/@types/node/-/node-15.12.5.tgz"
   "version" "15.12.5"
-
-"@types/trusted-types@^1.0.1":
-  "integrity" "sha512-230RC8sFeHoT6sSUlRO6a8cAnclO06eeiq1QDfiv2FGCLWFvvERWgwIQD4FWqD9A69BN7Lzee4OXwoMVnnsWDw=="
-  "resolved" "https://registry.npmjs.org/@types/trusted-types/-/trusted-types-1.0.6.tgz"
-  "version" "1.0.6"
 
 "@vue/reactivity@^3.0.2":
   "integrity" "sha512-1tdfLmNjWG6t/CsPldh+foumYFo3cpyCHgBYQ34ylaMsJ+SNHQ1kApMIa8jN+i593zQuaw3AdWH0nJTARzCFhg=="
@@ -545,30 +535,6 @@
   "integrity" "sha512-dcS1ul+9tmeD95T+x28/ehLgd9mENa3LsvDTtzm3vyBEO7RPptvAD+t44WVXaUjTBRcrpFeFlC8WCruUR456hw=="
   "resolved" "https://registry.npmjs.org/kind-of/-/kind-of-6.0.3.tgz"
   "version" "6.0.3"
-
-"lit-element@^3.0.0-rc.2":
-  "integrity" "sha512-2Z7DabJ3b5K+p5073vFjMODoaWqy5PIaI4y6ADKm+fCGc8OnX9fU9dMoUEBZjFpd/bEFR9PBp050tUtBnT9XTQ=="
-  "resolved" "https://registry.npmjs.org/lit-element/-/lit-element-3.0.0-rc.2.tgz"
-  "version" "3.0.0-rc.2"
-  dependencies:
-    "@lit/reactive-element" "^1.0.0-rc.2"
-    "lit-html" "^2.0.0-rc.3"
-
-"lit-html@^2.0.0-rc.3":
-  "integrity" "sha512-Y6P8LlAyQuqvzq6l/Nc4z5/P5M/rVLYKQIRxcNwSuGajK0g4kbcBFQqZmgvqKG+ak+dHZjfm2HUw9TF5N/pkCw=="
-  "resolved" "https://registry.npmjs.org/lit-html/-/lit-html-2.0.0-rc.3.tgz"
-  "version" "2.0.0-rc.3"
-  dependencies:
-    "@types/trusted-types" "^1.0.1"
-
-"lit@^2.0.0-rc.2":
-  "integrity" "sha512-BOCuoJR04WaTV8UqTKk09cNcQA10Aq2LCcBOiHuF7TzWH5RNDsbCBP5QM9sLBSotGTXbDug/gFO08jq6TbyEtw=="
-  "resolved" "https://registry.npmjs.org/lit/-/lit-2.0.0-rc.2.tgz"
-  "version" "2.0.0-rc.2"
-  dependencies:
-    "@lit/reactive-element" "^1.0.0-rc.2"
-    "lit-element" "^3.0.0-rc.2"
-    "lit-html" "^2.0.0-rc.3"
 
 "loader-runner@^4.2.0":
   "integrity" "sha512-92+huvxMvYlMzMt0iIOukcwYBFpkYJdpl2xsZ7LrlayO7E8SOv+JJUEK17B/dJIHAOLMfh2dZZ/Y18WgmGtYNw=="

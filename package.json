@@ -7,7 +7,7 @@
     "doc": "docs"
   },
   "dependencies": {
-    "@growstocks/stack": "^2.0.5",
+    "@growstocks/stack": "^2.1.0-beta",
     "alpinejs": "^3.2.2"
   },
   "devDependencies": {
