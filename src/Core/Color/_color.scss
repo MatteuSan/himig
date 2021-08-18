@@ -62,7 +62,13 @@ $_valid-query-settings: (
     $_scope: get-scope_($scope);
     $_scope-exceptions: $scope-exceptions;
     $_query-settings: $query-settings;
-    $_elevation-color: _get-color($color-theme, 'fill', 'elevation');
+    $_elevation-color: ();
+
+    @if not map.has-key($color-theme, 'elevation') {
+        $_elevation-color: #000;
+    } @else {
+        $_elevation-color: _get-color($color-theme, 'fill', 'elevation');
+    }
 
     // Handles scope-exceptions map
     @if Feature.has-item($_scope-exceptions, $_scope) {

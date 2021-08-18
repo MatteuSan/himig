@@ -22,7 +22,7 @@
 
 @use '../../src/Core/Theme';
 @use '../../src/Core/Typography';
-@use '../../src/Core/Color';
+@use '../../node_modules/@growstocks/stack/Core/Color';
 @use '../../src/Core/Animation';
 @use '../../src/Core/Elevation';
 
@@ -111,3 +111,11 @@ body {
     ),
 );
 @include SCSnackbar.render();
+
+$color-theme: (
+    'default': (#232323, #fff)
+);
+
+.sample-theme {
+    @include Color.apply('filled', $color-theme);
+}

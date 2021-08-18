@@ -39,7 +39,7 @@ $breakpoints: (
     'small': 320px,
     'medium': 540px,
     'large': 850px,
-) !default;
+);
 
 @mixin config(
     $primary-color: (),
@@ -156,6 +156,24 @@ $breakpoints: (
         --#{$_prefix}-theme--#{$property}: #{$value};
     }
 
+    @if (Feature.is-empty($screen-sizes)) == false {
+        @each $property, $value in $screen-sizes {
+
+            $_valid-property: Feature.has-item($_valid-screen-properties, $property);
+
+            @if $_valid-property == true {
+                $breakpoints: map.merge($breakpoints, $screen-sizes);
+            } @else {
+                @error 'Screen property: #{$property} is invalid. Please select from the following valid screen properties: #{$_valid-screen-properties}';
+            }
+
+        }
+    }
+
+}
+
+// @depricated
+@mixin _set-breakpoint($screen-sizes: ()) {
     @if (Feature.is-empty($screen-sizes)) == false {
         @each $property, $value in $screen-sizes {
 
