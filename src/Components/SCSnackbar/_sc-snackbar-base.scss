@@ -23,7 +23,7 @@
 @use '../../Core/Tools';
 @use '../../Core/Theme';
 
-@mixin base() {
+@mixin base($breakpoint: 'medium') {
     .sc-snackbar {
         position: fixed;
         width: calc(100% - 40px);
@@ -40,7 +40,7 @@
 
         @include Tools.prefix(transition, all 0.1s ease);
 
-        @media (min-width: Theme.get-breakpoint('medium')) {
+        @media (min-width: Theme.get-breakpoint($breakpoint)) {
             bottom: 30px;
             right: 30px;
             left: auto;

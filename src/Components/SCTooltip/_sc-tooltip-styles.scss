@@ -35,13 +35,14 @@
     $shape-theme: (),
     $typography-theme: (),
     $bottom-position: (),
-    $mobile-visibility: false
+    $mobile-visibility: false,
+    $breakpoint: 'medium'
 ) {
 
     $_color-theme: map.merge(theme.$init-color-theme, $color-theme);
     $_shape-theme: map.merge(theme.$init-shape-theme, $shape-theme);
 
-    @include base.base($bottom-position, $mobile-visibility) {
+    @include base.base($bottom-position, $mobile-visibility, $breakpoint) {
         @include Color.apply('filled', $_color-theme, $query-settings: ('no-elevation'));
         @include Shape.apply($_shape-theme);
         @include Elevation.apply(5, $color: Color.get-color_(theme.$init-color-theme, 'fill', 'elevation'));

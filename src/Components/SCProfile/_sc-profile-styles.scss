@@ -33,7 +33,7 @@
 @mixin render(
     $color-theme: (),
     $shape-theme: (),
-    $typography-theme: ()
+    $typography-theme: (),
 ) {
 
     $_color-theme: map.merge(theme.$init-color-theme, $color-theme);

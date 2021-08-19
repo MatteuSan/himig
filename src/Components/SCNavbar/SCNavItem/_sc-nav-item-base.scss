@@ -74,6 +74,6 @@
             }
         }
 
-        @include SCTooltip.render($bottom-position: calc(-100% - 10px));
+        @include SCTooltip.render($bottom-position: calc(-100% - 10px), $breakpoint: $breakpoint);
     }
 }

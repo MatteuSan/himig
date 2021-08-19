@@ -24,14 +24,17 @@
 @use '../../Core/Tools';
 @use '../../Core/Theme';
 
-@mixin base($bottom-position: calc(100% + 2px), $is-mobile-visible: false) {
+@mixin base(
+    $bottom-position: calc(100% + 2px),
+    $is-mobile-visible: false,
+    $breakpoint: 'medium'
+) {
     &[data-tooltip] {
         position: relative;
 
         &::after {
-            // TAKE CONTENT DATA
             content: attr(data-tooltip);
-            // STYLING
+
             display: block;
             position: absolute;
             padding: 0.5rem 0.7rem;
@@ -53,7 +56,7 @@
             @content;
 
             @if $is-mobile-visible == false {
-                @media (max-width: Theme.get-breakpoint('medium')) {
+                @media (max-width: Theme.get-breakpoint($breakpoint)) {
                     display: none !important;
                     opacity: 0 !important;
                 }

@@ -8,7 +8,7 @@
   --sc-theme--secondary: #d49a10;
   --sc-theme--secondary-dark: #996f0c;
   --sc-theme--on-primary: #fff;
-  --sc-theme--on-primary: #000;
+  --sc-theme--on-secondary: #000;
   /* STATES */
   --sc-theme--error: #b00020;
   --sc-theme--warning: #ffa000;
@@ -74,7 +74,6 @@ body {
 .wrap--content {
   display: grid;
   grid-gap: 20px;
-  min-height: 100vh;
   padding: 65px 0 60px 0;
   width: calc(100% - 20px);
   max-width: 1077px;
@@ -157,7 +156,7 @@ body {
   font-weight: 700;
   text-decoration: inherit;
   text-transform: inherit;
-  border-radius: 1rem 0 1rem 0;
+  border-radius: 500px;
 }
 .sc-button > * + * {
   margin-left: 7px;
@@ -228,7 +227,7 @@ body {
   font-weight: 700;
   text-decoration: inherit;
   text-transform: inherit;
-  border-radius: 1rem 0 1rem 0;
+  border-radius: 500px;
 }
 .sc-button.sc-button--outlined:hover {
   color: var(--sc-theme--on-secondary);
@@ -275,7 +274,7 @@ body {
   font-weight: 700;
   text-decoration: inherit;
   text-transform: inherit;
-  border-radius: 1rem 0 1rem 0;
+  border-radius: 500px;
 }
 .sc-button.sc-button--filled:hover {
   color: var(--sc-theme--on-secondary);
@@ -879,15 +878,6 @@ body {
 }
 .sc-snackbar .sc-snackbar__wrap .sc-snackbar__action {
   padding: 0 !important;
-}
-
-.sample-theme {
-  color: #fff;
-  border: 1px solid #232323;
-  background: #232323;
-  -webkit-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
-  -ms-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
-  box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
 }
 
 /*# sourceMappingURL=style.css.map */
