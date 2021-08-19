@@ -8,8 +8,7 @@
   --sc-theme--secondary: #d49a10;
   --sc-theme--secondary-dark: #996f0c;
   --sc-theme--on-primary: #fff;
-  --sc-theme--on-secondary: #241300;
-  --sc-theme--on-secondary: #241300;
+  --sc-theme--on-primary: #000;
   /* STATES */
   --sc-theme--error: #b00020;
   --sc-theme--warning: #ffa000;
@@ -889,14 +888,6 @@ body {
   -webkit-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
   -ms-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
-}
-.sample-theme:disabled {
-  color: var(--on-undefined);
-  border: 1px solid var(--undefined);
-  background: var(--undefined);
-  -webkit-box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-  -ms-box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
 }
 
 /*# sourceMappingURL=style.css.map */

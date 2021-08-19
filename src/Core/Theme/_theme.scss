@@ -132,10 +132,12 @@ $breakpoints: (
         --#{$_prefix}-theme--on-primary: #{Color.get-ink_(Color.split($secondary-color))};
     }
 
-    @if Feature.has-property($secondary-color, 'ink') {
-        --#{$_prefix}-theme--on-secondary: #{map.get($secondary-color, 'ink')};
-    } @else {
-        --#{$_prefix}-theme--on-secondary: #{Color.get-ink_($secondary-color)};
+    @if meta.type-of($secondary-color) == map {
+        @if Feature.has-property($secondary-color, 'ink') {
+            --#{$_prefix}-theme--on-secondary: #{map.get($secondary-color, 'ink')};
+        } @else {
+            --#{$_prefix}-theme--on-secondary: #{Color.get-ink_($secondary-color)};
+        }
     }
 
     /* STATES */
