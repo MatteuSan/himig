@@ -44,6 +44,7 @@
         @include Color.apply('filled', $_color-theme);
         @include Shape.apply($_shape-theme);
         @include Typography.apply($_typography-theme);
+        @include Elevation.apply(3, $color: map.get($_color-theme, 'elevation'));
     }
 
 }

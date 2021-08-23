@@ -35,6 +35,8 @@
 
         @include Tools.prefix(transition, all 0.1s ease);
 
+        @content;
+
         .sc-profile__img {
             width: 110px;
             height: 110px;
@@ -82,7 +84,7 @@
                 }
             }
 
-            .sc-profile__actions--wrap {
+            .sc-profile__actions {
                 width: 100%;
                 margin-top: 15px;
 
@@ -93,10 +95,16 @@
                     min-width: 0;
                     margin: auto 0 0 13px !important;
                     padding: 0;
+
+                    &.sc-button--outlined,
+                    &.sc-button--filled {
+                        &.sc-button--icon {
+                            padding: 0.5rem;
+                            border-radius: 50%;
+                        }
+                    }
                 }
             }
         }
-
-        @content
     }
 }

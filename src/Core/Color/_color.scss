@@ -126,7 +126,7 @@ $_valid-query-settings: (
                 cursor: pointer;
 
                 @if Feature.has-item($_query-settings, 'has-elevation') {
-                    @include Elevation.apply(3, $_elevation-color);
+                    @include Elevation.apply(0, $_elevation-color);
                 }
             }
         }
@@ -139,7 +139,7 @@ $_valid-query-settings: (
                 cursor: pointer;
 
                 @if Feature.has-item($_query-settings, 'has-elevation') {
-                    @include Elevation.apply(3, $_elevation-color);
+                    @include Elevation.apply(0, $_elevation-color);
                 }
             }
         }
@@ -152,7 +152,7 @@ $_valid-query-settings: (
                 cursor: pointer;
 
                 @if Feature.has-item($_query-settings, 'has-elevation') {
-                    @include Elevation.apply(7, $_elevation-color);
+                    @include Elevation.apply(5, $_elevation-color);
                 }
             }
         }
@@ -176,7 +176,7 @@ $_valid-query-settings: (
         background: _get-color($color-theme, 'fill', 'default');
 
         @if Feature.has-item($_query-settings, 'has-elevation') {
-            @include Elevation.apply(3, $_elevation-color);
+            @include Elevation.apply(0, $_elevation-color);
         }
 
         @if Feature.has-property($color-theme, 'hover') {
@@ -187,7 +187,7 @@ $_valid-query-settings: (
                 cursor: pointer;
 
                 @if Feature.has-item($_query-settings, 'has-elevation') {
-                    @include Elevation.apply(5, $_elevation-color);
+                    @include Elevation.apply(3, $_elevation-color);
                 }
             }
         }
@@ -200,7 +200,7 @@ $_valid-query-settings: (
                 cursor: pointer;
 
                 @if Feature.has-item($_query-settings, 'has-elevation') {
-                    @include Elevation.apply(5, $_elevation-color);
+                    @include Elevation.apply(3, $_elevation-color);
                 }
             }
         }
@@ -213,7 +213,7 @@ $_valid-query-settings: (
                 cursor: pointer;
 
                 @if Feature.has-item($_query-settings, 'has-elevation') {
-                    @include Elevation.apply(10, $_elevation-color);
+                    @include Elevation.apply(7, $_elevation-color);
                 }
             }
         }
@@ -225,7 +225,7 @@ $_valid-query-settings: (
                 background: _get-color($color-theme, 'fill', 'disabled');
 
                 @if Feature.has-item($_query-settings, 'has-elevation') {
-                    @include Elevation.apply(2, $_elevation-color);
+                    @include Elevation.apply(0, $_elevation-color);
                 }
 
                 &:hover {
