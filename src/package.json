@@ -1,7 +1,7 @@
 {
   "name": "@growstocks/stack",
   "version": "2.1.0",
-  "description": "GrowStocks' design system's open source UI components library for building beautiful, quick, responsive, and flexible user interfaces.",
+  "description": "The web implementation of GrowStocks' design system. Made with SCSS, Typescript, and ❤.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
