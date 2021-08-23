@@ -34,24 +34,20 @@
 
         &::after {
             content: attr(data-tooltip);
-
             display: block;
             position: absolute;
             padding: 0.5rem 0.7rem;
             font-size: 0.75rem;
             bottom: $bottom-position;
-
             margin-left: 50%;
             transform: translateX(-50%);
-
             z-index: 100;
             opacity: 0;
-            transition: opacity ease-in-out 200ms;
             pointer-events: none;
             text-align: center;
             white-space: nowrap;
 
-            @include Tools.prefix(transition, all 0.1s ease);
+            @include Tools.prefix(transition, all 200ms ease-in-out);
 
             @content;
 

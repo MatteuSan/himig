@@ -642,8 +642,6 @@ body {
 @media (min-width: 580px) {
   .sc-nav .sc-nav__container .sc-nav__item .sc-nav__item__text {
     display: none !important;
-    /*font-size: 16px!important;
-    margin-top: 0;*/
   }
 }
 .sc-nav .sc-nav__container .sc-nav__item[data-tooltip] {
@@ -660,12 +658,11 @@ body {
   transform: translateX(-50%);
   z-index: 100;
   opacity: 0;
-  transition: opacity ease-in-out 200ms;
   pointer-events: none;
   text-align: center;
   white-space: nowrap;
-  -webkit-transition: all 0.1s ease;
-  transition: all 0.1s ease;
+  -webkit-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
   color: #fff;
   border: 1px solid #232323;
   background: #232323;
