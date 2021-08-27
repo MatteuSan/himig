@@ -1,0 +1,97 @@
+//
+// Copyright (c) 2021 GrowStocks
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
+//
+
+@use 'sass:map';
+@use 'sass:list';
+@use 'sass:meta';
+
+@use '../Feature';
+
+@use 'color-validators' as validator;
+@use 'color-getters' as getter;
+
+@function split($color) {
+
+    $_split-default: $color;
+
+    $_split-light: lighten(desaturate($_split-default, 30%), 20%);
+    $_split-dark: darken($_split-default, 12.5%);
+
+    $_split-fill-map: (
+        'light': $_split-light,
+        'default': $_split-default,
+        'dark': $_split-dark
+    );
+
+    @return $_split-fill-map;
+
+}
+
+@function fill-missing($properties, $colors) {
+
+    @if Feature.validate-data-type('map', $colors) {
+
+        @if not Feature.has-property($colors, 'default') {
+
+            @error 'Missing crucial property "default". Please provide the "default" property and its value before overriding the other values';
+
+        }
+
+        @if not Feature.has-item($properties, 'light') and Feature.has-item($properties, 'dark') {
+
+            $_split-light: lighten(desaturate(map.get($colors, 'default'), 30%), 20%);
+
+            $_split-map: (
+                'light': $_split-light,
+                'default': map.get($colors, 'default'),
+                'dark': map.get($colors, 'dark')
+            );
+
+            @return $_split-map;
+
+        } @else if not Feature.has-item($properties, 'dark') and Feature.has-item($properties, 'light') {
+
+            $_split-dark: darken(map.get($colors, 'default'), 12.5%);
+
+            $_split-map: (
+                'light': map.get($colors, 'light'),
+                'default': map.get($colors, 'default'),
+                'dark': $_split-dark
+            );
+
+            @return $_split-map;
+
+        } @else if not Feature.has-item($properties, 'dark') and not Feature.has-item($properties, 'light') {
+
+            @return split(map.get($colors, 'default'));
+
+        } @else {
+
+            @return $colors;
+
+        }
+
+    }
+
+    @return $colors;
+
+}

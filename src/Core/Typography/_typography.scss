@@ -54,12 +54,12 @@ $_valid-typography-queries: (
 
     @if meta.type-of($global-font) == map {
 
-        @error 'This feature will be implemented on Stack v2.2.0. Until then, please be prepared for a lot of breaking changes when upgrading. :>';
+        @error 'This feature will be implemented on Stack v2.3.0. Until then, please be prepared for a lot of breaking changes when upgrading. :>';
 
     }
 
     //
-    // NOTE for v2.2.0
+    // NOTE for v2.3.0
     //  Abstract the parameters of the mixin to maps, it's easier that way :>
     //  DO NOT FORGET IT YOU ABSOLUTE BAFOON! (I'm talking to you Matt)
     //

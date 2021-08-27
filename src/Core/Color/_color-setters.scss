@@ -1,0 +1,216 @@
+//
+// Copyright (c) 2021 GrowStocks
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
+//
+
+@use 'sass:map';
+@use 'sass:list';
+@use 'sass:meta';
+
+@use '../Feature';
+@use '../Elevation';
+
+@use 'color-validators' as validator;
+@use 'color-getters' as getter;
+
+@mixin apply(
+    $scope,
+    $color-theme,
+    $query-settings: (
+        'has-elevation'
+    ),
+    $scope-exceptions: (),
+) {
+    $_scope: getter.get-scope_($scope);
+    $_scope-exceptions: $scope-exceptions;
+    $_query-settings: $query-settings;
+    $_elevation-color: ();
+
+    @if not map.has-key($color-theme, 'elevation') {
+        $_elevation-color: #000;
+    } @else {
+        $_elevation-color: getter.get-color_($color-theme, 'fill', 'elevation');
+    }
+
+    // Handles scope-exceptions map
+    @if Feature.has-item($_scope-exceptions, $_scope) {
+        @error 'The color scope #{$_scope} is disabled in this component. Please select another color scope.';
+    }
+
+    // $_scope == text
+    @if Feature.has-item($_scope, 'text') {
+        color: getter.get-color_($color-theme, 'fill', 'default');
+        border: none;
+        background: hsl(0 0% 0% / 0);
+        @include Elevation.apply(0, $_elevation-color);
+
+        @if Feature.has-property($color-theme, 'hover') {
+            &:hover {
+                color: getter.get-color_($color-theme, 'fill', 'hover');
+                cursor: pointer;
+            }
+        }
+
+        @if Feature.has-property($color-theme, 'focus') {
+            &:focus {
+                color: getter.get-color_($color-theme, 'fill', 'focus');
+                cursor: pointer;
+                //outline: solid rgba(#005cb1, 50%);
+            }
+        }
+
+        @if Feature.has-property($color-theme, 'active') {
+            &:active {
+                color: getter.get-color_($color-theme, 'fill', 'active');
+                cursor: pointer;
+            }
+        }
+
+        @if Feature.has-property($color-theme, 'disabled') {
+            &:disabled {
+                color: getter.get-color_($color-theme, 'fill', 'disabled');
+            }
+        }
+    }
+
+    // $_scope == outlined
+    @if Feature.has-item($_scope, 'outlined') {
+        color: getter.get-color_($color-theme, 'fill', 'default');
+        border: 1px solid getter.get-color_($color-theme, 'fill', 'default');
+        background: rgba(0 0 0 / 0);
+        @include Elevation.apply(0, $_elevation-color);
+
+        @if Feature.has-property($color-theme, 'hover') {
+            &:hover {
+                color: getter.get-color_($color-theme, 'ink', 'default');
+                background: getter.get-color_($color-theme, 'fill', 'default');
+                border: 1px solid getter.get-color_($color-theme, 'fill', 'default');
+                cursor: pointer;
+
+                @if Feature.has-item($_query-settings, 'has-elevation') {
+                    @include Elevation.apply(0, $_elevation-color);
+                }
+            }
+        }
+
+        @if Feature.has-property($color-theme, 'focus') {
+            &:focus {
+                color: getter.get-color_($color-theme, 'ink', 'focus');
+                background: getter.get-color_($color-theme, 'fill', 'focus');
+                border: 1px solid getter.get-color_($color-theme, 'fill', 'focus');
+                cursor: pointer;
+
+                @if Feature.has-item($_query-settings, 'has-elevation') {
+                    @include Elevation.apply(0, $_elevation-color);
+                }
+            }
+        }
+
+        @if Feature.has-property($color-theme, 'active') {
+            &:active {
+                color: getter.get-color_($color-theme, 'ink', 'active');
+                background: getter.get-color_($color-theme, 'fill', 'active');
+                border: 1px solid getter.get-color_($color-theme, 'fill', 'active');
+                cursor: pointer;
+
+                @if Feature.has-item($_query-settings, 'has-elevation') {
+                    @include Elevation.apply(5, $_elevation-color);
+                }
+            }
+        }
+
+        @if Feature.has-property($color-theme, 'disabled') {
+            &:disabled {
+                color: getter.get-color_($color-theme, 'fill', 'disabled');
+                border: 1px solid getter.get-color_($color-theme, 'fill', 'disabled');
+
+                &:hover {
+                    background: rgba(0 0 0 / 0%);
+                }
+            }
+        }
+    }
+
+    // $_scope == filled
+    @if Feature.has-item($_scope, 'filled') {
+        color: getter.get-color_($color-theme, 'ink', 'default');
+        border: 1px solid getter.get-color_($color-theme, 'fill', 'default');
+        background: getter.get-color_($color-theme, 'fill', 'default');
+
+        @if Feature.has-item($_query-settings, 'has-elevation') {
+            @include Elevation.apply(0, $_elevation-color);
+        }
+
+        @if Feature.has-property($color-theme, 'hover') {
+            &:hover {
+                color: getter.get-color_($color-theme, 'ink', 'hover');
+                border: 1px solid getter.get-color_($color-theme, 'fill', 'hover');
+                background: getter.get-color_($color-theme, 'fill', 'hover');
+                cursor: pointer;
+
+                @if Feature.has-item($_query-settings, 'has-elevation') {
+                    @include Elevation.apply(3, $_elevation-color);
+                }
+            }
+        }
+
+        @if Feature.has-property($color-theme, 'focus') {
+            &:focus {
+                color: getter.get-color_($color-theme, 'ink', 'focus');
+                border: 1px solid getter.get-color_($color-theme, 'fill', 'focus');
+                background: getter.get-color_($color-theme, 'fill', 'focus');
+                cursor: pointer;
+
+                @if Feature.has-item($_query-settings, 'has-elevation') {
+                    @include Elevation.apply(3, $_elevation-color);
+                }
+            }
+        }
+
+        @if Feature.has-property($color-theme, 'active') {
+            &:active {
+                color: getter.get-color_($color-theme, 'ink', 'active');
+                border: 1px solid getter.get-color_($color-theme, 'fill', 'active');
+                background: getter.get-color_($color-theme, 'fill', 'active');
+                cursor: pointer;
+
+                @if Feature.has-item($_query-settings, 'has-elevation') {
+                    @include Elevation.apply(7, $_elevation-color);
+                }
+            }
+        }
+
+        @if Feature.has-property($color-theme, 'disabled') {
+            &:disabled {
+                color: getter.get-color_($color-theme, 'ink', 'disabled');
+                border: 1px solid getter.get-color_($color-theme, 'fill', 'disabled');
+                background: getter.get-color_($color-theme, 'fill', 'disabled');
+
+                @if Feature.has-item($_query-settings, 'has-elevation') {
+                    @include Elevation.apply(0, $_elevation-color);
+                }
+
+                &:hover {
+                    cursor: not-allowed;
+                }
+            }
+        }
+    }
+}

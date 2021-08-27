@@ -1,0 +1,88 @@
+//
+// Copyright (c) 2021 GrowStocks
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
+//
+
+@use 'sass:map';
+@use 'sass:list';
+@use 'sass:color';
+
+@use 'color-validators' as validator;
+@use 'color-math' as color-math;
+
+@function get-scope_($scope) {
+    $valid: validator.is-scope_($scope);
+    @if $valid {
+        @return $scope;
+    }
+}
+
+@function get-color_($color-map, $list-query, $query) {
+
+    $valid: validator.is-color-type_($query);
+    $valid-map: validator.is-map_($color-map);
+    @if $valid {
+        @if $valid-map {
+            $_color-map: map.get($color-map, $query);
+
+            @if $list-query == 'fill' {
+                @return list.nth($_color-map, 1);
+            } @else if $list-query == 'ink' {
+                @return list.nth($_color-map, 2);
+            } @else {
+                @error 'Invalid query: #{$list-query}. Please choose from the following valid selectors: "fill", "ink".';
+            }
+        }
+    }
+
+}
+
+@function get-linear_($color) {
+    @if $color <= 0.4045 {
+        @return $color / 12.92;
+    } @else {
+        @return color-math.pow(($color + 0.055) / 1.055, 2.4);
+    }
+}
+
+@function get-luminance_($color) {
+    $r: get-linear_(color.red($color) / 255);
+    $g: get-linear_(color.green($color) / 255);
+    $b: get-linear_(color.blue($color) / 255);
+
+    @return (0.2126 * $r) + (0.7152 * $g) + (0.0722 * $b);
+}
+
+$_white-lumen: get-luminance_(#ffffff);
+
+@function get-ink_($fill) {
+    @if validator.is-map_($fill) {
+        @if abs(get-luminance_(map.get($fill, 'default')) - $_white-lumen) > 0.7 {
+            @return unquote('#fff');
+        } @else {
+            @return unquote('#000');
+        }
+    }
+}
+
+@function get-complement_($color) {
+    $_complement: saturate(lighten($color, 30%), 0%);
+    @return adjust-hue($_complement, 180deg);
+}
