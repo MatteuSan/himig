@@ -28,6 +28,7 @@
 @use '../../src/Core/Elevation';
 
 @use '../../src/Components/SCAlert';
+@use '../../src/Components/SCAppbar';
 @use '../../src/Components/SCButton';
 @use '../../src/Components/SCCard';
 @use '../../src/Components/SCDrawer';
@@ -65,6 +66,7 @@ $screen-sizes: (
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    color: inherit;
 }
 
 body {
@@ -88,6 +90,7 @@ body {
 }
 
 @include SCAlert.render();
+@include SCAppbar.render($nav-contents: 4);
 @include SCButton.render(
     $shape-theme: (
         'shape': pill
@@ -101,7 +104,6 @@ body {
 @include SCCard.render();
 @include SCDrawer.render();
 @include SCHeader.render($is-scrollable: true);
-@include SCNavbar.render($nav-contents: 4);
 @include SCProfile.render();
 @include SCTextField.render(
     $shape-theme: (

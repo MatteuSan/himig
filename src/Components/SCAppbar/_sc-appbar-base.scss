@@ -21,72 +21,56 @@
 //
 
 @use '../../Core/Theme';
-@use '../../Core/Tools';
-@use '../../Core/Elevation';
 
-@use 'SCNavItem';
+@use 'SCAppbarItem';
 
-@mixin base($breakpoint: 'medium') {
+@mixin base($nav-contents: 4, $breakpoint: 'medium') {
 
-    .sc-navbar__trigger {
+    $_container-width: (42px * $nav-contents) + (8px * $nav-contents);
+
+    .sc-appbar {
         width: 100%;
-        display: grid;
-        place-items: center;
-        padding: 0 0.7rem;
-        margin-bottom: 3px;
-
-        border: none;
-        background: rgba(0 0 0 / 0);
-
-        > * {
-            font-size: 24px;
-        }
-
-        @media (min-width: 570px) {
-            display: none;
-        }
-    }
-
-    .sc-nav {
-        width: 270px;
-        height: 100%;
-        display: none;
         position: fixed;
-        right: 0;
-        top: 52px;
-        padding: 1.2rem 1.7rem 1.2rem 1.2rem;
+        padding: 0.5rem 0;
+        bottom: 0;
+        left: 0;
         z-index: 100;
 
-        @include Tools.prefix(transition, all 0.1s ease);
-        @include Elevation.apply(5);
+        @media (min-width: Theme.get-breakpoint($breakpoint)) {
+            width: max-content;
+            bottom: inherit;
+            position: relative;
+            padding: 0.3rem 0;
+            right: 0;
+            background-color: rgba(0 0 0 / 0%) !important;
+            border-color: rgba(0 0 0 / 0%) !important;
+            box-shadow: none !important;
+            height: 100%;
+
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .sc-appbar__container {
+            display: grid;
+            grid-column: 1/-1;
+            padding: 0.3rem 0;
+            grid-template-columns: repeat($nav-contents, 1fr);
+            justify-content: space-between;
+            grid-gap: 0.5rem;
+            text-align: center;
+            height: max-content;
+
+            @media (min-width: Theme.get-breakpoint($breakpoint)) {
+                width: $_container-width;
+                padding: 0;
+                text-align: right;
+            }
+
+            @include SCAppbarItem.base($breakpoint);
+
+        }
 
         @content;
-
-        &.visible {
-            display: block;
-            transition: all 0.1s ease;
-        }
-
-        @media (min-width: Theme.get-breakpoint($breakpoint)) {
-            display: flex;
-            align-items: center;
-            position: relative;
-            right: 0;
-            top: 0;
-            padding: 0;
-            background: rgba(0 0 0 / 0);
-            @include Elevation.apply(0);
-        }
-
-        .sc-navbar__container {
-            @media (min-width: Theme.get-breakpoint($breakpoint)) {
-                width: 100%;
-                height: auto;
-                display: flex;
-                flex-flow: row nowrap;
-                justify-content: flex-end;
-                padding: 0;
-            }
-        }
     }
 }

@@ -20,48 +20,33 @@
 // SOFTWARE.
 //
 
-@use '../../../Core/Color';
-@use '../../../Core/Shape';
-@use '../../../Core/Typography';
-@use '../../../Core/Tools';
-@use '../../../Core/Theme';
+@use '../../Core/Color';
+@use '../../Core/Shape';
+@use '../../Core/Typography';
+@use '../../Core/Elevation';
 
-@use '../../SCTooltip';
+@use 'sc-appbar-base' as base;
+@use 'sc-appbar-theme' as theme;
 
 @use 'sass:map';
 
-@mixin base($breakpoint: 'medium') {
-    .sc-navbar__item {
-        width: 100%;
-        height: auto;
-        padding: 0.7rem;
+@mixin render(
+    $color-theme: (),
+    $shape-theme: (),
+    $typography-theme: (),
+    $nav-contents: 4,
+    $breakpoint: 'medium'
+) {
 
-        @content;
+    $_color-theme: map.merge(theme.$init-color-theme, $color-theme);
+    $_shape-theme: map.merge(theme.$init-shape-theme, $shape-theme);
+    $_typography-theme: map.merge(theme.$init-typography-theme, $typography-theme);
 
-        p {
-            font-size: 16px;
-        }
+    @include base.base($nav-contents, $breakpoint) {
+        @include Color.apply('filled', $_color-theme, $query-settings: ('no-elevation'));
+        @include Shape.apply($_shape-theme);
+        @include Typography.apply($_typography-theme);
+        @include Elevation.apply(5, $color: Color.get-color_($_color-theme, 'fill', 'elevation'));
+    };
 
-        &.active {
-            font-weight: 700;
-        }
-
-        @media (min-width: Theme.get-breakpoint($breakpoint)) {
-            width: max-content;
-            box-shadow: none;
-            background-color: rgba(0 0 0 / 0);
-            border-color: rgba(0 0 0 / 0);
-
-            &:hover {
-                background-color: rgba(0 0 0 / 0);
-                border-color: rgba(0 0 0 / 0);
-                text-decoration: underline;
-                text-decoration-color: var(--sc-theme--secondary);
-            }
-
-            p {
-                width: max-content;
-            }
-        }
-    }
 }

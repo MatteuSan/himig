@@ -20,8 +20,6 @@
 // SOFTWARE.
 //
 
-@use '../../../Core/Color';
-@use '../../../Core/Shape';
 @use '../../../Core/Typography';
 @use '../../../Core/Tools';
 @use '../../../Core/Theme';
@@ -31,37 +29,49 @@
 @use 'sass:map';
 
 @mixin base($breakpoint: 'medium') {
-    .sc-navbar__item {
-        width: 100%;
-        height: auto;
-        padding: 0.7rem;
+    .sc-appbar__item {
+        margin: 0 auto;
+        cursor: pointer;
+        color: currentColor !important;
+        display: flex;
+        align-items: center;
+        height: 24px;
 
-        @content;
+        & > a,
+        & > p {
+            display: block;
+            color: inherit;
 
-        p {
-            font-size: 16px;
+            &:hover {
+                filter: brightness(70%);
+            }
         }
 
         &.active {
-            font-weight: 700;
+            color: var(--sc-theme--secondary) !important;
         }
 
-        @media (min-width: Theme.get-breakpoint($breakpoint)) {
-            width: max-content;
-            box-shadow: none;
-            background-color: rgba(0 0 0 / 0);
-            border-color: rgba(0 0 0 / 0);
+        .sc-appbar__item__icon {
+            font-size: Typography.px-to-rem(24px);
+            color: inherit;
 
-            &:hover {
-                background-color: rgba(0 0 0 / 0);
-                border-color: rgba(0 0 0 / 0);
-                text-decoration: underline;
-                text-decoration-color: var(--sc-theme--secondary);
-            }
+            @include Tools.prefix(transition, all 0.1s ease);
 
-            p {
-                width: max-content;
+            @media (min-width: Theme.get-breakpoint($breakpoint)) {
+                margin-top: 4px;
             }
         }
+
+        .sc-appbar__item__text {
+            font-size: Typography.px-to-rem(12px) !important;
+            margin-top: -3px;
+            color: inherit !important;
+
+            @media (min-width: Theme.get-breakpoint($breakpoint)) {
+                display: none !important;
+            }
+        }
+
+        @include SCTooltip.render($bottom-position: calc(-100% - 10px), $breakpoint: $breakpoint);
     }
 }

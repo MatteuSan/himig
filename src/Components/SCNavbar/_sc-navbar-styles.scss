@@ -28,13 +28,14 @@
 @use 'sc-navbar-base' as base;
 @use 'sc-navbar-theme' as theme;
 
+@use 'SCNavItem';
+
 @use 'sass:map';
 
 @mixin render(
     $color-theme: (),
     $shape-theme: (),
     $typography-theme: (),
-    $nav-contents: 4,
     $breakpoint: 'medium'
 ) {
 
@@ -42,11 +43,19 @@
     $_shape-theme: map.merge(theme.$init-shape-theme, $shape-theme);
     $_typography-theme: map.merge(theme.$init-typography-theme, $typography-theme);
 
-    @include base.base($nav-contents, $breakpoint) {
+    @include base.base($breakpoint) {
         @include Color.apply('filled', $_color-theme, $query-settings: ('no-elevation'));
         @include Shape.apply($_shape-theme);
         @include Typography.apply($_typography-theme);
         @include Elevation.apply(5, $color: Color.get-color_($_color-theme, 'fill', 'elevation'));
+
+        @include SCNavItem.base($breakpoint) {
+            @include Color.apply('filled', $_color-theme, $query-settings: ('no-elevation'));
+            @include Shape.apply((
+                'shape': rounded,
+                'radius': 0.5rem
+            ));
+        }
     };
 
 }

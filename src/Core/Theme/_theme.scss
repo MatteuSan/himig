@@ -54,7 +54,6 @@ $breakpoints: (
         'success': (#25a53f, #fff),
     );
 
-    // $primary module
     @if meta.type-of($primary-color) != map {
 
         $_color-map: Color.split($primary-color);
@@ -134,17 +133,14 @@ $breakpoints: (
 
     /* STATES */
 
-    // Get state fill
     @each $property, $value in $_state-map {
         --#{$_prefix}-theme--#{$property}: #{list.nth($value, 1)};
     }
 
-    // Get state ink
     @each $property, $value in $_state-map {
         --#{$_prefix}-theme--on-#{$property}: #{list.nth($value, 2)};
     }
 
-    //other variables (using meta.keywords)
     /* CUSTOM PROPERTIES */
     @each $property, $value in meta.keywords($args) {
         --#{$_prefix}-theme--#{$property}: #{$value};
@@ -165,24 +161,6 @@ $breakpoints: (
     }
 
 }
-
-// @depricated
-@mixin _set-breakpoint($screen-sizes: ()) {
-    @if (Feature.is-empty($screen-sizes)) == false {
-        @each $property, $value in $screen-sizes {
-
-            $_valid-property: Feature.has-item($_valid-screen-properties, $property);
-
-            @if $_valid-property == true {
-                $breakpoints: map.merge($breakpoints, $screen-sizes);
-            } @else {
-                @error 'Screen property: #{$property} is invalid. Please select from the following valid screen properties: #{$_valid-screen-properties}';
-            }
-
-        }
-    }
-}
-
 
 @function get-breakpoint($query, $reference: $breakpoints) {
 
@@ -222,4 +200,21 @@ $breakpoints: (
 
     }
 
+}
+
+// @depricated
+@mixin _set-breakpoint($screen-sizes: ()) {
+    @if (Feature.is-empty($screen-sizes)) == false {
+        @each $property, $value in $screen-sizes {
+
+            $_valid-property: Feature.has-item($_valid-screen-properties, $property);
+
+            @if $_valid-property == true {
+                $breakpoints: map.merge($breakpoints, $screen-sizes);
+            } @else {
+                @error 'Screen property: #{$property} is invalid. Please select from the following valid screen properties: #{$_valid-screen-properties}';
+            }
+
+        }
+    }
 }

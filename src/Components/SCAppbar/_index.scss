@@ -20,48 +20,5 @@
 // SOFTWARE.
 //
 
-@use '../../../Core/Color';
-@use '../../../Core/Shape';
-@use '../../../Core/Typography';
-@use '../../../Core/Tools';
-@use '../../../Core/Theme';
-
-@use '../../SCTooltip';
-
-@use 'sass:map';
-
-@mixin base($breakpoint: 'medium') {
-    .sc-navbar__item {
-        width: 100%;
-        height: auto;
-        padding: 0.7rem;
-
-        @content;
-
-        p {
-            font-size: 16px;
-        }
-
-        &.active {
-            font-weight: 700;
-        }
-
-        @media (min-width: Theme.get-breakpoint($breakpoint)) {
-            width: max-content;
-            box-shadow: none;
-            background-color: rgba(0 0 0 / 0);
-            border-color: rgba(0 0 0 / 0);
-
-            &:hover {
-                background-color: rgba(0 0 0 / 0);
-                border-color: rgba(0 0 0 / 0);
-                text-decoration: underline;
-                text-decoration-color: var(--sc-theme--secondary);
-            }
-
-            p {
-                width: max-content;
-            }
-        }
-    }
-}
+@forward 'sc-appbar-styles' show render;
+@forward 'sc-appbar-base' show base;
