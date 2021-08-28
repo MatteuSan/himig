@@ -23,20 +23,20 @@
  */
 
 export interface SCHeaderConstructor {
-    headerClass?: string;
-    breakpointElement?: string;
+    componentSelector?: string;
+    triggerSelector?: string;
 }
 
 class SCHeader {
-    renderScrollable(opt?: SCHeaderConstructor) {
+    render(opt?: SCHeaderConstructor) {
 
         const {
-            headerClass = ".sc-header--scrollable",
-            breakpointElement = ""
+            componentSelector = ".sc-header--scrollable",
+            triggerSelector = ""
         } = opt || {};
 
-        const headerElement = document.querySelector(headerClass)
-        const breakingPointElement = document.querySelector(breakpointElement);
+        const headerElement = document.querySelector(componentSelector)
+        const breakingPointElement = document.querySelector(triggerSelector);
 
         if (!headerElement) throw new Error("Please provide a header selector.");
         if (!breakingPointElement) throw new Error("Please provide a breaking point element selector.");

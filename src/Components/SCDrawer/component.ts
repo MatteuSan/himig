@@ -26,9 +26,8 @@
 import Alpine from 'alpinejs';
 
 export interface SCDrawerConstructor {
-    trigger?: string;
-    triggerIcon?: string;
-    drawerClasses?: any;
+    componentSelector?: any;
+    triggerSelector?: string;
 }
 
 class SCDrawer {
@@ -36,18 +35,16 @@ class SCDrawer {
     render(opt?: SCDrawerConstructor) {
 
         const {
-            drawerClasses = {
+            componentSelector = {
                 component: ".sc-drawer",
                 overlay: ".sc-drawer__overlay"
             },
-            trigger = ".sc-drawer__trigger",
-            triggerIcon = ".sc-drawer__trigger__icon"
+            triggerSelector = ".sc-drawer__trigger",
         } = opt || {};
 
-        const drawerTrigger: any = document.querySelector(trigger);
-        const drawerTriggerIcon: any = document.querySelector(triggerIcon);
-        const drawer: any = document.querySelector(drawerClasses.component);
-        const drawerOverlay: any = document.querySelector(drawerClasses.overlay);
+        const drawer: any = document.querySelector(componentSelector.component);
+        const drawerOverlay: any = document.querySelector(componentSelector.overlay);
+        const drawerTrigger: any = document.querySelector(triggerSelector);
 
         if (!drawerTrigger) {
             throw new Error('Drawer trigger class is not provided! Please provide a trigger class')
@@ -64,7 +61,6 @@ class SCDrawer {
             drawer.style.width = drawerData.drawer_open ? '100%' : '0';
             drawer.style.opacity = drawerData.drawer_open ? '1' : '0';
             drawerOverlay.style.width = drawerData.drawer_open ? '100%' : '0';
-            drawerTriggerIcon.textContent = drawerData.drawer_open ? 'close' : 'menu';
         });
 
         drawerTrigger.addEventListener('click', () => {
