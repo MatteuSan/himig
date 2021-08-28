@@ -25,14 +25,14 @@
 //@ts-ignore
 import Alpine from 'alpinejs';
 
-export interface SCDrawerConstructor {
+export interface SCDrawerProps {
     componentSelector?: any;
     triggerSelector?: string;
 }
 
 class SCDrawer {
 
-    render(opt?: SCDrawerConstructor) {
+    render(opt?: SCDrawerProps) {
 
         const {
             componentSelector = {

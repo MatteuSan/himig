@@ -22,13 +22,13 @@
  *
  */
 
-export interface SCHeaderConstructor {
+export interface SCHeaderProps {
     componentSelector?: string;
     triggerSelector?: string;
 }
 
 class SCHeader {
-    render(opt?: SCHeaderConstructor) {
+    render(opt?: SCHeaderProps) {
 
         const {
             componentSelector = ".sc-header--scrollable",
