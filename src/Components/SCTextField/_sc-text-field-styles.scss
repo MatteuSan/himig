@@ -27,8 +27,8 @@
 
 @use 'sass:map';
 
-@use 'sc-input-base' as base;
-@use 'sc-input-theme' as theme;
+@use 'sc-text-field-base' as base;
+@use 'sc-text-field-theme' as theme;
 
 @mixin render(
     $color-theme: (),

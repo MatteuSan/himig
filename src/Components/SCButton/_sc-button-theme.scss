@@ -32,13 +32,12 @@ $init-color-theme: (
     'active': (var(--sc-theme--secondary-light), var(--sc-theme--on-secondary)),
     'disabled': (var(--sc-theme--secondary-dark), var(--sc-theme--on-secondary)),
     'elevation': #000,
-    'ripple': var(--sc-theme--secondary-light),
 );
 
 $init-shape-theme: (
     'shape': default,
-    'radius': 0.3rem,
-    'shape-exceptions': ()
+    'radius': var(--sc-theme--small-radius),
+    'exceptions': ()
 );
 
 $init-typography-theme: (

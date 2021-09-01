@@ -23,6 +23,7 @@
 @use 'sass:map';
 @use 'sass:list';
 @use 'sass:color';
+@use 'sass:math';
 
 @use 'color-validators' as validator;
 @use 'color-math' as color-math;
@@ -56,16 +57,16 @@
 
 @function get-linear_($color) {
     @if $color <= 0.4045 {
-        @return $color / 12.92;
+        @return math.div($color, 12.92);
     } @else {
-        @return color-math.pow(($color + 0.055) / 1.055, 2.4);
+        @return color-math.pow(math.div($color + 0.055, 1.055), 2.4);
     }
 }
 
 @function get-luminance_($color) {
-    $r: get-linear_(color.red($color) / 255);
-    $g: get-linear_(color.green($color) / 255);
-    $b: get-linear_(color.blue($color) / 255);
+    $r: get-linear_(math.div(color.red($color), 255));
+    $g: get-linear_(math.div(color.green($color), 255));
+    $b: get-linear_(math.div(color.blue($color), 255));
 
     @return (0.2126 * $r) + (0.7152 * $g) + (0.0722 * $b);
 }

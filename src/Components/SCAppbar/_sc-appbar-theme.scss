@@ -26,7 +26,8 @@ $init-color-theme: (
 );
 
 $init-shape-theme: (
-    'shape': block
+    'shape': block,
+    'radius': var(--sc-theme--small-radius) var(--sc-theme--small-radius) 0 0,
 );
 
 $init-typography-theme: (

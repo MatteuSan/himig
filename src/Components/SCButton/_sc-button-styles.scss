@@ -34,9 +34,7 @@
     $color-theme: (),
     $shape-theme: (),
     $typography-theme: (),
-    $type: (
-        'all'
-    )
+    $type: ('all')
 ) {
 
     $_scope-exceptions: ();
@@ -45,7 +43,6 @@
     $_shape-theme: map.merge(theme.$init-shape-theme, $shape-theme);
     $_typography-theme: map.merge(theme.$init-typography-theme, $typography-theme);
 
-    // Base
     @include base.base() {
         @if Feature.has-item($type, default) or Feature.has-item($type, text) or Feature.has-item($type, all) {
             @include Color.apply('text', $_color-theme, $_scope-exceptions);

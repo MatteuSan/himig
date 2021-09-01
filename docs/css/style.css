@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 :root {
   --sc-theme--primary-light: #426294;
@@ -9,14 +8,15 @@
   --sc-theme--secondary-dark: #996f0c;
   --sc-theme--on-primary: #fff;
   --sc-theme--on-secondary: #000;
-  /* STATES */
   --sc-theme--error: #b00020;
   --sc-theme--warning: #ffa000;
   --sc-theme--success: #25a53f;
   --sc-theme--on-error: #fff;
   --sc-theme--on-warning: #000;
   --sc-theme--on-success: #fff;
-  /* CUSTOM PROPERTIES */
+  --sc-theme--small-radius: 0.3rem;
+  --sc-theme--medium-radius: 0.5rem;
+  --sc-theme--large-radius: 0.7rem;
   --sc-theme--surface: #001021;
   --sc-theme--on-surface: #fff;
 }
@@ -100,7 +100,6 @@ body {
   -webkit-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
   -ms-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
-  border-radius: 0.3rem;
   font-size: 0.875rem;
   -webkit-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
   -ms-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
@@ -149,13 +148,12 @@ body {
   color: var(--sc-theme--on-primary);
   border: 1px solid var(--sc-theme--primary);
   background: var(--sc-theme--primary);
-  border-radius: 0;
   font-size: 0.75rem;
   -webkit-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12);
   -ms-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12);
 }
-@media (min-width: 580px) {
+@media (min-width: 540px) {
   .sc-appbar {
     width: max-content;
     bottom: inherit;
@@ -180,7 +178,7 @@ body {
   text-align: center;
   height: max-content;
 }
-@media (min-width: 580px) {
+@media (min-width: 540px) {
   .sc-appbar .sc-appbar__container {
     width: 200px;
     padding: 0;
@@ -211,7 +209,7 @@ body {
   -webkit-transition: all 0.1s ease;
   transition: all 0.1s ease;
 }
-@media (min-width: 580px) {
+@media (min-width: 540px) {
   .sc-appbar .sc-appbar__container .sc-appbar__item .sc-appbar__item__icon {
     margin-top: 4px;
   }
@@ -221,7 +219,7 @@ body {
   margin-top: -3px;
   color: inherit !important;
 }
-@media (min-width: 580px) {
+@media (min-width: 540px) {
   .sc-appbar .sc-appbar__container .sc-appbar__item .sc-appbar__item__text {
     display: none !important;
   }
@@ -248,12 +246,11 @@ body {
   color: #fff;
   border: 1px solid #232323;
   background: #232323;
-  border-radius: 0.3rem;
   -webkit-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12);
   -ms-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12);
 }
-@media (max-width: 580px) {
+@media (max-width: 540px) {
   .sc-appbar .sc-appbar__container .sc-appbar__item[data-tooltip]::after {
     display: none !important;
     opacity: 0 !important;
@@ -284,7 +281,6 @@ body {
   font-weight: 700;
   text-decoration: inherit;
   text-transform: inherit;
-  border-radius: 500px;
 }
 .sc-button > * + * {
   margin-left: 5px;
@@ -355,7 +351,6 @@ body {
   font-weight: 700;
   text-decoration: inherit;
   text-transform: inherit;
-  border-radius: 500px;
 }
 .sc-button.sc-button--outlined:hover {
   color: var(--sc-theme--on-secondary);
@@ -390,7 +385,6 @@ body {
   font-weight: 700;
   text-decoration: inherit;
   text-transform: inherit;
-  border-radius: 500px;
 }
 .sc-button.sc-button--filled:hover {
   color: var(--sc-theme--on-secondary);
@@ -433,7 +427,6 @@ body {
   -webkit-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
   -ms-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
-  border-radius: 0.3rem;
   -webkit-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
   -ms-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
@@ -520,7 +513,6 @@ body {
   color: var(--sc-theme--primary-dark);
   border: 1px solid var(--sc-theme--primary-light);
   background: var(--sc-theme--primary-light);
-  border-radius: 0;
   -webkit-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12);
   -ms-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12);
@@ -577,7 +569,6 @@ body {
   color: var(--sc-theme--on-primary);
   border: 1px solid var(--sc-theme--primary);
   background: var(--sc-theme--primary);
-  border-radius: 0;
   font-size: 1.25rem;
   -webkit-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12);
   -ms-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12);
@@ -598,7 +589,7 @@ body {
 .sc-header .sc-header__wrap .sc-header__text > * {
   color: inherit;
 }
-@media (min-width: 580px) {
+@media (min-width: 540px) {
   .sc-header .sc-header__wrap .sc-header__text {
     padding: 0.3rem 0.7rem 0.3rem 0;
   }
@@ -606,7 +597,7 @@ body {
 .sc-header .sc-header__wrap .sc-header__text.invisible {
   display: none;
 }
-@media (min-width: 580px) {
+@media (min-width: 540px) {
   .sc-header .sc-header__wrap {
     width: calc(100% - 34px);
     margin: 0 auto;
@@ -637,7 +628,7 @@ body {
 .sc-header .sc-header__wrap .sc-header__text > * {
   color: inherit;
 }
-@media (min-width: 580px) {
+@media (min-width: 540px) {
   .sc-header .sc-header__wrap .sc-header__text {
     padding: 0.3rem 0.7rem 0.3rem 0;
   }
@@ -645,7 +636,7 @@ body {
 .sc-header .sc-header__wrap .sc-header__text.invisible {
   display: none;
 }
-@media (min-width: 580px) {
+@media (min-width: 540px) {
   .sc-header .sc-header__wrap {
     width: calc(100% - 34px);
     margin: 0 auto;
@@ -663,7 +654,6 @@ body {
   color: var(--sc-theme--on-primary);
   border: 1px solid var(--sc-theme--primary);
   background: var(--sc-theme--primary);
-  border-radius: 0;
   font-size: 1.25rem;
   -webkit-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12);
   -ms-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12);
@@ -684,7 +674,6 @@ body {
   -webkit-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
   -ms-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
-  border-radius: 0.3rem;
   font-size: 0.75rem;
   -webkit-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
   -ms-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
@@ -777,7 +766,7 @@ body {
   border: 1px solid var(--sc-theme--input, #a4b2c3);
   background: var(--sc-theme--input, #a4b2c3);
   border-radius: 1rem 0 1rem 0;
-  border-radius: 0.3rem;
+  border-radius: var(--sc-theme--small-radius);
   font-size: 0.875rem;
 }
 .sc-text-field .sc-text-field__input:hover {
@@ -838,7 +827,6 @@ body {
   color: #fff;
   border: 1px solid #232323;
   background: #232323;
-  border-radius: 0.3rem;
   font-size: 0.875rem;
   -webkit-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12);
   -ms-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12);
@@ -855,7 +843,7 @@ body {
 .sc-snackbar.sc-snackbar--warning {
   border-left: 5px solid var(--sc-theme--warning);
 }
-@media (min-width: 580px) {
+@media (min-width: 540px) {
   .sc-snackbar {
     bottom: 30px;
     right: 30px;

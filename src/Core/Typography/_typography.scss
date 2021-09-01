@@ -160,7 +160,7 @@ $_valid-typography-queries: (
 }
 
 @function px-to-rem($px) {
-    @return ($px / 16px) * 1rem;
+    @return (math.div($px, 16px) * 1rem);
 }
 
 @function get-letter-spacing($font-size) {

@@ -4,7 +4,7 @@
 ![license_badge](https://img.shields.io/npm/l/@growstocks/stack)
 ![stars](https://img.shields.io/github/stars/GrowStocks/stack?style=social)
 
-Check out the demo [here](https://growstocks.github.io/stack)!
+Check out the demo [here](https://stackcss.github.io/stack)!
 - [GrowStocks](https://growstocks.xyz)' open source Design System for building beautiful, quick, responsive, and flexible user interfaces based on GrowStocks' design system.
 
 ## Features
@@ -15,4 +15,4 @@ Check out the demo [here](https://growstocks.github.io/stack)!
 * SASS/SCSS Live Watcher or Live Compiler (refer to your IDE's plugins marketplace)
 
 ## Installation Instructions
-- Please refer to the "Getting Started: Installation" page in the [documentation](https://growstocks.gitbook.io/stack/getting-started/installation).
+- Please refer to the "Getting Started: Installation" page in the [documentation](https://stackcss.gitbook.io/stack/getting-started/installation).

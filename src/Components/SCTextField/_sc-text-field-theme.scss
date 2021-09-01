@@ -26,10 +26,8 @@ $init-color-theme: (
 
 $init-shape-theme: (
     'shape': default,
-    'radius': 0.3rem,
-    'shape-exceptions': (
-        pill
-    ),
+    'radius': var(--sc-theme--small-radius),
+    'shape-exceptions': (pill)
 );
 
 $init-typography-theme: (

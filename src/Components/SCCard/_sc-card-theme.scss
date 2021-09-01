@@ -27,7 +27,8 @@ $init-color-theme: (
 
 $init-shape-theme: (
     'shape': default,
-    'radius': 0.3rem
+    'radius': var(--sc-theme--small-radius),
+    'exceptions': (pill)
 );
 
 $init-typography-theme: ();

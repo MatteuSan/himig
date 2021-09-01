@@ -26,7 +26,9 @@ $init-color-theme: (
 );
 
 $init-shape-theme: (
-    'shape': block
+    'shape': block,
+    'radius': var(--sc-theme--medium-radius) 0 0 0,
+    'exceptions': (pill)
 );
 
 $init-typography-theme: ();

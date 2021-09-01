@@ -20,17 +20,47 @@
 // SOFTWARE.
 //
 
-$init-color-theme: (
-    'default': (var(--sc-theme--primary-light), var(--sc-theme--on-primary)),
-    'elevation': #000
-);
+@use '../Feature';
 
-$init-shape-theme: (
-    'shape': default,
-    'radius': var(--sc-theme--small-radius),
-    'exceptions': (pill)
-);
+$_valid-shapes: (default, rounded, block, pill); // temporarily removed 'clipped' as a shape due to bugs
+$_valid-properties: (shape, radius, border-radius, exceptions, shape-exceptions);
 
-$init-typography-theme: (
-    'font-size': 12px
-);
+@function is-empty_($value) {
+
+    @return Feature.is-empty($value);
+
+}
+
+@function is-shape_($shape) {
+
+    @if not Feature.has-item($_valid-shapes, $shape) {
+        @error 'Invalid shape: #{$shape}! Please select from the following: #{$_valid-shapes}.';
+    }
+
+    @return true;
+
+}
+
+@function is-enabled_($shape, $reference) {
+
+    @if Feature.has-item($reference, $shape) {
+        @error 'The #{$shape} shape is currently disabled in this component. Please try other shapes.';
+    }
+
+    @return false;
+
+}
+
+@function validate-shape-properties_($theme) {
+
+    @each $property, $value in $theme {
+
+        @if not Feature.has-item($_valid-properties, $property) {
+            @error "Invalid property: #{$property}! Please choose from the following valid properties: #{$_valid-properties}.";
+        }
+
+    }
+
+    @return true;
+
+}

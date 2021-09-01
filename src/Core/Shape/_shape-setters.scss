@@ -1,0 +1,135 @@
+//
+//  Copyright (c) 2021 GrowStocks
+//
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in all
+//  copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+//  SOFTWARE.
+//
+
+@use 'sass:list';
+@use 'sass:map';
+@use 'sass:meta';
+@use 'sass:math';
+
+@use '../Feature';
+
+@use 'shape-validators' as validator;
+
+@mixin apply(
+    $shape-theme: (),
+) {
+
+    @if validator.validate-shape-properties_($shape-theme) {
+
+        $_imported-shape: map.get($shape-theme, 'shape');
+
+        $_imported-border-radius: map.get($shape-theme, 'radius');
+        $_backwards-compatability-radius: map.get($shape-theme, 'border-radius');
+
+        $_imported-shape-exceptions: map.get($shape-theme, 'shape-exceptions');
+        $_backwards-compatability-exceptions: map.get($shape-theme, 'shape-exceptions');
+
+        // $_imported-clip-size: map.get($shape-theme, 'clip-size');
+        // $_imported-custom-clip: map.get($shape-theme, 'custom-clip');
+
+        @if $_backwards-compatability-radius {
+            @warn 'The property "border-radius" will be depricated on Stack v2.2.0. Please change it to "radius" for future compatability';
+        }
+
+        @if $_backwards-compatability-exceptions {
+            @warn 'The property "shape-exceptions" will be depricated on Stack v2.2.0. Please change it to "exceptions" for future compatability';
+        }
+
+        @if validator.is-shape_($_imported-shape) {
+
+            @if $_imported-shape-exceptions {
+
+                @if not validator.is-enabled_($_imported-shape, $_imported-shape-exceptions) {
+
+                    @if $_imported-shape == pill {
+                        border-radius: 500px;
+                    }
+
+                    @if $_imported-shape == rounded {
+                        @if $_backwards-compatability-radius {
+                            border-radius: $_backwards-compatability-radius;
+                        }
+                        @if $_imported-border-radius {
+                            border-radius: $_imported-border-radius;
+                        }
+                    }
+
+                    @if $_imported-shape == block {
+                        border-radius: 0;
+                    }
+
+                    // CLIPPED (Disabled 'clipped' shape)
+                    // @location: _DEPRICATED.scss
+
+                    @if $_imported-shape == default {
+                        @if $_backwards-compatability-radius {
+                            border-radius: $_backwards-compatability-radius;
+                        }
+                        @if $_imported-border-radius {
+                            border-radius: $_imported-border-radius;
+                        }
+                    }
+
+                }
+
+            } @else if $_backwards-compatability-exceptions {
+
+                @if not validator.is-enabled_($_imported-shape, $_backwards-compatability-exceptions) {
+
+                    @if $_imported-shape == pill {
+                        border-radius: 500px;
+                    }
+
+                    @if $_imported-shape == rounded {
+                        @if $_backwards-compatability-radius {
+                            border-radius: $_backwards-compatability-radius;
+                        }
+                        @if $_imported-border-radius {
+                            border-radius: $_imported-border-radius;
+                        }
+                    }
+
+                    @if $_imported-shape == block {
+                        border-radius: 0;
+                    }
+
+                    // CLIPPED (Disabled 'clipped' shape)
+                    // @location: _DEPRICATED.scss
+
+                    @if $_imported-shape == default {
+                        @if $_backwards-compatability-radius {
+                            border-radius: $_backwards-compatability-radius;
+                        }
+                        @if $_imported-border-radius {
+                            border-radius: $_imported-border-radius;
+                        }
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+}

@@ -39,20 +39,27 @@ $breakpoints: (
     'small': 320px,
     'medium': 540px,
     'large': 850px,
-);
+) !default;
+
+$_state-map: (
+    'error': (#b00020, #fff),
+    'warning': (#ffa000, #000),
+    'success': (#25a53f, #fff),
+) !default;
+
+$_radius-theme: (
+    'small': 0.3rem,
+    'medium': 0.5rem,
+    'large': 0.7rem
+) !default;
 
 @mixin config(
     $primary-color: (),
     $secondary-color: Color.get-complement_($primary-color),
     $screen-sizes: (),
+    $radius-settings: $_radius-theme,
     $args...
 ) {
-
-    $_state-map: (
-        'error': (#b00020, #fff),
-        'warning': (#ffa000, #000),
-        'success': (#25a53f, #fff),
-    );
 
     @if meta.type-of($primary-color) != map {
 
@@ -110,7 +117,6 @@ $breakpoints: (
 
     }
 
-    // Get ink properties for $_color-map - with non-map fallback
     @if meta.type-of($primary-color) == map {
         @if Feature.has-property($primary-color, 'ink') {
             --#{$_prefix}-theme--on-primary: #{map.get($primary-color, 'ink')};
@@ -131,8 +137,6 @@ $breakpoints: (
         --#{$_prefix}-theme--on-secondary: #{Color.get-ink_(Color.split($secondary-color))};
     }
 
-    /* STATES */
-
     @each $property, $value in $_state-map {
         --#{$_prefix}-theme--#{$property}: #{list.nth($value, 1)};
     }
@@ -141,7 +145,10 @@ $breakpoints: (
         --#{$_prefix}-theme--on-#{$property}: #{list.nth($value, 2)};
     }
 
-    /* CUSTOM PROPERTIES */
+    @each $property, $value in $radius-settings {
+        --#{$_prefix}-theme--#{$property}-radius: #{$value};
+    }
+
     @each $property, $value in meta.keywords($args) {
         --#{$_prefix}-theme--#{$property}: #{$value};
     }
