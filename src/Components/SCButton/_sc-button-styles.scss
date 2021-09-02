@@ -45,14 +45,14 @@
 
     @include base.base() {
         @if Feature.has-item($type, default) or Feature.has-item($type, text) or Feature.has-item($type, all) {
-            @include Color.apply('text', $_color-theme, $_scope-exceptions);
+            @include Color.apply('text', $_color-theme);
             @include Typography.apply($_typography-theme);
             @include Shape.apply($_shape-theme);
         }
 
         @if Feature.has-item($type, outlined) or Feature.has-item($type, all) {
             &.sc-button--outlined {
-                @include Color.apply('outlined', $_color-theme, $_scope-exceptions);
+                @include Color.apply('outlined', $_color-theme);
                 @include Typography.apply($_typography-theme);
                 @include Shape.apply($_shape-theme);
             }
@@ -60,7 +60,7 @@
 
         @if Feature.has-item($type, filled) or Feature.has-item($type, all) {
             &.sc-button--filled {
-                @include Color.apply('filled', $_color-theme, $_scope-exceptions);
+                @include Color.apply('filled', $_color-theme);
                 @include Typography.apply($_typography-theme);
                 @include Shape.apply($_shape-theme);
             }
