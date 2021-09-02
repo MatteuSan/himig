@@ -33,7 +33,7 @@
     $shape-theme: (),
 ) {
 
-    @if  validator.validate-shape-properties_($shape-theme) {
+    @if validator.validate-shape-properties_($shape-theme) {
 
         $_imported-shape: map.get($shape-theme, 'shape');
 
