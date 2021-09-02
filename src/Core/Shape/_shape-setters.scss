@@ -33,53 +33,57 @@
     $shape-theme: (),
 ) {
 
-    $_imported-shape: map.get($shape-theme, 'shape');
+    @if  validator.validate-shape-properties_($shape-theme) {
 
-    $_imported-border-radius: map.get($shape-theme, 'radius');
-    $_backwards-compatability-radius: map.get($shape-theme, 'border-radius');
+        $_imported-shape: map.get($shape-theme, 'shape');
 
-    $_imported-shape-exceptions: map.get($shape-theme, 'shape-exceptions');
-    $_backwards-compatability-exceptions: map.get($shape-theme, 'shape-exceptions');
+        $_imported-border-radius: map.get($shape-theme, 'radius');
+        $_backwards-compatability-radius: map.get($shape-theme, 'border-radius');
 
-    // $_imported-clip-size: map.get($shape-theme, 'clip-size');
-    // $_imported-custom-clip: map.get($shape-theme, 'custom-clip');
+        $_imported-shape-exceptions: map.get($shape-theme, 'shape-exceptions');
+        $_backwards-compatability-exceptions: map.get($shape-theme, 'shape-exceptions');
 
-    @if $_backwards-compatability-radius {
-        @warn 'The property "border-radius" will be depricated on Stack v2.2.0. Please change it to "radius" for future compatability';
-    }
+        // $_imported-clip-size: map.get($shape-theme, 'clip-size');
+        // $_imported-custom-clip: map.get($shape-theme, 'custom-clip');
 
-    @if $_backwards-compatability-exceptions {
-        @warn 'The property "shape-exceptions" will be depricated on Stack v2.2.0. Please change it to "exceptions" for future compatability';
-    }
+        @if $_backwards-compatability-radius {
+            @warn 'The property "border-radius" will be depricated on Stack v2.2.0. Please change it to "radius" for future compatability';
+        }
 
-    @if validator.is-shape_($_imported-shape) {
+        @if $_backwards-compatability-exceptions {
+            @warn 'The property "shape-exceptions" will be depricated on Stack v2.2.0. Please change it to "exceptions" for future compatability';
+        }
 
-        @if validator.is-enabled_($_imported-shape, $_imported-shape-exceptions) == false {
+        @if validator.is-shape_($_imported-shape) {
 
-            @if $_imported-shape == pill {
-                border-radius: 500px;
-            }
+            @if validator.is-enabled_($_imported-shape, $_imported-shape-exceptions) == false {
 
-            @if $_imported-shape == rounded {
-                @if $_backwards-compatability-radius {
-                    border-radius: #{$_backwards-compatability-radius};
+                @if $_imported-shape == pill {
+                    border-radius: 500px;
                 }
-                @if $_imported-border-radius {
-                    border-radius: #{$_imported-border-radius};
-                }
-            }
 
-            @if $_imported-shape == block {
-                border-radius: 0;
-            }
+                @if $_imported-shape == rounded {
+                    @if $_backwards-compatability-radius {
+                        border-radius: #{$_backwards-compatability-radius};
+                    }
+                    @if $_imported-border-radius {
+                        border-radius: #{$_imported-border-radius};
+                    }
+                }
 
-            @if $_imported-shape == default {
-                @if $_backwards-compatability-radius {
-                    border-radius: #{$_backwards-compatability-radius};
+                @if $_imported-shape == block {
+                    border-radius: 0;
                 }
-                @if $_imported-border-radius {
-                    border-radius: #{$_imported-border-radius};
+
+                @if $_imported-shape == default {
+                    @if $_backwards-compatability-radius {
+                        border-radius: #{$_backwards-compatability-radius};
+                    }
+                    @if $_imported-border-radius {
+                        border-radius: #{$_imported-border-radius};
+                    }
                 }
+
             }
 
         }
