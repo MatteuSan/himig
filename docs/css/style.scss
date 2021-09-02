@@ -108,7 +108,7 @@ body {
 @include SCTextField.render(
     $shape-theme: (
         'shape': rounded,
-        'border-radius': 1rem 0 1rem 0,
+        'radius': 1rem 0 1rem 0,
     ),
 );
 @include SCSnackbar.render();
