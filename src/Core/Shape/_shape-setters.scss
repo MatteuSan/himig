@@ -50,10 +50,6 @@
             @warn 'The property "border-radius" will be depricated on Stack v2.2.0. Please change it to "radius" for future compatability';
         }
 
-        @if $_backwards-compatability-exceptions {
-            @warn 'The property "shape-exceptions" will be depricated on Stack v2.2.0. Please change it to "exceptions" for future compatability';
-        }
-
         @if validator.is-shape_($_imported-shape) {
 
             @if validator.is-enabled_($_imported-shape, $_imported-shape-exceptions) == false {
