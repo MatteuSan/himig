@@ -1,6 +1,6 @@
 {
   "name": "stack",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "description": "The web implementation of GrowStocks' design system. Made with SCSS, Typescript, and ❤.",
   "main": "index.js",
   "directories": {
