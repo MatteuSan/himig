@@ -30,6 +30,7 @@
         position: relative;
         margin: 0;
         cursor: text;
+        min-width: 300px;
         width: 100%;
 
         .sc-text-field__label {
@@ -53,7 +54,7 @@
             @include Tools.prefix(transition, all 0.1s ease);
 
             border-width: 2px !important;
-            padding: 1.4rem 0.5rem 0.3rem 0.5rem;
+            padding: 1.4rem 0.5rem 0.4rem 0.5rem;
             font-size: Typography.px-to-rem(15px);
             resize: none;
             border-bottom: 2px solid var(--sc-theme--primary-light) !important;
@@ -73,7 +74,7 @@
 
             &:focus-within,
             &:not(:placeholder-shown) {
-                padding: 1.4rem 0.6rem 0.3rem 0.6rem;
+                padding: 1.4rem 0.6rem 0.4rem 0.6rem;
 
                 & + .sc-text-field__label {
                     width: auto;
