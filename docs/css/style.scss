@@ -59,14 +59,15 @@ $screen-sizes: (
 }
 
 @include Typography.config(
-    $global-font: 'Inter'
+    $global: (
+        'family': 'Inter'
+    )
 );
 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    color: inherit;
 }
 
 body {

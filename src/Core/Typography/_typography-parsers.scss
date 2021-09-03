@@ -20,4 +20,16 @@
 // SOFTWARE.
 //
 
-@forward 'elevation-setters';
+@use 'sass:math';
+
+@function px-to-rem($px) {
+    @return (math.div($px, 16px) * 1rem);
+}
+
+@function get-letter-spacing($font-size) {
+    @return math.div($font-size, 16px) * 1rem;
+}
+
+@mixin font-family($family, $type: sans-serif) {
+    font-family: quote($family), $type;
+}

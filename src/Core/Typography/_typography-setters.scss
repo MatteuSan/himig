@@ -27,6 +27,10 @@
 
 @use '../Feature';
 
+@use 'typography-validators' as validator;
+@use 'typography-defaults' as defaults;
+@use 'typography-parsers' as parser;
+
 $_valid-typography-queries: (
     'font-size',
     'font-weight',
@@ -36,40 +40,33 @@ $_valid-typography-queries: (
 );
 
 @mixin config(
-    $global-font: (),
-    $global-font-type: sans-serif,
-    // TITLE (1,2,3)
-    $title-font: $global-font,
-    $title-font-type: $global-font-type,
-    $title-font-weight: 700,
-    // SUBTITLE (4,5,6)
-    $subtitle-font: $global-font,
-    $subtitle-font-type: $global-font-type,
-    $subtitle-font-weight: 400,
-    // BODY (p...)
-    $body-font: $global-font,
-    $body-font-type: $global-font-type,
-    $body-font-weight: 400
+    $global: (
+        'family': ()
+    ),
+    $title: (
+        'family': map.get($global, 'family')
+    ),
+    $subtitle: (
+        'family': map.get($global, 'family')
+    ),
+    $body: (
+        'family': map.get($global, 'family')
+    )
 ) {
 
-    @if meta.type-of($global-font) == map {
-
-        @error 'This feature will be implemented on Stack v2.3.0. Until then, please be prepared for a lot of breaking changes when upgrading. :>';
-
-    }
-
-    //
-    // NOTE for v2.3.0
-    //  Abstract the parameters of the mixin to maps, it's easier that way :>
-    //  DO NOT FORGET IT YOU ABSOLUTE BAFOON! (I'm talking to you Matt)
-    //
+    $_merged-global: map.merge(defaults.$init-global, $global);
+    $_merged-title: map.merge(defaults.$init-title, $title);
+    $_merged-subtitle: map.merge(defaults.$init-subtitle, $subtitle);
+    $_merged-body: map.merge(defaults.$init-body, $body);
 
     * {
-        @include font-family($global-font, $global-font-type);
+        @include parser.font-family(map.get($_merged-global, 'family'), map.get($_merged-global, 'type'));
+        color: inherit;
 
         &::before,
         &::after {
-            @include font-family($global-font, $global-font-type);
+            @include parser.font-family(map.get($_merged-global, 'family'), map.get($_merged-global, 'type'));
+            color: inherit;
         }
     }
 
@@ -81,20 +78,20 @@ $_valid-typography-queries: (
     h1,
     h2,
     h3 {
-        font-weight: $title-font-weight;
-        @include font-family($title-font, $title-font-type);
+        font-weight: map.get($_merged-title, 'weight');
+        @include parser.font-family(map.get($_merged-title, 'family'), map.get($_merged-title, 'type'));
     }
 
     h4,
     h5,
     h6 {
-        font-weight: $subtitle-font-weight;
-        @include font-family($subtitle-font, $subtitle-font-type);
+        font-weight: map.get($_merged-subtitle, 'weight');
+        @include parser.font-family(map.get($_merged-subtitle, 'family'), map.get($_merged-subtitle, 'type'));
     }
 
     p {
-        font-weight: $body-font-weight;
-        @include font-family($body-font, $body-font-type);
+        font-weight: map.get($_merged-body, 'weight');
+        @include parser.font-family(map.get($_merged-body, 'family'), map.get($_merged-body, 'type'));
     }
 
     b {
@@ -113,7 +110,7 @@ $_valid-typography-queries: (
     @if $_valid-typography-theme {
 
         @if Feature.has-property($typography-theme, 'font-size') {
-            $_font-size: px-to-rem(map.get($typography-theme, 'font-size'));
+            $_font-size: parser.px-to-rem(map.get($typography-theme, 'font-size'));
             font-size: $_font-size;
         }
 
@@ -124,7 +121,7 @@ $_valid-typography-queries: (
 
         @if Feature.has-property($typography-theme, 'letter-spacing') {
             $_letter-spacing: map.get($typography-theme, 'letter-spacing');
-            letter-spacing: get-letter-spacing($_letter-spacing);
+            letter-spacing: parser.get-letter-spacing($_letter-spacing);
         }
 
         @if Feature.has-property($typography-theme, 'text-decoration') {
@@ -138,32 +135,5 @@ $_valid-typography-queries: (
         }
 
     }
-}
 
-@mixin font-family($family, $type: sans-serif) {
-    font-family: quote($family), $type;
-}
-
-@function get-typography_($typography-map, $query) {
-    $valid: is-typography_($_valid-typography-queries, $query);
-    @if not $valid {
-        //
-    }
-    @return map.get($typography-map, $query);
-}
-
-@function is-typography_($query) {
-    @if Feature.has-item($_valid-typography-queries, $query) {
-        @return true
-    } @else {
-        @return false
-    }
-}
-
-@function px-to-rem($px) {
-    @return (math.div($px, 16px) * 1rem);
-}
-
-@function get-letter-spacing($font-size) {
-    @return ($font-size / 16px) * 1rem;
 }

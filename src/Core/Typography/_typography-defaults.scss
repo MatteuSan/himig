@@ -20,4 +20,24 @@
 // SOFTWARE.
 //
 
-@forward 'elevation-setters';
+@use 'sass:map';
+
+$init-global: (
+    'type': sans-serif,
+    'weight': 400
+);
+
+$init-title: (
+    'type': map.get($init-global, 'type'),
+    'weight': 700,
+);
+
+$init-subtitle: (
+    'type': map.get($init-global, 'type'),
+    'weight': map.get($init-global, 'weight'),
+);
+
+$init-body: (
+    'type': map.get($init-global, 'type'),
+    'weight': map.get($init-global, 'weight'),
+);

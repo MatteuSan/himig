@@ -20,4 +20,30 @@
 // SOFTWARE.
 //
 
-@forward 'elevation-setters';
+@use '../Feature';
+
+$_valid-config-queries: (
+    'family',
+    'weight',
+    'type'
+);
+
+$_valid-typography-queries: (
+    'font-size',
+    'font-weight',
+    'letter-spacing',
+    'text-decoration',
+    'text-transform'
+);
+
+@function is-config_() {
+    //
+}
+
+@function is-typography_($query) {
+    @if Feature.has-item($_valid-typography-queries, $query) {
+        @return true
+    } @else {
+        @return false
+    }
+}
