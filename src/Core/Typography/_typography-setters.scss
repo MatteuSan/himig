@@ -62,11 +62,13 @@ $_valid-typography-queries: (
     * {
         @include parser.font-family(map.get($_merged-global, 'family'), map.get($_merged-global, 'type'));
         color: inherit;
+        font-weight: map.get($_merged-global, 'weight');
 
         &::before,
         &::after {
             @include parser.font-family(map.get($_merged-global, 'family'), map.get($_merged-global, 'type'));
             color: inherit;
+            font-weight: map.get($_merged-global, 'weight');
         }
     }
 
