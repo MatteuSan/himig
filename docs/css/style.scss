@@ -97,10 +97,5 @@ body {
 @include SCDrawer.render();
 @include SCHeader.render();
 @include SCProfile.render();
-@include SCTextField.render(
-    $shape-theme: (
-        'shape': rounded,
-        'radius': 1rem 0 1rem 0,
-    ),
-);
+@include SCTextField.render();
 @include SCSnackbar.render();
