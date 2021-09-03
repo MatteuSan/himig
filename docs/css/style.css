@@ -24,12 +24,10 @@
 * {
   font-family: "Inter", sans-serif;
   color: inherit;
-  font-weight: 400;
 }
 *::before, *::after {
   font-family: "Inter", sans-serif;
   color: inherit;
-  font-weight: 400;
 }
 
 a {
