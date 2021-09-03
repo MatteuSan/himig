@@ -35,3 +35,8 @@ $init-shape-theme: (
 $init-typography-theme: (
     'font-size': 20px
 );
+
+$init-settings: (
+    'is-scrollable': false,
+    'breakpoint': 'medium',
+);

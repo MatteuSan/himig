@@ -34,23 +34,24 @@
     $color-theme: (),
     $shape-theme: (),
     $typography-theme: (),
-    $type: ('all')
+    $settings: ()
 ) {
 
-    $_scope-exceptions: ();
+    $_merged-settings: map.merge(theme.$init-settings, $settings);
 
+    $_type: map.get($_merged-settings, type);
     $_color-theme: map.merge(theme.$init-color-theme, $color-theme);
     $_shape-theme: map.merge(theme.$init-shape-theme, $shape-theme);
     $_typography-theme: map.merge(theme.$init-typography-theme, $typography-theme);
 
     @include base.base() {
-        @if Feature.has-item($type, default) or Feature.has-item($type, text) or Feature.has-item($type, all) {
-            @include Color.apply('text', $_color-theme);
+        @if Feature.has-item($_type, default) or Feature.has-item($_type, text) or Feature.has-item($_type, all) {
+            @include Color.apply('text', $_color-theme, ('no-elevation'));
             @include Typography.apply($_typography-theme);
             @include Shape.apply($_shape-theme);
         }
 
-        @if Feature.has-item($type, outlined) or Feature.has-item($type, all) {
+        @if Feature.has-item($_type, outlined) or Feature.has-item($_type, all) {
             &.sc-button--outlined {
                 @include Color.apply('outlined', $_color-theme);
                 @include Typography.apply($_typography-theme);
@@ -58,7 +59,7 @@
             }
         }
 
-        @if Feature.has-item($type, filled) or Feature.has-item($type, all) {
+        @if Feature.has-item($_type, filled) or Feature.has-item($_type, all) {
             &.sc-button--filled {
                 @include Color.apply('filled', $_color-theme);
                 @include Typography.apply($_typography-theme);
@@ -66,4 +67,5 @@
             }
         }
     }
+
 }

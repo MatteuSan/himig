@@ -45,7 +45,7 @@ $_struct-theme: (
         border: none;
         user-select: none;
 
-        padding: 0.5rem 0.8rem;
+        padding: 0.4rem 0.6rem;
 
         @include Tools.prefix(transition, all 0.1s linear);
 
@@ -55,12 +55,6 @@ $_struct-theme: (
 
         &:hover {
             cursor: pointer;
-        }
-
-        &:focus,
-        &:active {
-            outline: none;
-            @include Tools.prefix(transition, all 0.125s ease !important);
         }
 
         &:disabled {

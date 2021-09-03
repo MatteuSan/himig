@@ -30,3 +30,9 @@ $init-shape-theme: (
     'radius': var(--sc-theme--small-radius),
     'exceptions': (pill)
 );
+
+$init-settings: (
+    'position': 100%,
+    'breakpoint': 'medium',
+    'is-mobile-visible': false
+);

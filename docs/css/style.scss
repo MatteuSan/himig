@@ -90,20 +90,11 @@ body {
 }
 
 @include SCAlert.render();
-@include SCAppbar.render($nav-contents: 4);
-@include SCButton.render(
-    $shape-theme: (
-        'shape': pill
-    ),
-    $type: (
-        'default',
-        'outlined',
-        'filled'
-    )
-);
+@include SCAppbar.render();
+@include SCButton.render();
 @include SCCard.render();
 @include SCDrawer.render();
-@include SCHeader.render($is-scrollable: true);
+@include SCHeader.render();
 @include SCProfile.render();
 @include SCTextField.render(
     $shape-theme: (

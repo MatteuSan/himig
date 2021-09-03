@@ -40,8 +40,13 @@
     $_shape-theme: map.merge(theme.$init-shape-theme, $shape-theme);
     $_typography-theme: map.merge(theme.$init-typography-theme, $typography-theme);
 
+    $_scope-exceptions: (
+        'outlined',
+        'text'
+    );
+
     @include base.base() {
-        @include Color.apply('filled', $_color-theme, $query-settings: ('no-elevation'));
+        @include Color.apply('filled', $_color-theme, ('no-elevation'), $_scope-exceptions);
         @include Shape.apply($_shape-theme);
         @include Typography.apply($_typography-theme);
         @include Elevation.apply(5, $color: Color.get-color_(theme.$init-color-theme, 'fill', 'elevation'));

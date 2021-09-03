@@ -34,23 +34,32 @@
     $color-theme: (),
     $shape-theme: (),
     $typography-theme: (),
-    $is-scrollable: false,
-    $breakpoint: 'medium'
+    $settings: ()
 ) {
+
+    $_merged-settings: map.merge(theme.$init-settings, $settings);
 
     $_color-theme: map.merge(theme.$init-color-theme, $color-theme);
     $_shape-theme: map.merge(theme.$init-shape-theme, $shape-theme);
     $_typography-theme: map.merge(theme.$init-typography-theme, $typography-theme);
 
-    @include base.base($breakpoint) {
-        @include Color.apply('filled', $_color-theme, $query-settings: ('no-elevation'));
+    $_breakpoint: map.get($_merged-settings, 'breakpoint');
+    $_is-scrollable: map.get($_merged-settings, 'is-scrollable');
+
+    $_scope-exceptions: (
+        'text',
+        'outlined'
+    );
+
+    @include base.base($_breakpoint) {
+        @include Color.apply('filled', $_color-theme, ('no-elevation'), $_scope-exceptions);
         @include Shape.apply($_shape-theme);
         @include Typography.apply($_typography-theme);
         @include Elevation.apply(5, $color: Color.get-color_($_color-theme, 'fill', 'elevation'));
     }
 
-    @if $is-scrollable == true {
-        @include base.base($breakpoint) {
+    @if $_is-scrollable == true {
+        @include base.base($_breakpoint) {
             &.sc-header--scrollable {
                 background: Color.get-color_($_color-theme, 'fill', 'scrollable');
                 border-color: Color.get-color_($_color-theme, 'fill', 'scrollable');
@@ -58,7 +67,7 @@
                 @include Elevation.apply(0, $color: Color.get-color_($_color-theme, 'fill', 'elevation'));
 
                 &.scrolled {
-                    @include Color.apply('filled', $_color-theme, $query-settings: ('no-elevation'));
+                    @include Color.apply('filled', $_color-theme, ('no-elevation'), $_scope-exceptions);
                     @include Shape.apply($_shape-theme);
                     @include Typography.apply($_typography-theme);
                     @include Elevation.apply(5, $color: Color.get-color_($_color-theme, 'fill', 'elevation'));

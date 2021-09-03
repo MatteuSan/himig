@@ -34,15 +34,24 @@
     $color-theme: (),
     $shape-theme: (),
     $typography-theme: (),
-    $breakpoint: 'medium'
+    $settings: ()
 ) {
+
+    $_merged-settings: map.merge(theme.$init-settings, $settings);
 
     $_color-theme: map.merge(theme.$init-color-theme, $color-theme);
     $_shape-theme: map.merge(theme.$init-shape-theme, $shape-theme);
     $_typography-theme: map.merge(theme.$init-typography-theme, $typography-theme);
 
-    @include base.base($breakpoint) {
-        @include Color.apply('filled', $_color-theme, $query-settings: ('no-elevation'));
+    $_breakpoint: map.get($_merged-settings, 'breakpoint');
+
+    $_scope-exceptions: (
+        'text',
+        'outlined'
+    );
+
+    @include base.base($_breakpoint) {
+        @include Color.apply('filled', $_color-theme, ('no-elevation'), $_scope-exceptions);
         @include Shape.apply($_shape-theme);
         @include Typography.apply($_typography-theme);
         @include Elevation.apply(5, $color: Color.get-color_(theme.$init-color-theme, 'fill', 'elevation'));
