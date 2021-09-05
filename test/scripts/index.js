@@ -1,0 +1,1 @@
+"use strict";exports.__esModule=!0;var component_1=require("../../src/Components/SCHeader/component"),component_2=require("../../src/Components/SCDrawer/component");(new component_2.default).render(),(new component_1.default).render({triggerSelector:".banner"});

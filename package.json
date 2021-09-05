@@ -7,22 +7,22 @@
     "doc": "docs"
   },
   "dependencies": {
-    "@growstocks/stack": "^2.1.0-beta",
-    "alpinejs": "^3.2.2"
+    "@growstocks/stack": "^2.1.5"
   },
   "devDependencies": {
-    "css-loader": "^6.2.0",
+    "browser-sync": "^2.27.5",
+    "cssnano": "^5.0.8",
+    "gulp": "^4.0.2",
+    "gulp-cli": "^2.3.0",
+    "gulp-postcss": "^9.0.1",
+    "gulp-sass": "^5.0.0",
+    "gulp-terser": "^2.0.1",
+    "gulp-typescript": "^6.0.0-alpha.1",
     "sass": "^1.38.2",
-    "sass-loader": "^12.1.0",
-    "style-loader": "^3.2.1",
-    "ts-loader": "^9.2.3",
-    "typescript": "^4.3.2",
-    "webpack": "^5.51.1",
-    "webpack-cli": "^4.7.2"
+    "typescript": "^4.3.2"
   },
   "scripts": {
-    "build": "webpack --config webpack.config.js",
-    "build:watch": "webpack --config webpack.config.js --watch"
+    "build": "gulp"
   },
   "repository": {
     "type": "git",
