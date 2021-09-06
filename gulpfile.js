@@ -26,8 +26,8 @@ const { src, dest, watch, series } = require('gulp');
 const sass = require('gulp-sass')(require('sass'));
 const postcss = require('gulp-postcss');
 const cssnano = require('cssnano');
-const terser = require('gulp-terser');
-const typescript = require('gulp-typescript');
+/*const terser = require('gulp-terser');
+const typescript = require('gulp-typescript');*/
 
 function sassTask() {
     return src('test/styles/**/*.scss', { sourcemaps: true })
@@ -36,16 +36,16 @@ function sassTask() {
         .pipe(dest('test/styles', { sourcemaps: '.' }));
 }
 
-function tsTask() {
-    return src(['test/scripts/**/*.ts', 'src/**/*.ts'])
+/*function tsTask() {
+    return src(['test/scripts/!**!/!*.ts', 'src/!**!/!*.ts'])
         .pipe(typescript())
         .pipe(terser())
         .pipe(dest('test/scripts'));
-}
+}*/
 
 function watchTask() {
     watch('test/styles/**/*.scss', sassTask());
-    watch('test/scripts/**/*.ts', tsTask());
+    // watch('test/scripts/**/*.ts', tsTask());
 }
 
 exports.default = series(

@@ -64,12 +64,9 @@
 
             .sc-card__info__subtitle {
                 font-size: Typography.px-to-rem(12px);
+                height: 2rem;
                 color: inherit;
-                display: -webkit-box;
                 word-break: break-all;
-                -webkit-line-clamp: 2;
-                -webkit-box-orient: vertical;
-                text-overflow: ellipsis;
                 overflow: hidden;
                 max-width: 100% !important;
                 text-align: justify;

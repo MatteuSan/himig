@@ -22,7 +22,6 @@
 
 @use '../../Core/Typography';
 @use '../../Core/Tools';
-@use '../../Core/Animation';
 @use '../../Core/Elevation';
 
 @use 'sc-button-theme' as theme;
@@ -59,10 +58,6 @@ $_struct-theme: (
 
         &:disabled {
             pointer-events: none;
-
-            .sc-button__icon--loading {
-                @include Animation.apply(loading);
-            }
         }
 
         .sc-button__label {

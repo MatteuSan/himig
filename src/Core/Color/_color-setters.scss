@@ -71,7 +71,7 @@
             &:focus {
                 color: getter.get-color_($color-theme, 'fill', 'focus');
                 cursor: pointer;
-                outline: solid rgba($_outline-color, $_outline-opacity);
+                outline: 2px solid rgba($_outline-color, $_outline-opacity);
             }
         }
 
@@ -115,7 +115,7 @@
                 // background: getter.get-color_($color-theme, 'fill', 'default');
                 border: 1px solid getter.get-color_($color-theme, 'fill', 'default');
                 cursor: pointer;
-                outline: solid rgba($_outline-color, $_outline-opacity);
+                outline: 2px solid rgba($_outline-color, $_outline-opacity);
 
                 @if Feature.has-item($_query-settings, 'has-elevation') {
                     @include Elevation.apply(0, $_elevation-color);
@@ -177,7 +177,7 @@
                 border: 1px solid getter.get-color_($color-theme, 'fill', 'focus');
                 background: getter.get-color_($color-theme, 'fill', 'focus');
                 cursor: pointer;
-                outline: solid rgba($_outline-color, $_outline-opacity);
+                outline: 2px solid rgba($_outline-color, $_outline-opacity);
 
                 @if Feature.has-item($_query-settings, 'has-elevation') {
                     @include Elevation.apply(3, $_elevation-color);

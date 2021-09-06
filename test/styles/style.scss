@@ -84,23 +84,80 @@ body {
     margin: 0 auto;
 }
 
-.banner {
-    margin: 55px 0 0 0;
-    height: 25vh;
-    background-color: var(--sc-theme--primary-light);
-}
-
-@include SCAlert.render();
-@include SCAppbar.render();
 @include SCButton.render();
 @include SCCard.render();
-@include SCDrawer.render();
-@include SCHeader.render();
-@include SCProfile.render();
-@include SCTextField.render(
-    $shape-theme: (
+
+.gs-pay-prompt__overlay {
+    display: block;
+    position: fixed;
+    z-index: 9998;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.gs-pay-prompt {
+    width: 100%;
+    display: grid;
+    grid-gap: 0.7rem;
+    z-index: 9999;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    background-color: var(--sc-theme--primary-light);
+    padding: 1rem;
+
+    @include Shape.apply((
         'shape': rounded,
-        'radius': 1rem 0 1rem 0,
-    ),
-);
-@include SCSnackbar.render();
+        'radius': var(--sc-theme--medium-radius) var(--sc-theme--medium-radius) 0 0
+    ));
+
+    @include Elevation.apply(7);
+
+    .gs-pay-prompt__info {
+        display: grid;
+        grid-template-columns: 32px 1fr;
+        grid-gap: 0.5rem;
+
+        .gs-pay-prompt__media {
+            width: 32px;
+            height: 32px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 50%;
+        }
+
+        .gs-pay-prompt__service {
+            font-size: Typography.px-to-rem(18px);
+        }
+
+        .gs-pay-prompt__service-link {
+            font-size: Typography.px-to-rem(14px);
+        }
+    }
+
+    .gs-pay-prompt__details {
+        background-color: var(--sc-theme--primary);
+        padding: 0.7rem;
+        line-height: 1.25rem;
+
+        .gs-pay-prompt__item {
+            font-size: Typography.px-to-rem(14px);
+        }
+    }
+
+    .gs-pay-prompt__actions {
+        width: 100%;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-end;
+
+        & > * + * {
+            margin-left: 0.5rem;
+        }
+    }
+}
