@@ -1,1 +1,0 @@
-"use strict";exports.__esModule=!0,exports.SCNavbar=void 0;var component_1=require("./component");exports.SCNavbar=component_1.default;

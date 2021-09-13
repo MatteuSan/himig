@@ -53,18 +53,20 @@ class SCDrawer {
             throw new Error('Drawer class is not provided! Please provide a class')
         }
 
-        let drawerData = Alpine.reactive({
-            drawer_open: false
-        });
-
-        Alpine.effect(() => {
-            drawer.style.width = drawerData.drawer_open ? '100%' : '0';
-            drawer.style.opacity = drawerData.drawer_open ? '1' : '0';
-            drawerOverlay.style.width = drawerData.drawer_open ? '100%' : '0';
-        });
+        let isDrawerOpen = false;
 
         drawerTrigger.addEventListener('click', () => {
-            drawerData.drawer_open = !drawerData.drawer_open;
+
+            isDrawerOpen = !isDrawerOpen;
+
+            if (!isDrawerOpen) {
+                drawer.classList.remove('visible');
+                drawerOverlay.classList.remove('visible');
+            } else {
+                drawer.classList.add('visible');
+                drawerOverlay.classList.add('visible');
+            }
+
         });
 
     }

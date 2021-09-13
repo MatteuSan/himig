@@ -38,7 +38,7 @@
     }
 
     .sc-drawer {
-        width: 100%;
+        width: 0;
         max-width: 320px;
         padding: 0.7rem 0;
         height: calc(100% - 47px);
@@ -50,6 +50,10 @@
         overflow-x: hidden;
 
         @include Tools.prefix(transition, all 0.1s ease-in-out);
+
+        &.visible {
+            width: 100% !important;
+        }
 
         * {
             color: inherit;

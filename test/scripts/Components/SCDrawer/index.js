@@ -1,1 +1,0 @@
-"use strict";exports.__esModule=!0,exports.SCDrawer=void 0;var component_1=require("./component");exports.SCDrawer=component_1.default;

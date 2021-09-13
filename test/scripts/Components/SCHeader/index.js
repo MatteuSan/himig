@@ -1,1 +1,0 @@
-"use strict";exports.__esModule=!0,exports.SCHeader=void 0;var component_1=require("./component");exports.SCHeader=component_1.default;
