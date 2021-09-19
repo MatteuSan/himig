@@ -20,53 +20,13 @@
 // SOFTWARE.
 //
 
-@use 'sass:map';
-@use 'sass:list';
-@use 'sass:meta';
-@use 'sass:math';
-@use 'sass:color';
+@use '../theme-key-generators' as k;
 
-$_valid-color-queries: (
-    'default',
-    'hover',
-    'focus',
-    'active',
-    'disabled',
-    'elevation',
-    'outline'
-);
-
-$_valid-scopes: (
-    'text',
-    'outlined',
-    'filled'
-);
-
-$_valid-query-settings: (
-    'has-elevation',
-    'no-elevation'
-);
-
-@function is-scope_($scope) {
-    @if not list.index($_valid-scopes, $scope) {
-        @error 'Invalid scope: #{$scope}. Please select from the following scopes: #{$_valid-scopes}';
-    }
-
-    @return true;
-}
-
-@function is-color-type_($color-type) {
-    @if not list.index($_valid-color-queries, $color-type) {
-        @error 'Invalid color query: #{$color-type}. Please select from the following color queries: #{$_valid-color-queries}';
-    }
-
-    @return true;
-}
-
-@function is-map_($map) {
-    @if meta.type-of($map) != map {
-        @error 'Invalid map: #{$map}. Expecting a map.';
-    }
-
-    @return true;
+.test-component {
+    @include k.bind('test-component-fill', #545454);
+    @include k.bind('sc-test-component-ink', #000);
+    // no-prefix
+    background-color: k.create('test-component-fill', #232323);
+    // w/ prefix
+    color: k.create('test-component-ink', #fff, 'sc');
 }

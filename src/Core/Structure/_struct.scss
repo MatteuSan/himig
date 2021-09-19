@@ -30,6 +30,14 @@
 //   library's components' structure.
 //
 
+//
+// We will be using a design-token based API for the structure as this fine-tunes the overall appearance of
+// the component we'll be working with.
+//
+// This means that the usage of --css-custom-properties will be the most likely direction we'll be taking
+// the next version of the library to.
+//
+
 @mixin apply($structure-theme) {
 
     @each $property, $value in $structure-theme {

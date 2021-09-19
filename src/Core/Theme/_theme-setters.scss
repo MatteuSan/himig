@@ -25,21 +25,15 @@
 @use 'sass:meta';
 @use 'sass:math';
 
-// Related Modules
 @use '../Color';
 @use '../Shape';
 @use '../Typography';
 @use '../Feature';
 
-$_prefix: 'sc';
-$_valid-screen-properties: ('small', 'medium', 'large', 'xlarge');
-$_valid-color-variants: ('default', 'light', 'dark', 'ink');
+@use 'theme-getters' as getter;
+@use 'theme-validators' as validator;
 
-$breakpoints: (
-    'small': 320px,
-    'medium': 540px,
-    'large': 850px,
-) !default;
+$_prefix: 'sc';
 
 $_state-map: (
     'error': (#b00020, #fff),
@@ -54,9 +48,8 @@ $_radius-theme: (
 ) !default;
 
 @mixin config(
-    $primary-color: (),
+    $primary-color: #363636,
     $secondary-color: Color.get-complement_($primary-color),
-    $screen-sizes: (),
     $radius-settings: $_radius-theme,
     $args...
 ) {
@@ -73,9 +66,9 @@ $_radius-theme: (
             }
         }
 
-    } @else if _is-variant($primary-color) {
+    } @else if validator.is-variant_($primary-color) {
 
-        $_properties: _check-variants($primary-color);
+        $_properties: getter.get-variants_($primary-color);
 
         $_color-map: Color.fill-missing($_properties, $primary-color);
 
@@ -101,9 +94,9 @@ $_radius-theme: (
             }
         }
 
-    } @else if _is-variant($secondary-color) {
+    } @else if validator.is-variant_($secondary-color) {
 
-        $_properties: _check-variants($secondary-color);
+        $_properties: getter.get-variants_($secondary-color);
 
         $_color-map: Color.fill-missing($_properties, $secondary-color);
 
@@ -149,79 +142,11 @@ $_radius-theme: (
         --#{$_prefix}-theme--#{$property}-radius: #{$value};
     }
 
+
+
+    /* ===== */
     @each $property, $value in meta.keywords($args) {
         --#{$_prefix}-theme--#{$property}: #{$value};
     }
 
-    @if (Feature.is-empty($screen-sizes)) == false {
-        @each $property, $value in $screen-sizes {
-
-            $_valid-property: Feature.has-item($_valid-screen-properties, $property);
-
-            @if $_valid-property == true {
-                $breakpoints: map.merge($breakpoints, $screen-sizes);
-            } @else {
-                @error 'Screen property: #{$property} is invalid. Please select from the following valid screen properties: #{$_valid-screen-properties}';
-            }
-
-        }
-    }
-
-}
-
-@function get-breakpoint($query, $reference: $breakpoints) {
-
-    @return map.get($reference, $query);
-
-}
-
-@function _is-variant($query) {
-
-    @each $property, $value in $query {
-
-        @if not Feature.has-item($_valid-color-variants, $property) {
-            @error 'Invalid variant: #{$property}. The available variants are: #{$_valid-color-variants}';
-        }
-
-        @return true;
-
-    }
-
-}
-
-@function _check-variants($query) {
-
-    @if Feature.validate-data-type('map', $query) {
-
-        @return map.keys($query);
-
-    }
-
-}
-
-@function _get-default($query) {
-
-    @if Feature.validate-data-type('map', $query) {
-
-        @return map.get($query, 'default');
-
-    }
-
-}
-
-// @depricated
-@mixin _set-breakpoint($screen-sizes: ()) {
-    @if (Feature.is-empty($screen-sizes)) == false {
-        @each $property, $value in $screen-sizes {
-
-            $_valid-property: Feature.has-item($_valid-screen-properties, $property);
-
-            @if $_valid-property == true {
-                $breakpoints: map.merge($breakpoints, $screen-sizes);
-            } @else {
-                @error 'Screen property: #{$property} is invalid. Please select from the following valid screen properties: #{$_valid-screen-properties}';
-            }
-
-        }
-    }
 }

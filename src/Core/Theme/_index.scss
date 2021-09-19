@@ -20,4 +20,13 @@
 //  SOFTWARE.
 //
 
-@forward 'theme';
+///
+/// Terminology of a "Theme"
+/// - Themes are composed of key value pairs of style values. By utilizing the CSS custom properties to its
+///   limit, as well as complementing it with SCSS features (like map, list, meta, etc.) we are able to create
+///   'atoms' for the design system to work.
+///
+
+@forward 'theme-setters';
+@forward 'theme-getters' show get-breakpoint, $breakpoints;
+@forward 'theme-key-generators' as key-*;

@@ -26,12 +26,6 @@
 
 @use 'sc-button-theme' as theme;
 
-// @experimental: v2.3.0-alpha planned feature
-$_struct-theme: (
-    'padding': 8px 12px,
-    'margin': 0
-);
-
 @mixin base() {
     .sc-button {
         width: max-content;
@@ -44,7 +38,7 @@ $_struct-theme: (
         border: none;
         user-select: none;
 
-        padding: 0.4rem 0.6rem;
+        padding: 0.3rem 0.5rem;
 
         @include Tools.prefix(transition, all 0.1s linear);
 

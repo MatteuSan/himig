@@ -23,50 +23,27 @@
 @use 'sass:map';
 @use 'sass:list';
 @use 'sass:meta';
-@use 'sass:math';
-@use 'sass:color';
 
-$_valid-color-queries: (
-    'default',
-    'hover',
-    'focus',
-    'active',
-    'disabled',
-    'elevation',
-    'outline'
-);
+@use '../Feature';
 
-$_valid-scopes: (
-    'text',
-    'outlined',
-    'filled'
-);
+@function create($key, $fallback-value, $prefix: 'sc') {
 
-$_valid-query-settings: (
-    'has-elevation',
-    'no-elevation'
-);
-
-@function is-scope_($scope) {
-    @if not list.index($_valid-scopes, $scope) {
-        @error 'Invalid scope: #{$scope}. Please select from the following scopes: #{$_valid-scopes}';
+    @if not Feature.is-empty($prefix) {
+        @return var(--#{$prefix}-#{$key}, #{$fallback-value});
     }
 
-    @return true;
+    @return var(--#{$key}, #{$fallback-value});
+
 }
 
-@function is-color-type_($color-type) {
-    @if not list.index($_valid-color-queries, $color-type) {
-        @error 'Invalid color query: #{$color-type}. Please select from the following color queries: #{$_valid-color-queries}';
-    }
-
-    @return true;
+@function get-sc($key) {
+    @return var(--sc-#{$key});
 }
 
-@function is-map_($map) {
-    @if meta.type-of($map) != map {
-        @error 'Invalid map: #{$map}. Expecting a map.';
-    }
+@function get($key) {
+    @return var(--#{$key});
+}
 
-    @return true;
+@mixin bind($key, $value) {
+    --#{$key}: #{$value};
 }

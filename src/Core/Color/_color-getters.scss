@@ -84,7 +84,7 @@ $_white-lumen: get-luminance_(#ffffff);
 }
 
 @function get-complement_($color) {
-    $_complement: saturate(lighten($color, 30%), 0%);
+    $_complement: saturate(lighten($color, 30%), 100%);
     @return adjust-hue($_complement, 180deg);
 }
 

@@ -41,14 +41,19 @@
     $_query-settings: $query-settings;
     $_elevation-color: ();
 
-    $_outline-color: getter.get-color_($color-theme, 'fill', 'outline'); // @type hex-value
-    $_outline-opacity: 50%; // @type percent
+    $_init-color-theme: (
+        'outline': #c4c4c4,
+        'elevation': #000,
+    );
 
-    @if not Feature.has-property($color-theme, 'elevation') {
-        $_elevation-color: #000;
-    } @else {
-        $_elevation-color: getter.get-color_($color-theme, 'fill', 'elevation');
-    }
+    $_color-theme: map.merge($_init-color-theme, $color-theme);
+
+    // Type: hex-value
+    $_outline-color: getter.get-color_($_color-theme, 'fill', 'outline');
+    $_elevation-color: getter.get-color_($_color-theme, 'fill', 'elevation');
+
+    // Type: percent
+    $_outline-opacity: 50%;
 
     @if Feature.has-item($_scope-exceptions, $_scope) {
         @error 'The color scope '#{$_scope}' is disabled in this component. Please select another color scope.';

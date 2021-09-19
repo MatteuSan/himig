@@ -20,10 +20,10 @@
 // SOFTWARE.
 //
 
-@forward 'Animation' show apply;
-@forward 'Color' show apply;
-@forward 'Feature' show apply;
-@forward 'Shape' show apply;
-@forward 'Theme' show apply;
-@forward 'Typography' show apply;
-@forward 'Tools' show apply;
+@forward 'Animation' as animation-* show apply;
+@forward 'Color' as color-* show apply;
+@forward 'Feature' as feature-* show apply;
+@forward 'Shape' as shape-* show apply;
+@forward 'Theme' as theme-* show apply;
+@forward 'Typography' as typography-* show apply;
+@forward 'Tools' as tool-* show apply;

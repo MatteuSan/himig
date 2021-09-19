@@ -42,17 +42,9 @@
 // @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
-$screen-sizes: (
-    'small': 320px,
-    'medium': 580px,
-    'large': 890px,
-);
-
 :root {
     @include Theme.config(
         #12305e,
-        #d49a10,
-        $screen-sizes,
         $surface: #001021,
         $on-surface: #fff
     );
@@ -82,6 +74,12 @@ body {
     width: calc(100% - 20px);
     max-width: 1077px;
     margin: 0 auto;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 0.7rem;
 }
 
 @include SCButton.render();

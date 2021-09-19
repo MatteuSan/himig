@@ -22,51 +22,22 @@
 
 @use 'sass:map';
 @use 'sass:list';
-@use 'sass:meta';
-@use 'sass:math';
-@use 'sass:color';
 
-$_valid-color-queries: (
-    'default',
-    'hover',
-    'focus',
-    'active',
-    'disabled',
-    'elevation',
-    'outline'
-);
+@use '../Feature';
 
-$_valid-scopes: (
-    'text',
-    'outlined',
-    'filled'
-);
+$_valid-screen-properties: ('small', 'medium', 'large', 'xlarge');
+$_valid-color-variants: ('default', 'light', 'dark', 'ink');
 
-$_valid-query-settings: (
-    'has-elevation',
-    'no-elevation'
-);
+@function is-variant_($query) {
 
-@function is-scope_($scope) {
-    @if not list.index($_valid-scopes, $scope) {
-        @error 'Invalid scope: #{$scope}. Please select from the following scopes: #{$_valid-scopes}';
+    @each $property, $value in $query {
+
+        @if not Feature.has-item($_valid-color-variants, $property) {
+            @error 'Invalid variant: #{$property}. The available variants are: #{$_valid-color-variants}';
+        }
+
+        @return true;
+
     }
 
-    @return true;
-}
-
-@function is-color-type_($color-type) {
-    @if not list.index($_valid-color-queries, $color-type) {
-        @error 'Invalid color query: #{$color-type}. Please select from the following color queries: #{$_valid-color-queries}';
-    }
-
-    @return true;
-}
-
-@function is-map_($map) {
-    @if meta.type-of($map) != map {
-        @error 'Invalid map: #{$map}. Expecting a map.';
-    }
-
-    @return true;
 }
