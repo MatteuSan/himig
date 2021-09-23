@@ -3,7 +3,9 @@
 /src/node_modules
 /src/**/*.css
 /src/**/*.js
+# /src/**/*.[Tt]est.html
 /src/**/*.[Tt]est.css
+/src/**/*.[Tt]est.js
 *.css.map
 *.d.ts
 *.d.ts.map
