@@ -1,0 +1,19 @@
+/* Error: Top-level selectors may not contain the parent selector "&".
+ *    ,
+ * 32 |     &[data-tooltip] {
+ *    |     ^^^^^^^^^^^^^^^^
+ *    '
+ *   _sc-tooltip-base.scss 32:5    base()
+ *   _sc-tooltip-styles.scss 49:5  render()
+ *   main.scss 25:1                root stylesheet */
+
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: 'Error: Top-level selectors may not contain the parent selector "&".\a    \2577 \a 32 \2502      &[data-tooltip] {\d\a    \2502      ^^^^^^^^^^^^^^^^\a    \2575 \a   _sc-tooltip-base.scss 32:5    base()\a   _sc-tooltip-styles.scss 49:5  render()\a   main.scss 25:1                root stylesheet';
+}

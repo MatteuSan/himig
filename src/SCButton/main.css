@@ -1,97 +1,24 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
-:root {
-  --sc-theme--primary-light: #426294;
-  --sc-theme--primary: #12305e;
-  --sc-theme--primary-dark: #081528;
-  --sc-theme--secondary-light: #eac285;
-  --sc-theme--secondary: #ff9e0a;
-  --sc-theme--secondary-dark: #c97a00;
-  --sc-theme--on-primary: #fff;
-  --sc-theme--on-secondary: #000;
-  --sc-theme--error: #b00020;
-  --sc-theme--warning: #ffa000;
-  --sc-theme--success: #25a53f;
-  --sc-theme--on-error: #fff;
-  --sc-theme--on-warning: #000;
-  --sc-theme--on-success: #fff;
-  --sc-theme--small-radius: 0.3rem;
-  --sc-theme--medium-radius: 0.5rem;
-  --sc-theme--large-radius: 0.7rem;
-  /* ===== */
-  --sc-theme--surface: #001021;
-  --sc-theme--on-surface: #fff;
-}
-
-* {
-  font-family: "Inter", sans-serif;
-  color: inherit;
-  font-weight: 400;
-}
-*::before, *::after {
-  font-family: "Inter", sans-serif;
-  color: inherit;
-  font-weight: 400;
-}
-
-a {
-  text-decoration: none;
-  outline: none;
-}
-
-h1,
-h2,
-h3 {
-  font-weight: 700;
-  font-family: "Inter", sans-serif;
-}
-
-h4,
-h5,
-h6 {
-  font-weight: 400;
-  font-family: "Inter", sans-serif;
-}
-
-p {
-  font-weight: 400;
-  font-family: "Inter", sans-serif;
-}
-
-b {
-  font-weight: 700;
-  color: inherit;
-}
-
-html {
-  font-size: 100%;
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  background-color: var(--sc-theme--surface);
-  color: var(--sc-theme--on-surface);
-}
-
-.wrap--content {
-  display: grid;
-  grid-gap: 20px;
-  padding: 65px 0 60px 0;
-  width: calc(100% - 20px);
-  max-width: 1077px;
-  margin: 0 auto;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 0.7rem;
-}
-
+/*
+// Copyright (c) 2021 GrowStocks
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
+*/
 .sc-button {
   width: max-content;
   min-width: 57px;
@@ -241,140 +168,4 @@ body {
   height: 1.25rem;
 }
 
-.sc-card {
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  width: 100%;
-  margin: 0;
-  border: none !important;
-  -webkit-transition: all 0.1s linear;
-  transition: all 0.1s linear;
-  color: var(--sc-card-ink, var(--sc-theme--on-primary));
-  border: 1px solid var(--sc-card-fill, var(--sc-theme--primary-light));
-  background: var(--sc-card-fill, var(--sc-theme--primary-light));
-  -webkit-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
-  -ms-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
-  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
-  border-radius: var(--sc-theme--small-radius);
-  -webkit-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
-  -ms-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
-  box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
-}
-.sc-card .sc-card__media {
-  width: 100%;
-  height: 140px !important;
-  overflow-y: hidden;
-}
-.sc-card .sc-card__media img {
-  width: 100%;
-  height: auto !important;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-.sc-card .sc-card__content {
-  padding: 0.8rem;
-  color: inherit;
-  overflow: hidden;
-}
-.sc-card .sc-card__content .sc-card__title {
-  font-size: 1.25rem;
-  color: inherit;
-  line-height: 1.75rem;
-}
-.sc-card .sc-card__content .sc-card__subtitle {
-  font-size: 0.8125rem;
-  color: inherit;
-  word-break: break-all;
-  overflow: hidden;
-  text-align: justify;
-}
-.sc-card .sc-card__content .sc-card__actions {
-  display: flex;
-  justify-content: flex-end;
-  position: relative;
-  margin-top: 0.7rem;
-  top: 0.3rem;
-  left: 0.3rem;
-}
-.sc-card .sc-card__content .sc-card__actions > * + * {
-  margin-left: 0.5rem;
-}
-.sc-card .sc-card__content .sc-card__actions a {
-  width: max-content;
-}
-.sc-card .sc-card__content .sc-card__actions a .sc-card__action {
-  min-width: 24px;
-  padding: 0.3rem 0.5rem;
-}
-.sc-card .sc-card__content .sc-card__actions a .sc-card__action.sc-button--outlined.sc-button--icon, .sc-card .sc-card__content .sc-card__actions a .sc-card__action.sc-button--filled.sc-button--icon {
-  padding: 0.5rem;
-  border-radius: 50%;
-}
-
-.gs-pay-prompt__overlay {
-  display: block;
-  position: fixed;
-  z-index: 9998;
-  right: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  background-color: black;
-  background-color: rgba(0, 0, 0, 0.4);
-}
-
-.gs-pay-prompt {
-  width: 100%;
-  display: grid;
-  grid-gap: 0.7rem;
-  z-index: 9999;
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  background-color: var(--sc-theme--primary-light);
-  padding: 1rem;
-  border-radius: var(--sc-theme--medium-radius) var(--sc-theme--medium-radius) 0 0;
-  -webkit-box-shadow: 0px 4px 5px -2px rgba(0, 0, 0, 0.2), 0px 7px 10px 1px rgba(0, 0, 0, 0.14), 0px 2px 16px 1px rgba(0, 0, 0, 0.12);
-  -ms-box-shadow: 0px 4px 5px -2px rgba(0, 0, 0, 0.2), 0px 7px 10px 1px rgba(0, 0, 0, 0.14), 0px 2px 16px 1px rgba(0, 0, 0, 0.12);
-  box-shadow: 0px 4px 5px -2px rgba(0, 0, 0, 0.2), 0px 7px 10px 1px rgba(0, 0, 0, 0.14), 0px 2px 16px 1px rgba(0, 0, 0, 0.12);
-}
-.gs-pay-prompt .gs-pay-prompt__info {
-  display: grid;
-  grid-template-columns: 32px 1fr;
-  grid-gap: 0.5rem;
-}
-.gs-pay-prompt .gs-pay-prompt__info .gs-pay-prompt__media {
-  width: 32px;
-  height: 32px;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 50%;
-}
-.gs-pay-prompt .gs-pay-prompt__info .gs-pay-prompt__service {
-  font-size: 1.125rem;
-}
-.gs-pay-prompt .gs-pay-prompt__info .gs-pay-prompt__service-link {
-  font-size: 0.875rem;
-}
-.gs-pay-prompt .gs-pay-prompt__details {
-  background-color: var(--sc-theme--primary);
-  padding: 0.7rem;
-  line-height: 1.25rem;
-}
-.gs-pay-prompt .gs-pay-prompt__details .gs-pay-prompt__item {
-  font-size: 0.875rem;
-}
-.gs-pay-prompt .gs-pay-prompt__actions {
-  width: 100%;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: flex-end;
-}
-.gs-pay-prompt .gs-pay-prompt__actions > * + * {
-  margin-left: 0.5rem;
-}
-
-/*# sourceMappingURL=style.css.map */
+/*# sourceMappingURL=main.css.map */

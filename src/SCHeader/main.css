@@ -1,0 +1,68 @@
+/*
+// Copyright (c) 2021 GrowStocks
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
+*/
+.sc-header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  height: auto;
+  -webkit-transition: all 0.1s ease;
+  transition: all 0.1s ease;
+  color: var(--sc-header-ink, var(--sc-theme--on-primary));
+  border: 1px solid var(--sc-header-fill, var(--sc-theme--primary));
+  background: var(--sc-header-fill, var(--sc-theme--primary));
+  border-radius: 0;
+  -webkit-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12);
+  -ms-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12);
+}
+.sc-header .sc-header__wrap {
+  display: flex;
+  justify-content: space-between !important;
+  align-items: center !important;
+  position: relative;
+}
+.sc-header .sc-header__wrap .sc-header__text {
+  padding: 0.3rem 0.7rem;
+  font-size: 1.25rem;
+  -webkit-transition: all 0.1s ease;
+  transition: all 0.1s ease;
+}
+.sc-header .sc-header__wrap .sc-header__text > * {
+  color: inherit;
+}
+@media (min-width: 540px) {
+  .sc-header .sc-header__wrap .sc-header__text {
+    padding: 0.3rem 0.7rem 0.3rem 0;
+  }
+}
+.sc-header .sc-header__wrap .sc-header__text.invisible {
+  display: none;
+}
+@media (min-width: 540px) {
+  .sc-header .sc-header__wrap {
+    width: calc(100% - 34px);
+    margin: 0 auto;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */

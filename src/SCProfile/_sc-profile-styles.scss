@@ -1,0 +1,56 @@
+//
+// Copyright (c) 2021 GrowStocks
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
+//
+
+@use '../SCCore/Color';
+@use '../SCCore/Shape';
+@use '../SCCore/Typography';
+@use '../SCCore/Elevation';
+
+@use 'sass:map';
+
+@use 'sc-profile-base' as base;
+@use 'sc-profile-theme' as theme;
+
+@mixin render(
+    $color-theme: (),
+    $shape-theme: (),
+    $typography-theme: (),
+) {
+
+    $_color-theme: map.merge(theme.$init-color-theme, $color-theme);
+    $_shape-theme: map.merge(theme.$init-shape-theme, $shape-theme);
+    $_typography-theme: map.merge(theme.$init-typography-theme, $typography-theme);
+
+    $_scope-exceptions: (
+        'text',
+        'outlined'
+    );
+
+    @include base.base() {
+        @content;
+        @include Color.apply('filled', $_color-theme, $scope-exceptions: $_scope-exceptions);
+        @include Shape.apply($_shape-theme);
+        @include Typography.apply($_typography-theme);
+        @include Elevation.apply(3, $color: map.get($_color-theme, 'elevation'));
+    }
+
+}

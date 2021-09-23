@@ -20,24 +20,24 @@
 //  SOFTWARE.
 //
 
-@use '../../src/Core/Theme';
-@use '../../src/Core/Typography';
-@use '../../src/Core/Color';
-@use '../../src/Core/Shape';
-@use '../../src/Core/Animation';
-@use '../../src/Core/Elevation';
+@use '../../src/SCCore/Theme';
+@use '../../src/SCCore/Typography';
+@use '../../src/SCCore/Color';
+@use '../../src/SCCore/Shape';
+@use '../../src/SCCore/Animation';
+@use '../../src/SCCore/Elevation';
 
-@use '../../src/Components/SCAlert';
-@use '../../src/Components/SCAppbar';
-@use '../../src/Components/SCButton';
-@use '../../src/Components/SCCard';
-@use '../../src/Components/SCDrawer';
-@use '../../src/Components/SCHeader';
-@use '../../src/Components/SCNavbar';
-@use '../../src/Components/SCProfile';
-@use '../../src/Components/SCTextField';
-@use '../../src/Components/SCTooltip';
-@use '../../src/Components/SCSnackbar';
+@use '../../src/SCAlert';
+@use '../../src/SCAppbar';
+@use '../../src/SCButton';
+@use '../../src/SCCard';
+@use '../../src/SCDrawer';
+@use '../../src/SCHeader';
+@use '../../src/SCNavbar';
+@use '../../src/SCProfile';
+@use '../../src/SCTextField';
+@use '../../src/SCTooltip';
+@use '../../src/SCSnackbar';
 
 // @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');

@@ -1,8 +1,10 @@
 /.idea
 /node_modules
 /src/node_modules
-/src/**/*.css
 /src/**/*.js
+/src/**/*.d.ts
+/src/**/*.d.ts.map
+/src/**/*.js.map
 # /src/**/*.[Tt]est.html
 /src/**/*.[Tt]est.css
 /src/**/*.[Tt]est.js
@@ -11,4 +13,3 @@
 *.d.ts.map
 *.js.map
 scripts.js
-

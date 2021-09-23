@@ -1,0 +1,100 @@
+/*
+// Copyright (c) 2021 GrowStocks
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
+*/
+.sc-drawer__overlay {
+  display: block;
+  position: fixed;
+  z-index: 98;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: black;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.sc-drawer {
+  width: 0;
+  max-width: 320px;
+  padding: 0.7rem 0;
+  height: calc(100% - 47px);
+  position: fixed;
+  bottom: 0;
+  right: 0 !important;
+  z-index: 100;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  color: var(--sc-drawer-ink, var(--sc-theme--primary-dark));
+  border: 1px solid var(--sc-drawer-fill, var(--sc-theme--primary-light));
+  background: var(--sc-drawer-fill, var(--sc-theme--primary-light));
+  border-radius: 0;
+  -webkit-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12);
+  -ms-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12);
+}
+.sc-drawer.visible {
+  width: 100% !important;
+}
+.sc-drawer * {
+  color: inherit;
+}
+.sc-drawer .sc-drawer__item {
+  width: 100%;
+  justify-content: flex-start;
+  padding: 0.5rem 1rem;
+  font-weight: normal !important;
+  font-size: 0.875rem;
+}
+.sc-drawer .sc-drawer__divider {
+  margin: 17px 0 7px 0;
+  text-align: center;
+  font-weight: 700 !important;
+}
+.sc-drawer .sc-drawer__socials {
+  display: flex;
+  justify-content: space-around;
+  width: 210px;
+  margin: 0 auto;
+}
+.sc-drawer .sc-drawer__socials i {
+  font-size: 1.5rem !important;
+  -webkit-transition: all 0.1s ease;
+  transition: all 0.1s ease;
+}
+.sc-drawer .sc-drawer__socials i:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+.sc-drawer .sc-drawer__language__wrapper {
+  text-align: center;
+}
+.sc-drawer .sc-drawer__language__wrapper .sc-drawer__language__spacer {
+  display: inline-block;
+  margin: 0 1px;
+}
+.sc-drawer .sc-drawer__language--active p {
+  font-weight: 700;
+}
+
+/*# sourceMappingURL=main.css.map */
