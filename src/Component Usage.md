@@ -24,7 +24,7 @@ yarn add @growstocks/stack
 - The syntax utilizes SCSS mixins, so we created a mixin to call all the styles available called `render()`.
 - The syntax design chosen may be verbose to some, but its purpose is to be as explicit as possible when writing the code.
 ```scss
-@use '~@growstocks/[SCComponentName]';
+@use '~@growstocks/stack/[SCComponentName]';
 
 @include SCComponentName.render();
 ```
