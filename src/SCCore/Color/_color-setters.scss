@@ -34,6 +34,8 @@
     $scope,
     $color-theme,
     $query-settings: ('has-elevation'),
+    $component-key: (),
+    $prefix: 'sc',
     $scope-exceptions: (),
 ) {
     $_scope: getter.get-scope_($scope);

@@ -31,39 +31,39 @@
 @use 'sc-alert-theme' as theme;
 
 @mixin render(
-  $color-theme: (),
-  $shape-theme: (),
-  $typography-theme: ()
+		$color-theme: (),
+		$shape-theme: (),
+		$typography-theme: ()
 ) {
 
-  $_color-theme: map.merge(theme.$init-color-theme, $color-theme);
-  $_shape-theme: map.merge(theme.$init-shape-theme, $shape-theme);
-  $_typography-theme: map.merge(theme.$init-typography-theme, $typography-theme);
+		$_color-theme: map.merge(theme.$init-color-theme, $color-theme);
+		$_shape-theme: map.merge(theme.$init-shape-theme, $shape-theme);
+		$_typography-theme: map.merge(theme.$init-typography-theme, $typography-theme);
 
-  $_scope-exceptions: (
-      'text',
-      'outlined'
-  );
+		$_scope-exceptions: (
+				'text',
+				'outlined'
+		);
 
-  @include base.base() {
+		@include base.base() {
 
-    @content;
+				@content;
 
-    @include Color.apply('filled', $_color-theme, $scope-exceptions: $_scope-exceptions);
-    @include Shape.apply($_shape-theme);
-    @include Typography.apply($_typography-theme);
-    // @include Elevation.apply(3, $color: map.get($_color-theme, 'elevation'));
+				@include Color.apply('filled', $_color-theme, $scope-exceptions: $_scope-exceptions);
+				@include Shape.apply($_shape-theme);
+				@include Typography.apply($_typography-theme);
+				// @include Elevation.apply(3, $color: map.get($_color-theme, 'elevation'));
 
-    &.sc-alert--success {
-      @include Color.apply('filled', theme.$success-theme);
-    }
+				&.sc-alert--success {
+						@include Color.apply('filled', theme.$success-theme);
+				}
 
-    &.sc-alert--warning {
-      @include Color.apply('filled', theme.$warning-theme);
-    }
+				&.sc-alert--warning {
+						@include Color.apply('filled', theme.$warning-theme);
+				}
 
-    &.sc-alert--error {
-      @include Color.apply('filled', theme.$error-theme);
-    }
-  }
+				&.sc-alert--error {
+						@include Color.apply('filled', theme.$error-theme);
+				}
+		}
 }

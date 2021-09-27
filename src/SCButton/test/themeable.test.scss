@@ -20,31 +20,11 @@
 // SOFTWARE.
 //
 
-@use '../SCCore/Typography';
-@use '../SCCore/Theme';
+@use '../sc-button-styles' as c;
 
-
-@mixin base() {
-		.sc-alert {
-				width: 100%;
-				padding: 0.3rem 0.5rem;
-				display: grid;
-				grid-gap: 0.5rem;
-				grid-template-columns: 18px auto;
-				align-items: center;
-
-				@content;
-
-				.sc-alert__icon {
-						display: inline-block;
-						font-size: Theme.key-create('alert-icon-size', Typography.px-to-rem(18px));
-						color: Theme.key-create('alert-icon-ink', inherit);
-				}
-
-				.sc-alert__text {
-						display: inline-block;
-						font-size: Theme.key-create('alert-text-size', inherit);
-						color: Theme.key-create('alert-text-ink', inherit);
-				}
-		}
+.my-button-theme {
+		--sc-button-fill: #5fb4e0;
+		--sc-button-ink: #fff;
 }
+
+@include c.render();

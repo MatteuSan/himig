@@ -15,9 +15,9 @@ yarn add @growstocks/stack
 ## Style Usage
 >These styles can be placed in a style file and can be located anywhere, as long as the HTML file can call the style file you made.
 ### CSS Usage
-- The CSS usage for every component is as follows. Import the style from the NPM package and you'll be set to go.
+- The CSS usage for every component is as follows. Import the style from the NPM package, and you'll be set to go.
 ```css
-@import '@growstocks/[SCComponentName]';
+@import '@growstocks/stack/[SCComponentName]';
 ```
 ### SCSS Usage
 - The SCSS usage for every component is a bit different to the CSS usage. By using the SCSS implementation, you have more control over the styles.
@@ -85,7 +85,7 @@ $shape-theme-data: (
 - The theme data follows a particular data shape for all the properties.
 ```scss
 $typography-theme-data: (
-  'font-size': 14px
+  'size': 14px
 );
 ```
 - Here are the available properties for the color theme data.

@@ -1,7 +1,7 @@
 {
-  "name": "@growstocks/stack",
+  "name": "@growstocks/scaffold",
   "version": "3.0.0-unstable",
-  "description": "The web implementation of GrowStocks' design system. Made with SCSS, Typescript, and ❤.",
+  "description": "The core library of GrowStocks' stack library",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,18 +10,6 @@
     "type": "git",
     "url": "git+https://github.com/GrowStocks/stack.git"
   },
-  "keywords": [
-    "css",
-    "sass",
-    "theme",
-    "web",
-    "scss",
-    "component-library",
-    "design-system",
-    "growtopia",
-    "growstocks",
-    "css-framework"
-  ],
   "author": "Matteu",
   "license": "MIT",
   "bugs": {
