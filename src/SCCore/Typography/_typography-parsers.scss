@@ -22,6 +22,8 @@
 
 @use 'sass:math';
 
+@use '../Theme/theme-key-generators' as key;
+
 @function px-to-rem($px) {
     @return (math.div($px, 16px) * 1rem);
 }
@@ -30,6 +32,10 @@
     @return math.div($font-size, 16px) * 1rem;
 }
 
-@mixin font-family($family, $type: sans-serif) {
-    font-family: quote($family), $type;
+@mixin font-family($family, $type: sans-serif, $key: 'global') {
+    font-family: key.create('#{$key}-family', quote($family), $type);
+}
+
+@mixin get-weight($weight, $key: 'global') {
+    font-weight: $weight;
 }
