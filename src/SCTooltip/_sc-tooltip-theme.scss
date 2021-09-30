@@ -23,13 +23,13 @@
 @use '../SCCore/Theme';
 
 $init-color-theme: (
-    'default': (Theme.key-create('tooltip-fill', #232323), Theme.key-create('tooltip-ink', #fff)),
+    'default': (#232323, #fff),
     'elevation': #000
 );
 
 $init-shape-theme: (
     'shape': default,
-    'radius': Theme.key-create('tooltip-radius', var(--sc-theme--small-radius)),
+    'radius': var(--sc-theme--small-radius),
     'exceptions': (pill)
 );
 

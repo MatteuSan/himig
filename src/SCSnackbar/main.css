@@ -28,10 +28,10 @@
   bottom: 70px;
   right: 20px;
   border-left: none;
-  color: #fff;
-  border: 1px solid #232323;
-  background: #232323;
-  border-radius: var(--sc-theme--small-radius);
+  color: var(--sc-snackbar-ink, #fff);
+  border: 1px solid var(--sc-snackbar-fill, #232323);
+  background: var(--sc-snackbar-fill, #232323);
+  border-radius: var(--sc-snackbar-radius, var(--sc-theme--small-radius));
   -webkit-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12);
   -ms-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12);
@@ -65,5 +65,4 @@
 .sc-snackbar .sc-snackbar__wrap .sc-snackbar__action {
   padding: 0 !important;
 }
-
 /*# sourceMappingURL=main.css.map */

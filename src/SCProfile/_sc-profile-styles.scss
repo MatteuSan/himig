@@ -47,8 +47,8 @@
 
     @include base.base() {
         @content;
-        @include Color.apply('filled', $_color-theme, $scope-exceptions: $_scope-exceptions);
-        @include Shape.apply($_shape-theme);
+        @include Color.apply('filled', $_color-theme, $component-name: 'profile', $scope-exceptions: $_scope-exceptions);
+        @include Shape.apply($_shape-theme, $component-name: 'profile');
         @include Typography.apply($_typography-theme);
         @include Elevation.apply(3, $color: map.get($_color-theme, 'elevation'));
     }

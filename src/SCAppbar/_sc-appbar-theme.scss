@@ -23,7 +23,7 @@
 @use '../SCCore/Theme';
 
 $init-color-theme: (
-  'default': (Theme.key-create('appbar-fill', var(--sc-theme--primary)), Theme.key-create('appbar-ink', var(--sc-theme--on-primary))),
+  'default': (var(--sc-theme--primary), var(--sc-theme--on-primary)),
   'elevation': #000,
 );
 

@@ -22,18 +22,25 @@
  *
  */
 
-const { src, dest, watch, series } = require('gulp');
+const {src, dest, watch, series} = require('gulp');
 const sass = require('gulp-sass')(require('sass'));
 const postcss = require('gulp-postcss');
 const cssnano = require('cssnano');
+
 /*const terser = require('gulp-terser');
 const typescript = require('gulp-typescript');*/
 
-function sassTask() {
-    return src('test/styles/**/*.scss', { sourcemaps: true })
-        .pipe(sass())
+function sassTaskDev() {
+    return src(['src/**/*.scss', 'test/**/*.scss', '!src/**/*.test.scss'], {sourcemaps: true})
+        .pipe(sass().on('error', sass.logError))
+        .pipe(dest('./src', {sourcemaps: '.'}));
+}
+
+function sassTaskProd() {
+    return src('src/main.scss', {sourcemaps: true})
+        .pipe(sass().on('error', sass.logError))
         .pipe(postcss([ cssnano ]))
-        .pipe(dest('test/styles', { sourcemaps: '.' }));
+        .pipe(dest('./src', {sourcemaps: '.'}));
 }
 
 /*function tsTask() {
@@ -44,12 +51,12 @@ function sassTask() {
 }*/
 
 function watchTask() {
-    watch('test/styles/**/*.scss', sassTask());
+    watch(['src/**/*.scss', 'test/**/*.scss', '!src/**/*.test.scss'], sassTask());
     // watch('test/scripts/**/*.ts', tsTask());
 }
 
 exports.default = series(
-    sassTask,
+    sassTaskDev,
+    sassTaskProd
     // tsTask, // tsTask() disabled on default until we find a fix for this [DEV]
-    watchTask
 );

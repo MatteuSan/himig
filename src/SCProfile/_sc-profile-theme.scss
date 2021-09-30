@@ -23,13 +23,13 @@
 @use '../SCCore/Theme';
 
 $init-color-theme: (
-    'default': (Theme.key-create('profile-fill', var(--sc-theme--primary-light)), Theme.key-create('profile-ink', var(--sc-theme--on-primary))),
+    'default': (var(--sc-theme--primary-light), var(--sc-theme--on-primary)),
     'elevation': #000
 );
 
 $init-shape-theme: (
     'shape': default,
-    'radius': Theme.key-create('profile-radius', var(--sc-theme--small-radius)),
+    'radius': var(--sc-theme--small-radius),
     'exceptions': (pill)
 );
 

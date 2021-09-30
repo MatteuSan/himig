@@ -23,13 +23,13 @@
 @use '../SCCore/Theme';
 
 $init-color-theme: (
-    'default': (Theme.key-create('drawer-fill', var(--sc-theme--primary-light)), Theme.key-create('drawer-ink', var(--sc-theme--primary-dark))),
+    'default': (var(--sc-theme--primary-light), var(--sc-theme--primary-dark)),
     'elevation': #000
 );
 
 $init-shape-theme: (
     'shape': block,
-    'radius': Theme.key-create('drawer-radius', var(--sc-theme--medium-radius) 0 0 0),
+    'radius': var(--sc-theme--medium-radius) 0 0 0,
     'exceptions': (pill)
 );
 

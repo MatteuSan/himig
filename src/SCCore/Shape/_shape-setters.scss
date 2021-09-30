@@ -26,11 +26,14 @@
 @use 'sass:math';
 
 @use '../Feature';
+@use '../Theme/theme-key-generators' as key;
 
 @use 'shape-validators' as validator;
 
 @mixin apply(
     $shape-theme: (),
+    $component-name: 'component-name',
+    $prefix: 'sc'
 ) {
 
     @if validator.validate-shape-properties_($shape-theme) {
@@ -47,7 +50,7 @@
         // $_imported-custom-clip: map.get($shape-theme, 'custom-clip');
 
         @if $_backwards-compatability-radius {
-            @warn 'The property "border-radius" will be depricated on Stack v2.2.0. Please change it to "radius" for future compatability';
+            @warn 'The property "border-radius" will be depricated on Stack v3.1.0. Please change it to "radius" for future compatability';
         }
 
         @if validator.is-shape_($_imported-shape) {
@@ -55,28 +58,28 @@
             @if validator.is-enabled_($_imported-shape, $_imported-shape-exceptions) == false {
 
                 @if $_imported-shape == pill {
-                    border-radius: 500px;
+                    border-radius: key.create('#{$component-name}-radius', 500px);
                 }
 
                 @if $_imported-shape == rounded {
                     @if $_backwards-compatability-radius {
-                        border-radius: #{$_backwards-compatability-radius};
+                        border-radius: key.create('#{$component-name}', #{$_backwards-compatability-radius});
                     }
                     @if $_imported-border-radius {
-                        border-radius: #{$_imported-border-radius};
+                        border-radius: key.create('#{$component-name}-radius', #{$_imported-border-radius});
                     }
                 }
 
                 @if $_imported-shape == block {
-                    border-radius: 0;
+                    border-radius: key.create('#{$component-name}-radius', 0);
                 }
 
                 @if $_imported-shape == default {
                     @if $_backwards-compatability-radius {
-                        border-radius: #{$_backwards-compatability-radius};
+                        border-radius: key.create('#{$component-name}', #{$_backwards-compatability-radius});
                     }
                     @if $_imported-border-radius {
-                        border-radius: #{$_imported-border-radius};
+                        border-radius: key.create('#{$component-name}-radius', #{$_imported-border-radius});
                     }
                 }
 

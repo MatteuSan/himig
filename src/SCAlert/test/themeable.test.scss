@@ -22,6 +22,7 @@
 
 @use '../sc-alert-styles' as c;
 
+/*
 @include c.render() {
   --sc-alert-fill: #000d23;
   --sc-alert-ink: white;
@@ -34,4 +35,4 @@
   --sc-alert-ink: black;
   --sc-alert-icon-ink: blue;
   --sc-alert-radius: 0.7rem;
-}
+}*/

@@ -54,17 +54,14 @@
 
     @include base.base($_breakpoint) {
         @content;
-        @include Color.apply('filled', $_color-theme, ('no-elevation'), $_scope-exceptions);
-        @include Shape.apply($_shape-theme);
+        @include Color.apply('filled', $_color-theme, ('no-elevation'), $component-name: 'navbar', $scope-exceptions: $_scope-exceptions);
+        @include Shape.apply($_shape-theme, $component-name: 'navbar');
         @include Typography.apply($_typography-theme);
         @include Elevation.apply(5, $color: Color.get-color_($_color-theme, 'fill', 'elevation'));
 
         @include SCNavItem.base($_breakpoint) {
-            @include Color.apply('filled', $_color-theme, ('no-elevation'), $_scope-exceptions);
-            @include Shape.apply((
-                'shape': rounded,
-                'radius': 0.5rem
-            ));
+            @include Color.apply('filled', $_color-theme, ('no-elevation'), $component-name: 'navbar', $scope-exceptions: $_scope-exceptions);
+            @include Shape.apply(('shape': rounded, 'radius': 0.5rem), $component-name: 'navbar');
         }
     };
 

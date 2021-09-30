@@ -48,8 +48,8 @@
 
     @include base.base($_position, $_is-mobile-visible, $_breakpoint) {
         @content;
-        @include Color.apply('filled', $_color-theme, ('no-elevation'));
-        @include Shape.apply($_shape-theme);
+        @include Color.apply('filled', $_color-theme, ('no-elevation'), $component-name: 'tooltip');
+        @include Shape.apply($_shape-theme, $component-name: 'tooltip');
         @include Elevation.apply(5, $color: Color.get-color_(theme.$init-color-theme, 'fill', 'elevation'));
     }
 

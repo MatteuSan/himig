@@ -22,4 +22,4 @@
 
 @use 'sc-header-styles' as c;
 
-@include c.render();
+@include c.render($settings: ('is-scrollable': true));

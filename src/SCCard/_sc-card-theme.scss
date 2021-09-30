@@ -23,7 +23,7 @@
 @use '../SCCore/Theme';
 
 $init-color-theme: (
-    'default': (Theme.key-create('card-fill', var(--sc-theme--primary-light)), Theme.key-create('card-ink', var(--sc-theme--on-primary))),
+    'default': (var(--sc-theme--primary-light), var(--sc-theme--on-primary)),
     'elevation': #000
 );
 

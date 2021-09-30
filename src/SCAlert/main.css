@@ -26,34 +26,34 @@
   grid-gap: 0.5rem;
   grid-template-columns: 18px auto;
   align-items: center;
-  color: var(--sc-alert-ink, var(--sc-theme--on-primary));
-  border: 1px solid var(--sc-alert-fill, var(--sc-theme--primary-light));
-  background: var(--sc-alert-fill, var(--sc-theme--primary-light));
+  color: var(--sc-alert-ink, var(--sc-alert-ink, var(--sc-theme--on-primary)));
+  border: 1px solid var(--sc-alert-fill, var(--sc-alert-fill, var(--sc-theme--primary-light)));
+  background: var(--sc-alert-fill, var(--sc-alert-fill, var(--sc-theme--primary-light)));
   -webkit-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
   -ms-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
-  border-radius: var(--sc-alert-radius, var(--sc-theme--small-radius));
+  border-radius: var(--sc-alert-radius, var(--sc-alert-radius, var(--sc-theme--small-radius)));
 }
 .sc-alert.sc-alert--success {
-  color: #ffffff;
-  border: 1px solid var(--sc-theme--success);
-  background: var(--sc-theme--success);
+  color: var(--sc-alert-ink, #ffffff);
+  border: 1px solid var(--sc-alert-fill, var(--sc-theme--success));
+  background: var(--sc-alert-fill, var(--sc-theme--success));
   -webkit-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
   -ms-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
 }
 .sc-alert.sc-alert--warning {
-  color: #000000;
-  border: 1px solid var(--sc-theme--warning);
-  background: var(--sc-theme--warning);
+  color: var(--sc-alert-ink, #000000);
+  border: 1px solid var(--sc-alert-fill, var(--sc-theme--warning));
+  background: var(--sc-alert-fill, var(--sc-theme--warning));
   -webkit-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
   -ms-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
 }
 .sc-alert.sc-alert--error {
-  color: #ffffff;
-  border: 1px solid var(--sc-theme--error);
-  background: var(--sc-theme--error);
+  color: var(--sc-alert-ink, #ffffff);
+  border: 1px solid var(--sc-alert-fill, var(--sc-theme--error));
+  background: var(--sc-alert-fill, var(--sc-theme--error));
   -webkit-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
   -ms-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
@@ -68,5 +68,4 @@
   font-size: var(--sc-alert-text-size, inherit);
   color: var(--sc-alert-text-ink, inherit);
 }
-
 /*# sourceMappingURL=main.css.map */

@@ -23,14 +23,14 @@
 @use '../SCCore/Theme';
 
 $init-color-theme: (
-    'default': (Theme.key-create('header-fill', var(--sc-theme--primary)), Theme.key-create('header-ink', var(--sc-theme--on-primary))),
-    'scrollable': (Theme.key-create('header-fill--scrollable', transparent), Theme.key-create('header-ink--scrollable', var(--sc-theme--on-primary))),
+    'default': (var(--sc-theme--primary), var(--sc-theme--on-primary)),
+    'scrollable': (transparent, var(--sc-theme--on-primary)),
     'elevation': #000
 );
 
 $init-shape-theme: (
     'shape': block,
-    'radius': Theme.key-create('header-radius', 0 0 var(--sc-theme--large-radius) var(--sc-theme--large-radius)),
+    'radius': 0 0 var(--sc-theme--large-radius) var(--sc-theme--large-radius),
     'exceptions': (pill)
 );
 

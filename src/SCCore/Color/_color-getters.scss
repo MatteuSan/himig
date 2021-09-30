@@ -25,6 +25,8 @@
 @use 'sass:color';
 @use 'sass:math';
 
+@use '../Theme/theme-key-generators' as key;
+
 @use 'color-validators' as validator;
 @use 'color-math' as color-math;
 
@@ -35,20 +37,46 @@
     }
 }
 
-@function get-color_($color-map, $list-query, $query) {
-
-    $valid: validator.is-color-type_($query);
-    $valid-map: validator.is-map_($color-map);
-    @if $valid {
-        @if $valid-map {
+@function get-color_(
+    $color-map,
+    $list-query,
+    $query,
+    $component-name: 'component-name',
+    $prefix: 'sc'
+) {
+    @if validator.is-color-type_($query) {
+        @if validator.is-map_($color-map) {
             $_color-map: map.get($color-map, $query);
 
-            @if $list-query == 'fill' {
+            @if ($query == 'default') {
+                $key-variant: '';
+
+                @if $list-query == 'fill' {
+                    @return key.create('#{$component-name}-fill#{$key-variant}', list.nth($_color-map, 1), $prefix);
+                } @else if $list-query == 'ink' {
+                    @return key.create('#{$component-name}-ink#{$key-variant}', list.nth($_color-map, 2), $prefix);
+                } @else {
+                    @error 'Invalid query: #{$list-query}. Please choose from the following valid selectors: "fill", "ink".';
+                }
+
+            } @else if ($query == 'elevation') or ($query == 'outline') {
+
                 @return list.nth($_color-map, 1);
-            } @else if $list-query == 'ink' {
-                @return list.nth($_color-map, 2);
+
             } @else {
-                @error 'Invalid query: #{$list-query}. Please choose from the following valid selectors: "fill", "ink".';
+
+                $key-variant: '--#{$query}';
+
+                @if $list-query == 'fill' {
+                    @if ($query == 'elevation') or ($query == 'outline') {
+                        @return list.nth($_color-map, 1);
+                    }
+                    @return key.create('#{$component-name}-fill#{$key-variant}', list.nth($_color-map, 1), $prefix);
+                } @else if $list-query == 'ink' {
+                    @return key.create('#{$component-name}-ink#{$key-variant}', list.nth($_color-map, 2), $prefix);
+                } @else {
+                    @error 'Invalid query: #{$list-query}. Please choose from the following valid selectors: "fill", "ink".';
+                }
             }
         }
     }

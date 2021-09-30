@@ -23,11 +23,11 @@
 @use '../SCCore/Theme';
 
 $init-color-theme: (
-    'default': (Theme.key-create('button-fill', var(--sc-theme--secondary)), Theme.key-create('button-ink', var(--sc-theme--on-secondary))),
-    'hover': (Theme.key-create('button-fill--hover', var(--sc-theme--secondary)), Theme.key-create('button-ink--hover', var(--sc-theme--on-secondary))),
-    'focus': (Theme.key-create('button-fill--focus', var(--sc-theme--secondary)), Theme.key-create('button-ink--focus', var(--sc-theme--on-secondary))),
-    'active': (Theme.key-create('button-fill--active', var(--sc-theme--secondary-light)), Theme.key-create('button-ink--active', var(--sc-theme--on-secondary))),
-    'disabled': (Theme.key-create('button-fill--disabled', var(--sc-theme--secondary-dark)), Theme.key-create('button-ink--disabled', var(--sc-theme--on-secondary))),
+    'default': (var(--sc-theme--secondary), var(--sc-theme--on-secondary)),
+    'hover': (var(--sc-theme--secondary), var(--sc-theme--on-secondary)),
+    'focus': (var(--sc-theme--secondary), var(--sc-theme--on-secondary)),
+    'active': (var(--sc-theme--secondary-light), var(--sc-theme--on-secondary)),
+    'disabled': (var(--sc-theme--secondary-dark), var(--sc-theme--on-secondary)),
     'outline': #afafaf,
     'elevation': #000,
 );
