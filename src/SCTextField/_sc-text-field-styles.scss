@@ -49,7 +49,7 @@
         @content;
         @include Color.apply('filled', $_color-theme, ('no-elevation'), $component-name: 'text-field', $scope-exceptions: $_scope-exceptions);
         @include Shape.apply($_shape-theme, $component-name: 'text-field');
-        @include Typography.apply($_typography-theme);
+        @include Typography.apply($_typography-theme, $component-name: 'text-field');
     }
 
 }

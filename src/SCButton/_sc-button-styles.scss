@@ -46,18 +46,17 @@
 
     @include base.base() {
         @content;
+        @include Typography.apply($_typography-theme, $component-name: 'button');
 
         @if Feature.has-item($_type, default) or Feature.has-item($_type, text) or Feature.has-item($_type, all) {
             @include Color.apply('text', $_color-theme, ('no-elevation'),  $component-name: 'button');
             @include Shape.apply($_shape-theme, $component-name: 'button');
-            @include Typography.apply($_typography-theme);
         }
 
         @if Feature.has-item($_type, outlined) or Feature.has-item($_type, all) {
             &.sc-button--outlined {
                 @include Color.apply('outlined', $_color-theme, $component-name: 'button');
                 @include Shape.apply($_shape-theme, $component-name: 'button');
-                @include Typography.apply($_typography-theme);
             }
         }
 
@@ -65,7 +64,6 @@
             &.sc-button--filled {
                 @include Color.apply('filled', $_color-theme,  $component-name: 'button');
                 @include Shape.apply($_shape-theme, $component-name: 'button');
-                @include Typography.apply($_typography-theme);
             }
         }
     }

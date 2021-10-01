@@ -31,7 +31,7 @@ const cssnano = require('cssnano');
 const typescript = require('gulp-typescript');*/
 
 function sassTaskDev() {
-    return src(['src/**/*.scss', 'test/**/*.scss', '!src/**/*.test.scss'], {sourcemaps: true})
+    return src(['src/**/*.scss', '!src/**/*.test.scss'], {sourcemaps: true})
         .pipe(sass().on('error', sass.logError))
         .pipe(dest('./src', {sourcemaps: '.'}));
 }
@@ -43,6 +43,12 @@ function sassTaskProd() {
         .pipe(dest('./src', {sourcemaps: '.'}));
 }
 
+function sassTaskTest() {
+    return src('test/**/*.scss', {sourcemaps: true})
+        .pipe(sass().on('error', sass.logError))
+        .pipe(dest('./test', {sourcemaps: '.'}));
+}
+
 /*function tsTask() {
     return src(['test/scripts/!**!/!*.ts', 'src/!**!/!*.ts'])
         .pipe(typescript())
@@ -51,12 +57,16 @@ function sassTaskProd() {
 }*/
 
 function watchTask() {
-    watch(['src/**/*.scss', 'test/**/*.scss', '!src/**/*.test.scss'], sassTask());
+    watch(['src/**/*.scss', '!src/**/*.test.scss'], sassTaskDev());
+    watch(['test/**/*.scss'], sassTaskTest());
+    watch(['src/main.scss'], sassTaskProd());
     // watch('test/scripts/**/*.ts', tsTask());
 }
 
 exports.default = series(
     sassTaskDev,
-    sassTaskProd
+    sassTaskTest,
+    sassTaskProd,
     // tsTask, // tsTask() disabled on default until we find a fix for this [DEV]
+    // watchTask
 );

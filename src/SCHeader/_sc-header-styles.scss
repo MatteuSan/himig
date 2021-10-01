@@ -55,7 +55,7 @@
         @content;
         @include Color.apply('filled', $_color-theme, ('no-elevation'), $component-name: 'header', $scope-exceptions: $_scope-exceptions);
         @include Shape.apply($_shape-theme, $component-name: 'header');
-        @include Typography.apply($_typography-theme);
+        @include Typography.apply($_typography-theme, $component-name: 'header');
         @include Elevation.apply(5, $color: Color.get-color_($_color-theme, 'fill', 'elevation'));
     }
 

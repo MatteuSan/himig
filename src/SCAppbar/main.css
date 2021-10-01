@@ -29,7 +29,8 @@
   color: var(--sc-appbar-ink, var(--sc-theme--on-primary));
   border: 1px solid var(--sc-appbar-fill, var(--sc-theme--primary));
   background: var(--sc-appbar-fill, var(--sc-theme--primary));
-  border-radius: var(--sc-alert-radius, 0);
+  border-radius: var(--sc-appbar-radius, 0);
+  font-size: var(--sc-appbar-type-size, 0.75rem);
   -webkit-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12);
   -ms-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12);
@@ -112,8 +113,8 @@
   content: attr(data-tooltip);
   display: block;
   position: absolute;
-  padding: 0.5rem 0.7rem;
-  font-size: 0.75rem;
+  padding: 0.5rem 0.6rem;
+  font-size: 0.8125rem;
   bottom: calc(-100% - 10px);
   margin-left: 50%;
   transform: translateX(-50%);

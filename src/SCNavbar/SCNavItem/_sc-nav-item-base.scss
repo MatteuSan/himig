@@ -39,7 +39,7 @@
         @content;
 
         p {
-            font-size: 16px;
+            font-size: Theme.key-create('navbar-item-type-size', inherit);
         }
 
         &.active {

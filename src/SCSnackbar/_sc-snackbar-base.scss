@@ -21,6 +21,7 @@
 //
 
 @use '../SCCore/Tools';
+@use '../SCCore/Typography';
 @use '../SCCore/Theme';
 
 @mixin base($breakpoint: 'medium') {
@@ -52,7 +53,7 @@
             justify-content: space-between;
 
             .sc-snackbar__label {
-                font-size: 15px;
+                font-size: Theme.key-create('snackbar-type-size', Typography.px-to-rem(15px));
             }
 
             .sc-snackbar__action {

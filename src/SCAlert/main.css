@@ -33,6 +33,7 @@
   -ms-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
   border-radius: var(--sc-alert-radius, var(--sc-alert-radius, var(--sc-theme--small-radius)));
+  font-size: var(--sc-alert-type-size, 1rem);
 }
 .sc-alert.sc-alert--success {
   color: var(--sc-alert-ink, #ffffff);

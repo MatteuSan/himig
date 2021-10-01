@@ -56,8 +56,8 @@
     ) {
         @content;
         @include Color.apply('filled', $_color-theme, ('no-elevation'), 'appbar', $scope-exceptions: $_scope-exceptions);
-        @include Shape.apply($_shape-theme, $component-name: 'alert');
-        @include Typography.apply($_typography-theme);
+        @include Shape.apply($_shape-theme, $component-name: 'appbar');
+        @include Typography.apply($_typography-theme, $component-name: 'appbar');
         @include Elevation.apply(5, $color: Color.get-color_($_color-theme, 'fill', 'elevation'));
     };
 

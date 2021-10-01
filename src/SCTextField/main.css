@@ -50,6 +50,7 @@
   border: 1px solid var(--sc-text-field-fill, #a4b2c3);
   background: var(--sc-text-field-fill, #a4b2c3);
   border-radius: var(--sc-text-field-radius, var(--sc-theme--small-radius));
+  font-size: var(--sc-text-field-type-size, 0.875rem);
 }
 .sc-text-field .sc-text-field__input:hover {
   cursor: text;

@@ -24,7 +24,7 @@
 @use '../SCCore/Tools';
 @use '../SCCore/Elevation';
 
-@use 'SCNavItem/index';
+@use 'SCNavItem';
 
 @mixin base($breakpoint: 'medium') {
 
@@ -39,7 +39,7 @@
         background: rgba(0 0 0 / 0);
 
         > * {
-            font-size: 24px;
+            font-size: Theme.key-create('navbar-trigger-icon-size', 24px);
         }
 
         @media (min-width: 570px) {
@@ -66,6 +66,8 @@
             display: block;
             transition: all 0.1s ease;
         }
+
+        @include SCNavItem.base($breakpoint);
 
         @media (min-width: Theme.get-breakpoint($breakpoint)) {
             display: flex;

@@ -70,9 +70,7 @@
                     height: 30px;
                     position: relative;
                     color: inherit !important;
-                    display: -webkit-box;
-                    -webkit-line-clamp: 2;
-                    -webkit-box-orient: vertical;
+                    white-space: nowrap;
                     text-overflow: ellipsis;
                     overflow: hidden;
                     word-break: break-all;

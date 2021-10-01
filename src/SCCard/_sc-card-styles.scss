@@ -49,7 +49,7 @@
         @content;
         @include Color.apply('filled', $_color-theme, $scope-exceptions: $_scope-exceptions, $component-name: 'card');
         @include Shape.apply($_shape-theme, $component-name: 'card');
-        @include Typography.apply($_typography-theme);
+        @include Typography.apply($_typography-theme, $component-name: 'card');
         @include Elevation.apply(3, $color: map.get($_color-theme, 'elevation'));
     }
 

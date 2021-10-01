@@ -22,6 +22,7 @@
 
 @use '../SCCore/Feature';
 @use '../SCCore/Tools';
+@use '../SCCore/Typography';
 @use '../SCCore/Theme';
 
 @mixin base(
@@ -36,8 +37,8 @@
             content: attr(data-tooltip);
             display: block;
             position: absolute;
-            padding: 0.5rem 0.7rem;
-            font-size: 0.75rem;
+            padding: 0.5rem 0.6rem;
+            font-size: Typography.px-to-rem(13px);
             bottom: $bottom-position;
             margin-left: 50%;
             transform: translateX(-50%);
