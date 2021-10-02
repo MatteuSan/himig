@@ -31,7 +31,7 @@ const cssnano = require('cssnano');
 const typescript = require('gulp-typescript');*/
 
 function sassTaskDev() {
-    return src(['src/**/*.scss', '!src/**/*.test.scss'], {sourcemaps: true})
+    return src(['src/**/*.scss', '!src/**/*.test.scss', '!src/.old/*.scss'], {sourcemaps: true})
         .pipe(sass().on('error', sass.logError))
         .pipe(dest('./src', {sourcemaps: '.'}));
 }

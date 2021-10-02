@@ -54,14 +54,28 @@
 
     @include base.base($_breakpoint) {
         @content;
-        @include Color.apply('filled', $_color-theme, ('no-elevation'), $component-name: 'navbar', $scope-exceptions: $_scope-exceptions);
-        @include Shape.apply($_shape-theme, $component-name: 'navbar');
-        @include Typography.apply($_typography-theme, $component-name: 'navbar');
+        @include Color.apply('navbar', $_color-theme, 'filled-unelevated', 'default', (
+            opt: 'no-elevation',
+            exceptions: $_scope-exceptions
+        ));
+        @include Shape.apply('navbar', $_shape-theme);
+        @include Typography.apply('navbar', $_typography-theme);
         @include Elevation.apply(5, $color: Color.get-color_($_color-theme, 'fill', 'elevation'));
 
         @include SCNavItem.base($_breakpoint) {
-            @include Color.apply('filled', $_color-theme, ('no-elevation'), $component-name: 'navbar', $scope-exceptions: $_scope-exceptions);
-            @include Shape.apply(('shape': rounded, 'radius': 0.5rem), $component-name: 'navbar');
+            @include Color.apply('navbar', $_color-theme, 'filled-unelevated', 'default', (
+                opt: 'no-elevation',
+                exceptions: $_scope-exceptions
+            ));
+
+            &:hover {
+                @include Color.apply('navbar', $_color-theme, 'filled-unelevated', 'hover', (
+                    opt: 'no-elevation',
+                    exceptions: $_scope-exceptions
+                ));
+            }
+
+            @include Shape.apply('navbar-item', ('shape': rounded, 'radius': 0.5rem));
         }
     };
 

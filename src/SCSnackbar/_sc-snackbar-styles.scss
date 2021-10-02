@@ -52,9 +52,12 @@
 
     @include base.base($_breakpoint) {
         @content;
-        @include Color.apply('filled', $_color-theme, ('no-elevation'), $component-name: 'snackbar', $scope-exceptions: $_scope-exceptions);
-        @include Shape.apply($_shape-theme, $component-name: 'snackbar');
-        @include Typography.apply($_typography-theme, $component-name: 'snackbar');
+        @include Color.apply('snackbar', $_color-theme, 'filled', (
+            opt: 'no-elevation',
+            exceptions: $_scope-exceptions
+        ));
+        @include Shape.apply('snackbar', $_shape-theme);
+        @include Typography.apply('snackbar', $_typography-theme);
         @include Elevation.apply(5, $color: Color.get-color_(theme.$init-color-theme, 'fill', 'elevation'));
 
         &.sc-snackbar--error {

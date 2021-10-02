@@ -47,9 +47,12 @@
 
     @include base.base() {
         @content;
-        @include Color.apply('filled', $_color-theme, ('no-elevation'), $component-name: 'text-field', $scope-exceptions: $_scope-exceptions);
-        @include Shape.apply($_shape-theme, $component-name: 'text-field');
-        @include Typography.apply($_typography-theme, $component-name: 'text-field');
+        @include Color.apply('text-field', $_color-theme, 'filled', 'default', (
+            opt: 'no-elevation',
+            exceptions: $_scope-exceptions
+        ));
+        @include Shape.apply('text-field', $_shape-theme);
+        @include Typography.apply('text-field', $_typography-theme);
     }
 
 }

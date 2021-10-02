@@ -47,10 +47,10 @@
 
     @include base.base() {
         @content;
-        @include Color.apply('filled', $_color-theme, $scope-exceptions: $_scope-exceptions, $component-name: 'card');
-        @include Shape.apply($_shape-theme, $component-name: 'card');
-        @include Typography.apply($_typography-theme, $component-name: 'card');
-        @include Elevation.apply(3, $color: map.get($_color-theme, 'elevation'));
+        @include Color.apply('card', $_color-theme, 'filled', 'default', (exceptions: $_scope-exceptions));
+        @include Shape.apply('card', $_shape-theme);
+        @include Typography.apply('card', $_typography-theme);
+        // @include Elevation.apply(3, $color: map.get($_color-theme, 'elevation'));
     }
 
 }

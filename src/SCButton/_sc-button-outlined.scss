@@ -20,55 +20,29 @@
 // SOFTWARE.
 //
 
-@use 'sass:map';
-@use 'sass:list';
-@use 'sass:meta';
-@use 'sass:math';
-@use 'sass:color';
+@use '../SCCore/Color';
 
-$_valid-color-queries: (
-    'default',
-    'hover',
-    'focus',
-    'active',
-    'disabled',
-    'elevation',
-    'outline',
-    'scrollable'
-);
+@mixin sc-button-outlined_($color-theme) {
+		&.sc-button--outlined {
+				@include Color.apply('button', $color-theme, 'outlined', 'default');
 
-$_valid-scopes: (
-    'text',
-    'outlined',
-    'filled',
-    'filled-unelevated'
-);
+				&:hover {
+						@include Color.apply('button', $color-theme, 'outlined', 'hover');
+						cursor: pointer;
+				}
 
-$_valid-query-settings: (
-    'has-elevation',
-    'no-elevation'
-);
+				&:focus {
+						@include Color.apply('button', $color-theme, 'outlined', 'focus');
+				}
 
-@function is-scope_($scope) {
-    @if not list.index($_valid-scopes, $scope) {
-        @error 'Invalid scope: #{$scope}. Please select from the following scopes: #{$_valid-scopes}';
-    }
+				&:active {
+						@include Color.apply('button', $color-theme, 'outlined', 'default');
+				}
 
-    @return true;
-}
-
-@function is-color-type_($color-type) {
-    @if not list.index($_valid-color-queries, $color-type) {
-        @error 'Invalid color query: #{$color-type}. Please select from the following color queries: #{$_valid-color-queries}';
-    }
-
-    @return true;
-}
-
-@function is-map_($map) {
-    @if meta.type-of($map) != map {
-        @error 'Invalid map: #{$map}. Expecting a map.';
-    }
-
-    @return true;
+				&:disabled {
+						@include Color.apply('button', $color-theme, 'outlined', 'disabled');
+						cursor: pointer;
+						pointer-events: none;
+				}
+		}
 }

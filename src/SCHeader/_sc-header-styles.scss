@@ -51,29 +51,36 @@
         'outlined'
     );
 
-    @include base.base($_breakpoint) {
-        @content;
-        @include Color.apply('filled', $_color-theme, ('no-elevation'), $component-name: 'header', $scope-exceptions: $_scope-exceptions);
-        @include Shape.apply($_shape-theme, $component-name: 'header');
-        @include Typography.apply($_typography-theme, $component-name: 'header');
-        @include Elevation.apply(5, $color: Color.get-color_($_color-theme, 'fill', 'elevation'));
-    }
-
     @if $_is-scrollable == true {
         @include base.base($_breakpoint) {
+            @content;
             &.sc-header--scrollable {
-                background: Color.get-color_($_color-theme, 'fill', 'scrollable', 'header');
-                border-color: Color.get-color_($_color-theme, 'fill', 'scrollable', 'header');
-                color: Color.get-color_($_color-theme, 'ink', 'scrollable', 'header');
+                background: Color.get-color_($_color-theme, 'fill', 'scrollable', ('header', 'sc'));
+                border-color: Color.get-color_($_color-theme, 'fill', 'scrollable', ('header', 'sc'));
+                color: Color.get-color_($_color-theme, 'ink', 'scrollable', ('header', 'sc'));
                 @include Elevation.apply(0, $color: Color.get-color_($_color-theme, 'fill', 'elevation'));
 
                 &.scrolled {
-                    @include Color.apply('filled', $_color-theme, ('no-elevation'), $component-name: 'header', $scope-exceptions: $_scope-exceptions);
-                    @include Shape.apply($_shape-theme, $component-name: 'header');
-                    @include Typography.apply($_typography-theme);
+                    @include Color.apply('header', $_color-theme, 'filled-unelevated', (
+                        opt: 'no-elevation',
+                        exceptions: $_scope-exceptions
+                    ));
+                    @include Shape.apply('header', $_shape-theme);
+                    @include Typography.apply('header', $_typography-theme);
                     @include Elevation.apply(5, $color: Color.get-color_($_color-theme, 'fill', 'elevation'));
                 }
             }
+        }
+    } @else {
+        @include base.base($_breakpoint) {
+            @content;
+            @include Color.apply('header', $_color-theme, 'filled-unelevated', 'default', (
+                opt: 'no-elevation',
+                exceptions: $_scope-exceptions
+            ));
+            @include Shape.apply('header', $_shape-theme);
+            @include Typography.apply('header', $_typography-theme);
+            @include Elevation.apply(5, $color: Color.get-color_($_color-theme, 'fill', 'elevation'));
         }
     }
 

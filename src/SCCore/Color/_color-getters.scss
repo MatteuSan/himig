@@ -39,11 +39,13 @@
 
 @function get-color_(
     $color-map,
-    $list-query,
+    $type,
     $query,
-    $component-name: 'component-name',
-    $prefix: 'sc'
+    $settings: ('', '')
 ) {
+    $component-name: list.nth($settings, 1);
+    $prefix: list.nth($settings, 2);
+
     @if validator.is-color-type_($query) {
         @if validator.is-map_($color-map) {
             $_color-map: map.get($color-map, $query);
@@ -51,12 +53,12 @@
             @if ($query == 'default') {
                 $key-variant: '';
 
-                @if $list-query == 'fill' {
+                @if $type == 'fill' {
                     @return key.create('#{$component-name}-fill#{$key-variant}', list.nth($_color-map, 1), $prefix);
-                } @else if $list-query == 'ink' {
+                } @else if $type == 'ink' {
                     @return key.create('#{$component-name}-ink#{$key-variant}', list.nth($_color-map, 2), $prefix);
                 } @else {
-                    @error 'Invalid query: #{$list-query}. Please choose from the following valid selectors: "fill", "ink".';
+                    @error 'Invalid query: #{$type}. Please choose from the following valid selectors: "fill", "ink".';
                 }
 
             } @else if ($query == 'elevation') or ($query == 'outline') {
@@ -67,15 +69,15 @@
 
                 $key-variant: '--#{$query}';
 
-                @if $list-query == 'fill' {
+                @if $type == 'fill' {
                     @if ($query == 'elevation') or ($query == 'outline') {
                         @return list.nth($_color-map, 1);
                     }
                     @return key.create('#{$component-name}-fill#{$key-variant}', list.nth($_color-map, 1), $prefix);
-                } @else if $list-query == 'ink' {
+                } @else if $type == 'ink' {
                     @return key.create('#{$component-name}-ink#{$key-variant}', list.nth($_color-map, 2), $prefix);
                 } @else {
-                    @error 'Invalid query: #{$list-query}. Please choose from the following valid selectors: "fill", "ink".';
+                    @error 'Invalid query: #{$type}. Please choose from the following valid selectors: "fill", "ink".';
                 }
             }
         }

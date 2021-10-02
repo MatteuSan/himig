@@ -40,6 +40,8 @@ $_valid-typography-queries: (
 		'text-transform'
 );
 
+$prefix: 'sc' !default;
+
 @mixin config(
 		$global: (),
 		$title: (
@@ -105,7 +107,7 @@ $_valid-typography-queries: (
 		}
 }
 
-@mixin apply($typography-theme, $component-name: 'component', $prefix: 'sc') {
+@mixin apply($component-name, $typography-theme) {
 		$_valid-typography-theme: Feature.validate-data-type('map', $typography-theme);
 
 		@if $_valid-typography-theme {

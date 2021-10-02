@@ -47,9 +47,12 @@
 
     @include base.base() {
         @content;
-        @include Color.apply('filled', $_color-theme, ('no-elevation'), $component-name: 'drawer', $scope-exceptions: $_scope-exceptions);
-        @include Shape.apply($_shape-theme, $component-name: 'drawer');
-        @include Typography.apply($_typography-theme, $component-name: 'drawer');
+        @include Color.apply('drawer', $_color-theme, 'filled-unelevated', 'default', (
+            opt: 'no-elevation',
+            exception: $_scope-exceptions
+        ));
+        @include Shape.apply('drawer', $_shape-theme);
+        @include Typography.apply('drawer', $_typography-theme);
         @include Elevation.apply(5, $color: Color.get-color_(theme.$init-color-theme, 'fill', 'elevation'));
     }
 

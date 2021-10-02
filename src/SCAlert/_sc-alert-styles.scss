@@ -49,21 +49,21 @@
 
 				@content;
 
-				@include Color.apply('filled', $_color-theme, $scope-exceptions: $_scope-exceptions, $component-name: 'alert');
-				@include Shape.apply($_shape-theme, $component-name: 'alert');
-				@include Typography.apply($_typography-theme, $component-name: 'alert');
-				// @include Elevation.apply(3, $color: map.get($_color-theme, 'elevation'));
+				@include Color.apply('alert', $_color-theme, 'filled', 'default', (exceptions: $_scope-exceptions));
+				@include Shape.apply('alert', $_shape-theme);
+				@include Typography.apply('alert', $_typography-theme);
+				@include Elevation.apply(3, $color: map.get($_color-theme, 'elevation'));
 
 				&.sc-alert--success {
-						@include Color.apply('filled', theme.$success-theme, $component-name: 'alert');
+						@include Color.apply('alert', theme.$success-theme, 'filled', 'default');
 				}
 
 				&.sc-alert--warning {
-						@include Color.apply('filled', theme.$warning-theme, $component-name: 'alert');
+						@include Color.apply('alert', theme.$warning-theme, 'filled', 'default');
 				}
 
 				&.sc-alert--error {
-						@include Color.apply('filled', theme.$error-theme, $component-name: 'alert');
+						@include Color.apply('alert', theme.$success-theme, 'filled', 'default');
 				}
 		}
 }
