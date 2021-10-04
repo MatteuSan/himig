@@ -1,6 +1,6 @@
 {
   "name": "@growstocks/stack",
-  "version": "3.0.0-alpha.3",
+  "version": "3.0.0-beta",
   "description": "The web implementation of GrowStocks' design system. Made with SCSS, Typescript, and ❤.",
   "main": "index.js",
   "scripts": {
