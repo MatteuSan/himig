@@ -42,13 +42,24 @@
             align-items: center !important;
             position: relative;
 
+            @media (min-width: Theme.get-breakpoint($breakpoint)) {
+                width: calc(100% - 34px);
+                // max-width: 1077px;
+                margin: 0 auto;
+            }
+
             .sc-header__text {
                 padding: 0.3rem 0.7rem;
-                font-size: Typography.px-to-rem(20px);
                 @include Tools.prefix(transition, all 0.1s ease);
 
                 & > * {
                     color: inherit;
+                }
+
+                h1,
+                h2,
+                h3 {
+                    font-size: inherit;
                 }
 
                 @media (min-width: Theme.get-breakpoint($breakpoint)) {
@@ -58,11 +69,6 @@
                 &.invisible {
                     display: none;
                 }
-            }
-
-            @media (min-width: Theme.get-breakpoint($breakpoint)) {
-                width: calc(100% - 34px);
-                margin: 0 auto;
             }
         }
     }

@@ -32,7 +32,7 @@
   border: 1px solid var(--sc-snackbar-fill, #232323);
   background: var(--sc-snackbar-fill, #232323);
   border-radius: var(--sc-snackbar-radius, var(--sc-theme--small-radius));
-  font-size: var(--sc-snackbar-type-size, 0.875rem);
+  font-size: var(--sc-snackbar-text-size, 0.875rem);
   -webkit-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.275), 0px 5px 8px 0px rgba(0, 0, 0, 0.215), 0px 1px 14px 0px rgba(0, 0, 0, 0.195);
   -ms-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.275), 0px 5px 8px 0px rgba(0, 0, 0, 0.215), 0px 1px 14px 0px rgba(0, 0, 0, 0.195);
   box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.275), 0px 5px 8px 0px rgba(0, 0, 0, 0.215), 0px 1px 14px 0px rgba(0, 0, 0, 0.195);
@@ -65,6 +65,9 @@
 }
 .sc-snackbar .sc-snackbar__wrap .sc-snackbar__action {
   padding: 0 !important;
+}
+.sc-snackbar .sc-snackbar__wrap .sc-snackbar__action:hover, .sc-snackbar .sc-snackbar__wrap .sc-snackbar__action:focus, .sc-snackbar .sc-snackbar__wrap .sc-snackbar__action:active {
+  border: none transparent !important;
 }
 
 /*# sourceMappingURL=main.css.map */

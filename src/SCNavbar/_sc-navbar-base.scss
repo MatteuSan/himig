@@ -28,7 +28,7 @@
 
 @mixin base($breakpoint: 'medium') {
 
-    .sc-navbar__trigger {
+    .sc-js-navbar__trigger {
         width: 100%;
         display: grid;
         place-items: center;
@@ -85,6 +85,7 @@
                 width: 100%;
                 height: auto;
                 display: flex;
+                border: none;
                 flex-flow: row nowrap;
                 justify-content: flex-end;
                 padding: 0;

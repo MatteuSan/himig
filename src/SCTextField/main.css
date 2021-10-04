@@ -26,13 +26,14 @@
   width: 100%;
 }
 .sc-text-field .sc-text-field__label {
-  width: 100%;
+  width: max-content;
   font-size: 14px;
   padding: 0 0.7rem;
   position: absolute;
   top: 0.975rem;
   left: 0;
-  color: var(--sc-theme--on-input, #232323);
+  user-select: none;
+  color: var(--sc-text-field-ink, #232323);
   cursor: text;
   -webkit-transition: all 70ms ease;
   transition: all 70ms ease;
@@ -43,24 +44,25 @@
   transition: all 0.1s ease;
   border-width: 2px !important;
   padding: 1.4rem 0.5rem 0.3rem 0.5rem;
-  font-size: 0.9375rem;
+  font-size: var(--sc-text-field-text-size, 0.9375rem);
   resize: none;
-  border-bottom: 2px solid var(--sc-theme--primary-light) !important;
+  border-bottom: 2px solid var(--sc-text-field-border-fill, var(--sc-theme--primary-light)) !important;
   color: var(--sc-text-field-ink, #000);
   border: 1px solid var(--sc-text-field-fill, #a4b2c3);
   background: var(--sc-text-field-fill, #a4b2c3);
   border-radius: var(--sc-text-field-radius, var(--sc-theme--small-radius));
-  font-size: var(--sc-text-field-type-size, 0.875rem);
+  font-size: var(--sc-text-field-text-size, 0.875rem);
 }
 .sc-text-field .sc-text-field__input:hover {
   cursor: text;
 }
 .sc-text-field .sc-text-field__input::placeholder {
   color: rgba(0, 0, 0, 0) !important;
+  user-select: none !important;
 }
 .sc-text-field .sc-text-field__input:focus {
   outline: none;
-  border-color: var(--sc-theme--primary-light) !important;
+  border-color: var(--sc-text-field-border-fill, var(--sc-theme--primary-light)) !important;
 }
 .sc-text-field .sc-text-field__input:focus-within, .sc-text-field .sc-text-field__input:not(:placeholder-shown) {
   padding: 1.4rem 0.6rem 0.3rem 0.6rem;
@@ -74,8 +76,8 @@
   pointer-events: none;
 }
 .sc-text-field .sc-text-field__helper {
-  color: var(--sc-theme--on-surface);
-  font-size: 0.75rem;
+  color: var(--sc-text-field-helper-ink, var(--sc-theme--on-surface));
+  font-size: var(--sc-text-field-helper-size, 0.75rem);
   margin-top: 7px;
 }
 .sc-text-field.sc-text-field--error {

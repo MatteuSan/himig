@@ -51,7 +51,7 @@ $prefix: 'sc' !default;
     $_elevation-color: ();
 
     $_init-color-theme: (
-        'outline': #c4c4c4,
+        'outline': #a0a0a0,
         'elevation': #000,
     );
 
@@ -63,7 +63,7 @@ $prefix: 'sc' !default;
     $_elevation-color: getter.get-color_($_color-theme, 'fill', 'elevation', $_component-config);
 
     // Type: percent
-    $_outline-opacity: 50%;
+    $_outline-opacity: 66%;
 
     @if Feature.has-item($_scope-exceptions, $_scope) {
         @error 'The color scope '#{$_scope}' is disabled in this component. Please select another color scope.';
@@ -76,8 +76,8 @@ $prefix: 'sc' !default;
         box-shadow: none;
 
         @if $key == 'focus' or $key == 'active' {
-            // outline: 2px solid rgba($_outline-color, $_outline-opacity);
-            border: 1px solid #a0a0a0;
+            outline: none;
+            border: 1px solid rgba($_outline-color, $_outline-opacity);
         }
     }
 
@@ -87,7 +87,7 @@ $prefix: 'sc' !default;
         box-shadow: none;
 
         @if $key == 'default' {
-            border-color: rgba(#a0a0a0, 50%);
+            border-color: rgba($_outline-color, $_outline-opacity);
         } @else {
             border-color: getter.get-color_($color-theme, 'fill', $key, $_component-config);
         }

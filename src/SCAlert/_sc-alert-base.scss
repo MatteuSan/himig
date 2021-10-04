@@ -37,7 +37,7 @@
 
 				.sc-alert__icon {
 						display: inline-block;
-						font-size: Theme.key-create('alert-icon-size', Typography.px-to-rem(18px));
+						font-size: Theme.key-create('alert-icon-size', Typography.px-to-rem(20px));
 						color: Theme.key-create('alert-icon-ink', inherit);
 				}
 

@@ -25,6 +25,7 @@
 @use '../SCCore/Shape';
 @use '../SCCore/Typography';
 @use '../SCCore/Feature';
+@use '../SCTooltip';
 
 @use 'sass:map';
 @use 'sc-button-base' as base;
@@ -78,6 +79,12 @@
 
 				@include Shape.apply('button', $_shape-theme);
 				@include Typography.apply('button', $_typography-theme);
+
+				@if Feature.has-property($_merged-settings, 'has-tooltip') == true {
+
+						@include SCTooltip.render();
+
+				}
 		}
 
 }

@@ -19,7 +19,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 */
-.sc-navbar__trigger {
+.sc-js-navbar__trigger {
   width: 100%;
   display: grid;
   place-items: center;
@@ -28,11 +28,11 @@
   border: none;
   background: rgba(0, 0, 0, 0);
 }
-.sc-navbar__trigger > * {
+.sc-js-navbar__trigger > * {
   font-size: var(--sc-navbar-trigger-icon-size, 24px);
 }
 @media (min-width: 570px) {
-  .sc-navbar__trigger {
+  .sc-js-navbar__trigger {
     display: none;
   }
 }
@@ -55,7 +55,7 @@
   border: 1px solid var(--sc-navbar-fill, var(--sc-theme--primary));
   background: var(--sc-navbar-fill, var(--sc-theme--primary));
   border-radius: var(--sc-navbar-radius, 0);
-  font-size: var(--sc-navbar-type-size, 0.875rem);
+  font-size: var(--sc-navbar-text-size, 0.875rem);
   -webkit-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.275), 0px 5px 8px 0px rgba(0, 0, 0, 0.215), 0px 1px 14px 0px rgba(0, 0, 0, 0.195);
   -ms-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.275), 0px 5px 8px 0px rgba(0, 0, 0, 0.215), 0px 1px 14px 0px rgba(0, 0, 0, 0.195);
   box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.275), 0px 5px 8px 0px rgba(0, 0, 0, 0.215), 0px 1px 14px 0px rgba(0, 0, 0, 0.195);
@@ -148,6 +148,7 @@
     width: 100%;
     height: auto;
     display: flex;
+    border: none;
     flex-flow: row nowrap;
     justify-content: flex-end;
     padding: 0;

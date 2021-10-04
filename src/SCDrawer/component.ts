@@ -39,7 +39,7 @@ class SCDrawer {
                 component: ".sc-drawer",
                 overlay: ".sc-drawer__overlay"
             },
-            triggerSelector = ".sc-drawer__trigger",
+            triggerSelector = ".sc-js-drawer__trigger",
         } = opt || {};
 
         const drawer: any = document.querySelector(componentSelector.component);

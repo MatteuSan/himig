@@ -58,6 +58,12 @@
 
             .sc-snackbar__action {
                 padding: 0 !important;
+
+                &:hover,
+                &:focus,
+                &:active {
+                    border: none transparent !important;
+                }
             }
         }
     }

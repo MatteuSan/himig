@@ -33,7 +33,7 @@
         width: 100%;
 
         .sc-text-field__label {
-            width: 100%;
+            width: max-content;
             font-size: 14px;
             padding: 0 0.7rem;
 
@@ -41,7 +41,9 @@
             top: 0.975rem;
             left: 0;
 
-            color: var(--sc-theme--on-input, #232323);
+            user-select: none;
+
+            color: Theme.key-create('text-field-ink', #232323);
             cursor: text;
 
             @include Tools.prefix(transition, all 70ms ease);
@@ -54,9 +56,11 @@
 
             border-width: 2px !important;
             padding: 1.4rem 0.5rem 0.3rem 0.5rem;
-            font-size: Typography.px-to-rem(15px);
+            font-size: Theme.key-create('text-field-text-size', Typography.px-to-rem(15px));
             resize: none;
-            border-bottom: 2px solid var(--sc-theme--primary-light) !important;
+            border-bottom: 2px solid Theme.key-create('text-field-border-fill', var(--sc-theme--primary-light)) !important;
+
+            @content;
 
             &:hover {
                 cursor: text;
@@ -64,11 +68,12 @@
 
             &::placeholder {
                 color: rgba(0 0 0 / 0) !important;
+                user-select: none !important;
             }
 
             &:focus {
                 outline: none;
-                border-color: var(--sc-theme--primary-light) !important;
+                border-color: Theme.key-create('text-field-border-fill', var(--sc-theme--primary-light)) !important;
             }
 
             &:focus-within,
@@ -87,13 +92,11 @@
                     pointer-events: none;
                 }
             }
-
-            @content;
         }
 
         .sc-text-field__helper {
-            color: var(--sc-theme--on-surface);
-            font-size: Typography.px-to-rem(12px);
+            color: Theme.key-create('text-field-helper-ink', var(--sc-theme--on-surface));
+            font-size: Theme.key-create('text-field-helper-size', Typography.px-to-rem(12px));
             margin-top: 7px;
         }
 

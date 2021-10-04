@@ -57,6 +57,12 @@
             border: 0;
         }
 
+        &.sc-button--icon-only,
+        &.sc-button--icon-only:focus {
+            outline: none !important;
+            border: none transparent !important;
+        }
+
         .sc-button__label {
             font-weight: inherit;
             font-size: inherit;
@@ -65,12 +71,12 @@
         }
 
         .sc-button__icon {
-            font-size: Typography.px-to-rem(20px);
+            font-size: Theme.key-create('button-icon-size', Typography.px-to-rem(20px));
             position: relative;
-            color: inherit;
+            color: Theme.key-create('button-icon-ink', inherit);
             /* @fallback */
-            width: Typography.px-to-rem(20px);
-            height: Typography.px-to-rem(20px);
+            width: Theme.key-create('button-icon-size', Typography.px-to-rem(20px));
+            height: Theme.key-create('button-icon-size', Typography.px-to-rem(20px));
         }
     }
 }

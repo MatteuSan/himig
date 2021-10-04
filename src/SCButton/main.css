@@ -37,10 +37,10 @@
   background: rgba(0, 0, 0, 0);
   box-shadow: none;
   border-radius: var(--sc-button-radius, var(--sc-button-radius, var(--sc-theme--small-radius)));
-  font-size: var(--sc-button-type-size, 0.875rem);
-  font-weight: var(--sc-button-type-weight, 700);
-  text-decoration: var(--sc-button-type-decoration, inherit);
-  text-transform: var(--sc-button-type-transform, inherit);
+  font-size: var(--sc-button-text-size, 0.875rem);
+  font-weight: var(--sc-button-text-weight, 700);
+  text-decoration: var(--sc-button-text-decoration, inherit);
+  text-transform: var(--sc-button-text-transform, inherit);
 }
 .sc-button:hover {
   color: var(--sc-button-fill--hover, var(--sc-theme--secondary));
@@ -54,14 +54,16 @@
   border: 1px solid rgba(0, 0, 0, 0);
   background: rgba(0, 0, 0, 0);
   box-shadow: none;
-  border: 1px solid #a0a0a0;
+  outline: none;
+  border: 1px solid rgba(175, 175, 175, 0.66);
 }
 .sc-button:active {
   color: var(--sc-button-fill--active, var(--sc-theme--secondary-light));
   border: 1px solid rgba(0, 0, 0, 0);
   background: rgba(0, 0, 0, 0);
   box-shadow: none;
-  border: 1px solid #a0a0a0;
+  outline: none;
+  border: 1px solid rgba(175, 175, 175, 0.66);
 }
 .sc-button:disabled {
   color: var(--sc-button-fill--disabled, var(--sc-theme--secondary-dark));
@@ -75,7 +77,7 @@
   color: var(--sc-button-fill, var(--sc-theme--secondary));
   background: rgba(0, 0, 0, 0);
   box-shadow: none;
-  border-color: rgba(160, 160, 160, 0.5);
+  border-color: rgba(175, 175, 175, 0.66);
 }
 .sc-button.sc-button--outlined:hover {
   color: var(--sc-button-fill--hover, var(--sc-theme--secondary));
@@ -225,12 +227,50 @@
   cursor: pointer;
   pointer-events: none;
 }
+.sc-button[data-tooltip] {
+  position: relative;
+}
+.sc-button[data-tooltip]::after {
+  content: attr(data-tooltip);
+  display: block;
+  position: absolute;
+  padding: 0.5rem 0.6rem;
+  font-size: 0.75rem;
+  bottom: 100%;
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  text-align: center;
+  white-space: nowrap;
+  -webkit-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
+  color: var(--sc-tooltip-ink, #fff);
+  border: 1px solid var(--sc-tooltip-fill, #232323);
+  background: var(--sc-tooltip-fill, #232323);
+  border-radius: var(--sc-tooltip-radius, var(--sc-theme--small-radius));
+  -webkit-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.275), 0px 5px 8px 0px rgba(0, 0, 0, 0.215), 0px 1px 14px 0px rgba(0, 0, 0, 0.195);
+  -ms-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.275), 0px 5px 8px 0px rgba(0, 0, 0, 0.215), 0px 1px 14px 0px rgba(0, 0, 0, 0.195);
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.275), 0px 5px 8px 0px rgba(0, 0, 0, 0.215), 0px 1px 14px 0px rgba(0, 0, 0, 0.195);
+}
+@media (max-width: 540px) {
+  .sc-button[data-tooltip]::after {
+    display: none !important;
+    opacity: 0 !important;
+  }
+}
+.sc-button[data-tooltip]:hover::after {
+  opacity: 1;
+}
 .sc-button > * + * {
   margin-left: var(--sc-button-gap, 3px);
 }
 .sc-button::-moz-focus-inner {
   padding: 0;
   border: 0;
+}
+.sc-button.sc-button--icon-only, .sc-button.sc-button--icon-only:focus {
+  outline: none !important;
+  border: none transparent !important;
 }
 .sc-button .sc-button__label {
   font-weight: inherit;
@@ -239,12 +279,12 @@
   color: inherit;
 }
 .sc-button .sc-button__icon {
-  font-size: 1.25rem;
+  font-size: var(--sc-button-icon-size, 1.25rem);
   position: relative;
-  color: inherit;
+  color: var(--sc-button-icon-ink, inherit);
   /* @fallback */
-  width: 1.25rem;
-  height: 1.25rem;
+  width: var(--sc-button-icon-size, 1.25rem);
+  height: var(--sc-button-icon-size, 1.25rem);
 }
 
 /*# sourceMappingURL=main.css.map */

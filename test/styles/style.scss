@@ -69,6 +69,13 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+
+    &::before,
+    &::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
 }
 
 body {
@@ -85,18 +92,38 @@ body {
     margin: 0 auto;
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 0.7rem;
+@for $i from 3 through 5 {
+    .grid-#{$i} {
+        display: grid;
+        grid-template-columns: repeat($i - 2, 1fr);
+        grid-gap: 0.7rem;
+
+        @media (min-width: Theme.get-breakpoint('medium')) {
+            grid-template-columns: repeat($i - 1, 1fr);
+        }
+
+        @media (min-width: Theme.get-breakpoint('large')) {
+            grid-template-columns: repeat($i, 1fr);
+        }
+    }
 }
 
+@include SCAlert.render(
+    $settings: (
+        'type': default
+    )
+);
+@include SCAppbar.render();
 @include SCButton.render(
     $shape-theme: (
         'shape': pill
     )
 );
 @include SCCard.render();
+@include SCHeader.render();
+@include SCProfile.render();
+@include SCTextField.render();
+@include SCSnackbar.render();
 
 .gs-pay-prompt__overlay {
     display: block;

@@ -27,6 +27,7 @@
     lang="en"
 >
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -43,37 +44,123 @@
 
 </head>
 
-<body class="dark-theme">
+<body class="">
+
+<header class="sc-header">
+    <div class="sc-header__wrap">
+        <div class="sc-header__text">
+            <a href="#">
+                <h2>Stack</h2>
+            </a>
+        </div>
+        <div class="sc-header__others">
+            <nav class="sc-appbar">
+                <div class="sc-appbar__container">
+                    <a href="#">
+                        <div class="sc-appbar__item active" data-tooltip="Home">
+                            <i class="sc-appbar__item__icon material-icons" aria-hidden="true">home</i>
+                            <p class="sc-appbar__item__label">Home</p>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="sc-appbar__item" data-tooltip="About">
+                            <i class="sc-appbar__item__icon material-icons-outlined" aria-hidden="true">info</i>
+                            <p class="sc-appbar__item__label">About</p>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="sc-appbar__item" data-tooltip="Marketplace">
+                            <i class="sc-appbar__item__icon material-icons" aria-hidden="true">store</i>
+                            <p class="sc-appbar__item__label">Marketplace</p>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="sc-appbar__item" data-tooltip="Dashboard">
+                            <i class="sc-appbar__item__icon material-icons" aria-hidden="true">dashboard</i>
+                            <p class="sc-appbar__item__label">Dashboard</p>
+                        </div>
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
 
     <main class="wrap--content">
 
-        <button class="sc-button">
-            <i class="sc-button__icon material-icons" aria-hidden="true">delete_outline</i>
-            <span class="sc-button__label">Action</span>
-        </button>
+        <div class="sc-alert">
+            <i class="sc-alert__icon material-icons-outlined">info</i>
+            <span class="sc-alert__text">SCAlert Component</span>
+        </div>
 
-        <button class="sc-button sc-button--outlined">
-            <i class="sc-button__icon material-icons" aria-hidden="true">delete_outline</i>
-            <span class="sc-button__label">Action</span>
-        </button>
+        <div class="sc-alert sc-alert--success">
+            <i class="sc-alert__icon material-icons-outlined">check</i>
+            <span class="sc-alert__text">SCAlert Component Outlined Success</span>
+        </div>
 
-        <button class="sc-button sc-button--filled">
-            <i class="sc-button__icon material-icons" aria-hidden="true">delete_outline</i>
-            <span class="sc-button__label">Action</span>
-        </button>
+        <div class="sc-alert sc-alert--warning">
+            <i class="sc-alert__icon material-icons-outlined">warning_amber</i>
+            <span class="sc-alert__text">SCAlert Component Outlined Warning</span>
+        </div>
 
-        <button class="sc-button sc-button--filled--elevated">
-            <i class="sc-button__icon material-icons" aria-hidden="true">delete_outline</i>
-            <span class="sc-button__label">Action</span>
-        </button>
+        <div class="sc-alert sc-alert--error">
+            <i class="sc-alert__icon material-icons-outlined">error_outline</i>
+            <span class="sc-alert__text">SCAlert Component Outlined Error</span>
+        </div>
 
-        <section class="grid">
+        <section class="grid-3">
+            <button class="sc-button" data-tooltip="Button">
+                <i class="sc-button__icon material-icons" aria-hidden="true">add</i>
+                <span class="sc-button__label">Default Button</span>
+            </button>
+
+            <button class="sc-button sc-button--outlined">
+                <i class="sc-button__icon material-icons" aria-hidden="true">add</i>
+                <span class="sc-button__label">Outlined Button</span>
+            </button>
+
+            <button class="sc-button sc-button--filled">
+                <i class="sc-button__icon material-icons" aria-hidden="true">add</i>
+                <span class="sc-button__label">Filled Button</span>
+            </button>
+
+            <button class="sc-button sc-button--filled--elevated">
+                <i class="sc-button__icon material-icons" aria-hidden="true">add</i>
+                <span class="sc-button__label">Filled Raised Button</span>
+            </button>
+        </section>
+
+        <section class="grid-3">
             <div class="sc-card">
-                <div class="sc-card__media">
-                    <img src="https://www.fillmurray.com/640/360" alt="Picture here">
-                </div>
                 <div class="sc-card__content">
-                    <h1 class="sc-card__title">Card Title</h1>
+                    <div class="sc-card__title">
+                        <h2>Card Title</h2>
+                    </div>
+                    <p class="sc-card__subtitle">Card subtitle...</p>
+
+                    <div class="sc-card__actions">
+                        <a href="#">
+                            <button class="sc-button sc-card__action">
+                                <i class="sc-button__icon material-icons" aria-hidden="true">download</i>
+                                <span class="sc-button__label">Action</span>
+                            </button>
+                        </a>
+                        <a href="#">
+                            <button class="sc-button sc-card__action">
+                                <i class="sc-button__icon material-icons" aria-hidden="true">delete_outline</i>
+                                <span class="sc-button__label">Action</span>
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sc-card">
+                <div class="sc-card__content">
+                    <div class="sc-card__title">
+                        <i class="sc-card__title__icon material-icons">agriculture</i>
+                        <h2>Card Title</h2>
+                    </div>
                     <p class="sc-card__subtitle">Card subtitle...</p>
 
                     <div class="sc-card__actions">
@@ -98,7 +185,9 @@
                     <img src="https://www.fillmurray.com/640/360" alt="Picture here">
                 </div>
                 <div class="sc-card__content">
-                    <h1 class="sc-card__title">Card Title</h1>
+                    <div class="sc-card__title">
+                        <h2>Card Title</h2>
+                    </div>
                     <p class="sc-card__subtitle">Card subtitle...</p>
 
                     <div class="sc-card__actions">
@@ -109,7 +198,7 @@
                             </button>
                         </a>
                         <a href="#">
-                            <button class="sc-button sc-card__action">
+                            <button class="sc-button sc-card__action" data-tooltip="Delete Card">
                                 <i class="sc-button__icon material-icons" aria-hidden="true">delete_outline</i>
                                 <span class="sc-button__label">Action</span>
                             </button>
@@ -123,7 +212,10 @@
                     <img src="https://www.fillmurray.com/640/360" alt="Picture here">
                 </div>
                 <div class="sc-card__content">
-                    <h1 class="sc-card__title">Card Title</h1>
+                    <div class="sc-card__title">
+                        <i class="sc-card__title__icon material-icons">agriculture</i>
+                        <h2>Card Title</h2>
+                    </div>
                     <p class="sc-card__subtitle">Card subtitle...</p>
 
                     <div class="sc-card__actions">
@@ -134,7 +226,7 @@
                             </button>
                         </a>
                         <a href="#">
-                            <button class="sc-button sc-card__action">
+                            <button class="sc-button sc-card__action" data-tooltip="Delete Card">
                                 <i class="sc-button__icon material-icons" aria-hidden="true">delete_outline</i>
                                 <span class="sc-button__label">Action</span>
                             </button>
@@ -143,7 +235,81 @@
                 </div>
             </div>
         </section>
+
+        <section class="grid-3">
+            <div class="sc-profile">
+                <div class="sc-profile__img">
+                    <img src="https://www.fillmurray.com/640/360" alt="Picture here">
+                </div>
+                <div class="sc-profile__contents">
+                    <h2>SCProfile</h2>
+                    <div class="sc-profile__text">
+                        This is a quote
+                    </div>
+                    <div class="sc-profile__actions">
+                        <a class="sc-button sc-button--icon-only sc-profile__action " href="#">
+                            <i class="material-icons" aria-hidden="true">delete_outline</i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sc-profile">
+                <div class="sc-profile__img">
+                    <img src="https://www.fillmurray.com/640/360" alt="Picture here">
+                </div>
+                <div class="sc-profile__contents">
+                    <h2>SCProfile</h2>
+                    <div class="sc-profile__text">
+                        This is a quote
+                    </div>
+                    <div class="sc-profile__actions">
+                        <a class="sc-button sc-button--icon-only sc-profile__action " href="#">
+                            <i class="material-icons" aria-hidden="true">delete_outline</i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sc-profile">
+                <div class="sc-profile__img">
+                    <img src="https://www.fillmurray.com/640/360" alt="Picture here">
+                </div>
+                <div class="sc-profile__contents">
+                    <h2>SCProfile</h2>
+                    <div class="sc-profile__text">
+                        This is a quote
+                    </div>
+                    <div class="sc-profile__actions">
+                        <a class="sc-button sc-button--icon-only sc-profile__action " href="#">
+                            <i class="material-icons" aria-hidden="true">delete_outline</i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="sc-text-field">
+            <input id="input" type="text" class="sc-text-field__input" placeholder="Don't worry this wont show, but this field is required :)">
+            <label for="input" class="sc-text-field__label">SCTextField Component</label>
+            <span class="sc-text-field__helper">Helper Text</span>
+        </div>
+
+        <div class="sc-text-field sc-text-field--error">
+            <input id="input2" type="text" class="sc-text-field__input" placeholder="Don't worry this wont show, but this field is required :)">
+            <label for="input2" class="sc-text-field__label">SCTextField Component Error</label>
+            <span class="sc-text-field__helper">Helper Text Error</span>
+        </div>
     </main>
+
+    <div class="sc-snackbar">
+        <div class="sc-snackbar__wrap">
+            <p class="sc-snackbar__label">SCSnackbar</p>
+            <button class="sc-button sc-snackbar__action">
+                <span class="sc-button__label">ACTION</span>
+            </button>
+        </div>
+    </div>
 
     <!--<div class="gs-pay-prompt__overlay">
         <div class="gs-pay-prompt">

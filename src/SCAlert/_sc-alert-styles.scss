@@ -24,17 +24,24 @@
 @use '../SCCore/Shape';
 @use '../SCCore/Typography';
 @use '../SCCore/Elevation';
+@use '../SCCore/Feature';
 
 @use 'sass:map';
 
 @use 'sc-alert-base' as base;
 @use 'sc-alert-theme' as theme;
+@use 'sc-alert-filled' as f;
+@use 'sc-alert-outlined' as o;
 
 @mixin render(
 		$color-theme: (),
 		$shape-theme: (),
-		$typography-theme: ()
+		$typography-theme: (),
+		$settings: ()
 ) {
+
+		$_merged-settings: map.merge(theme.$init-settings, $settings);
+		$_type: map.get($_merged-settings, type);
 
 		$_color-theme: map.merge(theme.$init-color-theme, $color-theme);
 		$_shape-theme: map.merge(theme.$init-shape-theme, $shape-theme);
@@ -42,28 +49,26 @@
 
 		$_scope-exceptions: (
 				'text',
-				'outlined'
 		);
 
 		@include base.base() {
 
 				@content;
 
-				@include Color.apply('alert', $_color-theme, 'filled', 'default', (exceptions: $_scope-exceptions));
 				@include Shape.apply('alert', $_shape-theme);
 				@include Typography.apply('alert', $_typography-theme);
-				@include Elevation.apply(3, $color: map.get($_color-theme, 'elevation'));
 
-				&.sc-alert--success {
-						@include Color.apply('alert', theme.$success-theme, 'filled', 'default');
+				@if Feature.has-item($_type, default) or Feature.has-item($_type, filled) or Feature.has-item($_type, all) {
+
+						@include f.sc-alert-filled_($_color-theme, $_scope-exceptions);
+
 				}
 
-				&.sc-alert--warning {
-						@include Color.apply('alert', theme.$warning-theme, 'filled', 'default');
-				}
+				// @if Feature.has-item($_type, outlined) or Feature.has-item($_type, all) {
+				//
+				//		 @include o.sc-alert-outlined_($_color-theme, $_scope-exceptions);
+				//
+				// }
 
-				&.sc-alert--error {
-						@include Color.apply('alert', theme.$success-theme, 'filled', 'default');
-				}
 		}
 }

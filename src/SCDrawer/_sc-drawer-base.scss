@@ -24,6 +24,9 @@
 @use '../SCCore/Typography';
 
 @mixin base() {
+
+    .sc-js-drawer__trigger {}
+
     .sc-drawer__overlay {
         display: block;
         position: fixed;

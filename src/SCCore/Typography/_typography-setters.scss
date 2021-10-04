@@ -113,24 +113,24 @@ $prefix: 'sc' !default;
 		@if $_valid-typography-theme {
 
 				@if Feature.has-property($typography-theme, 'size') {
-						font-size: key.create('#{$component-name}-type-size', getter.px-to-rem(map.get($typography-theme, 'size')), $prefix);
+						font-size: key.create('#{$component-name}-text-size', getter.px-to-rem(map.get($typography-theme, 'size')), $prefix);
 				}
 
 				@if Feature.has-property($typography-theme, 'weight') {
-						font-weight: key.create('#{$component-name}-type-weight', map.get($typography-theme, 'weight'), $prefix);
+						font-weight: key.create('#{$component-name}-text-weight', map.get($typography-theme, 'weight'), $prefix);
 				}
 
 				@if Feature.has-property($typography-theme, 'spacing') {
 						$_letter-spacing: map.get($typography-theme, 'spacing');
-						letter-spacing: key.create('#{$component-name}-type-spacing', getter.get-letter-spacing($_letter-spacing), $prefix);
+						letter-spacing: key.create('#{$component-name}-text-spacing', getter.get-letter-spacing($_letter-spacing), $prefix);
 				}
 
 				@if Feature.has-property($typography-theme, 'decoration') {
-						text-decoration: key.create('#{$component-name}-type-decoration', map.get($typography-theme, 'decoration'), $prefix);
+						text-decoration: key.create('#{$component-name}-text-decoration', map.get($typography-theme, 'decoration'), $prefix);
 				}
 
 				@if Feature.has-property($typography-theme, 'transform') {
-						text-transform: key.create('#{$component-name}-type-transform', map.get($typography-theme, 'transform'), $prefix);
+						text-transform: key.create('#{$component-name}-text-transform', map.get($typography-theme, 'transform'), $prefix);
 				}
 
 		}

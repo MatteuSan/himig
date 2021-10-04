@@ -59,18 +59,33 @@
             overflow: hidden;
 
             .sc-card__title {
-                font-size: Typography.px-to-rem(20px);
-                color: inherit;
-                line-height: 1.75rem;
+                display: flex;
+                align-items: center;
+                // margin-bottom: 0.3rem;
+
+                h1,
+                h2,
+                h3 {
+                    color: inherit;
+                    font-size: Theme.key-create('card-title-text-size', Typography.px-to-rem(20px));
+                    line-height: 1.75rem;
+                }
+
+                .sc-card__title__icon {
+                    font-size: Typography.px-to-rem(22px);
+                    margin-bottom: 0.175rem;
+                    margin-right: 0.3rem;
+                    color: Theme.key-create('card-title-icon-ink', var(--sc-theme--secondary));
+                }
             }
 
             .sc-card__subtitle {
-                font-size: Typography.px-to-rem(13px);
+                font-size: Theme.key-create('card-subtitle-text-size', Typography.px-to-rem(13px));
                 color: inherit;
-                word-break: break-all;
+                word-break: break-word;
                 overflow: hidden;
-                text-align: justify;
-                // line-height: 1.25rem;
+                text-align: left;
+                line-height: 1.125rem;
             }
 
             .sc-card__actions {

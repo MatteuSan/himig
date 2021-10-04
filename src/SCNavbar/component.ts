@@ -32,7 +32,7 @@ class SCNavbar {
 
         const {
             componentSelector = ".sc-navbar",
-            triggerSelector = ".sc-navbar__trigger"
+            triggerSelector = ".sc-js-navbar__trigger"
         } = params || {};
 
         const navbar: any = document.querySelector(componentSelector);
