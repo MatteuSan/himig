@@ -31,9 +31,9 @@
   background: var(--sc-appbar-fill, var(--sc-theme--primary));
   border-radius: var(--sc-appbar-radius, 0);
   font-size: var(--sc-appbar-type-size, 0.75rem);
-  -webkit-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12);
-  -ms-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12);
-  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12);
+  -webkit-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.275), 0px 5px 8px 0px rgba(0, 0, 0, 0.215), 0px 1px 14px 0px rgba(0, 0, 0, 0.195);
+  -ms-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.275), 0px 5px 8px 0px rgba(0, 0, 0, 0.215), 0px 1px 14px 0px rgba(0, 0, 0, 0.195);
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.275), 0px 5px 8px 0px rgba(0, 0, 0, 0.215), 0px 1px 14px 0px rgba(0, 0, 0, 0.195);
 }
 @media (min-width: 540px) {
   .sc-appbar {
@@ -125,10 +125,13 @@
   white-space: nowrap;
   -webkit-transition: all 200ms ease-in-out;
   transition: all 200ms ease-in-out;
+  color: var(--sc-tooltip-ink, #fff);
+  border: 1px solid var(--sc-tooltip-fill, #232323);
+  background: var(--sc-tooltip-fill, #232323);
   border-radius: var(--sc-tooltip-radius, var(--sc-theme--small-radius));
-  -webkit-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12);
-  -ms-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12);
-  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12);
+  -webkit-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.275), 0px 5px 8px 0px rgba(0, 0, 0, 0.215), 0px 1px 14px 0px rgba(0, 0, 0, 0.195);
+  -ms-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.275), 0px 5px 8px 0px rgba(0, 0, 0, 0.215), 0px 1px 14px 0px rgba(0, 0, 0, 0.195);
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.275), 0px 5px 8px 0px rgba(0, 0, 0, 0.215), 0px 1px 14px 0px rgba(0, 0, 0, 0.195);
 }
 @media (max-width: 540px) {
   .sc-appbar .sc-appbar__container .sc-appbar__item[data-tooltip]::after {
@@ -139,4 +142,5 @@
 .sc-appbar .sc-appbar__container .sc-appbar__item[data-tooltip]:hover::after {
   opacity: 1;
 }
+
 /*# sourceMappingURL=main.css.map */

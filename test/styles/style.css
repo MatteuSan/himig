@@ -22,6 +22,29 @@
   --sc-theme--on-surface: #fff;
 }
 
+.dark-theme {
+  --sc-theme--primary-light: #627799;
+  --sc-theme--primary: #244271;
+  --sc-theme--primary-dark: #152641;
+  --sc-theme--secondary-light: #f1d7b0;
+  --sc-theme--secondary: #ffb13c;
+  --sc-theme--secondary-dark: #fb9700;
+  --sc-theme--on-primary: #fff;
+  --sc-theme--on-secondary: #000;
+  --sc-theme--error: #b00020;
+  --sc-theme--warning: #ffa000;
+  --sc-theme--success: #25a53f;
+  --sc-theme--on-error: #fff;
+  --sc-theme--on-warning: #000;
+  --sc-theme--on-success: #fff;
+  --sc-theme--small-radius: 0.3rem;
+  --sc-theme--medium-radius: 0.5rem;
+  --sc-theme--large-radius: 0.7rem;
+  /* ===== */
+  --sc-theme--surface: #181818;
+  --sc-theme--on-surface: #fff;
+}
+
 * {
   font-family: var(--sans-serif-global-family, Inter);
   font-weight: var(--sc-global-weight, 400);
@@ -109,7 +132,7 @@ body {
   border: 1px solid rgba(0, 0, 0, 0);
   background: rgba(0, 0, 0, 0);
   box-shadow: none;
-  border-radius: var(--sc-button-radius, var(--sc-button-radius, var(--sc-theme--small-radius)));
+  border-radius: var(--sc-button-radius, 500px);
   font-size: var(--sc-button-type-size, 0.875rem);
   font-weight: var(--sc-button-type-weight, 700);
   text-decoration: var(--sc-button-type-decoration, inherit);
@@ -127,13 +150,14 @@ body {
   border: 1px solid rgba(0, 0, 0, 0);
   background: rgba(0, 0, 0, 0);
   box-shadow: none;
-  outline: 2px solid rgba(175, 175, 175, 0.5);
+  border: 1px solid #a0a0a0;
 }
 .sc-button:active {
-  color: var(--sc-button-fill, var(--sc-theme--secondary));
+  color: var(--sc-button-fill--active, var(--sc-theme--secondary-light));
   border: 1px solid rgba(0, 0, 0, 0);
   background: rgba(0, 0, 0, 0);
   box-shadow: none;
+  border: 1px solid #a0a0a0;
 }
 .sc-button:disabled {
   color: var(--sc-button-fill--disabled, var(--sc-theme--secondary-dark));
@@ -147,7 +171,7 @@ body {
   color: var(--sc-button-fill, var(--sc-theme--secondary));
   background: rgba(0, 0, 0, 0);
   box-shadow: none;
-  border-color: rgba(196, 196, 196, 0.5);
+  border-color: rgba(160, 160, 160, 0.5);
 }
 .sc-button.sc-button--outlined:hover {
   color: var(--sc-button-fill--hover, var(--sc-theme--secondary));
@@ -161,13 +185,12 @@ body {
   background: rgba(0, 0, 0, 0);
   box-shadow: none;
   border-color: var(--sc-button-fill--focus, var(--sc-theme--secondary));
-  outline: 2px solid rgba(175, 175, 175, 0.5);
 }
 .sc-button.sc-button--outlined:active {
-  color: var(--sc-button-fill, var(--sc-theme--secondary));
+  color: var(--sc-button-fill--active, var(--sc-theme--secondary-light));
   background: rgba(0, 0, 0, 0);
   box-shadow: none;
-  border-color: rgba(196, 196, 196, 0.5);
+  border-color: var(--sc-button-fill--active, var(--sc-theme--secondary-light));
 }
 .sc-button.sc-button--outlined:disabled {
   color: var(--sc-button-fill--disabled, var(--sc-theme--secondary-dark));
@@ -181,35 +204,120 @@ body {
   color: var(--sc-button-ink, var(--sc-theme--on-secondary));
   border: 1px solid var(--sc-button-fill, var(--sc-theme--secondary));
   background: var(--sc-button-fill, var(--sc-theme--secondary));
+  box-shadow: none;
 }
 .sc-button.sc-button--filled:hover {
   color: var(--sc-button-ink--hover, var(--sc-theme--on-secondary));
   border: 1px solid var(--sc-button-fill--hover, var(--sc-theme--secondary));
   background: var(--sc-button-fill--hover, var(--sc-theme--secondary));
+  -webkit-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
+  -ms-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
+  box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
   cursor: pointer;
 }
 .sc-button.sc-button--filled:focus {
   color: var(--sc-button-ink--focus, var(--sc-theme--on-secondary));
   border: 1px solid var(--sc-button-fill--focus, var(--sc-theme--secondary));
   background: var(--sc-button-fill--focus, var(--sc-theme--secondary));
-  outline: 2px solid rgba(175, 175, 175, 0.5);
+  -webkit-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
+  -ms-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
+  box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
 }
 .sc-button.sc-button--filled:active {
-  color: var(--sc-button-ink, var(--sc-theme--on-secondary));
-  border: 1px solid var(--sc-button-fill, var(--sc-theme--secondary));
-  background: var(--sc-button-fill, var(--sc-theme--secondary));
+  color: var(--sc-button-ink--active, var(--sc-theme--on-secondary));
+  border: 1px solid var(--sc-button-fill--active, var(--sc-theme--secondary-light));
+  background: var(--sc-button-fill--active, var(--sc-theme--secondary-light));
+  -webkit-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.275), 0px 5px 8px 0px rgba(0, 0, 0, 0.215), 0px 1px 14px 0px rgba(0, 0, 0, 0.195);
+  -ms-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.275), 0px 5px 8px 0px rgba(0, 0, 0, 0.215), 0px 1px 14px 0px rgba(0, 0, 0, 0.195);
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.275), 0px 5px 8px 0px rgba(0, 0, 0, 0.215), 0px 1px 14px 0px rgba(0, 0, 0, 0.195);
 }
 .sc-button.sc-button--filled:disabled {
   color: var(--sc-button-ink--disabled, var(--sc-theme--on-secondary));
   border: 1px solid var(--sc-button-fill--disabled, var(--sc-theme--secondary-dark));
   background: var(--sc-button-fill--disabled, var(--sc-theme--secondary-dark));
+  box-shadow: none;
   cursor: pointer;
   pointer-events: none;
 }
-.sc-button.sc-button--filled .elevated:hover {
+.sc-button.sc-button--filled {
+  color: var(--sc-button-ink, var(--sc-theme--on-secondary));
+  border: 1px solid var(--sc-button-fill, var(--sc-theme--secondary));
+  background: var(--sc-button-fill, var(--sc-theme--secondary));
+  box-shadow: none;
+}
+.sc-button.sc-button--filled:hover {
+  color: var(--sc-button-ink--hover, var(--sc-theme--on-secondary));
+  border: 1px solid var(--sc-button-fill--hover, var(--sc-theme--secondary));
+  background: var(--sc-button-fill--hover, var(--sc-theme--secondary));
+  -webkit-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
+  -ms-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
+  box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
   cursor: pointer;
 }
-.sc-button.sc-button--filled .elevated:disabled {
+.sc-button.sc-button--filled:focus {
+  color: var(--sc-button-ink--focus, var(--sc-theme--on-secondary));
+  border: 1px solid var(--sc-button-fill--focus, var(--sc-theme--secondary));
+  background: var(--sc-button-fill--focus, var(--sc-theme--secondary));
+  -webkit-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
+  -ms-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
+  box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
+}
+.sc-button.sc-button--filled:active {
+  color: var(--sc-button-ink--active, var(--sc-theme--on-secondary));
+  border: 1px solid var(--sc-button-fill--active, var(--sc-theme--secondary-light));
+  background: var(--sc-button-fill--active, var(--sc-theme--secondary-light));
+  -webkit-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.275), 0px 5px 8px 0px rgba(0, 0, 0, 0.215), 0px 1px 14px 0px rgba(0, 0, 0, 0.195);
+  -ms-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.275), 0px 5px 8px 0px rgba(0, 0, 0, 0.215), 0px 1px 14px 0px rgba(0, 0, 0, 0.195);
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.275), 0px 5px 8px 0px rgba(0, 0, 0, 0.215), 0px 1px 14px 0px rgba(0, 0, 0, 0.195);
+}
+.sc-button.sc-button--filled:disabled {
+  color: var(--sc-button-ink--disabled, var(--sc-theme--on-secondary));
+  border: 1px solid var(--sc-button-fill--disabled, var(--sc-theme--secondary-dark));
+  background: var(--sc-button-fill--disabled, var(--sc-theme--secondary-dark));
+  box-shadow: none;
+  cursor: pointer;
+  pointer-events: none;
+}
+.sc-button.sc-button--filled--elevated {
+  color: var(--sc-button-ink, var(--sc-theme--on-secondary));
+  border: 1px solid var(--sc-button-fill, var(--sc-theme--secondary));
+  background: var(--sc-button-fill, var(--sc-theme--secondary));
+  -webkit-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
+  -ms-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
+  box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
+}
+.sc-button.sc-button--filled--elevated:hover {
+  color: var(--sc-button-ink--hover, var(--sc-theme--on-secondary));
+  border: 1px solid var(--sc-button-fill--hover, var(--sc-theme--secondary));
+  background: var(--sc-button-fill--hover, var(--sc-theme--secondary));
+  -webkit-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
+  -ms-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
+  box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
+  cursor: pointer;
+}
+.sc-button.sc-button--filled--elevated:focus {
+  color: var(--sc-button-ink--focus, var(--sc-theme--on-secondary));
+  border: 1px solid var(--sc-button-fill--focus, var(--sc-theme--secondary));
+  background: var(--sc-button-fill--focus, var(--sc-theme--secondary));
+  -webkit-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
+  -ms-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
+  box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
+}
+.sc-button.sc-button--filled--elevated:active {
+  color: var(--sc-button-ink--active, var(--sc-theme--on-secondary));
+  border: 1px solid var(--sc-button-fill--active, var(--sc-theme--secondary-light));
+  background: var(--sc-button-fill--active, var(--sc-theme--secondary-light));
+  -webkit-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.275), 0px 5px 8px 0px rgba(0, 0, 0, 0.215), 0px 1px 14px 0px rgba(0, 0, 0, 0.195);
+  -ms-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.275), 0px 5px 8px 0px rgba(0, 0, 0, 0.215), 0px 1px 14px 0px rgba(0, 0, 0, 0.195);
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.275), 0px 5px 8px 0px rgba(0, 0, 0, 0.215), 0px 1px 14px 0px rgba(0, 0, 0, 0.195);
+}
+.sc-button.sc-button--filled--elevated:disabled {
+  color: var(--sc-button-ink--disabled, var(--sc-theme--on-secondary));
+  border: 1px solid var(--sc-button-fill--disabled, var(--sc-theme--secondary-dark));
+  background: var(--sc-button-fill--disabled, var(--sc-theme--secondary-dark));
+  -webkit-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
+  -ms-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
+  box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
   cursor: pointer;
   pointer-events: none;
 }
@@ -244,7 +352,13 @@ body {
   border: none !important;
   -webkit-transition: all 0.1s linear;
   transition: all 0.1s linear;
+  color: var(--sc-card-ink, var(--sc-theme--on-primary));
+  border: 1px solid var(--sc-card-fill, var(--sc-theme--primary-light));
+  background: var(--sc-card-fill, var(--sc-theme--primary-light));
   border-radius: var(--sc-card-radius, var(--sc-theme--small-radius));
+  -webkit-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
+  -ms-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
+  box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
 }
 .sc-card .sc-card__media {
   width: 100%;
@@ -322,9 +436,9 @@ body {
   background-color: var(--sc-theme--primary-light);
   padding: 1rem;
   border-radius: var(--sc-gs-pay-prompt-radius, var(--sc-theme--medium-radius) var(--sc-theme--medium-radius) 0 0);
-  -webkit-box-shadow: 0px 4px 5px -2px rgba(0, 0, 0, 0.2), 0px 7px 10px 1px rgba(0, 0, 0, 0.14), 0px 2px 16px 1px rgba(0, 0, 0, 0.12);
-  -ms-box-shadow: 0px 4px 5px -2px rgba(0, 0, 0, 0.2), 0px 7px 10px 1px rgba(0, 0, 0, 0.14), 0px 2px 16px 1px rgba(0, 0, 0, 0.12);
-  box-shadow: 0px 4px 5px -2px rgba(0, 0, 0, 0.2), 0px 7px 10px 1px rgba(0, 0, 0, 0.14), 0px 2px 16px 1px rgba(0, 0, 0, 0.12);
+  -webkit-box-shadow: 0px 4px 5px -2px rgba(0, 0, 0, 0.275), 0px 7px 10px 1px rgba(0, 0, 0, 0.215), 0px 2px 16px 1px rgba(0, 0, 0, 0.195);
+  -ms-box-shadow: 0px 4px 5px -2px rgba(0, 0, 0, 0.275), 0px 7px 10px 1px rgba(0, 0, 0, 0.215), 0px 2px 16px 1px rgba(0, 0, 0, 0.195);
+  box-shadow: 0px 4px 5px -2px rgba(0, 0, 0, 0.275), 0px 7px 10px 1px rgba(0, 0, 0, 0.215), 0px 2px 16px 1px rgba(0, 0, 0, 0.195);
 }
 .gs-pay-prompt .gs-pay-prompt__info {
   display: grid;
@@ -361,4 +475,5 @@ body {
 .gs-pay-prompt .gs-pay-prompt__actions > * + * {
   margin-left: 0.5rem;
 }
+
 /*# sourceMappingURL=style.css.map */

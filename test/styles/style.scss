@@ -50,9 +50,18 @@
     );
 }
 
+.dark-theme {
+    @include Theme.config(
+        #244271,
+        #ffb13c,
+        $surface: #181818,
+        $on-surface: #fff
+    );
+}
+
 @include Typography.config(
     $global: (
-        'family': 'Inter'
+        family: 'Inter'
     )
 );
 
@@ -82,7 +91,11 @@ body {
     grid-gap: 0.7rem;
 }
 
-@include SCButton.render();
+@include SCButton.render(
+    $shape-theme: (
+        'shape': pill
+    )
+);
 @include SCCard.render();
 
 .gs-pay-prompt__overlay {

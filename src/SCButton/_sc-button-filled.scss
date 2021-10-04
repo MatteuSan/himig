@@ -22,7 +22,7 @@
 
 @use '../SCCore/Color';
 
-@mixin sc-button-filled_($color-theme) {
+@mixin sc-button-filled_($color-theme, $is-elevated: false) {
 		&.sc-button--filled {
 				@include Color.apply('button', $color-theme, 'filled-unelevated', 'default');
 
@@ -36,7 +36,7 @@
 				}
 
 				&:active {
-						@include Color.apply('button', $color-theme, 'filled-unelevated', 'default');
+						@include Color.apply('button', $color-theme, 'filled-unelevated', 'active');
 				}
 
 				&:disabled {
@@ -45,26 +45,28 @@
 						pointer-events: none;
 				}
 
-				.elevated {
-						@include Color.apply('button', $color-theme, 'filled', 'default');
-
-						&:hover {
-								@include Color.apply('button', $color-theme, 'filled', 'hover');
-								cursor: pointer;
-						}
-
-						&:focus {
-								@include Color.apply('button', $color-theme, 'filled', 'focus');
-						}
-
-						&:active {
+				@if $is-elevated == true {
+						&--elevated {
 								@include Color.apply('button', $color-theme, 'filled', 'default');
-						}
 
-						&:disabled {
-								@include Color.apply('button', $color-theme, 'filled', 'disabled');
-								cursor: pointer;
-								pointer-events: none;
+								&:hover {
+										@include Color.apply('button', $color-theme, 'filled', 'hover');
+										cursor: pointer;
+								}
+
+								&:focus {
+										@include Color.apply('button', $color-theme, 'filled', 'focus');
+								}
+
+								&:active {
+										@include Color.apply('button', $color-theme, 'filled', 'active');
+								}
+
+								&:disabled {
+										@include Color.apply('button', $color-theme, 'filled', 'disabled');
+										cursor: pointer;
+										pointer-events: none;
+								}
 						}
 				}
 		}

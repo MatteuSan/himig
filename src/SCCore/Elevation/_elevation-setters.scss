@@ -25,13 +25,13 @@
 @use 'sass:meta';
 @use 'sass:math';
 
-@use 'elevation-variables' as ev;
+@use 'elevation-variables' as v;
 
-@mixin apply($level, $color: #000, $opacity-boost: 0) {
+@mixin apply($level, $color: #000, $opacity-boost: 0.075) {
 
-    $_umbra-opacity: 0.2 !default;
-    $_penumbra-opacity: 0.14 !default;
-    $_ambient-opacity: 0.12 !default;
+    $_umbra-opacity: 0.2;
+    $_penumbra-opacity: 0.14;
+    $_ambient-opacity: 0.12;
 
     @if meta.type-of($level) != number or not math.is-unitless($level) {
         @error "Got '#{$level}'. $z-value must be a unitless number";
@@ -41,9 +41,9 @@
         @error "Got '#{$level}'. $z-value must be between 0 and 24";
     }
 
-    $_umbra: map.get(ev.$umbra-map, $level);
-    $_penumbra: map.get(ev.$penumbra-map, $level);
-    $_ambient: map.get(ev.$ambient-map, $level);
+    $_umbra: map.get(v.$umbra-map, $level);
+    $_penumbra: map.get(v.$penumbra-map, $level);
+    $_ambient: map.get(v.$ambient-map, $level);
 
     $_umbra-color: rgba($color, $_umbra-opacity + $opacity-boost);
     $_penumbra-color: rgba($color, $_penumbra-opacity + $opacity-boost);

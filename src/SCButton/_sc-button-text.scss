@@ -35,7 +35,7 @@
 		}
 
 		&:active {
-				@include Color.apply('button', $color-theme, 'text', 'default');
+				@include Color.apply('button', $color-theme, 'text', 'active');
 		}
 
 		&:disabled {

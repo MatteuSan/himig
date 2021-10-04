@@ -36,7 +36,7 @@
 				}
 
 				&:active {
-						@include Color.apply('button', $color-theme, 'outlined', 'default');
+						@include Color.apply('button', $color-theme, 'outlined', 'active');
 				}
 
 				&:disabled {

@@ -48,17 +48,17 @@
   z-index: 100;
   -webkit-transition: all 0.1s ease;
   transition: all 0.1s ease;
-  -webkit-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12);
-  -ms-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12);
-  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12);
+  -webkit-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.275), 0px 5px 8px 0px rgba(0, 0, 0, 0.215), 0px 1px 14px 0px rgba(0, 0, 0, 0.195);
+  -ms-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.275), 0px 5px 8px 0px rgba(0, 0, 0, 0.215), 0px 1px 14px 0px rgba(0, 0, 0, 0.195);
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.275), 0px 5px 8px 0px rgba(0, 0, 0, 0.215), 0px 1px 14px 0px rgba(0, 0, 0, 0.195);
   color: var(--sc-navbar-ink, var(--sc-theme--on-primary));
   border: 1px solid var(--sc-navbar-fill, var(--sc-theme--primary));
   background: var(--sc-navbar-fill, var(--sc-theme--primary));
   border-radius: var(--sc-navbar-radius, 0);
   font-size: var(--sc-navbar-type-size, 0.875rem);
-  -webkit-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12);
-  -ms-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12);
-  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12);
+  -webkit-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.275), 0px 5px 8px 0px rgba(0, 0, 0, 0.215), 0px 1px 14px 0px rgba(0, 0, 0, 0.195);
+  -ms-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.275), 0px 5px 8px 0px rgba(0, 0, 0, 0.215), 0px 1px 14px 0px rgba(0, 0, 0, 0.195);
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.275), 0px 5px 8px 0px rgba(0, 0, 0, 0.215), 0px 1px 14px 0px rgba(0, 0, 0, 0.195);
 }
 .sc-navbar .sc-navbar__item {
   width: 100%;
@@ -67,7 +67,12 @@
   color: var(--sc-navbar-ink, var(--sc-theme--on-primary));
   border: 1px solid var(--sc-navbar-fill, var(--sc-theme--primary));
   background: var(--sc-navbar-fill, var(--sc-theme--primary));
-  border-radius: var(--sc-navbar-radius, 0.5rem);
+  border-radius: var(--sc-navbar-item-radius, 0.5rem);
+}
+.sc-navbar .sc-navbar__item:hover {
+  color: var(--sc-navbar-ink--hover, var(--sc-theme--on-primary));
+  border: 1px solid var(--sc-navbar-fill--hover, var(--sc-theme--primary-light));
+  background: var(--sc-navbar-fill--hover, var(--sc-theme--primary-light));
 }
 .sc-navbar .sc-navbar__item p {
   font-size: var(--sc-navbar-item-type-size, inherit);
@@ -133,9 +138,9 @@
     top: 0;
     padding: 0;
     background: rgba(0, 0, 0, 0);
-    -webkit-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
-    -ms-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
-    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
+    -webkit-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.275), 0px 0px 0px 0px rgba(0, 0, 0, 0.215), 0px 0px 0px 0px rgba(0, 0, 0, 0.195);
+    -ms-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.275), 0px 0px 0px 0px rgba(0, 0, 0, 0.215), 0px 0px 0px 0px rgba(0, 0, 0, 0.195);
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.275), 0px 0px 0px 0px rgba(0, 0, 0, 0.215), 0px 0px 0px 0px rgba(0, 0, 0, 0.195);
   }
 }
 @media (min-width: 540px) {
@@ -148,4 +153,5 @@
     padding: 0;
   }
 }
+
 /*# sourceMappingURL=main.css.map */

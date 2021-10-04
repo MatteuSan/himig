@@ -7,7 +7,7 @@
     "doc": "docs"
   },
   "dependencies": {
-    "@growstocks/stack": "^2.1.5"
+    "@growstocks/stack": "^3.0.0-beta.2"
   },
   "devDependencies": {
     "cssnano": "^5.0.8",

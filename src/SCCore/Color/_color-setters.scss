@@ -41,7 +41,7 @@ $prefix: 'sc' !default;
 ) {
 
     $_init-settings: (
-        opt: 'has-elevation',
+        opt: ('has-elevation'),
         exceptions: ()
     );
 
@@ -56,11 +56,11 @@ $prefix: 'sc' !default;
     );
 
     $_color-theme: map.merge($_init-color-theme, $color-theme);
-    $_settings: ($component-name, $prefix);
+    $_component-config: ($component-name, $prefix);
 
     // Type: color-value (hex, hsl, rgb/a, etc.)
-    $_outline-color: getter.get-color_($_color-theme, 'fill', 'outline', $_settings);
-    $_elevation-color: getter.get-color_($_color-theme, 'fill', 'elevation', $_settings);
+    $_outline-color: getter.get-color_($_color-theme, 'fill', 'outline', $_component-config);
+    $_elevation-color: getter.get-color_($_color-theme, 'fill', 'elevation', $_component-config);
 
     // Type: percent
     $_outline-opacity: 50%;
@@ -70,39 +70,40 @@ $prefix: 'sc' !default;
     }
 
     @if Feature.has-item($_scope, 'text') {
-        color: getter.get-color_($color-theme, 'fill', $key, $_settings);
+        color: getter.get-color_($color-theme, 'fill', $key, $_component-config);
         border: 1px solid rgba(0 0 0 / 0);
         background: hsl(0 0% 0% / 0);
         box-shadow: none;
 
-        @if $key == 'focus' {
-            outline: 2px solid rgba($_outline-color, $_outline-opacity);
+        @if $key == 'focus' or $key == 'active' {
+            // outline: 2px solid rgba($_outline-color, $_outline-opacity);
+            border: 1px solid #a0a0a0;
         }
     }
 
     @if Feature.has-item($_scope, 'outlined') {
-        color: getter.get-color_($color-theme, 'fill', $key, $_settings);
+        color: getter.get-color_($color-theme, 'fill', $key, $_component-config);
         background: rgba(0 0 0 / 0);
         box-shadow: none;
 
         @if $key == 'default' {
-            border-color: rgba(#c4c4c4, 50%);
+            border-color: rgba(#a0a0a0, 50%);
         } @else {
-            border-color: getter.get-color_($color-theme, 'fill', $key, $_settings);
+            border-color: getter.get-color_($color-theme, 'fill', $key, $_component-config);
         }
 
         @if $key == 'focus' {
-            outline: 2px solid rgba($_outline-color, $_outline-opacity);
+            // outline: 2px solid rgba($_outline-color, $_outline-opacity);
         }
     }
 
-    @if Feature.has-item($_scope, 'filled-unelevated') or Feature.has-item($_scope, 'filled-elevated') {
-        color: getter.get-color_($color-theme, 'ink', $key, $_settings);
-        border: 1px solid getter.get-color_($color-theme, 'fill', $key, $_settings);
-        background: getter.get-color_($color-theme, 'fill', $key, $_settings);
+    @if Feature.has-item($_scope, 'filled-unelevated') or Feature.has-item($_scope, 'filled') {
+        color: getter.get-color_($color-theme, 'ink', $key, $_component-config);
+        border: 1px solid getter.get-color_($color-theme, 'fill', $key, $_component-config);
+        background: getter.get-color_($color-theme, 'fill', $key, $_component-config);
 
         @if $key == 'focus' {
-            outline: 2px solid rgba($_outline-color, $_outline-opacity);
+            // outline: 2px solid rgba($_outline-color, $_outline-opacity);
         }
 
         @if Feature.has-item($_settings, 'has-elevation') {
@@ -114,7 +115,7 @@ $prefix: 'sc' !default;
                 } @else {
                     box-shadow: none;
                 }
-            } @else if $_scope == 'filled-elevated' {
+            } @else if $_scope == 'filled' {
                 @if $key == 'active' {
                     @include Elevation.apply(5, $_elevation-color);
                 } @else {

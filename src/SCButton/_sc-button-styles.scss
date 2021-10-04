@@ -64,9 +64,15 @@
 
 				}
 
-				@if Feature.has-item($_type, filled) or Feature.has-item($_type, all) {
+				@if Feature.has-item($_type, filled-unelevated) or Feature.has-item($_type, all) {
 
 						@include sc-button-filled_($_color-theme);
+
+				}
+
+				@if Feature.has-item($_type, filled) or Feature.has-item($_type, all) {
+
+						@include sc-button-filled_($_color-theme, true);
 
 				}
 

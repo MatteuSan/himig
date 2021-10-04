@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@growstocks/stack@^2.1.5":
-  "integrity" "sha512-HUMmAVDhrpa6wn8sWynGO4WmmVYrPWGsu9cTDlR28olw15tdDGZlvDXn3GdzW81Ae/IqkYKLFoSL44XErt5MYg=="
-  "resolved" "https://registry.npmjs.org/@growstocks/stack/-/stack-2.1.5.tgz"
-  "version" "2.1.5"
+"@growstocks/stack@^3.0.0-beta.2":
+  "integrity" "sha512-4SI3H+N9FrOeJESSmD2TQ/ptVuxWEjYH+P6fdpls/TeB+s4TL71CxgmvzXGn5LUyAuIeEYGdqofEcr/MpnqAmg=="
+  "resolved" "https://registry.npmjs.org/@growstocks/stack/-/stack-3.0.0-unstable.tgz"
+  "version" "3.0.0-unstable"
 
 "@trysound/sax@0.1.1":
   "integrity" "sha512-Z6DoceYb/1xSg5+e+ZlPZ9v0N16ZvZ+wYMraFue4HYrE4ttONKtsvruIRf6t9TBR0YvSOfi1hUU0fJfBLCDYow=="

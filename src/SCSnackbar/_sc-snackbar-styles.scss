@@ -52,7 +52,7 @@
 
     @include base.base($_breakpoint) {
         @content;
-        @include Color.apply('snackbar', $_color-theme, 'filled', (
+        @include Color.apply('snackbar', $_color-theme, 'filled', 'default', (
             opt: 'no-elevation',
             exceptions: $_scope-exceptions
         ));

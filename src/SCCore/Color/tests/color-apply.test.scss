@@ -23,18 +23,18 @@
 @use '../color-setters' as c;
 
 .test-component {
-    /* FILLED */
+    /*!* FILLED *!
     @include c.apply('filled', (
         'default': (darkorange, #fff)
     ));
 
-    /* OUTLINED */
+    !* OUTLINED *!
     @include c.apply('outlined', (
         'default': (darkorange, #fff)
     ));
 
-    /* TEXT */
+    !* TEXT *!
     @include c.apply('text', (
         'default': (darkorange, #fff)
-    ));
+    ));*/
 }

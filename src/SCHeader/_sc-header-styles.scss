@@ -61,7 +61,7 @@
                 @include Elevation.apply(0, $color: Color.get-color_($_color-theme, 'fill', 'elevation'));
 
                 &.scrolled {
-                    @include Color.apply('header', $_color-theme, 'filled-unelevated', (
+                    @include Color.apply('header', $_color-theme, 'filled-unelevated', 'default', (
                         opt: 'no-elevation',
                         exceptions: $_scope-exceptions
                     ));
