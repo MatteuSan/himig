@@ -252,7 +252,6 @@
   border: 1px solid rgba(0, 0, 0, 0);
   background: rgba(0, 0, 0, 0);
   box-shadow: none;
-  outline: none;
   border: 1px solid rgba(175, 175, 175, 0.66);
 }
 .sc-button:active {
@@ -260,7 +259,6 @@
   border: 1px solid rgba(0, 0, 0, 0);
   background: rgba(0, 0, 0, 0);
   box-shadow: none;
-  outline: none;
   border: 1px solid rgba(175, 175, 175, 0.66);
 }
 .sc-button:disabled {
@@ -274,33 +272,33 @@
 .sc-button.sc-button--outlined {
   color: var(--sc-button-fill, var(--sc-theme--secondary));
   background: rgba(0, 0, 0, 0);
+  border: 1px solid var(--sc-button-fill, var(--sc-theme--secondary));
   box-shadow: none;
-  border-color: rgba(175, 175, 175, 0.66);
 }
 .sc-button.sc-button--outlined:hover {
-  color: var(--sc-button-fill--hover, var(--sc-theme--secondary));
-  background: rgba(0, 0, 0, 0);
+  color: var(--sc-button-ink--hover, var(--sc-theme--on-secondary));
+  background: var(--sc-button-fill--hover, var(--sc-theme--secondary));
+  border: 1px solid var(--sc-button-fill--hover, var(--sc-theme--secondary));
   box-shadow: none;
-  border-color: var(--sc-button-fill--hover, var(--sc-theme--secondary));
   cursor: pointer;
 }
 .sc-button.sc-button--outlined:focus {
-  color: var(--sc-button-fill--focus, var(--sc-theme--secondary));
-  background: rgba(0, 0, 0, 0);
+  color: var(--sc-button-ink--focus, var(--sc-theme--on-secondary));
+  background: var(--sc-button-fill--focus, var(--sc-theme--secondary));
+  border: 1px solid var(--sc-button-fill--focus, var(--sc-theme--secondary));
   box-shadow: none;
-  border-color: var(--sc-button-fill--focus, var(--sc-theme--secondary));
 }
 .sc-button.sc-button--outlined:active {
-  color: var(--sc-button-fill--active, var(--sc-theme--secondary-light));
-  background: rgba(0, 0, 0, 0);
+  color: var(--sc-button-ink--active, var(--sc-theme--on-secondary));
+  background: var(--sc-button-fill--active, var(--sc-theme--secondary-light));
+  border: 1px solid var(--sc-button-fill--active, var(--sc-theme--secondary-light));
   box-shadow: none;
-  border-color: var(--sc-button-fill--active, var(--sc-theme--secondary-light));
 }
 .sc-button.sc-button--outlined:disabled {
   color: var(--sc-button-fill--disabled, var(--sc-theme--secondary-dark));
   background: rgba(0, 0, 0, 0);
+  border: 1px solid var(--sc-button-fill--disabled, var(--sc-theme--secondary-dark));
   box-shadow: none;
-  border-color: var(--sc-button-fill--disabled, var(--sc-theme--secondary-dark));
   cursor: pointer;
   pointer-events: none;
 }

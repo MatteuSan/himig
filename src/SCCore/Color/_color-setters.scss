@@ -76,20 +76,26 @@ $prefix: 'sc' !default;
         box-shadow: none;
 
         @if $key == 'focus' or $key == 'active' {
-            outline: none;
             border: 1px solid rgba($_outline-color, $_outline-opacity);
         }
     }
 
     @if Feature.has-item($_scope, 'outlined') {
-        color: getter.get-color_($color-theme, 'fill', $key, $_component-config);
-        background: rgba(0 0 0 / 0);
-        box-shadow: none;
 
-        @if $key == 'default' {
-            border-color: rgba($_outline-color, $_outline-opacity);
+        @if $key == 'hover' or $key == 'focus' or $key == 'active' {
+
+            color: getter.get-color_($color-theme, 'ink', $key, $_component-config);
+            background: getter.get-color_($color-theme, 'fill', $key, $_component-config);
+            border: 1px solid getter.get-color_($color-theme, 'fill', $key, $_component-config);
+            box-shadow: none;
+
         } @else {
-            border-color: getter.get-color_($color-theme, 'fill', $key, $_component-config);
+
+            color: getter.get-color_($color-theme, 'fill', $key, $_component-config);
+            background: rgba(0 0 0 / 0);
+            border: 1px solid getter.get-color_($color-theme, 'fill', $key, $_component-config);
+            box-shadow: none;
+
         }
 
         @if $key == 'focus' {

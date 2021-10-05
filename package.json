@@ -23,7 +23,9 @@
     "typescript": "^4.3.2"
   },
   "scripts": {
-    "build": "gulp"
+    "build": "gulp",
+    "mix": "mix",
+    "mix:watch": "mix --watch"
   },
   "repository": {
     "type": "git",

@@ -21,7 +21,7 @@ yarn add @growstocks/stack
 ## HTML Usage
 ```html
 <!-- Default Button -->
-<button class="sc-button">
+<button class="sc-button" role="button">
     <i class="sc-button__icon material-icons" aria-hidden="true">add</i>
     <span class="sc-button__label">Default Button</span>
 </button>
