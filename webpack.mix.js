@@ -24,6 +24,6 @@
 
 let mix = require('laravel-mix');
 
-mix.ts('test/scripts/index.ts', 'test/scripts')
-    .sass('test/styles/style.scss', 'test/styles')
+mix.ts('test/scripts/index.ts', 'scripts')
+    .sass('test/styles/style.scss', 'styles')
     .setPublicPath('test');

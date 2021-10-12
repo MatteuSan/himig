@@ -26,7 +26,9 @@
 
 @use '../Feature';
 
-@function create($key, $fallback-value, $prefix: 'sc') {
+$prefix: 'sc';
+
+@function create($key, $fallback-value, $prefix: $prefix) {
 
     @if not Feature.is-empty($prefix) {
         @return var(--#{$prefix}-#{$key}, #{$fallback-value});
@@ -36,12 +38,8 @@
 
 }
 
-@function get-sc($key) {
-    @return var(--sc-#{$key});
-}
-
-@function get($key) {
-    @return var(--#{$key});
+@function get($key, $prefix: $prefix) {
+    @return var(--#{$prefix}-#{$key});
 }
 
 @mixin bind($key, $value) {

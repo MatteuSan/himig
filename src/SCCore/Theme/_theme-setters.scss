@@ -33,7 +33,7 @@
 @use 'theme-getters' as getter;
 @use 'theme-validators' as validator;
 
-$_prefix: 'sc';
+$prefix: 'sc' !default;
 
 $_state-map: (
     'error': (#b00020, #fff),
@@ -60,9 +60,9 @@ $_radius-theme: (
 
         @each $property, $value in $_color-map {
             @if $property == 'default' {
-                --#{$_prefix}-theme--primary: #{$value};
+                --#{$prefix}-theme--primary: #{$value};
             } @else {
-                --#{$_prefix}-theme--primary-#{$property}: #{$value};
+                --#{$prefix}-theme--primary-#{$property}: #{$value};
             }
         }
 
@@ -74,9 +74,9 @@ $_radius-theme: (
 
         @each $property, $value in $_color-map {
             @if $property == 'default' {
-                --#{$_prefix}-theme--primary: #{$value};
+                --#{$prefix}-theme--primary: #{$value};
             } @else {
-                --#{$_prefix}-theme--primary-#{$property}: #{$value};
+                --#{$prefix}-theme--primary-#{$property}: #{$value};
             }
         }
 
@@ -88,9 +88,9 @@ $_radius-theme: (
 
         @each $property, $value in $_color-map {
             @if $property == 'default' {
-                --#{$_prefix}-theme--secondary: #{$value};
+                --#{$prefix}-theme--secondary: #{$value};
             } @else {
-                --#{$_prefix}-theme--secondary-#{$property}: #{$value};
+                --#{$prefix}-theme--secondary-#{$property}: #{$value};
             }
         }
 
@@ -102,9 +102,9 @@ $_radius-theme: (
 
         @each $property, $value in $_color-map {
             @if $property == 'default' {
-                --#{$_prefix}-theme--secondary: #{$value};
+                --#{$prefix}-theme--secondary: #{$value};
             } @else {
-                --#{$_prefix}-theme--secondary-#{$property}: #{$value};
+                --#{$prefix}-theme--secondary-#{$property}: #{$value};
             }
         }
 
@@ -112,41 +112,41 @@ $_radius-theme: (
 
     @if meta.type-of($primary-color) == map {
         @if Feature.has-property($primary-color, 'ink') {
-            --#{$_prefix}-theme--on-primary: #{map.get($primary-color, 'ink')};
+            --#{$prefix}-theme--on-primary: #{map.get($primary-color, 'ink')};
         } @else {
-            --#{$_prefix}-theme--on-primary: #{Color.get-ink_($primary-color)};
+            --#{$prefix}-theme--on-primary: #{Color.get-ink_($primary-color)};
         }
     } @else {
-        --#{$_prefix}-theme--on-primary: #{Color.get-ink_(Color.split($primary-color))};
+        --#{$prefix}-theme--on-primary: #{Color.get-ink_(Color.split($primary-color))};
     }
 
     @if meta.type-of($secondary-color) == map {
         @if Feature.has-property($secondary-color, 'ink') {
-            --#{$_prefix}-theme--on-secondary: #{map.get($secondary-color, 'ink')};
+            --#{$prefix}-theme--on-secondary: #{map.get($secondary-color, 'ink')};
         } @else {
-            --#{$_prefix}-theme--on-secondary: #{Color.get-ink_($secondary-color)};
+            --#{$prefix}-theme--on-secondary: #{Color.get-ink_($secondary-color)};
         }
     } @else {
-        --#{$_prefix}-theme--on-secondary: #{Color.get-ink_(Color.split($secondary-color))};
+        --#{$prefix}-theme--on-secondary: #{Color.get-ink_(Color.split($secondary-color))};
     }
 
     @each $property, $value in $_state-map {
-        --#{$_prefix}-theme--#{$property}: #{list.nth($value, 1)};
+        --#{$prefix}-theme--#{$property}: #{list.nth($value, 1)};
     }
 
     @each $property, $value in $_state-map {
-        --#{$_prefix}-theme--on-#{$property}: #{list.nth($value, 2)};
+        --#{$prefix}-theme--on-#{$property}: #{list.nth($value, 2)};
     }
 
     @each $property, $value in $radius-settings {
-        --#{$_prefix}-theme--#{$property}-radius: #{$value};
+        --#{$prefix}-theme--#{$property}-radius: #{$value};
     }
 
 
 
     /* ===== */
     @each $property, $value in meta.keywords($args) {
-        --#{$_prefix}-theme--#{$property}: #{$value};
+        --#{$prefix}-theme--#{$property}: #{$value};
     }
 
 }

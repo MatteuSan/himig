@@ -97,6 +97,7 @@ yarn add @growstocks/stack
 #### `$settings` API
 | Parameter | Effect |
 |-----|-----|
+| `items` | **[MAP] RECOMMENDED**. Sets the amount of `.appbar__item` elements you can put in the component. |
 | `breakpoint` | **[MAP] OPTIONAL**. Sets the default breakpoint for all component style. Available options include `small`, `medium`, and `large`. By default, it is set to `medium` |
 
 ### SCSS Theme Injection

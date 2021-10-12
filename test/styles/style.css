@@ -1,11 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 :root {
-  --sc-theme--primary-light: #426294;
+  --sc-theme--primary-light: #516f9f;
   --sc-theme--primary: #12305e;
-  --sc-theme--primary-dark: #081528;
-  --sc-theme--secondary-light: #eac285;
+  --sc-theme--primary-dark: #071835;
+  --sc-theme--secondary-light: #ffbd58;
   --sc-theme--secondary: #ff9e0a;
-  --sc-theme--secondary-dark: #c97a00;
+  --sc-theme--secondary-dark: #8c5500;
   --sc-theme--on-primary: #fff;
   --sc-theme--on-secondary: #000;
   --sc-theme--error: #b00020;
@@ -23,12 +23,12 @@
 }
 
 .dark-theme {
-  --sc-theme--primary-light: #627799;
+  --sc-theme--primary-light: #5c7bac;
   --sc-theme--primary: #244271;
-  --sc-theme--primary-dark: #152641;
-  --sc-theme--secondary-light: #f1d7b0;
+  --sc-theme--primary-dark: #0f2240;
+  --sc-theme--secondary-light: #ffca7a;
   --sc-theme--secondary: #ffb13c;
-  --sc-theme--secondary-dark: #fb9700;
+  --sc-theme--secondary-dark: #906017;
   --sc-theme--on-primary: #fff;
   --sc-theme--on-secondary: #000;
   --sc-theme--error: #b00020;
@@ -174,9 +174,9 @@ body {
   color: var(--sc-alert-ink, var(--sc-alert-ink, var(--sc-theme--on-primary)));
   border: 1px solid var(--sc-alert-fill, var(--sc-alert-fill, var(--sc-theme--primary-light)));
   background: var(--sc-alert-fill, var(--sc-alert-fill, var(--sc-theme--primary-light)));
-  -webkit-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
-  -ms-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
-  box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
+  -webkit-box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.275), 0px 2px 2px 0px rgba(0, 0, 0, 0.215), 0px 1px 5px 0px rgba(0, 0, 0, 0.195);
+  -ms-box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.275), 0px 2px 2px 0px rgba(0, 0, 0, 0.215), 0px 1px 5px 0px rgba(0, 0, 0, 0.195);
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.275), 0px 2px 2px 0px rgba(0, 0, 0, 0.215), 0px 1px 5px 0px rgba(0, 0, 0, 0.195);
   -webkit-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
   -ms-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
   box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
@@ -185,25 +185,25 @@ body {
   color: var(--sc-alert-ink, #ffffff);
   border: 1px solid var(--sc-alert-fill, var(--sc-theme--success));
   background: var(--sc-alert-fill, var(--sc-theme--success));
-  -webkit-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
-  -ms-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
-  box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
+  -webkit-box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.275), 0px 2px 2px 0px rgba(0, 0, 0, 0.215), 0px 1px 5px 0px rgba(0, 0, 0, 0.195);
+  -ms-box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.275), 0px 2px 2px 0px rgba(0, 0, 0, 0.215), 0px 1px 5px 0px rgba(0, 0, 0, 0.195);
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.275), 0px 2px 2px 0px rgba(0, 0, 0, 0.215), 0px 1px 5px 0px rgba(0, 0, 0, 0.195);
 }
 .sc-alert.sc-alert--warning {
   color: var(--sc-alert-ink, #000000);
   border: 1px solid var(--sc-alert-fill, var(--sc-theme--warning));
   background: var(--sc-alert-fill, var(--sc-theme--warning));
-  -webkit-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
-  -ms-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
-  box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
+  -webkit-box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.275), 0px 2px 2px 0px rgba(0, 0, 0, 0.215), 0px 1px 5px 0px rgba(0, 0, 0, 0.195);
+  -ms-box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.275), 0px 2px 2px 0px rgba(0, 0, 0, 0.215), 0px 1px 5px 0px rgba(0, 0, 0, 0.195);
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.275), 0px 2px 2px 0px rgba(0, 0, 0, 0.215), 0px 1px 5px 0px rgba(0, 0, 0, 0.195);
 }
 .sc-alert.sc-alert--error {
   color: var(--sc-alert-ink, #ffffff);
   border: 1px solid var(--sc-alert-fill, var(--sc-theme--error));
   background: var(--sc-alert-fill, var(--sc-theme--error));
-  -webkit-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
-  -ms-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
-  box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
+  -webkit-box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.275), 0px 2px 2px 0px rgba(0, 0, 0, 0.215), 0px 1px 5px 0px rgba(0, 0, 0, 0.195);
+  -ms-box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.275), 0px 2px 2px 0px rgba(0, 0, 0, 0.215), 0px 1px 5px 0px rgba(0, 0, 0, 0.195);
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.275), 0px 2px 2px 0px rgba(0, 0, 0, 0.215), 0px 1px 5px 0px rgba(0, 0, 0, 0.195);
 }
 .sc-alert .sc-alert__icon {
   display: inline-block;
@@ -356,7 +356,7 @@ body {
   border: 1px solid rgba(0, 0, 0, 0);
   background: rgba(0, 0, 0, 0);
   box-shadow: none;
-  border-radius: var(--sc-button-radius, 500px);
+  border-radius: var(--sc-button-radius, var(--sc-button-radius, var(--sc-theme--small-radius)));
   font-size: var(--sc-button-text-size, 0.875rem);
   font-weight: var(--sc-button-text-weight, 700);
   text-decoration: var(--sc-button-text-decoration, inherit);
@@ -409,6 +409,7 @@ body {
   background: var(--sc-button-fill--focus, var(--sc-theme--secondary));
   border: 1px solid var(--sc-button-fill--focus, var(--sc-theme--secondary));
   box-shadow: none;
+  outline: 2px solid rgba(175, 175, 175, 0.66);
 }
 .sc-button.sc-button--outlined:active {
   color: var(--sc-button-ink--active, var(--sc-theme--on-secondary));
@@ -434,26 +435,27 @@ body {
   color: var(--sc-button-ink--hover, var(--sc-theme--on-secondary));
   border: 1px solid var(--sc-button-fill--hover, var(--sc-theme--secondary));
   background: var(--sc-button-fill--hover, var(--sc-theme--secondary));
-  -webkit-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
-  -ms-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
-  box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
+  -webkit-box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.275), 0px 2px 2px 0px rgba(0, 0, 0, 0.215), 0px 1px 5px 0px rgba(0, 0, 0, 0.195);
+  -ms-box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.275), 0px 2px 2px 0px rgba(0, 0, 0, 0.215), 0px 1px 5px 0px rgba(0, 0, 0, 0.195);
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.275), 0px 2px 2px 0px rgba(0, 0, 0, 0.215), 0px 1px 5px 0px rgba(0, 0, 0, 0.195);
   cursor: pointer;
 }
 .sc-button.sc-button--filled:focus {
   color: var(--sc-button-ink--focus, var(--sc-theme--on-secondary));
   border: 1px solid var(--sc-button-fill--focus, var(--sc-theme--secondary));
   background: var(--sc-button-fill--focus, var(--sc-theme--secondary));
-  -webkit-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
-  -ms-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
-  box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
+  outline: 2px solid rgba(175, 175, 175, 0.66);
+  -webkit-box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.275), 0px 2px 2px 0px rgba(0, 0, 0, 0.215), 0px 1px 5px 0px rgba(0, 0, 0, 0.195);
+  -ms-box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.275), 0px 2px 2px 0px rgba(0, 0, 0, 0.215), 0px 1px 5px 0px rgba(0, 0, 0, 0.195);
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.275), 0px 2px 2px 0px rgba(0, 0, 0, 0.215), 0px 1px 5px 0px rgba(0, 0, 0, 0.195);
 }
 .sc-button.sc-button--filled:active {
   color: var(--sc-button-ink--active, var(--sc-theme--on-secondary));
   border: 1px solid var(--sc-button-fill--active, var(--sc-theme--secondary-light));
   background: var(--sc-button-fill--active, var(--sc-theme--secondary-light));
-  -webkit-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.275), 0px 5px 8px 0px rgba(0, 0, 0, 0.215), 0px 1px 14px 0px rgba(0, 0, 0, 0.195);
-  -ms-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.275), 0px 5px 8px 0px rgba(0, 0, 0, 0.215), 0px 1px 14px 0px rgba(0, 0, 0, 0.195);
-  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.275), 0px 5px 8px 0px rgba(0, 0, 0, 0.215), 0px 1px 14px 0px rgba(0, 0, 0, 0.195);
+  -webkit-box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.275), 0px 4px 5px 0px rgba(0, 0, 0, 0.215), 0px 1px 10px 0px rgba(0, 0, 0, 0.195);
+  -ms-box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.275), 0px 4px 5px 0px rgba(0, 0, 0, 0.215), 0px 1px 10px 0px rgba(0, 0, 0, 0.195);
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.275), 0px 4px 5px 0px rgba(0, 0, 0, 0.215), 0px 1px 10px 0px rgba(0, 0, 0, 0.195);
 }
 .sc-button.sc-button--filled:disabled {
   color: var(--sc-button-ink--disabled, var(--sc-theme--on-secondary));
@@ -473,26 +475,27 @@ body {
   color: var(--sc-button-ink--hover, var(--sc-theme--on-secondary));
   border: 1px solid var(--sc-button-fill--hover, var(--sc-theme--secondary));
   background: var(--sc-button-fill--hover, var(--sc-theme--secondary));
-  -webkit-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
-  -ms-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
-  box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
+  -webkit-box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.275), 0px 2px 2px 0px rgba(0, 0, 0, 0.215), 0px 1px 5px 0px rgba(0, 0, 0, 0.195);
+  -ms-box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.275), 0px 2px 2px 0px rgba(0, 0, 0, 0.215), 0px 1px 5px 0px rgba(0, 0, 0, 0.195);
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.275), 0px 2px 2px 0px rgba(0, 0, 0, 0.215), 0px 1px 5px 0px rgba(0, 0, 0, 0.195);
   cursor: pointer;
 }
 .sc-button.sc-button--filled:focus {
   color: var(--sc-button-ink--focus, var(--sc-theme--on-secondary));
   border: 1px solid var(--sc-button-fill--focus, var(--sc-theme--secondary));
   background: var(--sc-button-fill--focus, var(--sc-theme--secondary));
-  -webkit-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
-  -ms-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
-  box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
+  outline: 2px solid rgba(175, 175, 175, 0.66);
+  -webkit-box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.275), 0px 2px 2px 0px rgba(0, 0, 0, 0.215), 0px 1px 5px 0px rgba(0, 0, 0, 0.195);
+  -ms-box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.275), 0px 2px 2px 0px rgba(0, 0, 0, 0.215), 0px 1px 5px 0px rgba(0, 0, 0, 0.195);
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.275), 0px 2px 2px 0px rgba(0, 0, 0, 0.215), 0px 1px 5px 0px rgba(0, 0, 0, 0.195);
 }
 .sc-button.sc-button--filled:active {
   color: var(--sc-button-ink--active, var(--sc-theme--on-secondary));
   border: 1px solid var(--sc-button-fill--active, var(--sc-theme--secondary-light));
   background: var(--sc-button-fill--active, var(--sc-theme--secondary-light));
-  -webkit-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.275), 0px 5px 8px 0px rgba(0, 0, 0, 0.215), 0px 1px 14px 0px rgba(0, 0, 0, 0.195);
-  -ms-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.275), 0px 5px 8px 0px rgba(0, 0, 0, 0.215), 0px 1px 14px 0px rgba(0, 0, 0, 0.195);
-  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.275), 0px 5px 8px 0px rgba(0, 0, 0, 0.215), 0px 1px 14px 0px rgba(0, 0, 0, 0.195);
+  -webkit-box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.275), 0px 4px 5px 0px rgba(0, 0, 0, 0.215), 0px 1px 10px 0px rgba(0, 0, 0, 0.195);
+  -ms-box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.275), 0px 4px 5px 0px rgba(0, 0, 0, 0.215), 0px 1px 10px 0px rgba(0, 0, 0, 0.195);
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.275), 0px 4px 5px 0px rgba(0, 0, 0, 0.215), 0px 1px 10px 0px rgba(0, 0, 0, 0.195);
 }
 .sc-button.sc-button--filled:disabled {
   color: var(--sc-button-ink--disabled, var(--sc-theme--on-secondary));
@@ -506,42 +509,43 @@ body {
   color: var(--sc-button-ink, var(--sc-theme--on-secondary));
   border: 1px solid var(--sc-button-fill, var(--sc-theme--secondary));
   background: var(--sc-button-fill, var(--sc-theme--secondary));
-  -webkit-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
-  -ms-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
-  box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
+  -webkit-box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.275), 0px 2px 2px 0px rgba(0, 0, 0, 0.215), 0px 1px 5px 0px rgba(0, 0, 0, 0.195);
+  -ms-box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.275), 0px 2px 2px 0px rgba(0, 0, 0, 0.215), 0px 1px 5px 0px rgba(0, 0, 0, 0.195);
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.275), 0px 2px 2px 0px rgba(0, 0, 0, 0.215), 0px 1px 5px 0px rgba(0, 0, 0, 0.195);
 }
 .sc-button.sc-button--filled--elevated:hover {
   color: var(--sc-button-ink--hover, var(--sc-theme--on-secondary));
   border: 1px solid var(--sc-button-fill--hover, var(--sc-theme--secondary));
   background: var(--sc-button-fill--hover, var(--sc-theme--secondary));
-  -webkit-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
-  -ms-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
-  box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
+  -webkit-box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.275), 0px 2px 2px 0px rgba(0, 0, 0, 0.215), 0px 1px 5px 0px rgba(0, 0, 0, 0.195);
+  -ms-box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.275), 0px 2px 2px 0px rgba(0, 0, 0, 0.215), 0px 1px 5px 0px rgba(0, 0, 0, 0.195);
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.275), 0px 2px 2px 0px rgba(0, 0, 0, 0.215), 0px 1px 5px 0px rgba(0, 0, 0, 0.195);
   cursor: pointer;
 }
 .sc-button.sc-button--filled--elevated:focus {
   color: var(--sc-button-ink--focus, var(--sc-theme--on-secondary));
   border: 1px solid var(--sc-button-fill--focus, var(--sc-theme--secondary));
   background: var(--sc-button-fill--focus, var(--sc-theme--secondary));
-  -webkit-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
-  -ms-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
-  box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
+  outline: 2px solid rgba(175, 175, 175, 0.66);
+  -webkit-box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.275), 0px 2px 2px 0px rgba(0, 0, 0, 0.215), 0px 1px 5px 0px rgba(0, 0, 0, 0.195);
+  -ms-box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.275), 0px 2px 2px 0px rgba(0, 0, 0, 0.215), 0px 1px 5px 0px rgba(0, 0, 0, 0.195);
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.275), 0px 2px 2px 0px rgba(0, 0, 0, 0.215), 0px 1px 5px 0px rgba(0, 0, 0, 0.195);
 }
 .sc-button.sc-button--filled--elevated:active {
   color: var(--sc-button-ink--active, var(--sc-theme--on-secondary));
   border: 1px solid var(--sc-button-fill--active, var(--sc-theme--secondary-light));
   background: var(--sc-button-fill--active, var(--sc-theme--secondary-light));
-  -webkit-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.275), 0px 5px 8px 0px rgba(0, 0, 0, 0.215), 0px 1px 14px 0px rgba(0, 0, 0, 0.195);
-  -ms-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.275), 0px 5px 8px 0px rgba(0, 0, 0, 0.215), 0px 1px 14px 0px rgba(0, 0, 0, 0.195);
-  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.275), 0px 5px 8px 0px rgba(0, 0, 0, 0.215), 0px 1px 14px 0px rgba(0, 0, 0, 0.195);
+  -webkit-box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.275), 0px 4px 5px 0px rgba(0, 0, 0, 0.215), 0px 1px 10px 0px rgba(0, 0, 0, 0.195);
+  -ms-box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.275), 0px 4px 5px 0px rgba(0, 0, 0, 0.215), 0px 1px 10px 0px rgba(0, 0, 0, 0.195);
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.275), 0px 4px 5px 0px rgba(0, 0, 0, 0.215), 0px 1px 10px 0px rgba(0, 0, 0, 0.195);
 }
 .sc-button.sc-button--filled--elevated:disabled {
   color: var(--sc-button-ink--disabled, var(--sc-theme--on-secondary));
   border: 1px solid var(--sc-button-fill--disabled, var(--sc-theme--secondary-dark));
   background: var(--sc-button-fill--disabled, var(--sc-theme--secondary-dark));
-  -webkit-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
-  -ms-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
-  box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
+  -webkit-box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.275), 0px 2px 2px 0px rgba(0, 0, 0, 0.215), 0px 1px 5px 0px rgba(0, 0, 0, 0.195);
+  -ms-box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.275), 0px 2px 2px 0px rgba(0, 0, 0, 0.215), 0px 1px 5px 0px rgba(0, 0, 0, 0.195);
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.275), 0px 2px 2px 0px rgba(0, 0, 0, 0.215), 0px 1px 5px 0px rgba(0, 0, 0, 0.195);
   cursor: pointer;
   pointer-events: none;
 }
@@ -749,9 +753,9 @@ body {
   color: var(--sc-profile-ink, var(--sc-theme--on-primary));
   border: 1px solid var(--sc-profile-fill, var(--sc-theme--primary-light));
   background: var(--sc-profile-fill, var(--sc-theme--primary-light));
-  -webkit-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
-  -ms-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
-  box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
+  -webkit-box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.275), 0px 2px 2px 0px rgba(0, 0, 0, 0.215), 0px 1px 5px 0px rgba(0, 0, 0, 0.195);
+  -ms-box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.275), 0px 2px 2px 0px rgba(0, 0, 0, 0.215), 0px 1px 5px 0px rgba(0, 0, 0, 0.195);
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.275), 0px 2px 2px 0px rgba(0, 0, 0, 0.215), 0px 1px 5px 0px rgba(0, 0, 0, 0.195);
   border-radius: var(--sc-profile-radius, var(--sc-theme--small-radius));
   font-size: var(--sc-profile-text-size, 0.75rem);
   -webkit-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
@@ -898,7 +902,7 @@ body {
   position: fixed;
   width: calc(100% - 40px);
   max-width: 420px;
-  padding: 14px 16px;
+  padding: 0.5rem 0.6rem 0.5rem 1.2rem;
   z-index: 1000;
   bottom: 70px;
   right: 20px;
@@ -934,17 +938,11 @@ body {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .sc-snackbar .sc-snackbar__wrap .sc-snackbar__label {
   font-size: var(--sc-snackbar-type-size, 0.9375rem);
 }
-.sc-snackbar .sc-snackbar__wrap .sc-snackbar__action {
-  padding: 0 !important;
-}
-.sc-snackbar .sc-snackbar__wrap .sc-snackbar__action:hover, .sc-snackbar .sc-snackbar__wrap .sc-snackbar__action:focus, .sc-snackbar .sc-snackbar__wrap .sc-snackbar__action:active {
-  border: none transparent !important;
-}
-
 .gs-pay-prompt__overlay {
   display: block;
   position: fixed;
@@ -1008,5 +1006,4 @@ body {
 .gs-pay-prompt .gs-pay-prompt__actions > * + * {
   margin-left: 0.5rem;
 }
-
 /*# sourceMappingURL=style.css.map */

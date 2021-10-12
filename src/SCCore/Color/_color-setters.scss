@@ -23,6 +23,7 @@
 @use 'sass:map';
 @use 'sass:list';
 @use 'sass:meta';
+@use 'sass:color';
 
 @use '../Feature';
 @use '../Elevation';
@@ -42,13 +43,15 @@ $prefix: 'sc' !default;
 
     $_init-settings: (
         opt: ('has-elevation'),
-        exceptions: ()
+        exceptions: (),
+        elevation-level: 2
     );
 
     $_scope: getter.get-scope_($scope);
     $_scope-exceptions: map.get(map.merge($_init-settings, $settings), exceptions);
     $_settings: map.get(map.merge($_init-settings, $settings), opt);
     $_elevation-color: ();
+    $_elevation-level: map.get(map.merge($_init-settings, $settings), elevation-level);
 
     $_init-color-theme: (
         'outline': #a0a0a0,
@@ -99,7 +102,7 @@ $prefix: 'sc' !default;
         }
 
         @if $key == 'focus' {
-            // outline: 2px solid rgba($_outline-color, $_outline-opacity);
+            outline: 2px solid rgba($_outline-color, $_outline-opacity);
         }
     }
 
@@ -109,25 +112,33 @@ $prefix: 'sc' !default;
         background: getter.get-color_($color-theme, 'fill', $key, $_component-config);
 
         @if $key == 'focus' {
-            // outline: 2px solid rgba($_outline-color, $_outline-opacity);
+            outline: 2px solid rgba($_outline-color, $_outline-opacity);
         }
 
         @if Feature.has-item($_settings, 'has-elevation') {
             @if $_scope == 'filled-unelevated' {
                 @if $key == 'hover' or $key == 'focus' {
-                    @include Elevation.apply(3, $_elevation-color);
+                    @include Elevation.apply($_elevation-level, $_elevation-color);
                 } @else if $key == 'active' {
-                    @include Elevation.apply(5, $_elevation-color);
+                    @include Elevation.apply(($_elevation-level + 2), $_elevation-color);
                 } @else {
                     box-shadow: none;
                 }
             } @else if $_scope == 'filled' {
                 @if $key == 'active' {
-                    @include Elevation.apply(5, $_elevation-color);
+                    @include Elevation.apply(($_elevation-level + 2), $_elevation-color);
                 } @else {
-                    @include Elevation.apply(3, $_elevation-color);
+                    @include Elevation.apply($_elevation-level, $_elevation-color);
                 }
             }
         }
     }
+}
+
+@function set-tint($color, $percent) {
+    @return color.adjust(color.mix(#fff, $color, $percent), $saturation: 11%);
+}
+
+@function set-shade($color, $percent) {
+    @return color.adjust(color.mix(#000, $color, $percent), $saturation: 11%);
 }

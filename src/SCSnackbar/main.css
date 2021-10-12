@@ -23,7 +23,7 @@
   position: fixed;
   width: calc(100% - 40px);
   max-width: 420px;
-  padding: 14px 16px;
+  padding: 0.5rem 0.6rem 0.5rem 1.2rem;
   z-index: 1000;
   bottom: 70px;
   right: 20px;
@@ -59,15 +59,9 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .sc-snackbar .sc-snackbar__wrap .sc-snackbar__label {
   font-size: var(--sc-snackbar-type-size, 0.9375rem);
 }
-.sc-snackbar .sc-snackbar__wrap .sc-snackbar__action {
-  padding: 0 !important;
-}
-.sc-snackbar .sc-snackbar__wrap .sc-snackbar__action:hover, .sc-snackbar .sc-snackbar__wrap .sc-snackbar__action:focus, .sc-snackbar .sc-snackbar__wrap .sc-snackbar__action:active {
-  border: none transparent !important;
-}
-
 /*# sourceMappingURL=main.css.map */

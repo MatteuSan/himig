@@ -28,21 +28,17 @@
 
 @use 'color-validators' as validator;
 @use 'color-getters' as getter;
+@use 'color-setters' as setter;
 
 @function split($color) {
 
-    $_split-default: $color;
-
-    $_split-light: lighten(desaturate($_split-default, 30%), 20%);
-    $_split-dark: darken($_split-default, 12.5%);
-
-    $_split-fill-map: (
-        'light': $_split-light,
-        'default': $_split-default,
-        'dark': $_split-dark
-    );
-
-    @return $_split-fill-map;
+		@return (
+				// 'lighter': setter.set-tint($color, 65%),
+				'light': setter.set-tint($color, 32%),
+				'default': $color,
+				'dark': setter.set-shade($color, 47%),
+				// 'darker': setter.set-shade($color, 65%)
+		);
 
 }
 

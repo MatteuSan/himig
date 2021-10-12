@@ -115,8 +115,8 @@ body {
 );
 @include SCAppbar.render();
 @include SCButton.render(
-    $shape-theme: (
-        'shape': pill
+    $settings: (
+        elevation-level: 3
     )
 );
 @include SCCard.render();
