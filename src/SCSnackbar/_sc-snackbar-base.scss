@@ -31,35 +31,35 @@
         max-width: 420px;
         padding: 0.5rem 0.6rem 0.5rem 1.2rem;
         z-index: 1000;
-
+        
         bottom: 70px;
         right: 20px;
-
+        
         border-left: none;
-
+        
         @content;
-
+        
         @include Tools.prefix(transition, all 0.1s ease);
-
+        
         @media (min-width: Theme.get-breakpoint($breakpoint)) {
             bottom: 30px;
             right: 30px;
             left: auto;
         }
-
+        
         .sc-snackbar__wrap {
             width: 100%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-
+            
             .sc-snackbar__label {
                 font-size: Theme.key-create('snackbar-type-size', Typography.px-to-rem(15px));
             }
-
+            
             .sc-snackbar__action {
                 // padding: 0 !important;
-
+                
                 &:hover,
                 &:focus,
                 &:active {

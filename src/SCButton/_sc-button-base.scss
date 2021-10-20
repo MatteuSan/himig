@@ -31,45 +31,45 @@
     .sc-button {
         width: max-content;
         min-width: 57px;
-
+        
         display: inline-flex;
         justify-content: center;
         align-items: center;
-
+        
         padding: 0.4rem 0.6rem;
-
+        
         // border: 1px solid transparent;
         line-height: inherit;
         user-select: none;
         overflow: visible;
         vertical-align: middle;
-
+        
         @include Tools.prefix(transition, all 0.1s linear);
-
+        
         @content;
-
+        
         > * + * {
             margin-left: Theme.key-create('button-gap', 3px);
         }
-
+        
         &::-moz-focus-inner {
             padding: 0;
             border: 0;
         }
-
+        
         &.sc-button--icon-only,
         &.sc-button--icon-only:focus {
             outline: none !important;
             border: none transparent !important;
         }
-
+        
         .sc-button__label {
             font-weight: inherit;
             font-size: inherit;
             text-align: left;
             color: inherit;
         }
-
+        
         .sc-button__icon {
             font-size: Theme.key-create('button-icon-size', Typography.px-to-rem(20px));
             position: relative;

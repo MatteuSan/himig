@@ -20,5 +20,5 @@
 //  SOFTWARE.
 //
 
-@forward 'typography-setters';
+@forward 'typography-setters' show $prefix, apply, config;
 @forward 'typography-getters';

@@ -20,13 +20,28 @@
 // SOFTWARE.
 //
 
-@use '../theme-key-generators' as k;
+@use 'sass:map';
+@use 'sass:list';
+@use 'sass:meta';
 
-.test-component {
-    @include k.bind('test-component-fill', #545454);
-    @include k.bind('sc-test-component-ink', #000);
-    // no-prefix
-    background-color: k.create('test-component-fill', #232323);
-    // w/ prefix
-    color: k.create('test-component-ink', #fff, 'sc');
+@use '../Feature';
+
+$prefix: 'sc' !default;
+
+@function create($key, $fallback-value, $prefix: $prefix) {
+
+    @if not Feature.is-empty($prefix) {
+        @return var(--#{$prefix}-#{$key}, #{$fallback-value});
+    }
+
+    @return var(--#{$key}, #{$fallback-value});
+
+}
+
+@function get($key, $prefix: $prefix) {
+    @return var(--#{$prefix}-#{$key});
+}
+
+@mixin bind($key, $value, $prefix: $prefix) {
+    --#{$prefix}-#{$key}: #{$value};
 }

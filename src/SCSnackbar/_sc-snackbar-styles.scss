@@ -36,20 +36,20 @@
     $typography-theme: (),
     $settings: ()
 ) {
-
+    
     $_merged-settings: map.merge(theme.$init-settings, $settings);
-
+    
     $_color-theme: map.merge(theme.$init-color-theme, $color-theme);
     $_shape-theme: map.merge(theme.$init-shape-theme, $shape-theme);
     $_typography-theme: map.merge(theme.$init-typography-theme, $typography-theme);
-
+    
     $_breakpoint: map.get($_merged-settings, 'breakpoint');
-
+    
     $_scope-exceptions: (
         'text',
         'outlined'
     );
-
+    
     @include base.base($_breakpoint) {
         @content;
         @include Color.apply('snackbar', $_color-theme, 'filled', 'default', (
@@ -59,7 +59,7 @@
         @include Shape.apply('snackbar', $_shape-theme);
         @include Typography.apply('snackbar', $_typography-theme);
         @include Elevation.apply(5, $color: Color.get-color_(theme.$init-color-theme, 'fill', 'elevation'));
-
+        
         &.sc-snackbar--error {
             border-left: 5px solid var(--sc-theme--error);
         }
@@ -70,5 +70,5 @@
             border-left: 5px solid var(--sc-theme--warning);
         }
     }
-
+    
 }

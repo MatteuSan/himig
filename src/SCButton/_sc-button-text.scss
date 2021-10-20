@@ -23,24 +23,24 @@
 @use '../SCCore/Color';
 
 @mixin sc-button-text_($color-theme) {
-		@include Color.apply('button', $color-theme, 'text', 'default');
-
-		&:hover {
-				@include Color.apply('button', $color-theme, 'text', 'hover');
-				cursor: pointer;
-		}
-
-		&:focus {
-				@include Color.apply('button', $color-theme, 'text', 'focus');
-		}
-
-		&:active {
-				@include Color.apply('button', $color-theme, 'text', 'active');
-		}
-
-		&:disabled {
-				@include Color.apply('button', $color-theme, 'text', 'disabled');
-				cursor: pointer;
-				pointer-events: none;
-		}
+    @include Color.apply('button', $color-theme, 'text', 'default');
+    
+    &:hover {
+        @include Color.apply('button', $color-theme, 'text', 'hover');
+        cursor: pointer;
+    }
+    
+    &:focus {
+        @include Color.apply('button', $color-theme, 'text', 'focus');
+    }
+    
+    &:active {
+        @include Color.apply('button', $color-theme, 'text', 'active');
+    }
+    
+    &:disabled {
+        @include Color.apply('button', $color-theme, 'text', 'disabled');
+        cursor: pointer;
+        pointer-events: none;
+    }
 }

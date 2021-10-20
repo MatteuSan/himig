@@ -12,11 +12,11 @@ yarn add @growstocks/stack
 - Alternatively, you can use the CDN version
 ```html
 <!-- StackStyles -->
-<link rel="stylesheet" type="text/css" href="https://unpkg.com/@growstocks/stack@3.0.0-alpha/main.css" />
+<link rel="stylesheet" type="text/css" href="https://unpkg.com/@growstocks/stack@latest/main.css" />
 ```
 ```css
 /* You can also import individual components */
-@import 'https://unpkg.com/@growstocks/stack@3.0.0-alpha/SCButton/main.css';
+@import 'https://unpkg.com/@growstocks/stack@latest/SCButton/main.css';
 ```
 ## HTML Usage
 - In specific documentation for each component, we wrote the required HTML code snippet to be used in your project/s.

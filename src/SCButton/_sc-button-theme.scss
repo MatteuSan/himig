@@ -29,7 +29,7 @@ $init-color-theme: (
     'active': (var(--sc-theme--secondary-light), var(--sc-theme--on-secondary)),
     'disabled': (var(--sc-theme--secondary-dark), var(--sc-theme--on-secondary)),
     'outline': #afafaf,
-    'elevation': #000,
+    'elevation': #000000,
 );
 
 $init-shape-theme: (
@@ -47,5 +47,5 @@ $init-typography-theme: (
 
 $init-settings: (
     'type': ('all'),
-		'has-tooltip': true
+    'has-tooltip': true
 );

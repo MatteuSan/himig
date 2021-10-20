@@ -20,5 +20,4 @@
 //  SOFTWARE.
 //
 
-@forward 'shape-setters';
-@forward 'shape-validators';
+@forward 'shape-setters' show $prefix, apply;

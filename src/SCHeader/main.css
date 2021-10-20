@@ -51,6 +51,8 @@
   justify-content: space-between !important;
   align-items: center !important;
   position: relative;
+  font-size: inherit;
+  padding: 0.3rem 0;
 }
 @media (min-width: 540px) {
   .sc-header .sc-header__wrap {
@@ -58,8 +60,14 @@
     margin: 0 auto;
   }
 }
+@media (max-width: 539px) {
+  .sc-header .sc-header__wrap {
+    padding: 0.3rem 0;
+  }
+}
 .sc-header .sc-header__wrap .sc-header__text {
   padding: 0.3rem 0.7rem;
+  font-size: inherit;
   -webkit-transition: all 0.1s ease;
   transition: all 0.1s ease;
 }

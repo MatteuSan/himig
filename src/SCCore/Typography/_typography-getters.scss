@@ -23,7 +23,7 @@
 @use 'sass:math';
 @use 'sass:map';
 
-@use '../Theme/theme-key-generators' as key;
+@use '../Theme/theme-keys' as key;
 
 @function px-to-rem($px) {
     @return (math.div($px, 16px) * 1rem);
@@ -33,13 +33,13 @@
     @return math.div($font-size, 16px) * 1rem;
 }
 
-@mixin get-family($map, $key: 'global') {
+@mixin get-family($map, $key: 'global', $prefix: '') {
     $_family: map.get($map, 'family');
     $_type: map.get($map, 'type');
-    font-family: key.create('#{$key}-family', quote($_family), $_type);
+    font-family: key.create('#{$key}-family', (quote($_family), $_type), $prefix: $prefix);
 }
 
-@mixin get-weight($map, $key: 'global') {
+@mixin get-weight($map, $key: 'global', $prefix: '') {
     $_weight: map.get($map, 'weight');
-    font-weight: key.create('#{$key}-weight', $_weight);
+    font-weight: key.create('#{$key}-weight', $_weight, $prefix: $prefix);
 }

@@ -25,7 +25,7 @@
 @use 'sass:color';
 @use 'sass:math';
 
-@use '../Theme/theme-key-generators' as key;
+@use '../Theme/theme-keys' as key;
 
 @use 'color-validators' as validator;
 @use 'color-math' as color-math;

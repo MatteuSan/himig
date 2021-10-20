@@ -38,20 +38,20 @@
     $typography-theme: (),
     $settings: ()
 ) {
-
+    
     $_merged-settings: map.merge(theme.$init-settings, $settings);
-
+    
     $_color-theme: map.merge(theme.$init-color-theme, $color-theme);
     $_shape-theme: map.merge(theme.$init-shape-theme, $shape-theme);
     $_typography-theme: map.merge(theme.$init-typography-theme, $typography-theme);
-
+    
     $_breakpoint: map.get($_merged-settings, 'breakpoint');
-
+    
     $_scope-exceptions: (
         'text',
         'outlined'
     );
-
+    
     @include base.base($_breakpoint) {
         @content;
         @include Color.apply('navbar', $_color-theme, 'filled-unelevated', 'default', (
@@ -61,22 +61,23 @@
         @include Shape.apply('navbar', $_shape-theme);
         @include Typography.apply('navbar', $_typography-theme);
         @include Elevation.apply(5, $color: Color.get-color_($_color-theme, 'fill', 'elevation'));
-
+        
         @include SCNavItem.base($_breakpoint) {
             @include Color.apply('navbar', $_color-theme, 'filled-unelevated', 'default', (
                 opt: 'no-elevation',
                 exceptions: $_scope-exceptions
             ));
-
+            
             &:hover {
                 @include Color.apply('navbar', $_color-theme, 'filled-unelevated', 'hover', (
                     opt: 'no-elevation',
                     exceptions: $_scope-exceptions
                 ));
             }
-
+            
             @include Shape.apply('navbar-item', ('shape': rounded, 'radius': 0.5rem));
         }
-    };
+    }
+;
 
 }

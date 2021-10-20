@@ -20,7 +20,6 @@
 //  SOFTWARE.
 //
 
-@forward 'color-validators';
 @forward 'color-getters';
-@forward 'color-setters' show apply;
 @forward 'color-parsers';
+@forward 'color-setters' show apply, $prefix;

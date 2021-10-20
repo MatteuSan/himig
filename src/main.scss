@@ -34,10 +34,10 @@
 @use 'SCTextField';
 
 :root {
-		@include Theme.config(
-				#12305e,
-				#ffaf00
-		);
+	@include Theme.config(
+		$primary: #12305e,
+		$secondary: #ffaf00
+	);
 }
 
 @include SCAlert.render();
@@ -45,7 +45,7 @@
 @include SCButton.render();
 @include SCCard.render();
 @include SCDrawer.render();
-@include SCHeader.render();
+@include SCHeader.render($settings: ('is-scrollable': true));
 @include SCNavbar.render();
 @include SCProfile.render();
 @include SCSnackbar.render();

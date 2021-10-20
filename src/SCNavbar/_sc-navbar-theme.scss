@@ -24,8 +24,8 @@
 
 $init-color-theme: (
     'default': (var(--sc-theme--primary), var(--sc-theme--on-primary)),
-		'hover': (var(--sc-theme--primary-light), var(--sc-theme--on-primary)),
-    'elevation': #000,
+    'hover': (var(--sc-theme--primary-light), var(--sc-theme--on-primary)),
+    'elevation': #000000,
 );
 
 $init-shape-theme: (

@@ -24,9 +24,10 @@
 @use '../SCCore/Typography';
 
 @mixin base() {
-
-    .sc-js-drawer__trigger {}
-
+    
+    .sc-js-drawer__trigger {
+    }
+    
     .sc-drawer__overlay {
         display: block;
         position: fixed;
@@ -39,7 +40,7 @@
         background-color: rgb(0, 0, 0);
         background-color: rgba(0, 0, 0, 0.4);
     }
-
+    
     .sc-drawer {
         width: 0;
         max-width: 320px;
@@ -47,23 +48,23 @@
         height: calc(100% - 47px);
         position: fixed;
         bottom: 0;
-        right: 0!important;
+        right: 0 !important;
         z-index: 100;
         overflow-y: auto;
         overflow-x: hidden;
-
+        
         @include Tools.prefix(transition, all 0.1s ease-in-out);
-
+        
         @content;
-
+        
         &.visible {
             width: 100% !important;
         }
-
+        
         * {
             color: inherit;
         }
-
+        
         .sc-drawer__item {
             width: 100%;
             justify-content: flex-start;
@@ -71,40 +72,40 @@
             font-weight: normal !important;
             font-size: Typography.px-to-rem(14px);
         }
-
+        
         .sc-drawer__divider {
             margin: 17px 0 7px 0;
             text-align: center;
-            font-weight: 700!important;
+            font-weight: 700 !important;
         }
-
+        
         .sc-drawer__socials {
             display: flex;
             justify-content: space-around;
             width: 210px;
             margin: 0 auto;
-
+            
             i {
                 font-size: Typography.px-to-rem(24px) !important;
-
+                
                 @include Tools.prefix(transition, all 0.1s ease);
-
+                
                 &:hover {
                     opacity: 0.7;
                     cursor: pointer;
                 }
             }
         }
-
+        
         .sc-drawer__language__wrapper {
             text-align: center;
-
+            
             .sc-drawer__language__spacer {
                 display: inline-block;
                 margin: 0 1px;
             }
         }
-
+        
         .sc-drawer__language--active {
             p {
                 font-weight: 700;

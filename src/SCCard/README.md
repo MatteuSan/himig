@@ -1,5 +1,5 @@
-# SCButton component
-- This is the SCButton component usage instructions.
+# SCCard component
+- This is the SCCard component usage instructions.
 ## Installation instructions
 >🛈 Both these commands installs everything in the stack library.
 ```shell
@@ -16,7 +16,7 @@ yarn add @growstocks/stack
 ```
 ```css
 /* You can also import individual components in your css files */
-@import 'https://unpkg.com/@growstocks/stack@latest/SCButton/main.css';
+@import 'https://unpkg.com/@growstocks/stack@latest/SCCard/main.css';
 ```
 ## HTML Usage
 ```html

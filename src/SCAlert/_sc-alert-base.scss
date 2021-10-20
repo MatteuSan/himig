@@ -25,26 +25,26 @@
 
 
 @mixin base() {
-		.sc-alert {
-				width: 100%;
-				padding: 0.3rem 0.5rem;
-				display: grid;
-				grid-gap: 0.5rem;
-				grid-template-columns: 18px auto;
-				align-items: center;
-
-				@content;
-
-				.sc-alert__icon {
-						display: inline-block;
-						font-size: Theme.key-create('alert-icon-size', Typography.px-to-rem(20px));
-						color: Theme.key-create('alert-icon-ink', inherit);
-				}
-
-				.sc-alert__text {
-						display: inline-block;
-						font-size: Theme.key-create('alert-text-size', inherit);
-						color: Theme.key-create('alert-text-ink', inherit);
-				}
-		}
+    .sc-alert {
+        width: 100%;
+        padding: 0.3rem 0.5rem;
+        display: grid;
+        grid-gap: 0.5rem;
+        grid-template-columns: 18px auto;
+        align-items: center;
+        
+        @content;
+        
+        .sc-alert__icon {
+            display: inline-block;
+            font-size: Theme.key-create('alert-icon-size', Typography.px-to-rem(20px));
+            color: Theme.key-create('alert-icon-ink', inherit);
+        }
+        
+        .sc-alert__text {
+            display: inline-block;
+            font-size: Theme.key-create('alert-text-size', inherit);
+            color: Theme.key-create('alert-text-ink', inherit);
+        }
+    }
 }

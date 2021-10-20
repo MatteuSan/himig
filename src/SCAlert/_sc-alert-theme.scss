@@ -23,37 +23,37 @@
 @use '../SCCore/Theme';
 
 $init-color-theme: (
-		'default': (Theme.key-create('alert-fill', var(--sc-theme--primary-light)), Theme.key-create('alert-ink', var(--sc-theme--on-primary))),
-		'elevation': #000000
+    'default': (Theme.key-create('alert-fill', var(--sc-theme--primary-light)), Theme.key-create('alert-ink', var(--sc-theme--on-primary))),
+    'elevation': #000000
 );
 
 $success-theme: (
-		'default': (var(--sc-theme--success), #ffffff),
-		'elevation': #000000
+    'default': (var(--sc-theme--success), #ffffff),
+    'elevation': #000000
 );
 
 $warning-theme: (
-		'default': (var(--sc-theme--warning), #000000),
-		'elevation': #000000
+    'default': (var(--sc-theme--warning), #000000),
+    'elevation': #000000
 );
 
 $error-theme: (
-		'default': (var(--sc-theme--error), #ffffff),
-		'elevation': #000000
+    'default': (var(--sc-theme--error), #ffffff),
+    'elevation': #000000
 );
 
 $init-shape-theme: (
-		'shape': default,
-		'radius': Theme.key-create('alert-radius', var(--sc-theme--small-radius)),
-		'exceptions': ()
+    'shape': default,
+    'radius': Theme.key-create('alert-radius', var(--sc-theme--small-radius)),
+    'exceptions': ()
 );
 
 $init-typography-theme: (
-		'size': 14px
+    'size': 14px
 );
 
 $init-settings: (
-		'type': (
-				default
-		)
+    'type': (
+        default
+    )
 );

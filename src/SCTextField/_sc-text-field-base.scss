@@ -31,92 +31,92 @@
         margin: 0;
         cursor: text;
         width: 100%;
-
+        
         .sc-text-field__label {
             width: max-content;
             font-size: 14px;
             padding: 0 0.7rem;
-
+            
             position: absolute;
             top: 0.975rem;
             left: 0;
-
+            
             user-select: none;
-
+            
             color: Theme.key-create('text-field-ink', #232323);
             cursor: text;
-
+            
             @include Tools.prefix(transition, all 70ms ease);
         }
-
+        
         .sc-text-field__input {
             width: 100%;
-
+            
             @include Tools.prefix(transition, all 0.1s ease);
-
+            
             border-width: 2px !important;
             padding: 1.4rem 0.5rem 0.3rem 0.5rem;
             font-size: Theme.key-create('text-field-text-size', Typography.px-to-rem(15px));
             resize: none;
             border-bottom: 2px solid Theme.key-create('text-field-border-fill', var(--sc-theme--primary-light)) !important;
-
+            
             @content;
-
+            
             &:hover {
                 cursor: text;
             }
-
+            
             &::placeholder {
                 color: rgba(0 0 0 / 0) !important;
                 user-select: none !important;
             }
-
+            
             &:focus {
                 outline: none;
                 border-color: Theme.key-create('text-field-border-fill', var(--sc-theme--primary-light)) !important;
             }
-
+            
             &:focus-within,
             &:not(:placeholder-shown) {
                 padding: 1.4rem 0.6rem 0.3rem 0.6rem;
-
+                
                 & + .sc-text-field__label {
                     width: auto;
                     margin: 0 0 0 0.3rem;
                     padding: 0 0.4rem;
-
+                    
                     top: 0.4rem;
-
+                    
                     font-size: Typography.px-to-rem(11px);
-
+                    
                     pointer-events: none;
                 }
             }
         }
-
+        
         .sc-text-field__helper {
             color: Theme.key-create('text-field-helper-ink', var(--sc-theme--on-surface));
             font-size: Theme.key-create('text-field-helper-size', Typography.px-to-rem(12px));
             margin-top: 7px;
         }
-
+        
         &.sc-text-field--error {
             @include Tools.prefix(transition, all 0.1s ease);
-
+            
             > * {
                 border-bottom: 2px solid var(--sc-theme--error) !important;
                 color: var(--sc-theme--error);
-
+                
                 &:focus {
                     border-color: var(--sc-theme--error) !important;
                 }
             }
-
+            
             > .sc-text-field__label {
                 --sc-theme--placeholder: #e2e2e2 !important;
-                border-bottom: none!important;
+                border-bottom: none !important;
             }
-
+            
             > .sc-text-field__helper {
                 color: var(--sc-theme--error);
                 border-bottom: none !important;

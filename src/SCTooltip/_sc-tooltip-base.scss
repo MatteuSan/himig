@@ -32,7 +32,7 @@
 ) {
     &[data-tooltip] {
         position: relative;
-
+        
         &::after {
             content: attr(data-tooltip);
             display: block;
@@ -47,11 +47,11 @@
             pointer-events: none;
             text-align: center;
             white-space: nowrap;
-
+            
             @include Tools.prefix(transition, all 200ms ease-in-out);
-
+            
             @content;
-
+            
             @if $is-mobile-visible == false {
                 @media (max-width: Theme.get-breakpoint($breakpoint)) {
                     display: none !important;
@@ -59,7 +59,7 @@
                 }
             }
         }
-
+        
         &:hover::after {
             opacity: 1;
         }

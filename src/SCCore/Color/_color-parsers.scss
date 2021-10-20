@@ -23,71 +23,79 @@
 @use 'sass:map';
 @use 'sass:list';
 @use 'sass:meta';
+@use 'sass:color';
 
 @use '../Feature';
 
 @use 'color-validators' as validator;
 @use 'color-getters' as getter;
-@use 'color-setters' as setter;
 
 @function split($color) {
-
-		@return (
-				// 'lighter': setter.set-tint($color, 65%),
-				'light': setter.set-tint($color, 32%),
-				'default': $color,
-				'dark': setter.set-shade($color, 47%),
-				// 'darker': setter.set-shade($color, 65%)
-		);
-
+    
+    @return (
+        // 'lighter': setter.set-tint($color, 65%),
+        'light': tint($color, 32%),
+        'default': $color,
+        'dark': shade($color, 47%),
+        // 'darker': setter.set-shade($color, 65%)
+    );
+    
 }
 
 @function fill-missing($properties, $colors) {
-
+    
     @if Feature.validate-data-type('map', $colors) {
-
+        
         @if not Feature.has-property($colors, 'default') {
-
+            
             @error 'Missing crucial property "default". Please provide the "default" property and its value before overriding the other values';
-
+            
         }
-
+        
         @if not Feature.has-item($properties, 'light') and Feature.has-item($properties, 'dark') {
-
+            
             $_split-light: lighten(desaturate(map.get($colors, 'default'), 30%), 20%);
-
+            
             $_split-map: (
                 'light': $_split-light,
                 'default': map.get($colors, 'default'),
                 'dark': map.get($colors, 'dark')
             );
-
+            
             @return $_split-map;
-
+            
         } @else if not Feature.has-item($properties, 'dark') and Feature.has-item($properties, 'light') {
-
+            
             $_split-dark: darken(map.get($colors, 'default'), 12.5%);
-
+            
             $_split-map: (
                 'light': map.get($colors, 'light'),
                 'default': map.get($colors, 'default'),
                 'dark': $_split-dark
             );
-
+            
             @return $_split-map;
-
+            
         } @else if not Feature.has-item($properties, 'dark') and not Feature.has-item($properties, 'light') {
-
+            
             @return split(map.get($colors, 'default'));
-
+            
         } @else {
-
+            
             @return $colors;
-
+            
         }
-
+        
     }
-
+    
     @return $colors;
+    
+}
 
+@function tint($color, $percent) {
+    @return color.adjust(color.mix(#fff, $color, $percent), $saturation: 11%);
+}
+
+@function shade($color, $percent) {
+    @return color.adjust(color.mix(#000, $color, $percent), $saturation: 11%);
 }

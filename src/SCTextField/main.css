@@ -47,9 +47,9 @@
   font-size: var(--sc-text-field-text-size, 0.9375rem);
   resize: none;
   border-bottom: 2px solid var(--sc-text-field-border-fill, var(--sc-theme--primary-light)) !important;
-  color: var(--sc-text-field-ink, #000);
-  border: 1px solid var(--sc-text-field-fill, #a4b2c3);
-  background: var(--sc-text-field-fill, #a4b2c3);
+  color: var(--sc-text-field-ink, #000000);
+  border: 1px solid var(--sc-text-field-fill, #cecece);
+  background: var(--sc-text-field-fill, #cecece);
   border-radius: var(--sc-text-field-radius, var(--sc-theme--small-radius));
   font-size: var(--sc-text-field-text-size, 0.875rem);
 }

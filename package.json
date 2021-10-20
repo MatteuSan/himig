@@ -1,13 +1,13 @@
 {
   "name": "stack",
-  "version": "3.0.0-beta.2",
+  "version": "3.0.0",
   "description": "The web implementation of GrowStocks' design system. Made with SCSS, Typescript, and ❤.",
   "main": "index.js",
   "directories": {
     "doc": "docs"
   },
   "dependencies": {
-    "@growstocks/stack": "^3.0.0-beta.2"
+    "@growstocks/stack": "^3.0.0"
   },
   "devDependencies": {
     "cssnano": "^5.0.8",

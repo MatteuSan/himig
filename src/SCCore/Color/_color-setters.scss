@@ -23,7 +23,6 @@
 @use 'sass:map';
 @use 'sass:list';
 @use 'sass:meta';
-@use 'sass:color';
 
 @use '../Feature';
 @use '../Elevation';
@@ -133,12 +132,4 @@ $prefix: 'sc' !default;
             }
         }
     }
-}
-
-@function set-tint($color, $percent) {
-    @return color.adjust(color.mix(#fff, $color, $percent), $saturation: 11%);
-}
-
-@function set-shade($color, $percent) {
-    @return color.adjust(color.mix(#000, $color, $percent), $saturation: 11%);
 }

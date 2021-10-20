@@ -23,26 +23,26 @@
 @use '../SCCore/Color';
 
 @mixin sc-button-outlined_($color-theme) {
-		&.sc-button--outlined {
-				@include Color.apply('button', $color-theme, 'outlined', 'default');
-
-				&:hover {
-						@include Color.apply('button', $color-theme, 'outlined', 'hover');
-						cursor: pointer;
-				}
-
-				&:focus {
-						@include Color.apply('button', $color-theme, 'outlined', 'focus');
-				}
-
-				&:active {
-						@include Color.apply('button', $color-theme, 'outlined', 'active');
-				}
-
-				&:disabled {
-						@include Color.apply('button', $color-theme, 'outlined', 'disabled');
-						cursor: pointer;
-						pointer-events: none;
-				}
-		}
+    &.sc-button--outlined {
+        @include Color.apply('button', $color-theme, 'outlined', 'default');
+        
+        &:hover {
+            @include Color.apply('button', $color-theme, 'outlined', 'hover');
+            cursor: pointer;
+        }
+        
+        &:focus {
+            @include Color.apply('button', $color-theme, 'outlined', 'focus');
+        }
+        
+        &:active {
+            @include Color.apply('button', $color-theme, 'outlined', 'active');
+        }
+        
+        &:disabled {
+            @include Color.apply('button', $color-theme, 'outlined', 'disabled');
+            cursor: pointer;
+            pointer-events: none;
+        }
+    }
 }

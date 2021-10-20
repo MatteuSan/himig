@@ -25,9 +25,9 @@
 @use 'sass:meta';
 @use 'sass:math';
 
-@use '../Color';
+@use '../Color/color-parsers';
+@use '../Color/color-getters';
 @use '../Shape';
-@use '../Typography';
 @use '../Feature';
 
 @use 'theme-getters' as getter;
@@ -48,29 +48,15 @@ $_radius-theme: (
 ) !default;
 
 @mixin config(
-    $primary-color: #363636,
-    $secondary-color: Color.get-complement_($primary-color),
-    $radius-settings: $_radius-theme,
+    $primary: #363636,
+    $secondary: color-getters.get-complement_($primary),
+    $radius: $_radius-theme,
     $args...
 ) {
 
-    @if meta.type-of($primary-color) != map {
+    @if meta.type-of($primary) != map {
 
-        $_color-map: Color.split($primary-color);
-
-        @each $property, $value in $_color-map {
-            @if $property == 'default' {
-                --#{$prefix}-theme--primary: #{$value};
-            } @else {
-                --#{$prefix}-theme--primary-#{$property}: #{$value};
-            }
-        }
-
-    } @else if validator.is-variant_($primary-color) {
-
-        $_properties: getter.get-variants_($primary-color);
-
-        $_color-map: Color.fill-missing($_properties, $primary-color);
+        $_color-map: color-parsers.split($primary);
 
         @each $property, $value in $_color-map {
             @if $property == 'default' {
@@ -80,11 +66,25 @@ $_radius-theme: (
             }
         }
 
+    } @else if validator.is-variant_($primary) {
+
+        $_properties: getter.get-variants_($primary);
+
+        $_color-map: color-parsers.fill-missing($_properties, $primary);
+
+        @each $property, $value in $_color-map {
+            @if $property == 'default' {
+                --#{$prefix}-theme--primary: #{$value};
+            } @else {
+                --#{$prefix}-theme--primary-#{$property}: #{$value};
+            }
+        }
+
     }
 
-    @if meta.type-of($secondary-color) != map {
+    @if meta.type-of($secondary) != map {
 
-        $_color-map: Color.split($secondary-color);
+        $_color-map: color-parsers.split($secondary);
 
         @each $property, $value in $_color-map {
             @if $property == 'default' {
@@ -94,11 +94,11 @@ $_radius-theme: (
             }
         }
 
-    } @else if validator.is-variant_($secondary-color) {
+    } @else if validator.is-variant_($secondary) {
 
-        $_properties: getter.get-variants_($secondary-color);
+        $_properties: getter.get-variants_($secondary);
 
-        $_color-map: Color.fill-missing($_properties, $secondary-color);
+        $_color-map: color-parsers.fill-missing($_properties, $secondary);
 
         @each $property, $value in $_color-map {
             @if $property == 'default' {
@@ -110,24 +110,24 @@ $_radius-theme: (
 
     }
 
-    @if meta.type-of($primary-color) == map {
-        @if Feature.has-property($primary-color, 'ink') {
-            --#{$prefix}-theme--on-primary: #{map.get($primary-color, 'ink')};
+    @if meta.type-of($primary) == map {
+        @if Feature.has-property($primary, 'ink') {
+            --#{$prefix}-theme--on-primary: #{map.get($primary, 'ink')};
         } @else {
-            --#{$prefix}-theme--on-primary: #{Color.get-ink_($primary-color)};
+            --#{$prefix}-theme--on-primary: #{color-getters.get-ink_($primary)};
         }
     } @else {
-        --#{$prefix}-theme--on-primary: #{Color.get-ink_(Color.split($primary-color))};
+        --#{$prefix}-theme--on-primary: #{color-getters.get-ink_(color-parsers.split($primary))};
     }
 
-    @if meta.type-of($secondary-color) == map {
-        @if Feature.has-property($secondary-color, 'ink') {
-            --#{$prefix}-theme--on-secondary: #{map.get($secondary-color, 'ink')};
+    @if meta.type-of($secondary) == map {
+        @if Feature.has-property($secondary, 'ink') {
+            --#{$prefix}-theme--on-secondary: #{map.get($secondary, 'ink')};
         } @else {
-            --#{$prefix}-theme--on-secondary: #{Color.get-ink_($secondary-color)};
+            --#{$prefix}-theme--on-secondary: #{color-getters.get-ink_($secondary)};
         }
     } @else {
-        --#{$prefix}-theme--on-secondary: #{Color.get-ink_(Color.split($secondary-color))};
+        --#{$prefix}-theme--on-secondary: #{color-getters.get-ink_(color-parsers.split($secondary))};
     }
 
     @each $property, $value in $_state-map {
@@ -138,12 +138,10 @@ $_radius-theme: (
         --#{$prefix}-theme--on-#{$property}: #{list.nth($value, 2)};
     }
 
-    @each $property, $value in $radius-settings {
+    @each $property, $value in $radius {
         --#{$prefix}-theme--#{$property}-radius: #{$value};
     }
-
-
-
+    
     /* ===== */
     @each $property, $value in meta.keywords($args) {
         --#{$prefix}-theme--#{$property}: #{$value};

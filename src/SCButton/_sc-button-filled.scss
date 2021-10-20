@@ -23,52 +23,52 @@
 @use '../SCCore/Color';
 
 @mixin sc-button-filled_($color-theme, $is-elevated: false) {
-		&.sc-button--filled {
-				@include Color.apply('button', $color-theme, 'filled-unelevated', 'default');
-
-				&:hover {
-						@include Color.apply('button', $color-theme, 'filled-unelevated', 'hover');
-						cursor: pointer;
-				}
-
-				&:focus {
-						@include Color.apply('button', $color-theme, 'filled-unelevated', 'focus');
-				}
-
-				&:active {
-						@include Color.apply('button', $color-theme, 'filled-unelevated', 'active');
-				}
-
-				&:disabled {
-						@include Color.apply('button', $color-theme, 'filled-unelevated', 'disabled');
-						cursor: pointer;
-						pointer-events: none;
-				}
-
-				@if $is-elevated == true {
-						&--elevated {
-								@include Color.apply('button', $color-theme, 'filled', 'default');
-
-								&:hover {
-										@include Color.apply('button', $color-theme, 'filled', 'hover');
-										cursor: pointer;
-								}
-
-								&:focus {
-										@include Color.apply('button', $color-theme, 'filled', 'focus');
-								}
-
-								&:active {
-										@include Color.apply('button', $color-theme, 'filled', 'active');
-								}
-
-								&:disabled {
-										@include Color.apply('button', $color-theme, 'filled', 'disabled');
-										cursor: pointer;
-										pointer-events: none;
-								}
-						}
-				}
-		}
+    &.sc-button--filled {
+        @include Color.apply('button', $color-theme, 'filled-unelevated', 'default');
+        
+        &:hover {
+            @include Color.apply('button', $color-theme, 'filled-unelevated', 'hover');
+            cursor: pointer;
+        }
+        
+        &:focus {
+            @include Color.apply('button', $color-theme, 'filled-unelevated', 'focus');
+        }
+        
+        &:active {
+            @include Color.apply('button', $color-theme, 'filled-unelevated', 'active');
+        }
+        
+        &:disabled {
+            @include Color.apply('button', $color-theme, 'filled-unelevated', 'disabled');
+            cursor: pointer;
+            pointer-events: none;
+        }
+        
+        @if $is-elevated == true {
+            &--elevated {
+                @include Color.apply('button', $color-theme, 'filled', 'default');
+                
+                &:hover {
+                    @include Color.apply('button', $color-theme, 'filled', 'hover');
+                    cursor: pointer;
+                }
+                
+                &:focus {
+                    @include Color.apply('button', $color-theme, 'filled', 'focus');
+                }
+                
+                &:active {
+                    @include Color.apply('button', $color-theme, 'filled', 'active');
+                }
+                
+                &:disabled {
+                    @include Color.apply('button', $color-theme, 'filled', 'disabled');
+                    cursor: pointer;
+                    pointer-events: none;
+                }
+            }
+        }
+    }
 }
 

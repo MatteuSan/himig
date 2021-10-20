@@ -27,27 +27,28 @@
 @use 'SCNavItem';
 
 @mixin base($breakpoint: 'medium') {
-
+    
     .sc-js-navbar__trigger {
         width: 100%;
         display: grid;
         place-items: center;
         padding: 0 0.7rem;
         margin-bottom: 3px;
-
+        
         border: none;
         background: rgba(0 0 0 / 0);
-
+        
         > * {
             font-size: Theme.key-create('navbar-trigger-icon-size', 24px);
         }
-
+        
         @media (min-width: 570px) {
             display: none;
         }
     }
-
+    
     .sc-navbar {
+        border: none;
         width: 270px;
         height: 100%;
         display: none;
@@ -56,20 +57,21 @@
         top: 52px;
         padding: 1.2rem 1.7rem 1.2rem 1.2rem;
         z-index: 100;
-
+        
         @include Tools.prefix(transition, all 0.1s ease);
         @include Elevation.apply(5);
-
+        
         @content;
-
+        
         &.visible {
             display: block;
             transition: all 0.1s ease;
         }
-
+        
         @include SCNavItem.base($breakpoint);
-
+        
         @media (min-width: Theme.get-breakpoint($breakpoint)) {
+            width: 100%;
             display: flex;
             align-items: center;
             position: relative;
@@ -79,7 +81,7 @@
             background: rgba(0 0 0 / 0);
             @include Elevation.apply(0);
         }
-
+        
         .sc-navbar__container {
             @media (min-width: Theme.get-breakpoint($breakpoint)) {
                 width: 100%;

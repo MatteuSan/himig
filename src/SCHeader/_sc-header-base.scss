@@ -41,15 +41,22 @@
             justify-content: space-between !important;
             align-items: center !important;
             position: relative;
+            font-size: inherit;
+            padding: 0.3rem 0;
 
             @media (min-width: Theme.get-breakpoint($breakpoint)) {
                 width: calc(100% - 34px);
                 // max-width: 1077px;
                 margin: 0 auto;
             }
+    
+            @media (max-width: Theme.get-breakpoint($breakpoint) - 1) {
+                padding: 0.3rem 0;
+            }
 
             .sc-header__text {
                 padding: 0.3rem 0.7rem;
+                font-size: inherit;
                 @include Tools.prefix(transition, all 0.1s ease);
 
                 & > * {

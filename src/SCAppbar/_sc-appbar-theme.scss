@@ -23,23 +23,23 @@
 @use '../SCCore/Theme';
 
 $init-color-theme: (
-  'default': (var(--sc-theme--primary), var(--sc-theme--on-primary)),
-  'elevation': #000,
+    'default': (var(--sc-theme--primary), var(--sc-theme--on-primary)),
+    'elevation': #000000,
 );
 
 $init-shape-theme: (
-  'shape': block,
-  'radius': Theme.key-create('appbar-radius', var(--sc-theme--small-radius) var(--sc-theme--small-radius) 0 0),
-  'exceptions': (
-    pill
-  )
+    'shape': block,
+    'radius': Theme.key-create('appbar-radius', var(--sc-theme--small-radius) var(--sc-theme--small-radius) 0 0),
+    'exceptions': (
+        pill
+    )
 );
 
 $init-typography-theme: (
-  'size': 12px
+    'size': 12px
 );
 
 $init-settings: (
-  'items': 4,
-  'breakpoint': medium
+    'items': 4,
+    'breakpoint': medium
 );

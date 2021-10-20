@@ -1,6 +1,6 @@
 {
   "name": "@growstocks/scaffold",
-  "version": "3.0.0-beta.4",
+  "version": "3.0.1",
   "description": "The core library of GrowStocks' stack library",
   "main": "index.js",
   "scripts": {

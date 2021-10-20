@@ -25,9 +25,9 @@
 @use 'SCAppbarItem';
 
 @mixin base($nav-contents: 4, $breakpoint: 'medium') {
-
+    
     $_container-width: (42px * $nav-contents) + (8px * $nav-contents);
-
+    
     .sc-appbar {
         width: 100%;
         position: fixed;
@@ -35,9 +35,9 @@
         bottom: 0;
         left: 0;
         z-index: 100;
-
+        
         @content;
-
+        
         @media (min-width: Theme.get-breakpoint($breakpoint)) {
             width: max-content;
             bottom: inherit;
@@ -48,11 +48,11 @@
             border-color: rgba(0 0 0 / 0%) !important;
             box-shadow: none !important;
             height: 100%;
-
+            
             display: flex;
             justify-content: flex-end;
         }
-
+        
         .sc-appbar__container {
             display: grid;
             grid-column: 1/-1;
@@ -62,15 +62,15 @@
             grid-gap: 0.5rem;
             text-align: center;
             height: max-content;
-
+            
             @media (min-width: Theme.get-breakpoint($breakpoint)) {
                 width: $_container-width;
                 padding: 0;
                 text-align: right;
             }
-
+            
             @include SCAppbarItem.base($breakpoint);
-
+            
         }
     }
 }

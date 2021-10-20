@@ -28,7 +28,7 @@
   bottom: 70px;
   right: 20px;
   border-left: none;
-  color: var(--sc-snackbar-ink, #fff);
+  color: var(--sc-snackbar-ink, #ffffff);
   border: 1px solid var(--sc-snackbar-fill, #232323);
   background: var(--sc-snackbar-fill, #232323);
   border-radius: var(--sc-snackbar-radius, var(--sc-theme--small-radius));

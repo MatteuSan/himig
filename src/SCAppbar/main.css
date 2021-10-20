@@ -124,7 +124,7 @@
   white-space: nowrap;
   -webkit-transition: all 200ms ease-in-out;
   transition: all 200ms ease-in-out;
-  color: var(--sc-tooltip-ink, #fff);
+  color: var(--sc-tooltip-ink, #ffffff);
   border: 1px solid var(--sc-tooltip-fill, #232323);
   background: var(--sc-tooltip-fill, #232323);
   border-radius: var(--sc-tooltip-radius, var(--sc-theme--small-radius));

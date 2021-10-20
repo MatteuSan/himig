@@ -26,113 +26,113 @@
 @use 'sass:meta';
 
 @use '../Feature';
-@use '../Theme/theme-key-generators' as key;
+@use '../Theme/theme-keys' as key;
 
 @use 'typography-validators' as validator;
 @use 'typography-defaults' as defaults;
 @use 'typography-getters' as getter;
 
 $_valid-typography-queries: (
-		'font-size',
-		'font-weight',
-		'letter-spacing',
-		'text-decoration',
-		'text-transform'
+    'font-size',
+    'font-weight',
+    'letter-spacing',
+    'text-decoration',
+    'text-transform'
 );
 
 $prefix: 'sc' !default;
 
 @mixin config(
-		$global: (),
-		$title: (
-				'family': map.get($global, 'family')
-		),
-		$subtitle: (
-				'family': map.get($global, 'family')
-		),
-		$body: (
-				'family': map.get($global, 'family')
-		)
+    $global: (),
+    $title: (
+        'family': map.get($global, 'family')
+    ),
+    $subtitle: (
+        'family': map.get($global, 'family')
+    ),
+    $body: (
+        'family': map.get($global, 'family')
+    )
 ) {
-
-		$_merged-global: map.merge(defaults.$init-global, $global);
-		$_merged-title: map.merge(defaults.$init-title, $title);
-		$_merged-subtitle: map.merge(defaults.$init-subtitle, $subtitle);
-		$_merged-body: map.merge(defaults.$init-body, $body);
-
-		* {
-				@include getter.get-family($_merged-global);
-				@include getter.get-weight($_merged-global);
-				color: inherit;
-
-				&::before,
-				&::after {
-						@include getter.get-family($_merged-global);
-						@include getter.get-weight($_merged-global);
-						color: inherit;
-				}
-		}
-
-		a {
-				text-decoration: none;
-				outline: none;
-		}
-
-		h1,
-		h2,
-		h3 {
-				@include getter.get-family($_merged-title, 'title');
-				@include getter.get-weight($_merged-title, 'title');
-		}
-
-		h4,
-		h5,
-		h6 {
-				@include getter.get-family($_merged-subtitle, 'subtitle');
-				@include getter.get-weight($_merged-subtitle, 'subtitle');
-		}
-
-		p {
-				@include getter.get-family($_merged-body, 'body');
-				@include getter.get-weight($_merged-body, 'body');
-		}
-
-		b {
-				font-weight: 700;
-				color: inherit;
-		}
-
-		html {
-				font-size: 100%;
-		}
+    
+    $_merged-global: map.merge(defaults.$init-global, $global);
+    $_merged-title: map.merge(defaults.$init-title, $title);
+    $_merged-subtitle: map.merge(defaults.$init-subtitle, $subtitle);
+    $_merged-body: map.merge(defaults.$init-body, $body);
+    
+    * {
+        @include getter.get-family($_merged-global);
+        @include getter.get-weight($_merged-global);
+        color: inherit;
+        
+        &::before,
+        &::after {
+            @include getter.get-family($_merged-global);
+            @include getter.get-weight($_merged-global);
+            color: inherit;
+        }
+    }
+    
+    a {
+        text-decoration: none;
+        outline: none;
+    }
+    
+    h1,
+    h2,
+    h3 {
+        @include getter.get-family($_merged-title, 'title', $prefix);
+        @include getter.get-weight($_merged-title, 'title', $prefix);
+    }
+    
+    h4,
+    h5,
+    h6 {
+        @include getter.get-family($_merged-subtitle, 'subtitle', $prefix);
+        @include getter.get-weight($_merged-subtitle, 'subtitle', $prefix);
+    }
+    
+    p {
+        @include getter.get-family($_merged-body, 'body', $prefix);
+        @include getter.get-weight($_merged-body, 'body', $prefix);
+    }
+    
+    b {
+        font-weight: 700;
+        color: inherit;
+    }
+    
+    html {
+        font-size: 100%;
+    }
 }
 
 @mixin apply($component-name, $typography-theme) {
-		$_valid-typography-theme: Feature.validate-data-type('map', $typography-theme);
-
-		@if $_valid-typography-theme {
-
-				@if Feature.has-property($typography-theme, 'size') {
-						font-size: key.create('#{$component-name}-text-size', getter.px-to-rem(map.get($typography-theme, 'size')), $prefix);
-				}
-
-				@if Feature.has-property($typography-theme, 'weight') {
-						font-weight: key.create('#{$component-name}-text-weight', map.get($typography-theme, 'weight'), $prefix);
-				}
-
-				@if Feature.has-property($typography-theme, 'spacing') {
-						$_letter-spacing: map.get($typography-theme, 'spacing');
-						letter-spacing: key.create('#{$component-name}-text-spacing', getter.get-letter-spacing($_letter-spacing), $prefix);
-				}
-
-				@if Feature.has-property($typography-theme, 'decoration') {
-						text-decoration: key.create('#{$component-name}-text-decoration', map.get($typography-theme, 'decoration'), $prefix);
-				}
-
-				@if Feature.has-property($typography-theme, 'transform') {
-						text-transform: key.create('#{$component-name}-text-transform', map.get($typography-theme, 'transform'), $prefix);
-				}
-
-		}
-
+    $_valid-typography-theme: Feature.validate-data-type('map', $typography-theme);
+    
+    @if $_valid-typography-theme {
+        
+        @if Feature.has-property($typography-theme, 'size') {
+            font-size: key.create('#{$component-name}-text-size', getter.px-to-rem(map.get($typography-theme, 'size')), $prefix);
+        }
+        
+        @if Feature.has-property($typography-theme, 'weight') {
+            font-weight: key.create('#{$component-name}-text-weight', map.get($typography-theme, 'weight'), $prefix);
+        }
+        
+        @if Feature.has-property($typography-theme, 'spacing') {
+            $_letter-spacing: map.get($typography-theme, 'spacing');
+            letter-spacing: key.create('#{$component-name}-text-spacing', getter.get-letter-spacing($_letter-spacing), $prefix);
+        }
+        
+        @if Feature.has-property($typography-theme, 'decoration') {
+            text-decoration: key.create('#{$component-name}-text-decoration', map.get($typography-theme, 'decoration'), $prefix);
+        }
+        
+        @if Feature.has-property($typography-theme, 'transform') {
+            text-transform: key.create('#{$component-name}-text-transform', map.get($typography-theme, 'transform'), $prefix);
+        }
+        
+    }
+    
 }
