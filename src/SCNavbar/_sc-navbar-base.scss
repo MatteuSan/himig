@@ -39,7 +39,7 @@
         background: rgba(0 0 0 / 0);
         
         > * {
-            font-size: Theme.key-create('navbar-trigger-icon-size', 24px);
+            font-size: Theme.key-create('navbar-trigger-icon-size', Tools.px-to-rem(24px));
         }
         
         @media (min-width: 570px) {

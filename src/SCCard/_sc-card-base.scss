@@ -67,7 +67,7 @@
                 h2,
                 h3 {
                     color: inherit;
-                    font-size: Theme.key-create('card-title-text-size', Typography.px-to-rem(20px));
+                    font-size: Theme.key-create('card-title-text-size', Tools.px-to-rem(20px));
                     line-height: 1.75rem;
                 }
                 
@@ -80,7 +80,7 @@
             }
             
             .sc-card__subtitle {
-                font-size: Theme.key-create('card-subtitle-text-size', Typography.px-to-rem(13px));
+                font-size: Theme.key-create('card-subtitle-text-size', Tools.px-to-rem(13px));
                 color: inherit;
                 word-break: break-word;
                 overflow: hidden;

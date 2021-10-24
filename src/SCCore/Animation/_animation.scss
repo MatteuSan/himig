@@ -26,6 +26,8 @@
 @use 'sass:map';
 @use 'sass:list';
 
+$prefix: 'sc' !default;
+
 $_valid-animations: (none, loading, scale, rotate, translate);
 $_valid-settings: (none, scaling, translate, rotation);
 

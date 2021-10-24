@@ -114,20 +114,20 @@ $_radius-theme: (
         @if Feature.has-property($primary, 'ink') {
             --#{$prefix}-theme--on-primary: #{map.get($primary, 'ink')};
         } @else {
-            --#{$prefix}-theme--on-primary: #{color-getters.get-ink_($primary)};
+            --#{$prefix}-theme--on-primary: #{color-getters.get-ink($primary)};
         }
     } @else {
-        --#{$prefix}-theme--on-primary: #{color-getters.get-ink_(color-parsers.split($primary))};
+        --#{$prefix}-theme--on-primary: #{color-getters.get-ink(color-parsers.split($primary))};
     }
 
     @if meta.type-of($secondary) == map {
         @if Feature.has-property($secondary, 'ink') {
             --#{$prefix}-theme--on-secondary: #{map.get($secondary, 'ink')};
         } @else {
-            --#{$prefix}-theme--on-secondary: #{color-getters.get-ink_($secondary)};
+            --#{$prefix}-theme--on-secondary: #{color-getters.get-ink($secondary)};
         }
     } @else {
-        --#{$prefix}-theme--on-secondary: #{color-getters.get-ink_(color-parsers.split($secondary))};
+        --#{$prefix}-theme--on-secondary: #{color-getters.get-ink(color-parsers.split($secondary))};
     }
 
     @each $property, $value in $_state-map {

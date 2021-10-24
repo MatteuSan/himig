@@ -29,7 +29,7 @@
   background: rgba(0, 0, 0, 0);
 }
 .sc-js-navbar__trigger > * {
-  font-size: var(--sc-navbar-trigger-icon-size, 24px);
+  font-size: var(--sc-navbar-trigger-icon-size, 1.5rem);
 }
 @media (min-width: 570px) {
   .sc-js-navbar__trigger {
@@ -68,7 +68,7 @@
   color: var(--sc-navbar-ink, var(--sc-theme--on-primary));
   border: 1px solid var(--sc-navbar-fill, var(--sc-theme--primary));
   background: var(--sc-navbar-fill, var(--sc-theme--primary));
-  border-radius: var(--sc-navbar-item-radius, 0.5rem);
+  border-radius: var(--sc-navbar-item-radius, 0.3rem);
 }
 .sc-navbar .sc-navbar__item:hover {
   color: var(--sc-navbar-ink--hover, var(--sc-theme--on-primary));

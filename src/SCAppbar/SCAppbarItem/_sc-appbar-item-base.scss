@@ -62,7 +62,7 @@
         }
 
         .sc-appbar__item__icon {
-            font-size: Theme.key-create('appbar-item-icon-size', Typography.px-to-rem(24px));
+            font-size: Theme.key-create('appbar-item-icon-size', Tools.px-to-rem(24px));
             color: inherit;
 
             @include Tools.prefix(transition, all 0.1s ease);
@@ -73,7 +73,7 @@
         }
 
         .sc-appbar__item__label {
-            font-size: Theme.key-create('appbar-item-text-size', Typography.px-to-rem(12px)) !important;
+            font-size: Theme.key-create('appbar-item-text-size', Tools.px-to-rem(12px)) !important;
             // margin-top: -3px;
             color: inherit !important;
 

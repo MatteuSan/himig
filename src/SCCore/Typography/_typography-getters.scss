@@ -24,9 +24,11 @@
 @use 'sass:map';
 
 @use '../Theme/theme-keys' as key;
+@use '../Tools';
 
+// To be depricated in v3.1.0!
 @function px-to-rem($px) {
-    @return (math.div($px, 16px) * 1rem);
+    @return Tools.px-to-rem($px);
 }
 
 @function get-letter-spacing($font-size) {

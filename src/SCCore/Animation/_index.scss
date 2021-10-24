@@ -20,4 +20,13 @@
 //  SOFTWARE.
 //
 
+// TODO: Update SCAnimation API! The API sucks right now, make it themeable!
+// Animation.apply(
+//    $component-name: $COMPONENT_NAME$
+//    $animation: (
+//        type: $TYPE$,
+//        settings: ($MODIFIERS_MAP$)
+//    ),
+// )
+
 @forward 'animation';

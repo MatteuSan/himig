@@ -28,18 +28,18 @@
 @use 'sc-alert-theme' as theme;
 
 @mixin sc-alert-filled_($color-theme, $scope-exceptions) {
-    @include Color.apply('alert', $color-theme, 'filled', 'default', (exceptions: $scope-exceptions));
+    @include Color.apply('alert', $color-theme, 'filled-raised', 'default', (exceptions: $scope-exceptions));
     @include Elevation.apply(3, $color: map.get($color-theme, 'elevation'));
     
     &.sc-alert--success {
-        @include Color.apply('alert', theme.$success-theme, 'filled', 'default');
+        @include Color.apply('alert', theme.$success-theme, 'filled-raised', 'default');
     }
     
     &.sc-alert--warning {
-        @include Color.apply('alert', theme.$warning-theme, 'filled', 'default');
+        @include Color.apply('alert', theme.$warning-theme, 'filled-raised', 'default');
     }
     
     &.sc-alert--error {
-        @include Color.apply('alert', theme.$error-theme, 'filled', 'default');
+        @include Color.apply('alert', theme.$error-theme, 'filled-raised', 'default');
     }
 }

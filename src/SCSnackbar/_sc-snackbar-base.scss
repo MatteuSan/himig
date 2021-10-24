@@ -21,7 +21,6 @@
 //
 
 @use '../SCCore/Tools';
-@use '../SCCore/Typography';
 @use '../SCCore/Theme';
 
 @mixin base($breakpoint: 'medium') {
@@ -54,7 +53,7 @@
             align-items: center;
             
             .sc-snackbar__label {
-                font-size: Theme.key-create('snackbar-type-size', Typography.px-to-rem(15px));
+                font-size: Theme.key-create('snackbar-type-size', Tools.px-to-rem(15px));
             }
             
             .sc-snackbar__action {

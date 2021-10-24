@@ -47,7 +47,7 @@
     
     @include base.base() {
         @content;
-        @include Color.apply('card', $_color-theme, 'filled', 'default', (
+        @include Color.apply('card', $_color-theme, 'filled-raised', 'default', (
             opt: 'no-elevation',
             exceptions: $_scope-exceptions
         ));

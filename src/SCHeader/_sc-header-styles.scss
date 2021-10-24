@@ -61,7 +61,7 @@
                 @include Elevation.apply(0, $color: Color.get-color_($_color-theme, 'fill', 'elevation'));
                 
                 &.scrolled {
-                    @include Color.apply('header', $_color-theme, 'filled-unelevated', 'default', (
+                    @include Color.apply('header', $_color-theme, 'filled', 'default', (
                         opt: 'no-elevation',
                         exceptions: $_scope-exceptions
                     ));
@@ -74,7 +74,7 @@
     } @else {
         @include base.base($_breakpoint) {
             @content;
-            @include Color.apply('header', $_color-theme, 'filled-unelevated', 'default', (
+            @include Color.apply('header', $_color-theme, 'filled', 'default', (
                 opt: 'no-elevation',
                 exceptions: $_scope-exceptions
             ));

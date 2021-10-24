@@ -42,6 +42,14 @@
     
 }
 
+@function tint($color, $percent) {
+    @return color.adjust(color.mix(#fff, $color, $percent), $saturation: 11%);
+}
+
+@function shade($color, $percent) {
+    @return color.adjust(color.mix(#000, $color, $percent), $saturation: 11%);
+}
+
 @function fill-missing($properties, $colors) {
     
     @if Feature.validate-data-type('map', $colors) {
@@ -90,12 +98,4 @@
     
     @return $colors;
     
-}
-
-@function tint($color, $percent) {
-    @return color.adjust(color.mix(#fff, $color, $percent), $saturation: 11%);
-}
-
-@function shade($color, $percent) {
-    @return color.adjust(color.mix(#000, $color, $percent), $saturation: 11%);
 }

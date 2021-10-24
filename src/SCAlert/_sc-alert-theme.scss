@@ -23,7 +23,7 @@
 @use '../SCCore/Theme';
 
 $init-color-theme: (
-    'default': (Theme.key-create('alert-fill', var(--sc-theme--primary-light)), Theme.key-create('alert-ink', var(--sc-theme--on-primary))),
+    'default': (var(--sc-theme--primary-light), var(--sc-theme--on-primary)),
     'elevation': #000000
 );
 
@@ -44,7 +44,7 @@ $error-theme: (
 
 $init-shape-theme: (
     'shape': default,
-    'radius': Theme.key-create('alert-radius', var(--sc-theme--small-radius)),
+    'radius': var(--sc-theme--small-radius),
     'exceptions': ()
 );
 

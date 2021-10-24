@@ -55,7 +55,7 @@
         $_breakpoint
     ) {
         @content;
-        @include Color.apply('appbar', $_color-theme, 'filled-unelevated', 'default', (
+        @include Color.apply('appbar', $_color-theme, 'filled', 'default', (
             opt: 'no-elevation',
             exceptions: $_scope-exceptions
         ));

@@ -21,7 +21,6 @@
 //
 
 @use '../SCCore/Tools';
-@use '../SCCore/Typography';
 
 @mixin base() {
     
@@ -70,7 +69,7 @@
             justify-content: flex-start;
             padding: 0.5rem 1rem;
             font-weight: normal !important;
-            font-size: Typography.px-to-rem(14px);
+            font-size: Tools.px-to-rem(14px);
         }
         
         .sc-drawer__divider {
@@ -86,7 +85,7 @@
             margin: 0 auto;
             
             i {
-                font-size: Typography.px-to-rem(24px) !important;
+                font-size: Tools.px-to-rem(24px) !important;
                 
                 @include Tools.prefix(transition, all 0.1s ease);
                 

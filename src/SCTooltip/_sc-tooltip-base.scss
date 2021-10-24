@@ -22,7 +22,6 @@
 
 @use '../SCCore/Feature';
 @use '../SCCore/Tools';
-@use '../SCCore/Typography';
 @use '../SCCore/Theme';
 
 @mixin base(
@@ -38,7 +37,7 @@
             display: block;
             position: absolute;
             padding: 0.5rem 0.6rem;
-            font-size: Typography.px-to-rem(12px);
+            font-size: Tools.px-to-rem(12px);
             bottom: $bottom-position;
             // margin-left: 50%;
             // transform: translateX(-50%);

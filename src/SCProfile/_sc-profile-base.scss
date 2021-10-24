@@ -20,7 +20,6 @@
 // SOFTWARE.
 //
 
-@use '../SCCore/Typography';
 @use '../SCCore/Theme';
 @use '../SCCore/Tools';
 
@@ -59,7 +58,7 @@
             color: inherit !important;
             
             h2 {
-                font-size: Typography.px-to-rem(18px);
+                font-size: Tools.px-to-rem(18px);
                 color: inherit !important;
             }
             

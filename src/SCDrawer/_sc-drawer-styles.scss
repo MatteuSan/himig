@@ -47,7 +47,7 @@
     
     @include base.base() {
         @content;
-        @include Color.apply('drawer', $_color-theme, 'filled-unelevated', 'default', (
+        @include Color.apply('drawer', $_color-theme, 'filled', 'default', (
             opt: 'no-elevation',
             exception: $_scope-exceptions
         ));

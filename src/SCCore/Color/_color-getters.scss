@@ -26,16 +26,11 @@
 @use 'sass:math';
 
 @use '../Theme/theme-keys' as key;
+@use '../Feature';
 
 @use 'color-validators' as validator;
 @use 'color-math' as color-math;
 
-@function get-scope_($scope) {
-    $valid: validator.is-scope_($scope);
-    @if $valid {
-        @return $scope;
-    }
-}
 
 @function get-color_(
     $color-map,
@@ -47,7 +42,7 @@
     $prefix: list.nth($settings, 2);
 
     @if validator.is-color-type_($query) {
-        @if validator.is-map_($color-map) {
+        @if Feature.validate-data-type('map', $color-map) {
             $_color-map: map.get($color-map, $query);
 
             @if ($query == 'default') {
@@ -85,37 +80,44 @@
 
 }
 
-@function get-linear_($color) {
-    @if $color <= 0.4045 {
-        @return math.div($color, 12.92);
-    } @else {
-        @return color-math.pow(math.div($color + 0.055, 1.055), 2.4);
+@function get-complement_($color) {
+    $_complement: saturate(lighten($color, 30%), 100%);
+    @return adjust-hue($_complement, 180deg);
+}
+
+@function get-scope_($scope) {
+    $valid: validator.is-scope_($scope);
+    @if $valid {
+        @return $scope;
     }
 }
 
-@function get-luminance_($color) {
-    $r: get-linear_(math.div(color.red($color), 255));
-    $g: get-linear_(math.div(color.green($color), 255));
-    $b: get-linear_(math.div(color.blue($color), 255));
+@function _get-linear($color) {
+    @if $color <= 0.4045 {
+        @return math.div($color, 12.92);
+    } @else {
+        @return math.pow(math.div($color + 0.055, 1.055), 2.4);
+    }
+}
+
+@function _get-luminance($color) {
+    $r: _get-linear(math.div(color.red($color), 255));
+    $g: _get-linear(math.div(color.green($color), 255));
+    $b: _get-linear(math.div(color.blue($color), 255));
 
     @return (0.2126 * $r) + (0.7152 * $g) + (0.0722 * $b);
 }
 
-$_white-lumen: get-luminance_(#ffffff);
+$_white-lumen: _get-luminance(#fff);
 
-@function get-ink_($fill) {
-    @if validator.is-map_($fill) {
-        @if abs(get-luminance_(map.get($fill, 'default')) - $_white-lumen) > 0.7 {
+@function get-ink($fill) {
+    @if Feature.validate-data-type('map', $fill) {
+        @if math.abs(_get-luminance(map.get($fill, 'default')) - $_white-lumen) > 0.7 {
             @return unquote('#fff');
         } @else {
             @return unquote('#000');
         }
     }
-}
-
-@function get-complement_($color) {
-    $_complement: saturate(lighten($color, 30%), 100%);
-    @return adjust-hue($_complement, 180deg);
 }
 
 @function get-rgb_($color) {

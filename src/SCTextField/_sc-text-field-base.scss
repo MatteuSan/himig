@@ -22,7 +22,6 @@
 
 @use '../SCCore/Theme';
 @use '../SCCore/Tools';
-@use '../SCCore/Typography';
 @use '../SCCore/Feature';
 
 @mixin base() {
@@ -56,7 +55,7 @@
             
             border-width: 2px !important;
             padding: 1.4rem 0.5rem 0.3rem 0.5rem;
-            font-size: Theme.key-create('text-field-text-size', Typography.px-to-rem(15px));
+            font-size: Theme.key-create('text-field-text-size', Tools.px-to-rem(15px));
             resize: none;
             border-bottom: 2px solid Theme.key-create('text-field-border-fill', var(--sc-theme--primary-light)) !important;
             
@@ -87,7 +86,7 @@
                     
                     top: 0.4rem;
                     
-                    font-size: Typography.px-to-rem(11px);
+                    font-size: Tools.px-to-rem(11px);
                     
                     pointer-events: none;
                 }
@@ -96,7 +95,7 @@
         
         .sc-text-field__helper {
             color: Theme.key-create('text-field-helper-ink', var(--sc-theme--on-surface));
-            font-size: Theme.key-create('text-field-helper-size', Typography.px-to-rem(12px));
+            font-size: Theme.key-create('text-field-helper-size', Tools.px-to-rem(12px));
             margin-top: 7px;
         }
         
