@@ -36,6 +36,12 @@ function sassTaskDev() {
         .pipe(dest('./src', {sourcemaps: '.'}));
 }
 
+function sassTaskDevTests() {
+    return src(['src/**/*.test.scss', '!src/.old/*.scss'], {sourcemaps: true})
+        .pipe(sass().on('error', sass.logError))
+        .pipe(dest('./src', {sourcemaps: '.'}));
+}
+
 function sassTaskProd() {
     return src('src/main.scss', {sourcemaps: true})
         .pipe(sass().on('error', sass.logError))
@@ -65,6 +71,7 @@ function watchTask() {
 
 exports.default = series(
     sassTaskDev,
+    // sassTaskDevTests,
     sassTaskTest,
     sassTaskProd,
     // tsTask, // tsTask() disabled on default until we find a fix for this [DEV]

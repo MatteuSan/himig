@@ -29,6 +29,9 @@
         width: 100%;
         height: auto;
         padding: 0.7rem;
+        box-sizing: border-box;
+        user-select: none;
+        cursor: pointer;
 
         @content;
 

@@ -26,6 +26,7 @@
   bottom: 0;
   left: 0;
   z-index: 100;
+  box-sizing: border-box;
   color: var(--sc-appbar-ink, var(--sc-theme--on-primary));
   border: 1px solid var(--sc-appbar-fill, var(--sc-theme--primary));
   background: var(--sc-appbar-fill, var(--sc-theme--primary));
@@ -50,6 +51,9 @@
     justify-content: flex-end;
   }
 }
+.sc-appbar * {
+  box-sizing: border-box;
+}
 .sc-appbar .sc-appbar__container {
   display: grid;
   grid-column: 1/-1;
@@ -68,14 +72,16 @@
   }
 }
 .sc-appbar .sc-appbar__container .sc-appbar__item {
-  margin: 0 auto;
-  cursor: pointer;
-  color: var(--sc-appbar-item-ink, inherit) !important;
+  height: 24px;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  height: 24px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  user-select: none;
+  cursor: pointer;
+  color: var(--sc-appbar-item-ink, inherit) !important;
 }
 .sc-appbar .sc-appbar__container .sc-appbar__item > a, .sc-appbar .sc-appbar__container .sc-appbar__item > p {
   display: block;
@@ -109,6 +115,7 @@
 }
 .sc-appbar .sc-appbar__container .sc-appbar__item[data-tooltip] {
   position: relative;
+  box-sizing: border-box;
 }
 .sc-appbar .sc-appbar__container .sc-appbar__item[data-tooltip]::after {
   content: attr(data-tooltip);
@@ -122,6 +129,7 @@
   pointer-events: none;
   text-align: center;
   white-space: nowrap;
+  box-sizing: border-box;
   -webkit-transition: all 200ms ease-in-out;
   transition: all 200ms ease-in-out;
   color: var(--sc-tooltip-ink, #ffffff);

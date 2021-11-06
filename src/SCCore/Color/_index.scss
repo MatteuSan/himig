@@ -22,4 +22,4 @@
 
 @forward 'color-getters' hide get-luminance, get-linear;
 @forward 'color-parsers';
-@forward 'color-setters' show apply, $prefix;
+@forward 'color-setters' show apply;

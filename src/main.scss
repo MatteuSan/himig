@@ -34,10 +34,10 @@
 @use 'SCTextField';
 
 :root {
-	@include Theme.config(
-		$primary: #12305e,
-		$secondary: #ffaf00
-	);
+    @include Theme.config(
+        $primary: #12305e,
+        $secondary: #ffaf00
+    );
 }
 
 @include SCAlert.render();

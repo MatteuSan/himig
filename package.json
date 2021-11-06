@@ -7,7 +7,9 @@
     "doc": "docs"
   },
   "dependencies": {
-    "@growstocks/stack": "^3.0.0"
+    "@growstocks/stack": "^3.0.0",
+    "@matteusan/sentro": "^0.1.6",
+    "sass-true": "^6.0.1"
   },
   "devDependencies": {
     "cssnano": "^5.0.8",
@@ -25,7 +27,7 @@
   "scripts": {
     "build": "gulp",
     "mix": "mix",
-    "mix:watch": "mix --watch"
+    "mix:watch": "mix watch"
   },
   "repository": {
     "type": "git",

@@ -11,9 +11,9 @@
   --sc-theme--error: #b00020;
   --sc-theme--warning: #ffa000;
   --sc-theme--success: #25a53f;
-  --sc-theme--on-error: #fff;
-  --sc-theme--on-warning: #000;
-  --sc-theme--on-success: #fff;
+  --sc-theme--on-error: #ffffff;
+  --sc-theme--on-warning: #000000;
+  --sc-theme--on-success: #ffffff;
   --sc-theme--small-radius: 0.3rem;
   --sc-theme--medium-radius: 0.5rem;
   --sc-theme--large-radius: 0.7rem;
@@ -34,9 +34,9 @@
   --sc-theme--error: #b00020;
   --sc-theme--warning: #ffa000;
   --sc-theme--success: #25a53f;
-  --sc-theme--on-error: #fff;
-  --sc-theme--on-warning: #000;
-  --sc-theme--on-success: #fff;
+  --sc-theme--on-error: #ffffff;
+  --sc-theme--on-warning: #000000;
+  --sc-theme--on-success: #ffffff;
   --sc-theme--small-radius: 0.3rem;
   --sc-theme--medium-radius: 0.5rem;
   --sc-theme--large-radius: 0.7rem;
@@ -45,12 +45,12 @@
   --sc-theme--on-surface: #ffffff;
 }
 
-* {
+*:not(code) {
   font-family: var(--global-family, Inter, sans-serif);
   font-weight: var(--global-weight, 400);
   color: inherit;
 }
-*::before, *::after {
+*:not(code)::before, *:not(code)::after {
   font-family: var(--global-family, Inter, sans-serif);
   font-weight: var(--global-weight, 400);
   color: inherit;
@@ -85,19 +85,53 @@ b {
   color: inherit;
 }
 
+code,
+.code {
+  font-family: "Source Code Pro", monospace;
+}
+
 html {
   font-size: 100%;
 }
 
+/*** The new CSS Reset - version 1.3.1 (last updated 28.10.2021) ***/
+*:where(:not(iframe, canvas, img, svg, video):not(svg *, symbol *)) {
+  all: unset;
+  display: revert;
+}
+
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 *::before, *::after {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+textarea {
+  white-space: revert;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  width: 100%;
+  height: 100%;
 }
 
 body {
@@ -119,7 +153,7 @@ body {
   grid-template-columns: repeat(1, 1fr);
   grid-gap: 0.7rem;
 }
-@media (min-width: 540px) {
+@media (min-width: 577px) {
   .grid-3 {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -135,7 +169,7 @@ body {
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 0.7rem;
 }
-@media (min-width: 540px) {
+@media (min-width: 577px) {
   .grid-4 {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -151,7 +185,7 @@ body {
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 0.7rem;
 }
-@media (min-width: 540px) {
+@media (min-width: 577px) {
   .grid-5 {
     grid-template-columns: repeat(4, 1fr);
   }
@@ -169,6 +203,7 @@ body {
   grid-gap: 0.5rem;
   grid-template-columns: 18px auto;
   align-items: center;
+  box-sizing: border-box;
   border-radius: var(--sc-alert-radius, var(--sc-theme--small-radius));
   font-size: var(--sc-alert-text-size, 0.875rem);
   color: var(--sc-alert-ink, var(--sc-theme--on-primary));
@@ -182,7 +217,7 @@ body {
   box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
 }
 .sc-alert.sc-alert--success {
-  color: var(--sc-alert-ink, #ffffff);
+  color: var(--sc-alert-ink, var(--sc-theme--on-success));
   border: 1px solid var(--sc-alert-fill, var(--sc-theme--success));
   background: var(--sc-alert-fill, var(--sc-theme--success));
   -webkit-box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.275), 0px 2px 2px 0px rgba(0, 0, 0, 0.215), 0px 1px 5px 0px rgba(0, 0, 0, 0.195);
@@ -190,7 +225,7 @@ body {
   box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.275), 0px 2px 2px 0px rgba(0, 0, 0, 0.215), 0px 1px 5px 0px rgba(0, 0, 0, 0.195);
 }
 .sc-alert.sc-alert--warning {
-  color: var(--sc-alert-ink, #000000);
+  color: var(--sc-alert-ink, var(--sc-theme--on-warning));
   border: 1px solid var(--sc-alert-fill, var(--sc-theme--warning));
   background: var(--sc-alert-fill, var(--sc-theme--warning));
   -webkit-box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.275), 0px 2px 2px 0px rgba(0, 0, 0, 0.215), 0px 1px 5px 0px rgba(0, 0, 0, 0.195);
@@ -198,12 +233,15 @@ body {
   box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.275), 0px 2px 2px 0px rgba(0, 0, 0, 0.215), 0px 1px 5px 0px rgba(0, 0, 0, 0.195);
 }
 .sc-alert.sc-alert--error {
-  color: var(--sc-alert-ink, #ffffff);
+  color: var(--sc-alert-ink, var(--sc-theme--on-error));
   border: 1px solid var(--sc-alert-fill, var(--sc-theme--error));
   background: var(--sc-alert-fill, var(--sc-theme--error));
   -webkit-box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.275), 0px 2px 2px 0px rgba(0, 0, 0, 0.215), 0px 1px 5px 0px rgba(0, 0, 0, 0.195);
   -ms-box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.275), 0px 2px 2px 0px rgba(0, 0, 0, 0.215), 0px 1px 5px 0px rgba(0, 0, 0, 0.195);
   box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.275), 0px 2px 2px 0px rgba(0, 0, 0, 0.215), 0px 1px 5px 0px rgba(0, 0, 0, 0.195);
+}
+.sc-alert * {
+  box-sizing: border-box;
 }
 .sc-alert .sc-alert__icon {
   display: inline-block;
@@ -223,6 +261,7 @@ body {
   bottom: 0;
   left: 0;
   z-index: 100;
+  box-sizing: border-box;
   color: var(--sc-appbar-ink, var(--sc-theme--on-primary));
   border: 1px solid var(--sc-appbar-fill, var(--sc-theme--primary));
   background: var(--sc-appbar-fill, var(--sc-theme--primary));
@@ -232,7 +271,7 @@ body {
   -ms-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.275), 0px 5px 8px 0px rgba(0, 0, 0, 0.215), 0px 1px 14px 0px rgba(0, 0, 0, 0.195);
   box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.275), 0px 5px 8px 0px rgba(0, 0, 0, 0.215), 0px 1px 14px 0px rgba(0, 0, 0, 0.195);
 }
-@media (min-width: 540px) {
+@media (min-width: 577px) {
   .sc-appbar {
     width: max-content;
     bottom: inherit;
@@ -247,6 +286,9 @@ body {
     justify-content: flex-end;
   }
 }
+.sc-appbar * {
+  box-sizing: border-box;
+}
 .sc-appbar .sc-appbar__container {
   display: grid;
   grid-column: 1/-1;
@@ -257,7 +299,7 @@ body {
   text-align: center;
   height: max-content;
 }
-@media (min-width: 540px) {
+@media (min-width: 577px) {
   .sc-appbar .sc-appbar__container {
     width: 200px;
     padding: 0;
@@ -265,14 +307,16 @@ body {
   }
 }
 .sc-appbar .sc-appbar__container .sc-appbar__item {
-  margin: 0 auto;
-  cursor: pointer;
-  color: var(--sc-appbar-item-ink, inherit) !important;
+  height: 24px;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  height: 24px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  user-select: none;
+  cursor: pointer;
+  color: var(--sc-appbar-item-ink, inherit) !important;
 }
 .sc-appbar .sc-appbar__container .sc-appbar__item > a, .sc-appbar .sc-appbar__container .sc-appbar__item > p {
   display: block;
@@ -290,7 +334,7 @@ body {
   -webkit-transition: all 0.1s ease;
   transition: all 0.1s ease;
 }
-@media (min-width: 540px) {
+@media (min-width: 577px) {
   .sc-appbar .sc-appbar__container .sc-appbar__item .sc-appbar__item__icon {
     margin-top: 4px;
   }
@@ -299,13 +343,14 @@ body {
   font-size: var(--sc-appbar-item-text-size, 0.75rem) !important;
   color: inherit !important;
 }
-@media (min-width: 540px) {
+@media (min-width: 577px) {
   .sc-appbar .sc-appbar__container .sc-appbar__item .sc-appbar__item__label {
     display: none !important;
   }
 }
 .sc-appbar .sc-appbar__container .sc-appbar__item[data-tooltip] {
   position: relative;
+  box-sizing: border-box;
 }
 .sc-appbar .sc-appbar__container .sc-appbar__item[data-tooltip]::after {
   content: attr(data-tooltip);
@@ -319,6 +364,7 @@ body {
   pointer-events: none;
   text-align: center;
   white-space: nowrap;
+  box-sizing: border-box;
   -webkit-transition: all 200ms ease-in-out;
   transition: all 200ms ease-in-out;
   color: var(--sc-tooltip-ink, #ffffff);
@@ -329,7 +375,7 @@ body {
   -ms-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.275), 0px 5px 8px 0px rgba(0, 0, 0, 0.215), 0px 1px 14px 0px rgba(0, 0, 0, 0.195);
   box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.275), 0px 5px 8px 0px rgba(0, 0, 0, 0.215), 0px 1px 14px 0px rgba(0, 0, 0, 0.195);
 }
-@media (max-width: 540px) {
+@media (max-width: 577px) {
   .sc-appbar .sc-appbar__container .sc-appbar__item[data-tooltip]::after {
     display: none !important;
     opacity: 0 !important;
@@ -350,12 +396,13 @@ body {
   user-select: none;
   overflow: visible;
   vertical-align: middle;
+  box-sizing: border-box;
   -webkit-transition: all 0.1s linear;
   transition: all 0.1s linear;
   color: var(--sc-button-fill, var(--sc-theme--secondary));
   border: 1px solid rgba(0, 0, 0, 0);
-  background: rgba(0, 0, 0, 0);
   box-shadow: none;
+  background: rgba(0, 0, 0, 0);
   border-radius: var(--sc-button-radius, var(--sc-button-radius, var(--sc-theme--small-radius)));
   font-size: var(--sc-button-text-size, 0.875rem);
   font-weight: var(--sc-button-text-weight, 700);
@@ -365,29 +412,29 @@ body {
 .sc-button:hover {
   color: var(--sc-button-fill--hover, var(--sc-theme--secondary));
   border: 1px solid rgba(0, 0, 0, 0);
-  background: rgba(0, 0, 0, 0);
   box-shadow: none;
+  background: rgba(175, 175, 175, 0.15);
   cursor: pointer;
 }
 .sc-button:focus {
   color: var(--sc-button-fill--focus, var(--sc-theme--secondary));
   border: 1px solid rgba(0, 0, 0, 0);
-  background: rgba(0, 0, 0, 0);
   box-shadow: none;
+  background: rgba(175, 175, 175, 0.15);
   border: 1px solid rgba(175, 175, 175, 0.66);
 }
 .sc-button:active {
   color: var(--sc-button-fill--active, var(--sc-theme--secondary-light));
   border: 1px solid rgba(0, 0, 0, 0);
-  background: rgba(0, 0, 0, 0);
   box-shadow: none;
+  background: rgba(175, 175, 175, 0.15);
   border: 1px solid rgba(175, 175, 175, 0.66);
 }
 .sc-button:disabled {
   color: var(--sc-button-fill--disabled, var(--sc-theme--secondary-dark));
   border: 1px solid rgba(0, 0, 0, 0);
-  background: rgba(0, 0, 0, 0);
   box-shadow: none;
+  background: rgba(0, 0, 0, 0);
   cursor: pointer;
   pointer-events: none;
 }
@@ -533,6 +580,7 @@ body {
 }
 .sc-button[data-tooltip] {
   position: relative;
+  box-sizing: border-box;
 }
 .sc-button[data-tooltip]::after {
   content: attr(data-tooltip);
@@ -546,6 +594,7 @@ body {
   pointer-events: none;
   text-align: center;
   white-space: nowrap;
+  box-sizing: border-box;
   -webkit-transition: all 200ms ease-in-out;
   transition: all 200ms ease-in-out;
   color: var(--sc-tooltip-ink, #ffffff);
@@ -556,7 +605,7 @@ body {
   -ms-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.275), 0px 5px 8px 0px rgba(0, 0, 0, 0.215), 0px 1px 14px 0px rgba(0, 0, 0, 0.195);
   box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.275), 0px 5px 8px 0px rgba(0, 0, 0, 0.215), 0px 1px 14px 0px rgba(0, 0, 0, 0.195);
 }
-@media (max-width: 540px) {
+@media (max-width: 577px) {
   .sc-button[data-tooltip]::after {
     display: none !important;
     opacity: 0 !important;
@@ -567,6 +616,9 @@ body {
 }
 .sc-button > * + * {
   margin-left: var(--sc-button-gap, 3px);
+}
+.sc-button * {
+  box-sizing: border-box;
 }
 .sc-button::-moz-focus-inner {
   padding: 0;
@@ -598,6 +650,7 @@ body {
   width: 100%;
   margin: 0;
   border: none !important;
+  box-sizing: border-box;
   -webkit-transition: all 0.1s linear;
   transition: all 0.1s linear;
   color: var(--sc-card-ink, var(--sc-theme--on-primary));
@@ -607,6 +660,9 @@ body {
   -webkit-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
   -ms-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
   box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
+}
+.sc-card * {
+  box-sizing: border-box;
 }
 .sc-card .sc-card__media {
   width: 100%;
@@ -679,6 +735,7 @@ body {
   top: 0;
   z-index: 100;
   height: auto;
+  box-sizing: border-box;
   -webkit-transition: all 0.1s ease;
   transition: all 0.1s ease;
   color: var(--sc-header-ink, var(--sc-theme--on-primary));
@@ -690,6 +747,9 @@ body {
   -ms-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.275), 0px 5px 8px 0px rgba(0, 0, 0, 0.215), 0px 1px 14px 0px rgba(0, 0, 0, 0.195);
   box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.275), 0px 5px 8px 0px rgba(0, 0, 0, 0.215), 0px 1px 14px 0px rgba(0, 0, 0, 0.195);
 }
+.sc-header * {
+  box-sizing: border-box;
+}
 .sc-header .sc-header__wrap {
   display: flex;
   justify-content: space-between !important;
@@ -698,13 +758,13 @@ body {
   font-size: inherit;
   padding: 0.3rem 0;
 }
-@media (min-width: 540px) {
+@media (min-width: 577px) {
   .sc-header .sc-header__wrap {
     width: calc(100% - 34px);
     margin: 0 auto;
   }
 }
-@media (max-width: 539px) {
+@media (max-width: 576px) {
   .sc-header .sc-header__wrap {
     padding: 0.3rem 0;
   }
@@ -723,7 +783,7 @@ body {
 .sc-header .sc-header__wrap .sc-header__text h3 {
   font-size: inherit;
 }
-@media (min-width: 540px) {
+@media (min-width: 577px) {
   .sc-header .sc-header__wrap .sc-header__text {
     padding: 0.3rem 0.7rem 0.3rem 0;
   }
@@ -738,6 +798,7 @@ body {
   overflow: hidden;
   display: grid;
   grid-template-columns: 110px auto;
+  box-sizing: border-box;
   -webkit-transition: all 0.1s ease;
   transition: all 0.1s ease;
   color: var(--sc-profile-ink, var(--sc-theme--on-primary));
@@ -752,6 +813,9 @@ body {
   -ms-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
   box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
   border: none !important;
+}
+.sc-profile * {
+  box-sizing: border-box;
 }
 .sc-profile .sc-profile__img {
   width: 110px;
@@ -812,6 +876,10 @@ body {
   margin: 0;
   cursor: text;
   width: 100%;
+  box-sizing: border-box;
+}
+.sc-text-field * {
+  box-sizing: border-box;
 }
 .sc-text-field .sc-text-field__label {
   width: max-content;
@@ -897,6 +965,7 @@ body {
   bottom: 70px;
   right: 20px;
   border-left: none;
+  box-sizing: border-box;
   color: var(--sc-snackbar-ink, #ffffff);
   border: 1px solid var(--sc-snackbar-fill, #232323);
   background: var(--sc-snackbar-fill, #232323);
@@ -917,12 +986,15 @@ body {
 .sc-snackbar.sc-snackbar--warning {
   border-left: 5px solid var(--sc-theme--warning);
 }
-@media (min-width: 540px) {
+@media (min-width: 577px) {
   .sc-snackbar {
     bottom: 30px;
     right: 30px;
     left: auto;
   }
+}
+.sc-snackbar * {
+  box-sizing: border-box;
 }
 .sc-snackbar .sc-snackbar__wrap {
   width: 100%;

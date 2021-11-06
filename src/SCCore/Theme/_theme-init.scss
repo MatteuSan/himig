@@ -20,40 +20,52 @@
 // SOFTWARE.
 //
 
-@use '../SCCore/Theme';
+@mixin init($with-reset: false) {
 
-$init-color-theme: (
-    'default': (Theme.key-get-token('primary-light'), Theme.key-get-token('on-primary')),
-    'elevation': #000000
-);
+    @content;
 
-$success-theme: (
-    'default': (Theme.key-get-token('success'), Theme.key-get-token('on-success')),
-    'elevation': #000000
-);
+    @if $with-reset == true {
+        /*** The new CSS Reset - version 1.3.1 (last updated 28.10.2021) ***/
 
-$warning-theme: (
-    'default': (Theme.key-get-token('warning'), Theme.key-get-token('on-warning')),
-    'elevation': #000000
-);
+        *:where(:not(iframe, canvas, img, svg, video):not(svg *, symbol *)) {
+            all: unset;
+            display: revert;
+        }
 
-$error-theme: (
-    'default': (Theme.key-get-token('error'), Theme.key-get-token('on-error')),
-    'elevation': #000000
-);
+        * {
+            box-sizing: border-box;
 
-$init-shape-theme: (
-    'shape': default,
-    'radius': Theme.key-get-token('small-radius'),
-    'exceptions': ()
-);
+            &::before,
+            &::after {
+                box-sizing: border-box;
+            }
+        }
 
-$init-typography-theme: (
-    'size': 14px
-);
+        ol,
+        ul {
+            list-style: none;
+        }
 
-$init-settings: (
-    'type': (
-        default
-    )
-);
+        img {
+            max-width: 100%;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        textarea {
+            white-space: revert;
+        }
+    }
+
+    html {
+        width: 100%;
+        height: 100%;
+    }
+
+    body {
+        width: 100%;
+        height: 100%;
+    }
+}

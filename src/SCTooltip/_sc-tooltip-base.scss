@@ -31,6 +31,7 @@
 ) {
     &[data-tooltip] {
         position: relative;
+        box-sizing: border-box;
         
         &::after {
             content: attr(data-tooltip);
@@ -46,6 +47,7 @@
             pointer-events: none;
             text-align: center;
             white-space: nowrap;
+            box-sizing: border-box;
             
             @include Tools.prefix(transition, all 200ms ease-in-out);
             

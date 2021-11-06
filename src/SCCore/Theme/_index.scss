@@ -27,6 +27,10 @@
 ///   'atoms' for the design system to work.
 ///
 
-@forward 'theme-setters' show $prefix, config;
-@forward 'theme-getters' show get-breakpoint, $breakpoints;
+$breakpoints: () !default;
+
+@forward 'theme-setters' show config;
+@forward 'theme-getters';
 @forward 'theme-keys' as key-*;
+@forward 'theme-init' show init;
+@forward 'theme-breakpoints' with ($breakpoints: $breakpoints);

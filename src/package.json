@@ -10,6 +10,9 @@
     "type": "git",
     "url": "git+https://github.com/GrowStocks/stack.git"
   },
+  "dependencies": {
+    "@matteusan/sentro": "^0.1.6"
+  },
   "keywords": [
     "css",
     "sass",

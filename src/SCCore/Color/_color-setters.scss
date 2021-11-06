@@ -30,7 +30,7 @@
 @use 'color-validators' as validator;
 @use 'color-getters' as getter;
 
-$prefix: 'sc' !default;
+$prefix: 'sc';
 
 @mixin apply(
     $component-name,
@@ -74,8 +74,13 @@ $prefix: 'sc' !default;
     @if Feature.has-item($_scope, 'text') {
         @include _set-ink($color-theme, $key, $_component-config, single);
         @include _set-border('transparent');
-        @include _set-bg('transparent');
         box-shadow: none;
+
+        @if $key == 'hover' or $key == 'focus' or $key == 'active' {
+            background: rgba($_outline-color, 15%);
+        } @else {
+            @include _set-bg('transparent');
+        }
 
         @if $key == 'focus' or $key == 'active' {
             border: 1px solid rgba($_outline-color, $_outline-opacity);
@@ -85,14 +90,14 @@ $prefix: 'sc' !default;
     @if Feature.has-item($_scope, 'outlined') {
 
         @if $key == 'hover' or $key == 'focus' or $key == 'active' {
-    
+
             @include _set-ink($color-theme, $key, $_component-config, contrast);
             @include _set-bg($color-theme, $key, $_component-config);
             @include _set-border($color-theme, $key, $_component-config);
             box-shadow: none;
 
         } @else {
-    
+
             @include _set-ink($color-theme, $key, $_component-config, single);
             @include _set-bg('transparent');
             @include _set-border($color-theme, $key, $_component-config);

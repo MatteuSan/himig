@@ -25,34 +25,14 @@
 
 @use '../Feature';
 
-$breakpoints: (
-    'small': 320px,
-    'medium': 540px,
-    'large': 870px,
-) !default;
-
-@function get-breakpoint($query, $reference: $breakpoints) {
-
-    @return map.get($reference, $query);
-
-}
-
 @function get-variants_($query) {
-
     @if Feature.validate-data-type('map', $query) {
-
         @return map.keys($query);
-
     }
-
 }
 
 @function get-default_($query) {
-
     @if Feature.validate-data-type('map', $query) {
-
         @return map.get($query, 'default');
-
     }
-
 }

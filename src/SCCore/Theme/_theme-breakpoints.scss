@@ -20,40 +20,18 @@
 // SOFTWARE.
 //
 
-@use '../SCCore/Theme';
+@use 'sass:map';
 
-$init-color-theme: (
-    'default': (Theme.key-get-token('primary-light'), Theme.key-get-token('on-primary')),
-    'elevation': #000000
+$breakpoints: () !default;
+
+$_init-breakpoints: (
+    'small': 320px,
+    'medium': 540px,
+    'large': 870px,
 );
 
-$success-theme: (
-    'default': (Theme.key-get-token('success'), Theme.key-get-token('on-success')),
-    'elevation': #000000
-);
+$_merged-breakpoints: map.merge($_init-breakpoints, $breakpoints);
 
-$warning-theme: (
-    'default': (Theme.key-get-token('warning'), Theme.key-get-token('on-warning')),
-    'elevation': #000000
-);
-
-$error-theme: (
-    'default': (Theme.key-get-token('error'), Theme.key-get-token('on-error')),
-    'elevation': #000000
-);
-
-$init-shape-theme: (
-    'shape': default,
-    'radius': Theme.key-get-token('small-radius'),
-    'exceptions': ()
-);
-
-$init-typography-theme: (
-    'size': 14px
-);
-
-$init-settings: (
-    'type': (
-        default
-    )
-);
+@function get-breakpoint($query) {
+    @return map.get($_merged-breakpoints, $query);
+}

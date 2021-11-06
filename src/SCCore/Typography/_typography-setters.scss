@@ -61,7 +61,7 @@ $prefix: 'sc' !default;
     $_merged-subtitle: map.merge(defaults.$init-subtitle, $subtitle);
     $_merged-body: map.merge(defaults.$init-body, $body);
     
-    * {
+    *:not(code) {
         @include getter.get-family($_merged-global);
         @include getter.get-weight($_merged-global);
         color: inherit;
@@ -101,6 +101,11 @@ $prefix: 'sc' !default;
     b {
         font-weight: 700;
         color: inherit;
+    }
+    
+    code,
+    .code {
+        font-family: "Source Code Pro", monospace;
     }
     
     html {

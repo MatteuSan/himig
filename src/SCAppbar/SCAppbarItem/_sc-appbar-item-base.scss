@@ -30,14 +30,19 @@
 
 @mixin base($breakpoint: 'medium') {
     .sc-appbar__item {
-        margin: 0 auto;
-        cursor: pointer;
-        color: Theme.key-create('appbar-item-ink', inherit) !important;
+        height: 24px;
+
         display: flex;
         flex-flow: column nowrap;
         justify-content: center;
         align-items: center;
-        height: 24px;
+
+        margin: 0 auto;
+        box-sizing: border-box;
+        user-select: none;
+        cursor: pointer;
+
+        color: Theme.key-create('appbar-item-ink', inherit) !important;
 
         & > * + * {
             // margin-top: -0.123rem;

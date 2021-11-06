@@ -26,7 +26,7 @@
 
 @use '../Feature';
 
-$prefix: 'sc' !default;
+$prefix: 'sc';
 
 @function create($key, $fallback-value, $prefix: $prefix) {
 
@@ -42,6 +42,14 @@ $prefix: 'sc' !default;
     @return var(--#{$prefix}-#{$key});
 }
 
+@function get-token($key, $prefix: $prefix) {
+    @return var(--#{$prefix}-theme--#{$key});
+}
+
 @mixin bind($key, $value, $prefix: $prefix) {
     --#{$prefix}-#{$key}: #{$value};
+}
+
+@mixin bind-token($key, $value, $prefix: $prefix) {
+    --#{$prefix}-theme--#{$key}: #{$value};
 }

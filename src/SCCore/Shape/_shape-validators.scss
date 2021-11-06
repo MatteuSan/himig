@@ -22,8 +22,8 @@
 
 @use '../Feature';
 
-$_valid-shapes: (default, rounded, block, pill); // temporarily removed 'clipped' as a shape due to bugs
-$_valid-properties: (shape, radius, border-radius, exceptions, shape-exceptions);
+$_valid-shapes: (default, rounded, block, pill);
+$_valid-properties: (shape, radius, exceptions);
 
 @function is-empty_($value) {
 
@@ -34,7 +34,7 @@ $_valid-properties: (shape, radius, border-radius, exceptions, shape-exceptions)
 @function is-shape_($shape) {
 
     @if not Feature.has-item($_valid-shapes, $shape) {
-        @error 'Invalid shape: #{$shape}! Please select from the following: #{$_valid-shapes}.';
+        @error 'Invalid shape: #{$shape}! Please select from the following valid shapes: #{$_valid-shapes}.';
     }
 
     @return true;
@@ -44,7 +44,7 @@ $_valid-properties: (shape, radius, border-radius, exceptions, shape-exceptions)
 @function is-enabled_($shape, $reference) {
 
     @if Feature.has-item($reference, $shape) {
-        @error 'The #{$shape} shape is currently disabled in this component. Please try other shapes.';
+        @error 'The #{$shape} shape is currently disabled in this component. Please try other valid shapes.';
     }
 
     @return false;

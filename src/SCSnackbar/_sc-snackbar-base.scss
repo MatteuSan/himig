@@ -35,6 +35,7 @@
         right: 20px;
         
         border-left: none;
+        box-sizing: border-box;
         
         @content;
         
@@ -44,6 +45,10 @@
             bottom: 30px;
             right: 30px;
             left: auto;
+        }
+        
+        * {
+            box-sizing: border-box;
         }
         
         .sc-snackbar__wrap {

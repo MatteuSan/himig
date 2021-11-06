@@ -25,6 +25,7 @@
   overflow: hidden;
   display: grid;
   grid-template-columns: 110px auto;
+  box-sizing: border-box;
   -webkit-transition: all 0.1s ease;
   transition: all 0.1s ease;
   color: var(--sc-profile-ink, var(--sc-theme--on-primary));
@@ -39,6 +40,9 @@
   -ms-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
   box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
   border: none !important;
+}
+.sc-profile * {
+  box-sizing: border-box;
 }
 .sc-profile .sc-profile__img {
   width: 110px;

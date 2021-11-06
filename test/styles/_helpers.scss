@@ -20,40 +20,20 @@
 // SOFTWARE.
 //
 
-@use '../SCCore/Theme';
+@use '../../src/SCCore/Theme';
 
-$init-color-theme: (
-    'default': (Theme.key-get-token('primary-light'), Theme.key-get-token('on-primary')),
-    'elevation': #000000
-);
+@mixin breakpoint($breakpoint, $context: 'min') {
+    @media (#{$context}-width: _breakpoint-with-context($breakpoint, $context)) {
+        @content;
+    }
+}
 
-$success-theme: (
-    'default': (Theme.key-get-token('success'), Theme.key-get-token('on-success')),
-    'elevation': #000000
-);
-
-$warning-theme: (
-    'default': (Theme.key-get-token('warning'), Theme.key-get-token('on-warning')),
-    'elevation': #000000
-);
-
-$error-theme: (
-    'default': (Theme.key-get-token('error'), Theme.key-get-token('on-error')),
-    'elevation': #000000
-);
-
-$init-shape-theme: (
-    'shape': default,
-    'radius': Theme.key-get-token('small-radius'),
-    'exceptions': ()
-);
-
-$init-typography-theme: (
-    'size': 14px
-);
-
-$init-settings: (
-    'type': (
-        default
-    )
-);
+@function _breakpoint-with-context($breakpoint, $context) {
+    @if $context == 'max' {
+        @return Theme.get-breakpoint($breakpoint) - 1;
+    } @else if $context == 'min' {
+        @return Theme.get-breakpoint($breakpoint);
+    } @else {
+        @error "Invalid context: #{$context}. Please select from the following valid context: min, max.";
+    }
+}

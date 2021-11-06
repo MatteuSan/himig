@@ -30,12 +30,13 @@
   user-select: none;
   overflow: visible;
   vertical-align: middle;
+  box-sizing: border-box;
   -webkit-transition: all 0.1s linear;
   transition: all 0.1s linear;
   color: var(--sc-button-fill, var(--sc-theme--secondary));
   border: 1px solid rgba(0, 0, 0, 0);
-  background: rgba(0, 0, 0, 0);
   box-shadow: none;
+  background: rgba(0, 0, 0, 0);
   border-radius: var(--sc-button-radius, var(--sc-button-radius, var(--sc-theme--small-radius)));
   font-size: var(--sc-button-text-size, 0.875rem);
   font-weight: var(--sc-button-text-weight, 700);
@@ -45,29 +46,29 @@
 .sc-button:hover {
   color: var(--sc-button-fill--hover, var(--sc-theme--secondary));
   border: 1px solid rgba(0, 0, 0, 0);
-  background: rgba(0, 0, 0, 0);
   box-shadow: none;
+  background: rgba(175, 175, 175, 0.15);
   cursor: pointer;
 }
 .sc-button:focus {
   color: var(--sc-button-fill--focus, var(--sc-theme--secondary));
   border: 1px solid rgba(0, 0, 0, 0);
-  background: rgba(0, 0, 0, 0);
   box-shadow: none;
+  background: rgba(175, 175, 175, 0.15);
   border: 1px solid rgba(175, 175, 175, 0.66);
 }
 .sc-button:active {
   color: var(--sc-button-fill--active, var(--sc-theme--secondary-light));
   border: 1px solid rgba(0, 0, 0, 0);
-  background: rgba(0, 0, 0, 0);
   box-shadow: none;
+  background: rgba(175, 175, 175, 0.15);
   border: 1px solid rgba(175, 175, 175, 0.66);
 }
 .sc-button:disabled {
   color: var(--sc-button-fill--disabled, var(--sc-theme--secondary-dark));
   border: 1px solid rgba(0, 0, 0, 0);
-  background: rgba(0, 0, 0, 0);
   box-shadow: none;
+  background: rgba(0, 0, 0, 0);
   cursor: pointer;
   pointer-events: none;
 }
@@ -213,6 +214,7 @@
 }
 .sc-button[data-tooltip] {
   position: relative;
+  box-sizing: border-box;
 }
 .sc-button[data-tooltip]::after {
   content: attr(data-tooltip);
@@ -226,6 +228,7 @@
   pointer-events: none;
   text-align: center;
   white-space: nowrap;
+  box-sizing: border-box;
   -webkit-transition: all 200ms ease-in-out;
   transition: all 200ms ease-in-out;
   color: var(--sc-tooltip-ink, #ffffff);
@@ -247,6 +250,9 @@
 }
 .sc-button > * + * {
   margin-left: var(--sc-button-gap, 3px);
+}
+.sc-button * {
+  box-sizing: border-box;
 }
 .sc-button::-moz-focus-inner {
   padding: 0;

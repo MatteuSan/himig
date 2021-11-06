@@ -25,6 +25,7 @@
 @mixin base() {
     
     .sc-js-drawer__trigger {
+        box-sizing: border-box;
     }
     
     .sc-drawer__overlay {
@@ -38,6 +39,7 @@
         overflow: hidden;
         background-color: rgb(0, 0, 0);
         background-color: rgba(0, 0, 0, 0.4);
+        box-sizing: border-box;
     }
     
     .sc-drawer {
@@ -51,6 +53,7 @@
         z-index: 100;
         overflow-y: auto;
         overflow-x: hidden;
+        box-sizing: border-box;
         
         @include Tools.prefix(transition, all 0.1s ease-in-out);
         
@@ -62,6 +65,7 @@
         
         * {
             color: inherit;
+            box-sizing: border-box;
         }
         
         .sc-drawer__item {

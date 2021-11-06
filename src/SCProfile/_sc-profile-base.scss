@@ -31,12 +31,17 @@
         
         display: grid;
         grid-template-columns: 110px auto;
+        box-sizing: border-box;
         
         @include Tools.prefix(transition, all 0.1s ease);
         
         @content;
         
         border: none !important;
+        
+        * {
+            box-sizing: border-box;
+        }
         
         .sc-profile__img {
             width: 110px;

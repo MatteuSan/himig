@@ -32,8 +32,13 @@
         grid-gap: 0.5rem;
         grid-template-columns: 18px auto;
         align-items: center;
+        box-sizing: border-box;
         
         @content;
+    
+        * {
+            box-sizing: border-box;
+        }
         
         .sc-alert__icon {
             display: inline-block;

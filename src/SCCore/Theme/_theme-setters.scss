@@ -32,13 +32,14 @@
 
 @use 'theme-getters' as getter;
 @use 'theme-validators' as validator;
+@use 'theme-keys' as key;
 
-$prefix: 'sc' !default;
+$prefix: 'sc';
 
 $_state-map: (
-    'error': (#b00020, #fff),
-    'warning': (#ffa000, #000),
-    'success': (#25a53f, #fff),
+    'error': (#b00020, #ffffff),
+    'warning': (#ffa000, #000000),
+    'success': (#25a53f, #ffffff),
 ) !default;
 
 $_radius-theme: (
@@ -51,100 +52,91 @@ $_radius-theme: (
     $primary: #363636,
     $secondary: color-getters.get-complement_($primary),
     $radius: $_radius-theme,
-    $args...
+    $user-tokens...
 ) {
-
     @if meta.type-of($primary) != map {
-
         $_color-map: color-parsers.split($primary);
 
         @each $property, $value in $_color-map {
             @if $property == 'default' {
-                --#{$prefix}-theme--primary: #{$value};
+                @include key.bind-token('primary', $value, $prefix);
             } @else {
-                --#{$prefix}-theme--primary-#{$property}: #{$value};
+                @include key.bind-token('primary-#{$property}', $value, $prefix);
             }
         }
 
     } @else if validator.is-variant_($primary) {
-
         $_properties: getter.get-variants_($primary);
-
         $_color-map: color-parsers.fill-missing($_properties, $primary);
 
         @each $property, $value in $_color-map {
             @if $property == 'default' {
-                --#{$prefix}-theme--primary: #{$value};
+                @include key.bind-token('primary', $value, $prefix);
             } @else {
-                --#{$prefix}-theme--primary-#{$property}: #{$value};
+                @include key.bind-token('primary-#{$property}', $value, $prefix);
             }
         }
-
     }
 
     @if meta.type-of($secondary) != map {
-
         $_color-map: color-parsers.split($secondary);
 
         @each $property, $value in $_color-map {
             @if $property == 'default' {
-                --#{$prefix}-theme--secondary: #{$value};
+                @include key.bind-token('secondary', $value, $prefix);
             } @else {
-                --#{$prefix}-theme--secondary-#{$property}: #{$value};
+                @include key.bind-token('secondary-#{$property}', $value, $prefix);
             }
         }
 
     } @else if validator.is-variant_($secondary) {
-
         $_properties: getter.get-variants_($secondary);
-
         $_color-map: color-parsers.fill-missing($_properties, $secondary);
 
         @each $property, $value in $_color-map {
             @if $property == 'default' {
-                --#{$prefix}-theme--secondary: #{$value};
+                @include key.bind-token('secondary', $value, $prefix);
             } @else {
-                --#{$prefix}-theme--secondary-#{$property}: #{$value};
+                @include key.bind-token('secondary-#{$property}', $value, $prefix);
             }
         }
-
     }
 
     @if meta.type-of($primary) == map {
         @if Feature.has-property($primary, 'ink') {
-            --#{$prefix}-theme--on-primary: #{map.get($primary, 'ink')};
+            @include key.bind-token('on-primary', map.get($primary, 'ink'), $prefix);
         } @else {
-            --#{$prefix}-theme--on-primary: #{color-getters.get-ink($primary)};
+            @include key.bind-token('on-primary', color-getters.get-ink($primary), $prefix);
         }
     } @else {
-        --#{$prefix}-theme--on-primary: #{color-getters.get-ink(color-parsers.split($primary))};
+        @include key.bind-token('on-primary', color-getters.get-ink(color-parsers.split($primary)), $prefix);
     }
 
     @if meta.type-of($secondary) == map {
         @if Feature.has-property($secondary, 'ink') {
-            --#{$prefix}-theme--on-secondary: #{map.get($secondary, 'ink')};
+            @include key.bind-token('on-secondary', map.get($secondary, 'ink'), $prefix);
         } @else {
-            --#{$prefix}-theme--on-secondary: #{color-getters.get-ink($secondary)};
+            @include key.bind-token('on-secondary', color-getters.get-ink($secondary), $prefix);
         }
     } @else {
-        --#{$prefix}-theme--on-secondary: #{color-getters.get-ink(color-parsers.split($secondary))};
+        @include key.bind-token('on-secondary', color-getters.get-ink(color-parsers.split($secondary)), $prefix);
     }
 
     @each $property, $value in $_state-map {
-        --#{$prefix}-theme--#{$property}: #{list.nth($value, 1)};
+        @include key.bind-token($property, list.nth($value, 1), $prefix);
     }
 
     @each $property, $value in $_state-map {
-        --#{$prefix}-theme--on-#{$property}: #{list.nth($value, 2)};
+        @include key.bind-token('on-#{$property}', list.nth($value, 2), $prefix);
     }
 
     @each $property, $value in $radius {
-        --#{$prefix}-theme--#{$property}-radius: #{$value};
+        @include key.bind-token('#{$property}-radius', $value, $prefix);
     }
-    
+
     /* ===== */
-    @each $property, $value in meta.keywords($args) {
-        --#{$prefix}-theme--#{$property}: #{$value};
+    @each $property, $value in meta.keywords($user-tokens) {
+        @include key.bind-token($property, $value, $prefix);
     }
 
 }

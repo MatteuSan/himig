@@ -28,7 +28,6 @@
 @use '../Feature';
 
 @use 'color-validators' as validator;
-@use 'color-getters' as getter;
 
 @function split($color) {
     

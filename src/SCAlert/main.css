@@ -26,6 +26,7 @@
   grid-gap: 0.5rem;
   grid-template-columns: 18px auto;
   align-items: center;
+  box-sizing: border-box;
   border-radius: var(--sc-alert-radius, var(--sc-theme--small-radius));
   font-size: var(--sc-alert-text-size, 0.875rem);
   color: var(--sc-alert-ink, var(--sc-theme--on-primary));
@@ -39,7 +40,7 @@
   box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.275), 0px 3px 4px 0px rgba(0, 0, 0, 0.215), 0px 1px 8px 0px rgba(0, 0, 0, 0.195);
 }
 .sc-alert.sc-alert--success {
-  color: var(--sc-alert-ink, #ffffff);
+  color: var(--sc-alert-ink, var(--sc-theme--on-success));
   border: 1px solid var(--sc-alert-fill, var(--sc-theme--success));
   background: var(--sc-alert-fill, var(--sc-theme--success));
   -webkit-box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.275), 0px 2px 2px 0px rgba(0, 0, 0, 0.215), 0px 1px 5px 0px rgba(0, 0, 0, 0.195);
@@ -47,7 +48,7 @@
   box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.275), 0px 2px 2px 0px rgba(0, 0, 0, 0.215), 0px 1px 5px 0px rgba(0, 0, 0, 0.195);
 }
 .sc-alert.sc-alert--warning {
-  color: var(--sc-alert-ink, #000000);
+  color: var(--sc-alert-ink, var(--sc-theme--on-warning));
   border: 1px solid var(--sc-alert-fill, var(--sc-theme--warning));
   background: var(--sc-alert-fill, var(--sc-theme--warning));
   -webkit-box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.275), 0px 2px 2px 0px rgba(0, 0, 0, 0.215), 0px 1px 5px 0px rgba(0, 0, 0, 0.195);
@@ -55,12 +56,15 @@
   box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.275), 0px 2px 2px 0px rgba(0, 0, 0, 0.215), 0px 1px 5px 0px rgba(0, 0, 0, 0.195);
 }
 .sc-alert.sc-alert--error {
-  color: var(--sc-alert-ink, #ffffff);
+  color: var(--sc-alert-ink, var(--sc-theme--on-error));
   border: 1px solid var(--sc-alert-fill, var(--sc-theme--error));
   background: var(--sc-alert-fill, var(--sc-theme--error));
   -webkit-box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.275), 0px 2px 2px 0px rgba(0, 0, 0, 0.215), 0px 1px 5px 0px rgba(0, 0, 0, 0.195);
   -ms-box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.275), 0px 2px 2px 0px rgba(0, 0, 0, 0.215), 0px 1px 5px 0px rgba(0, 0, 0, 0.195);
   box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.275), 0px 2px 2px 0px rgba(0, 0, 0, 0.215), 0px 1px 5px 0px rgba(0, 0, 0, 0.195);
+}
+.sc-alert * {
+  box-sizing: border-box;
 }
 .sc-alert .sc-alert__icon {
   display: inline-block;

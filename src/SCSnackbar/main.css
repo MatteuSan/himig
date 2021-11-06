@@ -28,6 +28,7 @@
   bottom: 70px;
   right: 20px;
   border-left: none;
+  box-sizing: border-box;
   color: var(--sc-snackbar-ink, #ffffff);
   border: 1px solid var(--sc-snackbar-fill, #232323);
   background: var(--sc-snackbar-fill, #232323);
@@ -54,6 +55,9 @@
     right: 30px;
     left: auto;
   }
+}
+.sc-snackbar * {
+  box-sizing: border-box;
 }
 .sc-snackbar .sc-snackbar__wrap {
   width: 100%;

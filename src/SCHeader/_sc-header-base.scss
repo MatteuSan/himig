@@ -31,10 +31,15 @@
         top: 0;
         z-index: 100;
         height: auto;
+        box-sizing: border-box;
 
         @include Tools.prefix(transition, all 0.1s ease);
 
         @content;
+        
+        * {
+            box-sizing: border-box;
+        }
 
         .sc-header__wrap {
             display: flex;

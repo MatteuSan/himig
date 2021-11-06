@@ -31,7 +31,6 @@
 @use 'color-validators' as validator;
 @use 'color-math' as color-math;
 
-
 @function get-color_(
     $color-map,
     $type,
@@ -77,7 +76,6 @@
             }
         }
     }
-
 }
 
 @function get-complement_($color) {
@@ -108,7 +106,7 @@
     @return (0.2126 * $r) + (0.7152 * $g) + (0.0722 * $b);
 }
 
-$_white-lumen: _get-luminance(#fff);
+$_white-lumen: _get-luminance(#ffffff);
 
 @function get-ink($fill) {
     @if Feature.validate-data-type('map', $fill) {

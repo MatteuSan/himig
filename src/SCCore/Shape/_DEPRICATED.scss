@@ -20,14 +20,15 @@
 // SOFTWARE.
 //
 
-/*
-@if $_imported-shape == clipped and $_imported-clip-size {
+// $_imported-clip-size: map.get($shape-theme, 'notch-size');
+// $_imported-custom-clip: map.get($shape-theme, 'custom-notch');
+
+/*@if $_imported-shape == notched and $_imported-clip-size {
     @if $_imported-clip-size {
-        @if not empty_($_imported-custom-clip) {
+        @if not Feature.is-empty($_imported-custom-clip) {
             clip-path: $_imported-custom-clip;
         } @else {
-            clip-path:
-                polygon(
+            clip-path: polygon(
                     0% $_imported-clip-size,
                     $_imported-clip-size 0%, calc(100% - #{$_imported-clip-size}) 0%,
                     100% $_imported-clip-size,
@@ -35,8 +36,7 @@
                     calc(100% - #{$_imported-clip-size}) 100%,
                     $_imported-clip-size 100%,
                     0% calc(100% - #{$_imported-clip-size})
-                )
-            ;
+            );
         }
     }
 }*/

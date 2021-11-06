@@ -21,23 +21,37 @@
 //
 
 @use '../color-validators' as v;
+@use '../../node_modules/sass-true' as Test;
 
-/// Should output: true / nothing
-        @debug v.is-scope_('filled');
-/// Should output: false / error
-//      @debug v.is-scope_('link');
+@include Test.test-module('IsScope [function]') {
+    @include Test.it('Checks if the query is a valid scope query');
+    /// Should output: true / nothing
+    @include Test.assert-equal(v.is-scope_('filled'), true);
+    /// Should output: false / error
+    @include Test.assert-equal(v.is-scope_('link'), false);
+    
+    $terminal-output: false;
+    @include Test.report;
+}
 
-/// Should output: true / nothing
-        @debug v.is-color-type_('default');
-/// Should output: false / error
-//      @debug v.is-color-type_('some-color-type');
+@include Test.test-module('IsColorType [function]') {
+    @include Test.it('Checks if the query is a valid color type query');
+    /// Should output: true / nothing
+    @include Test.assert-equal(v.is-color-type_('default'), true);
+    /// Should output: false / error
+    @include Test.assert-equal(v.is-color-type_('some-color-type'), false);
+    
+    $terminal-output: false;
+    @include Test.report;
+}
 
-/// Should output: true / nothing
-        @debug v.is-map_((
-            'map': map
-        ));
-/// Should output: false / error
-//      @debug v.is-map_((
-//          'this is a list :>',
-//          'what are you expecting? a map? pfft!'
-//      ));
+@include Test.test-module('IsMap [function]') {
+    @include Test.it('Checks if the query is a valid map query');
+    /// Should output: true / nothing
+    @include Test.assert-equal(v.is-map_(('map': map)), true);
+    /// Should output: false / error
+    @include Test.assert-equal(v.is-map_(('this is a list :>', 'what are you expecting? a map? pfft!')), false);
+    
+    $terminal-output: false;
+    @include Test.report;
+}

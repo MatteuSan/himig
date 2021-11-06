@@ -19,6 +19,10 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 */
+.sc-js-drawer__trigger {
+  box-sizing: border-box;
+}
+
 .sc-drawer__overlay {
   display: block;
   position: fixed;
@@ -30,6 +34,7 @@
   overflow: hidden;
   background-color: black;
   background-color: rgba(0, 0, 0, 0.4);
+  box-sizing: border-box;
 }
 
 .sc-drawer {
@@ -43,6 +48,7 @@
   z-index: 100;
   overflow-y: auto;
   overflow-x: hidden;
+  box-sizing: border-box;
   -webkit-transition: all 0.1s ease-in-out;
   transition: all 0.1s ease-in-out;
   color: var(--sc-drawer-ink, var(--sc-theme--primary-dark));
@@ -58,6 +64,7 @@
 }
 .sc-drawer * {
   color: inherit;
+  box-sizing: border-box;
 }
 .sc-drawer .sc-drawer__item {
   width: 100%;

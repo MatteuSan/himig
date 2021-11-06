@@ -23,9 +23,9 @@
 @use '../../src/SCCore/Color';
 @use '../../src/SCCore/Shape';
 @use '../../src/SCCore/Typography';
-@use '../../src/SCCore/Theme';
-@use '../../src/SCCore/Animation';
+@use '../../src/SCCore/Theme' with ($breakpoints: ('medium': 577px));
 @use '../../src/SCCore/Elevation';
+@use '../../src/SCCore/Tools';
 
 @use '../../src/SCAlert';
 @use '../../src/SCAppbar';
@@ -39,50 +39,39 @@
 @use '../../src/SCTooltip';
 @use '../../src/SCSnackbar';
 
-$_prefix: 'mc';
+@use 'helpers';
 
 // @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
-:root {
-    @include Theme.config(
-        $primary: #12305e,
-        $surface: #001021,
-        $on-surface: #ffffff
-    );
-}
-
-.dark-theme {
-    @include Theme.config(
-        $primary: #244271,
-        $secondary: #ffb13c,
-        $surface: #181818,
-        $on-surface: #ffffff
-    );
-}
-
-@include Typography.config(
-    $global: (
-        family: 'Inter'
-    )
-);
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    
-    &::before,
-    &::after {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
+@include Theme.init($with-reset: true) {
+    :root {
+        @include Theme.config(
+            $primary: #12305e,
+            $surface: #001021,
+            $on-surface: #ffffff
+        );
     }
+
+    .dark-theme {
+        @include Theme.config(
+            $primary: #244271,
+            $secondary: #ffb13c,
+            $surface: #181818,
+            $on-surface: #ffffff
+        );
+    }
+
+    @include Typography.config(
+        $global: (
+            family: 'Inter'
+        )
+    );
 }
 
 body {
-    background-color: var(--sc-theme--surface);
-    color: var(--sc-theme--on-surface);
+    background-color: Theme.key-get-token('surface');
+    color: Theme.key-get-token('on-surface');
 }
 
 .wrap--content {
@@ -99,11 +88,11 @@ body {
         display: grid;
         grid-template-columns: repeat($i - 2, 1fr);
         grid-gap: 0.7rem;
-        
+
         @media (min-width: Theme.get-breakpoint('medium')) {
             grid-template-columns: repeat($i - 1, 1fr);
         }
-        
+
         @media (min-width: Theme.get-breakpoint('large')) {
             grid-template-columns: repeat($i, 1fr);
         }
@@ -150,19 +139,19 @@ body {
     right: 0;
     background-color: var(--sc-theme--primary-light);
     padding: 1rem;
-    
+
     @include Shape.apply('gs-pay-prompt', (
         'shape': rounded,
         'radius': var(--sc-theme--medium-radius) var(--sc-theme--medium-radius) 0 0
     ));
-    
+
     @include Elevation.apply(7);
-    
+
     .gs-pay-prompt__info {
         display: grid;
         grid-template-columns: 32px 1fr;
         grid-gap: 0.5rem;
-        
+
         .gs-pay-prompt__media {
             width: 32px;
             height: 32px;
@@ -170,32 +159,32 @@ body {
             object-position: center;
             border-radius: 50%;
         }
-        
+
         .gs-pay-prompt__service {
             font-size: Typography.px-to-rem(18px);
         }
-        
+
         .gs-pay-prompt__service-link {
             font-size: Typography.px-to-rem(14px);
         }
     }
-    
+
     .gs-pay-prompt__details {
         background-color: var(--sc-theme--primary);
         padding: 0.7rem;
         line-height: 1.25rem;
-        
+
         .gs-pay-prompt__item {
             font-size: Typography.px-to-rem(14px);
         }
     }
-    
+
     .gs-pay-prompt__actions {
         width: 100%;
         display: flex;
         flex-flow: row nowrap;
         justify-content: flex-end;
-        
+
         & > * + * {
             margin-left: 0.5rem;
         }

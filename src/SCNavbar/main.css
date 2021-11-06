@@ -27,18 +27,21 @@
   margin-bottom: 3px;
   border: none;
   background: rgba(0, 0, 0, 0);
+  box-sizing: border-box;
+}
+.sc-js-navbar__trigger * {
+  box-sizing: border-box;
 }
 .sc-js-navbar__trigger > * {
   font-size: var(--sc-navbar-trigger-icon-size, 1.5rem);
 }
-@media (min-width: 570px) {
+@media (min-width: 540px) {
   .sc-js-navbar__trigger {
     display: none;
   }
 }
 
 .sc-navbar {
-  border: none;
   width: 270px;
   height: 100%;
   display: none;
@@ -65,6 +68,9 @@
   width: 100%;
   height: auto;
   padding: 0.7rem;
+  box-sizing: border-box;
+  user-select: none;
+  cursor: pointer;
   color: var(--sc-navbar-ink, var(--sc-theme--on-primary));
   border: 1px solid var(--sc-navbar-fill, var(--sc-theme--primary));
   background: var(--sc-navbar-fill, var(--sc-theme--primary));
@@ -106,6 +112,9 @@
   width: 100%;
   height: auto;
   padding: 0.7rem;
+  box-sizing: border-box;
+  user-select: none;
+  cursor: pointer;
 }
 .sc-navbar .sc-navbar__item p {
   font-size: var(--sc-navbar-item-type-size, inherit);
@@ -140,6 +149,7 @@
     top: 0;
     padding: 0;
     background: rgba(0, 0, 0, 0);
+    border-color: rgba(0, 0, 0, 0);
     -webkit-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.275), 0px 0px 0px 0px rgba(0, 0, 0, 0.215), 0px 0px 0px 0px rgba(0, 0, 0, 0.195);
     -ms-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.275), 0px 0px 0px 0px rgba(0, 0, 0, 0.215), 0px 0px 0px 0px rgba(0, 0, 0, 0.195);
     box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.275), 0px 0px 0px 0px rgba(0, 0, 0, 0.215), 0px 0px 0px 0px rgba(0, 0, 0, 0.195);

@@ -34,10 +34,15 @@
         width: 100%;
         margin: 0;
         border: none !important;
+        box-sizing: border-box;
         
         @include Tools.prefix(transition, all 0.1s linear);
         
         @content;
+        
+        * {
+            box-sizing: border-box;
+        }
         
         .sc-card__media {
             width: 100%;
