@@ -41,7 +41,7 @@ $_valid-typography-queries: (
     'text-transform'
 );
 
-$prefix: 'sc' !default;
+$prefix: 'sc';
 
 @mixin config(
     $global: (),
@@ -55,17 +55,17 @@ $prefix: 'sc' !default;
         'family': map.get($global, 'family')
     )
 ) {
-    
+
     $_merged-global: map.merge(defaults.$init-global, $global);
     $_merged-title: map.merge(defaults.$init-title, $title);
     $_merged-subtitle: map.merge(defaults.$init-subtitle, $subtitle);
     $_merged-body: map.merge(defaults.$init-body, $body);
-    
+
     *:not(code) {
         @include getter.get-family($_merged-global);
         @include getter.get-weight($_merged-global);
         color: inherit;
-        
+
         &::before,
         &::after {
             @include getter.get-family($_merged-global);
@@ -73,41 +73,41 @@ $prefix: 'sc' !default;
             color: inherit;
         }
     }
-    
+
     a {
         text-decoration: none;
         outline: none;
     }
-    
+
     h1,
     h2,
     h3 {
         @include getter.get-family($_merged-title, 'title', $prefix);
         @include getter.get-weight($_merged-title, 'title', $prefix);
     }
-    
+
     h4,
     h5,
     h6 {
         @include getter.get-family($_merged-subtitle, 'subtitle', $prefix);
         @include getter.get-weight($_merged-subtitle, 'subtitle', $prefix);
     }
-    
+
     p {
         @include getter.get-family($_merged-body, 'body', $prefix);
         @include getter.get-weight($_merged-body, 'body', $prefix);
     }
-    
+
     b {
         font-weight: 700;
         color: inherit;
     }
-    
+
     code,
     .code {
         font-family: "Source Code Pro", monospace;
     }
-    
+
     html {
         font-size: 100%;
     }
@@ -115,30 +115,30 @@ $prefix: 'sc' !default;
 
 @mixin apply($component-name, $typography-theme) {
     $_valid-typography-theme: Feature.validate-data-type('map', $typography-theme);
-    
+
     @if $_valid-typography-theme {
-        
+
         @if Feature.has-property($typography-theme, 'size') {
             font-size: key.create('#{$component-name}-text-size', Tools.px-to-rem(map.get($typography-theme, 'size')), $prefix);
         }
-        
+
         @if Feature.has-property($typography-theme, 'weight') {
             font-weight: key.create('#{$component-name}-text-weight', map.get($typography-theme, 'weight'), $prefix);
         }
-        
+
         @if Feature.has-property($typography-theme, 'spacing') {
             $_letter-spacing: map.get($typography-theme, 'spacing');
             letter-spacing: key.create('#{$component-name}-text-spacing', getter.get-letter-spacing($_letter-spacing), $prefix);
         }
-        
+
         @if Feature.has-property($typography-theme, 'decoration') {
             text-decoration: key.create('#{$component-name}-text-decoration', map.get($typography-theme, 'decoration'), $prefix);
         }
-        
+
         @if Feature.has-property($typography-theme, 'transform') {
             text-transform: key.create('#{$component-name}-text-transform', map.get($typography-theme, 'transform'), $prefix);
         }
-        
+
     }
-    
+
 }
