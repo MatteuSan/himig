@@ -71,10 +71,10 @@
   box-sizing: border-box;
   user-select: none;
   cursor: pointer;
+  border-radius: var(--sc-navbar-item-radius, 0.3rem);
   color: var(--sc-navbar-ink, var(--sc-theme--on-primary));
   border: 1px solid var(--sc-navbar-fill, var(--sc-theme--primary));
   background: var(--sc-navbar-fill, var(--sc-theme--primary));
-  border-radius: var(--sc-navbar-item-radius, 0.3rem);
 }
 .sc-navbar .sc-navbar__item:hover {
   color: var(--sc-navbar-ink--hover, var(--sc-theme--on-primary));

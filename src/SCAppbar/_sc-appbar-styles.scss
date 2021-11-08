@@ -36,20 +36,21 @@
     $typography-theme: (),
     $settings: ()
 ) {
-    
+
     $_color-theme: map.merge(theme.$init-color-theme, $color-theme);
     $_shape-theme: map.merge(theme.$init-shape-theme, $shape-theme);
     $_typography-theme: map.merge(theme.$init-typography-theme, $typography-theme);
     $_settings: map.merge(theme.$init-settings, $settings);
-    
-    $_items: map.get($_settings, items);
-    $_breakpoint: map.get($_settings, breakpoint);
-    
+
+    $_items: map.get($_settings, 'items');
+    $_breakpoint: map.get($_settings, 'breakpoint');
+    $_has-elevation: map.get($_settings, 'has-elevation');
+
     $_scope-exceptions: (
         'outlined',
         'text'
     );
-    
+
     @include base.base(
         $_items,
         $_breakpoint
@@ -61,7 +62,10 @@
         ));
         @include Shape.apply('appbar', $_shape-theme);
         @include Typography.apply('appbar', $_typography-theme);
-        @include Elevation.apply(5, $color: Color.get-color_($_color-theme, 'fill', 'elevation'));
+
+        @if $_has-elevation == true {
+            @include Elevation.apply(5, $color: Color.get-color_($_color-theme, 'fill', 'elevation'));
+        }
     }
 ;
 

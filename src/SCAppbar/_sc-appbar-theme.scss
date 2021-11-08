@@ -41,5 +41,6 @@ $init-typography-theme: (
 
 $init-settings: (
     'items': 4,
-    'breakpoint': medium
+    'breakpoint': 'medium',
+    'has-elevation': true
 );

@@ -36,21 +36,22 @@
     $typography-theme: (),
     $settings: ()
 ) {
-    
+
     $_merged-settings: map.merge(theme.$init-settings, $settings);
-    
+
     $_color-theme: map.merge(theme.$init-color-theme, $color-theme);
     $_shape-theme: map.merge(theme.$init-shape-theme, $shape-theme);
     $_typography-theme: map.merge(theme.$init-typography-theme, $typography-theme);
-    
+
     $_breakpoint: map.get($_merged-settings, 'breakpoint');
     $_is-scrollable: map.get($_merged-settings, 'is-scrollable');
-    
+    $_has-elevation: map.get($_merged-settings, 'has-elevation');
+
     $_scope-exceptions: (
         'text',
         'outlined'
     );
-    
+
     @if $_is-scrollable == true {
         @include base.base($_breakpoint) {
             @content;
@@ -58,8 +59,11 @@
                 background: Color.get-color_($_color-theme, 'fill', 'scrollable', ('header', 'sc'));
                 border-color: Color.get-color_($_color-theme, 'fill', 'scrollable', ('header', 'sc'));
                 color: Color.get-color_($_color-theme, 'ink', 'scrollable', ('header', 'sc'));
-                @include Elevation.apply(0, $color: Color.get-color_($_color-theme, 'fill', 'elevation'));
-                
+
+                @if $_has-elevation == true {
+                    @include Elevation.apply(0, $color: Color.get-color_($_color-theme, 'fill', 'elevation'));
+                }
+
                 &.scrolled {
                     @include Color.apply('header', $_color-theme, 'filled', 'default', (
                         opt: 'no-elevation',
@@ -67,7 +71,10 @@
                     ));
                     @include Shape.apply('header', $_shape-theme);
                     @include Typography.apply('header', $_typography-theme);
-                    @include Elevation.apply(5, $color: Color.get-color_($_color-theme, 'fill', 'elevation'));
+
+                    @if $_has-elevation == true {
+                        @include Elevation.apply(5, $color: Color.get-color_($_color-theme, 'fill', 'elevation'));
+                    }
                 }
             }
         }
@@ -80,8 +87,11 @@
             ));
             @include Shape.apply('header', $_shape-theme);
             @include Typography.apply('header', $_typography-theme);
-            @include Elevation.apply(5, $color: Color.get-color_($_color-theme, 'fill', 'elevation'));
+
+            @if $_has-elevation == true {
+                @include Elevation.apply(5, $color: Color.get-color_($_color-theme, 'fill', 'elevation'));
+            }
         }
     }
-    
+
 }
