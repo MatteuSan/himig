@@ -1,0 +1,122 @@
+//
+//  Copyright (c) 2021 GrowStocks
+//
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in all
+//  copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+//  SOFTWARE.
+//
+
+@use '~@matteusan/sentro';
+
+@use 'sass:map';
+@use 'sass:list';
+@use 'sass:meta';
+
+@use 'theme-functions';
+@use '../support';
+
+$_state-map: (
+    'error': (#b00020, #ffffff),
+    'warning': (#ffa000, #000000),
+    'success': (#25a53f, #ffffff),
+);
+
+$_radius-theme: (
+    'small': 0.3rem,
+    'medium': 0.5rem,
+    'large': 0.7rem
+);
+
+/// Theme configuration mixin.
+/// @return {*} returns theme tokens.
+@mixin config(
+    $primary,
+    $secondary,
+    $surface: #454545,
+    $radius: (),
+    $breakpoints: (),
+    $tokens...
+) {
+
+    $_init-breakpoints: (
+        'small': 320px,
+        'medium': 540px,
+        'large': 890px
+    );
+
+    $_init-radius: (
+        'small': 0.3rem,
+        'medium': 0.5rem,
+        'large': 0.7rem
+    );
+
+    $breakpoints: map.merge($_init-breakpoints, $breakpoints) !global;
+    $radius: map.merge($_init-radius, $radius);
+
+    @include _color-module($primary, 'primary');
+    @include _color-module($secondary, 'secondary');
+    @include _color-module($surface, 'surface');
+
+    @each $property, $value in $_state-map {
+        @include sentro.token-create($property, list.nth($value, 1));
+    }
+
+    @each $property, $value in $_state-map {
+        @include sentro.token-create('on-#{$property}', list.nth($value, 2));
+    }
+
+    @include sentro.token-add(('radius': $radius));
+
+    /* ===== */
+    @each $property, $value in meta.keywords($tokens) {
+        @include sentro.token-add(('#{$property}': $value));
+    }
+
+}
+
+/// Private mixin that parses a color and intelligently creates tokens for it.
+/// @access private
+/// @param {*} $color
+/// @param {string} $name
+/// @return color tokens.
+@mixin _color-module($color, $name) {
+
+    @if not support.is-type('map', $color, $errors: false) {
+
+        $_color-map: theme-functions.split($color);
+        @include sentro.token-add(('#{$name}': $_color-map));
+
+        @if map.has-key($_color-map, 'ink') {
+            @include sentro.token-add(('on-#{$name}': map.get($_color-map, 'ink')));
+        } @else {
+            @include sentro.token-add(('on-#{$name}': support.get-ink($_color-map)));
+        }
+
+    } @else if support.is-variant_($color) {
+
+        $_color-map: theme-functions.fill-missing($color);
+        @include sentro.token-add(('#{$name}': $_color-map));
+
+        @if map.has-key($_color-map, 'ink') {
+            @include sentro.token-add(('on-#{$name}': map.get($_color-map, 'ink')));
+        } @else {
+            @include sentro.token-add(('on-#{$name}': support.get-ink($_color-map)));
+        }
+
+    }
+
+}

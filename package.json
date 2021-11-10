@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "@growstocks/stack": "^3.0.0",
-    "@matteusan/sentro": "^0.1.6",
+    "@matteusan/sentro": "^0.1.7",
     "sass-true": "^6.0.1"
   },
   "devDependencies": {
