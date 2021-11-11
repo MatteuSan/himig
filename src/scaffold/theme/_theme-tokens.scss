@@ -20,10 +20,8 @@
 //  SOFTWARE.
 //
 
-$context: '' !default;
+@use '~@matteusan/sentro';
 
-@forward 'color' as color-*;
-@forward 'shape' as shape-*;
-@forward 'theme' as theme-* with ($context: $context);
-@forward 'typography' as typography-*;
-@forward 'tools' as tools-*;
+@function get($query) {
+    @return sentro.token-get($query);
+}

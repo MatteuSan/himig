@@ -35,12 +35,6 @@ $_state-map: (
     'success': (#25a53f, #ffffff),
 );
 
-$_radius-theme: (
-    'small': 0.3rem,
-    'medium': 0.5rem,
-    'large': 0.7rem
-);
-
 /// Theme configuration mixin.
 /// @return {*} returns theme tokens.
 @mixin config(
@@ -48,15 +42,8 @@ $_radius-theme: (
     $secondary,
     $surface: #454545,
     $radius: (),
-    $breakpoints: (),
     $tokens...
 ) {
-
-    $_init-breakpoints: (
-        'small': 320px,
-        'medium': 540px,
-        'large': 890px
-    );
 
     $_init-radius: (
         'small': 0.3rem,
@@ -64,7 +51,6 @@ $_radius-theme: (
         'large': 0.7rem
     );
 
-    $breakpoints: map.merge($_init-breakpoints, $breakpoints) !global;
     $radius: map.merge($_init-radius, $radius);
 
     @include _color-module($primary, 'primary');

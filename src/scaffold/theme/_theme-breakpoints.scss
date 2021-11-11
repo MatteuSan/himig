@@ -20,10 +20,42 @@
 //  SOFTWARE.
 //
 
-$context: '' !default;
+@use 'sass:map';
 
-@forward 'color' as color-*;
-@forward 'shape' as shape-*;
-@forward 'theme' as theme-* with ($context: $context);
-@forward 'typography' as typography-*;
-@forward 'tools' as tools-*;
+$breakpoints-map: (
+    'small': 320px,
+    'medium': 540px,
+    'large': 890px
+);
+
+@mixin config($breakpoints) {
+
+    $_init-breakpoints: (
+        'small': 320px,
+        'medium': 540px,
+        'large': 890px
+    );
+
+    $breakpoints-map: map.merge($_init-breakpoints, $breakpoints) !global;
+
+}
+
+@mixin create($query, $context: 'min') {
+    @media (#{$context}-width: _sanitize-breakpoint($query, $context)) {
+        @content;
+    }
+}
+
+@function get($query) {
+    @return map.get($breakpoints-map, $query);
+}
+
+@function _sanitize-breakpoint($query, $context) {
+    @if not $context == 'min' or not $context == 'max' {
+        @error "Invalid context: #{$context}! Please select from the following valid contexts: min, max.";
+    } @else if $context == 'min' {
+        @return map.get($breakpoints-map, $query);
+    } @else if $context == 'max' {
+        @return map.get($breakpoints-map, $query) - 1;
+    }
+}

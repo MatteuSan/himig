@@ -24,3 +24,7 @@
   --sc-theme-bruh: bruh;
   --sc-theme-tokens: tokens;
 }
+
+@media (min-width: 720px) {
+  /* CONTENT IS GOOD :) */
+}
