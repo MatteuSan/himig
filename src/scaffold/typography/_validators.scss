@@ -20,3 +20,24 @@
 //  SOFTWARE.
 //
 
+@use 'sass:map';
+@use 'sass:list';
+
+$_valid-props: (
+    'size',
+    'weight',
+    'line-height'
+);
+
+@function is-type-prop($prop) {
+    @if not list.index($_valid-props, $prop) {
+        @error "Invalid typography prop query: #{$prop}! Please select from the following valid typography props: #{$_valid-props};";
+    }
+    @return true;
+}
+
+@function is-map-type-prop($map) {
+    @each $key, $value in $map {
+        @return is-type-prop($key);
+    }
+}

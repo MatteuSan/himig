@@ -15,5 +15,20 @@
   "bugs": {
     "url": "https://github.com/GrowStocks/stack/issues"
   },
+  "dependencies": {
+    "@matteusan/sentro": "0.1.8"
+  },
+  "keywords": [
+    "css",
+    "sass",
+    "theme",
+    "web",
+    "scss",
+    "component-library",
+    "design-system",
+    "growtopia",
+    "growstocks",
+    "css-framework"
+  ],
   "homepage": "https://github.com/GrowStocks/stack#readme"
 }

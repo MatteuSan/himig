@@ -20,14 +20,17 @@
 //  SOFTWARE.
 //
 
-@use '~@matteusan/sentro';
+@use 'node_modules/@matteusan/sentro';
+
+@use '../support';
+@use '../tools';
+// @use '../typography';
 
 @use 'sass:map';
 @use 'sass:list';
 @use 'sass:meta';
 
 @use 'theme-functions';
-@use '../support';
 
 $_state-map: (
     'error': (#b00020, #ffffff),
@@ -40,22 +43,53 @@ $_state-map: (
 @mixin config(
     $primary,
     $secondary,
-    $surface: #454545,
+    $surface: (),
     $radius: (),
+    $size: (),
+    $weight: (),
+    $line-height: (),
     $tokens...
 ) {
 
     $_init-radius: (
         'small': 0.3rem,
         'medium': 0.5rem,
-        'large': 0.7rem
+        'large': 0.7rem,
+        'pill': 700px
     );
 
-    $radius: map.merge($_init-radius, $radius);
+    $_init-size: (
+        'title': tools.px-to-rem(22px),
+        'subtitle': tools.px-to-rem(18px),
+        'body': tools.px-to-rem(14px),
+        'action': tools.px-to-rem(14px),
+        'small': tools.px-to-rem(12px),
+        'icon': tools.px-to-rem(20px)
+    );
+
+    $_init-weight: (
+        'title': 700,
+        'subtitle': 400,
+        'body': 400,
+        'action': 700,
+        'small': 400,
+        'icon': normal
+    );
+
+    $_init-line-height: (
+        'title': support.get-line-height(22px),
+        'subtitle': support.get-line-height(18px),
+        'body': support.get-line-height(14px),
+        'action': support.get-line-height(14px),
+        'small': support.get-line-height(12px)
+    );
 
     @include _color-module($primary, 'primary');
     @include _color-module($secondary, 'secondary');
-    @include _color-module($surface, 'surface');
+
+    @if not support.is-empty($surface) {
+        @include _color-module($surface, 'surface');
+    }
 
     @each $property, $value in $_state-map {
         @include sentro.token-create($property, list.nth($value, 1));
@@ -65,7 +99,10 @@ $_state-map: (
         @include sentro.token-create('on-#{$property}', list.nth($value, 2));
     }
 
-    @include sentro.token-add(('radius': $radius));
+    @include sentro.token-add(('radius': map.merge($_init-radius, $radius)));
+    @include sentro.token-add(('size': map.merge($_init-size, $size)));
+    @include sentro.token-add(('weight': map.merge($_init-weight, $weight)));
+    @include sentro.token-add(('line-height': map.merge($_init-line-height, $line-height)));
 
     /* ===== */
     @each $property, $value in meta.keywords($tokens) {

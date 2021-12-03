@@ -20,3 +20,26 @@
 //  SOFTWARE.
 //
 
+@use 'sass:list';
+
+$_valid-keys: (
+    'default',
+    'hover',
+    'active',
+    'focus',
+    'disabled',
+    'ink'
+);
+
+@function is-color-key($key) {
+    @if not list.index($_valid-keys, $key) {
+        @error "Invalid color key: #{$key}! Please choose from the following valid keys: #{$_valid-keys}.";
+    }
+    @return true;
+}
+
+@function is-map-color-key($map) {
+    @each $key, $value in $map {
+        @return is-color-key($key);
+    }
+}

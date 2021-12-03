@@ -20,10 +20,32 @@
 //  SOFTWARE.
 //
 
+@use '../theme';
+@use '../support';
+
 @use 'sass:map';
 
+@use 'validators';
+
 @mixin apply(
-    $color: ()
+    $component-name,
+    $typography-theme: ()
 ) {
-    //
+    @if validators.is-map-type-prop($typography-theme) {
+        $size: map.get($typography-theme, 'size');
+        $weight: map.get($typography-theme, 'weight');
+        $line-height: map.get($typography-theme, 'line-height');
+
+        @if not support.is-empty($size) {
+            font-size: theme.key-create('#{$component-name}-size', theme.token-get('size-#{$size}'));
+        }
+
+        @if not support.is-empty($weight) {
+            font-weight: theme.key-create('#{$component-name}-weight', theme.token-get('weight-#{$size}'));
+        }
+
+        @if not support.is-empty($line-height) {
+            line-height: theme.key-create('#{$component-name}-line-height', theme.token-get('line-height-#{$size}'));
+        }
+    }
 }

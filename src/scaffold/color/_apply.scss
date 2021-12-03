@@ -20,10 +20,160 @@
 //  SOFTWARE.
 //
 
+@use '../theme';
+@use 'validators';
+
 @use 'sass:map';
+@use 'sass:list';
+@use 'sass:string';
 
 @mixin apply(
-    $color: ()
+    $component-name,
+    $color-theme: (),
+    $style: 'filled'
 ) {
-    //
+    @if validators.is-map-color-key($color-theme) {
+        $default: map.get($color-theme, 'default');
+        $hover: map.get($color-theme, 'hover');
+        $active: map.get($color-theme, 'active');
+        $focus: map.get($color-theme, 'focus');
+        $disabled: map.get($color-theme, 'disabled');
+        $ink: map.get($color-theme, 'ink');
+
+        @if $style == 'text' {
+            @include _text($component-name, $default, $hover, $active, $focus, $disabled, $ink);
+        }
+
+        @if $style == 'outlined' {
+            @include _outlined($component-name, $default, $hover, $active, $focus, $disabled, $ink);
+        }
+
+        @if $style == 'filled' {
+            @include _filled($component-name, $default, $hover, $active, $focus, $disabled, $ink);
+        }
+    }
 }
+
+@mixin _text($component-name, $default, $hover, $active, $focus, $disabled, $ink) {
+    background: rgba(0 0 0 / 0);
+    color: theme.key-create('#{$component-name}-ink', theme.token-get($default));
+    border: 1px solid rgba(0 0 0 / 0);
+
+    @if $hover {
+        &:hover {
+            background: rgba(#b4b4b4, 10%);
+            color: theme.key-create('#{$component-name}-hover-ink', theme.token-get($hover));
+            border-color: rgba(#b4b4b4, 10%);
+        }
+    }
+
+    @if $focus {
+        &:focus {
+            background: rgba(#b4b4b4, 10%);
+            color: theme.key-create('#{$component-name}-focus-ink', theme.token-get($focus));
+            border-color: rgba(#b4b4b4, 10%);
+        }
+    }
+
+    @if $active {
+        &:active {
+            background: rgba(#b4b4b4, 20%);
+            color: theme.key-create('#{$component-name}-active-ink', theme.token-get($active));
+            border-color: rgba(#b4b4b4, 20%);
+        }
+    }
+
+    @if $disabled {
+        &:disabled {
+            color: theme.key-create('#{$component-name}-disabled-ink', theme.token-get($disabled));
+
+            &:hover {
+                background: rgba(0 0 0 / 0);
+                border-color: rgba(0 0 0 / 0);
+            }
+        }
+    }
+}
+
+@mixin _outlined($component-name, $default, $hover, $active, $focus, $disabled, $ink) {
+    background: rgba(0 0 0 / 0);
+    color: theme.key-create('#{$component-name}-ink', theme.token-get($default));
+    border: 1px solid theme.key-create('#{$component-name}-border', theme.token-get($default));
+
+    @if $hover {
+        &:hover {
+            background: theme.key-create('#{$component-name}-hover-fill', theme.token-get($hover));
+            color: theme.key-create('#{$component-name}-hover-ink', theme.token-get($ink));
+            border-color: theme.key-create('#{$component-name}-hover-border', theme.token-get($hover));
+        }
+    }
+
+    @if $focus {
+        &:focus {
+            background: theme.key-create('#{$component-name}-focus-fill', theme.token-get($focus));
+            color: theme.key-create('#{$component-name}-focus-ink', theme.token-get($ink));
+            border-color: theme.key-create('#{$component-name}-focus-border', theme.token-get($focus));
+            // outline: 2px solid rgba(#b4b4b4, 15%);
+        }
+    }
+
+    @if $active {
+        &:active {
+            background: theme.key-create('#{$component-name}-active-fill', theme.token-get($active));
+            color: theme.key-create('#{$component-name}-active-ink', theme.token-get($ink));
+            border-color: theme.key-create('#{$component-name}-active-border', theme.token-get($active));
+        }
+    }
+
+    @if $disabled {
+        &:disabled {
+            color: theme.key-create('#{$component-name}-disabled-ink', theme.token-get($disabled));
+            border-color: theme.key-create('#{$component-name}-disabled-border', theme.token-get($disabled));
+
+            &:hover {
+                background: rgba(0 0 0 / 0);
+            }
+        }
+    }
+}
+
+@mixin _filled($component-name, $default, $hover, $active, $focus, $disabled, $ink) {
+    background: theme.key-create('#{$component-name}-fill', theme.token-get($default));
+    color: theme.key-create('#{$component-name}-ink', theme.token-get($ink));
+    border: 1px solid theme.key-create('#{$component-name}-border', theme.token-get($default));
+
+    @if $hover {
+        &:hover {
+            background: theme.key-create('#{$component-name}-hover-fill', theme.token-get($hover));
+            color: theme.key-create('#{$component-name}-hover-ink', theme.token-get($ink));
+            border-color: theme.key-create('#{$component-name}-hover-border', theme.token-get($hover));
+        }
+    }
+
+    @if $focus {
+        &:focus {
+            background: theme.key-create('#{$component-name}-focus-fill', theme.token-get($focus));
+            color: theme.key-create('#{$component-name}-focus-ink', theme.token-get($ink));
+            border-color: theme.key-create('#{$component-name}-focus-border', theme.token-get($focus));
+            // outline: 2px solid rgba(#b4b4b4, 15%);
+        }
+    }
+
+    @if $active {
+        &:active {
+            background: theme.key-create('#{$component-name}-active-fill', theme.token-get($active));
+            color: theme.key-create('#{$component-name}-active-ink', theme.token-get($ink));
+            border-color: theme.key-create('#{$component-name}-active-border', theme.token-get($active));
+        }
+    }
+
+    @if $disabled {
+        &:disabled {
+            background: theme.key-create('#{$component-name}-disabled-fill', theme.token-get($disabled));
+            color: theme.key-create('#{$component-name}-disabled-ink', theme.token-get($ink));
+            border-color: theme.key-create('#{$component-name}-disabled-border', theme.token-get($disabled));
+        }
+    }
+}
+
+

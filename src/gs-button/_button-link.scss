@@ -20,4 +20,28 @@
 //  SOFTWARE.
 //
 
+@use '../scaffold';
+@use 'sass:map';
 
+@mixin render($theme) {
+    $default: map.get($theme, 'default');
+    $hover: map.get($theme, 'hover');
+    $focus: map.get($theme, 'focus');
+    $active: map.get($theme, 'active');
+
+    a.gs-link {
+        color: scaffold.theme-key-create('link-ink', scaffold.theme-token-get($default));
+
+        &:hover {
+            color: scaffold.theme-key-create('link-hover-ink', scaffold.theme-token-get($hover));
+        }
+
+        &:focus {
+            color: scaffold.theme-key-create('link-focus-ink', scaffold.theme-token-get($focus));
+        }
+
+        &:active {
+            color: scaffold.theme-key-create('link-active-ink', scaffold.theme-token-get($active));
+        }
+    }
+}

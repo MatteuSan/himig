@@ -20,38 +20,5 @@
 //  SOFTWARE.
 //
 
-//
-//  This file is just meant to be a wrapper around @matteusan/sentro.
-//
-
-@use 'node_modules/@matteusan/sentro';
-@use '../support';
-
-$context: '' !default;
-
-/// Creates a key.
-/// @param {string} $key
-/// @param {*} $value
-/// @return {sentro.key} returns type sentro.key
-@function create($key, $value) {
-    @return sentro.key-create('#{_sanitize-context($context)}#{$key}', $value);
-}
-
-/// Binds a key.
-/// @param {string} $key
-/// @param {*} $value
-/// @return {sentro.key-bind} returns type sentro.key-bind
-@mixin bind($key, $value) {
-    @include sentro.key-bind('#{_sanitize-context($context)}#{$key}', $value);
-}
-
-/// Sanitizes context
-/// @access private
-/// @param {string} $context
-/// @return {string} returns cleaned and verified context.
-@function _sanitize-context($context) {
-    @if support.is-empty($context) {
-        @return '';
-    }
-    @return '#{$context}-';
-}
+/// @output:
+/// /

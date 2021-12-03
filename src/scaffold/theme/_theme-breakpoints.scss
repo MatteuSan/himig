@@ -24,21 +24,9 @@
 
 $breakpoints-map: (
     'small': 320px,
-    'medium': 540px,
+    'medium': 640px,
     'large': 890px
 );
-
-@mixin config($breakpoints) {
-
-    $_init-breakpoints: (
-        'small': 320px,
-        'medium': 540px,
-        'large': 890px
-    );
-
-    $breakpoints-map: map.merge($_init-breakpoints, $breakpoints) !global;
-
-}
 
 @mixin create($query, $context: 'min') {
     @media (#{$context}-width: _sanitize-breakpoint($query, $context)) {

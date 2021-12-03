@@ -890,10 +890,10 @@
   resolved "https://registry.npmjs.org/@growstocks/stack/-/stack-3.0.0.tgz"
   integrity sha512-V8IPpnTeO9HApp1GUmVmGHODRu2/xEWEeLliWUHkXjRoHIY6EB7vHfHlAOdCyYkBPuCkaYmzsL9RShc2Nw2DJw==
 
-"@matteusan/sentro@^0.1.6":
-  version "0.1.6"
-  resolved "https://registry.yarnpkg.com/@matteusan/sentro/-/sentro-0.1.6.tgz#b2168e39d45850d01779862ebbbb4a36f20e6d55"
-  integrity sha512-Vkqh4Xt+YbkZqy9yQ0V3tJ7mWs6F298gwm9kCiaYiofPE+bgHd4iwNFCHHf1+gXHSPnl/fhqyTpvMePUOhuPPA==
+"@matteusan/sentro@0.1.8":
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/@matteusan/sentro/-/sentro-0.1.8.tgz#e7bebd8152614274959dc50860c1bdd64251b649"
+  integrity sha512-YbYfGjOpbnooniV5fjtp/EHiEeS7405KSEaHMhqG6Fc1p3WAx8R1USt1rUkGb5t+2qA7Atzh0xhZJ43/YBblRw==
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"

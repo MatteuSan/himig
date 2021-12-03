@@ -24,6 +24,6 @@ $context: '' !default;
 
 @forward 'color' as color-*;
 @forward 'shape' as shape-*;
-@forward 'theme' as theme-* with ($context: $context);
+@forward 'theme' as theme-*;
 @forward 'typography' as typography-*;
 @forward 'tools' as tools-*;

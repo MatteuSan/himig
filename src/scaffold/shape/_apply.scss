@@ -20,10 +20,36 @@
 //  SOFTWARE.
 //
 
+@use '../theme';
+@use '../support';
+
 @use 'sass:map';
+@use 'sass:meta';
+
+@use 'validators';
 
 @mixin apply(
-    $color: ()
+    $component-name,
+    $shape-theme: ()
 ) {
-    //
+    $shape: map.get($shape-theme, 'shape');
+    $radius: map.get($shape-theme, 'radius');
+
+    @if validators.is-shape($shape) {
+        @if $shape == 'block' {
+            border-radius: theme.key-create('#{$component-name}-radius', none);
+        }
+
+        @if $shape == 'round' {
+            @if support.is-type('number', $radius, false) {
+                border-radius: theme.key-create('#{$component-name}-radius', $radius);
+            } @else if support.is-type('string', $radius, false) {
+                border-radius: theme.key-create('#{$component-name}-radius', theme.token-get('radius-#{$radius}'));
+            }
+        }
+
+        @if $shape == 'pill' {
+            border-radius: theme.key-create('#{$component-name}-radius', theme.token-get('radius-pill'));
+        }
+    }
 }

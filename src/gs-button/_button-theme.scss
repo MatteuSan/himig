@@ -20,3 +20,27 @@
 //  SOFTWARE.
 //
 
+$init-color: (
+    default: 'secondary',
+    hover: 'secondary',
+    active: 'secondary-light',
+    focus: 'secondary',
+    disabled: 'secondary-dark',
+    ink: 'on-secondary'
+);
+
+$init-shape: (
+    shape: 'round',
+    radius: 'small',
+    exceptions: ()
+);
+
+$init-typography: (
+    size: 'action',
+    weight: 'action',
+    line-height: 'action'
+);
+
+$init-settings: (
+    types: 'all'
+);

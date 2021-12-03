@@ -20,7 +20,7 @@
 //  SOFTWARE.
 //
 
-@use '~@matteusan/sentro';
+@use 'node_modules/@matteusan/sentro';
 
 @use 'sass:map';
 @use 'sass:list';
@@ -63,8 +63,14 @@
 @function get-ink($fill) {
     $_white-lumen: _get-luminance(#fff);
 
-    @if general-support.is-type('map', $fill) {
+    @if general-support.is-type('map', $fill, false) {
         @if math.abs(_get-luminance(map.get($fill, 'default')) - $_white-lumen) > 0.7 {
+            @return unquote('#ffffff');
+        } @else {
+            @return unquote('#000000');
+        }
+    } @else {
+        @if math.abs(_get-luminance($fill) - $_white-lumen) > 0.7 {
             @return unquote('#ffffff');
         } @else {
             @return unquote('#000000');

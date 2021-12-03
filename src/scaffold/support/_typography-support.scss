@@ -20,3 +20,8 @@
 //  SOFTWARE.
 //
 
+@use '../tools';
+
+@function get-line-height($font-size) {
+    @return tools.px-to-rem($font-size * 1.3);
+}

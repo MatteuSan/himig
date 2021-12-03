@@ -23,7 +23,7 @@
 @use '../scaffold';
 
 @mixin base() {
-    .sc-button {
+    .gs-button {
         width: max-content;
         min-width: 57px;
 
@@ -33,12 +33,14 @@
 
         padding: 0.4rem 0.6rem;
 
-        // border: 1px solid transparent;
         line-height: inherit;
         user-select: none;
         overflow: visible;
         vertical-align: middle;
         box-sizing: border-box;
+
+        cursor: pointer;
+        outline: none;
 
         @include scaffold.tools-prefix(transition, all 0.1s linear);
 
@@ -53,30 +55,30 @@
         }
 
         &::-moz-focus-inner {
+            border-style: none;
             padding: 0;
-            border: 0;
         }
 
-        &.sc-button--icon-only,
-        &.sc-button--icon-only:focus {
+        &.gs-button--icon-only,
+        &.gs-button--icon-only:focus {
             outline: none !important;
             border: none transparent !important;
         }
 
-        .sc-button__label {
+        .gs-button__icon {
+            width: scaffold.theme-key-create('button-icon-size', scaffold.tools-px-to-rem(20px));
+            height: scaffold.theme-key-create('button-icon-size', scaffold.tools-px-to-rem(20px));
+            position: relative;
+            font-size: scaffold.theme-key-create('button-icon-size', scaffold.tools-px-to-rem(20px));
+            color: scaffold.theme-key-create('button-icon-ink', inherit);
+        }
+
+        .gs-button__label {
             font-weight: inherit;
             font-size: inherit;
             text-align: left;
             color: inherit;
         }
 
-        .sc-button__icon {
-            font-size: scaffold.theme-key-create('button-icon-size', scaffold.tools-px-to-rem(20px));
-            position: relative;
-            color: scaffold.theme-key-create('button-icon-ink', inherit);
-            /* @fallback */
-            width: scaffold.theme-key-create('button-icon-size', scaffold.tools-px-to-rem(20px));
-            height: scaffold.theme-key-create('button-icon-size', scaffold.tools-px-to-rem(20px));
-        }
     }
 }

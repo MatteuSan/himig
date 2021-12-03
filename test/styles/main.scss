@@ -22,6 +22,8 @@
 
 @use '../../src/scaffold';
 
+@use '../../src/gs-button';
+
 :root {
     @include scaffold.theme-config(
         $primary: #12305e,
@@ -32,13 +34,4 @@
     );
 }
 
-.component {
-    // background-color: scaffold.theme-key-create('fill', scaffold.theme-token-get('primary'));
-}
-
-@include scaffold.theme-breakpoint-config((
-    'medium': 720px,
-));
-@include scaffold.theme-breakpoint-create('medium') {
-    /* CONTENT IS GOOD :) */
-}
+@include gs-button.render();
