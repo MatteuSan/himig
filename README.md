@@ -1,4 +1,6 @@
 # Stack
+> ⚠️ **THIS PACKAGE IS IN MAINTENANCE MODE**
+
 ![lang](https://img.shields.io/badge/lang-SCSS-%23c69)
 [![version_badge](https://img.shields.io/npm/v/@growstocks/stack)](https://www.npmjs.com/package/@growstocks/stack)
 ![license_badge](https://img.shields.io/npm/l/@growstocks/stack)
