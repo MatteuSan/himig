@@ -1,7 +1,7 @@
 # Stack
 ![lang](https://img.shields.io/badge/lang-SCSS-%23c69)
-[![version_badge](https://img.shields.io/npm/v/@growstocks/stack)](https://www.npmjs.com/package/@growstocks/stack)
-![license_badge](https://img.shields.io/npm/l/@growstocks/stack)
+[![version_badge](https://img.shields.io/npm/v/@growstocksgt/stack)](https://www.npmjs.com/package/@growstocksgt/stack)
+![license_badge](https://img.shields.io/npm/l/@growstocksgt/stack)
 ![stars](https://img.shields.io/github/stars/GrowStocks/stack?style=social)
 
 Check out the demo [here](https://stackcss.github.io/stack)!
