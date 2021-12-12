@@ -1,6 +1,6 @@
 {
   "name": "@growstocks/scaffold",
-  "version": "3.0.1",
+  "version": "3.0.3",
   "description": "The core library of GrowStocks' stack library",
   "main": "index.js",
   "scripts": {
@@ -10,6 +10,18 @@
     "type": "git",
     "url": "git+https://github.com/GrowStocks/stack.git"
   },
+  "keywords": [
+    "css",
+    "sass",
+    "theme",
+    "web",
+    "scss",
+    "component-library",
+    "design-system",
+    "growtopia",
+    "growstocks",
+    "css-framework"
+  ],
   "author": "Matteu",
   "license": "MIT",
   "bugs": {

@@ -1,28 +1,26 @@
 {
   "name": "stack",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "The web implementation of GrowStocks' design system. Made with SCSS, Typescript, and ❤.",
   "main": "index.js",
   "directories": {
     "doc": "docs"
   },
   "dependencies": {
-    "@growstocks/stack": "^3.0.0",
-    "@matteusan/sentro": "^0.1.6",
-    "sass-true": "^6.0.1"
+    "sass-true": "6.0.1"
   },
   "devDependencies": {
-    "cssnano": "^5.0.8",
-    "gulp": "^4.0.2",
-    "gulp-cli": "^2.3.0",
-    "gulp-postcss": "^9.0.1",
-    "gulp-sass": "^5.0.0",
-    "laravel-mix": "^6.0.31",
+    "cssnano": "5.0.8",
+    "gulp": "4.0.2",
+    "gulp-cli": "2.3.0",
+    "gulp-postcss": "9.0.1",
+    "gulp-sass": "5.0.0",
+    "laravel-mix": "6.0.31",
     "resolve-url-loader": "4.0.0",
-    "sass": "^1.38.2",
+    "sass": "1.38.2",
     "sass-loader": "12.1.0",
-    "ts-loader": "^9.2.6",
-    "typescript": "^4.3.2"
+    "ts-loader": "9.2.6",
+    "typescript": "4.3.2"
   },
   "scripts": {
     "build": "gulp",
