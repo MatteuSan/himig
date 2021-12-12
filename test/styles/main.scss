@@ -28,10 +28,18 @@
     @include scaffold.theme-config(
         $primary: #12305e,
         $secondary: #ff9e0a,
-        $surface: #454545,
-        $bruh: 'bruh',
-        $tokens: 'tokens'
+        $surface: (
+            'default': #000b21
+        ),
     );
 }
 
+body {
+    background-color: scaffold.theme-token-get('surface-dark');
+}
+
 @include gs-button.render();
+
+.gs-card {
+
+}

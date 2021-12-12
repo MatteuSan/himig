@@ -7,9 +7,9 @@
   --gs-theme-secondary: #ff9e0a;
   --gs-theme-secondary-dark: #8c5500;
   --gs-theme-on-secondary: #000000;
-  --gs-theme-surface-light: #8f7373;
-  --gs-theme-surface: #454545;
-  --gs-theme-surface-dark: #292121;
+  --gs-theme-surface-light: #485572;
+  --gs-theme-surface: #000b21;
+  --gs-theme-surface-dark: #000611;
   --gs-theme-on-surface: #ffffff;
   --gs-theme-error: #b00020;
   --gs-theme-warning: #ffa000;
@@ -43,6 +43,10 @@
   --gs-theme-tokens: tokens;
 }
 
+body {
+  background-color: var(--gs-theme-surface-dark);
+}
+
 .gs-button {
   width: max-content;
   min-width: 57px;
@@ -68,19 +72,19 @@
   border: 1px solid rgba(0, 0, 0, 0);
 }
 .gs-button:hover {
-  background: rgba(180, 180, 180, 0.1);
+  background: rgba(180, 180, 180, 0.13);
   color: var(--gs-button-hover-ink, var(--gs-theme-secondary));
-  border-color: rgba(180, 180, 180, 0.1);
+  border-color: rgba(180, 180, 180, 0.013);
 }
 .gs-button:focus {
-  background: rgba(180, 180, 180, 0.1);
+  background: rgba(180, 180, 180, 0.13);
   color: var(--gs-button-focus-ink, var(--gs-theme-secondary));
-  border-color: rgba(180, 180, 180, 0.1);
+  border-color: rgba(180, 180, 180, 0.013);
 }
 .gs-button:active {
   background: rgba(180, 180, 180, 0.2);
   color: var(--gs-button-active-ink, var(--gs-theme-secondary-light));
-  border-color: rgba(180, 180, 180, 0.2);
+  border-color: rgba(180, 180, 180, 0.02);
 }
 .gs-button:disabled {
   color: var(--gs-button-disabled-ink, var(--gs-theme-secondary-dark));
@@ -94,15 +98,15 @@
   color: var(--gs-button-ink, var(--gs-theme-secondary));
   border: 1px solid var(--gs-button-border, var(--gs-theme-secondary));
 }
+.gs-button.gs-button--outlined:focus {
+  background: rgba(180, 180, 180, 0.13);
+  color: var(--gs-button-focus-ink, var(--gs-theme-secondary));
+  border-color: var(--gs-button-focus-border, var(--gs-theme-secondary));
+}
 .gs-button.gs-button--outlined:hover {
   background: var(--gs-button-hover-fill, var(--gs-theme-secondary));
   color: var(--gs-button-hover-ink, var(--gs-theme-on-secondary));
   border-color: var(--gs-button-hover-border, var(--gs-theme-secondary));
-}
-.gs-button.gs-button--outlined:focus {
-  background: var(--gs-button-focus-fill, var(--gs-theme-secondary));
-  color: var(--gs-button-focus-ink, var(--gs-theme-on-secondary));
-  border-color: var(--gs-button-focus-border, var(--gs-theme-secondary));
 }
 .gs-button.gs-button--outlined:active {
   background: var(--gs-button-active-fill, var(--gs-theme-secondary-light));
@@ -150,6 +154,9 @@
 .gs-button::-moz-focus-inner {
   border-style: none;
   padding: 0;
+}
+.gs-button:disabled {
+  cursor: default;
 }
 .gs-button.gs-button--icon-only, .gs-button.gs-button--icon-only:focus {
   outline: none !important;

@@ -59,6 +59,10 @@
             padding: 0;
         }
 
+        &:disabled {
+            cursor: default;
+        }
+
         &.gs-button--icon-only,
         &.gs-button--icon-only:focus {
             outline: none !important;
