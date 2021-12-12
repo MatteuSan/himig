@@ -17,4 +17,4 @@ Check out the demo [here](https://stackcss.github.io/stack)!
 * SASS/SCSS Live Watcher or Live Compiler (refer to your IDE's plugins marketplace)
 
 ## Installation Instructions
-- Please refer to the "Getting Started: Installation" page in the [documentation](https://github.com/GrowStocks/stack/blob/main/docs/Component%20Usage.md).
+- Please refer to the [documentation](https://github.com/GrowStocks/stack/blob/main/docs/Component%20Usage.md).
