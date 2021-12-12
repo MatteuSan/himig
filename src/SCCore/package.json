@@ -1,5 +1,5 @@
 {
-  "name": "@growstocks/scaffold",
+  "name": "@growstocksgt/scaffold",
   "version": "3.0.3",
   "description": "The core library of GrowStocks' stack library",
   "main": "index.js",

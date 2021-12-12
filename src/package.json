@@ -1,5 +1,5 @@
 {
-  "name": "@growstocks/stack",
+  "name": "@growstocksgt/stack",
   "version": "3.0.3",
   "description": "The web implementation of GrowStocks' design system. Made with SCSS, Typescript, and ❤.",
   "main": "index.js",
