@@ -20,7 +20,7 @@
 //  SOFTWARE.
 //
 
-@use 'node_modules/@matteusan/sentro';
+@use 'node_modules/@matteu-san/sentro';
 
 @use '../support';
 @use '../tools';
@@ -41,8 +41,8 @@ $_state-map: (
 /// Theme configuration mixin.
 /// @return {*} returns theme tokens.
 @mixin config(
-    $primary,
-    $secondary,
+    $primary: (),
+    $secondary: (),
     $surface: (),
     $radius: (),
     $size: (),

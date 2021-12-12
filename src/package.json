@@ -1,5 +1,5 @@
 {
-  "name": "@growstocks/stack",
+  "name": "@growstocksgt/stack",
   "version": "4.0.0",
   "description": "The web implementation of GrowStocks' design system. Made with SCSS, Typescript, and ❤.",
   "main": "index.js",
@@ -11,7 +11,7 @@
     "url": "git+https://github.com/GrowStocks/stack.git"
   },
   "dependencies": {
-    "@matteusan/sentro": "0.1.8"
+    "@matteu-san/sentro": "0.1.10"
   },
   "keywords": [
     "css",

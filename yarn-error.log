@@ -1,47 +1,62 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\pptxs\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add sass-loader@12.1.0 resolve-url-loader@4.0.0 --dev
+  C:\Program Files\nodejs\node.exe C:\Users\pptxs\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js install
 
 PATH: 
-  C:\xampp\htdocs\growstocks\open-source\stack\node_modules\.bin;C:\xampp\htdocs\growstocks\open-source\node_modules\.bin;C:\xampp\htdocs\growstocks\node_modules\.bin;C:\xampp\htdocs\node_modules\.bin;C:\xampp\node_modules\.bin;C:\node_modules\.bin;C:\Users\pptxs\AppData\Roaming\npm\node_modules\npm\node_modules\@npmcli\run-script\lib\node-gyp-bin;C:\xampp\htdocs\growstocks\open-source\stack\node_modules\.bin;C:\Users\pptxs\AppData\Local\Programs\Python\Python39\Scripts\;C:\Users\pptxs\AppData\Local\Programs\Python\Python39\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;c:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64_win\compiler;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Git\cmd;C:\Program Files (x86)\Common Files\Propellerhead Software\ReWire\;C:\Program Files\Common Files\Propellerhead Software\ReWire\;C:\xampp\php;C:\ProgramData\ComposerSetup\bin;C:\ProgramData\chocolatey\bin;C:\Program Files\LLVM\bin;C:\Program Files\CMake\bin;C:\sqlite3;C:\Program Files\nodejs\;C:\Program Files\erl10.7\bin;C:\Program Files (x86)\Elixir\bin;C:\WINDOWS\system32\config\systemprofile\.mix\escripts;C:\Ruby30-x64\bin;C:\Users\pptxs\AppData\Local\Microsoft\WindowsApps;C:\Users\pptxs\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\pptxs\AppData\Local\GitHubDesktop\bin;C:\Users\pptxs\AppData\Roaming\Composer\vendor\bin;C:\Users\pptxs\AppData\Local\Microsoft\WindowsApps;C:\Program Files\heroku\bin;C:\Program Files\IBM\Cloud\bin;C:\Flutter\flutter\bin;;C:\Users\pptxs\AppData\Local\Programs\Hyper\resources\bin;C:\Users\pptxs\AppData\Roaming\npm
+  C:\Users\pptxs\PhpstormProjects\growstocks\open-source\stack\node_modules\.bin;C:\Program Files\Eclipse Foundation\jdk-17.0.0.35-hotspot\bin;C:\Python310\Scripts\;C:\Python310\;C:\Users\pptxs\AppData\Local\Programs\Python\Python39\Scripts\;C:\Users\pptxs\AppData\Local\Programs\Python\Python39\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;c:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64_win\compiler;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Common Files\Propellerhead Software\ReWire\;C:\Program Files\Common Files\Propellerhead Software\ReWire\;C:\ProgramData\ComposerSetup\bin;C:\ProgramData\chocolatey\bin;C:\Program Files\LLVM\bin;C:\Program Files\CMake\bin;C:\sqlite3;C:\Program Files\erl10.7\bin;C:\Program Files (x86)\Elixir\bin;C:\WINDOWS\system32\config\systemprofile\.mix\escripts;C:\Program Files\nodejs\;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\Git\cmd;C:\Program Files\Symfony;C:\Program Files\Go\bin;C:\xampp\php;C:\Ruby30-x64\bin;C:\Users\pptxs\AppData\Roaming\Composer\vendor\bin;C:\Users\pptxs\AppData\Roaming\npm\node_modules\yarn\bin;C:\Users\pptxs\AppData\Roaming\npm\node_modules\typescript\bin;C:\Users\pptxs\AppData\Roaming\npm\node_modules\npkill\lib\bin;C:\Users\pptxs\AppData\Roaming\npm\node_modules\@vue\cli\bin;C:\Users\pptxs\node_modules\gatsby-cli\lib;C:\Users\pptxs\node_modules\@sanity\cli\bin;C:\Users\pptxs\node_modules\gulp-cli\bin;C:\Users\pptxs\AppData\Roaming\npm\node_modules\sassdoc\bin;C:\Python310\Lib\site-packages\django\bin;C:\Users\pptxs\AppData\Roaming\npm\tsc;C:\Users\pptxs\AppData\Roaming\npm\node_modules\gatsby-cli\lib;C:\Users\pptxs\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\Neovim\bin;C:\Users\pptxs\AppData\Local\Yarn\bin;C:\Users\pptxs\.cargo\bin;
 
 Yarn version: 
-  1.22.10
+  1.22.17
 
 Node version: 
-  16.9.1
+  14.18.0
 
 Platform: 
   win32 x64
 
 Trace: 
-  Error: getaddrinfo ENOTFOUND registry.yarnpkg.com
-      at GetAddrInfoReqWrap.onlookup [as oncomplete] (node:dns:71:26)
+  Error: https://registry.yarnpkg.com/@growstocksgt%2fstack: Not found
+      at Request.params.callback [as _callback] (C:\Users\pptxs\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:67029:18)
+      at Request.self.callback (C:\Users\pptxs\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:140883:22)
+      at Request.emit (events.js:400:28)
+      at Request.<anonymous> (C:\Users\pptxs\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:141855:10)
+      at Request.emit (events.js:400:28)
+      at IncomingMessage.<anonymous> (C:\Users\pptxs\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:141777:12)
+      at Object.onceWrapper (events.js:519:28)
+      at IncomingMessage.emit (events.js:412:35)
+      at endReadableNT (internal/streams/readable.js:1334:12)
+      at processTicksAndRejections (internal/process/task_queues.js:82:21)
 
 npm manifest: 
   {
     "name": "stack",
-    "version": "3.0.0-beta",
+    "version": "4.0.0",
     "description": "The web implementation of GrowStocks' design system. Made with SCSS, Typescript, and ❤.",
     "main": "index.js",
     "directories": {
       "doc": "docs"
     },
     "dependencies": {
-      "@growstocks/stack": "^3.0.0-beta.2"
+      "@growstocksgt/stack": "3.0.2",
+      "@matteu-san/sentro": "0.1.10",
+      "sass-true": "6.0.1"
     },
     "devDependencies": {
-      "cssnano": "^5.0.8",
-      "gulp": "^4.0.2",
-      "gulp-cli": "^2.3.0",
-      "gulp-postcss": "^9.0.1",
-      "gulp-sass": "^5.0.0",
-      "laravel-mix": "^6.0.31",
-      "sass": "^1.38.2",
-      "ts-loader": "^9.2.6",
-      "typescript": "^4.3.2"
+      "cssnano": "5.0.8",
+      "gulp": "4.0.2",
+      "gulp-cli": "2.3.0",
+      "gulp-postcss": "9.0.1",
+      "gulp-sass": "5.0.0",
+      "laravel-mix": "6.0.31",
+      "resolve-url-loader": "4.0.0",
+      "sass": "1.38.2",
+      "sass-loader": "12.1.0",
+      "ts-loader": "9.2.6",
+      "typescript": "4.3.2"
     },
     "scripts": {
-      "build": "gulp"
+      "build": "gulp",
+      "mix": "mix",
+      "mix:watch": "mix watch"
     },
     "repository": {
       "type": "git",
@@ -946,10 +961,15 @@ Lockfile:
     resolved "https://registry.npmjs.org/@discoveryjs/json-ext/-/json-ext-0.5.5.tgz"
     integrity sha512-6nFkfkmSeV/rqSaS4oWHgmpnYw194f6hmWF5is6b0J1naJZoiD0NTc9AiUwPHvWsowkjuHErCZT1wa0jg+BLIA==
   
-  "@growstocks/stack@^3.0.0-beta.2":
-    version "3.0.0-unstable"
-    resolved "https://registry.npmjs.org/@growstocks/stack/-/stack-3.0.0-unstable.tgz"
-    integrity sha512-4SI3H+N9FrOeJESSmD2TQ/ptVuxWEjYH+P6fdpls/TeB+s4TL71CxgmvzXGn5LUyAuIeEYGdqofEcr/MpnqAmg==
+  "@growstocks/stack@^3.0.0":
+    version "3.0.0"
+    resolved "https://registry.npmjs.org/@growstocks/stack/-/stack-3.0.0.tgz"
+    integrity sha512-V8IPpnTeO9HApp1GUmVmGHODRu2/xEWEeLliWUHkXjRoHIY6EB7vHfHlAOdCyYkBPuCkaYmzsL9RShc2Nw2DJw==
+  
+  "@matteusan/sentro@0.1.8":
+    version "0.1.8"
+    resolved "https://registry.yarnpkg.com/@matteusan/sentro/-/sentro-0.1.8.tgz#e7bebd8152614274959dc50860c1bdd64251b649"
+    integrity sha512-YbYfGjOpbnooniV5fjtp/EHiEeS7405KSEaHMhqG6Fc1p3WAx8R1USt1rUkGb5t+2qA7Atzh0xhZJ43/YBblRw==
   
   "@nodelib/fs.scandir@2.1.5":
     version "2.1.5"
@@ -1285,6 +1305,14 @@ Lockfile:
     version "8.5.0"
     resolved "https://registry.npmjs.org/acorn/-/acorn-8.5.0.tgz"
     integrity sha512-yXbYeFy+jUuYd3/CDcg2NkIYE991XYX/bje7LmjJigUciaeO1JR4XxXgCIV1/Zc/dRuFEyw1L0pbA+qynJkW5Q==
+  
+  adjust-sourcemap-loader@^4.0.0:
+    version "4.0.0"
+    resolved "https://registry.npmjs.org/adjust-sourcemap-loader/-/adjust-sourcemap-loader-4.0.0.tgz"
+    integrity sha512-OXwN5b9pCUXNQHJpwwD2qP40byEmSgzj8B4ydSN0uMNYWiFmJ6x6KwUllMmfk8Rwu/HJDFR7U8ubsWBoN0Xp0A==
+    dependencies:
+      loader-utils "^2.0.0"
+      regex-parser "^2.2.11"
   
   aggregate-error@^3.0.0:
     version "3.1.0"
@@ -2422,6 +2450,15 @@ Lockfile:
     version "5.0.1"
     resolved "https://registry.npmjs.org/css-what/-/css-what-5.0.1.tgz"
     integrity sha512-FYDTSHb/7KXsWICVsxdmiExPjCfRC4qRFBdVwv7Ax9hMnvMmEjP9RfxTEZ3qPZGmADDn2vAKSo9UcN1jKVYscg==
+  
+  css@^3.0.0:
+    version "3.0.0"
+    resolved "https://registry.npmjs.org/css/-/css-3.0.0.tgz"
+    integrity sha512-DG9pFfwOrzc+hawpmqX/dHYHJG+Bsdb0klhyi1sDneOgGOXy9wQIC8hzyVp1e4NRYDBdxcylvywPkkXCHAzTyQ==
+    dependencies:
+      inherits "^2.0.4"
+      source-map "^0.6.1"
+      source-map-resolve "^0.6.0"
   
   cssesc@^3.0.0:
     version "3.0.0"
@@ -4454,7 +4491,7 @@ Lockfile:
     resolved "https://registry.npmjs.org/lodash.uniq/-/lodash.uniq-4.5.0.tgz"
     integrity sha1-0CJTc662Uq3BvILklFM5qEJ1R3M=
   
-  lodash@^4.17.14, lodash@^4.17.20, lodash@^4.17.21:
+  lodash@^4.17.14, lodash@^4.17.19, lodash@^4.17.20, lodash@^4.17.21:
     version "4.17.21"
     resolved "https://registry.npmjs.org/lodash/-/lodash-4.17.21.tgz"
     integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
@@ -5234,6 +5271,11 @@ Lockfile:
       safe-buffer "^5.0.1"
       sha.js "^2.4.8"
   
+  picocolors@^0.2.1:
+    version "0.2.1"
+    resolved "https://registry.npmjs.org/picocolors/-/picocolors-0.2.1.tgz"
+    integrity sha512-cMlDqaLEqfSaW8Z7N5Jw+lyIW869EzT73/F5lhtY9cLGoVxSXznfgfXMO0Z5K0o0Q2TkTXq+0KFsdnSe3jDViA==
+  
   picomatch@^2.0.4, picomatch@^2.2.1, picomatch@^2.2.3:
     version "2.3.0"
     resolved "https://registry.npmjs.org/picomatch/-/picomatch-2.3.0.tgz"
@@ -5554,6 +5596,14 @@ Lockfile:
     resolved "https://registry.npmjs.org/postcss-value-parser/-/postcss-value-parser-4.1.0.tgz"
     integrity sha512-97DXOFbQJhk71ne5/Mt6cOu6yxsSfM0QGQyl0L25Gca4yGWEGJaig7l7gbCX623VqTBNGLRLaVUCnNkcedlRSQ==
   
+  postcss@^7.0.35:
+    version "7.0.39"
+    resolved "https://registry.npmjs.org/postcss/-/postcss-7.0.39.tgz"
+    integrity sha512-yioayjNbHn6z1/Bywyb2Y4s3yvDAeXGOyxqD+LnVOinq6Mdmd++SW2wUNVzavyyHxd6+DxzWGIuosg6P1Rj8uA==
+    dependencies:
+      picocolors "^0.2.1"
+      source-map "^0.6.1"
+  
   postcss@^8.2.15:
     version "8.3.6"
     resolved "https://registry.npmjs.org/postcss/-/postcss-8.3.6.tgz"
@@ -5786,6 +5836,11 @@ Lockfile:
       extend-shallow "^3.0.2"
       safe-regex "^1.1.0"
   
+  regex-parser@^2.2.11:
+    version "2.2.11"
+    resolved "https://registry.npmjs.org/regex-parser/-/regex-parser-2.2.11.tgz"
+    integrity sha512-jbD/FT0+9MBU2XAZluI7w2OBs1RBi6p9M83nkoZayQXXU9e8Robt69FcZc7wU4eJD/YFTjn1JdCk3rbMJajz8Q==
+  
   regexp.prototype.flags@^1.2.0:
     version "1.3.1"
     resolved "https://registry.npmjs.org/regexp.prototype.flags/-/regexp.prototype.flags-1.3.1.tgz"
@@ -5921,6 +5976,17 @@ Lockfile:
     dependencies:
       value-or-function "^3.0.0"
   
+  resolve-url-loader@4.0.0:
+    version "4.0.0"
+    resolved "https://registry.npmjs.org/resolve-url-loader/-/resolve-url-loader-4.0.0.tgz"
+    integrity sha512-05VEMczVREcbtT7Bz+C+96eUO5HDNvdthIiMB34t7FcF8ehcu4wC0sSgPUubs3XW2Q3CNLJk/BJrCU9wVRymiA==
+    dependencies:
+      adjust-sourcemap-loader "^4.0.0"
+      convert-source-map "^1.7.0"
+      loader-utils "^2.0.0"
+      postcss "^7.0.35"
+      source-map "0.6.1"
+  
   resolve-url@^0.2.1:
     version "0.2.1"
     resolved "https://registry.npmjs.org/resolve-url/-/resolve-url-0.2.1.tgz"
@@ -5992,6 +6058,23 @@ Lockfile:
     version "2.1.2"
     resolved "https://registry.npmjs.org/safer-buffer/-/safer-buffer-2.1.2.tgz"
     integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
+  
+  sass-loader@12.1.0:
+    version "12.1.0"
+    resolved "https://registry.npmjs.org/sass-loader/-/sass-loader-12.1.0.tgz"
+    integrity sha512-FVJZ9kxVRYNZTIe2xhw93n3xJNYZADr+q69/s98l9nTCrWASo+DR2Ot0s5xTKQDDEosUkatsGeHxcH4QBp5bSg==
+    dependencies:
+      klona "^2.0.4"
+      neo-async "^2.6.2"
+  
+  sass-true@^6.0.1:
+    version "6.0.1"
+    resolved "https://registry.npmjs.org/sass-true/-/sass-true-6.0.1.tgz"
+    integrity sha512-Ow72fStIgw+qRRUc0r77emeWry06a3e1hXtadPEzDL/GFiEjtQKZel5fr+gu85zC8JYmLkZofMn6x9b/sq+wfg==
+    dependencies:
+      chalk "^4.1.0"
+      css "^3.0.0"
+      lodash "^4.17.19"
   
   sass@^1.38.2:
     version "1.38.2"
@@ -6240,6 +6323,14 @@ Lockfile:
       source-map-url "^0.4.0"
       urix "^0.1.0"
   
+  source-map-resolve@^0.6.0:
+    version "0.6.0"
+    resolved "https://registry.npmjs.org/source-map-resolve/-/source-map-resolve-0.6.0.tgz"
+    integrity sha512-KXBr9d/fO/bWo97NXsPIAW1bFSBOuCnjbNTBMO7N59hsv5i9yzRDfcYwwt0l04+VqnKC+EwzvJZIP/qkuMgR/w==
+    dependencies:
+      atob "^2.1.2"
+      decode-uri-component "^0.2.0"
+  
   source-map-support@~0.5.12, source-map-support@~0.5.20:
     version "0.5.20"
     resolved "https://registry.npmjs.org/source-map-support/-/source-map-support-0.5.20.tgz"
@@ -6253,15 +6344,15 @@ Lockfile:
     resolved "https://registry.npmjs.org/source-map-url/-/source-map-url-0.4.1.tgz"
     integrity sha512-cPiFOTLUKvJFIg4SKVScy4ilPPW6rFgMgfuZJPNoDuMs3nC1HbMUycBoJw77xFIp6z1UJQJOfx6C9GMH80DiTw==
   
+  source-map@0.6.1, source-map@^0.6.0, source-map@^0.6.1, source-map@~0.6.0, source-map@~0.6.1:
+    version "0.6.1"
+    resolved "https://registry.npmjs.org/source-map/-/source-map-0.6.1.tgz"
+    integrity sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==
+  
   source-map@^0.5.0, source-map@^0.5.1, source-map@^0.5.6:
     version "0.5.7"
     resolved "https://registry.npmjs.org/source-map/-/source-map-0.5.7.tgz"
     integrity sha1-igOdLRAh0i0eoUyA2OpGi6LvP8w=
-  
-  source-map@^0.6.0, source-map@^0.6.1, source-map@~0.6.0, source-map@~0.6.1:
-    version "0.6.1"
-    resolved "https://registry.npmjs.org/source-map/-/source-map-0.6.1.tgz"
-    integrity sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==
   
   source-map@~0.7.2:
     version "0.7.3"
@@ -6658,7 +6749,7 @@ Lockfile:
   
   ts-loader@^9.2.6:
     version "9.2.6"
-    resolved "https://registry.yarnpkg.com/ts-loader/-/ts-loader-9.2.6.tgz#9937c4dd0a1e3dbbb5e433f8102a6601c6615d74"
+    resolved "https://registry.npmjs.org/ts-loader/-/ts-loader-9.2.6.tgz"
     integrity sha512-QMTC4UFzHmu9wU2VHZEmWWE9cUajjfcdcws+Gh7FhiO+Dy0RnR1bNz0YCHqhI0yRowCE9arVnNxYHqELOy9Hjw==
     dependencies:
       chalk "^4.1.0"
