@@ -1,7 +1,7 @@
 # Scaffold
 ![lang](https://img.shields.io/badge/lang-SCSS-%23c69)
-[![version_badge](https://img.shields.io/npm/v/@growstocksgt/scaffold)](https://www.npmjs.com/package/@growstocksgt/scaffold)
-![license_badge](https://img.shields.io/npm/l/@growstocksgt/scaffold)
+[![version_badge](https://img.shields.io/npm/v/@growstocks/scaffold)](https://www.npmjs.com/package/@growstocks/scaffold)
+![license_badge](https://img.shields.io/npm/l/@growstocks/scaffold)
 ![stars](https://img.shields.io/github/stars/GrowStocks/stack?style=social)
 
 The core library of GrowStocks' design system, [Stack](https://github.com/GrowStocks/stack).
