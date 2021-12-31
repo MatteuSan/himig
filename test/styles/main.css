@@ -1,0 +1,191 @@
+:root {
+  --gs-theme-primary-light: #516f9f;
+  --gs-theme-primary: #12305e;
+  --gs-theme-primary-dark: #071835;
+  --gs-theme-on-primary: #ffffff;
+  --gs-theme-secondary-light: #ffbd58;
+  --gs-theme-secondary: #ff9e0a;
+  --gs-theme-secondary-dark: #8c5500;
+  --gs-theme-on-secondary: #000000;
+  --gs-theme-surface-light: #485572;
+  --gs-theme-surface: #000b21;
+  --gs-theme-surface-dark: #000611;
+  --gs-theme-on-surface: #ffffff;
+  --gs-theme-error: #b00020;
+  --gs-theme-warning: #ffa000;
+  --gs-theme-success: #25a53f;
+  --gs-theme-on-error: #ffffff;
+  --gs-theme-on-warning: #000000;
+  --gs-theme-on-success: #ffffff;
+  --gs-theme-radius-small: 0.3rem;
+  --gs-theme-radius-medium: 0.5rem;
+  --gs-theme-radius-large: 0.7rem;
+  --gs-theme-radius-pill: 700px;
+  --gs-theme-size-title: 1.375rem;
+  --gs-theme-size-subtitle: 1.125rem;
+  --gs-theme-size-body: 0.875rem;
+  --gs-theme-size-action: 0.875rem;
+  --gs-theme-size-small: 0.75rem;
+  --gs-theme-size-icon: 1.25rem;
+  --gs-theme-weight-title: 700;
+  --gs-theme-weight-subtitle: 400;
+  --gs-theme-weight-body: 400;
+  --gs-theme-weight-action: 700;
+  --gs-theme-weight-small: 400;
+  --gs-theme-weight-icon: normal;
+  --gs-theme-line-height-title: 1.7875rem;
+  --gs-theme-line-height-subtitle: 1.4625rem;
+  --gs-theme-line-height-body: 1.1375rem;
+  --gs-theme-line-height-action: 1.1375rem;
+  --gs-theme-line-height-small: 0.975rem;
+  /* ===== */
+  --gs-theme-bruh: bruh;
+  --gs-theme-tokens: tokens;
+}
+
+body {
+  background-color: var(--gs-theme-surface-dark);
+}
+
+.gs-button {
+  width: max-content;
+  min-width: 57px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.4rem 0.6rem;
+  line-height: inherit;
+  user-select: none;
+  overflow: visible;
+  vertical-align: middle;
+  box-sizing: border-box;
+  cursor: pointer;
+  outline: none;
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+  border-radius: var(--gs-button-radius, var(--gs-theme-radius-small));
+  font-size: var(--gs-button-size, var(--gs-theme-size-action));
+  font-weight: var(--gs-button-weight, var(--gs-theme-weight-action));
+  line-height: var(--gs-button-line-height, var(--gs-theme-line-height-action));
+  background: rgba(0, 0, 0, 0);
+  color: var(--gs-button-ink, var(--gs-theme-secondary));
+  border: 1px solid rgba(0, 0, 0, 0);
+}
+.gs-button:hover {
+  background: rgba(180, 180, 180, 0.13);
+  color: var(--gs-button-hover-ink, var(--gs-theme-secondary));
+  border-color: rgba(180, 180, 180, 0.013);
+}
+.gs-button:focus {
+  background: rgba(180, 180, 180, 0.13);
+  color: var(--gs-button-focus-ink, var(--gs-theme-secondary));
+  border-color: rgba(180, 180, 180, 0.013);
+}
+.gs-button:active {
+  background: rgba(180, 180, 180, 0.2);
+  color: var(--gs-button-active-ink, var(--gs-theme-secondary-light));
+  border-color: rgba(180, 180, 180, 0.02);
+}
+.gs-button:disabled {
+  color: var(--gs-button-disabled-ink, var(--gs-theme-secondary-dark));
+}
+.gs-button:disabled:hover {
+  background: rgba(0, 0, 0, 0);
+  border-color: rgba(0, 0, 0, 0);
+}
+.gs-button.gs-button--outlined {
+  background: rgba(0, 0, 0, 0);
+  color: var(--gs-button-ink, var(--gs-theme-secondary));
+  border: 1px solid var(--gs-button-border, var(--gs-theme-secondary));
+}
+.gs-button.gs-button--outlined:focus {
+  background: rgba(180, 180, 180, 0.13);
+  color: var(--gs-button-focus-ink, var(--gs-theme-secondary));
+  border-color: var(--gs-button-focus-border, var(--gs-theme-secondary));
+}
+.gs-button.gs-button--outlined:hover {
+  background: var(--gs-button-hover-fill, var(--gs-theme-secondary));
+  color: var(--gs-button-hover-ink, var(--gs-theme-on-secondary));
+  border-color: var(--gs-button-hover-border, var(--gs-theme-secondary));
+}
+.gs-button.gs-button--outlined:active {
+  background: var(--gs-button-active-fill, var(--gs-theme-secondary-light));
+  color: var(--gs-button-active-ink, var(--gs-theme-on-secondary));
+  border-color: var(--gs-button-active-border, var(--gs-theme-secondary-light));
+}
+.gs-button.gs-button--outlined:disabled {
+  color: var(--gs-button-disabled-ink, var(--gs-theme-secondary-dark));
+  border-color: var(--gs-button-disabled-border, var(--gs-theme-secondary-dark));
+}
+.gs-button.gs-button--outlined:disabled:hover {
+  background: rgba(0, 0, 0, 0);
+}
+.gs-button.gs-button--filled {
+  background: var(--gs-button-fill, var(--gs-theme-secondary));
+  color: var(--gs-button-ink, var(--gs-theme-on-secondary));
+  border: 1px solid var(--gs-button-border, var(--gs-theme-secondary));
+}
+.gs-button.gs-button--filled:hover {
+  background: var(--gs-button-hover-fill, var(--gs-theme-secondary));
+  color: var(--gs-button-hover-ink, var(--gs-theme-on-secondary));
+  border-color: var(--gs-button-hover-border, var(--gs-theme-secondary));
+}
+.gs-button.gs-button--filled:focus {
+  background: var(--gs-button-focus-fill, var(--gs-theme-secondary));
+  color: var(--gs-button-focus-ink, var(--gs-theme-on-secondary));
+  border-color: var(--gs-button-focus-border, var(--gs-theme-secondary));
+}
+.gs-button.gs-button--filled:active {
+  background: var(--gs-button-active-fill, var(--gs-theme-secondary-light));
+  color: var(--gs-button-active-ink, var(--gs-theme-on-secondary));
+  border-color: var(--gs-button-active-border, var(--gs-theme-secondary-light));
+}
+.gs-button.gs-button--filled:disabled {
+  background: var(--gs-button-disabled-fill, var(--gs-theme-secondary-dark));
+  color: var(--gs-button-disabled-ink, var(--gs-theme-on-secondary));
+  border-color: var(--gs-button-disabled-border, var(--gs-theme-secondary-dark));
+}
+.gs-button > * + * {
+  margin-left: var(--gs-button-gap, 3px);
+}
+.gs-button * {
+  box-sizing: border-box;
+}
+.gs-button::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+.gs-button:disabled {
+  cursor: default;
+}
+.gs-button.gs-button--icon-only, .gs-button.gs-button--icon-only:focus {
+  outline: none !important;
+  border: none transparent !important;
+}
+.gs-button .gs-button__icon {
+  width: var(--gs-button-icon-size, 1.25rem);
+  height: var(--gs-button-icon-size, 1.25rem);
+  position: relative;
+  font-size: var(--gs-button-icon-size, 1.25rem);
+  color: var(--gs-button-icon-ink, inherit);
+}
+.gs-button .gs-button__label {
+  font-weight: inherit;
+  font-size: inherit;
+  text-align: left;
+  color: inherit;
+}
+
+a.gs-link {
+  color: var(--gs-link-ink, var(--gs-theme-secondary));
+}
+a.gs-link:hover {
+  color: var(--gs-link-hover-ink, var(--gs-theme-secondary));
+}
+a.gs-link:focus {
+  color: var(--gs-link-focus-ink, var(--gs-theme-secondary));
+}
+a.gs-link:active {
+  color: var(--gs-link-active-ink, var(--gs-theme-secondary-light));
+}
+/*# sourceMappingURL=main.css.map */

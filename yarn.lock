@@ -885,15 +885,10 @@
   resolved "https://registry.npmjs.org/@discoveryjs/json-ext/-/json-ext-0.5.5.tgz"
   integrity sha512-6nFkfkmSeV/rqSaS4oWHgmpnYw194f6hmWF5is6b0J1naJZoiD0NTc9AiUwPHvWsowkjuHErCZT1wa0jg+BLIA==
 
-"@growstocks/stack@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.npmjs.org/@growstocks/stack/-/stack-3.0.0.tgz"
-  integrity sha512-V8IPpnTeO9HApp1GUmVmGHODRu2/xEWEeLliWUHkXjRoHIY6EB7vHfHlAOdCyYkBPuCkaYmzsL9RShc2Nw2DJw==
-
-"@matteusan/sentro@^0.1.6":
-  version "0.1.6"
-  resolved "https://registry.yarnpkg.com/@matteusan/sentro/-/sentro-0.1.6.tgz#b2168e39d45850d01779862ebbbb4a36f20e6d55"
-  integrity sha512-Vkqh4Xt+YbkZqy9yQ0V3tJ7mWs6F298gwm9kCiaYiofPE+bgHd4iwNFCHHf1+gXHSPnl/fhqyTpvMePUOhuPPA==
+"@matteu-san/sentro@0.1.10":
+  version "0.1.10"
+  resolved "https://registry.yarnpkg.com/@matteu-san/sentro/-/sentro-0.1.10.tgz#cbd25bc42ffd8aaa79a97a10f239ecb9bd424e30"
+  integrity sha512-uGRfS5sHdBHfH/WR4B14BanG2sOLo98vbaAGuBzQTkzIvcFdTdSW1dmNrlXIftJIueA4sqotqSFGIy2DDoBPlw==
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
@@ -2429,9 +2424,9 @@ cssnano-utils@^2.0.1:
   resolved "https://registry.npmjs.org/cssnano-utils/-/cssnano-utils-2.0.1.tgz"
   integrity sha512-i8vLRZTnEH9ubIyfdZCAdIdgnHAUeQeByEeQ2I7oTilvP9oHO6RScpeq3GsFUVqeB8uZgOQ9pw8utofNn32hhQ==
 
-cssnano@^5.0.6, cssnano@^5.0.8:
+cssnano@5.0.8, cssnano@^5.0.6:
   version "5.0.8"
-  resolved "https://registry.npmjs.org/cssnano/-/cssnano-5.0.8.tgz"
+  resolved "https://registry.yarnpkg.com/cssnano/-/cssnano-5.0.8.tgz#39ad166256980fcc64faa08c9bb18bb5789ecfa9"
   integrity sha512-Lda7geZU0Yu+RZi2SGpjYuQz4HI4/1Y+BhdD0jL7NXAQ5larCzVn+PUGuZbDMYz904AXXCOgO5L1teSvgu7aFg==
   dependencies:
     cssnano-preset-default "^5.1.4"
@@ -3423,7 +3418,7 @@ growly@^1.3.0:
   resolved "https://registry.npmjs.org/growly/-/growly-1.3.0.tgz"
   integrity sha1-8QdIy+dq+WS3yWyTxrzCivEgwIE=
 
-gulp-cli@^2.2.0, gulp-cli@^2.3.0:
+gulp-cli@2.3.0, gulp-cli@^2.2.0:
   version "2.3.0"
   resolved "https://registry.npmjs.org/gulp-cli/-/gulp-cli-2.3.0.tgz"
   integrity sha512-zzGBl5fHo0EKSXsHzjspp3y5CONegCm8ErO5Qh0UzFzk2y4tMvzLWhoDokADbarfZRL2pGpRp7yt6gfJX4ph7A==
@@ -3447,9 +3442,9 @@ gulp-cli@^2.2.0, gulp-cli@^2.3.0:
     v8flags "^3.2.0"
     yargs "^7.1.0"
 
-gulp-postcss@^9.0.1:
+gulp-postcss@9.0.1:
   version "9.0.1"
-  resolved "https://registry.npmjs.org/gulp-postcss/-/gulp-postcss-9.0.1.tgz"
+  resolved "https://registry.yarnpkg.com/gulp-postcss/-/gulp-postcss-9.0.1.tgz#d43caa2f2ce1018f889f7c1296faf82e9928b66f"
   integrity sha512-9QUHam5JyXwGUxaaMvoFQVT44tohpEFpM8xBdPfdwTYGM0AItS1iTQz0MpsF8Jroh7GF5Jt2GVPaYgvy8qD2Fw==
   dependencies:
     fancy-log "^1.3.3"
@@ -3457,9 +3452,9 @@ gulp-postcss@^9.0.1:
     postcss-load-config "^3.0.0"
     vinyl-sourcemaps-apply "^0.2.1"
 
-gulp-sass@^5.0.0:
+gulp-sass@5.0.0:
   version "5.0.0"
-  resolved "https://registry.npmjs.org/gulp-sass/-/gulp-sass-5.0.0.tgz"
+  resolved "https://registry.yarnpkg.com/gulp-sass/-/gulp-sass-5.0.0.tgz#c338fc021e450a51ae977fea9014eda331ce66b7"
   integrity sha512-J0aH0/2N4+2szGCeut0ktGHK0Wg8L9uWivuigrl7xv+nhxozBQRAKLrhnDDaTa3FeUWYtgT8w4RlgdhRy5v16w==
   dependencies:
     chalk "^4.1.1"
@@ -3470,9 +3465,9 @@ gulp-sass@^5.0.0:
     transfob "^1.0.0"
     vinyl-sourcemaps-apply "^0.2.1"
 
-gulp@^4.0.2:
+gulp@4.0.2:
   version "4.0.2"
-  resolved "https://registry.npmjs.org/gulp/-/gulp-4.0.2.tgz"
+  resolved "https://registry.yarnpkg.com/gulp/-/gulp-4.0.2.tgz#543651070fd0f6ab0a0650c6a3e6ff5a7cb09caa"
   integrity sha512-dvEs27SCZt2ibF29xYgmnwwCYZxdxhQ/+LFWlbAW8y7jt68L/65402Lz3+CKy0Ov4rOs+NERmDq7YlZaDqUIfA==
   dependencies:
     glob-watcher "^5.0.3"
@@ -4250,9 +4245,9 @@ klona@^2.0.4:
   resolved "https://registry.npmjs.org/klona/-/klona-2.0.4.tgz"
   integrity sha512-ZRbnvdg/NxqzC7L9Uyqzf4psi1OM4Cuc+sJAkQPjO6XkQIJTNbfK2Rsmbw8fx1p2mkZdp2FZYo2+LwXYY/uwIA==
 
-laravel-mix@^6.0.31:
+laravel-mix@6.0.31:
   version "6.0.31"
-  resolved "https://registry.npmjs.org/laravel-mix/-/laravel-mix-6.0.31.tgz"
+  resolved "https://registry.yarnpkg.com/laravel-mix/-/laravel-mix-6.0.31.tgz#c33b869d11549e781484c52f11b12405cecc72a1"
   integrity sha512-T9uFNNARS5hXl5JggCkLKybwAnyYEHBXzPseC0yJ/6EVK7eyvPOq2UAGDVqhfYTZKxrMd5B5ww1kEooDRoH+OA==
   dependencies:
     "@babel/core" "^7.14.5"
@@ -5991,18 +5986,18 @@ sass-loader@12.1.0:
     klona "^2.0.4"
     neo-async "^2.6.2"
 
-sass-true@^6.0.1:
+sass-true@6.0.1:
   version "6.0.1"
-  resolved "https://registry.npmjs.org/sass-true/-/sass-true-6.0.1.tgz"
+  resolved "https://registry.yarnpkg.com/sass-true/-/sass-true-6.0.1.tgz#c159fa27df2f9ee22bb624a851144a8af7dc8a32"
   integrity sha512-Ow72fStIgw+qRRUc0r77emeWry06a3e1hXtadPEzDL/GFiEjtQKZel5fr+gu85zC8JYmLkZofMn6x9b/sq+wfg==
   dependencies:
     chalk "^4.1.0"
     css "^3.0.0"
     lodash "^4.17.19"
 
-sass@^1.38.2:
+sass@1.38.2:
   version "1.38.2"
-  resolved "https://registry.npmjs.org/sass/-/sass-1.38.2.tgz"
+  resolved "https://registry.yarnpkg.com/sass/-/sass-1.38.2.tgz#970045d9966180002a8c8f3820fc114cddb42822"
   integrity sha512-Bz1fG6qiyF0FX6m/I+VxtdVKz1Dfmg/e9kfDy2PhWOkq3T384q2KxwIfP0fXpeI+EyyETdOauH+cRHQDFASllA==
   dependencies:
     chokidar ">=3.0.0 <4.0.0"
@@ -6671,9 +6666,9 @@ transfob@^1.0.0:
   resolved "https://registry.npmjs.org/transfob/-/transfob-1.0.0.tgz"
   integrity sha1-x/wnpbVDCtSGJnrmZtkj90oKsyA=
 
-ts-loader@^9.2.6:
+ts-loader@9.2.6:
   version "9.2.6"
-  resolved "https://registry.npmjs.org/ts-loader/-/ts-loader-9.2.6.tgz"
+  resolved "https://registry.yarnpkg.com/ts-loader/-/ts-loader-9.2.6.tgz#9937c4dd0a1e3dbbb5e433f8102a6601c6615d74"
   integrity sha512-QMTC4UFzHmu9wU2VHZEmWWE9cUajjfcdcws+Gh7FhiO+Dy0RnR1bNz0YCHqhI0yRowCE9arVnNxYHqELOy9Hjw==
   dependencies:
     chalk "^4.1.0"
@@ -6719,9 +6714,9 @@ typedarray@^0.0.6:
   resolved "https://registry.npmjs.org/typedarray/-/typedarray-0.0.6.tgz"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typescript@^4.3.2:
+typescript@4.3.2:
   version "4.3.2"
-  resolved "https://registry.npmjs.org/typescript/-/typescript-4.3.2.tgz"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.3.2.tgz#399ab18aac45802d6f2498de5054fcbbe716a805"
   integrity sha512-zZ4hShnmnoVnAHpVHWpTcxdv7dWP60S2FsydQLV8V5PbS3FifjWFFRiHSWpDJahly88PRyV5teTSLoq4eG7mKw==
 
 unc-path-regex@^0.1.2:

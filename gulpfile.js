@@ -32,26 +32,26 @@ const typescript = require('gulp-typescript');*/
 
 function sassTaskDev() {
     return src(['src/**/*.scss', '!src/**/*.test.scss', '!src/.old/*.scss'], {sourcemaps: true})
-        .pipe(sass().on('error', sass.logError))
+        .pipe(sass({ includePaths: ['./node_modules'].concat('neat') }).on('error', sass.logError))
         .pipe(dest('./src', {sourcemaps: '.'}));
 }
 
 function sassTaskDevTests() {
     return src(['src/**/*.test.scss', '!src/.old/*.scss'], {sourcemaps: true})
-        .pipe(sass().on('error', sass.logError))
+        .pipe(sass({ includePaths: ['./node_modules'].concat('neat') }).on('error', sass.logError))
         .pipe(dest('./src', {sourcemaps: '.'}));
 }
 
 function sassTaskProd() {
     return src('src/main.scss', {sourcemaps: true})
-        .pipe(sass().on('error', sass.logError))
+        .pipe(sass({ includePaths: ['./node_modules'].concat('neat') }).on('error', sass.logError))
         .pipe(postcss([ cssnano ]))
         .pipe(dest('./src', {sourcemaps: '.'}));
 }
 
 function sassTaskTest() {
     return src('test/**/*.scss', {sourcemaps: true})
-        .pipe(sass().on('error', sass.logError))
+        .pipe(sass({ includePaths: ['./node_modules'].concat('neat') }).on('error', sass.logError))
         .pipe(dest('./test', {sourcemaps: '.'}));
 }
 
@@ -70,10 +70,10 @@ function watchTask() {
 }
 
 exports.default = series(
-    sassTaskDev,
+    // sassTaskDev,
     // sassTaskDevTests,
     sassTaskTest,
-    sassTaskProd,
+    // sassTaskProd,
     // tsTask, // tsTask() disabled on default until we find a fix for this [DEV]
     // watchTask
 );
