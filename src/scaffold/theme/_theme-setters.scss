@@ -1,4 +1,4 @@
-//
+///
 //  Copyright (c) 2021 GrowStocks
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -18,9 +18,9 @@
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
-//
+///
 
-@use 'node_modules/@matteu-san/sentro';
+@use 'node_modules/@matteusan/sentro';
 
 @use '../support';
 @use '../tools';
@@ -45,6 +45,8 @@ $_state-map: (
     $secondary: (),
     $surface: (),
     $radius: (),
+    $padding: (),
+    $margin: (),
     $size: (),
     $weight: (),
     $line-height: (),
@@ -58,21 +60,42 @@ $_state-map: (
         'pill': 700px
     );
 
+    $_init-padding: (
+        'none': 0,
+        'xsmall': 0.25rem,
+        'small': 0.75rem,
+        'medium': 1.5rem,
+        'large': 2.5rem,
+        'xlarge': 4rem,
+    );
+
+    $_init-margin: (
+        'none': 0,
+        'xsmall': 0.25rem,
+        'small': 0.75rem,
+        'medium': 1.5rem,
+        'large': 2.5rem,
+        'xlarge': 4rem,
+    );
+
     $_init-size: (
-        'title': tools.px-to-rem(22px),
-        'subtitle': tools.px-to-rem(18px),
-        'body': tools.px-to-rem(14px),
-        'action': tools.px-to-rem(14px),
-        'small': tools.px-to-rem(12px),
-        'icon': tools.px-to-rem(20px)
+        'title': tools.to-rem(22px),
+        'subtitle': tools.to-rem(18px),
+        'body': tools.to-rem(14px),
+        'action': tools.to-rem(14px),
+        'mono': tools.to-rem(14px),
+        'small': tools.to-rem(12px),
+        'icon': tools.to-rem(20px)
     );
 
     $_init-weight: (
+        'global': 400,
         'title': 700,
         'subtitle': 400,
         'body': 400,
         'action': 700,
         'small': 400,
+        'mono': 400,
         'icon': normal
     );
 
@@ -81,6 +104,7 @@ $_state-map: (
         'subtitle': support.get-line-height(18px),
         'body': support.get-line-height(14px),
         'action': support.get-line-height(14px),
+        'mono': support.get-line-height(14px),
         'small': support.get-line-height(12px)
     );
 
@@ -100,6 +124,9 @@ $_state-map: (
     }
 
     @include sentro.token-add(('radius': map.merge($_init-radius, $radius)));
+    @include sentro.token-add(('padding': map.merge($_init-padding, $padding)));
+    @include sentro.token-add(('margin': map.merge($_init-margin, $margin)));
+
     @include sentro.token-add(('size': map.merge($_init-size, $size)));
     @include sentro.token-add(('weight': map.merge($_init-weight, $weight)));
     @include sentro.token-add(('line-height': map.merge($_init-line-height, $line-height)));

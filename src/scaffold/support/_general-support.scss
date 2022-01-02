@@ -1,4 +1,4 @@
-//
+///
 //  Copyright (c) 2021 GrowStocks
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -18,8 +18,9 @@
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
-//
+///
 
+@use 'sass:list';
 @use 'sass:meta';
 @use 'sass:string';
 
@@ -65,4 +66,15 @@
         @return false;
     }
     @return true;
+}
+
+@function pluck($list, $condition) {
+    $new-list: ();
+    $separator: list.separator($list);
+    @each $element in $list {
+        @if not meta.call($condition, $element) {
+            $new-list: list.append($new-list, $element, $separator: $separator);
+        }
+    }
+    @return $new-list;
 }

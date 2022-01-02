@@ -20,10 +20,8 @@
 //  SOFTWARE.
 //
 
-$context: '' !default;
-
 @forward 'color' as color-*;
 @forward 'shape' as shape-*;
 @forward 'theme' as theme-*;
 @forward 'typography' as typography-*;
-@forward 'tools' as tools-*;
+@forward 'tools';

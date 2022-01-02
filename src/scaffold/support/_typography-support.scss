@@ -1,4 +1,4 @@
-//
+///
 //  Copyright (c) 2021 GrowStocks
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -18,10 +18,10 @@
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
-//
+///
 
 @use '../tools';
 
 @function get-line-height($font-size) {
-    @return tools.px-to-rem($font-size * 1.3);
+    @return tools.to-rem($font-size * 1.3);
 }

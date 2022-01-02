@@ -1,4 +1,4 @@
-//
+///
 //  Copyright (c) 2021 GrowStocks
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -18,7 +18,7 @@
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
-//
+///
 
 @use '../scaffold';
 
@@ -30,11 +30,13 @@
 @use 'button-link';
 
 @mixin render(
+    $struct: (),
     $color: (),
     $shape: (),
     $typography: (),
     $settings: ()
 ) {
+    $_merged-struct: map.merge(button-theme.$init-struct, $struct);
     $_merged-color: map.merge(button-theme.$init-color, $color);
     $_merged-shape: map.merge(button-theme.$init-shape, $shape);
     $_merged-typography: map.merge(button-theme.$init-typography, $typography);
@@ -42,7 +44,7 @@
 
     $types: map.get($_merged-settings, 'types');
 
-    @include button-base.base() {
+    @include button-base.base($_merged-struct) {
         @include scaffold.shape-apply('button', $_merged-shape);
         @include scaffold.typography-apply('button', $_merged-typography);
 

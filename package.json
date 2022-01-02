@@ -7,21 +7,21 @@
     "doc": "docs"
   },
   "dependencies": {
-    "@matteu-san/sentro": "0.1.10",
+    "@matteusan/sentro": "0.1.12",
     "sass-true": "6.0.1"
   },
   "devDependencies": {
-    "cssnano": "5.0.8",
+    "cssnano": "5.0.14",
     "gulp": "4.0.2",
     "gulp-cli": "2.3.0",
     "gulp-postcss": "9.0.1",
-    "gulp-sass": "5.0.0",
+    "gulp-sass": "5.1.0",
     "laravel-mix": "6.0.31",
     "resolve-url-loader": "4.0.0",
-    "sass": "1.38.2",
-    "sass-loader": "12.1.0",
+    "sass": "1.45.2",
+    "sass-loader": "12.4.0",
     "ts-loader": "9.2.6",
-    "typescript": "4.3.2"
+    "typescript": "4.5.4"
   },
   "scripts": {
     "build": "gulp",

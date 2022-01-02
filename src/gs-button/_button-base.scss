@@ -1,4 +1,4 @@
-//
+///
 //  Copyright (c) 2021 GrowStocks
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -18,40 +18,44 @@
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
-//
+///
 
 @use '../scaffold';
+@use 'sass:map';
 
-@mixin base() {
+@mixin base($struct) {
+    $width: map.get($struct, 'width');
+    $min-width: map.get($struct, 'min-width');
+    $padding: map.get($struct, 'padding');
+    $margin: map.get($struct, 'margin');
+
     .gs-button {
         width: max-content;
-        min-width: 57px;
+        max-width: scaffold.theme-key-create('button-width', $width);
+        min-width: scaffold.theme-key-create('button-min-width', $min-width);
 
         display: inline-flex;
+        flex-flow: row nowrap;
         justify-content: center;
         align-items: center;
 
-        padding: 0.4rem 0.6rem;
+        margin: scaffold.theme-key-create('button-margin', $margin);
+        padding: scaffold.theme-key-create('button-padding', $padding);
+        box-sizing: border-box;
 
-        line-height: inherit;
         user-select: none;
         overflow: visible;
         vertical-align: middle;
-        box-sizing: border-box;
 
         cursor: pointer;
         outline: none;
 
-        @include scaffold.tools-prefix(transition, all 0.1s linear);
+        @include scaffold.prefix(transition, all 0.1s linear);
 
         @content;
 
         > * + * {
             margin-left: scaffold.theme-key-create('button-gap', 3px);
-        }
-
-        * {
-            box-sizing: border-box;
         }
 
         &::-moz-focus-inner {
@@ -70,11 +74,12 @@
         }
 
         .gs-button__icon {
-            width: scaffold.theme-key-create('button-icon-size', scaffold.tools-px-to-rem(20px));
-            height: scaffold.theme-key-create('button-icon-size', scaffold.tools-px-to-rem(20px));
+            width: scaffold.theme-key-create('button-icon-size', scaffold.to-rem(20px));
+            height: scaffold.theme-key-create('button-icon-size', scaffold.to-rem(20px));
             position: relative;
-            font-size: scaffold.theme-key-create('button-icon-size', scaffold.tools-px-to-rem(20px));
+            font-size: scaffold.theme-key-create('button-icon-size', scaffold.to-rem(20px));
             color: scaffold.theme-key-create('button-icon-ink', inherit);
+            box-sizing: border-box;
         }
 
         .gs-button__label {
@@ -82,6 +87,7 @@
             font-size: inherit;
             text-align: left;
             color: inherit;
+            box-sizing: border-box;
         }
 
     }
