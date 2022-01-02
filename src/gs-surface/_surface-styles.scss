@@ -1,5 +1,5 @@
 ///
-//  Copyright (c) 2021 GrowStocks
+//  Copyright (c) 2022 GrowStocks
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -20,18 +20,6 @@
 //  SOFTWARE.
 ///
 
-@use '../../src' as stack;
-@use '../../src/scaffold';
-@use '../../src/gs-button';
-
-@include stack.init(
-    $primary: #12305e,
-    $secondary: #ff9e0a,
-    $surface: (
-        'default': #000b21
-    ),
-) {
-    @include gs-button.render();
-    @include gs-button.link-variant-render();
+@mixin render() {
+    //
 }
-
