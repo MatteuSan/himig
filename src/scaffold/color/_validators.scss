@@ -1,5 +1,5 @@
-//
-//  Copyright (c) 2021 GrowStocks
+///
+//  Copyright (c) 2022 GrowStocks
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -18,11 +18,11 @@
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
-//
+///
 
 @use 'sass:list';
 
-$_valid-keys: (
+$_valid-color-props: (
     'default',
     'hover',
     'active',
@@ -31,15 +31,15 @@ $_valid-keys: (
     'ink'
 );
 
-@function is-color-key($key) {
-    @if not list.index($_valid-keys, $key) {
-        @error "Invalid color key: #{$key}! Please choose from the following valid keys: #{$_valid-keys}.";
+@function is-prop($prop) {
+    @if not list.index($_valid-color-props, $prop) {
+        @error "Invalid color prop: #{$prop}! Please choose from the following valid props: #{$_valid-color-props}.";
     }
     @return true;
 }
 
-@function is-map-color-key($map) {
-    @each $key, $value in $map {
-        @return is-color-key($key);
+@function is-color-prop($map) {
+    @each $prop, $value in $map {
+        @return is-prop($prop);
     }
 }

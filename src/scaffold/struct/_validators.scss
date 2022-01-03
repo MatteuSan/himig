@@ -20,24 +20,29 @@
 //  SOFTWARE.
 ///
 
-@use 'sass:map';
 @use 'sass:list';
 
-$_valid-props: (
-    'size',
-    'weight',
-    'line-height'
+$_valid-struct-props: (
+    'width',
+    'min-width',
+    'max-width',
+    'height',
+    'min-height',
+    'max-height',
+    'padding',
+    'margin',
+    'gap'
 );
 
 @function is-prop($prop) {
-    @if not list.index($_valid-props, $prop) {
-        @error "Invalid typography prop query: #{$prop}! Please select from the following valid typography props: #{$_valid-props};";
+    @if not list.index($_valid-struct-props, $prop) {
+        @error "Invalid struct prop: #{$prop}. Please use one of the following valid props: #{$_valid-struct-props}.";
     }
     @return true;
 }
 
-@function is-type-prop($map) {
-    @each $key, $value in $map {
-        @return is-prop($key);
+@function is-struct-prop($map) {
+    @each $prop, $value in $map {
+        @return is-prop($prop);
     }
 }

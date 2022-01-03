@@ -1,5 +1,5 @@
-//
-//  Copyright (c) 2021 GrowStocks
+///
+//  Copyright (c) 2022 GrowStocks
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -18,7 +18,7 @@
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
-//
+///
 
 @use 'sass:map';
 @use 'sass:list';
@@ -28,6 +28,13 @@ $_valid-shapes: ('block', 'round', 'pill');
 @function is-shape($shape) {
     @if not list.index($_valid-shapes, $shape) {
         @error "Invalid shape query: #{$shape}! Please select from the following valid shapes: #{$_valid-shapes}.";
+    }
+    @return true;
+}
+
+@function is-shape-excluded($reference, $query) {
+    @if list.index($reference, $query) {
+        @error "The shape #{$query} cannot be used in this component. Excluded shapes: #{$reference}.";
     }
     @return true;
 }
