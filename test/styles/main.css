@@ -338,6 +338,9 @@ a.gs-link:active {
 .gs-card.gs-card--vertical {
   flex-direction: column;
 }
+.gs-card.gs-card--vertical .gs-card__media {
+  height: 8.75rem;
+}
 .gs-card.gs-card--vertical .gs-card__actions {
   flex-direction: row;
 }
