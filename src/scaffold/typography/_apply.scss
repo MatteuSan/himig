@@ -1,5 +1,5 @@
-//
-//  Copyright (c) 2021 GrowStocks
+///
+//  Copyright (c) 2022 GrowStocks
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -18,7 +18,7 @@
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
-//
+///
 
 @use '../theme';
 @use '../support';
@@ -29,23 +29,38 @@
 
 @mixin apply(
     $component-name,
-    $typography-theme: ()
+    $typography-theme: (),
+    $is-extender: false
 ) {
-    @if validators.is-map-type-prop($typography-theme) {
-        $size: map.get($typography-theme, 'size');
-        $weight: map.get($typography-theme, 'weight');
-        $line-height: map.get($typography-theme, 'line-height');
+    @if not support.is-empty($typography-theme) {
+        @if validators.is-type-prop($typography-theme) {
+            $size: map.get($typography-theme, 'size');
+            $weight: map.get($typography-theme, 'weight');
+            $line-height: map.get($typography-theme, 'line-height');
 
-        @if not support.is-empty($size) {
-            font-size: theme.key-create('#{$component-name}-size', theme.token-get('size-#{$size}'));
-        }
+            @if not support.is-empty($size) {
+                @if $is-extender {
+                    @include theme.key-bind('#{$component-name}-size', theme.token-get('size-#{$size}'));
+                } @else {
+                    font-size: theme.key-create('#{$component-name}-size', theme.token-get('size-#{$size}'));
+                }
+            }
 
-        @if not support.is-empty($weight) {
-            font-weight: theme.key-create('#{$component-name}-weight', theme.token-get('weight-#{$size}'));
-        }
+            @if not support.is-empty($weight) {
+                @if $is-extender {
+                    @include theme.key-bind('#{$component-name}-weight', theme.token-get('weight-#{$size}'));
+                } @else {
+                    font-weight: theme.key-create('#{$component-name}-weight', theme.token-get('weight-#{$size}'));
+                }
+            }
 
-        @if not support.is-empty($line-height) {
-            line-height: theme.key-create('#{$component-name}-line-height', theme.token-get('line-height-#{$size}'));
+            @if not support.is-empty($line-height) {
+                @if $is-extender {
+                    @include theme.key-bind('#{$component-name}-line-height', theme.token-get('line-height-#{$size}'));
+                } @else {
+                    line-height: theme.key-create('#{$component-name}-line-height', theme.token-get('line-height-#{$size}'));
+                }
+            }
         }
     }
 }

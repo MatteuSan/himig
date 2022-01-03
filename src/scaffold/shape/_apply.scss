@@ -1,5 +1,5 @@
-//
-//  Copyright (c) 2021 GrowStocks
+///
+//  Copyright (c) 2022 GrowStocks
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -18,11 +18,12 @@
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
-//
+///
 
 @use '../theme';
 @use '../support';
 
+@use 'sass:list';
 @use 'sass:map';
 @use 'sass:meta';
 
@@ -30,26 +31,48 @@
 
 @mixin apply(
     $component-name,
-    $shape-theme: ()
+    $shape-theme: (),
+    $is-extender: false
 ) {
     $shape: map.get($shape-theme, 'shape');
     $radius: map.get($shape-theme, 'radius');
+    $exceptions: map.get($shape-theme, 'exceptions');
 
-    @if validators.is-shape($shape) {
-        @if $shape == 'block' {
-            border-radius: theme.key-create('#{$component-name}-radius', none);
-        }
+    @if not support.is-empty($shape-theme) {
+        @if validators.is-shape($shape) {
+            @if validators.is-shape-excluded($exceptions, $shape) {
+                @if $shape == 'block' {
+                    @if $is-extender {
+                        @include theme.key-bind('#{$component-name}-radius', none);
+                    } @else {
+                        border-radius: theme.key-create('#{$component-name}-radius', none);
+                    }
+                }
 
-        @if $shape == 'round' {
-            @if support.is-type('number', $radius, false) {
-                border-radius: theme.key-create('#{$component-name}-radius', $radius);
-            } @else if support.is-type('string', $radius, false) {
-                border-radius: theme.key-create('#{$component-name}-radius', theme.token-get('radius-#{$radius}'));
+                @if $shape == 'round' {
+                    @if support.is-type('number', $radius, false) {
+                        @if $is-extender {
+                            @include theme.key-bind('#{$component-name}-radius', $radius);
+                        } @else {
+                            border-radius: theme.key-create('#{$component-name}-radius', $radius);
+                        }
+                    } @else if support.is-type('string', $radius, false) {
+                        @if $is-extender {
+                            @include theme.key-bind('#{$component-name}-radius', theme.token-get('radius-#{$radius}'));
+                        } @else {
+                            border-radius: theme.key-create('#{$component-name}-radius', theme.token-get('radius-#{$radius}'));
+                        }
+                    }
+                }
+
+                @if $shape == 'pill' {
+                    @if $is-extender {
+                        @include theme.key-bind('#{$component-name}-radius', theme.token-get('radius-pill'));
+                    } @else {
+                        border-radius: theme.key-create('#{$component-name}-radius', theme.token-get('radius-pill'));
+                    }
+                }
             }
-        }
-
-        @if $shape == 'pill' {
-            border-radius: theme.key-create('#{$component-name}-radius', theme.token-get('radius-pill'));
         }
     }
 }
