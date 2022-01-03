@@ -1,7 +1,7 @@
 {
-  "name": "@growstocks/stack",
+  "name": "@growstocks/scaffold",
   "version": "4.0.0-preview",
-  "description": "The web implementation of GrowStocks' design system. Made with SCSS, Typescript, and ❤.",
+  "description": "The core library of GrowStocks' stack library",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,6 +9,11 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/GrowStocks/stack.git"
+  },
+  "author": "Matteu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GrowStocks/stack/issues"
   },
   "dependencies": {
     "@matteusan/sentro": "0.1.12"
@@ -25,10 +30,5 @@
     "growstocks",
     "css-framework"
   ],
-  "author": "Matteu",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/GrowStocks/stack/issues"
-  },
   "homepage": "https://github.com/GrowStocks/stack#readme"
 }

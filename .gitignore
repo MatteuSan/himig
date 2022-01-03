@@ -1,4 +1,5 @@
 /.idea
+/.dart_tool
 /node_modules
 /src/node_modules
 /src/**/*.js
