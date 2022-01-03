@@ -1,5 +1,5 @@
 ///
-//  Copyright (c) 2021 GrowStocks
+//  Copyright (c) 2022 GrowStocks
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -30,7 +30,7 @@
     $margin: map.get($struct, 'margin');
 
     .gs-button {
-        width: max-content;
+        width: 100%;
         max-width: scaffold.theme-key-create('button-width', $width);
         min-width: scaffold.theme-key-create('button-min-width', $min-width);
 
@@ -75,6 +75,7 @@
 
         .gs-button__icon {
             width: scaffold.theme-key-create('button-icon-size', scaffold.to-rem(20px));
+            max-width: max-content;
             height: scaffold.theme-key-create('button-icon-size', scaffold.to-rem(20px));
             position: relative;
             font-size: scaffold.theme-key-create('button-icon-size', scaffold.to-rem(20px));
@@ -85,7 +86,7 @@
         .gs-button__label {
             font-weight: inherit;
             font-size: inherit;
-            text-align: left;
+            text-align: center;
             color: inherit;
             box-sizing: border-box;
         }
