@@ -1,5 +1,5 @@
 ///
-//  Copyright (c) 2021 GrowStocks
+//  Copyright (c) 2022 GrowStocks
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -23,6 +23,7 @@
 @use '../../src' as stack;
 @use '../../src/scaffold';
 @use '../../src/gs-button';
+@use '../../src/gs-card';
 
 @include stack.init(
     $primary: #12305e,
@@ -32,6 +33,53 @@
     ),
 ) {
     @include gs-button.render();
-    @include gs-button.link-variant-render();
+    @include gs-button.extend('gs-button--full-width', $struct: (
+        'width': 100%
+    ));
+    @include gs-button.extend('gs-button--funky', $color: (
+        'outlined', (
+            'default': lime,
+            'hover': lime,
+            'focus': lime,
+            'active': #a3ffa3,
+            'disabled': #008b00,
+            'ink': purple
+        )
+    ));
+    @include gs-card.render();
+
+    .content-wrap {
+        width: calc(100% - 30px);
+        max-width: 1077px;
+        margin: 0 auto;
+        padding: 25px 0;
+    }
+
+    .grid {
+        margin-top: 0.7rem;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 1rem;
+
+        > a {
+            grid-column: revert;
+        }
+
+        @media (min-width: 640px) {
+            grid-template-columns: repeat(2, 1fr);
+
+            > a {
+                grid-column: span 2;
+            }
+        }
+
+        @media (min-width: 877px) {
+            grid-template-columns: repeat(3, 1fr);
+
+            > a {
+                grid-column: revert;
+            }
+        }
+    }
 }
 

@@ -1,5 +1,5 @@
 <!--
-  ~  Copyright (c) 2021 GrowStocks
+  ~  Copyright (c) 2022 GrowStocks
   ~
   ~  Permission is hereby granted, free of charge, to any person obtaining a copy
   ~  of this software and associated documentation files (the "Software"), to deal
@@ -27,31 +27,213 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Stack Playground</title>
     <link rel="stylesheet" href="styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet"/>
 </head>
 <body>
-<button class="gs-button">
-    <span class="gs-button__label">BUTTON</span>
-</button>
-<button class="gs-button gs-button--outlined">
-    <span class="gs-button__label">BUTTON</span>
-</button>
-<button class="gs-button gs-button--filled">
-    <span class="gs-button__label">BUTTON</span>
-</button>
-<button class="gs-button" disabled>
-    <span class="gs-button__label">BUTTON</span>
-</button>
-<button class="gs-button gs-button--outlined" disabled>
-    <span class="gs-button__label">BUTTON</span>
-</button>
-<button class="gs-button gs-button--filled" disabled>
-    <span class="gs-button__label">BUTTON</span>
-</button>
+<header class="gs-header">
+    <div class="gs-header__brand">
+        <a href="#">
+            <h2>Header</h2>
+        </a>
+    </div>
+    <div class="gs-header__actions">
+        <nav class="gs-appbar">
+            <ul class="gs-appbar__wrapper">
+                <li class="gs-appbar__item">
+                    <a href="#">
+                        <i class="gs-appbar__item__icon material-icons">home</i>
+                        <span class="gs-appbar__item__label">Home</span>
+                    </a>
+                </li>
+                <li class="gs-appbar__item">
+                    <a href="#">
+                        <i class="gs-appbar__item__icon material-icons">info</i>
+                        <span class="gs-appbar__item__label">About Us</span>
+                    </a>
+                </li>
+                <li class="gs-appbar__item">
+                    <a href="#">
+                        <i class="gs-appbar__item__icon material-icons">shopping_cart</i>
+                        <span class="gs-appbar__item__label">Marketplace</span>
+                    </a>
+                </li>
+                <li class="gs-appbar__item">
+                    <a href="#">
+                        <i class="gs-appbar__item__icon material-icons">menu</i>
+                        <span class="gs-appbar__item__label">More</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<main class="content-wrap">
+    <button class="gs-button">
+        <i class="gs-button__icon material-icons">star</i>
+        <span class="gs-button__label">BUTTON</span>
+    </button>
+    <button class="gs-button gs-button--outlined">
+        <i class="gs-button__icon material-icons">star</i>
+        <span class="gs-button__label">BUTTON</span>
+    </button>
+    <button class="gs-button gs-button--filled">
+        <i class="gs-button__icon material-icons">star</i>
+        <span class="gs-button__label">BUTTON</span>
+    </button>
+    <button class="gs-button" disabled>
+        <i class="gs-button__icon material-icons">star</i>
+        <span class="gs-button__label">BUTTON</span>
+    </button>
+    <button class="gs-button gs-button--outlined" disabled>
+        <i class="gs-button__icon material-icons">star</i>
+        <span class="gs-button__label">BUTTON</span>
+    </button>
+    <button class="gs-button gs-button--filled" disabled>
+        <i class="gs-button__icon material-icons">star</i>
+        <span class="gs-button__label">BUTTON</span>
+    </button>
 
-<a href="#" class="gs-link">
-    <p>Link Button</p>
-</a>
+    <p>Lorem ipsum dolor sit amet, <a href="#" class="gs-link">consectetur adipisicing elit</a>. Aliquam cupiditate distinctio eius et, eum expedita laboriosam magni necessitatibus nemo nesciunt odit pariatur recusandae similique sunt ullam ut voluptatem! Porro, quaerat.</p>
+
+    <section class="grid">
+        <div class="gs-card">
+            <div class="gs-card__media">
+                <img src="https://cdn.purplecress.com/series/sDtj4rUxgmZzjbChgY4J/thumbnail" alt="Media Alt" />
+            </div>
+            <div class="gs-card__contents">
+                <div class="gs-card__header">
+                    <p class="gs-card__category">Card Category</p>
+                    <h2 class="gs-card__title">Card Title</h2>
+                    <p class="gs-card__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, quisquam!</p>
+                </div>
+                <div class="gs-card__actions items-right">
+                    <button class="gs-button gs-button--filled">
+                        <i class="gs-button__icon material-icons">star</i>
+                        <span class="gs-button__label">Button</span>
+                    </button>
+                    <button class="gs-button gs-button--outlined">
+                        <i class="gs-button__icon material-icons">star</i>
+                        <span class="gs-button__label">Button</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="gs-card">
+            <div class="gs-card__media">
+                <img src="https://cdn.purplecress.com/series/sDtj4rUxgmZzjbChgY4J/thumbnail" alt="Media Alt" />
+            </div>
+            <div class="gs-card__contents">
+                <div class="gs-card__header">
+                    <p class="gs-card__category">Card Category</p>
+                    <h2 class="gs-card__title">Card Title</h2>
+                    <p class="gs-card__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, quisquam!</p>
+                </div>
+                <div class="gs-card__actions items-right">
+                    <button class="gs-button gs-button--filled">
+                        <i class="gs-button__icon material-icons">star</i>
+                        <span class="gs-button__label">Button</span>
+                    </button>
+                    <button class="gs-button gs-button--outlined">
+                        <i class="gs-button__icon material-icons">star</i>
+                        <span class="gs-button__label">Button 2</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="gs-card">
+            <div class="gs-card__media">
+                <img src="https://cdn.purplecress.com/series/sDtj4rUxgmZzjbChgY4J/thumbnail" alt="Media Alt" />
+            </div>
+            <div class="gs-card__contents">
+                <div class="gs-card__header">
+                    <p class="gs-card__category">Card Category</p>
+                    <h2 class="gs-card__title">Card Title</h2>
+                    <p class="gs-card__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate deserunt distinctio doloremque dolores eum, nihil porro quis quo rerum vel? Accusantium asperiores commodi, debitis earum error excepturi maiores necessitatibus vero!</p>
+                </div>
+                <div class="gs-card__actions items-right">
+                    <button class="gs-button gs-button--filled">
+                        <i class="gs-button__icon material-icons">star</i>
+                    </button>
+                    <button class="gs-button gs-button--outlined">
+                        <i class="gs-button__icon material-icons">star</i>
+                    </button>
+                    <button class="gs-button">
+                        <i class="gs-button__icon material-icons">star</i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="gs-card gs-card--horizontal">
+            <div class="gs-card__media">
+                <img src="https://cdn.purplecress.com/series/sDtj4rUxgmZzjbChgY4J/thumbnail" alt="Media Alt" />
+            </div>
+            <div class="gs-card__contents">
+                <div class="gs-card__header">
+                    <p class="gs-card__category">Card Category</p>
+                    <h2 class="gs-card__title">Card Title</h2>
+                    <p class="gs-card__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, quisquam!</p>
+                </div>
+                <div class="gs-card__actions items-right">
+                    <button class="gs-button gs-button--filled">
+                        <i class="gs-button__icon material-icons">star</i>
+                        <span class="gs-button__label">Button</span>
+                    </button>
+                    <button class="gs-button gs-button--outlined">
+                        <i class="gs-button__icon material-icons">star</i>
+                        <span class="gs-button__label">Button</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="gs-card gs-card--horizontal">
+            <div class="gs-card__media">
+                <img src="https://cdn.purplecress.com/series/sDtj4rUxgmZzjbChgY4J/thumbnail" alt="Media Alt" />
+            </div>
+            <div class="gs-card__contents">
+                <div class="gs-card__header">
+                    <p class="gs-card__category">Card Category</p>
+                    <h2 class="gs-card__title">Card Title</h2>
+                    <p class="gs-card__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, quisquam!</p>
+                </div>
+                <div class="gs-card__actions items-right">
+                    <button class="gs-button gs-button--filled">
+                        <i class="gs-button__icon material-icons">star</i>
+                        <span class="gs-button__label">Button</span>
+                    </button>
+                    <button class="gs-button gs-button--outlined">
+                        <i class="gs-button__icon material-icons">star</i>
+                        <span class="gs-button__label">Button</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="gs-card gs-card--horizontal">
+            <div class="gs-card__media">
+                <img src="https://cdn.purplecress.com/series/sDtj4rUxgmZzjbChgY4J/thumbnail" alt="Media Alt" />
+            </div>
+            <div class="gs-card__contents">
+                <div class="gs-card__header">
+                    <p class="gs-card__category">Card Category</p>
+                    <h2 class="gs-card__title">Card Title</h2>
+                    <p class="gs-card__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, quisquam!</p>
+                </div>
+                <div class="gs-card__actions items-right">
+                    <button class="gs-button gs-button--filled">
+                        <i class="gs-button__icon material-icons">star</i>
+                        <span class="gs-button__label">Button</span>
+                    </button>
+                    <button class="gs-button gs-button--outlined">
+                        <i class="gs-button__icon material-icons">star</i>
+                        <span class="gs-button__label">Button</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
 </body>
+
+
 </html>
