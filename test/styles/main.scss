@@ -24,6 +24,7 @@
 @use '../../src/scaffold';
 @use '../../src/gs-button';
 @use '../../src/gs-card';
+@use '../../src/gs-header';
 
 @include stack.init(
     $primary: #12305e,
@@ -47,12 +48,13 @@
         )
     ));
     @include gs-card.render();
+    @include gs-header.render();
 
     .content-wrap {
         width: calc(100% - 30px);
         max-width: 1077px;
         margin: 0 auto;
-        padding: 25px 0;
+        padding: 67px 0 25px;
     }
 
     .grid {

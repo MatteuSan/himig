@@ -91,6 +91,10 @@ h6 {
   font-weight: var(--gs-weight-subtitle, var(--gs-theme-weight-subtitle));
 }
 
+a {
+  text-decoration: none;
+}
+
 p,
 span {
   font-size: var(--gs-size-body, var(--gs-theme-size-body));
@@ -135,6 +139,7 @@ body {
   -webkit-transition: all 0.1s linear;
   transition: all 0.1s linear;
   border-radius: var(--gs-button-radius, var(--gs-theme-radius-small));
+  font-family: var(--gs-button-family, var(--gs-theme-family-action));
   font-size: var(--gs-button-size, var(--gs-theme-size-action));
   font-weight: var(--gs-button-weight, var(--gs-theme-weight-action));
   line-height: var(--gs-button-line-height, var(--gs-theme-line-height-action));
@@ -315,6 +320,7 @@ a.gs-link:active {
   color: var(--gs-button-ink, var(--gs-theme-on-primary));
   border: 1px solid var(--gs-button-border, var(--gs-theme-primary-light));
   border-radius: var(--gs-button-radius, var(--gs-theme-radius-medium));
+  font-family: var(--gs-button-family, var(--gs-theme-family-body));
   font-size: var(--gs-button-size, var(--gs-theme-size-body));
   font-weight: var(--gs-button-weight, var(--gs-theme-weight-body));
   line-height: var(--gs-button-line-height, var(--gs-theme-line-height-body));
@@ -404,11 +410,35 @@ a.gs-link:active {
   margin-left: var(--gs-card-gap, 0.3rem);
 }
 
+.gs-header {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  padding: 0.7rem 1.2rem;
+  border-radius: var(--gs-header-radius, none);
+  font-family: var(--gs-header-family, var(--gs-theme-family-title));
+  font-size: var(--gs-header-size, 1.5rem);
+  font-weight: var(--gs-header-weight, var(--gs-theme-weight-title));
+  line-height: var(--gs-header-line-height, 1.75rem);
+  background: var(--gs-header-fill, var(--gs-theme-primary));
+  color: var(--gs-header-ink, var(--gs-theme-on-primary));
+  border: 1px solid var(--gs-header-border, var(--gs-theme-primary));
+}
+.gs-header .gs-header__brand .gs-header__title {
+  font-size: inherit;
+  font-weight: var(--gs-theme-weight-title);
+}
 .content-wrap {
   width: calc(100% - 30px);
   max-width: 1077px;
   margin: 0 auto;
-  padding: 25px 0;
+  padding: 67px 0 25px;
 }
 
 .grid {
