@@ -35,14 +35,15 @@ $init-color: (
 
 $init-shape: (
     shape: 'round',
-    radius: 'medium',
+    radius: 'radius-medium',
     exceptions: ('pill')
 );
 
 $init-typography: (
-    size: 'body',
-    weight: 'body',
-    line-height: 'body'
+    family: 'family-body',
+    size: 'size-body',
+    weight: 'weight-body',
+    line-height: 'line-height-body'
 );
 
 $init-settings: (

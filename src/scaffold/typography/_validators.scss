@@ -24,6 +24,7 @@
 @use 'sass:list';
 
 $_valid-props: (
+    'family',
     'size',
     'weight',
     'line-height'

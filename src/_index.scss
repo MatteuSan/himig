@@ -106,6 +106,10 @@ $_init-family: (
         font-weight: scaffold.theme-key-create('weight-subtitle', scaffold.theme-token-get('weight-subtitle'));
     }
 
+    a {
+        text-decoration: none;
+    }
+
     p,
     span {
         font-size: scaffold.theme-key-create('size-body', scaffold.theme-token-get('size-body'));

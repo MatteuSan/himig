@@ -38,14 +38,15 @@ $init-color: (
 
 $init-shape: (
     shape: 'round',
-    radius: 'small',
+    radius: 'radius-small',
     exceptions: ()
 );
 
 $init-typography: (
-    size: 'action',
-    weight: 'action',
-    line-height: 'action'
+    family: 'family-action',
+    size: 'size-action',
+    weight: 'weight-action',
+    line-height: 'line-height-action'
 );
 
 $init-settings: (
