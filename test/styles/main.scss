@@ -22,6 +22,7 @@
 
 @use '../../src' as stack;
 @use '../../src/scaffold';
+@use '../../src/gs-appbar';
 @use '../../src/gs-button';
 @use '../../src/gs-card';
 @use '../../src/gs-header';
@@ -33,6 +34,8 @@
         'default': #000b21
     ),
 ) {
+
+    @include gs-appbar.render();
     @include gs-button.render();
     @include gs-button.extend('gs-button--full-width', $struct: (
         'width': 100%
@@ -49,13 +52,6 @@
     ));
     @include gs-card.render();
     @include gs-header.render();
-
-    .content-wrap {
-        width: calc(100% - 30px);
-        max-width: 1077px;
-        margin: 0 auto;
-        padding: 67px 0 25px;
-    }
 
     .grid {
         margin-top: 0.7rem;

@@ -21,4 +21,5 @@
  */
 
 import { GSHeader } from '../../src/gs-header';
-GSHeader.onScroll('watch');
+
+GSHeader.watch({ breakpoint: '.hero' });
