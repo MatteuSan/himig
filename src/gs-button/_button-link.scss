@@ -1,5 +1,5 @@
 ///
-//  Copyright (c) 2021 GrowStocks
+//  Copyright (c) 2022 GrowStocks
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -36,6 +36,7 @@
 
     a.gs-link {
         color: scaffold.theme-key-create('link-ink', scaffold.theme-token-get($default));
+        text-decoration: underline;
 
         &:hover {
             color: scaffold.theme-key-create('link-hover-ink', scaffold.theme-token-get($hover));

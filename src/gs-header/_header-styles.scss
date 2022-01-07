@@ -44,7 +44,7 @@
 
     @include header-base.base($_merged-struct, $breakpoint) {
         @include scaffold.shape-apply('header', $_merged-shape);
-        @include scaffold.typography-apply('header', $_merged-typography);
+        @include scaffold.typography-apply('header', $_merged-typography, $is-extender: true);
 
         @if $is-scrollable {
             @include scaffold.color-apply('header', (

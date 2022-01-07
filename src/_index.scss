@@ -130,9 +130,23 @@ $_init-family: (
         font-weight: scaffold.theme-key-create('weight-mono', scaffold.theme-token-get('weight-mono'));
     }
 
+    html {
+        width: 100%;
+        height: 100%;
+        font-size: 100%;
+        box-sizing: border-box;
+    }
+
     body {
         background: scaffold.theme-token-get('surface-dark');
         color: scaffold.theme-token-get('on-surface');
+    }
+
+    main.content-wrap {
+        width: calc(100% - 30px);
+        max-width: 1077px;
+        margin: 0 auto;
+        padding: 67px 0 25px;
     }
 
     @content;

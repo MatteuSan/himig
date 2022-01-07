@@ -1,5 +1,5 @@
-//
-//  Copyright (c) 2021 GrowStocks
+///
+//  Copyright (c) 2022 GrowStocks
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -18,7 +18,7 @@
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
-//
+///
 
 //
 //  This file is just meant to be a wrapper around @matteusan/sentro.
@@ -35,6 +35,13 @@ $context: '' !default;
 /// @return {sentro.key} returns type sentro.key
 @function create($key, $value) {
     @return sentro.key-create('#{_sanitize-context($context)}#{$key}', $value);
+}
+
+/// Retrieves an existing component key.
+/// @param {string} $key
+/// @return {string} returns var() with key.
+@function get($key) {
+    @return sentro.key-get($key);
 }
 
 /// Binds a key.

@@ -29,28 +29,48 @@
     $padding: map.get($struct, 'padding');
 
     .gs-header {
-        width: $width;
-        height: $height;
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: space-between;
+        width: scaffold.theme-key-create('header-width', $width);
+        height: scaffold.theme-key-create('header-height', $height);
         position: fixed;
         top: 0;
         left: 0;
         z-index: 100;
-        padding: $padding;
+        padding: scaffold.theme-key-create('header-padding', $padding);
 
         @content;
 
-        .gs-header__brand {
-            .gs-header__title {
-                font-size: inherit;
-                font-weight: scaffold.theme-token-get('weight-title');
-            }
-        }
+        .gs-header__wrapper {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1280px;
+            margin: 0 auto;
 
-        .gs-header__actions {
-            //
+            .gs-header__brand {
+                display: grid;
+                place-items: center;
+
+                a {
+                    display: grid;
+                    place-items: center;
+
+                    .gs-header__title {
+                        font-family: scaffold.theme-key-get('header-family');
+                        font-size: scaffold.theme-key-get('header-size');
+                        font-weight: scaffold.theme-key-get('header-weight');
+                        line-height: scaffold.theme-key-get('header-line-height');
+                    }
+
+                    .gs-header__logo {
+                        height: 33px;
+                    }
+                }
+            }
+
+            .gs-header__actions {
+                //
+            }
         }
     }
 }
