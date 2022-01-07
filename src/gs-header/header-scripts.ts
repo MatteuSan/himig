@@ -20,30 +20,37 @@
  *  SOFTWARE.
  */
 
-type WatchEvent = 'watch' | undefined;
-type ConfigProps = 'header' | 'breakpoint';
+interface ConfigProps {
+    header?: string | keyof HTMLElementTagNameMap | keyof SVGElementTagNameMap;
+    breakpoint?: string | keyof HTMLElementTagNameMap | keyof SVGElementTagNameMap;
+}
 
+/**
+ * Standard GSHeader component namespace.
+ */
 export class GSHeader {
-    static onScroll(
-        action: WatchEvent,
-        config?: Record<ConfigProps, any>
-    ): void {
-        const _initConfig: Record<ConfigProps, any> = {
+
+    /**
+     * Static function for observing a scrollable header.
+     */
+    static watch(config?: ConfigProps): void {
+
+        const _initConfig: ConfigProps = {
             header: '.gs-header--scrolled',
             breakpoint: '.gs-hero'
         }
 
-        const _mergedConfig: Record<ConfigProps, any> = {
+        const _mergedConfig: ConfigProps = {
             ..._initConfig,
             ...config
         };
 
-        if (action == 'watch') {
-            const header: string = _mergedConfig.header;
-            const breakpoint: string = _mergedConfig.breakpoint;
+        if (_mergedConfig.header || _mergedConfig.breakpoint) {
+            const header: any = _mergedConfig.header;
+            const breakpoint: any = _mergedConfig.breakpoint;
 
-            const headerElement: HTMLSelectElement | null = document.querySelector(header);
-            const breakingPointElement: HTMLSelectElement | null = document.querySelector(breakpoint);
+            const headerElement: any = document.querySelector(header);
+            const breakingPointElement: any = document.querySelector(breakpoint);
 
             const options: Record<string, string | number | any> = {
                 rootMargin: '-100px 0px 0px 0px',
@@ -59,7 +66,7 @@ export class GSHeader {
                 });
             }, options);
 
-            observer.observe(breakingPointElement)
+            observer.observe(breakingPointElement);
         }
     }
 }
