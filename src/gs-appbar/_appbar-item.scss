@@ -26,6 +26,8 @@
     .gs-appbar-item {
         position: relative;
         list-style: none;
+        cursor: pointer;
+        user-select: none;
 
         a {
             display: flex;
@@ -63,6 +65,10 @@
 
         .gs-appbar-item__icon {
             color: inherit;
+            font-size: scaffold.to-rem(24px);
+            /// @fallback
+            width: scaffold.to-rem(24px);
+            height: scaffold.to-rem(24px);
         }
 
         .gs-appbar-item__label {

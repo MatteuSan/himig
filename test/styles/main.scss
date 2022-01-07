@@ -25,12 +25,14 @@
 @use '../../src/gs-appbar';
 @use '../../src/gs-button';
 @use '../../src/gs-card';
+@use '../../src/gs-drawer';
 @use '../../src/gs-header';
 
 @include stack.init(
     $primary: #12305e,
     $secondary: #ff9e0a,
     $surface: (
+        'light': #0b1c44,
         'default': #000b21
     ),
 ) {
@@ -51,6 +53,7 @@
         )
     ));
     @include gs-card.render();
+    @include gs-drawer.render();
     @include gs-header.render();
 
     .grid {

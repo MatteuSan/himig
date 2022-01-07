@@ -29,10 +29,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Stack Playground</title>
     <link rel="stylesheet" href="styles/main.css">
-    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+          rel="stylesheet" />
+    <script defer src="https://unpkg.com/alpinejs@3.7.1/dist/cdn.min.js"></script>
 </head>
 <body>
-<header class="gs-header">
+<header class="gs-header" x-data="{ isDrawerOpen: false }">
     <div class="gs-header__wrapper">
         <div class="gs-header__brand">
             <a href="#">
@@ -61,15 +63,37 @@
                         </a>
                     </li>
                     <li class="gs-appbar-item">
-                        <a href="#">
-                            <i class="gs-appbar-item__icon material-icons">menu</i>
-                            <span class="gs-appbar-item__label">More</span>
+                        <a @click="isDrawerOpen = !isDrawerOpen">
+                            <i class="gs-appbar-item__icon material-icons" x-text="isDrawerOpen ? 'close' : 'menu'">menu</i>
+                            <span class="gs-appbar-item__label" x-text="isDrawerOpen ? 'Close' : 'More'">More</span>
                         </a>
                     </li>
                 </ul>
             </nav>
         </div>
     </div>
+    <nav class="gs-drawer">
+        <ul class="gs-drawer__wrapper">
+            <li class="gs-drawer-item active">
+                <a href="#">
+                    <i class="gs-drawer-item__icon material-icons">star</i>
+                    <span class="gs-drawer-item__label">Drawer Item</span>
+                </a>
+            </li>
+            <li class="gs-drawer-item">
+                <a href="#">
+                    <i class="gs-drawer-item__icon material-icons">star</i>
+                    <span class="gs-drawer-item__label">Drawer Item</span>
+                </a>
+            </li>
+            <li class="gs-drawer-item">
+                <a href="#">
+                    <i class="gs-drawer-item__icon material-icons">star</i>
+                    <span class="gs-drawer-item__label">Drawer Item</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
 </header>
 <main class="content-wrap">
     <button class="gs-button">
@@ -97,7 +121,9 @@
         <span class="gs-button__label">BUTTON</span>
     </button>
 
-    <p>Lorem ipsum dolor sit amet, <a href="#" class="gs-link">consectetur adipisicing elit</a>. Aliquam cupiditate distinctio eius et, eum expedita laboriosam magni necessitatibus nemo nesciunt odit pariatur recusandae similique sunt ullam ut voluptatem! Porro, quaerat.</p>
+    <p>Lorem ipsum dolor sit amet, <a href="#" class="gs-link">consectetur adipisicing elit</a>. Aliquam cupiditate
+        distinctio eius et, eum expedita laboriosam magni necessitatibus nemo nesciunt odit pariatur recusandae
+        similique sunt ullam ut voluptatem! Porro, quaerat.</p>
 
     <section class="grid">
         <div class="gs-card">
@@ -108,7 +134,8 @@
                 <div class="gs-card__header">
                     <p class="gs-card__category">Card Category</p>
                     <h2 class="gs-card__title">Card Title</h2>
-                    <p class="gs-card__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, quisquam!</p>
+                    <p class="gs-card__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum,
+                        quisquam!</p>
                 </div>
                 <div class="gs-card__actions items-right">
                     <button class="gs-button gs-button--filled">
@@ -130,7 +157,8 @@
                 <div class="gs-card__header">
                     <p class="gs-card__category">Card Category</p>
                     <h2 class="gs-card__title">Card Title</h2>
-                    <p class="gs-card__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, quisquam!</p>
+                    <p class="gs-card__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum,
+                        quisquam!</p>
                 </div>
                 <div class="gs-card__actions items-right">
                     <button class="gs-button gs-button--filled">
@@ -152,7 +180,9 @@
                 <div class="gs-card__header">
                     <p class="gs-card__category">Card Category</p>
                     <h2 class="gs-card__title">Card Title</h2>
-                    <p class="gs-card__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate deserunt distinctio doloremque dolores eum, nihil porro quis quo rerum vel? Accusantium asperiores commodi, debitis earum error excepturi maiores necessitatibus vero!</p>
+                    <p class="gs-card__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate
+                        deserunt distinctio doloremque dolores eum, nihil porro quis quo rerum vel? Accusantium
+                        asperiores commodi, debitis earum error excepturi maiores necessitatibus vero!</p>
                 </div>
                 <div class="gs-card__actions items-right">
                     <button class="gs-button gs-button--filled">
@@ -174,7 +204,8 @@
                 <div class="gs-card__header">
                     <p class="gs-card__category">Card Category</p>
                     <h2 class="gs-card__title">Card Title</h2>
-                    <p class="gs-card__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, quisquam!</p>
+                    <p class="gs-card__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum,
+                        quisquam!</p>
                 </div>
                 <div class="gs-card__actions items-right">
                     <button class="gs-button gs-button--filled">
@@ -196,7 +227,8 @@
                 <div class="gs-card__header">
                     <p class="gs-card__category">Card Category</p>
                     <h2 class="gs-card__title">Card Title</h2>
-                    <p class="gs-card__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, quisquam!</p>
+                    <p class="gs-card__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum,
+                        quisquam!</p>
                 </div>
                 <div class="gs-card__actions items-right">
                     <button class="gs-button gs-button--filled">
@@ -218,7 +250,8 @@
                 <div class="gs-card__header">
                     <p class="gs-card__category">Card Category</p>
                     <h2 class="gs-card__title">Card Title</h2>
-                    <p class="gs-card__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, quisquam!</p>
+                    <p class="gs-card__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum,
+                        quisquam!</p>
                 </div>
                 <div class="gs-card__actions items-right">
                     <button class="gs-button gs-button--filled">

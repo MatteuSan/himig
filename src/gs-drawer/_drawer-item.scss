@@ -1,0 +1,74 @@
+///
+//  Copyright (c) 2022 GrowStocks
+//
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in all
+//  copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+//  SOFTWARE.
+///
+
+@use '../scaffold';
+
+@mixin render() {
+    .gs-drawer-item {
+        padding: 0.4rem 0.6rem;
+        list-style: none;
+        @include scaffold.color-apply('drawer-item', (
+            default: 'surface',
+            hover: 'surface',
+            focus: 'surface',
+            active: 'surface-light'
+        ), 'text');
+        @include scaffold.shape-apply('drawer-item', (shape: 'round', radius: 'radius-small'));
+        @include scaffold.prefix(transition, all 0.1s ease);
+
+        &.active {
+            @include scaffold.theme-key-bind('drawer-item-fill', rgba(#b4b4b4, 33%));
+            @include scaffold.theme-key-bind('drawer-item-border', rgba(#b4b4b4, 3.3%));
+
+            .gs-drawer-item__label {
+                font-weight: 700 !important;
+            }
+        }
+
+        a {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: flex-start;
+            align-items: center;
+
+            > * + * {
+                margin-left: 0.5rem;
+            }
+
+            .gs-drawer-item__icon {
+                color: inherit;
+                font-size: scaffold.to-rem(24px);
+                /// @fallback
+                width: scaffold.to-rem(24px);
+                height: scaffold.to-rem(24px);
+            }
+
+            .gs-appbar-item__label {
+                color: inherit;
+                font-family: inherit;
+                font-size: inherit;
+                font-weight: inherit;
+                line-height: inherit;
+            }
+        }
+    }
+}

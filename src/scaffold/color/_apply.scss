@@ -73,25 +73,25 @@
 
     @if $hover {
         &:hover {
-            @include theme.key-bind('#{$component-name}-fill', rgba(#b4b4b4, 13%));
+            @include theme.key-bind('#{$component-name}-fill', rgba(#b4b4b4, 20%));
             @include theme.key-bind('#{$component-name}-ink', theme.token-switch('color', $hover));
-            @include theme.key-bind('#{$component-name}-border', rgba(#b4b4b4, 1.3%));
+            @include theme.key-bind('#{$component-name}-border', rgba(#b4b4b4, 2%));
         }
     }
 
     @if $focus {
         &:focus {
-            @include theme.key-bind('#{$component-name}-fill', rgba(#b4b4b4, 13%));
+            @include theme.key-bind('#{$component-name}-fill', rgba(#b4b4b4, 20%));
             @include theme.key-bind('#{$component-name}-ink', theme.token-switch('color', $focus));
-            @include theme.key-bind('#{$component-name}-border', rgba(#b4b4b4, 1.3%));
+            @include theme.key-bind('#{$component-name}-border', rgba(#b4b4b4, 2%));
         }
     }
 
     @if $active {
         &:active {
-            @include theme.key-bind('#{$component-name}-fill', rgba(#b4b4b4, 20%));
+            @include theme.key-bind('#{$component-name}-fill', rgba(#b4b4b4, 33%));
             @include theme.key-bind('#{$component-name}-ink', theme.token-switch('color', $active));
-            @include theme.key-bind('#{$component-name}-border', rgba(#b4b4b4, 2%));
+            @include theme.key-bind('#{$component-name}-border', rgba(#b4b4b4, 3.3%));
         }
     }
 
@@ -121,7 +121,7 @@
 
     @if $focus {
         &:focus {
-            @include theme.key-bind('#{$component-name}-fill', rgba(#b4b4b4, 13%));
+            @include theme.key-bind('#{$component-name}-fill', rgba(#b4b4b4, 20%));
             @include theme.key-bind('#{$component-name}-ink', theme.token-switch('color', $focus));
             @include theme.key-bind('#{$component-name}-border', theme.token-switch('color', $focus));
         }
