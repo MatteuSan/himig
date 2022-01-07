@@ -1,0 +1,82 @@
+///
+//  Copyright (c) 2022 GrowStocks
+//
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in all
+//  copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+//  SOFTWARE.
+///
+
+@use '../scaffold';
+
+@mixin render($breakpoint: 'medium', $has-elevation: false) {
+    .gs-appbar-item {
+        position: relative;
+        list-style: none;
+
+        a {
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        &.active {
+            color: scaffold.theme-token-get('secondary');
+        }
+
+        &:hover {
+            @include scaffold.theme-breakpoint-create($breakpoint) {
+                .gs-appbar-item__label {
+                    display: block;
+                    position: absolute;
+                    bottom: -35px;
+                    z-index: 102;
+                    padding: 0.5rem 0.6rem;
+                    background: #232323;
+                    color: #fff;
+                    border-radius: 0.3rem;
+                    white-space: nowrap;
+                    box-sizing: border-box;
+                    text-align: center;
+                    opacity: 1;
+
+                    @if $has-elevation {
+                        @include scaffold.elevation(7);
+                    }
+                }
+            }
+        }
+
+        .gs-appbar-item__icon {
+            color: inherit;
+        }
+
+        .gs-appbar-item__label {
+            color: inherit;
+            font-family: scaffold.theme-key-get('appbar-family');
+            font-size: scaffold.theme-key-get('appbar-size');
+            font-weight: scaffold.theme-key-get('appbar-weight');
+            line-height: scaffold.theme-key-get('appbar-line-height');
+            @include scaffold.prefix(transition, all 0.125s ease);
+
+            @include scaffold.theme-breakpoint-create($breakpoint) {
+                display: none;
+                opacity: 0;
+            }
+        }
+    }
+}
