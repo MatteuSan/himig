@@ -26,12 +26,14 @@
     .gs-drawer-item {
         padding: 0.4rem 0.6rem;
         list-style: none;
+        user-select: none;
         @include scaffold.color-apply('drawer-item', (
-            default: 'surface',
-            hover: 'surface',
-            focus: 'surface',
-            active: 'surface-light'
+            default: 'on-primary',
+            hover: 'on-primary',
+            focus: 'on-primary',
+            active: 'on-primary'
         ), 'text');
+        color: scaffold.theme-token-get('surface');
         @include scaffold.shape-apply('drawer-item', (shape: 'round', radius: 'radius-small'));
         @include scaffold.prefix(transition, all 0.1s ease);
 

@@ -20,6 +20,8 @@
 //  SOFTWARE.
 ///
 
+@use 'sass:map';
+
 @use '../../src' as stack;
 @use '../../src/scaffold';
 @use '../../src/gs-appbar';
@@ -41,16 +43,6 @@
     @include gs-button.render();
     @include gs-button.extend('gs-button--full-width', $struct: (
         'width': 100%
-    ));
-    @include gs-button.extend('gs-button--funky', $color: (
-        'outlined', (
-            'default': lime,
-            'hover': lime,
-            'focus': lime,
-            'active': #a3ffa3,
-            'disabled': #008b00,
-            'ink': purple
-        )
     ));
     @include gs-card.render();
     @include gs-drawer.render();
@@ -83,4 +75,3 @@
         }
     }
 }
-

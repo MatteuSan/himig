@@ -50,6 +50,7 @@
             .gs-header__brand {
                 display: grid;
                 place-items: center;
+                user-select: none;
 
                 a {
                     display: grid;

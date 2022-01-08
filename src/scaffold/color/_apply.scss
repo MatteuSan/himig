@@ -33,7 +33,8 @@
     $component-name,
     $color-theme: (),
     $style: 'filled',
-    $is-extender: false
+    $is-extender: false,
+    $is-stateful: false
 ) {
     @if not support.is-empty($color-theme) {
         @if validators.is-color-prop($color-theme) {
@@ -45,21 +46,21 @@
             $ink: map.get($color-theme, 'ink');
 
             @if $style == 'text' {
-                @include _text($component-name, $default, $hover, $active, $focus, $disabled, $ink, $is-extender);
+                @include _text($component-name, $default, $hover, $active, $focus, $disabled, $ink, $is-extender, $is-stateful);
             }
 
             @if $style == 'outlined' {
-                @include _outlined($component-name, $default, $hover, $active, $focus, $disabled, $ink, $is-extender);
+                @include _outlined($component-name, $default, $hover, $active, $focus, $disabled, $ink, $is-extender, $is-stateful);
             }
 
             @if $style == 'filled' {
-                @include _filled($component-name, $default, $hover, $active, $focus, $disabled, $ink, $is-extender);
+                @include _filled($component-name, $default, $hover, $active, $focus, $disabled, $ink, $is-extender, $is-stateful);
             }
         }
     }
 }
 
-@mixin _text($component-name, $default, $hover, $active, $focus, $disabled, $ink, $is-extender: false) {
+@mixin _text($component-name, $default, $hover, $active, $focus, $disabled, $ink, $is-extender: false, $is-stateful: false) {
 
     @if $is-extender {
         @include theme.key-bind('#{$component-name}-fill', rgba(0 0 0 / 0));
@@ -71,31 +72,31 @@
         border: 1px solid theme.key-create('#{$component-name}-border', rgba(0 0 0 / 0));
     }
 
-    @if $hover {
+    @if $hover or $is-stateful {
         &:hover {
-            @include theme.key-bind('#{$component-name}-fill', rgba(#b4b4b4, 20%));
+            @include theme.key-bind('#{$component-name}-fill', rgba(theme.get-raw-prop-value($default), 20%));
             @include theme.key-bind('#{$component-name}-ink', theme.token-switch('color', $hover));
-            @include theme.key-bind('#{$component-name}-border', rgba(#b4b4b4, 2%));
+            @include theme.key-bind('#{$component-name}-border', rgba(theme.get-raw-prop-value($default), 2%));
         }
     }
 
-    @if $focus {
+    @if $focus or $is-stateful {
         &:focus {
-            @include theme.key-bind('#{$component-name}-fill', rgba(#b4b4b4, 20%));
+            @include theme.key-bind('#{$component-name}-fill', rgba(theme.get-raw-prop-value($default), 20%));
             @include theme.key-bind('#{$component-name}-ink', theme.token-switch('color', $focus));
-            @include theme.key-bind('#{$component-name}-border', rgba(#b4b4b4, 2%));
+            @include theme.key-bind('#{$component-name}-border', rgba(theme.get-raw-prop-value($default), 2%));
         }
     }
 
-    @if $active {
+    @if $active or $is-stateful {
         &:active {
-            @include theme.key-bind('#{$component-name}-fill', rgba(#b4b4b4, 33%));
+            @include theme.key-bind('#{$component-name}-fill', rgba(theme.get-raw-prop-value($default), 33%));
             @include theme.key-bind('#{$component-name}-ink', theme.token-switch('color', $active));
-            @include theme.key-bind('#{$component-name}-border', rgba(#b4b4b4, 3.3%));
+            @include theme.key-bind('#{$component-name}-border', rgba(theme.get-raw-prop-value($default), 3.3%));
         }
     }
 
-    @if $disabled {
+    @if $disabled or $is-stateful {
         &:disabled {
             @include theme.key-bind('#{$component-name}-ink', theme.token-switch('color', $disabled));
 
@@ -107,7 +108,7 @@
     }
 }
 
-@mixin _outlined($component-name, $default, $hover, $active, $focus, $disabled, $ink, $is-extender: false) {
+@mixin _outlined($component-name, $default, $hover, $active, $focus, $disabled, $ink, $is-extender: false, $is-stateful: false) {
 
     @if $is-extender {
         @include theme.key-bind('#{$component-name}-fill', rgba(0 0 0 / 0));
@@ -119,15 +120,15 @@
         border: 1px solid theme.key-create('#{$component-name}-border', theme.token-switch('color', $default));
     }
 
-    @if $focus {
+    @if $focus or $is-stateful {
         &:focus {
-            @include theme.key-bind('#{$component-name}-fill', rgba(#b4b4b4, 20%));
+            @include theme.key-bind('#{$component-name}-fill', rgba(theme.get-raw-prop-value($default), 20%));
             @include theme.key-bind('#{$component-name}-ink', theme.token-switch('color', $focus));
             @include theme.key-bind('#{$component-name}-border', theme.token-switch('color', $focus));
         }
     }
 
-    @if $hover {
+    @if $hover or $is-stateful {
         &:hover {
             @include theme.key-bind('#{$component-name}-fill', theme.token-switch('color', $hover));
             @include theme.key-bind('#{$component-name}-ink', theme.token-switch('color', $ink));
@@ -135,7 +136,7 @@
         }
     }
 
-    @if $active {
+    @if $active or $is-stateful {
         &:active {
             @include theme.key-bind('#{$component-name}-fill', theme.token-switch('color', $active));
             @include theme.key-bind('#{$component-name}-ink', theme.token-switch('color', $ink));
@@ -143,7 +144,7 @@
         }
     }
 
-    @if $disabled {
+    @if $disabled or $is-stateful {
         &:disabled {
             @include theme.key-bind('#{$component-name}-ink', theme.token-switch('color', $disabled));
             @include theme.key-bind('#{$component-name}-border', theme.token-switch('color', $disabled));
@@ -157,7 +158,7 @@
     }
 }
 
-@mixin _filled($component-name, $default, $hover, $active, $focus, $disabled, $ink, $is-extender: false) {
+@mixin _filled($component-name, $default, $hover, $active, $focus, $disabled, $ink, $is-extender: false, $is-stateful: false) {
 
     @if $is-extender {
         @include theme.key-bind('#{$component-name}-fill', theme.token-switch('color', $default));
@@ -169,7 +170,7 @@
         border: 1px solid theme.key-create('#{$component-name}-border', theme.token-switch('color', $default));
     }
 
-    @if $hover {
+    @if $hover or $is-stateful {
         &:hover {
             @include theme.key-bind('#{$component-name}-fill', theme.token-switch('color', $hover));
             @include theme.key-bind('#{$component-name}-ink', theme.token-switch('color', $ink));
@@ -177,7 +178,7 @@
         }
     }
 
-    @if $focus {
+    @if $focus or $is-stateful {
         &:focus {
             @include theme.key-bind('#{$component-name}-fill', theme.token-switch('color', $focus));
             @include theme.key-bind('#{$component-name}-ink', theme.token-switch('color', $ink));
@@ -185,7 +186,7 @@
         }
     }
 
-    @if $active {
+    @if $active or $is-stateful {
         &:active {
             @include theme.key-bind('#{$component-name}-fill', theme.token-switch('color', $active));
             @include theme.key-bind('#{$component-name}-ink', theme.token-switch('color', $ink));
@@ -193,7 +194,7 @@
         }
     }
 
-    @if $disabled {
+    @if $disabled or $is-stateful {
         &:disabled {
             @include theme.key-bind('#{$component-name}-fill', theme.token-switch('color', $disabled));
             @include theme.key-bind('#{$component-name}-ink', theme.token-switch('color', $ink));

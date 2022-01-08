@@ -72,8 +72,51 @@
             </nav>
         </div>
     </div>
-    <nav class="gs-drawer">
-        <ul class="gs-drawer__wrapper">
+    <nav x-bind:class="`gs-drawer${ isDrawerOpen ? ' open' : '' }`">
+        <ul class="gs-drawer-section">
+            <h4 class="gs-drawer-section__title">Section Title</h4>
+            <li class="gs-drawer-item active">
+                <a href="#">
+                    <i class="gs-drawer-item__icon material-icons">star</i>
+                    <span class="gs-drawer-item__label">Drawer Item</span>
+                </a>
+            </li>
+            <li class="gs-drawer-item">
+                <a href="#">
+                    <i class="gs-drawer-item__icon material-icons">star</i>
+                    <span class="gs-drawer-item__label">Drawer Item</span>
+                </a>
+            </li>
+            <li class="gs-drawer-item">
+                <a href="#">
+                    <i class="gs-drawer-item__icon material-icons">star</i>
+                    <span class="gs-drawer-item__label">Drawer Item</span>
+                </a>
+            </li>
+        </ul>
+        <ul class="gs-drawer-section">
+            <h4 class="gs-drawer-section__title">Section Title</h4>
+            <li class="gs-drawer-item active">
+                <a href="#">
+                    <i class="gs-drawer-item__icon material-icons">star</i>
+                    <span class="gs-drawer-item__label">Drawer Item</span>
+                </a>
+            </li>
+            <li class="gs-drawer-item">
+                <a href="#">
+                    <i class="gs-drawer-item__icon material-icons">star</i>
+                    <span class="gs-drawer-item__label">Drawer Item</span>
+                </a>
+            </li>
+            <li class="gs-drawer-item">
+                <a href="#">
+                    <i class="gs-drawer-item__icon material-icons">star</i>
+                    <span class="gs-drawer-item__label">Drawer Item</span>
+                </a>
+            </li>
+        </ul>
+        <ul class="gs-drawer-section">
+            <h4 class="gs-drawer-section__title">Section Title</h4>
             <li class="gs-drawer-item active">
                 <a href="#">
                     <i class="gs-drawer-item__icon material-icons">star</i>
