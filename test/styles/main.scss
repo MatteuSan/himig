@@ -38,7 +38,6 @@
         'default': #000b21
     ),
 ) {
-
     @include gs-appbar.render();
     @include gs-button.render();
     @include gs-button.extend('gs-button--full-width', $struct: (

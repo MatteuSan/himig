@@ -1,5 +1,5 @@
-//
-//  Copyright (c) 2021 GrowStocks
+///
+//  Copyright (c) 2022 GrowStocks
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -18,9 +18,10 @@
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
-//
+///
 
 @use 'sass:map';
+@use 'sass:list';
 
 $breakpoints-map: (
     'small': 320px,
@@ -28,7 +29,14 @@ $breakpoints-map: (
     'large': 890px
 );
 
+@mixin config($breakpoints) {
+    $breakpoints-map: map.merge($breakpoints-map, $breakpoints) !global;
+}
+
 @mixin create($query, $context: 'min') {
+    @if not list.index(map.keys($breakpoints-map), $query) {
+        @error "Invalid breakpoint query: #{$query}. Please use a valid query: #{map.keys($breakpoints-map)}";
+    }
     @media (#{$context}-width: _sanitize-breakpoint($query, $context)) {
         @content;
     }

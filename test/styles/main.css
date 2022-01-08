@@ -551,8 +551,8 @@ a.gs-link:active {
   --gs-drawer-item-border: rgba(255, 255, 255, 0.033);
 }
 .gs-drawer .gs-drawer-section .gs-drawer-item.active {
-  --gs-drawer-item-fill: rgba(180, 180, 180, 0.33);
-  --gs-drawer-item-border: rgba(180, 180, 180, 0.033);
+  --gs-drawer-item-fill: rgba(255, 255, 255, 0.33);
+  --gs-drawer-item-border: rgba(255, 255, 255, 0.033);
 }
 .gs-drawer .gs-drawer-section .gs-drawer-item.active .gs-drawer-item__label {
   font-weight: 700 !important;
