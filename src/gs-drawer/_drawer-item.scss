@@ -38,8 +38,8 @@
         @include scaffold.prefix(transition, all 0.1s ease);
 
         &.active {
-            @include scaffold.theme-key-bind('drawer-item-fill', rgba(#b4b4b4, 33%));
-            @include scaffold.theme-key-bind('drawer-item-border', rgba(#b4b4b4, 3.3%));
+            @include scaffold.theme-key-bind('drawer-item-fill', rgba(#fff, 33%));
+            @include scaffold.theme-key-bind('drawer-item-border', rgba(#fff, 3.3%));
 
             .gs-drawer-item__label {
                 font-weight: 700 !important;
