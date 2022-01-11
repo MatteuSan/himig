@@ -1,5 +1,5 @@
 /*
- *  Copyright (c) 2021 GrowStocks
+ *  Copyright (c) 2022 GrowStocks
  *
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -20,45 +20,45 @@
  *  SOFTWARE.
  */
 
-const {src, dest, watch, series} = require('gulp');
+const { src, dest, watch, series } = require('gulp');
 const sass = require('gulp-sass')(require('sass'));
 const postcss = require('gulp-postcss');
 const cssnano = require('cssnano');
+const typescript = require('gulp-typescript');
+const tsProject = typescript.createProject('tsconfig.json');
 
-/*const terser = require('gulp-terser');
-const typescript = require('gulp-typescript');*/
+// const terser = require('gulp-terser');
 
 function sassTaskDev() {
-    return src(['src/**/*.scss', '!src/**/*.test.scss', '!src/.old/*.scss'], {sourcemaps: true})
+    return src(['src/**/*.scss', '!src/**/*.test.scss', '!src/.old/*.scss'], { sourcemaps: true })
         .pipe(sass().on('error', sass.logError))
-        .pipe(dest('./src', {sourcemaps: '.'}));
+        .pipe(dest('./src', { sourcemaps: '.' }));
 }
 
 function sassTaskDevTests() {
-    return src(['src/**/*.test.scss', '!src/.old/*.scss'], {sourcemaps: true})
+    return src(['src/**/*.test.scss', '!src/.old/*.scss'], { sourcemaps: true })
         .pipe(sass().on('error', sass.logError))
-        .pipe(dest('./src', {sourcemaps: '.'}));
+        .pipe(dest('./src', { sourcemaps: '.' }));
 }
 
 function sassTaskProd() {
-    return src('src/main.scss', {sourcemaps: true})
+    return src('src/main.scss', { sourcemaps: true })
         .pipe(sass().on('error', sass.logError))
-        .pipe(postcss([ cssnano ]))
-        .pipe(dest('./src', {sourcemaps: '.'}));
+        .pipe(postcss([cssnano]))
+        .pipe(dest('./src', { sourcemaps: '.' }));
 }
 
 function sassTaskTest() {
-    return src('test/**/*.scss', {sourcemaps: true})
+    return src('test/**/*.scss', { sourcemaps: true })
         .pipe(sass().on('error', sass.logError))
-        .pipe(dest('./test', {sourcemaps: '.'}));
+        .pipe(dest('./test', { sourcemaps: '.' }));
 }
 
-/*function tsTask() {
-    return src(['test/scripts/!**!/!*.ts', 'src/!**!/!*.ts'])
-        .pipe(typescript())
-        .pipe(terser())
-        .pipe(dest('test/scripts'));
-}*/
+function tsTask() {
+    return src(['src/**/*.ts', '!src/**/*.test.ts'])
+        .pipe(tsProject())
+        .pipe(dest('./src'));
+}
 
 function watchTask() {
     watch(['src/**/*.scss', '!src/**/*.test.scss'], sassTaskDev());
@@ -72,6 +72,6 @@ exports.default = series(
     sassTaskDevTests,
     sassTaskTest,
     // sassTaskProd,
-    // tsTask, // tsTask() disabled on default until we find a fix for this [DEV]
+    // tsTask,
     // watchTask
 );
