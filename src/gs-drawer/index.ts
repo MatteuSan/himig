@@ -20,6 +20,3 @@
  *  SOFTWARE.
  */
 
-import { GSHeader } from '../../src/gs-header';
-
-GSHeader.watch({ breakpoint: '.hero' });
