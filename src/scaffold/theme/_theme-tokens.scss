@@ -29,6 +29,11 @@
     @return sentro.token-get($query);
 }
 
+/// @deprecated add token function.
+@function _add($map: (), $tokens...) {
+    //
+}
+
 @function switch($ref, $query) {
     @if meta.type-of($query) != string.unquote($ref) {
         @return sentro.token-get($query);

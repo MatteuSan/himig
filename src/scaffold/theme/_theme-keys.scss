@@ -25,15 +25,19 @@
 //
 
 @use 'node_modules/@matteusan/sentro';
+@use 'sass:map';
+
 @use '../support';
 
 $context: '' !default;
+$_current-theme: ();
 
 /// Creates a key.
 /// @param {string} $key
 /// @param {*} $value
 /// @return {sentro.key} returns type sentro.key
 @function create($key, $value) {
+    $_current-theme: map.set($_current-theme, $key, $value) !global;
     @return sentro.key-create('#{_sanitize-context($context)}#{$key}', $value);
 }
 
@@ -50,6 +54,13 @@ $context: '' !default;
 /// @return {sentro.key-bind} returns type sentro.key-bind
 @mixin bind($key, $value) {
     @include sentro.key-bind('#{_sanitize-context($context)}#{$key}', $value);
+}
+
+/// Gets a registered key's initial value.
+/// @param {string} $key
+/// @return {*} a key's raw value.
+@function get-raw-value($key) {
+    @return map.get($_current-theme, $key);
 }
 
 /// Sanitizes context
