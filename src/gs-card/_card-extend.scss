@@ -37,21 +37,21 @@
     $shape: (),
     $typography: ()
 ) {
-    .gs-button.#{$class-name} {
+    .gs-card.#{$class-name} {
         @if not scaffold.is-empty($struct) {
-            @include scaffold.struct-apply('button', $struct, true);
+            @include scaffold.struct-apply('card', $struct, true);
         }
 
         @if not scaffold.is-empty($color) {
-            @include scaffold.color-apply('button', list.nth($color, 2), list.nth($color, 1), true);
+            @include scaffold.color-apply('card', list.nth($color, 2), list.nth($color, 1), true);
         }
 
         @if not scaffold.is-empty($shape) {
-            @include scaffold.shape-apply('button', $shape, true);
+            @include scaffold.shape-apply('card', $shape, true);
         }
 
         @if not scaffold.is-empty($typography) {
-            @include scaffold.typography-apply('button', $typography, true);
+            @include scaffold.typography-apply('card', $typography, true);
         }
 
         @content;
