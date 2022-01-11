@@ -31,6 +31,7 @@
     <link rel="stylesheet" href="styles/main.css">
     <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
           rel="stylesheet" />
+    <script defer src="scripts/index.js" type="module"></script>
     <script defer src="https://unpkg.com/alpinejs@3.7.1/dist/cdn.min.js"></script>
 </head>
 <body>
@@ -96,7 +97,7 @@
         </ul>
         <ul class="gs-drawer-section">
             <h4 class="gs-drawer-section__title">Section Title</h4>
-            <li class="gs-drawer-item active">
+            <li class="gs-drawer-item">
                 <a href="#">
                     <i class="gs-drawer-item__icon material-icons">star</i>
                     <span class="gs-drawer-item__label">Drawer Item</span>
@@ -117,7 +118,7 @@
         </ul>
         <ul class="gs-drawer-section">
             <h4 class="gs-drawer-section__title">Section Title</h4>
-            <li class="gs-drawer-item active">
+            <li class="gs-drawer-item">
                 <a href="#">
                     <i class="gs-drawer-item__icon material-icons">star</i>
                     <span class="gs-drawer-item__label">Drawer Item</span>
@@ -309,6 +310,22 @@
             </div>
         </div>
     </section>
+
+    <div class="gs-card">
+        <div class="gs-card__contents">
+            <label class="gs-text-field">
+                <input type="text" class="gs-text-field__input" placeholder="a" name="text-field" />
+                <span class="gs-text-field__label">GSTextField</span>
+                <span class="gs-text-field__helper">Helper text :)</span>
+            </label>
+
+            <label class="gs-text-field error">
+                <input type="text" class="gs-text-field__input" placeholder="a" name="text-field-error" />
+                <span class="gs-text-field__label">GSTextField Error</span>
+                <span class="gs-text-field__helper">Oh no :(</span>
+            </label>
+        </div>
+    </div>
 </main>
 </body>
 

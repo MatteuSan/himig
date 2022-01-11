@@ -623,6 +623,82 @@ a.gs-link:active {
 .gs-header .gs-header__wrapper .gs-header__brand a .gs-header__logo {
   height: 33px;
 }
+.gs-text-field {
+  width: var(--gs-text-field-width, 100%);
+  height: var(--gs-text-field-height, auto);
+  margin: var(--gs-text-field-margin, 0);
+  display: block;
+  position: relative;
+  --gs-text-field-fill: #b2c2d9;
+  --gs-text-field-ink: var(--gs-theme-surface);
+  --gs-text-field-border: #b2c2d9;
+  --gs-text-field-radius: var(--gs-theme-radius-small);
+  --gs-text-field-family: var(--gs-theme-family-body);
+  --gs-text-field-size: var(--gs-theme-size-body);
+  --gs-text-field-weight: var(--gs-theme-weight-body);
+  --gs-text-field-line-height: var(--gs-theme-line-height-body);
+}
+.gs-text-field .gs-text-field__label {
+  width: max-content;
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0.975rem;
+  padding: 0 0.7rem;
+  color: var(--gs-text-field-label-ink, var(--gs-text-field-ink));
+  font-size: var(--gs-text-field-label-size, var(--gs-text-field-size));
+  user-select: none;
+  cursor: text;
+  -webkit-transition: all 70ms ease;
+  transition: all 70ms ease;
+}
+.gs-text-field .gs-text-field__input {
+  width: 100% !important;
+  padding: var(--gs-text-field-padding, 1.4rem 0.5rem 0.275rem 0.5rem);
+  font-size: var(--gs-text-field-size);
+  background-color: var(--gs-text-field-fill);
+  color: var(--gs-text-field-ink);
+  border: 2px solid var(--gs-text-field-border);
+  border-radius: var(--gs-text-field-radius);
+  outline: none;
+  resize: none;
+  cursor: text;
+  -webkit-transition: all 0.1s ease;
+  transition: all 0.1s ease;
+}
+.gs-text-field .gs-text-field__input::placeholder {
+  color: rgba(0, 0, 0, 0) !important;
+  user-select: none !important;
+}
+.gs-text-field .gs-text-field__input:focus {
+  border-color: var(--gs-text-field-border-active, var(--gs-theme-primary));
+}
+.gs-text-field .gs-text-field__input:focus-within + .gs-text-field__label, .gs-text-field .gs-text-field__input:not(:placeholder-shown) + .gs-text-field__label {
+  width: auto;
+  top: 0.35rem;
+  margin: 0 0 0 0.3rem;
+  padding: 0 0 0 0.35rem;
+  --gs-text-field-label-size: var(--gs-theme-size-small);
+  pointer-events: none;
+}
+.gs-text-field .gs-text-field__input[type=color] {
+  min-height: 54px;
+}
+.gs-text-field .gs-text-field__helper {
+  position: relative;
+  top: 2px;
+  padding: 0 0 0 0.6rem;
+  color: var(--gs-text-field-helper-ink, var(--gs-theme-on-surface));
+  font-size: var(--gs-text-field-helper-size, var(--gs-theme-size-small));
+}
+.gs-text-field.error {
+  --gs-text-field-border: var(--gs-theme-error);
+  --gs-text-field-label-ink: var(--gs-theme-error);
+  --gs-text-field-ink: var(--gs-theme-error);
+  --gs-text-field-helper-ink: var(--gs-theme-error);
+  --gs-text-field-border-active: var(--gs-theme-error);
+}
+
 .grid {
   margin-top: 0.7rem;
   display: grid;

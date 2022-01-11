@@ -29,6 +29,7 @@
 @use '../../src/gs-card';
 @use '../../src/gs-drawer';
 @use '../../src/gs-header';
+@use '../../src/gs-text-field';
 
 @include stack.init(
     $primary: #12305e,
@@ -46,6 +47,7 @@
     @include gs-card.render();
     @include gs-drawer.render();
     @include gs-header.render();
+    @include gs-text-field.render();
 
     .grid {
         margin-top: 0.7rem;
