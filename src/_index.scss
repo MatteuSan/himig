@@ -144,9 +144,44 @@ $_init-family: (
 
     main.content-wrap {
         width: calc(100% - 30px);
-        max-width: 1077px;
+        max-width: scaffold.theme-key-create('content-wrap-width', 977px);
         margin: 0 auto;
-        padding: 67px 0 25px;
+        padding: scaffold.theme-key-create('content-wrap-padding', 67px 0 25px);
+    }
+
+    section.grid {
+        margin-top: 0.7rem;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 1rem;
+
+        > a {
+            width: 100%;
+            height: 100%;
+            grid-column: revert;
+
+            > * {
+                width: 100%;
+                max-width: 100%;
+                height: 100%;
+            }
+        }
+
+        @include scaffold.theme-breakpoint-create('medium') {
+            grid-template-columns: repeat(2, 1fr);
+
+            > a {
+                grid-column: span 2;
+            }
+        }
+
+        @include scaffold.theme-breakpoint-create('large') {
+            grid-template-columns: repeat(3, 1fr);
+
+            > a {
+                grid-column: revert;
+            }
+        }
     }
 
     @content;

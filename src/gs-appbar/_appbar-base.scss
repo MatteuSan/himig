@@ -45,6 +45,8 @@
             width: $_container-width;
             position: relative;
             padding: 0;
+            background-color: rgba(0 0 0 / 0) !important;
+            border-color: rgba(0 0 0 / 0) !important;
         }
 
         .gs-appbar__wrapper {

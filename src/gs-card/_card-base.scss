@@ -145,6 +145,14 @@
                 & > * + * {
                     margin-left: scaffold.theme-key-create('card-gap', $gap);
                 }
+
+                a {
+                    display: inline-block;
+
+                    .gs-button {
+                        max-width: 100%;
+                    }
+                }
             }
         }
     }
