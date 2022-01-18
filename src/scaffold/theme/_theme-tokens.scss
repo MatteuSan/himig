@@ -29,14 +29,15 @@
     @return sentro.token-get($query);
 }
 
+@function get-raw($query) {
+    @return sentro.token-get-raw($query);
+}
+
 /// @deprecated add token function.
 @function _add($map: (), $tokens...) {
     //
 }
 
-@function switch($ref, $query) {
-    @if meta.type-of($query) != string.unquote($ref) {
-        @return sentro.token-get($query);
-    }
-    @return $query;
+@function switch($query) {
+    @return sentro.token-switch($query);
 }

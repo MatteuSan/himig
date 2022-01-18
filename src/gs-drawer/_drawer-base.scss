@@ -37,18 +37,18 @@
         padding: 1rem 0.7rem;
         overflow-y: hidden;
 
+        @content;
+
         &.open {
             display: block;
         }
-
-        @content;
 
         .gs-drawer-section {
             display: flex;
             flex-flow: column nowrap;
             margin-bottom: 1rem;
             padding-bottom: 1rem;
-            border-bottom: 1px solid scaffold.theme-token-get('surface');
+            border-bottom: 1px solid scaffold.token-get('surface');
 
             > * + * {
                 margin-top: 0.3rem;
@@ -61,10 +61,10 @@
 
             .gs-drawer-section__title {
                 padding: 0.2rem 0.85rem;
-                font-family: scaffold.theme-token-get('family-subtitle');
-                font-size: scaffold.theme-token-get('size-body');
-                font-weight: scaffold.theme-token-get('weight-title');
-                line-height: scaffold.theme-token-get('line-height-body');
+                font-family: scaffold.token-get('family-subtitle');
+                font-size: scaffold.token-get('size-body');
+                font-weight: scaffold.token-get('weight-title');
+                line-height: scaffold.token-get('line-height-body');
             }
 
             @include drawer-item.render();

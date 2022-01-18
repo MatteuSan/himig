@@ -46,7 +46,7 @@
     @include appbar-base.base($_merged-struct, $breakpoint, $items, $has-elevation) {
         @include scaffold.color-apply('appbar', $_merged-color, 'filled');
         @include scaffold.shape-apply('appbar', $_merged-shape);
-        @include scaffold.typography-apply('appbar', $_merged-typography, $is-extender: true);
+        @include scaffold.typography-apply('appbar', $_merged-typography, true);
 
         @if $has-elevation {
             @include scaffold.elevation(5);

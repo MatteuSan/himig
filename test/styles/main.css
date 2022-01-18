@@ -129,9 +129,42 @@ body {
 
 main.content-wrap {
   width: calc(100% - 30px);
-  max-width: 1077px;
+  max-width: var(--gs-content-wrap-width, 977px);
   margin: 0 auto;
-  padding: 67px 0 25px;
+  padding: var(--gs-content-wrap-padding, 67px 0 25px);
+}
+
+section.grid {
+  margin-top: 0.7rem;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 1rem;
+}
+section.grid > a {
+  width: 100%;
+  height: 100%;
+  grid-column: revert;
+}
+section.grid > a > * {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+}
+@media (min-width: 640px) {
+  section.grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  section.grid > a {
+    grid-column: span 2;
+  }
+}
+@media (min-width: 890px) {
+  section.grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  section.grid > a {
+    grid-column: revert;
+  }
 }
 
 .gs-appbar {
@@ -145,15 +178,18 @@ main.content-wrap {
   color: var(--gs-appbar-ink, var(--gs-theme-on-primary));
   border: 1px solid var(--gs-appbar-border, var(--gs-theme-primary));
   border-radius: var(--gs-appbar-radius, none);
+  --gs-appbar-family: var(--gs-theme-family-small);
   --gs-appbar-size: var(--gs-theme-size-small);
   --gs-appbar-weight: var(--gs-theme-weight-small);
   --gs-appbar-line-height: var(--gs-theme-line-height-small);
 }
 @media (min-width: 640px) {
   .gs-appbar {
-    width: 200px;
+    --gs-appbar-width: 200px;
     position: relative;
     padding: 0;
+    background-color: rgba(0, 0, 0, 0) !important;
+    border-color: rgba(0, 0, 0, 0) !important;
   }
 }
 .gs-appbar .gs-appbar__wrapper {
@@ -475,6 +511,12 @@ a.gs-link:active {
 .gs-card .gs-card__contents .gs-card__actions > * + * {
   margin-left: var(--gs-card-gap, 0.3rem);
 }
+.gs-card .gs-card__contents .gs-card__actions a {
+  display: inline-block;
+}
+.gs-card .gs-card__contents .gs-card__actions a .gs-button {
+  max-width: 100%;
+}
 
 .gs-drawer {
   width: 100%;
@@ -588,14 +630,14 @@ a.gs-link:active {
   left: 0;
   z-index: 100;
   padding: var(--gs-header-padding, 0.7rem 0.9rem);
-  border-radius: var(--gs-header-radius, none);
-  --gs-header-family: var(--gs-theme-family-title);
-  --gs-header-size: 1.5rem;
-  --gs-header-weight: var(--gs-theme-weight-title);
-  --gs-header-line-height: 1.75rem;
   background: var(--gs-header-fill, var(--gs-theme-primary));
   color: var(--gs-header-ink, var(--gs-theme-on-primary));
   border: 1px solid var(--gs-header-border, var(--gs-theme-primary));
+  border-radius: var(--gs-header-radius, none);
+  font-family: var(--gs-header-family, var(--gs-theme-family-title));
+  font-size: var(--gs-header-size, 1.5rem);
+  font-weight: var(--gs-header-weight, var(--gs-theme-weight-title));
+  line-height: var(--gs-header-line-height, 1.75rem);
 }
 .gs-header .gs-header__wrapper {
   display: flex;
@@ -615,10 +657,10 @@ a.gs-link:active {
   place-items: center;
 }
 .gs-header .gs-header__wrapper .gs-header__brand a .gs-header__title {
-  font-family: var(--gs-header-family);
-  font-size: var(--gs-header-size);
-  font-weight: var(--gs-header-weight);
-  line-height: var(--gs-header-line-height);
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
 }
 .gs-header .gs-header__wrapper .gs-header__brand a .gs-header__logo {
   height: 33px;
@@ -655,7 +697,7 @@ a.gs-link:active {
 .gs-text-field .gs-text-field__input {
   width: 100% !important;
   padding: var(--gs-text-field-padding, 1.4rem 0.5rem 0.275rem 0.5rem);
-  font-size: var(--gs-text-field-size);
+  font-size: inherit;
   background-color: var(--gs-text-field-fill);
   color: var(--gs-text-field-ink);
   border: 2px solid var(--gs-text-field-border);

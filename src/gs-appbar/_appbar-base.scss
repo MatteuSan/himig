@@ -34,15 +34,17 @@
     $_container-width: (42px * $items) + (8px * $items);
 
     .gs-appbar {
-        width: scaffold.theme-key-create('appbar-width', $width);
-        height: scaffold.theme-key-create('appbar-height', $height);
+        width: scaffold.key-create('appbar-width', scaffold.token-switch($width));
+        height: scaffold.key-create('appbar-height', scaffold.token-switch($height));
         position: fixed;
         inset: auto 0 0 0;
         z-index: 100;
-        padding: scaffold.theme-key-create('appbar-padding', $padding);
+        padding: scaffold.key-create('appbar-padding', scaffold.token-switch($padding));
 
-        @include scaffold.theme-breakpoint-create($breakpoint) {
-            width: $_container-width;
+        @content;
+
+        @include scaffold.breakpoint-create($breakpoint) {
+            @include scaffold.key-bind('appbar-width', $_container-width);
             position: relative;
             padding: 0;
             background-color: rgba(0 0 0 / 0) !important;
@@ -53,11 +55,9 @@
             width: 100%;
             display: grid;
             grid-template-columns: repeat($items, 1fr);
-            grid-gap: scaffold.theme-key-create('appbar-gap', $gap);
+            grid-gap: scaffold.key-create('appbar-gap', scaffold.token-switch($gap));
 
             @include appbar-item.render($breakpoint, $has-elevation);
         }
-
-        @content;
     }
 }

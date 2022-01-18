@@ -66,7 +66,7 @@ $_init-family: (
     }
 
     :root {
-        @include scaffold.theme-config(
+        @include scaffold.config(
             $primary: $primary,
             $secondary: $secondary,
             $surface: $surface,
@@ -88,22 +88,22 @@ $_init-family: (
         padding: 0;
         color: inherit;
         box-sizing: inherit;
-        font-family: scaffold.theme-key-create('family-global', scaffold.theme-token-get('family-global'));
-        font-weight: scaffold.theme-key-create('weight-global', scaffold.theme-token-get('weight-global'));
+        font-family: scaffold.key-create('family-global', scaffold.token-get('family-global'));
+        font-weight: scaffold.key-create('weight-global', scaffold.token-get('weight-global'));
     }
 
     h1,
     h2,
     h3 {
-        font-family: scaffold.theme-key-create('family-title', scaffold.theme-token-get('family-title'));
-        font-weight: scaffold.theme-key-create('weight-title', scaffold.theme-token-get('weight-title'));
+        font-family: scaffold.key-create('family-title', scaffold.token-get('family-title'));
+        font-weight: scaffold.key-create('weight-title', scaffold.token-get('weight-title'));
     }
 
     h4,
     h5,
     h6 {
-        font-family: scaffold.theme-key-create('family-subtitle', scaffold.theme-token-get('family-subtitle'));
-        font-weight: scaffold.theme-key-create('weight-subtitle', scaffold.theme-token-get('weight-subtitle'));
+        font-family: scaffold.key-create('family-subtitle', scaffold.token-get('family-subtitle'));
+        font-weight: scaffold.key-create('weight-subtitle', scaffold.token-get('weight-subtitle'));
     }
 
     a {
@@ -112,22 +112,22 @@ $_init-family: (
 
     p,
     span {
-        font-size: scaffold.theme-key-create('size-body', scaffold.theme-token-get('size-body'));
-        font-family: scaffold.theme-key-create('family-body', scaffold.theme-token-get('family-body'));
-        font-weight: scaffold.theme-key-create('weight-body', scaffold.theme-token-get('weight-body'));
+        font-size: scaffold.key-create('size-body', scaffold.token-get('size-body'));
+        font-family: scaffold.key-create('family-body', scaffold.token-get('family-body'));
+        font-weight: scaffold.key-create('weight-body', scaffold.token-get('weight-body'));
     }
 
     small {
-        font-size: scaffold.theme-key-create('size-small', scaffold.theme-token-get('size-small'));
-        font-family: scaffold.theme-key-create('family-small', scaffold.theme-token-get('family-small'));
-        font-weight: scaffold.theme-key-create('weight-small', scaffold.theme-token-get('weight-small'));
+        font-size: scaffold.key-create('size-small', scaffold.token-get('size-small'));
+        font-family: scaffold.key-create('family-small', scaffold.token-get('family-small'));
+        font-weight: scaffold.key-create('weight-small', scaffold.token-get('weight-small'));
     }
 
     code,
     code span {
-        font-size: scaffold.theme-key-create('size-mono', scaffold.theme-token-get('size-mono'));
-        font-family: scaffold.theme-key-create('family-mono', scaffold.theme-token-get('family-mono'));
-        font-weight: scaffold.theme-key-create('weight-mono', scaffold.theme-token-get('weight-mono'));
+        font-size: scaffold.key-create('size-mono', scaffold.token-get('size-mono'));
+        font-family: scaffold.key-create('family-mono', scaffold.token-get('family-mono'));
+        font-weight: scaffold.key-create('weight-mono', scaffold.token-get('weight-mono'));
     }
 
     html {
@@ -138,15 +138,15 @@ $_init-family: (
     }
 
     body {
-        background: scaffold.theme-token-get('surface-dark');
-        color: scaffold.theme-token-get('on-surface');
+        background: scaffold.token-get('surface-dark');
+        color: scaffold.token-get('on-surface');
     }
 
     main.content-wrap {
         width: calc(100% - 30px);
-        max-width: scaffold.theme-key-create('content-wrap-width', 977px);
+        max-width: scaffold.key-create('content-wrap-width', 977px);
         margin: 0 auto;
-        padding: scaffold.theme-key-create('content-wrap-padding', 67px 0 25px);
+        padding: scaffold.key-create('content-wrap-padding', 67px 0 25px);
     }
 
     section.grid {
@@ -167,7 +167,7 @@ $_init-family: (
             }
         }
 
-        @include scaffold.theme-breakpoint-create('medium') {
+        @include scaffold.breakpoint-create('medium') {
             grid-template-columns: repeat(2, 1fr);
 
             > a {
@@ -175,7 +175,7 @@ $_init-family: (
             }
         }
 
-        @include scaffold.theme-breakpoint-create('large') {
+        @include scaffold.breakpoint-create('large') {
             grid-template-columns: repeat(3, 1fr);
 
             > a {

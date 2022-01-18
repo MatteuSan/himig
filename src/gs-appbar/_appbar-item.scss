@@ -37,11 +37,11 @@
         }
 
         &.active {
-            color: scaffold.theme-token-get('secondary');
+            color: scaffold.token-get('secondary');
         }
 
         &:hover {
-            @include scaffold.theme-breakpoint-create($breakpoint) {
+            @include scaffold.breakpoint-create($breakpoint) {
                 .gs-appbar-item__label {
                     display: block;
                     position: absolute;
@@ -73,13 +73,13 @@
 
         .gs-appbar-item__label {
             color: inherit;
-            font-family: scaffold.theme-key-get('appbar-family');
-            font-size: scaffold.theme-key-get('appbar-size');
-            font-weight: scaffold.theme-key-get('appbar-weight');
-            line-height: scaffold.theme-key-get('appbar-line-height');
+            font-family: scaffold.key-get('appbar-family');
+            font-size: scaffold.key-get('appbar-size');
+            font-weight: scaffold.key-get('appbar-weight');
+            line-height: scaffold.key-get('appbar-line-height');
             @include scaffold.prefix(transition, all 0.125s ease);
 
-            @include scaffold.theme-breakpoint-create($breakpoint) {
+            @include scaffold.breakpoint-create($breakpoint) {
                 display: none;
                 opacity: 0;
             }

@@ -41,33 +41,33 @@
 
             @if not support.is-empty($family) {
                 @if $is-extender {
-                    @include theme.key-bind('#{$component-name}-family', theme.token-switch('list', $family));
+                    @include theme.key-bind('#{$component-name}-family', theme.token-switch($family));
                 } @else {
-                    font-family: theme.key-create('#{$component-name}-family', theme.token-switch('list', $family));
+                    font-family: theme.key-create('#{$component-name}-family', theme.token-switch($family));
                 }
             }
 
             @if not support.is-empty($size) {
                 @if $is-extender {
-                    @include theme.key-bind('#{$component-name}-size', theme.token-switch('number', $size));
+                    @include theme.key-bind('#{$component-name}-size', theme.token-switch($size));
                 } @else {
-                    font-size: theme.key-create('#{$component-name}-size', theme.token-switch('number', $size));
+                    font-size: theme.key-create('#{$component-name}-size', theme.token-switch($size));
                 }
             }
 
             @if not support.is-empty($weight) {
                 @if $is-extender {
-                    @include theme.key-bind('#{$component-name}-weight', theme.token-switch('number', $weight));
+                    @include theme.key-bind('#{$component-name}-weight', theme.token-switch($weight));
                 } @else {
-                    font-weight: theme.key-create('#{$component-name}-weight', theme.token-switch('number', $weight));
+                    font-weight: theme.key-create('#{$component-name}-weight', theme.token-switch($weight));
                 }
             }
 
             @if not support.is-empty($line-height) {
                 @if $is-extender {
-                    @include theme.key-bind('#{$component-name}-line-height', theme.token-switch('number', $line-height));
+                    @include theme.key-bind('#{$component-name}-line-height', theme.token-switch($line-height));
                 } @else {
-                    line-height: theme.key-create('#{$component-name}-line-height', theme.token-switch('number', $line-height));
+                    line-height: theme.key-create('#{$component-name}-line-height', theme.token-switch($line-height));
                 }
             }
         }

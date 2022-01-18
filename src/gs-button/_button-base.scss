@@ -31,16 +31,16 @@
 
     .gs-button {
         width: 100%;
-        max-width: scaffold.theme-key-create('button-width', $width);
-        min-width: scaffold.theme-key-create('button-min-width', $min-width);
+        max-width: scaffold.key-create('button-width', scaffold.token-switch($width));
+        min-width: scaffold.key-create('button-min-width', scaffold.token-switch($min-width));
 
         display: inline-flex;
         flex-flow: row nowrap;
         justify-content: center;
         align-items: center;
 
-        margin: scaffold.theme-key-create('button-margin', $margin);
-        padding: scaffold.theme-key-create('button-padding', $padding);
+        margin: scaffold.key-create('button-margin', scaffold.token-switch($margin));
+        padding: scaffold.key-create('button-padding', scaffold.token-switch($padding));
         box-sizing: border-box;
 
         user-select: none;
@@ -55,7 +55,7 @@
         @content;
 
         > * + * {
-            margin-left: scaffold.theme-key-create('button-gap', 3px);
+            margin-left: scaffold.key-create('button-gap', 3px);
         }
 
         &::-moz-focus-inner {
@@ -74,12 +74,12 @@
         }
 
         .gs-button__icon {
-            width: scaffold.theme-key-create('button-icon-size', scaffold.to-rem(20px));
+            width: scaffold.key-create('button-icon-size', scaffold.to-rem(20px));
             max-width: max-content;
-            height: scaffold.theme-key-create('button-icon-size', scaffold.to-rem(20px));
+            height: scaffold.key-create('button-icon-size', scaffold.to-rem(20px));
             position: relative;
-            font-size: scaffold.theme-key-create('button-icon-size', scaffold.to-rem(20px));
-            color: scaffold.theme-key-create('button-icon-ink', inherit);
+            font-size: scaffold.key-create('button-icon-size', scaffold.to-rem(20px));
+            color: scaffold.key-create('button-icon-ink', inherit);
             box-sizing: border-box;
         }
 

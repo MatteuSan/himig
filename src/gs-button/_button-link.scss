@@ -35,19 +35,19 @@
     $active: map.get($_merged-theme, 'active');
 
     a.gs-link {
-        color: scaffold.theme-key-create('link-ink', scaffold.theme-token-get($default));
+        color: scaffold.key-create('link-ink', scaffold.token-get($default));
         text-decoration: underline;
 
         &:hover {
-            color: scaffold.theme-key-create('link-hover-ink', scaffold.theme-token-get($hover));
+            color: scaffold.key-create('link-hover-ink', scaffold.token-get($hover));
         }
 
         &:focus {
-            color: scaffold.theme-key-create('link-focus-ink', scaffold.theme-token-get($focus));
+            color: scaffold.key-create('link-focus-ink', scaffold.token-get($focus));
         }
 
         &:active {
-            color: scaffold.theme-key-create('link-active-ink', scaffold.theme-token-get($active));
+            color: scaffold.key-create('link-active-ink', scaffold.token-get($active));
         }
     }
 }

@@ -51,9 +51,9 @@
 
                 @if $shape == 'round' {
                     @if $is-extender {
-                        @include theme.key-bind('#{$component-name}-radius', theme.token-switch('number', $radius));
+                        @include theme.key-bind('#{$component-name}-radius', theme.token-switch($radius));
                     } @else {
-                        border-radius: theme.key-create('#{$component-name}-radius', theme.token-switch('number', $radius));
+                        border-radius: theme.key-create('#{$component-name}-radius', theme.token-switch($radius));
                     }
                 }
 

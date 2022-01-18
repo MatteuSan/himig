@@ -24,7 +24,6 @@
 
 @use '../support';
 @use '../tools';
-// @use '../typography';
 
 @use 'sass:map';
 @use 'sass:list';
@@ -37,8 +36,6 @@ $_state-map: (
     'warning': (#ffa000, #000000),
     'success': (#25a53f, #ffffff),
 );
-
-$_current-theme: ();
 
 /// Theme configuration mixin.
 /// @return {*} returns theme tokens.
@@ -119,12 +116,10 @@ $_current-theme: ();
 
     @each $property, $value in $_state-map {
         @include sentro.token-create($property, list.nth($value, 1));
-        $_current-theme: map.set($_current-theme, $property, list.nth($value, 1)) !global;
     }
 
     @each $property, $value in $_state-map {
         @include sentro.token-create('on-#{$property}', list.nth($value, 2));
-        $_current-theme: map.set($_current-theme, $property, list.nth($value, 2)) !global;
     }
 
     @include _generic-module(map.merge($_init-radius, $radius), 'radius');
@@ -138,31 +133,16 @@ $_current-theme: ();
     /* ===== */
     @each $property, $value in meta.keywords($tokens) {
         @include sentro.token-add(('#{$property}': $value));
-
-        @if meta.type-of($value) == 'map' {
-            @each $key, $value in $value {
-                @if $key == 'default' {
-                    $_current-theme: map.set($_current-theme, '#{$property}', $value) !global;
-                } @else {
-                    $_current-theme: map.set($_current-theme, '#{$property}-#{$key}', $value) !global;
-                }
-            }
-        } @else {
-            $_current-theme: map.set($_current-theme, '#{$property}', $value) !global;
-        }
     }
 
 }
 
+/// Private mixin that parses any token module.
+/// @param {map} $map
+/// @param {string} $name
+/// @return {void} void.
 @mixin _generic-module($map, $name) {
     @include sentro.token-add(('#{$name}': $map));
-    @each $key, $value in $map {
-        @if $key == 'default' {
-            $_current-theme: map.set($_current-theme, '#{$name}', $value) !global;
-        } @else {
-            $_current-theme: map.set($_current-theme, '#{$name}-#{$key}', $value) !global;
-        }
-    }
 }
 
 /// Private mixin that parses a color and intelligently creates tokens for it.
@@ -179,18 +159,8 @@ $_current-theme: ();
 
         @if map.has-key($_color-map, 'ink') {
             @include sentro.token-add(('on-#{$name}': map.get($_color-map, 'ink')));
-            $_current-theme: map.set($_current-theme, 'on-#{$name}', map.get($_color-map, 'ink')) !global;
         } @else {
             @include sentro.token-add(('on-#{$name}': support.get-ink($_color-map)));
-            $_current-theme: map.set($_current-theme, 'on-#{$name}', support.get-ink($_color-map)) !global;
-        }
-
-        @each $key, $value in $_color-map {
-            @if $key == 'default' {
-                $_current-theme: map.set($_current-theme, $name, $value) !global;
-            } @else {
-                $_current-theme: map.set($_current-theme, '#{$name}-#{$key}', $value) !global;
-            }
         }
 
     } @else if support.is-variant_($color) {
@@ -204,38 +174,6 @@ $_current-theme: ();
             @include sentro.token-add(('on-#{$name}': support.get-ink($_color-map)));
         }
 
-        @each $key, $value in $_color-map {
-            @if $key == 'default' {
-                $_current-theme: map.set($_current-theme, $name, $value) !global;
-            } @else {
-                $_current-theme: map.set($_current-theme, '#{$name}-#{$key}', $value) !global;
-            }
-        }
-
     }
 
-}
-
-/// Gets the raw value of a token/key.
-/// @access protected
-/// @param {string} $key
-/// @return {*} queried value.
-@function get-raw-prop-value($key) {
-    @if not meta.type-of($key) == 'string' {
-        @return $key;
-    } @else {
-        @if not list.index(map.keys($_current-theme), $key) {
-            @error "Invalid prop name: #{$key}. Register the value as a token first in your theme, or enter a valid prop name: [LIST] #{map.keys($_current-theme)}";
-        }
-
-        @return map.get($_current-theme, $key);
-    }
-}
-
-/// Registers the prop: value to the global theme.
-/// @param {string} $prop
-/// @param {*} $value
-/// @return {void} register.
-@mixin _register-prop($prop, $value) {
-    $_current-theme: map.set($_current-theme, $prop, $value) !global;
 }

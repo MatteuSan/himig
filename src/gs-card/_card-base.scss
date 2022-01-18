@@ -31,9 +31,9 @@
     $gap: map.get($struct, 'gap');
 
     .gs-card {
-        width: scaffold.theme-key-create('card-width', $width);
-        height: scaffold.theme-key-create('card-height', $height);
-        margin: scaffold.theme-key-create('card-margin', $margin);
+        width: scaffold.key-create('card-width', scaffold.token-switch($width));
+        height: scaffold.key-create('card-height', scaffold.token-switch($height));
+        margin: scaffold.key-create('card-margin', scaffold.token-switch($margin));
         display: flex;
         flex-wrap: nowrap;
         flex-direction: column;
@@ -54,7 +54,7 @@
                 flex-direction: column;
 
                 & > * + * {
-                    margin-top: scaffold.theme-key-create('card-gap', $gap);
+                    margin-top: scaffold.key-create('card-gap', scaffold.token-switch($gap));
                     margin-left: 0 !important;
                 }
             }
@@ -71,7 +71,7 @@
                 flex-direction: row;
 
                 & > * + * {
-                    margin-left: scaffold.theme-key-create('card-gap', $gap);
+                    margin-left: scaffold.key-create('card-gap', scaffold.token-switch($gap));
                 }
             }
         }
@@ -91,7 +91,7 @@
         }
 
         .gs-card__contents {
-            padding: scaffold.theme-key-create('card-padding', $padding);
+            padding: scaffold.key-create('card-padding', scaffold.token-switch($padding));
 
             & > * + * {
                 margin-top: 0.7rem;
@@ -100,8 +100,8 @@
             .gs-card__header {
 
                 .gs-card__title {
-                    font-size: scaffold.theme-key-create('card-title-size', scaffold.theme-token-get('size-title'));
-                    line-height: scaffold.theme-key-create('card-title-line-height', scaffold.theme-token-get('line-height-title'));
+                    font-size: scaffold.key-create('card-title-size', scaffold.token-get('size-title'));
+                    line-height: scaffold.key-create('card-title-line-height', scaffold.token-get('line-height-title'));
                 }
 
                 .gs-card__description {
@@ -115,9 +115,9 @@
 
                 .gs-card__category {
                     margin-bottom: 0.3rem;
-                    color: scaffold.theme-key-create('card-category-ink', scaffold.theme-token-get('secondary'));
-                    font-size: scaffold.theme-key-create('card-category-size', scaffold.theme-token-get('size-body'));
-                    line-height: scaffold.theme-key-create('card-category-line-height', scaffold.theme-token-get('line-height-body'));
+                    color: scaffold.key-create('card-category-ink', scaffold.token-get('secondary'));
+                    font-size: scaffold.key-create('card-category-size', scaffold.token-get('size-body'));
+                    line-height: scaffold.key-create('card-category-line-height', scaffold.token-get('line-height-body'));
                 }
             }
 
@@ -143,7 +143,7 @@
                 }
 
                 & > * + * {
-                    margin-left: scaffold.theme-key-create('card-gap', $gap);
+                    margin-left: scaffold.key-create('card-gap', scaffold.token-switch($gap));
                 }
 
                 a {

@@ -29,13 +29,13 @@
     $padding: map.get($struct, 'padding');
 
     .gs-header {
-        width: scaffold.theme-key-create('header-width', $width);
-        height: scaffold.theme-key-create('header-height', $height);
+        width: scaffold.key-create('header-width', scaffold.token-switch($width));
+        height: scaffold.key-create('header-height', scaffold.token-switch($height));
         position: fixed;
         top: 0;
         left: 0;
         z-index: 100;
-        padding: scaffold.theme-key-create('header-padding', $padding);
+        padding: scaffold.key-create('header-padding', scaffold.token-switch($padding));
 
         @content;
 
@@ -57,10 +57,10 @@
                     place-items: center;
 
                     .gs-header__title {
-                        font-family: scaffold.theme-key-get('header-family');
-                        font-size: scaffold.theme-key-get('header-size');
-                        font-weight: scaffold.theme-key-get('header-weight');
-                        line-height: scaffold.theme-key-get('header-line-height');
+                        font-family: inherit;
+                        font-size: inherit;
+                        font-weight: inherit;
+                        line-height: inherit;
                     }
 
                     .gs-header__logo {

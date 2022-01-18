@@ -31,15 +31,16 @@
             default: 'on-primary',
             hover: 'on-primary',
             focus: 'on-primary',
-            active: 'on-primary'
+            active: 'on-primary',
+            // ink: 'surface'
         ), 'text');
-        color: scaffold.theme-token-get('surface');
+        color: scaffold.token-get('surface');
         @include scaffold.shape-apply('drawer-item', (shape: 'round', radius: 'radius-small'));
         @include scaffold.prefix(transition, all 0.1s ease);
 
         &.active {
-            @include scaffold.theme-key-bind('drawer-item-fill', rgba(#fff, 33%));
-            @include scaffold.theme-key-bind('drawer-item-border', rgba(#fff, 3.3%));
+            @include scaffold.key-bind('drawer-item-fill', rgba(#fff, 33%));
+            @include scaffold.key-bind('drawer-item-border', rgba(#fff, 3.3%));
 
             .gs-drawer-item__label {
                 font-weight: 700 !important;
