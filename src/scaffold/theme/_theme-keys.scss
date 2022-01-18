@@ -51,7 +51,6 @@ $context: '' !default;
 /// @param {*} $value
 /// @return {sentro.key-bind} returns type sentro.key-bind
 @mixin bind($key, $value) {
-    $bro: sentro.key-create('#{_sanitize-context($context)}#{$key}', $value);
     @include sentro.key-bind('#{_sanitize-context($context)}#{$key}', $value);
 }
 

@@ -16,7 +16,7 @@
     "url": "https://github.com/GrowStocks/stack/issues"
   },
   "dependencies": {
-    "@matteusan/sentro": "0.1.17"
+    "@matteusan/sentro": "0.1.18"
   },
   "keywords": [
     "css",
