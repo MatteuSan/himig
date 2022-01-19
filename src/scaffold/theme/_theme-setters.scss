@@ -40,9 +40,9 @@ $_state-map: (
 /// Theme configuration mixin.
 /// @return {*} returns theme tokens.
 @mixin config(
-    $primary: (),
-    $secondary: (),
-    $surface: (),
+    $primary: #12305e,
+    $secondary: #ff9e0a,
+    $surface: #000b21,
     $radius: (),
     $padding: (),
     $margin: (),
