@@ -20,35 +20,40 @@
 //  SOFTWARE.
 ///
 
-$init-struct: (
-    width: max-content,
-    min-width: 57px,
-    padding: (0.4rem 0.6rem),
-    margin: 0,
-);
+@use '../scaffold';
+@use 'sass:list';
 
-$init-color: (
-    default: 'secondary',
-    hover: 'secondary',
-    active: 'secondary-light',
-    focus: 'secondary',
-    disabled: 'secondary-dark',
-    ink: 'on-secondary'
-);
+/// Extension mixin for a component.
+/// @param {string} $class-name
+/// @param {map} $struct
+/// @param {map<string, list>} $color
+/// @param {map} $shape
+/// @param {map} $typography
+/// @return {*} extension class of a component.
+@mixin extend(
+    $class-name,
+    $struct: (),
+    $color: (),
+    $shape: (),
+    $typography: ()
+) {
+    .gs-button.#{$class-name} {
+        @if not scaffold.is-empty($struct) {
+            @include scaffold.struct-apply('title-bar', $struct, true);
+        }
 
-$init-shape: (
-    shape: 'round',
-    radius: 'radius-small',
-    exceptions: ()
-);
+        @if not scaffold.is-empty($color) {
+            @include scaffold.color-apply('title-bar', list.nth($color, 2), list.nth($color, 1), true);
+        }
 
-$init-typography: (
-    family: 'family-action',
-    size: 'size-action',
-    weight: 'weight-action',
-    line-height: 'line-height-action'
-);
+        @if not scaffold.is-empty($shape) {
+            @include scaffold.shape-apply('title-bar', $shape, true);
+        }
 
-$init-settings: (
-    types: 'all'
-);
+        @if not scaffold.is-empty($typography) {
+            @include scaffold.typography-apply('title-bar', $typography, true);
+        }
+
+        @content;
+    }
+}

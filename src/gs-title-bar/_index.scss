@@ -20,35 +20,5 @@
 //  SOFTWARE.
 ///
 
-$init-struct: (
-    width: max-content,
-    min-width: 57px,
-    padding: (0.4rem 0.6rem),
-    margin: 0,
-);
-
-$init-color: (
-    default: 'secondary',
-    hover: 'secondary',
-    active: 'secondary-light',
-    focus: 'secondary',
-    disabled: 'secondary-dark',
-    ink: 'on-secondary'
-);
-
-$init-shape: (
-    shape: 'round',
-    radius: 'radius-small',
-    exceptions: ()
-);
-
-$init-typography: (
-    family: 'family-action',
-    size: 'size-action',
-    weight: 'weight-action',
-    line-height: 'line-height-action'
-);
-
-$init-settings: (
-    types: 'all'
-);
+@forward 'title-bar-styles';
+@forward 'title-bar-extend';

@@ -24,6 +24,10 @@
 
 @mixin render($breakpoint: 'medium', $has-elevation: false) {
     .gs-appbar-item {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
         position: relative;
         list-style: none;
         cursor: pointer;

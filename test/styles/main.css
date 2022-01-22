@@ -199,6 +199,10 @@ section.grid > a > * {
   grid-gap: var(--gs-appbar-gap, 0.5rem);
 }
 .gs-appbar .gs-appbar__wrapper .gs-appbar-item {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
   position: relative;
   list-style: none;
   cursor: pointer;
@@ -665,6 +669,44 @@ a.gs-link:active {
 .gs-header .gs-header__wrapper .gs-header__brand a .gs-header__logo {
   height: 33px;
 }
+.gs-title-bar {
+  width: var(--gs-title-bar-width, 100%);
+  height: var(--gs-title-bar-height, auto);
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  padding: var(--gs-title-bar-padding, 0.4rem 0.6rem);
+  margin: var(--gs-title-bar-margin, 0);
+  background: var(--gs-title-bar-fill, var(--gs-theme-primary));
+  color: var(--gs-title-bar-ink, var(--gs-theme-on-primary));
+  border: 1px solid var(--gs-title-bar-border, var(--gs-theme-primary));
+  border-radius: var(--gs-title-bar-radius, var(--gs-theme-radius-small));
+  font-family: var(--gs-title-bar-family, var(--gs-theme-family-title));
+  font-size: var(--gs-title-bar-size, var(--gs-theme-size-subtitle));
+  font-weight: var(--gs-title-bar-weight, var(--gs-theme-weight-title));
+  line-height: var(--gs-title-bar-line-height, var(--gs-theme-line-height-subtitle));
+}
+.gs-title-bar > * + * {
+  margin-left: var(--gs-title-bar-gap, 0.3rem);
+}
+.gs-title-bar .gs-title-bar__icon {
+  width: var(--gs-title-bar-icon-size, var(--gs-theme-size-icon));
+  height: var(--gs-title-bar-icon-size, var(--gs-theme-size-icon));
+  color: var(--gs-title-bar-icon-ink, var(--gs-theme-secondary));
+  font-size: var(--gs-title-bar-icon-size, var(--gs-theme-size-icon));
+}
+.gs-title-bar .gs-title-bar__icon > * {
+  width: inherit;
+  height: inherit;
+  color: inherit;
+  font-size: inherit;
+}
+.gs-title-bar .gs-title-bar__title {
+  color: var(--gs-title-bar-ink, inherit);
+  font-size: var(--gs-title-bar-size, inherit);
+}
+
 .gs-text-field {
   width: var(--gs-text-field-width, 100%);
   height: var(--gs-text-field-height, auto);

@@ -20,35 +20,34 @@
 //  SOFTWARE.
 ///
 
-$init-struct: (
-    width: max-content,
-    min-width: 57px,
-    padding: (0.4rem 0.6rem),
-    margin: 0,
-);
+@use '../scaffold';
+@use 'sass:map';
 
-$init-color: (
-    default: 'secondary',
-    hover: 'secondary',
-    active: 'secondary-light',
-    focus: 'secondary',
-    disabled: 'secondary-dark',
-    ink: 'on-secondary'
-);
+@use 'title-bar-base';
+@use 'title-bar-theme';
 
-$init-shape: (
-    shape: 'round',
-    radius: 'radius-small',
-    exceptions: ()
-);
+@mixin render(
+    $struct: (),
+    $color: (),
+    $shape: (),
+    $typography: (),
+    $settings: ()
+) {
+    $_merged-struct: map.merge(title-bar-theme.$init-struct, $struct);
+    $_merged-color: map.merge(title-bar-theme.$init-color, $color);
+    $_merged-shape: map.merge(title-bar-theme.$init-shape, $shape);
+    $_merged-typography: map.merge(title-bar-theme.$init-typography, $typography);
+    $_merged-settings: map.merge(title-bar-theme.$init-settings, $settings);
 
-$init-typography: (
-    family: 'family-action',
-    size: 'size-action',
-    weight: 'weight-action',
-    line-height: 'line-height-action'
-);
+    $has-elevation: map.get($_merged-settings, 'has-elevation');
+    $elevation-level: map.get($_merged-settings, 'elevation-level');
 
-$init-settings: (
-    types: 'all'
-);
+    @include title-bar-base.base($_merged-struct) {
+        @include scaffold.color-apply('title-bar', $_merged-color, 'filled');
+        @include scaffold.shape-apply('title-bar', $_merged-shape);
+        @include scaffold.typography-apply('title-bar', $_merged-typography);
+        @if $has-elevation {
+            @include scaffold.elevation($elevation-level);
+        }
+    }
+}
