@@ -36,9 +36,13 @@ $_init-family: (
 );
 
 @mixin init(
-    $primary: (),
-    $secondary: (),
-    $surface: (),
+    $primary: #12305e,
+    $secondary: #ff9e0a,
+    $surface: (
+        'light': #0b1c44,
+        'default': #000b21,
+        'dark': #00030a
+    ),
     $radius: (),
     $padding: (),
     $margin: (),

@@ -32,14 +32,7 @@
 @use '../../src/gs-text-field';
 @use '../../src/gs-title-bar';
 
-@include stack.init(
-    $primary: #12305e,
-    $secondary: #ff9e0a,
-    $surface: (
-        'light': #0b1c44,
-        'default': #000b21
-    ),
-) {
+@include stack.init() {
     @include gs-appbar.render();
     @include gs-button.render();
     @include gs-button.extend('gs-button--full-width', $struct: (
@@ -56,6 +49,7 @@
         display: grid;
         grid-template-columns: repeat(1, 1fr);
         grid-gap: 1rem;
+        background: scaffold.token-get('surface');
 
         > a {
             grid-column: revert;

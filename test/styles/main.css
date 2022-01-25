@@ -11,7 +11,7 @@
   --gs-theme-on-secondary: #000;
   --gs-theme-surface-light: #0b1c44;
   --gs-theme-surface: #000b21;
-  --gs-theme-surface-dark: #000611;
+  --gs-theme-surface-dark: #00030a;
   --gs-theme-on-surface: #fff;
   --gs-theme-error: #b00020;
   --gs-theme-warning: #ffa000;
@@ -788,6 +788,7 @@ a.gs-link:active {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   grid-gap: 1rem;
+  background: var(--gs-theme-surface);
 }
 .grid > a {
   grid-column: revert;
