@@ -27,45 +27,45 @@
 
 // Recommended to be used as a extender feature only.
 @mixin apply($component-name, $struct-theme, $is-extender: false) {
-    @if validators.is-struct-prop($struct-theme) {
-        $width: map.get($struct-theme, 'width');
-        $min-width: map.get($struct-theme, 'min-width');
-        $max-width: map.get($struct-theme, 'max-width');
-        $margin: map.get($struct-theme, 'margin');
-        $padding: map.get($struct-theme, 'padding');
+  @if validators.is-struct-prop($struct-theme) {
+    $width: map.get($struct-theme, 'width');
+    $min-width: map.get($struct-theme, 'min-width');
+    $max-width: map.get($struct-theme, 'max-width');
+    $margin: map.get($struct-theme, 'margin');
+    $padding: map.get($struct-theme, 'padding');
 
-        @if $is-extender {
-            @if $width {
-                @include theme.key-bind('#{$component-name}-width', theme.token-switch($width));
-            }
-            @if $min-width {
-                @include theme.key-bind('#{$component-name}-min-width', theme.token-switch($min-width));
-            }
-            @if $max-width {
-                @include theme.key-bind('#{$component-name}-max-width', theme.token-switch($max-width));
-            }
-            @if $margin {
-                @include theme.key-bind('#{$component-name}-margin', theme.token-switch($margin));
-            }
-            @if $padding {
-                @include theme.key-bind('#{$component-name}-padding', theme.token-switch($padding));
-            }
-        } @else {
-            @if $width {
-                width: theme.key-create('#{$component-name}-width', theme.token-switch($width));
-            }
-            @if $min-width {
-                min-width: theme.key-create('#{$component-name}-min-width', theme.token-switch($min-width));
-            }
-            @if $max-width {
-                max-width: theme.key-create('#{$component-name}-max-width', theme.token-switch($max-width));
-            }
-            @if $margin {
-                margin: theme.key-create('#{$component-name}-margin', theme.token-switch($margin));
-            }
-            @if $padding {
-                padding: theme.key-create('#{$component-name}-padding', theme.token-switch($padding));
-            }
-        }
+    @if $is-extender {
+      @if $width {
+        @include theme.key-bind('#{$component-name}-width', theme.token-switch($width));
+      }
+      @if $min-width {
+        @include theme.key-bind('#{$component-name}-min-width', theme.token-switch($min-width));
+      }
+      @if $max-width {
+        @include theme.key-bind('#{$component-name}-max-width', theme.token-switch($max-width));
+      }
+      @if $margin {
+        @include theme.key-bind('#{$component-name}-margin', theme.token-switch($margin));
+      }
+      @if $padding {
+        @include theme.key-bind('#{$component-name}-padding', theme.token-switch($padding));
+      }
+    } @else {
+      @if $width {
+        width: theme.key-create('#{$component-name}-width', theme.token-switch($width));
+      }
+      @if $min-width {
+        min-width: theme.key-create('#{$component-name}-min-width', theme.token-switch($min-width));
+      }
+      @if $max-width {
+        max-width: theme.key-create('#{$component-name}-max-width', theme.token-switch($max-width));
+      }
+      @if $margin {
+        margin: theme.key-create('#{$component-name}-margin', theme.token-switch($margin));
+      }
+      @if $padding {
+        padding: theme.key-create('#{$component-name}-padding', theme.token-switch($padding));
+      }
     }
+  }
 }

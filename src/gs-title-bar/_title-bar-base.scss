@@ -24,45 +24,45 @@
 @use 'sass:map';
 
 @mixin base($struct) {
-    $width: map.get($struct, 'width');
-    $height: map.get($struct, 'height');
-    $padding: map.get($struct, 'padding');
-    $margin: map.get($struct, 'margin');
-    $gap: map.get($struct, 'gap');
+  $width: map.get($struct, 'width');
+  $height: map.get($struct, 'height');
+  $padding: map.get($struct, 'padding');
+  $margin: map.get($struct, 'margin');
+  $gap: map.get($struct, 'gap');
 
-    .gs-title-bar {
-        width: scaffold.key-create('title-bar-width', $width);
-        height: scaffold.key-create('title-bar-height', $height);
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: flex-start;
-        align-items: center;
-        padding: scaffold.key-create('title-bar-padding', $padding);
-        margin: scaffold.key-create('title-bar-margin', $margin);
+  .gs-title-bar {
+    width: scaffold.key-create('title-bar-width', $width);
+    height: scaffold.key-create('title-bar-height', $height);
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    padding: scaffold.key-create('title-bar-padding', $padding);
+    margin: scaffold.key-create('title-bar-margin', $margin);
 
-        @content;
+    @content;
 
-        > * + * {
-            margin-left: scaffold.key-create('title-bar-gap', $gap);
-        }
-
-        .gs-title-bar__icon {
-            width: scaffold.key-create('title-bar-icon-size', scaffold.token-get('size-icon'));
-            height: scaffold.key-create('title-bar-icon-size', scaffold.token-get('size-icon'));
-            color: scaffold.key-create('title-bar-icon-ink', scaffold.token-get('secondary'));
-            font-size: scaffold.key-create('title-bar-icon-size', scaffold.token-get('size-icon'));
-
-            > * {
-                width: inherit;
-                height: inherit;
-                color: inherit;
-                font-size: inherit;
-            }
-        }
-
-        .gs-title-bar__title {
-            color: scaffold.key-create('title-bar-ink', inherit);
-            font-size: scaffold.key-create('title-bar-size', inherit);
-        }
+    > * + * {
+      margin-left: scaffold.key-create('title-bar-gap', $gap);
     }
+
+    .gs-title-bar__icon {
+      width: scaffold.key-create('title-bar-icon-size', scaffold.token-get('size-icon'));
+      height: scaffold.key-create('title-bar-icon-size', scaffold.token-get('size-icon'));
+      color: scaffold.key-create('title-bar-icon-ink', scaffold.token-get('secondary'));
+      font-size: scaffold.key-create('title-bar-icon-size', scaffold.token-get('size-icon'));
+
+      > * {
+        width: inherit;
+        height: inherit;
+        color: inherit;
+        font-size: inherit;
+      }
+    }
+
+    .gs-title-bar__title {
+      color: scaffold.key-create('title-bar-ink', inherit);
+      font-size: scaffold.key-create('title-bar-size', inherit);
+    }
+  }
 }

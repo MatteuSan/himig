@@ -23,70 +23,70 @@
 @use '../scaffold';
 
 @mixin render($breakpoint: 'medium', $has-elevation: false) {
-    .gs-appbar-item {
-        display: flex;
-        flex-flow: column nowrap;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        list-style: none;
-        cursor: pointer;
-        user-select: none;
+  .gs-appbar-item {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    list-style: none;
+    cursor: pointer;
+    user-select: none;
 
-        a {
-            display: flex;
-            flex-flow: column nowrap;
-            justify-content: center;
-            align-items: center;
-        }
-
-        &.active {
-            color: scaffold.token-get('secondary');
-        }
-
-        &:hover {
-            @include scaffold.breakpoint-create($breakpoint) {
-                .gs-appbar-item__label {
-                    display: block;
-                    position: absolute;
-                    bottom: -35px;
-                    z-index: 102;
-                    padding: 0.5rem 0.6rem;
-                    background: #232323;
-                    color: #fff;
-                    border-radius: 0.3rem;
-                    white-space: nowrap;
-                    box-sizing: border-box;
-                    text-align: center;
-                    opacity: 1;
-
-                    @if $has-elevation {
-                        @include scaffold.elevation(7);
-                    }
-                }
-            }
-        }
-
-        .gs-appbar-item__icon {
-            color: inherit;
-            font-size: scaffold.to-rem(24px);
-            /// @fallback
-            width: scaffold.to-rem(24px);
-            height: scaffold.to-rem(24px);
-        }
-
-        .gs-appbar-item__label {
-            color: inherit;
-            font-family: scaffold.key-get('appbar-family');
-            font-size: scaffold.key-get('appbar-size');
-            font-weight: scaffold.key-get('appbar-weight');
-            line-height: scaffold.key-get('appbar-line-height');
-            @include scaffold.prefix(transition, all 0.125s ease);
-
-            @include scaffold.breakpoint-create($breakpoint) {
-                display: none;
-                opacity: 0;
-            }
-        }
+    a {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      align-items: center;
     }
+
+    &.active {
+      color: scaffold.token-get('secondary');
+    }
+
+    &:hover {
+      @include scaffold.breakpoint-create($breakpoint) {
+        .gs-appbar-item__label {
+          display: block;
+          position: absolute;
+          bottom: -35px;
+          z-index: 102;
+          padding: 0.5rem 0.6rem;
+          background: #232323;
+          color: #fff;
+          border-radius: 0.3rem;
+          white-space: nowrap;
+          box-sizing: border-box;
+          text-align: center;
+          opacity: 1;
+
+          @if $has-elevation {
+            @include scaffold.elevation(7);
+          }
+        }
+      }
+    }
+
+    .gs-appbar-item__icon {
+      color: inherit;
+      font-size: scaffold.to-rem(24px);
+      /// @fallback
+      width: scaffold.to-rem(24px);
+      height: scaffold.to-rem(24px);
+    }
+
+    .gs-appbar-item__label {
+      color: inherit;
+      font-family: scaffold.key-get('appbar-family');
+      font-size: scaffold.key-get('appbar-size');
+      font-weight: scaffold.key-get('appbar-weight');
+      line-height: scaffold.key-get('appbar-line-height');
+      @include scaffold.prefix(transition, all 0.125s ease);
+
+      @include scaffold.breakpoint-create($breakpoint) {
+        display: none;
+        opacity: 0;
+      }
+    }
+  }
 }

@@ -23,5 +23,5 @@
 @use 'sass:math';
 
 @function to-rem($px) {
-    @return math.div($px, 16px) * 1rem;
+  @return math.div($px, 16px) * 1rem;
 }

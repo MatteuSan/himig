@@ -23,5 +23,5 @@
 @use 'node_modules/@matteusan/sentro';
 
 @mixin elevation($level, $color: #000) {
-    @include sentro.elevation-apply($level, $color: $color);
+  @include sentro.elevation-apply($level, $color: $color);
 }

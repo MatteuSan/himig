@@ -30,41 +30,41 @@
 @use 'validators';
 
 @mixin apply(
-    $component-name,
-    $shape-theme: (),
-    $is-extender: false
+  $component-name,
+  $shape-theme: (),
+  $is-extender: false
 ) {
-    $shape: map.get($shape-theme, 'shape');
-    $radius: map.get($shape-theme, 'radius');
-    $exceptions: map.get($shape-theme, 'exceptions');
+  $shape: map.get($shape-theme, 'shape');
+  $radius: map.get($shape-theme, 'radius');
+  $exceptions: map.get($shape-theme, 'exceptions');
 
-    @if not support.is-empty($shape-theme) {
-        @if validators.is-shape($shape) {
-            @if validators.is-shape-excluded($exceptions, $shape) {
-                @if $shape == 'block' {
-                    @if $is-extender {
-                        @include theme.key-bind('#{$component-name}-radius', none);
-                    } @else {
-                        border-radius: theme.key-create('#{$component-name}-radius', none);
-                    }
-                }
-
-                @if $shape == 'round' {
-                    @if $is-extender {
-                        @include theme.key-bind('#{$component-name}-radius', theme.token-switch($radius));
-                    } @else {
-                        border-radius: theme.key-create('#{$component-name}-radius', theme.token-switch($radius));
-                    }
-                }
-
-                @if $shape == 'pill' {
-                    @if $is-extender {
-                        @include theme.key-bind('#{$component-name}-radius', theme.token-get('radius-pill'));
-                    } @else {
-                        border-radius: theme.key-create('#{$component-name}-radius', theme.token-get('radius-pill'));
-                    }
-                }
-            }
+  @if not support.is-empty($shape-theme) {
+    @if validators.is-shape($shape) {
+      @if validators.is-shape-excluded($exceptions, $shape) {
+        @if $shape == 'block' {
+          @if $is-extender {
+            @include theme.key-bind('#{$component-name}-radius', none);
+          } @else {
+            border-radius: theme.key-create('#{$component-name}-radius', none);
+          }
         }
+
+        @if $shape == 'round' {
+          @if $is-extender {
+            @include theme.key-bind('#{$component-name}-radius', theme.token-switch($radius));
+          } @else {
+            border-radius: theme.key-create('#{$component-name}-radius', theme.token-switch($radius));
+          }
+        }
+
+        @if $shape == 'pill' {
+          @if $is-extender {
+            @include theme.key-bind('#{$component-name}-radius', theme.token-get('radius-pill'));
+          } @else {
+            border-radius: theme.key-create('#{$component-name}-radius', theme.token-get('radius-pill'));
+          }
+        }
+      }
     }
+  }
 }

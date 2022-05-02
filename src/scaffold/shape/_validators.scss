@@ -26,15 +26,15 @@
 $_valid-shapes: ('block', 'round', 'pill');
 
 @function is-shape($shape) {
-    @if not list.index($_valid-shapes, $shape) {
-        @error "Invalid shape query: #{$shape}! Please select from the following valid shapes: #{$_valid-shapes}.";
-    }
-    @return true;
+  @if not list.index($_valid-shapes, $shape) {
+    @error 'Invalid shape query: #{$shape}. Must be one of the following valid shapes: #{$_valid-shapes}.';
+  }
+  @return true;
 }
 
 @function is-shape-excluded($reference, $query) {
-    @if list.index($reference, $query) {
-        @error "The shape #{$query} cannot be used in this component. Excluded shapes: #{$reference}.";
-    }
-    @return true;
+  @if list.index($reference, $query) {
+    @error 'The shape #{$query} cannot be used in this component. Excluded shapes: #{$reference}.';
+  }
+  @return true;
 }

@@ -25,49 +25,49 @@
 @use 'drawer-item';
 
 @mixin base($struct) {
-    .gs-drawer {
-        width: 100%;
-        max-width: 342px;
-        height: 100vh;
-        display: none;
-        position: absolute;
-        top: 100%;
-        right: 0;
-        z-index: 99;
-        padding: 1rem 0.7rem;
-        overflow-y: hidden;
+  .gs-drawer {
+    width: 100%;
+    max-width: 342px;
+    height: 100vh;
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 99;
+    padding: 1rem 0.7rem;
+    overflow-y: hidden;
 
-        @content;
+    @content;
 
-        &.open {
-            display: block;
-        }
-
-        .gs-drawer-section {
-            display: flex;
-            flex-flow: column nowrap;
-            margin-bottom: 1rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid scaffold.token-get('surface');
-
-            > * + * {
-                margin-top: 0.3rem;
-            }
-
-            &:last-child {
-                margin-bottom: 0;
-                border-bottom: none;
-            }
-
-            .gs-drawer-section__title {
-                padding: 0.2rem 0.85rem;
-                font-family: scaffold.token-get('family-subtitle');
-                font-size: scaffold.token-get('size-body');
-                font-weight: scaffold.token-get('weight-title');
-                line-height: scaffold.token-get('line-height-body');
-            }
-
-            @include drawer-item.render();
-        }
+    &.open {
+      display: block;
     }
+
+    .gs-drawer-section {
+      display: flex;
+      flex-flow: column nowrap;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid scaffold.token-get('surface');
+
+      > * + * {
+        margin-top: 0.3rem;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+        border-bottom: none;
+      }
+
+      .gs-drawer-section__title {
+        padding: 0.2rem 0.85rem;
+        font-family: scaffold.token-get('family-subtitle');
+        font-size: scaffold.token-get('size-body');
+        font-weight: scaffold.token-get('weight-title');
+        line-height: scaffold.token-get('line-height-body');
+      }
+
+      @include drawer-item.render();
+    }
+  }
 }

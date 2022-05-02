@@ -1,6 +1,6 @@
 {
   "name": "@growstocks/scaffold",
-  "version": "4.0.2",
+  "version": "4.1.0",
   "description": "The core library of GrowStocks' stack library",
   "main": "index.js",
   "scripts": {
@@ -16,7 +16,7 @@
     "url": "https://github.com/GrowStocks/stack/issues"
   },
   "dependencies": {
-    "@matteusan/sentro": "0.1.19"
+    "@matteusan/sentro": "0.1.21"
   },
   "keywords": [
     "css",

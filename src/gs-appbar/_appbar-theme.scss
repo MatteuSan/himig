@@ -23,31 +23,31 @@
 @use '../scaffold';
 
 $init-struct: (
-    width: 100%,
-    height: auto,
-    padding: 0.5rem,
-    gap: 0.5rem
+  width: 100%,
+  height: auto,
+  padding: 0.5rem,
+  gap: 0.5rem
 );
 
 $init-color: (
-    default: 'primary',
-    ink: 'on-primary'
+  default: 'primary',
+  ink: 'on-primary'
 );
 
 $init-shape: (
-    shape: 'block',
-    excaptions: ('round', 'pill')
+  shape: 'block',
+  excaptions: ('round', 'pill')
 );
 
 $init-typography: (
-    family: 'family-small',
-    size: 'size-small',
-    weight: 'weight-small',
-    line-height: 'line-height-small'
+  family: 'family-small',
+  size: 'size-small',
+  weight: 'weight-small',
+  line-height: 'line-height-small'
 );
 
 $init-settings: (
-    items: 4,
-    breakpoint: 'medium',
-    has-elevation: false
+  items: 4,
+  breakpoint: 'medium',
+  has-elevation: false
 );

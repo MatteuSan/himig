@@ -28,60 +28,60 @@
 
 @function split($color) {
 
-    @return (
-        // 'lighter': setter.set-tint($color, 65%),
-        'light': support.tint($color, 32%),
-        'default': $color,
-        'dark': support.shade($color, 47%),
-        // 'darker': setter.set-shade($color, 65%)
-    );
+  @return (
+    // 'lighter': setter.set-tint($color, 65%),
+    'light': support.tint($color, 32%),
+    'default': $color,
+    'dark': support.shade($color, 47%),
+    // 'darker': setter.set-shade($color, 65%)
+  );
 
 }
 
 @function fill-missing($colors) {
 
-    @if support.is-type('map', $colors) {
+  @if support.is-type('map', $colors) {
 
-        @if not map.has-key($colors, 'default') {
-            @error 'Missing crucial property "default". Please provide the "default" property and its value before overriding the other values';
-        }
+    @if not map.has-key($colors, 'default') {
+      @error 'Missing crucial property "default". Please provide the "default" property and its value before overriding the other values';
+    }
 
-        @if not map.has-key($colors, 'light') and map.has-key($colors, 'dark') {
+    @if not map.has-key($colors, 'light') and map.has-key($colors, 'dark') {
 
-            $_split-light: support.tint(map.get($colors, 'default'), 32%);
+      $_split-light: support.tint(map.get($colors, 'default'), 32%);
 
-            $_split-map: (
-                'light': $_split-light,
-                'default': map.get($colors, 'default'),
-                'dark': map.get($colors, 'dark')
-            );
+      $_split-map: (
+        'light': $_split-light,
+        'default': map.get($colors, 'default'),
+        'dark': map.get($colors, 'dark')
+      );
 
-            @return $_split-map;
+      @return $_split-map;
 
-        } @else if not map.has-key($colors, 'dark') and map.has-key($colors, 'light') {
+    } @else if not map.has-key($colors, 'dark') and map.has-key($colors, 'light') {
 
-            $_split-dark: support.shade(map.get($colors, 'default'), 47%);
+      $_split-dark: support.shade(map.get($colors, 'default'), 47%);
 
-            $_split-map: (
-                'light': map.get($colors, 'light'),
-                'default': map.get($colors, 'default'),
-                'dark': $_split-dark
-            );
+      $_split-map: (
+        'light': map.get($colors, 'light'),
+        'default': map.get($colors, 'default'),
+        'dark': $_split-dark
+      );
 
-            @return $_split-map;
+      @return $_split-map;
 
-        } @else if not map.has-key($colors, 'dark') and not map.has-key($colors, 'light') {
+    } @else if not map.has-key($colors, 'dark') and not map.has-key($colors, 'light') {
 
-            @return split(map.get($colors, 'default'));
+      @return split(map.get($colors, 'default'));
 
-        } @else {
+    } @else {
 
-            @return $colors;
-
-        }
+      @return $colors;
 
     }
 
-    @return $colors;
+  }
+
+  @return $colors;
 
 }

@@ -6,7 +6,7 @@
 ![stars](https://img.shields.io/github/stars/GrowStocks/stack?style=social)
 
 Check out the demo [here](https://stackcss.github.io/stack)!
-- [GrowStocks](https://growstocks.xyz)' open source Design System for building beautiful, quick, responsive, and flexible user interfaces based on GrowStocks' design system.
+[GrowStocks](https://growstocks.xyz)' open source design system for building beautiful, quick, responsive, and flexible user interfaces.
 
 ## Features
 - Relatively easy to configure.

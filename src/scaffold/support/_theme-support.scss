@@ -29,14 +29,14 @@ $_valid-color-variants: ('default', 'light', 'dark', 'ink');
 /// @access protected
 @function is-variant_($query) {
 
-    $properties: map.keys($query);
+  $properties: map.keys($query);
 
-    @each $property in $properties {
-        @if not list.index($_valid-color-variants, $property) {
-            @error 'Invalid variant: #{$property}. The available variants are: #{$_valid-color-variants}';
-        }
-
-        @return true;
+  @each $property in $properties {
+    @if not list.index($_valid-color-variants, $property) {
+      @error 'Invalid variant: #{$property}. The available variants are: #{$_valid-color-variants}';
     }
+
+    @return true;
+  }
 
 }

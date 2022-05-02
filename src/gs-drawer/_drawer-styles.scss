@@ -27,27 +27,27 @@
 @use 'drawer-theme';
 
 @mixin render(
-    $struct: (),
-    $color: (),
-    $shape: (),
-    $typography: (),
-    $settings: ()
+  $struct: (),
+  $color: (),
+  $shape: (),
+  $typography: (),
+  $settings: ()
 ) {
-    $_merged-struct: map.merge(drawer-theme.$init-struct, $struct);
-    $_merged-color: map.merge(drawer-theme.$init-color, $color);
-    $_merged-shape: map.merge(drawer-theme.$init-shape, $shape);
-    $_merged-typography: map.merge(drawer-theme.$init-typography, $typography);
-    $_merged-settings: map.merge(drawer-theme.$init-settings, $settings);
+  $_merged-struct: map.merge(drawer-theme.$init-struct, $struct);
+  $_merged-color: map.merge(drawer-theme.$init-color, $color);
+  $_merged-shape: map.merge(drawer-theme.$init-shape, $shape);
+  $_merged-typography: map.merge(drawer-theme.$init-typography, $typography);
+  $_merged-settings: map.merge(drawer-theme.$init-settings, $settings);
 
-    $has-elevation: map.get($_merged-settings, 'has-elevation');
+  $has-elevation: map.get($_merged-settings, 'has-elevation');
 
-    @include drawer-base.base($_merged-struct) {
-        @include scaffold.color-apply('drawer', $_merged-color, 'filled');
-        @include scaffold.shape-apply('drawer', $_merged-shape);
-        @include scaffold.typography-apply('drawer', $_merged-typography, true);
+  @include drawer-base.base($_merged-struct) {
+    @include scaffold.color-apply('drawer', $_merged-color, 'filled');
+    @include scaffold.shape-apply('drawer', $_merged-shape);
+    @include scaffold.typography-apply('drawer', $_merged-typography, true);
 
-        @if $has-elevation {
-            @include scaffold.elevation(5);
-        }
+    @if $has-elevation {
+      @include scaffold.elevation(5);
     }
+  }
 }

@@ -23,6 +23,7 @@
 @use 'node_modules/@matteusan/sentro';
 
 @use '../support';
+@use '../theme';
 @use '../tools';
 
 @use 'sass:map';
@@ -32,108 +33,118 @@
 @use 'theme-functions';
 
 $_state-map: (
-    'error': (#b00020, #ffffff),
-    'warning': (#ffa000, #000000),
-    'success': (#25a53f, #ffffff),
+  'error': (#b00020, #ffffff),
+  'warning': (#ffa000, #000000),
+  'success': (#25a53f, #ffffff),
 );
 
 /// Theme configuration mixin.
 /// @return {*} returns theme tokens.
 @mixin config(
-    $primary: #12305e,
-    $secondary: #ff9e0a,
-    $surface: #000b21,
-    $radius: (),
-    $padding: (),
-    $margin: (),
-    $size: (),
-    $weight: (),
-    $line-height: (),
-    $tokens...
+  $primary: #12305e,
+  $secondary: #ff9e0a,
+  $surface: #000b21,
+  $radius: (),
+  $padding: (),
+  $margin: (),
+  $spacing: (),
+  $size: (),
+  $weight: (),
+  $line-height: (),
+  $tokens...
 ) {
 
-    $_init-radius: (
-        'small': 0.3rem,
-        'medium': 0.5rem,
-        'large': 0.7rem,
-        'pill': 700px
-    );
+  $_init-radius: (
+    'small': 0.3rem,
+    'medium': 0.5rem,
+    'large': 0.7rem,
+    'pill': 700px
+  );
 
-    $_init-padding: (
-        'none': 0,
-        'xsmall': 0.25rem,
-        'small': 0.75rem,
-        'medium': 1.5rem,
-        'large': 2.5rem,
-        'xlarge': 4rem,
-    );
+  $_init-padding: (
+    'none': 0,
+    'xsmall': 0.25rem,
+    'small': 0.75rem,
+    'medium': 1.5rem,
+    'large': 2.5rem,
+    'xlarge': 4rem,
+  );
 
-    $_init-margin: (
-        'none': 0,
-        'xsmall': 0.25rem,
-        'small': 0.75rem,
-        'medium': 1.5rem,
-        'large': 2.5rem,
-        'xlarge': 4rem,
-    );
+  $_init-margin: (
+    'none': 0,
+    'xsmall': 0.25rem,
+    'small': 0.75rem,
+    'medium': 1.5rem,
+    'large': 2.5rem,
+    'xlarge': 4rem,
+  );
 
-    $_init-size: (
-        'title': tools.to-rem(22px),
-        'subtitle': tools.to-rem(16px),
-        'body': tools.to-rem(14px),
-        'action': tools.to-rem(14px),
-        'mono': tools.to-rem(14px),
-        'small': tools.to-rem(12px),
-        'icon': tools.to-rem(20px)
-    );
+  $_init-spacing: (
+    'none': 0,
+    'xsmall': 0.25rem,
+    'small': 0.75rem,
+    'medium': 1.5rem,
+    'large': 2.5rem,
+    'xlarge': 4rem,
+  );
 
-    $_init-weight: (
-        'global': 400,
-        'title': 700,
-        'subtitle': 400,
-        'body': 400,
-        'action': 700,
-        'small': 400,
-        'mono': 400,
-        'icon': normal
-    );
+  $_init-size: (
+    'title': tools.to-rem(22px),
+    'subtitle': tools.to-rem(16px),
+    'body': tools.to-rem(14px),
+    'action': tools.to-rem(14px),
+    'mono': tools.to-rem(14px),
+    'small': tools.to-rem(12px),
+    'icon': tools.to-rem(20px)
+  );
 
-    $_init-line-height: (
-        'title': support.get-line-height(22px),
-        'subtitle': support.get-line-height(18px),
-        'body': support.get-line-height(14px),
-        'action': support.get-line-height(14px),
-        'mono': support.get-line-height(14px),
-        'small': support.get-line-height(12px)
-    );
+  $_init-weight: (
+    'global': 400,
+    'title': 700,
+    'subtitle': 400,
+    'body': 400,
+    'action': 700,
+    'small': 400,
+    'mono': 400,
+    'icon': normal
+  );
 
-    @include _color-module($primary, 'primary');
-    @include _color-module($secondary, 'secondary');
+  $_init-line-height: (
+    'title': support.get-line-height(22px),
+    'subtitle': support.get-line-height(18px),
+    'body': support.get-line-height(14px),
+    'action': support.get-line-height(14px),
+    'mono': support.get-line-height(14px),
+    'small': support.get-line-height(12px)
+  );
 
-    @if not support.is-empty($surface) {
-        @include _color-module($surface, 'surface');
-    }
+  @include _color-module($primary, 'primary');
+  @include _color-module($secondary, 'secondary');
 
-    @each $property, $value in $_state-map {
-        @include sentro.token-create($property, list.nth($value, 1));
-    }
+  @if not support.is-empty($surface) {
+    @include _color-module($surface, 'surface');
+  }
 
-    @each $property, $value in $_state-map {
-        @include sentro.token-create('on-#{$property}', list.nth($value, 2));
-    }
+  @each $property, $value in $_state-map {
+    @include sentro.token-create($property, list.nth($value, 1));
+  }
 
-    @include _generic-module(map.merge($_init-radius, $radius), 'radius');
-    @include _generic-module(map.merge($_init-padding, $padding), 'padding');
-    @include _generic-module(map.merge($_init-margin, $margin), 'margin');
+  @each $property, $value in $_state-map {
+    @include sentro.token-create('on-#{$property}', list.nth($value, 2));
+  }
 
-    @include _generic-module(map.merge($_init-size, $size), 'size');
-    @include _generic-module(map.merge($_init-weight, $weight), 'weight');
-    @include _generic-module(map.merge($_init-line-height, $line-height), 'line-height');
+  @include _generic-module(map.merge($_init-radius, $radius), 'radius');
+  @include _generic-module(map.merge($_init-padding, $padding), 'padding');
+  @include _generic-module(map.merge($_init-margin, $margin), 'margin');
+  @include _generic-module(map.merge($_init-spacing, $spacing), 'spacing');
 
-    /* ===== */
-    @each $property, $value in meta.keywords($tokens) {
-        @include sentro.token-add(('#{$property}': $value));
-    }
+  @include _generic-module(map.merge($_init-size, $size), 'size');
+  @include _generic-module(map.merge($_init-weight, $weight), 'weight');
+  @include _generic-module(map.merge($_init-line-height, $line-height), 'line-height');
+  
+  @each $property, $value in meta.keywords($tokens) {
+    @include theme.token-config(('#{$property}': $value));
+  }
 
 }
 
@@ -142,7 +153,7 @@ $_state-map: (
 /// @param {string} $name
 /// @return {void} void.
 @mixin _generic-module($map, $name) {
-    @include sentro.token-add(('#{$name}': $map));
+  @include theme.token-config(('#{$name}': $map));
 }
 
 /// Private mixin that parses a color and intelligently creates tokens for it.
@@ -152,28 +163,28 @@ $_state-map: (
 /// @return color tokens.
 @mixin _color-module($color, $name) {
 
-    @if not support.is-type('map', $color, $errors: false) {
+  @if not support.is-type('map', $color, $errors: false) {
 
-        $_color-map: theme-functions.split($color);
-        @include sentro.token-add(('#{$name}': $_color-map));
+    $_color-map: theme-functions.split($color);
+    @include theme.token-config(('#{$name}': $_color-map));
 
-        @if map.has-key($_color-map, 'ink') {
-            @include sentro.token-add(('on-#{$name}': map.get($_color-map, 'ink')));
-        } @else {
-            @include sentro.token-add(('on-#{$name}': support.get-ink($_color-map)));
-        }
-
-    } @else if support.is-variant_($color) {
-
-        $_color-map: theme-functions.fill-missing($color);
-        @include sentro.token-add(('#{$name}': $_color-map));
-
-        @if map.has-key($_color-map, 'ink') {
-            @include sentro.token-add(('on-#{$name}': map.get($_color-map, 'ink')));
-        } @else {
-            @include sentro.token-add(('on-#{$name}': support.get-ink($_color-map)));
-        }
-
+    @if map.has-key($_color-map, 'ink') {
+      @include theme.token-config(('on-#{$name}': map.get($_color-map, 'ink')));
+    } @else {
+      @include theme.token-config(('on-#{$name}': support.get-ink($_color-map)));
     }
+
+  } @else if support.is-variant_($color) {
+
+    $_color-map: theme-functions.fill-missing($color);
+    @include theme.token-config(('#{$name}': $_color-map));
+
+    @if map.has-key($_color-map, 'ink') {
+      @include theme.token-config(('on-#{$name}': map.get($_color-map, 'ink')));
+    } @else {
+      @include theme.token-config(('on-#{$name}': support.get-ink($_color-map)));
+    }
+
+  }
 
 }

@@ -31,29 +31,29 @@
 /// @param {map} $typography
 /// @return {*} extension class of a component.
 @mixin extend(
-    $class-name,
-    $struct: (),
-    $color: (),
-    $shape: (),
-    $typography: ()
+  $class-name,
+  $struct: (),
+  $color: (),
+  $shape: (),
+  $typography: ()
 ) {
-    .gs-text-field.#{$class-name} {
-        @if not scaffold.is-empty($struct) {
-            @include scaffold.struct-apply('text-field', $struct, true);
-        }
-
-        @if not scaffold.is-empty($color) {
-            @include scaffold.color-apply('text-field', list.nth($color, 2), list.nth($color, 1), true);
-        }
-
-        @if not scaffold.is-empty($shape) {
-            @include scaffold.shape-apply('text-field', $shape, true);
-        }
-
-        @if not scaffold.is-empty($typography) {
-            @include scaffold.typography-apply('text-field', $typography, true);
-        }
-
-        @content;
+  .gs-text-field.#{$class-name} {
+    @if not scaffold.is-empty($struct) {
+      @include scaffold.struct-apply('text-field', $struct, true);
     }
+
+    @if not scaffold.is-empty($color) {
+      @include scaffold.color-apply('text-field', list.nth($color, 2), list.nth($color, 1), true);
+    }
+
+    @if not scaffold.is-empty($shape) {
+      @include scaffold.shape-apply('text-field', $shape, true);
+    }
+
+    @if not scaffold.is-empty($typography) {
+      @include scaffold.typography-apply('text-field', $typography, true);
+    }
+
+    @content;
+  }
 }

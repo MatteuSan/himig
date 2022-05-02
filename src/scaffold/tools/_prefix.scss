@@ -23,5 +23,5 @@
 @use 'node_modules/@matteusan/sentro';
 
 @mixin prefix($property, $value) {
-    @include sentro.prefix($property, $value);
+  @include sentro.prefix($property, $value);
 }

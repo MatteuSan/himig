@@ -27,37 +27,37 @@
 @use 'header-theme';
 
 @mixin render(
-    $struct: (),
-    $color: (),
-    $shape: (),
-    $typography: (),
-    $settings: ()
+  $struct: (),
+  $color: (),
+  $shape: (),
+  $typography: (),
+  $settings: ()
 ) {
-    $_merged-struct: map.merge(header-theme.$init-struct, $struct);
-    $_merged-color: map.merge(header-theme.$init-color, $color);
-    $_merged-shape: map.merge(header-theme.$init-shape, $shape);
-    $_merged-typography: map.merge(header-theme.$init-typography, $typography);
-    $_merged-settings: map.merge(header-theme.$init-settings, $settings);
+  $_merged-struct: map.merge(header-theme.$init-struct, $struct);
+  $_merged-color: map.merge(header-theme.$init-color, $color);
+  $_merged-shape: map.merge(header-theme.$init-shape, $shape);
+  $_merged-typography: map.merge(header-theme.$init-typography, $typography);
+  $_merged-settings: map.merge(header-theme.$init-settings, $settings);
 
-    $breakpoint: map.get($_merged-settings, 'breakpoint');
-    $is-scrollable: map.get($_merged-settings, 'is-scrollable');
+  $breakpoint: map.get($_merged-settings, 'breakpoint');
+  $is-scrollable: map.get($_merged-settings, 'is-scrollable');
 
-    @include header-base.base($_merged-struct, $breakpoint) {
-        @include scaffold.color-apply('header', $_merged-color, 'filled');
-        @include scaffold.shape-apply('header', $_merged-shape);
-        @include scaffold.typography-apply('header', $_merged-typography);
+  @include header-base.base($_merged-struct, $breakpoint) {
+    @include scaffold.color-apply('header', $_merged-color, 'filled');
+    @include scaffold.shape-apply('header', $_merged-shape);
+    @include scaffold.typography-apply('header', $_merged-typography);
 
-        @if $is-scrollable {
-            &.gs-header--scrollable {
-                @include scaffold.color-apply('header', (
-                    'default': rgba(0 0 0 / 0),
-                    'ink': 'on-surface'
-                ), 'filled');
+    @if $is-scrollable {
+      &.gs-header--scrollable {
+        @include scaffold.color-apply('header', (
+          'default': rgba(0 0 0 / 0),
+          'ink': 'on-surface'
+        ), 'filled');
 
-                &.scrolled {
-                    @include scaffold.color-apply('header', $_merged-color, 'filled', $is-extender: true);
-                }
-            }
+        &.scrolled {
+          @include scaffold.color-apply('header', $_merged-color, 'filled', $is-extender: true);
         }
+      }
     }
+  }
 }

@@ -30,50 +30,50 @@
 @use 'general-support';
 
 @function get-color-from-list($colors) {
-    /*@return (
-        'fill': list.index($colors, 1),
-        'ink': list.index($colors, 2)
-    );*/
+  /*@return (
+      'fill': list.index($colors, 1),
+      'ink': list.index($colors, 2)
+  );*/
 }
 
 @function tint($color, $percent) {
-    @return color.adjust(color.mix(#fff, $color, $percent), $saturation: 11%);
+  @return color.adjust(color.mix(#fff, $color, $percent), $saturation: 11%);
 }
 
 @function shade($color, $percent) {
-    @return color.adjust(color.mix(#000, $color, $percent), $saturation: 11%);
+  @return color.adjust(color.mix(#000, $color, $percent), $saturation: 11%);
 }
 
 @function _get-linear($color) {
-    @if $color <= 0.4045 {
-        @return math.div($color, 12.92);
-    } @else {
-        @return math.pow(math.div($color + 0.055, 1.055), 2.4);
-    }
+  @if $color <= 0.4045 {
+    @return math.div($color, 12.92);
+  } @else {
+    @return math.pow(math.div($color + 0.055, 1.055), 2.4);
+  }
 }
 
 @function _get-luminance($color) {
-    $r: _get-linear(math.div(color.red($color), 255));
-    $g: _get-linear(math.div(color.green($color), 255));
-    $b: _get-linear(math.div(color.blue($color), 255));
+  $r: _get-linear(math.div(color.red($color), 255));
+  $g: _get-linear(math.div(color.green($color), 255));
+  $b: _get-linear(math.div(color.blue($color), 255));
 
-    @return (0.2126 * $r) + (0.7152 * $g) + (0.0722 * $b);
+  @return (0.2126 * $r) + (0.7152 * $g) + (0.0722 * $b);
 }
 
 @function get-ink($fill) {
-    $_white-lumen: _get-luminance(#fff);
+  $_white-lumen: _get-luminance(#fff);
 
-    @if general-support.is-type('map', $fill, false) {
-        @if math.abs(_get-luminance(map.get($fill, 'default')) - $_white-lumen) > 0.7 {
-            @return #fff;
-        } @else {
-            @return #000;
-        }
+  @if general-support.is-type('map', $fill, false) {
+    @if math.abs(_get-luminance(map.get($fill, 'default')) - $_white-lumen) > 0.7 {
+      @return #fff;
     } @else {
-        @if math.abs(_get-luminance($fill) - $_white-lumen) > 0.7 {
-            @return #fff;
-        } @else {
-            @return #000;
-        }
+      @return #000;
     }
+  } @else {
+    @if math.abs(_get-luminance($fill) - $_white-lumen) > 0.7 {
+      @return #fff;
+    } @else {
+      @return #000;
+    }
+  }
 }

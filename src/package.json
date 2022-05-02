@@ -11,7 +11,7 @@
     "url": "git+https://github.com/GrowStocks/stack.git"
   },
   "dependencies": {
-    "@matteusan/sentro": "0.1.19"
+    "@matteusan/sentro": "0.1.21"
   },
   "keywords": [
     "css",

@@ -20,6 +20,17 @@
 //  SOFTWARE.
 ///
 
+$vue-mode: false !default;
+$_validation: if($vue-mode, false, true);
+
+@use 'node_modules/@matteusan/sentro' with (
+  $prefix: 'gs',
+  $context: 'theme',
+  $token-validation: $_validation,
+  $key-validation: $_validation,
+  $breakpoint-validation: $_validation
+);
+
 @forward 'color' as color-*;
 @forward 'shape' as shape-*;
 @forward 'struct' as struct-*;

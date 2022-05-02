@@ -24,21 +24,21 @@
 @use 'sass:list';
 
 $_valid-props: (
-    'family',
-    'size',
-    'weight',
-    'line-height'
+  'family',
+  'size',
+  'weight',
+  'line-height'
 );
 
 @function is-prop($prop) {
-    @if not list.index($_valid-props, $prop) {
-        @error "Invalid typography prop query: #{$prop}! Please select from the following valid typography props: #{$_valid-props};";
-    }
-    @return true;
+  @if not list.index($_valid-props, $prop) {
+    @error 'Invalid typography prop query: #{$prop}! Please select from the following valid typography props: #{$_valid-props};';
+  }
+  @return true;
 }
 
 @function is-type-prop($map) {
-    @each $key, $value in $map {
-        @return is-prop($key);
-    }
+  @each $key, $value in $map {
+    @return is-prop($key);
+  }
 }

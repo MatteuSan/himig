@@ -33,42 +33,42 @@
 @use '../../src/gs-title-bar';
 
 @include stack.init() {
-    @include gs-appbar.render();
-    @include gs-button.render();
-    @include gs-button.extend('gs-button--full-width', $struct: (
-        'width': 100%
-    ));
-    @include gs-card.render();
-    @include gs-drawer.render();
-    @include gs-header.render();
-    @include gs-title-bar.render();
-    @include gs-text-field.render();
-
-    .grid {
-        margin-top: 0.7rem;
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-        grid-gap: 1rem;
-        background: scaffold.token-get('surface');
-
-        > a {
-            grid-column: revert;
-        }
-
-        @media (min-width: 640px) {
-            grid-template-columns: repeat(2, 1fr);
-
-            > a {
-                grid-column: span 2;
-            }
-        }
-
-        @media (min-width: 877px) {
-            grid-template-columns: repeat(3, 1fr);
-
-            > a {
-                grid-column: revert;
-            }
-        }
+  @include gs-appbar.render();
+  @include gs-button.render();
+  @include gs-button.extend('gs-button--full-width', $struct: (
+    'width': 100%
+  ));
+  @include gs-card.render();
+  @include gs-drawer.render();
+  @include gs-header.render();
+  @include gs-title-bar.render();
+  @include gs-text-field.render();
+  
+  .grid {
+    margin-top: 0.7rem;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 1rem;
+    background: scaffold.token-get('surface');
+    
+    > a {
+      grid-column: revert;
     }
+    
+    @media (min-width: 640px) {
+      grid-template-columns: repeat(2, 1fr);
+      
+      > a {
+        grid-column: span 2;
+      }
+    }
+    
+    @media (min-width: 877px) {
+      grid-template-columns: repeat(3, 1fr);
+      
+      > a {
+        grid-column: revert;
+      }
+    }
+  }
 }

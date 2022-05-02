@@ -24,54 +24,54 @@
 @use 'sass:map';
 
 @mixin base($struct, $breakpoint: 'medium') {
-    $width: map.get($struct, 'width');
-    $height: map.get($struct, 'height');
-    $padding: map.get($struct, 'padding');
+  $width: map.get($struct, 'width');
+  $height: map.get($struct, 'height');
+  $padding: map.get($struct, 'padding');
 
-    .gs-header {
-        width: scaffold.key-create('header-width', scaffold.token-switch($width));
-        height: scaffold.key-create('header-height', scaffold.token-switch($height));
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 100;
-        padding: scaffold.key-create('header-padding', scaffold.token-switch($padding));
+  .gs-header {
+    width: scaffold.key-create('header-width', scaffold.token-switch($width));
+    height: scaffold.key-create('header-height', scaffold.token-switch($height));
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    padding: scaffold.key-create('header-padding', scaffold.token-switch($padding));
 
-        @content;
+    @content;
 
-        .gs-header__wrapper {
-            display: flex;
-            flex-flow: row nowrap;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1280px;
-            margin: 0 auto;
+    .gs-header__wrapper {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1280px;
+      margin: 0 auto;
 
-            .gs-header__brand {
-                display: grid;
-                place-items: center;
-                user-select: none;
+      .gs-header__brand {
+        display: grid;
+        place-items: center;
+        user-select: none;
 
-                a {
-                    display: grid;
-                    place-items: center;
+        a {
+          display: grid;
+          place-items: center;
 
-                    .gs-header__title {
-                        font-family: inherit;
-                        font-size: inherit;
-                        font-weight: inherit;
-                        line-height: inherit;
-                    }
+          .gs-header__title {
+            font-family: inherit;
+            font-size: inherit;
+            font-weight: inherit;
+            line-height: inherit;
+          }
 
-                    .gs-header__logo {
-                        height: 33px;
-                    }
-                }
-            }
-
-            .gs-header__actions {
-                //
-            }
+          .gs-header__logo {
+            height: 33px;
+          }
         }
+      }
+
+      .gs-header__actions {
+        //
+      }
     }
+  }
 }

@@ -23,26 +23,26 @@
 @use 'sass:list';
 
 $_valid-struct-props: (
-    'width',
-    'min-width',
-    'max-width',
-    'height',
-    'min-height',
-    'max-height',
-    'padding',
-    'margin',
-    'gap'
+  'width',
+  'min-width',
+  'max-width',
+  'height',
+  'min-height',
+  'max-height',
+  'padding',
+  'margin',
+  'gap'
 );
 
 @function is-prop($prop) {
-    @if not list.index($_valid-struct-props, $prop) {
-        @error "Invalid struct prop: #{$prop}. Please use one of the following valid props: #{$_valid-struct-props}.";
-    }
-    @return true;
+  @if not list.index($_valid-struct-props, $prop) {
+    @error 'Invalid struct prop: #{$prop}. Must be one of the following valid props: #{$_valid-struct-props}.';
+  }
+  @return true;
 }
 
 @function is-struct-prop($map) {
-    @each $prop, $value in $map {
-        @return is-prop($prop);
-    }
+  @each $prop, $value in $map {
+    @return is-prop($prop);
+  }
 }

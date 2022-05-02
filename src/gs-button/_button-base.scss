@@ -24,72 +24,71 @@
 @use 'sass:map';
 
 @mixin base($struct) {
-    $width: map.get($struct, 'width');
-    $min-width: map.get($struct, 'min-width');
-    $padding: map.get($struct, 'padding');
-    $margin: map.get($struct, 'margin');
+  $width: map.get($struct, 'width');
+  $min-width: map.get($struct, 'min-width');
+  $padding: map.get($struct, 'padding');
+  $margin: map.get($struct, 'margin');
 
-    .gs-button {
-        width: 100%;
-        max-width: scaffold.key-create('button-width', scaffold.token-switch($width));
-        min-width: scaffold.key-create('button-min-width', scaffold.token-switch($min-width));
+  .gs-button {
+    width: 100%;
+    max-width: scaffold.key-create('button-width', scaffold.token-switch($width));
+    min-width: scaffold.key-create('button-min-width', scaffold.token-switch($min-width));
 
-        display: inline-flex;
-        flex-flow: row nowrap;
-        justify-content: center;
-        align-items: center;
+    display: inline-flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
 
-        margin: scaffold.key-create('button-margin', scaffold.token-switch($margin));
-        padding: scaffold.key-create('button-padding', scaffold.token-switch($padding));
-        box-sizing: border-box;
+    margin: scaffold.key-create('button-margin', scaffold.token-switch($margin));
+    padding: scaffold.key-create('button-padding', scaffold.token-switch($padding));
+    box-sizing: border-box;
 
-        user-select: none;
-        overflow: visible;
-        vertical-align: middle;
+    user-select: none;
+    overflow: visible;
+    vertical-align: middle;
 
-        cursor: pointer;
-        outline: none;
+    cursor: pointer;
+    outline: none;
 
-        @include scaffold.prefix(transition, all 0.1s linear);
+    @include scaffold.prefix(transition, all 0.1s linear);
 
-        @content;
+    @content;
 
-        > * + * {
-            margin-left: scaffold.key-create('button-gap', 3px);
-        }
-
-        &::-moz-focus-inner {
-            border-style: none;
-            padding: 0;
-        }
-
-        &:disabled {
-            cursor: default;
-        }
-
-        &.gs-button--icon-only,
-        &.gs-button--icon-only:focus {
-            outline: none !important;
-            border: none transparent !important;
-        }
-
-        .gs-button__icon {
-            width: scaffold.key-create('button-icon-size', scaffold.to-rem(20px));
-            max-width: max-content;
-            height: scaffold.key-create('button-icon-size', scaffold.to-rem(20px));
-            position: relative;
-            font-size: scaffold.key-create('button-icon-size', scaffold.to-rem(20px));
-            color: scaffold.key-create('button-icon-ink', inherit);
-            box-sizing: border-box;
-        }
-
-        .gs-button__label {
-            font-weight: inherit;
-            font-size: inherit;
-            text-align: center;
-            color: inherit;
-            box-sizing: border-box;
-        }
-
+    > * + * {
+      margin-left: scaffold.key-create('button-gap', 3px);
     }
+
+    &::-moz-focus-inner {
+      border-style: none;
+      padding: 0;
+    }
+
+    &:disabled {
+      cursor: default;
+    }
+
+    &.gs-button--icon-only,
+    &.gs-button--icon-only:focus {
+      outline: none !important;
+      border: none transparent !important;
+    }
+
+    .gs-button__icon {
+      width: scaffold.key-create('button-icon-size', scaffold.to-rem(20px));
+      max-width: max-content;
+      height: scaffold.key-create('button-icon-size', scaffold.to-rem(20px));
+      position: relative;
+      font-size: scaffold.key-create('button-icon-size', scaffold.to-rem(20px));
+      color: scaffold.key-create('button-icon-ink', inherit);
+      box-sizing: border-box;
+    }
+
+    .gs-button__label {
+      font-weight: inherit;
+      font-size: inherit;
+      text-align: center;
+      color: inherit;
+      box-sizing: border-box;
+    }
+  }
 }

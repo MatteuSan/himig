@@ -23,55 +23,55 @@
 @use '../scaffold';
 
 @mixin render() {
-    .gs-drawer-item {
-        padding: 0.4rem 0.6rem;
-        list-style: none;
-        user-select: none;
-        @include scaffold.color-apply('drawer-item', (
-            default: 'on-primary',
-            hover: 'on-primary',
-            focus: 'on-primary',
-            active: 'on-primary',
-            // ink: 'surface'
-        ), 'text');
-        color: scaffold.token-get('surface');
-        @include scaffold.shape-apply('drawer-item', (shape: 'round', radius: 'radius-small'));
-        @include scaffold.prefix(transition, all 0.1s ease);
+  .gs-drawer-item {
+    padding: 0.4rem 0.6rem;
+    list-style: none;
+    user-select: none;
+    @include scaffold.color-apply('drawer-item', (
+      default: 'on-primary',
+      hover: 'on-primary',
+      focus: 'on-primary',
+      active: 'on-primary',
+      // ink: 'surface'
+    ), 'text');
+    color: scaffold.token-get('surface');
+    @include scaffold.shape-apply('drawer-item', (shape: 'round', radius: 'radius-small'));
+    @include scaffold.prefix(transition, all 0.1s ease);
 
-        &.active {
-            @include scaffold.key-bind('drawer-item-fill', rgba(#fff, 33%));
-            @include scaffold.key-bind('drawer-item-border', rgba(#fff, 3.3%));
+    &.active {
+      @include scaffold.key-bind('drawer-item-fill', rgba(#fff, 33%));
+      @include scaffold.key-bind('drawer-item-border', rgba(#fff, 3.3%));
 
-            .gs-drawer-item__label {
-                font-weight: 700 !important;
-            }
-        }
-
-        a {
-            display: flex;
-            flex-flow: row nowrap;
-            justify-content: flex-start;
-            align-items: center;
-
-            > * + * {
-                margin-left: 0.5rem;
-            }
-
-            .gs-drawer-item__icon {
-                color: inherit;
-                font-size: scaffold.to-rem(24px);
-                /// @fallback
-                width: scaffold.to-rem(24px);
-                height: scaffold.to-rem(24px);
-            }
-
-            .gs-appbar-item__label {
-                color: inherit;
-                font-family: inherit;
-                font-size: inherit;
-                font-weight: inherit;
-                line-height: inherit;
-            }
-        }
+      .gs-drawer-item__label {
+        font-weight: 700 !important;
+      }
     }
+
+    a {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: flex-start;
+      align-items: center;
+
+      > * + * {
+        margin-left: 0.5rem;
+      }
+
+      .gs-drawer-item__icon {
+        color: inherit;
+        font-size: scaffold.to-rem(24px);
+        /// @fallback
+        width: scaffold.to-rem(24px);
+        height: scaffold.to-rem(24px);
+      }
+
+      .gs-appbar-item__label {
+        color: inherit;
+        font-family: inherit;
+        font-size: inherit;
+        font-weight: inherit;
+        line-height: inherit;
+      }
+    }
+  }
 }

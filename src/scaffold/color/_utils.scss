@@ -23,5 +23,17 @@
 @use '../support';
 
 @function get-ink($color) {
-    @return support.get-ink($color);
+  @return support.get-ink($color);
+}
+
+@mixin fill($component, $fill, $intent) {
+  //
+}
+
+@mixin ink($component, $ink, $intent) {
+  //
+}
+
+@mixin border($component, $border, $intent) {
+  //
 }

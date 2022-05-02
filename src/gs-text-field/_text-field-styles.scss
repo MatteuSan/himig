@@ -27,21 +27,21 @@
 @use 'text-field-theme';
 
 @mixin render(
-    $struct: (),
-    $color: (),
-    $shape: (),
-    $typography: (),
-    $settings: ()
+  $struct: (),
+  $color: (),
+  $shape: (),
+  $typography: (),
+  $settings: ()
 ) {
-    $_merged-struct: map.merge(text-field-theme.$init-struct, $struct);
-    $_merged-color: map.merge(text-field-theme.$init-color, $color);
-    $_merged-shape: map.merge(text-field-theme.$init-shape, $shape);
-    $_merged-typography: map.merge(text-field-theme.$init-typography, $typography);
-    $_merged-settings: map.merge(text-field-theme.$init-settings, $settings);
+  $_merged-struct: map.merge(text-field-theme.$init-struct, $struct);
+  $_merged-color: map.merge(text-field-theme.$init-color, $color);
+  $_merged-shape: map.merge(text-field-theme.$init-shape, $shape);
+  $_merged-typography: map.merge(text-field-theme.$init-typography, $typography);
+  $_merged-settings: map.merge(text-field-theme.$init-settings, $settings);
 
-    @include text-field-base.base($_merged-struct) {
-        @include scaffold.color-apply('text-field', $_merged-color, 'filled', true);
-        @include scaffold.shape-apply('text-field', $_merged-shape, true);
-        @include scaffold.typography-apply('text-field', $_merged-typography, true);
-    }
+  @include text-field-base.base($_merged-struct) {
+    @include scaffold.color-apply('text-field', $_merged-color, 'filled', true);
+    @include scaffold.shape-apply('text-field', $_merged-shape, true);
+    @include scaffold.typography-apply('text-field', $_merged-typography, true);
+  }
 }

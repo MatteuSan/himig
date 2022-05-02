@@ -23,29 +23,29 @@
 @use '../scaffold';
 
 $init-struct: (
-    width: 100%,
-    height: auto,
-    margin: 0,
-    padding: 1.4rem 0.5rem 0.275rem 0.5rem,
+  width: 100%,
+  height: auto,
+  margin: 0,
+  padding: 1.4rem 0.5rem 0.275rem 0.5rem,
 );
 
 $init-color: (
-    default: #b2c2d9,
-    ink: 'surface'
+  default: #b2c2d9,
+  ink: 'surface'
 );
 
 $init-shape: (
-    shape: 'round',
-    radius: 'radius-small'
+  shape: 'round',
+  radius: 'radius-small'
 );
 
 $init-typography: (
-    family: 'family-body',
-    size: 'size-body',
-    weight: 'weight-body',
-    line-height: 'line-height-body'
+  family: 'family-body',
+  size: 'size-body',
+  weight: 'weight-body',
+  line-height: 'line-height-body'
 );
 
 $init-settings: (
-    //
+  //
 );

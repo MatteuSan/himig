@@ -20,26 +20,41 @@
 //  SOFTWARE.
 ///
 
+@use '../theme';
 @use 'sass:list';
 
+$_valid-colors: (
+  transparent,
+  inherit,
+  rgba(0, 0, 0, 0),
+  rgba(0 0 0 / 0)
+);
+
 $_valid-color-props: (
-    'default',
-    'hover',
-    'active',
-    'focus',
-    'disabled',
-    'ink'
+  'default',
+  'hover',
+  'active',
+  'focus',
+  'disabled',
+  'ink'
 );
 
 @function is-prop($prop) {
-    @if not list.index($_valid-color-props, $prop) {
-        @error "Invalid color prop: #{$prop}! Please choose from the following valid props: #{$_valid-color-props}.";
-    }
-    @return true;
+  @if not list.index($_valid-color-props, $prop) {
+    @error 'Invalid color prop: #{$prop}. Must be one of the following valid props: #{$_valid-color-props}.';
+  }
+  @return true;
+}
+
+@function is-color($color) {
+  @if not theme.token-check($color) or not list.index($_valid-colors, $color) {
+    @error 'Invalid color: #{$color}. Must be a valid color token or any of the following: #{$_valid-colors}';
+  }
+  @return true;
 }
 
 @function is-color-prop($map) {
-    @each $prop, $value in $map {
-        @return is-prop($prop);
-    }
+  @each $prop, $value in $map {
+    @return is-prop($prop);
+  }
 }

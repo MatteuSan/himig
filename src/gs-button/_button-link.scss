@@ -27,27 +27,27 @@
 
 @mixin render($theme: ()) {
 
-    $_merged-theme: map.merge(button-theme.$init-color, $theme);
+  $_merged-theme: map.merge(button-theme.$init-color, $theme);
 
-    $default: map.get($_merged-theme, 'default');
-    $hover: map.get($_merged-theme, 'hover');
-    $focus: map.get($_merged-theme, 'focus');
-    $active: map.get($_merged-theme, 'active');
+  $default: map.get($_merged-theme, 'default');
+  $hover: map.get($_merged-theme, 'hover');
+  $focus: map.get($_merged-theme, 'focus');
+  $active: map.get($_merged-theme, 'active');
 
-    a.gs-link {
-        color: scaffold.key-create('link-ink', scaffold.token-get($default));
-        text-decoration: underline;
+  a.gs-link {
+    color: scaffold.key-create('link-ink', scaffold.token-get($default));
+    text-decoration: underline;
 
-        &:hover {
-            color: scaffold.key-create('link-hover-ink', scaffold.token-get($hover));
-        }
-
-        &:focus {
-            color: scaffold.key-create('link-focus-ink', scaffold.token-get($focus));
-        }
-
-        &:active {
-            color: scaffold.key-create('link-active-ink', scaffold.token-get($active));
-        }
+    &:hover {
+      color: scaffold.key-create('link-hover-ink', scaffold.token-get($hover));
     }
+
+    &:focus {
+      color: scaffold.key-create('link-focus-ink', scaffold.token-get($focus));
+    }
+
+    &:active {
+      color: scaffold.key-create('link-active-ink', scaffold.token-get($active));
+    }
+  }
 }

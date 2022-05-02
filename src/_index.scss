@@ -26,167 +26,165 @@
 @use 'sass:map';
 
 $_init-family: (
-    'global': ('Inter', sans-serif),
-    'title': ('Inter', sans-serif),
-    'subtitle': ('Inter', sans-serif),
-    'body': ('Inter', sans-serif),
-    'small': ('Inter', sans-serif),
-    'action': ('Inter', sans-serif),
-    'mono': ('JetBrains Mono', monospace)
+  'global': ('Inter', sans-serif),
+  'title': ('Inter', sans-serif),
+  'subtitle': ('Inter', sans-serif),
+  'body': ('Inter', sans-serif),
+  'small': ('Inter', sans-serif),
+  'action': ('Inter', sans-serif),
+  'mono': ('JetBrains Mono', monospace)
 );
 
 @mixin init(
-    $primary: #12305e,
-    $secondary: #ff9e0a,
-    $surface: (
-        'light': #0b1c44,
-        'default': #000b21,
-        'dark': #00030a
-    ),
-    $radius: (),
-    $padding: (),
-    $margin: (),
-    $family: (),
-    $size: (),
-    $weight: (),
-    $line-height: (),
-    $tokens...
+  $primary: #12305e,
+  $secondary: #ff9e0a,
+  $surface: (
+    'light': #0b1c44,
+    'default': #000b21,
+    'dark': #00030a
+  ),
+  $radius: (),
+  $padding: (),
+  $margin: (),
+  $spacing: (),
+  $family: (),
+  $size: (),
+  $weight: (),
+  $line-height: (),
+  $tokens...
 ) {
 
-    $_merged-family: map.merge($_init-family, $family);
+  $_merged-family: map.merge($_init-family, $family);
 
-    @if map.get($_merged-family, 'global') == ('Inter', sans-serif)
-        or map.get($_merged-family, 'title') == ('Inter', sans-serif)
-        or map.get($_merged-family, 'subtitle') == ('Inter', sans-serif)
-        or map.get($_merged-family, 'body') == ('Inter', sans-serif)
-        or map.get($_merged-family, 'small') == ('Inter', sans-serif)
-        or map.get($_merged-family, 'action') == ('Inter', sans-serif)
-    {
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
-    }
+  @if map.get($_merged-family, 'global') == ('Inter', sans-serif)
+    or map.get($_merged-family, 'title') == ('Inter', sans-serif)
+    or map.get($_merged-family, 'subtitle') == ('Inter', sans-serif)
+    or map.get($_merged-family, 'body') == ('Inter', sans-serif)
+    or map.get($_merged-family, 'small') == ('Inter', sans-serif)
+    or map.get($_merged-family, 'action') == ('Inter', sans-serif) {
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+  }
 
-    @if map.get($_merged-family, 'mono') == ('JetBrains Mono', monospace) {
-        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
-    }
+  @if map.get($_merged-family, 'mono') == ('JetBrains Mono', monospace) {
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
+  }
 
-    :root {
-        @include scaffold.config(
-            $primary: $primary,
-            $secondary: $secondary,
-            $surface: $surface,
-            $radius: $radius,
-            $padding: $padding,
-            $margin: $margin,
-            $size: $size,
-            $weight: $weight,
-            $line-height: $line-height,
-            $family: $_merged-family,
-            $tokens...
-        );
-    }
+  :root {
+    @include scaffold.config(
+      $primary: $primary,
+      $secondary: $secondary,
+      $surface: $surface,
+      $radius: $radius,
+      $padding: $padding,
+      $margin: $margin,
+      $spacing: $spacing,
+      $size: $size,
+      $weight: $weight,
+      $line-height: $line-height,
+      $family: $_merged-family,
+      $tokens...
+    );
+  }
 
-    *,
-    :before,
-    :after {
-        margin: 0;
-        padding: 0;
-        color: inherit;
-        box-sizing: inherit;
-        font-family: scaffold.key-create('family-global', scaffold.token-get('family-global'));
-        font-weight: scaffold.key-create('weight-global', scaffold.token-get('weight-global'));
-    }
+  *,
+  :before,
+  :after {
+    margin: 0;
+    padding: 0;
+    color: inherit;
+    box-sizing: inherit;
+    font-family: scaffold.key-create('family-global', scaffold.token-get('family-global'));
+    font-weight: scaffold.key-create('weight-global', scaffold.token-get('weight-global'));
+  }
 
-    h1,
-    h2,
-    h3 {
-        font-family: scaffold.key-create('family-title', scaffold.token-get('family-title'));
-        font-weight: scaffold.key-create('weight-title', scaffold.token-get('weight-title'));
-    }
+  h1,
+  h2,
+  h3 {
+    font-family: scaffold.key-create('family-title', scaffold.token-get('family-title'));
+    font-weight: scaffold.key-create('weight-title', scaffold.token-get('weight-title'));
+  }
 
-    h4,
-    h5,
-    h6 {
-        font-family: scaffold.key-create('family-subtitle', scaffold.token-get('family-subtitle'));
-        font-weight: scaffold.key-create('weight-subtitle', scaffold.token-get('weight-subtitle'));
-    }
+  h4,
+  h5,
+  h6 {
+    font-family: scaffold.key-create('family-subtitle', scaffold.token-get('family-subtitle'));
+    font-weight: scaffold.key-create('weight-subtitle', scaffold.token-get('weight-subtitle'));
+  }
 
-    a {
-        text-decoration: none;
-    }
+  a {
+    text-decoration: none;
+  }
 
-    p,
-    span {
-        font-size: scaffold.key-create('size-body', scaffold.token-get('size-body'));
-        font-family: scaffold.key-create('family-body', scaffold.token-get('family-body'));
-        font-weight: scaffold.key-create('weight-body', scaffold.token-get('weight-body'));
-    }
+  p,
+  span {
+    font-size: scaffold.key-create('size-body', scaffold.token-get('size-body'));
+    font-family: scaffold.key-create('family-body', scaffold.token-get('family-body'));
+    font-weight: scaffold.key-create('weight-body', scaffold.token-get('weight-body'));
+  }
 
-    small {
-        font-size: scaffold.key-create('size-small', scaffold.token-get('size-small'));
-        font-family: scaffold.key-create('family-small', scaffold.token-get('family-small'));
-        font-weight: scaffold.key-create('weight-small', scaffold.token-get('weight-small'));
-    }
+  small {
+    font-size: scaffold.key-create('size-small', scaffold.token-get('size-small'));
+    font-family: scaffold.key-create('family-small', scaffold.token-get('family-small'));
+    font-weight: scaffold.key-create('weight-small', scaffold.token-get('weight-small'));
+  }
 
-    code,
-    code span {
-        font-size: scaffold.key-create('size-mono', scaffold.token-get('size-mono'));
-        font-family: scaffold.key-create('family-mono', scaffold.token-get('family-mono'));
-        font-weight: scaffold.key-create('weight-mono', scaffold.token-get('weight-mono'));
-    }
+  code,
+  code span {
+    font-size: scaffold.key-create('size-mono', scaffold.token-get('size-mono'));
+    font-family: scaffold.key-create('family-mono', scaffold.token-get('family-mono'));
+    font-weight: scaffold.key-create('weight-mono', scaffold.token-get('weight-mono'));
+  }
 
-    html {
+  html {
+    width: 100%;
+    height: 100%;
+    font-size: 100%;
+    box-sizing: border-box;
+    background: scaffold.token-get('surface-dark');
+    color: scaffold.token-get('on-surface');
+  }
+
+  main.content-wrap {
+    width: calc(100% - 30px);
+    max-width: scaffold.key-create('content-wrap-width', 977px);
+    margin: 0 auto;
+    padding: scaffold.key-create('content-wrap-padding', 67px 0 25px);
+  }
+
+  section.grid {
+    margin-top: 0.7rem;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 1rem;
+
+    > a {
+      width: 100%;
+      height: 100%;
+      grid-column: revert;
+
+      > * {
         width: 100%;
+        max-width: 100%;
         height: 100%;
-        font-size: 100%;
-        box-sizing: border-box;
+      }
     }
 
-    body {
-        background: scaffold.token-get('surface-dark');
-        color: scaffold.token-get('on-surface');
+    @include scaffold.breakpoint-create('medium') {
+      grid-template-columns: repeat(2, 1fr);
+
+      > a {
+        grid-column: span 2;
+      }
     }
 
-    main.content-wrap {
-        width: calc(100% - 30px);
-        max-width: scaffold.key-create('content-wrap-width', 977px);
-        margin: 0 auto;
-        padding: scaffold.key-create('content-wrap-padding', 67px 0 25px);
+    @include scaffold.breakpoint-create('large') {
+      grid-template-columns: repeat(3, 1fr);
+
+      > a {
+        grid-column: revert;
+      }
     }
+  }
 
-    section.grid {
-        margin-top: 0.7rem;
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-        grid-gap: 1rem;
-
-        > a {
-            width: 100%;
-            height: 100%;
-            grid-column: revert;
-
-            > * {
-                width: 100%;
-                max-width: 100%;
-                height: 100%;
-            }
-        }
-
-        @include scaffold.breakpoint-create('medium') {
-            grid-template-columns: repeat(2, 1fr);
-
-            > a {
-                grid-column: span 2;
-            }
-        }
-
-        @include scaffold.breakpoint-create('large') {
-            grid-template-columns: repeat(3, 1fr);
-
-            > a {
-                grid-column: revert;
-            }
-        }
-    }
-
-    @content;
+  @content;
 }

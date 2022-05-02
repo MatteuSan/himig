@@ -21,33 +21,33 @@
 ///
 
 $init-struct: (
-    width: 100%,
-    height: auto,
-    margin: 0,
-    padding: 1rem,
-    gap: 0.3rem
+  width: 100%,
+  height: auto,
+  margin: 0,
+  padding: 1rem,
+  gap: 0.3rem
 );
 
 $init-color: (
-    default: 'primary-light',
-    ink: 'on-primary'
+  default: 'primary-light',
+  ink: 'on-primary'
 );
 
 $init-shape: (
-    shape: 'round',
-    radius: 'radius-medium',
-    exceptions: ('pill')
+  shape: 'round',
+  radius: 'radius-medium',
+  exceptions: ('pill')
 );
 
 $init-typography: (
-    family: 'family-body',
-    size: 'size-body',
-    weight: 'weight-body',
-    line-height: 'line-height-body'
+  family: 'family-body',
+  size: 'size-body',
+  weight: 'weight-body',
+  line-height: 'line-height-body'
 );
 
 $init-settings: (
-    elevation-level: 3,
-    orientation: 'horizontal',
-    has-elevation: true
+  elevation-level: 3,
+  orientation: 'horizontal',
+  has-elevation: true
 );

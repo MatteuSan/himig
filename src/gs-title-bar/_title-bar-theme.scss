@@ -21,32 +21,32 @@
 ///
 
 $init-struct: (
-    width: 100%,
-    height: auto,
-    padding: (0.4rem 0.6rem),
-    margin: 0,
-    gap: 0.3rem
+  width: 100%,
+  height: auto,
+  padding: (0.4rem 0.6rem),
+  margin: 0,
+  gap: 0.3rem
 );
 
 $init-color: (
-    default: 'primary',
-    ink: 'on-primary'
+  default: 'primary',
+  ink: 'on-primary'
 );
 
 $init-shape: (
-    shape: 'round',
-    radius: 'radius-small',
-    exceptions: ()
+  shape: 'round',
+  radius: 'radius-small',
+  exceptions: ()
 );
 
 $init-typography: (
-    family: 'family-title',
-    size: 'size-subtitle',
-    weight: 'weight-title',
-    line-height: 'line-height-subtitle'
+  family: 'family-title',
+  size: 'size-subtitle',
+  weight: 'weight-title',
+  line-height: 'line-height-subtitle'
 );
 
 $init-settings: (
-    has-elevation: false,
-    elevation-level: 3
+  has-elevation: false,
+  elevation-level: 3
 );

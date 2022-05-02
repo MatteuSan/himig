@@ -21,46 +21,46 @@
  */
 
 interface ConfigProps {
-    drawer?: string | keyof HTMLElementTagNameMap | keyof SVGElementTagNameMap| any;
-    trigger?: string | keyof HTMLElementTagNameMap | keyof SVGElementTagNameMap| any;
-    state?: boolean;
+  drawer?: string | keyof HTMLElementTagNameMap | keyof SVGElementTagNameMap | any;
+  trigger?: string | keyof HTMLElementTagNameMap | keyof SVGElementTagNameMap | any;
+  state?: boolean;
 }
 
 class GSDrawer {
 
-    /**
-     * Static function for initializing scripts for the GSDrawer component.
-     */
-    static init(config?: ConfigProps) {
+  /**
+   * Static function for initializing scripts for the GSDrawer component.
+   */
+  static init(config?: ConfigProps) {
 
-        const _initConfig: ConfigProps = {
-            drawer: '.gs-drawer',
-            trigger: '.gs-js-drawer__trigger',
-            state: false
+    const _initConfig: ConfigProps = {
+      drawer: '.gs-drawer',
+      trigger: '.gs-js-drawer__trigger',
+      state: false
+    };
+
+    const _mergedConfig: ConfigProps = {
+      ..._initConfig,
+      ...config
+    };
+
+    if (_mergedConfig) {
+      const _drawer = document.querySelector(_mergedConfig.drawer);
+      const _trigger = document.querySelector(_mergedConfig.trigger);
+
+      if (_mergedConfig.state === true) {
+        if (!_drawer.classList.contains('open')) {
+          _drawer.classList.add('open');
         }
-
-        const _mergedConfig: ConfigProps = {
-            ..._initConfig,
-            ...config
+      } else {
+        if (_drawer.classList.contains('open')) {
+          _drawer.classList.remove('open');
         }
+      }
 
-        if (_mergedConfig) {
-            const _drawer = document.querySelector(_mergedConfig.drawer);
-            const _trigger = document.querySelector(_mergedConfig.trigger);
-
-            if (_mergedConfig.state === true) {
-                if (!_drawer.classList.contains('open')) {
-                    _drawer.classList.add('open');
-                }
-            } else {
-                if (_drawer.classList.contains('open')) {
-                    _drawer.classList.remove('open');
-                }
-            }
-
-            _trigger.addEventListener('click', () => {
-                _mergedConfig.state = !_mergedConfig.state;
-            });
-        }
+      _trigger.addEventListener('click', () => {
+        _mergedConfig.state = !_mergedConfig.state;
+      });
     }
+  }
 }

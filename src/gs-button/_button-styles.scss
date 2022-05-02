@@ -30,40 +30,40 @@
 @use 'button-link';
 
 @mixin render(
-    $struct: (),
-    $color: (),
-    $shape: (),
-    $typography: (),
-    $settings: ()
+  $struct: (),
+  $color: (),
+  $shape: (),
+  $typography: (),
+  $settings: ()
 ) {
-    $_merged-struct: map.merge(button-theme.$init-struct, $struct);
-    $_merged-color: map.merge(button-theme.$init-color, $color);
-    $_merged-shape: map.merge(button-theme.$init-shape, $shape);
-    $_merged-typography: map.merge(button-theme.$init-typography, $typography);
-    $_merged-settings: map.merge(button-theme.$init-settings, $settings);
+  $_merged-struct: map.merge(button-theme.$init-struct, $struct);
+  $_merged-color: map.merge(button-theme.$init-color, $color);
+  $_merged-shape: map.merge(button-theme.$init-shape, $shape);
+  $_merged-typography: map.merge(button-theme.$init-typography, $typography);
+  $_merged-settings: map.merge(button-theme.$init-settings, $settings);
 
-    $types: map.get($_merged-settings, 'types');
+  $types: map.get($_merged-settings, 'types');
 
-    @include button-base.base($_merged-struct) {
-        @include scaffold.shape-apply('button', $_merged-shape);
-        @include scaffold.typography-apply('button', $_merged-typography);
+  @include button-base.base($_merged-struct) {
+    @include scaffold.shape-apply('button', $_merged-shape);
+    @include scaffold.typography-apply('button', $_merged-typography);
 
-        @if list.index($types, 'text') or list.index($types, 'all') {
-            @include scaffold.color-apply('button', $_merged-color, 'text');
-        }
-
-        @if list.index($types, 'outlined') or list.index($types, 'all') {
-            &.gs-button--outlined {
-                @include scaffold.color-apply('button', $_merged-color, 'outlined');
-            }
-        }
-
-        @if list.index($types, 'filled') or list.index($types, 'all') {
-            &.gs-button--filled {
-                @include scaffold.color-apply('button', $_merged-color, 'filled');
-            }
-        }
+    @if list.index($types, 'text') or list.index($types, 'all') {
+      @include scaffold.color-apply('button', $_merged-color, 'text');
     }
 
-    @include button-link.render($_merged-color);
+    @if list.index($types, 'outlined') or list.index($types, 'all') {
+      &.gs-button--outlined {
+        @include scaffold.color-apply('button', $_merged-color, 'outlined');
+      }
+    }
+
+    @if list.index($types, 'filled') or list.index($types, 'all') {
+      &.gs-button--filled {
+        @include scaffold.color-apply('button', $_merged-color, 'filled');
+      }
+    }
+  }
+
+  @include button-link.render($_merged-color);
 }

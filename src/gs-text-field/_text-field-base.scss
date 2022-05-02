@@ -24,88 +24,88 @@
 @use 'sass:map';
 
 @mixin base($struct) {
-    $width: map.get($struct, 'width');
-    $height: map.get($struct, 'height');
-    $margin: map.get($struct, 'margin');
-    $padding: map.get($struct, 'padding');
+  $width: map.get($struct, 'width');
+  $height: map.get($struct, 'height');
+  $margin: map.get($struct, 'margin');
+  $padding: map.get($struct, 'padding');
 
-    .gs-text-field {
-        width: scaffold.key-create('text-field-width', scaffold.token-switch($width));
-        height: scaffold.key-create('text-field-height', scaffold.token-switch($height));
-        margin: scaffold.key-create('text-field-margin', scaffold.token-switch($margin));
-        display: block;
-        position: relative;
+  .gs-text-field {
+    width: scaffold.key-create('text-field-width', scaffold.token-switch($width));
+    height: scaffold.key-create('text-field-height', scaffold.token-switch($height));
+    margin: scaffold.key-create('text-field-margin', scaffold.token-switch($margin));
+    display: block;
+    position: relative;
 
-        @content;
+    @content;
 
-        .gs-text-field__label {
-            width: max-content;
-            display: block;
-            position: absolute;
-            left: 0;
-            top: 0.975rem;
-            padding: 0 0.7rem;
-            color: scaffold.key-create('text-field-label-ink', scaffold.key-get('text-field-ink'));
-            font-size: scaffold.key-create('text-field-label-size', scaffold.key-get('text-field-size'));
-            user-select: none;
-            cursor: text;
-            @include scaffold.prefix(transition, all 70ms ease);
+    .gs-text-field__label {
+      width: max-content;
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0.975rem;
+      padding: 0 0.7rem;
+      color: scaffold.key-create('text-field-label-ink', scaffold.key-get('text-field-ink'));
+      font-size: scaffold.key-create('text-field-label-size', scaffold.key-get('text-field-size'));
+      user-select: none;
+      cursor: text;
+      @include scaffold.prefix(transition, all 70ms ease);
 
-        }
-
-        .gs-text-field__input {
-            width: 100% !important;
-            padding: scaffold.key-create('text-field-padding', scaffold.token-switch($padding));
-            font-size: inherit;
-            background-color: scaffold.key-get('text-field-fill');
-            color: scaffold.key-get('text-field-ink');
-            border: 2px solid scaffold.key-get('text-field-border');
-            border-radius: scaffold.key-get('text-field-radius');
-            outline: none;
-            resize: none;
-            cursor: text;
-            @include scaffold.prefix(transition, all 0.1s ease);
-
-            &::placeholder {
-                color: rgba(0 0 0 / 0) !important;
-                user-select: none !important;
-            }
-
-            &:focus {
-                border-color: scaffold.key-create('text-field-border-active', scaffold.token-get('primary'));
-            }
-
-            &:focus-within,
-            &:not(:placeholder-shown) {
-                & + .gs-text-field__label {
-                    width: auto;
-                    top: 0.35rem;
-                    margin: 0 0 0 0.3rem;
-                    padding: 0 0 0 0.35rem;
-                    @include scaffold.key-bind('text-field-label-size', scaffold.token-get('size-small'));
-                    pointer-events: none;
-                }
-            }
-
-            &[type='color'] {
-                min-height: 54px;
-            }
-        }
-
-        .gs-text-field__helper {
-            position: relative;
-            top: 2px;
-            padding: 0 0 0 0.6rem;
-            color: scaffold.key-create('text-field-helper-ink', scaffold.token-get('on-surface'));
-            font-size: scaffold.key-create('text-field-helper-size', scaffold.token-get('size-small'));
-        }
-
-        &.error {
-            @include scaffold.key-bind('text-field-border', scaffold.token-get('error'));
-            @include scaffold.key-bind('text-field-label-ink', scaffold.token-get('error'));
-            @include scaffold.key-bind('text-field-ink', scaffold.token-get('error'));
-            @include scaffold.key-bind('text-field-helper-ink', scaffold.token-get('error'));
-            @include scaffold.key-bind('text-field-border-active', scaffold.token-get('error'));
-        }
     }
+
+    .gs-text-field__input {
+      width: 100% !important;
+      padding: scaffold.key-create('text-field-padding', scaffold.token-switch($padding));
+      font-size: inherit;
+      background-color: scaffold.key-get('text-field-fill');
+      color: scaffold.key-get('text-field-ink');
+      border: 2px solid scaffold.key-get('text-field-border');
+      border-radius: scaffold.key-get('text-field-radius');
+      outline: none;
+      resize: none;
+      cursor: text;
+      @include scaffold.prefix(transition, all 0.1s ease);
+
+      &::placeholder {
+        color: rgba(0 0 0 / 0) !important;
+        user-select: none !important;
+      }
+
+      &:focus {
+        border-color: scaffold.key-create('text-field-border-active', scaffold.token-get('primary'));
+      }
+
+      &:focus-within,
+      &:not(:placeholder-shown) {
+        & + .gs-text-field__label {
+          width: auto;
+          top: 0.35rem;
+          margin: 0 0 0 0.3rem;
+          padding: 0 0 0 0.35rem;
+          @include scaffold.key-bind('text-field-label-size', scaffold.token-get('size-small'));
+          pointer-events: none;
+        }
+      }
+
+      &[type='color'] {
+        min-height: 54px;
+      }
+    }
+
+    .gs-text-field__helper {
+      position: relative;
+      top: 2px;
+      padding: 0 0 0 0.6rem;
+      color: scaffold.key-create('text-field-helper-ink', scaffold.token-get('on-surface'));
+      font-size: scaffold.key-create('text-field-helper-size', scaffold.token-get('size-small'));
+    }
+
+    &.error {
+      @include scaffold.key-bind('text-field-border', scaffold.token-get('error'));
+      @include scaffold.key-bind('text-field-label-ink', scaffold.token-get('error'));
+      @include scaffold.key-bind('text-field-ink', scaffold.token-get('error'));
+      @include scaffold.key-bind('text-field-helper-ink', scaffold.token-get('error'));
+      @include scaffold.key-bind('text-field-border-active', scaffold.token-get('error'));
+    }
+  }
 }

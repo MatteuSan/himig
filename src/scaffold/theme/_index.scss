@@ -20,11 +20,6 @@
 //  SOFTWARE.
 ///
 
-@use 'node_modules/@matteusan/sentro' with (
-    $prefix: 'gs',
-    $context: 'theme'
-);
-
 @forward 'theme-setters';
 @forward 'theme-keys' as key-*;
 @forward 'theme-tokens' as token-*;

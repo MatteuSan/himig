@@ -27,29 +27,29 @@
 @use 'card-theme';
 
 @mixin render(
-    $struct: (),
-    $color: (),
-    $shape: (),
-    $typography: (),
-    $settings: ()
+  $struct: (),
+  $color: (),
+  $shape: (),
+  $typography: (),
+  $settings: ()
 ) {
-    $_merged-struct: map.merge(card-theme.$init-struct, $struct);
-    $_merged-color: map.merge(card-theme.$init-color, $color);
-    $_merged-shape: map.merge(card-theme.$init-shape, $shape);
-    $_merged-typography: map.merge(card-theme.$init-typography, $typography);
-    $_merged-settings: map.merge(card-theme.$init-settings, $settings);
+  $_merged-struct: map.merge(card-theme.$init-struct, $struct);
+  $_merged-color: map.merge(card-theme.$init-color, $color);
+  $_merged-shape: map.merge(card-theme.$init-shape, $shape);
+  $_merged-typography: map.merge(card-theme.$init-typography, $typography);
+  $_merged-settings: map.merge(card-theme.$init-settings, $settings);
 
-    $elevation-level: map.get($_merged-settings, 'elevation-level');
-    $has-elevation: map.get($_merged-settings, 'has-elevation');
-    $orientation: map.get($_merged-settings, 'orientation');
+  $elevation-level: map.get($_merged-settings, 'elevation-level');
+  $has-elevation: map.get($_merged-settings, 'has-elevation');
+  $orientation: map.get($_merged-settings, 'orientation');
 
-    @include card-base.base($_merged-struct, $orientation) {
-        @include scaffold.color-apply('button', $_merged-color, 'filled');
-        @include scaffold.shape-apply('button', $_merged-shape);
-        @include scaffold.typography-apply('button', $_merged-typography);
+  @include card-base.base($_merged-struct, $orientation) {
+    @include scaffold.color-apply('button', $_merged-color, 'filled');
+    @include scaffold.shape-apply('button', $_merged-shape);
+    @include scaffold.typography-apply('button', $_merged-typography);
 
-        @if $has-elevation {
-            @include scaffold.elevation($elevation-level);
-        }
+    @if $has-elevation {
+      @include scaffold.elevation($elevation-level);
     }
+  }
 }

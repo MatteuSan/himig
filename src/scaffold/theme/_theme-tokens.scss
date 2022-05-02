@@ -25,19 +25,27 @@
 @use 'sass:meta';
 @use 'sass:string';
 
+@function check($query) {
+  @return sentro.token-check($query);
+}
+
 @function get($query) {
-    @return sentro.token-get($query);
+  @return sentro.token-get($query);
 }
 
 @function get-raw($query) {
-    @return sentro.token-get-raw($query);
+  @return sentro.token-get-raw($query);
+}
+
+@mixin config($map: (), $tokens...) {
+  @include sentro.token-config($map, $tokens...);
 }
 
 /// @deprecated add token function.
-@function _add($map: (), $tokens...) {
-    //
+@mixin add($map: (), $tokens...) {
+  @include config($map, $tokens...);
 }
 
 @function switch($query) {
-    @return sentro.token-switch($query);
+  @return sentro.token-switch($query);
 }

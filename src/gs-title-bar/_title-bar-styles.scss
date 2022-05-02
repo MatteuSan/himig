@@ -27,27 +27,27 @@
 @use 'title-bar-theme';
 
 @mixin render(
-    $struct: (),
-    $color: (),
-    $shape: (),
-    $typography: (),
-    $settings: ()
+  $struct: (),
+  $color: (),
+  $shape: (),
+  $typography: (),
+  $settings: ()
 ) {
-    $_merged-struct: map.merge(title-bar-theme.$init-struct, $struct);
-    $_merged-color: map.merge(title-bar-theme.$init-color, $color);
-    $_merged-shape: map.merge(title-bar-theme.$init-shape, $shape);
-    $_merged-typography: map.merge(title-bar-theme.$init-typography, $typography);
-    $_merged-settings: map.merge(title-bar-theme.$init-settings, $settings);
+  $_merged-struct: map.merge(title-bar-theme.$init-struct, $struct);
+  $_merged-color: map.merge(title-bar-theme.$init-color, $color);
+  $_merged-shape: map.merge(title-bar-theme.$init-shape, $shape);
+  $_merged-typography: map.merge(title-bar-theme.$init-typography, $typography);
+  $_merged-settings: map.merge(title-bar-theme.$init-settings, $settings);
 
-    $has-elevation: map.get($_merged-settings, 'has-elevation');
-    $elevation-level: map.get($_merged-settings, 'elevation-level');
+  $has-elevation: map.get($_merged-settings, 'has-elevation');
+  $elevation-level: map.get($_merged-settings, 'elevation-level');
 
-    @include title-bar-base.base($_merged-struct) {
-        @include scaffold.color-apply('title-bar', $_merged-color, 'filled');
-        @include scaffold.shape-apply('title-bar', $_merged-shape);
-        @include scaffold.typography-apply('title-bar', $_merged-typography);
-        @if $has-elevation {
-            @include scaffold.elevation($elevation-level);
-        }
+  @include title-bar-base.base($_merged-struct) {
+    @include scaffold.color-apply('title-bar', $_merged-color, 'filled');
+    @include scaffold.shape-apply('title-bar', $_merged-shape);
+    @include scaffold.typography-apply('title-bar', $_merged-typography);
+    @if $has-elevation {
+      @include scaffold.elevation($elevation-level);
     }
+  }
 }

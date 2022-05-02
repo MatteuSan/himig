@@ -21,8 +21,8 @@
  */
 
 interface ConfigProps {
-    header?: string | keyof HTMLElementTagNameMap | keyof SVGElementTagNameMap;
-    breakpoint?: string | keyof HTMLElementTagNameMap | keyof SVGElementTagNameMap;
+  header?: string | keyof HTMLElementTagNameMap | keyof SVGElementTagNameMap;
+  breakpoint?: string | keyof HTMLElementTagNameMap | keyof SVGElementTagNameMap;
 }
 
 /**
@@ -30,43 +30,43 @@ interface ConfigProps {
  */
 export class GSHeader {
 
-    /**
-     * Static function for observing a scrollable header.
-     */
-    static watch(config?: ConfigProps): void {
+  /**
+   * Static function for observing a scrollable header.
+   */
+  static watch(config?: ConfigProps): void {
 
-        const _initConfig: ConfigProps = {
-            header: '.gs-header--scrolled',
-            breakpoint: '.gs-hero'
-        }
+    const _initConfig: ConfigProps = {
+      header: '.gs-header--scrolled',
+      breakpoint: '.gs-hero'
+    };
 
-        const _mergedConfig: ConfigProps = {
-            ..._initConfig,
-            ...config
-        };
+    const _mergedConfig: ConfigProps = {
+      ..._initConfig,
+      ...config
+    };
 
-        if (_mergedConfig.header || _mergedConfig.breakpoint) {
-            const header: any = _mergedConfig.header;
-            const breakpoint: any = _mergedConfig.breakpoint;
+    if (_mergedConfig.header || _mergedConfig.breakpoint) {
+      const header: any = _mergedConfig.header;
+      const breakpoint: any = _mergedConfig.breakpoint;
 
-            const headerElement: any = document.querySelector(header);
-            const breakingPointElement: any = document.querySelector(breakpoint);
+      const headerElement: any = document.querySelector(header);
+      const breakingPointElement: any = document.querySelector(breakpoint);
 
-            const options: Record<string, string | number | any> = {
-                rootMargin: '-100px 0px 0px 0px',
-            }
+      const options: Record<string, string | number | any> = {
+        rootMargin: '-100px 0px 0px 0px',
+      };
 
-            const observer: any = new IntersectionObserver(function (entries: IntersectionObserverEntry[]) {
-                entries.forEach(entry => {
-                    if (!entry.isIntersecting) {
-                        headerElement?.classList.add('scrolled');
-                    } else {
-                        headerElement?.classList.remove('scrolled');
-                    }
-                });
-            }, options);
+      const observer: any = new IntersectionObserver(function (entries: IntersectionObserverEntry[]) {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) {
+            headerElement?.classList.add('scrolled');
+          } else {
+            headerElement?.classList.remove('scrolled');
+          }
+        });
+      }, options);
 
-            observer.observe(breakingPointElement);
-        }
+      observer.observe(breakingPointElement);
     }
+  }
 }

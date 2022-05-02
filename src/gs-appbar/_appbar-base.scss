@@ -26,38 +26,38 @@
 @use 'appbar-item';
 
 @mixin base($struct, $breakpoint: 'medium', $items: 4, $has-elevation: false) {
-    $width: map.get($struct, 'width');
-    $height: map.get($struct, 'height');
-    $padding: map.get($struct, 'padding');
-    $gap: map.get($struct, 'gap');
+  $width: map.get($struct, 'width');
+  $height: map.get($struct, 'height');
+  $padding: map.get($struct, 'padding');
+  $gap: map.get($struct, 'gap');
 
-    $_container-width: (42px * $items) + (8px * $items);
+  $_container-width: (42px * $items) + (8px * $items);
 
-    .gs-appbar {
-        width: scaffold.key-create('appbar-width', scaffold.token-switch($width));
-        height: scaffold.key-create('appbar-height', scaffold.token-switch($height));
-        position: fixed;
-        inset: auto 0 0 0;
-        z-index: 100;
-        padding: scaffold.key-create('appbar-padding', scaffold.token-switch($padding));
+  .gs-appbar {
+    width: scaffold.key-create('appbar-width', scaffold.token-switch($width));
+    height: scaffold.key-create('appbar-height', scaffold.token-switch($height));
+    position: fixed;
+    inset: auto 0 0 0;
+    z-index: 100;
+    padding: scaffold.key-create('appbar-padding', scaffold.token-switch($padding));
 
-        @content;
+    @content;
 
-        @include scaffold.breakpoint-create($breakpoint) {
-            @include scaffold.key-bind('appbar-width', $_container-width);
-            position: relative;
-            padding: 0;
-            background-color: rgba(0 0 0 / 0) !important;
-            border-color: rgba(0 0 0 / 0) !important;
-        }
-
-        .gs-appbar__wrapper {
-            width: 100%;
-            display: grid;
-            grid-template-columns: repeat($items, 1fr);
-            grid-gap: scaffold.key-create('appbar-gap', scaffold.token-switch($gap));
-
-            @include appbar-item.render($breakpoint, $has-elevation);
-        }
+    @include scaffold.breakpoint-create($breakpoint) {
+      @include scaffold.key-bind('appbar-width', $_container-width);
+      position: relative;
+      padding: 0;
+      background-color: rgba(0 0 0 / 0) !important;
+      border-color: rgba(0 0 0 / 0) !important;
     }
+
+    .gs-appbar__wrapper {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat($items, 1fr);
+      grid-gap: scaffold.key-create('appbar-gap', scaffold.token-switch($gap));
+
+      @include appbar-item.render($breakpoint, $has-elevation);
+    }
+  }
 }

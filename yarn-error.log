@@ -2,7 +2,7 @@ Arguments:
   C:\Program Files\nodejs\node.exe C:\Users\pptxs\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js install
 
 PATH: 
-  C:\Users\pptxs\PhpstormProjects\growstocks\open-source\stack\node_modules\.bin;C:\Program Files\Eclipse Foundation\jdk-17.0.0.35-hotspot\bin;C:\Python310\Scripts\;C:\Python310\;C:\Users\pptxs\AppData\Local\Programs\Python\Python39\Scripts\;C:\Users\pptxs\AppData\Local\Programs\Python\Python39\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;c:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64_win\compiler;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Common Files\Propellerhead Software\ReWire\;C:\Program Files\Common Files\Propellerhead Software\ReWire\;C:\ProgramData\ComposerSetup\bin;C:\ProgramData\chocolatey\bin;C:\Program Files\LLVM\bin;C:\Program Files\CMake\bin;C:\sqlite3;C:\Program Files\erl10.7\bin;C:\Program Files (x86)\Elixir\bin;C:\WINDOWS\system32\config\systemprofile\.mix\escripts;C:\Program Files\nodejs\;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\Git\cmd;C:\Program Files\Symfony;C:\Program Files\Go\bin;C:\xampp\php;C:\Ruby30-x64\bin;C:\Users\pptxs\AppData\Roaming\Composer\vendor\bin;C:\Users\pptxs\AppData\Roaming\npm\node_modules\yarn\bin;C:\Users\pptxs\AppData\Roaming\npm\node_modules\typescript\bin;C:\Users\pptxs\AppData\Roaming\npm\node_modules\npkill\lib\bin;C:\Users\pptxs\AppData\Roaming\npm\node_modules\@vue\cli\bin;C:\Users\pptxs\node_modules\gatsby-cli\lib;C:\Users\pptxs\node_modules\@sanity\cli\bin;C:\Users\pptxs\node_modules\gulp-cli\bin;C:\Users\pptxs\AppData\Roaming\npm\node_modules\sassdoc\bin;C:\Python310\Lib\site-packages\django\bin;C:\Users\pptxs\AppData\Roaming\npm\tsc;C:\Users\pptxs\AppData\Roaming\npm\node_modules\gatsby-cli\lib;C:\Users\pptxs\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\Neovim\bin;C:\Users\pptxs\AppData\Local\Yarn\bin;C:\Users\pptxs\.cargo\bin;
+  C:\Program Files\Eclipse Foundation\jdk-17.0.0.35-hotspot\bin;C:\Python310\Scripts\;C:\Python310\;C:\Users\pptxs\AppData\Local\Programs\Python\Python39\Scripts\;C:\Users\pptxs\AppData\Local\Programs\Python\Python39\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;c:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64_win\compiler;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Common Files\Propellerhead Software\ReWire\;C:\Program Files\Common Files\Propellerhead Software\ReWire\;C:\ProgramData\ComposerSetup\bin;C:\ProgramData\chocolatey\bin;C:\Program Files\LLVM\bin;C:\Program Files\CMake\bin;C:\sqlite3;C:\Program Files\erl10.7\bin;C:\Program Files (x86)\Elixir\bin;C:\WINDOWS\system32\config\systemprofile\.mix\escripts;C:\Program Files\nodejs\;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\Symfony;C:\Program Files\Go\bin;C:\xampp\php;C:\Ruby30-x64\bin;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Users\pptxs\AppData\Roaming\Composer\vendor\bin;C:\Users\pptxs\AppData\Roaming\npm\node_modules\yarn\bin;C:\Users\pptxs\AppData\Roaming\npm\node_modules\typescript\bin;C:\Users\pptxs\AppData\Roaming\npm\node_modules\npkill\lib\bin;C:\Users\pptxs\node_modules\gatsby-cli\lib;C:\Users\pptxs\node_modules\@sanity\cli\bin;C:\Users\pptxs\node_modules\gulp-cli\bin;C:\Users\pptxs\AppData\Roaming\npm\node_modules\sassdoc\bin;C:\Python310\Lib\site-packages\django\bin;C:\Users\pptxs\AppData\Roaming\npm\tsc;C:\Users\pptxs\AppData\Roaming\npm\node_modules\gatsby-cli\lib;C:\Users\pptxs\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\Neovim\bin;C:\Users\pptxs\AppData\Local\Yarn\bin;C:\Users\pptxs\.cargo\bin;C:\Users\pptxs\AppData\Roaming\npm;C:\Program Files\heroku\bin;C:\tools\dart-sdk\bin;C:\Users\pptxs\AppData\Roaming\Pub\Cache\bin;C:\binaries\nazuna;C:\Users\pptxs\.dotnet\tools;C:\Flutter\flutter\bin;C:\Hugo\bin;
 
 Yarn version: 
   1.22.17
@@ -14,44 +14,41 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@growstocksgt%2fstack: Not found
-      at Request.params.callback [as _callback] (C:\Users\pptxs\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:67029:18)
-      at Request.self.callback (C:\Users\pptxs\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:140883:22)
-      at Request.emit (events.js:400:28)
-      at Request.<anonymous> (C:\Users\pptxs\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:141855:10)
-      at Request.emit (events.js:400:28)
-      at IncomingMessage.<anonymous> (C:\Users\pptxs\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:141777:12)
-      at Object.onceWrapper (events.js:519:28)
-      at IncomingMessage.emit (events.js:412:35)
-      at endReadableNT (internal/streams/readable.js:1334:12)
-      at processTicksAndRejections (internal/process/task_queues.js:82:21)
+  SyntaxError: C:\Users\pptxs\PhpstormProjects\growstocks\open-source\stack\package.json: Unexpected string in JSON at position 660
+      at JSON.parse (<anonymous>)
+      at C:\Users\pptxs\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (C:\Users\pptxs\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:310:30)
+      at C:\Users\pptxs\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:321:13
 
 npm manifest: 
   {
     "name": "stack",
-    "version": "4.0.0",
+    "version": "4.0.3",
     "description": "The web implementation of GrowStocks' design system. Made with SCSS, Typescript, and ❤.",
     "main": "index.js",
     "directories": {
       "doc": "docs"
     },
     "dependencies": {
-      "@growstocksgt/stack": "3.0.2",
-      "@matteu-san/sentro": "0.1.10",
-      "sass-true": "6.0.1"
+      "@matteusan/sentro": "0.1.21"
     },
     "devDependencies": {
-      "cssnano": "5.0.8",
+      "cssnano": "5.0.14",
       "gulp": "4.0.2",
       "gulp-cli": "2.3.0",
       "gulp-postcss": "9.0.1",
-      "gulp-sass": "5.0.0",
+      "gulp-sass": "5.1.0",
+      "gulp-typescript": "6.0.0-alpha.1",
       "laravel-mix": "6.0.31",
+      "postcss": "8.4.5",
+      "postcss-scss": "4.0.2",
       "resolve-url-loader": "4.0.0",
-      "sass": "1.38.2",
-      "sass-loader": "12.1.0",
+      "sass": "1.45.2",
+      "sass-loader": "12.4.0",
+      "sass-true": "6.0.1"
       "ts-loader": "9.2.6",
-      "typescript": "4.3.2"
+      "typescript": "4.5.4"
     },
     "scripts": {
       "build": "gulp",
@@ -961,15 +958,10 @@ Lockfile:
     resolved "https://registry.npmjs.org/@discoveryjs/json-ext/-/json-ext-0.5.5.tgz"
     integrity sha512-6nFkfkmSeV/rqSaS4oWHgmpnYw194f6hmWF5is6b0J1naJZoiD0NTc9AiUwPHvWsowkjuHErCZT1wa0jg+BLIA==
   
-  "@growstocks/stack@^3.0.0":
-    version "3.0.0"
-    resolved "https://registry.npmjs.org/@growstocks/stack/-/stack-3.0.0.tgz"
-    integrity sha512-V8IPpnTeO9HApp1GUmVmGHODRu2/xEWEeLliWUHkXjRoHIY6EB7vHfHlAOdCyYkBPuCkaYmzsL9RShc2Nw2DJw==
-  
-  "@matteusan/sentro@0.1.8":
-    version "0.1.8"
-    resolved "https://registry.yarnpkg.com/@matteusan/sentro/-/sentro-0.1.8.tgz#e7bebd8152614274959dc50860c1bdd64251b649"
-    integrity sha512-YbYfGjOpbnooniV5fjtp/EHiEeS7405KSEaHMhqG6Fc1p3WAx8R1USt1rUkGb5t+2qA7Atzh0xhZJ43/YBblRw==
+  "@matteusan/sentro@0.1.19":
+    version "0.1.19"
+    resolved "https://registry.yarnpkg.com/@matteusan/sentro/-/sentro-0.1.19.tgz#cbab1dac51c6645ede0ed646612e0b74ea4158cd"
+    integrity sha512-vwbeEQc+fAN4kUKO/5osGPcDRhmyTnCjPC0z6p0empywju5cKodzYzR7rgBno922YO2r3x6XoKW5bzafZuibxg==
   
   "@nodelib/fs.scandir@2.1.5":
     version "2.1.5"
@@ -996,6 +988,11 @@ Lockfile:
     version "0.1.1"
     resolved "https://registry.npmjs.org/@trysound/sax/-/sax-0.1.1.tgz"
     integrity sha512-Z6DoceYb/1xSg5+e+ZlPZ9v0N16ZvZ+wYMraFue4HYrE4ttONKtsvruIRf6t9TBR0YvSOfi1hUU0fJfBLCDYow==
+  
+  "@trysound/sax@0.2.0":
+    version "0.2.0"
+    resolved "https://registry.yarnpkg.com/@trysound/sax/-/sax-0.2.0.tgz#cccaab758af56761eb7bf37af6f03f326dd798ad"
+    integrity sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==
   
   "@types/babel__core@^7.1.14":
     version "7.1.16"
@@ -1348,6 +1345,11 @@ Lockfile:
     integrity sha512-SFKX67auSNoVR38N3L+nvsPjOE0bybKTYbkf5tRvushrAPQ9V75huw0ZxBkKVeRU9kqH3d6HA4xTckbwZ4ixmA==
     dependencies:
       ansi-wrap "^0.1.0"
+  
+  ansi-colors@^4.1.1:
+    version "4.1.1"
+    resolved "https://registry.yarnpkg.com/ansi-colors/-/ansi-colors-4.1.1.tgz#cbb9ae256bf750af1eab344f229aa27fe94ba348"
+    integrity sha512-JoX0apGbHaUJBNl6yF+p6JAFYZ666/hhCGKN5t9QFjbJQKUU/g8MNbFDbvfrgKXvI1QpZplPOnwIo99lX/AAmA==
   
   ansi-escapes@^4.3.1:
     version "4.3.2"
@@ -2169,6 +2171,11 @@ Lockfile:
     resolved "https://registry.npmjs.org/colord/-/colord-2.7.0.tgz"
     integrity sha512-pZJBqsHz+pYyw3zpX6ZRXWoCHM1/cvFikY9TV8G3zcejCaKE0lhankoj8iScyrrePA8C7yJ5FStfA9zbcOnw7Q==
   
+  colord@^2.9.1:
+    version "2.9.2"
+    resolved "https://registry.yarnpkg.com/colord/-/colord-2.9.2.tgz#25e2bacbbaa65991422c07ea209e2089428effb1"
+    integrity sha512-Uqbg+J445nc1TKn4FoDPS6ZZqAvEDnwrH42yo8B40JSOgSLxMZ/gt3h4nmCtPLQeXhjJJkqBx7SCY35WnIixaQ==
+  
   colorette@^1.2.1, colorette@^1.2.2, colorette@^1.3.0:
     version "1.3.0"
     resolved "https://registry.npmjs.org/colorette/-/colorette-1.3.0.tgz"
@@ -2500,14 +2507,58 @@ Lockfile:
       postcss-svgo "^5.0.2"
       postcss-unique-selectors "^5.0.1"
   
+  cssnano-preset-default@^5.1.9:
+    version "5.1.9"
+    resolved "https://registry.yarnpkg.com/cssnano-preset-default/-/cssnano-preset-default-5.1.9.tgz#79628ac48eccbdad570f70b4018cc38d43d1b7df"
+    integrity sha512-RhkEucqlQ+OxEi14K1p8gdXcMQy1mSpo7P1oC44oRls7BYIj8p+cht4IFBFV3W4iOjTP8EUB33XV1fX9KhDzyA==
+    dependencies:
+      css-declaration-sorter "^6.0.3"
+      cssnano-utils "^2.0.1"
+      postcss-calc "^8.0.0"
+      postcss-colormin "^5.2.2"
+      postcss-convert-values "^5.0.2"
+      postcss-discard-comments "^5.0.1"
+      postcss-discard-duplicates "^5.0.1"
+      postcss-discard-empty "^5.0.1"
+      postcss-discard-overridden "^5.0.1"
+      postcss-merge-longhand "^5.0.4"
+      postcss-merge-rules "^5.0.3"
+      postcss-minify-font-values "^5.0.1"
+      postcss-minify-gradients "^5.0.3"
+      postcss-minify-params "^5.0.2"
+      postcss-minify-selectors "^5.1.0"
+      postcss-normalize-charset "^5.0.1"
+      postcss-normalize-display-values "^5.0.1"
+      postcss-normalize-positions "^5.0.1"
+      postcss-normalize-repeat-style "^5.0.1"
+      postcss-normalize-string "^5.0.1"
+      postcss-normalize-timing-functions "^5.0.1"
+      postcss-normalize-unicode "^5.0.1"
+      postcss-normalize-url "^5.0.4"
+      postcss-normalize-whitespace "^5.0.1"
+      postcss-ordered-values "^5.0.2"
+      postcss-reduce-initial "^5.0.2"
+      postcss-reduce-transforms "^5.0.1"
+      postcss-svgo "^5.0.3"
+      postcss-unique-selectors "^5.0.2"
+  
   cssnano-utils@^2.0.1:
     version "2.0.1"
     resolved "https://registry.npmjs.org/cssnano-utils/-/cssnano-utils-2.0.1.tgz"
     integrity sha512-i8vLRZTnEH9ubIyfdZCAdIdgnHAUeQeByEeQ2I7oTilvP9oHO6RScpeq3GsFUVqeB8uZgOQ9pw8utofNn32hhQ==
   
-  cssnano@^5.0.6, cssnano@^5.0.8:
+  cssnano@5.0.14:
+    version "5.0.14"
+    resolved "https://registry.yarnpkg.com/cssnano/-/cssnano-5.0.14.tgz#99bc550f663b48c38e9b8e0ae795697c9de84b47"
+    integrity sha512-qzhRkFvBhv08tbyKCIfWbxBXmkIpLl1uNblt8SpTHkgLfON5OCPX/CCnkdNmEosvo8bANQYmTTMEgcVBlisHaw==
+    dependencies:
+      cssnano-preset-default "^5.1.9"
+      lilconfig "^2.0.3"
+      yaml "^1.10.2"
+  
+  cssnano@^5.0.6:
     version "5.0.8"
-    resolved "https://registry.npmjs.org/cssnano/-/cssnano-5.0.8.tgz"
+    resolved "https://registry.yarnpkg.com/cssnano/-/cssnano-5.0.8.tgz#39ad166256980fcc64faa08c9bb18bb5789ecfa9"
     integrity sha512-Lda7geZU0Yu+RZi2SGpjYuQz4HI4/1Y+BhdD0jL7NXAQ5larCzVn+PUGuZbDMYz904AXXCOgO5L1teSvgu7aFg==
     dependencies:
       cssnano-preset-default "^5.1.4"
@@ -3499,7 +3550,7 @@ Lockfile:
     resolved "https://registry.npmjs.org/growly/-/growly-1.3.0.tgz"
     integrity sha1-8QdIy+dq+WS3yWyTxrzCivEgwIE=
   
-  gulp-cli@^2.2.0, gulp-cli@^2.3.0:
+  gulp-cli@2.3.0, gulp-cli@^2.2.0:
     version "2.3.0"
     resolved "https://registry.npmjs.org/gulp-cli/-/gulp-cli-2.3.0.tgz"
     integrity sha512-zzGBl5fHo0EKSXsHzjspp3y5CONegCm8ErO5Qh0UzFzk2y4tMvzLWhoDokADbarfZRL2pGpRp7yt6gfJX4ph7A==
@@ -3523,9 +3574,9 @@ Lockfile:
       v8flags "^3.2.0"
       yargs "^7.1.0"
   
-  gulp-postcss@^9.0.1:
+  gulp-postcss@9.0.1:
     version "9.0.1"
-    resolved "https://registry.npmjs.org/gulp-postcss/-/gulp-postcss-9.0.1.tgz"
+    resolved "https://registry.yarnpkg.com/gulp-postcss/-/gulp-postcss-9.0.1.tgz#d43caa2f2ce1018f889f7c1296faf82e9928b66f"
     integrity sha512-9QUHam5JyXwGUxaaMvoFQVT44tohpEFpM8xBdPfdwTYGM0AItS1iTQz0MpsF8Jroh7GF5Jt2GVPaYgvy8qD2Fw==
     dependencies:
       fancy-log "^1.3.3"
@@ -3533,22 +3584,33 @@ Lockfile:
       postcss-load-config "^3.0.0"
       vinyl-sourcemaps-apply "^0.2.1"
   
-  gulp-sass@^5.0.0:
-    version "5.0.0"
-    resolved "https://registry.npmjs.org/gulp-sass/-/gulp-sass-5.0.0.tgz"
-    integrity sha512-J0aH0/2N4+2szGCeut0ktGHK0Wg8L9uWivuigrl7xv+nhxozBQRAKLrhnDDaTa3FeUWYtgT8w4RlgdhRy5v16w==
+  gulp-sass@5.1.0:
+    version "5.1.0"
+    resolved "https://registry.yarnpkg.com/gulp-sass/-/gulp-sass-5.1.0.tgz#bb3d9094f39a260f62a8d0a6797b95ab826f9663"
+    integrity sha512-7VT0uaF+VZCmkNBglfe1b34bxn/AfcssquLKVDYnCDJ3xNBaW7cUuI3p3BQmoKcoKFrs9jdzUxyb+u+NGfL4OQ==
     dependencies:
-      chalk "^4.1.1"
-      lodash "^4.17.20"
+      lodash.clonedeep "^4.5.0"
+      picocolors "^1.0.0"
       plugin-error "^1.0.1"
       replace-ext "^2.0.0"
-      strip-ansi "^6.0.0"
-      transfob "^1.0.0"
+      strip-ansi "^6.0.1"
       vinyl-sourcemaps-apply "^0.2.1"
   
-  gulp@^4.0.2:
+  gulp-typescript@6.0.0-alpha.1:
+    version "6.0.0-alpha.1"
+    resolved "https://registry.yarnpkg.com/gulp-typescript/-/gulp-typescript-6.0.0-alpha.1.tgz#fcb0dbbc79c34201f0945c6323c194a8f5455a04"
+    integrity sha512-KoT0TTfjfT7w3JItHkgFH1T/zK4oXWC+a8xxKfniRfVcA0Fa1bKrIhztYelYmb+95RB80OLMBreknYkdwzdi2Q==
+    dependencies:
+      ansi-colors "^4.1.1"
+      plugin-error "^1.0.1"
+      source-map "^0.7.3"
+      through2 "^3.0.1"
+      vinyl "^2.2.0"
+      vinyl-fs "^3.0.3"
+  
+  gulp@4.0.2:
     version "4.0.2"
-    resolved "https://registry.npmjs.org/gulp/-/gulp-4.0.2.tgz"
+    resolved "https://registry.yarnpkg.com/gulp/-/gulp-4.0.2.tgz#543651070fd0f6ab0a0650c6a3e6ff5a7cb09caa"
     integrity sha512-dvEs27SCZt2ibF29xYgmnwwCYZxdxhQ/+LFWlbAW8y7jt68L/65402Lz3+CKy0Ov4rOs+NERmDq7YlZaDqUIfA==
     dependencies:
       glob-watcher "^5.0.3"
@@ -3826,6 +3888,11 @@ Lockfile:
     integrity sha512-UwRcPQdwdOyEHyCxe1V9s9YFwInwEWCpoO+kJGfIqDrBDqA8jZUsEZTxQ0JteNPGw/Gupmwesk2OhLTcnw6tnQ==
     dependencies:
       loader-utils "^1.1.0"
+  
+  immutable@^4.0.0:
+    version "4.0.0"
+    resolved "https://registry.yarnpkg.com/immutable/-/immutable-4.0.0.tgz#b86f78de6adef3608395efb269a91462797e2c23"
+    integrity sha512-zIE9hX70qew5qTUjSS7wi1iwj/l7+m54KWU247nhM3v806UdGj1yDndXj+IOYxxtW9zyLI+xqFNZjTuDaLUqFw==
   
   import-cwd@^3.0.0:
     version "3.0.0"
@@ -4326,9 +4393,9 @@ Lockfile:
     resolved "https://registry.npmjs.org/klona/-/klona-2.0.4.tgz"
     integrity sha512-ZRbnvdg/NxqzC7L9Uyqzf4psi1OM4Cuc+sJAkQPjO6XkQIJTNbfK2Rsmbw8fx1p2mkZdp2FZYo2+LwXYY/uwIA==
   
-  laravel-mix@^6.0.31:
+  laravel-mix@6.0.31:
     version "6.0.31"
-    resolved "https://registry.npmjs.org/laravel-mix/-/laravel-mix-6.0.31.tgz"
+    resolved "https://registry.yarnpkg.com/laravel-mix/-/laravel-mix-6.0.31.tgz#c33b869d11549e781484c52f11b12405cecc72a1"
     integrity sha512-T9uFNNARS5hXl5JggCkLKybwAnyYEHBXzPseC0yJ/6EVK7eyvPOq2UAGDVqhfYTZKxrMd5B5ww1kEooDRoH+OA==
     dependencies:
       "@babel/core" "^7.14.5"
@@ -4476,6 +4543,11 @@ Lockfile:
     dependencies:
       p-locate "^4.1.0"
   
+  lodash.clonedeep@^4.5.0:
+    version "4.5.0"
+    resolved "https://registry.yarnpkg.com/lodash.clonedeep/-/lodash.clonedeep-4.5.0.tgz#e23f3f9c4f8fbdde872529c1071857a086e5ccef"
+    integrity sha1-4j8/nE+Pvd6HJSnBBxhXoIblzO8=
+  
   lodash.debounce@^4.0.8:
     version "4.0.8"
     resolved "https://registry.npmjs.org/lodash.debounce/-/lodash.debounce-4.0.8.tgz"
@@ -4491,7 +4563,7 @@ Lockfile:
     resolved "https://registry.npmjs.org/lodash.uniq/-/lodash.uniq-4.5.0.tgz"
     integrity sha1-0CJTc662Uq3BvILklFM5qEJ1R3M=
   
-  lodash@^4.17.14, lodash@^4.17.19, lodash@^4.17.20, lodash@^4.17.21:
+  lodash@^4.17.14, lodash@^4.17.19, lodash@^4.17.21:
     version "4.17.21"
     resolved "https://registry.npmjs.org/lodash/-/lodash-4.17.21.tgz"
     integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
@@ -4756,6 +4828,11 @@ Lockfile:
     version "3.1.25"
     resolved "https://registry.npmjs.org/nanoid/-/nanoid-3.1.25.tgz"
     integrity sha512-rdwtIXaXCLFAQbnfqDRnI6jaRHp9fTcYBjtFKE8eezcZ7LuLjhUaQGNeMXf1HmRoCH32CLz6XwX0TtxEOS/A3Q==
+  
+  nanoid@^3.1.30:
+    version "3.1.30"
+    resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.1.30.tgz#63f93cc548d2a113dc5dfbc63bfa09e2b9b64362"
+    integrity sha512-zJpuPDwOv8D2zq2WRoMe1HsfZthVewpel9CAvTfc/2mBD1uUT/agc5f7GHGWXlYkFvi1mVxe4IjvP2HNrop7nQ==
   
   nanomatch@^1.2.9:
     version "1.2.13"
@@ -5276,6 +5353,11 @@ Lockfile:
     resolved "https://registry.npmjs.org/picocolors/-/picocolors-0.2.1.tgz"
     integrity sha512-cMlDqaLEqfSaW8Z7N5Jw+lyIW869EzT73/F5lhtY9cLGoVxSXznfgfXMO0Z5K0o0Q2TkTXq+0KFsdnSe3jDViA==
   
+  picocolors@^1.0.0:
+    version "1.0.0"
+    resolved "https://registry.yarnpkg.com/picocolors/-/picocolors-1.0.0.tgz#cb5bdc74ff3f51892236eaf79d68bc44564ab81c"
+    integrity sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==
+  
   picomatch@^2.0.4, picomatch@^2.2.1, picomatch@^2.2.3:
     version "2.3.0"
     resolved "https://registry.npmjs.org/picomatch/-/picomatch-2.3.0.tgz"
@@ -5347,10 +5429,27 @@ Lockfile:
       colord "^2.0.1"
       postcss-value-parser "^4.1.0"
   
+  postcss-colormin@^5.2.2:
+    version "5.2.2"
+    resolved "https://registry.yarnpkg.com/postcss-colormin/-/postcss-colormin-5.2.2.tgz#019cd6912bef9e7e0924462c5e4ffae241e2f437"
+    integrity sha512-tSEe3NpqWARUTidDlF0LntPkdlhXqfDFuA1yslqpvvGAfpZ7oBaw+/QXd935NKm2U9p4PED0HDZlzmMk7fVC6g==
+    dependencies:
+      browserslist "^4.16.6"
+      caniuse-api "^3.0.0"
+      colord "^2.9.1"
+      postcss-value-parser "^4.2.0"
+  
   postcss-convert-values@^5.0.1:
     version "5.0.1"
     resolved "https://registry.npmjs.org/postcss-convert-values/-/postcss-convert-values-5.0.1.tgz"
     integrity sha512-C3zR1Do2BkKkCgC0g3sF8TS0koF2G+mN8xxayZx3f10cIRmTaAnpgpRQZjNekTZxM2ciSPoh2IWJm0VZx8NoQg==
+    dependencies:
+      postcss-value-parser "^4.1.0"
+  
+  postcss-convert-values@^5.0.2:
+    version "5.0.2"
+    resolved "https://registry.yarnpkg.com/postcss-convert-values/-/postcss-convert-values-5.0.2.tgz#879b849dc3677c7d6bc94b6a2c1a3f0808798059"
+    integrity sha512-KQ04E2yadmfa1LqXm7UIDwW1ftxU/QWZmz6NKnHnUvJ3LEYbbcX6i329f/ig+WnEByHegulocXrECaZGLpL8Zg==
     dependencies:
       postcss-value-parser "^4.1.0"
   
@@ -5401,6 +5500,14 @@ Lockfile:
       postcss-value-parser "^4.1.0"
       stylehacks "^5.0.1"
   
+  postcss-merge-longhand@^5.0.4:
+    version "5.0.4"
+    resolved "https://registry.yarnpkg.com/postcss-merge-longhand/-/postcss-merge-longhand-5.0.4.tgz#41f4f3270282ea1a145ece078b7679f0cef21c32"
+    integrity sha512-2lZrOVD+d81aoYkZDpWu6+3dTAAGkCKbV5DoRhnIR7KOULVrI/R7bcMjhrH9KTRy6iiHKqmtG+n/MMj1WmqHFw==
+    dependencies:
+      postcss-value-parser "^4.1.0"
+      stylehacks "^5.0.1"
+  
   postcss-merge-rules@^5.0.2:
     version "5.0.2"
     resolved "https://registry.npmjs.org/postcss-merge-rules/-/postcss-merge-rules-5.0.2.tgz"
@@ -5411,6 +5518,16 @@ Lockfile:
       cssnano-utils "^2.0.1"
       postcss-selector-parser "^6.0.5"
       vendors "^1.0.3"
+  
+  postcss-merge-rules@^5.0.3:
+    version "5.0.3"
+    resolved "https://registry.yarnpkg.com/postcss-merge-rules/-/postcss-merge-rules-5.0.3.tgz#b5cae31f53129812a77e3eb1eeee448f8cf1a1db"
+    integrity sha512-cEKTMEbWazVa5NXd8deLdCnXl+6cYG7m2am+1HzqH0EnTdy8fRysatkaXb2dEnR+fdaDxTvuZ5zoBdv6efF6hg==
+    dependencies:
+      browserslist "^4.16.6"
+      caniuse-api "^3.0.0"
+      cssnano-utils "^2.0.1"
+      postcss-selector-parser "^6.0.5"
   
   postcss-minify-font-values@^5.0.1:
     version "5.0.1"
@@ -5428,6 +5545,15 @@ Lockfile:
       cssnano-utils "^2.0.1"
       postcss-value-parser "^4.1.0"
   
+  postcss-minify-gradients@^5.0.3:
+    version "5.0.3"
+    resolved "https://registry.yarnpkg.com/postcss-minify-gradients/-/postcss-minify-gradients-5.0.3.tgz#f970a11cc71e08e9095e78ec3a6b34b91c19550e"
+    integrity sha512-Z91Ol22nB6XJW+5oe31+YxRsYooxOdFKcbOqY/V8Fxse1Y3vqlNRpi1cxCqoACZTQEhl+xvt4hsbWiV5R+XI9Q==
+    dependencies:
+      colord "^2.9.1"
+      cssnano-utils "^2.0.1"
+      postcss-value-parser "^4.1.0"
+  
   postcss-minify-params@^5.0.1:
     version "5.0.1"
     resolved "https://registry.npmjs.org/postcss-minify-params/-/postcss-minify-params-5.0.1.tgz"
@@ -5438,6 +5564,16 @@ Lockfile:
       cssnano-utils "^2.0.1"
       postcss-value-parser "^4.1.0"
       uniqs "^2.0.0"
+  
+  postcss-minify-params@^5.0.2:
+    version "5.0.2"
+    resolved "https://registry.yarnpkg.com/postcss-minify-params/-/postcss-minify-params-5.0.2.tgz#1b644da903473fbbb18fbe07b8e239883684b85c"
+    integrity sha512-qJAPuBzxO1yhLad7h2Dzk/F7n1vPyfHfCCh5grjGfjhi1ttCnq4ZXGIW77GSrEbh9Hus9Lc/e/+tB4vh3/GpDg==
+    dependencies:
+      alphanum-sort "^1.0.2"
+      browserslist "^4.16.6"
+      cssnano-utils "^2.0.1"
+      postcss-value-parser "^4.1.0"
   
   postcss-minify-selectors@^5.1.0:
     version "5.1.0"
@@ -5535,6 +5671,14 @@ Lockfile:
       normalize-url "^6.0.1"
       postcss-value-parser "^4.1.0"
   
+  postcss-normalize-url@^5.0.4:
+    version "5.0.4"
+    resolved "https://registry.yarnpkg.com/postcss-normalize-url/-/postcss-normalize-url-5.0.4.tgz#3b0322c425e31dd275174d0d5db0e466f50810fb"
+    integrity sha512-cNj3RzK2pgQQyNp7dzq0dqpUpQ/wYtdDZM3DepPmFjCmYIfceuD9VIAcOdvrNetjIU65g1B4uwdP/Krf6AFdXg==
+    dependencies:
+      normalize-url "^6.0.1"
+      postcss-value-parser "^4.2.0"
+  
   postcss-normalize-whitespace@^5.0.1:
     version "5.0.1"
     resolved "https://registry.npmjs.org/postcss-normalize-whitespace/-/postcss-normalize-whitespace-5.0.1.tgz"
@@ -5558,6 +5702,14 @@ Lockfile:
       browserslist "^4.16.0"
       caniuse-api "^3.0.0"
   
+  postcss-reduce-initial@^5.0.2:
+    version "5.0.2"
+    resolved "https://registry.yarnpkg.com/postcss-reduce-initial/-/postcss-reduce-initial-5.0.2.tgz#fa424ce8aa88a89bc0b6d0f94871b24abe94c048"
+    integrity sha512-v/kbAAQ+S1V5v9TJvbGkV98V2ERPdU6XvMcKMjqAlYiJ2NtsHGlKYLPjWWcXlaTKNxooId7BGxeraK8qXvzKtw==
+    dependencies:
+      browserslist "^4.16.6"
+      caniuse-api "^3.0.0"
+  
   postcss-reduce-transforms@^5.0.1:
     version "5.0.1"
     resolved "https://registry.npmjs.org/postcss-reduce-transforms/-/postcss-reduce-transforms-5.0.1.tgz"
@@ -5565,6 +5717,11 @@ Lockfile:
     dependencies:
       cssnano-utils "^2.0.1"
       postcss-value-parser "^4.1.0"
+  
+  postcss-scss@4.0.2:
+    version "4.0.2"
+    resolved "https://registry.yarnpkg.com/postcss-scss/-/postcss-scss-4.0.2.tgz#39ddcc0ab32f155d5ab328ee91353d67a52d537b"
+    integrity sha512-xfdkU128CkKKKVAwkyt0M8OdnelJ3MRcIRAPPQkRpoPeuzWY3RIeg7piRCpZ79MK7Q16diLXMMAD9dN5mauPlQ==
   
   postcss-selector-parser@^6.0.2, postcss-selector-parser@^6.0.4, postcss-selector-parser@^6.0.5:
     version "6.0.6"
@@ -5582,6 +5739,14 @@ Lockfile:
       postcss-value-parser "^4.1.0"
       svgo "^2.3.0"
   
+  postcss-svgo@^5.0.3:
+    version "5.0.3"
+    resolved "https://registry.yarnpkg.com/postcss-svgo/-/postcss-svgo-5.0.3.tgz#d945185756e5dfaae07f9edb0d3cae7ff79f9b30"
+    integrity sha512-41XZUA1wNDAZrQ3XgWREL/M2zSw8LJPvb5ZWivljBsUQAGoEKMYm6okHsTjJxKYI4M75RQEH4KYlEM52VwdXVA==
+    dependencies:
+      postcss-value-parser "^4.1.0"
+      svgo "^2.7.0"
+  
   postcss-unique-selectors@^5.0.1:
     version "5.0.1"
     resolved "https://registry.npmjs.org/postcss-unique-selectors/-/postcss-unique-selectors-5.0.1.tgz"
@@ -5591,10 +5756,32 @@ Lockfile:
       postcss-selector-parser "^6.0.5"
       uniqs "^2.0.0"
   
+  postcss-unique-selectors@^5.0.2:
+    version "5.0.2"
+    resolved "https://registry.yarnpkg.com/postcss-unique-selectors/-/postcss-unique-selectors-5.0.2.tgz#5d6893daf534ae52626708e0d62250890108c0c1"
+    integrity sha512-w3zBVlrtZm7loQWRPVC0yjUwwpty7OM6DnEHkxcSQXO1bMS3RJ+JUS5LFMSDZHJcvGsRwhZinCWVqn8Kej4EDA==
+    dependencies:
+      alphanum-sort "^1.0.2"
+      postcss-selector-parser "^6.0.5"
+  
   postcss-value-parser@^4.0.2, postcss-value-parser@^4.1.0:
     version "4.1.0"
     resolved "https://registry.npmjs.org/postcss-value-parser/-/postcss-value-parser-4.1.0.tgz"
     integrity sha512-97DXOFbQJhk71ne5/Mt6cOu6yxsSfM0QGQyl0L25Gca4yGWEGJaig7l7gbCX623VqTBNGLRLaVUCnNkcedlRSQ==
+  
+  postcss-value-parser@^4.2.0:
+    version "4.2.0"
+    resolved "https://registry.yarnpkg.com/postcss-value-parser/-/postcss-value-parser-4.2.0.tgz#723c09920836ba6d3e5af019f92bc0971c02e514"
+    integrity sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==
+  
+  postcss@8.4.5:
+    version "8.4.5"
+    resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.5.tgz#bae665764dfd4c6fcc24dc0fdf7e7aa00cc77f95"
+    integrity sha512-jBDboWM8qpaqwkMwItqTQTiFikhs/67OYVvblFFTM7MrZjt6yMKd6r2kgXizEbTTljacm4NldIlZnhbjr84QYg==
+    dependencies:
+      nanoid "^3.1.30"
+      picocolors "^1.0.0"
+      source-map-js "^1.0.1"
   
   postcss@^7.0.35:
     version "7.0.39"
@@ -5752,6 +5939,15 @@ Lockfile:
       normalize-package-data "^2.3.2"
       path-type "^1.0.0"
   
+  "readable-stream@2 || 3", readable-stream@^3.0.6, readable-stream@^3.6.0:
+    version "3.6.0"
+    resolved "https://registry.npmjs.org/readable-stream/-/readable-stream-3.6.0.tgz"
+    integrity sha512-BViHy7LKeTz4oNnkcLJ+lVSL6vpiFeX6/d3oSH8zCW7UxP2onchk+vTGB143xuFjHS3deTgkKoXXymXqymiIdA==
+    dependencies:
+      inherits "^2.0.3"
+      string_decoder "^1.1.1"
+      util-deprecate "^1.0.1"
+  
   readable-stream@^2.0.0, readable-stream@^2.0.1, readable-stream@^2.0.2, readable-stream@^2.0.5, readable-stream@^2.1.5, readable-stream@^2.2.2, readable-stream@^2.3.3, readable-stream@^2.3.5, readable-stream@^2.3.6, readable-stream@~2.3.6:
     version "2.3.7"
     resolved "https://registry.npmjs.org/readable-stream/-/readable-stream-2.3.7.tgz"
@@ -5764,15 +5960,6 @@ Lockfile:
       safe-buffer "~5.1.1"
       string_decoder "~1.1.1"
       util-deprecate "~1.0.1"
-  
-  readable-stream@^3.0.6, readable-stream@^3.6.0:
-    version "3.6.0"
-    resolved "https://registry.npmjs.org/readable-stream/-/readable-stream-3.6.0.tgz"
-    integrity sha512-BViHy7LKeTz4oNnkcLJ+lVSL6vpiFeX6/d3oSH8zCW7UxP2onchk+vTGB143xuFjHS3deTgkKoXXymXqymiIdA==
-    dependencies:
-      inherits "^2.0.3"
-      string_decoder "^1.1.1"
-      util-deprecate "^1.0.1"
   
   readdirp@^2.2.1:
     version "2.2.1"
@@ -6059,29 +6246,31 @@ Lockfile:
     resolved "https://registry.npmjs.org/safer-buffer/-/safer-buffer-2.1.2.tgz"
     integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
   
-  sass-loader@12.1.0:
-    version "12.1.0"
-    resolved "https://registry.npmjs.org/sass-loader/-/sass-loader-12.1.0.tgz"
-    integrity sha512-FVJZ9kxVRYNZTIe2xhw93n3xJNYZADr+q69/s98l9nTCrWASo+DR2Ot0s5xTKQDDEosUkatsGeHxcH4QBp5bSg==
+  sass-loader@12.4.0:
+    version "12.4.0"
+    resolved "https://registry.yarnpkg.com/sass-loader/-/sass-loader-12.4.0.tgz#260b0d51a8a373bb8e88efc11f6ba5583fea0bcf"
+    integrity sha512-7xN+8khDIzym1oL9XyS6zP6Ges+Bo2B2xbPrjdMHEYyV3AQYhd/wXeru++3ODHF0zMjYmVadblSKrPrjEkL8mg==
     dependencies:
       klona "^2.0.4"
       neo-async "^2.6.2"
   
-  sass-true@^6.0.1:
+  sass-true@6.0.1:
     version "6.0.1"
-    resolved "https://registry.npmjs.org/sass-true/-/sass-true-6.0.1.tgz"
+    resolved "https://registry.yarnpkg.com/sass-true/-/sass-true-6.0.1.tgz#c159fa27df2f9ee22bb624a851144a8af7dc8a32"
     integrity sha512-Ow72fStIgw+qRRUc0r77emeWry06a3e1hXtadPEzDL/GFiEjtQKZel5fr+gu85zC8JYmLkZofMn6x9b/sq+wfg==
     dependencies:
       chalk "^4.1.0"
       css "^3.0.0"
       lodash "^4.17.19"
   
-  sass@^1.38.2:
-    version "1.38.2"
-    resolved "https://registry.npmjs.org/sass/-/sass-1.38.2.tgz"
-    integrity sha512-Bz1fG6qiyF0FX6m/I+VxtdVKz1Dfmg/e9kfDy2PhWOkq3T384q2KxwIfP0fXpeI+EyyETdOauH+cRHQDFASllA==
+  sass@1.45.2:
+    version "1.45.2"
+    resolved "https://registry.yarnpkg.com/sass/-/sass-1.45.2.tgz#130b428c1692201cfa181139835d6fc378a33323"
+    integrity sha512-cKfs+F9AMPAFlbbTXNsbGvg3y58nV0mXA3E94jqaySKcC8Kq3/8983zVKQ0TLMUrHw7hF9Tnd3Bz9z5Xgtrl9g==
     dependencies:
       chokidar ">=3.0.0 <4.0.0"
+      immutable "^4.0.0"
+      source-map-js ">=0.6.2 <2.0.0"
   
   schema-utils@^2.6.5:
     version "2.7.1"
@@ -6307,6 +6496,11 @@ Lockfile:
     resolved "https://registry.npmjs.org/source-list-map/-/source-list-map-2.0.1.tgz"
     integrity sha512-qnQ7gVMxGNxsiL4lEuJwe/To8UnK7fAnmbGEEH8RpLouuKbeEm0lhbQVFIrNSuB+G7tVrAlVsZgETT5nljf+Iw==
   
+  "source-map-js@>=0.6.2 <2.0.0", source-map-js@^1.0.1:
+    version "1.0.1"
+    resolved "https://registry.yarnpkg.com/source-map-js/-/source-map-js-1.0.1.tgz#a1741c131e3c77d048252adfa24e23b908670caf"
+    integrity sha512-4+TN2b3tqOCd/kaGRJ/sTYA0tR0mdXx26ipdolxcwtJVqEnqNYvlCAt1q3ypy4QMlYus+Zh34RNtYLoq2oQ4IA==
+  
   source-map-js@^0.6.2:
     version "0.6.2"
     resolved "https://registry.npmjs.org/source-map-js/-/source-map-js-0.6.2.tgz"
@@ -6354,7 +6548,7 @@ Lockfile:
     resolved "https://registry.npmjs.org/source-map/-/source-map-0.5.7.tgz"
     integrity sha1-igOdLRAh0i0eoUyA2OpGi6LvP8w=
   
-  source-map@~0.7.2:
+  source-map@^0.7.3, source-map@~0.7.2:
     version "0.7.3"
     resolved "https://registry.npmjs.org/source-map/-/source-map-0.7.3.tgz"
     integrity sha512-CkCj6giN3S+n9qrYiBTX5gystlENnRW5jZeNLHpe6aue+SrHcG5VYwujhW9s4dY31mEGsxBDrHR6oI69fTXsaQ==
@@ -6602,6 +6796,19 @@ Lockfile:
       csso "^4.2.0"
       stable "^0.1.8"
   
+  svgo@^2.7.0:
+    version "2.8.0"
+    resolved "https://registry.yarnpkg.com/svgo/-/svgo-2.8.0.tgz#4ff80cce6710dc2795f0c7c74101e6764cfccd24"
+    integrity sha512-+N/Q9kV1+F+UeWYoSiULYo4xYSDQlTgb+ayMobAXPwMnLvop7oxKMo9OzIrX5x3eS4L4f2UHhc9axXwY8DpChg==
+    dependencies:
+      "@trysound/sax" "0.2.0"
+      commander "^7.2.0"
+      css-select "^4.1.3"
+      css-tree "^1.1.3"
+      csso "^4.2.0"
+      picocolors "^1.0.0"
+      stable "^0.1.8"
+  
   tapable@^2.1.1, tapable@^2.2.0:
     version "2.2.1"
     resolved "https://registry.npmjs.org/tapable/-/tapable-2.2.1.tgz"
@@ -6657,6 +6864,14 @@ Lockfile:
     dependencies:
       readable-stream "~2.3.6"
       xtend "~4.0.1"
+  
+  through2@^3.0.1:
+    version "3.0.2"
+    resolved "https://registry.yarnpkg.com/through2/-/through2-3.0.2.tgz#99f88931cfc761ec7678b41d5d7336b5b6a07bf4"
+    integrity sha512-enaDQ4MUyP2W6ZyT6EsMzqBPZaM/avg8iuo+l2d3QCs0J+6RaqkHV/2/lOwDTueBHeJ/2LG9lrLW3d5rWPucuQ==
+    dependencies:
+      inherits "^2.0.4"
+      readable-stream "2 || 3"
   
   thunky@^1.0.2:
     version "1.1.0"
@@ -6742,14 +6957,9 @@ Lockfile:
     resolved "https://registry.npmjs.org/toidentifier/-/toidentifier-1.0.0.tgz"
     integrity sha512-yaOH/Pk/VEhBWWTlhI+qXxDFXlejDGcQipMlyxda9nthulaxLZUNcUqFxokp0vcYnvteJln5FNQDRrxj3YcbVw==
   
-  transfob@^1.0.0:
-    version "1.0.0"
-    resolved "https://registry.npmjs.org/transfob/-/transfob-1.0.0.tgz"
-    integrity sha1-x/wnpbVDCtSGJnrmZtkj90oKsyA=
-  
-  ts-loader@^9.2.6:
+  ts-loader@9.2.6:
     version "9.2.6"
-    resolved "https://registry.npmjs.org/ts-loader/-/ts-loader-9.2.6.tgz"
+    resolved "https://registry.yarnpkg.com/ts-loader/-/ts-loader-9.2.6.tgz#9937c4dd0a1e3dbbb5e433f8102a6601c6615d74"
     integrity sha512-QMTC4UFzHmu9wU2VHZEmWWE9cUajjfcdcws+Gh7FhiO+Dy0RnR1bNz0YCHqhI0yRowCE9arVnNxYHqELOy9Hjw==
     dependencies:
       chalk "^4.1.0"
@@ -6795,10 +7005,10 @@ Lockfile:
     resolved "https://registry.npmjs.org/typedarray/-/typedarray-0.0.6.tgz"
     integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
   
-  typescript@^4.3.2:
-    version "4.3.2"
-    resolved "https://registry.npmjs.org/typescript/-/typescript-4.3.2.tgz"
-    integrity sha512-zZ4hShnmnoVnAHpVHWpTcxdv7dWP60S2FsydQLV8V5PbS3FifjWFFRiHSWpDJahly88PRyV5teTSLoq4eG7mKw==
+  typescript@4.5.4:
+    version "4.5.4"
+    resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.5.4.tgz#a17d3a0263bf5c8723b9c52f43c5084edf13c2e8"
+    integrity sha512-VgYs2A2QIRuGphtzFV7aQJduJ2gyfTljngLzjpfW9FoYZF6xuw1W0vW9ghCKLfcWrCFxK81CSGRAvS1pn4fIUg==
   
   unc-path-regex@^0.1.2:
     version "0.1.2"
@@ -6989,7 +7199,7 @@ Lockfile:
     resolved "https://registry.npmjs.org/vendors/-/vendors-1.0.4.tgz"
     integrity sha512-/juG65kTL4Cy2su4P8HjtkTxk6VmJDiOPBufWniqQ6wknac6jNiXS9vU+hO3wgusiyqWlzTbVHi0dyJqRONg3w==
   
-  vinyl-fs@^3.0.0:
+  vinyl-fs@^3.0.0, vinyl-fs@^3.0.3:
     version "3.0.3"
     resolved "https://registry.npmjs.org/vinyl-fs/-/vinyl-fs-3.0.3.tgz"
     integrity sha512-vIu34EkyNyJxmP0jscNzWBSygh7VWhqun6RmqVfXePrOwi9lhvRs//dOaGOTRUQr4tx7/zd26Tk5WeSVZitgng==
@@ -7032,7 +7242,7 @@ Lockfile:
     dependencies:
       source-map "^0.5.1"
   
-  vinyl@^2.0.0:
+  vinyl@^2.0.0, vinyl@^2.2.0:
     version "2.2.1"
     resolved "https://registry.npmjs.org/vinyl/-/vinyl-2.2.1.tgz"
     integrity sha512-LII3bXRFBZLlezoG5FfZVcXflZgWP/4dCwKtxd5ky9+LOtM4CS3bIRQsmR1KMnMW07jpE8fqR2lcxPZ+8sJIcw==

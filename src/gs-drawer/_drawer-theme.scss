@@ -23,26 +23,26 @@
 @use '../scaffold';
 
 $init-struct: (
-    //
+  //
 );
 
 $init-color: (
-    default: 'primary-light',
-    ink: 'surface'
+  default: 'primary-light',
+  ink: 'surface'
 );
 
 $init-shape: (
-    shape: 'block',
-    exceptions: ('round', 'pill')
+  shape: 'block',
+  exceptions: ('round', 'pill')
 );
 
 $init-typography: (
-    family: 'family-action',
-    size: 'size-action',
-    weight: 'weight-body',
-    line-height: 'line-height-body'
+  family: 'family-action',
+  size: 'size-action',
+  weight: 'weight-body',
+  line-height: 'line-height-body'
 );
 
 $init-settings: (
-    has-elevation: true
+  has-elevation: true
 );
