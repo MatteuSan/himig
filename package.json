@@ -8,6 +8,11 @@
   "author": "Matteu <matteugt@gmail.com>",
   "license": "MIT",
   "private": false,
+  "scripts": {
+    "build:sass": "gulp",
+    "pack:dist": "npm pack --pack-destination=\"./dist\"",
+    "pack:root": "npm pack --pack-destination=\"./\""
+  },
   "dependencies": {
     "@matteusan/sentro": "0.1.21"
   },
