@@ -2,8 +2,6 @@ name: Bug Report
 description: File a bug report
 title: "[BUG] <description>"
 labels: ["bug"]
-assignees:
-  - MatteuSan
 body:
   - type: textarea
     id: problem-details

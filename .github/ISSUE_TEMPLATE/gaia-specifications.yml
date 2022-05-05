@@ -1,5 +1,5 @@
 name: Specifications
-description: ONLY FOR INTERNAL STAFF!
+description: ONLY FOR INTERNAL STAFF! Propose a specification document.
 title: "[SPEC] <description>"
 labels: ["specs"]
 assignees:
