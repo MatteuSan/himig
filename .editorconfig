@@ -1,6 +1,6 @@
 root = true
 
-[*]
+[{*.scss, *.ts, *.js}]
 indent_style = space
 indent_size = 2
 ij_continuation_indent_size = 2

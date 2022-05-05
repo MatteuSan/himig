@@ -1,16 +1,8 @@
-/.idea
-/.dart_tool
 /node_modules
-/src/node_modules
-/src/**/*.js
-/src/**/*.d.ts
-/src/**/*.d.ts.map
-/src/**/*.js.map
-# /src/**/*.[Tt]est.html
-/src/**/*.[Tt]est.css
-/src/**/*.[Tt]est.js
-*.css.map
-*.d.ts
-*.d.ts.map
-*.js.map
-scripts.js
+/vendor
+
+/build
+/dist
+
+/.idea
+/.vscode
