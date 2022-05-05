@@ -1,4 +1,5 @@
-![Gaia Logo](media/gds-logo-dark.svg)
+![Gaia Logo Light Mode](https://raw.githubusercontent.com/GrowStocks/gaia/main/media/gds-logo-light.svg?sanitize=true#gh-light-mode-only)
+![Gaia Logo Dark Mode](https://raw.githubusercontent.com/GrowStocks/gaia/main/media/gds-logo-dark.svg?sanitize=true#gh-dark-mode-only)
 
 ## Prerequisites
 Be sure to have NodeJS LTS installed. Any other version will risk the project breaking in development.
