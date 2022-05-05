@@ -3,7 +3,7 @@ description: File a bug report
 title: "[BUG] <description>"
 labels: ["bug"]
 assignees:
-  - octocat
+  - MatteuSan
 body:
   - type: textarea
     id: problem-details
