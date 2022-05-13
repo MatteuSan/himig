@@ -14,7 +14,7 @@
     "pack:root": "npm pack --pack-destination=\"./\""
   },
   "dependencies": {
-    "@matteusan/sentro": "0.1.21"
+    "@matteusan/sentro": "0.1.22"
   },
   "devDependencies": {
     "gulp": "4.0.2",
