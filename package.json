@@ -1,9 +1,11 @@
 {
-  "name": "@growstocks/gaia",
+  "name": "gaia",
   "version": "0.1.0",
   "description": "A design system for building living and breathing experiences for Growtopians.",
-  "main": "packages/gaia/index.js",
-  "files": ["packages/gaia/**/*"],
+  "main": "packages/gaia/_index.scss",
+  "files": [
+    "packages/**/*"
+  ],
   "repository": "https://github.com/GrowStocks/gaia",
   "author": "Matteu <matteugt@gmail.com>",
   "license": "MIT",
@@ -14,7 +16,7 @@
     "pack:root": "npm pack --pack-destination=\"./\""
   },
   "dependencies": {
-    "@matteusan/sentro": "0.1.21"
+    "@matteusan/sentro": "0.1.22"
   },
   "devDependencies": {
     "gulp": "4.0.2",
