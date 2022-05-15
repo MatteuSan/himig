@@ -4,6 +4,7 @@
 
 /build
 /dist
+/dump
 
 /.idea
 /.vscode
