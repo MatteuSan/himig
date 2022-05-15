@@ -74,3 +74,6 @@ For the API information, please visit the [color composition API page](../../api
   ));
 }
 ```
+
+### What if we don't want a color on the `x` part?
+The design system doesn't prohibit you to use the **transparent color** for a specific part of the component. In fact, it is used in the outlined styles of a component (see [outlined button style](page missing)).
