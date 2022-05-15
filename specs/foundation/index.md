@@ -4,7 +4,10 @@ slug: /design/foundation
 ---
 # Foundation
 
-**[Color](color.md)**<br/>
+**[Tokens](tokens.md)**<br/>
+All about how Gaia uses tokens to power itself.
+
+**[Color](color/applying-colors.md)**<br/>
 See how Gaia uses colors to create beautiful, living, and harmonious interfaces.
 
 **[Sprites](sprites.md)**<br/>
