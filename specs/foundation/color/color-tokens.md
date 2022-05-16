@@ -1,6 +1,6 @@
 ---
 title: Color Tokens
-slug: /design/foundation/color/tokens
+slug: /foundation/color/tokens
 ---
 # Color Tokens
 Gaia provides an extensive list of carefully crafted, pre-made color tokens ready to go.
