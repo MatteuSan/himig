@@ -46,3 +46,16 @@ form fields, etc.
 | `el-spacing.4xl`  | `6.1rem`  |
 | `el-spacing.5xl`  | `8.2rem`  |
 | `el-spacing.6xl`  | `12.3rem` |
+
+### Dimension Tokens
+Dimension tokens are applied to anything that defines the width and height of an element. We recommend only using these
+for max and min values to preserve the responsiveness.
+
+| Token            | Value    |
+|------------------|----------|
+| `dimension.none` | `0`      |
+| `dimension.xs`   | `277px`  |
+| `dimension.sm`   | `320px`  |
+| `dimension.md`   | `640px`  |
+| `dimension.lg`   | `890px`  |
+| `dimension.xl`   | `1077px` |
