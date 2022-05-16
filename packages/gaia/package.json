@@ -8,5 +8,9 @@
   "private": false,
   "dependencies": {
     "@matteusan/sentro": "0.1.22"
+  },
+  "devDependencies": {
+    "stylelint-scss": "4.2.0",
+    "postcss-scss": "4.0.4"
   }
 }
