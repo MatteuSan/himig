@@ -16,10 +16,9 @@
     "pack:root": "npm pack --pack-destination=\"./\"",
     "lint:sass": "npx stylelint \"**/*.scss\""
   },
-  "dependencies": {
-    "@matteusan/sentro": "0.1.22"
-  },
   "devDependencies": {
+    "@growstocks/gaia": "file:./packages/gaia",
+    "@matteusan/sentro": "0.1.22",
     "gulp": "4.0.2",
     "gulp-cli": "2.3.0",
     "gulp-sass": "5.1.0",
