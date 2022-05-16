@@ -1,5 +1,5 @@
 ---
 title: Theme
-slug: /design/foundation/theme
+slug: /foundation/theme
 ---
 # Theme

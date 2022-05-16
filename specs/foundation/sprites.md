@@ -1,5 +1,5 @@
 ---
 title: Sprites
-slug: /design/foundation/sprites
+slug: /foundation/sprites
 ---
 # Sprites

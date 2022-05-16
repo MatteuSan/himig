@@ -1,6 +1,6 @@
 ---
 title: Foundation
-slug: /design/foundation
+slug: /foundation
 ---
 # Foundation
 

@@ -1,6 +1,6 @@
 ---
 title: Tokens
-slug: /design/foundation/tokens
+slug: /foundation/tokens
 ---
 # Tokens
 Gaia uses tokens as the foundation of its design. Tokens provide the smallest unit of design in an interface.

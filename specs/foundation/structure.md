@@ -1,5 +1,5 @@
 ---
 title: Structure
-slug: /design/foundation/structure
+slug: /foundation/structure
 ---
 # Structure

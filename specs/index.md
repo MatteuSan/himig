@@ -1,6 +1,6 @@
 ---
 title: Introduction
-slug: /design
+slug: /
 ---
 # Introduction
 Gaia (formerly Stack) is GrowStocks' design system for building living and breathing experiences for Growtopians. It

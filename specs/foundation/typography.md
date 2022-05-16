@@ -1,5 +1,5 @@
 ---
 title: Typography
-slug: /design/foundation/typography
+slug: /foundation/typography
 ---
 # Typography
