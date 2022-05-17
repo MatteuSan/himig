@@ -88,14 +88,20 @@ for max and min values to preserve the responsiveness.
 | `dimension.lg`   | `890px`  |
 | `dimension.xl`   | `1077px` |
 
+We've implemented a special dimension token for [item sprites](../sprites.md).
+
+| Token              | Value  |
+|--------------------|--------|
+| `dimension.sprite` | `32px` |
+
 ### Border Tokens
 Border tokens define the size of the edges of an element.
 
-| Token            | Value  |
-|------------------|--------|
-| `dimension.none` | `0`    |
-| `dimension.xs`   | `1px`  |
-| `dimension.sm`   | `3px`  |
-| `dimension.md`   | `5px`  |
-| `dimension.lg`   | `7x`   |
-| `dimension.xl`   | `11px` |
+| Token         | Value  |
+|---------------|--------|
+| `border.none` | `0`    |
+| `border.xs`   | `1px`  |
+| `border.sm`   | `3px`  |
+| `border.md`   | `5px`  |
+| `border.lg`   | `7x`   |
+| `border.xl`   | `11px` |
