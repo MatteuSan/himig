@@ -31,4 +31,4 @@ Whether you're rendering HTML from the server using server-side code, or you're 
 The design system should be able to cater experiences that are tailored fit for Growtopians. It should provide specifications on how
 to handle Growtopia-specific data like item sprites, typography, and workflow.
 
-Now, are you ready to start working with Gaia?
+Now, are you ready to start working with Gaia? Click [here](getting-started/setup.md) to get started!
