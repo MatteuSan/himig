@@ -31,6 +31,8 @@ values.
 ## Token Syntax
 It is important to learn the token syntax to help you make sense of its nature when querying.
 
+All tokens are in `snake-case` and **CANNOT** be in `camelCase`.
+
 ### Primitive token syntax
 Primitive tokens have this same exact syntax:
 ```txt
