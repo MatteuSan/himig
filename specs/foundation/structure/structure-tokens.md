@@ -49,6 +49,32 @@ form fields, etc.
 | `el-spacing.5xl`  | `8.2rem`  |
 | `el-spacing.6xl`  | `12.3rem` |
 
+### Radius Tokens
+Spacing tokens are used to space out (usually large or large sets of) elements outside and inside. The spacing tokens borrow the **
+base-8** approach used by GitHub in their [Primer Design System](https://primer.style/css/support/spacing#spacing-scale)
+.
+
+| Token         | Value    |
+|---------------|----------|
+| `radius.none` | `0`      |
+| `radius.xs`   | `0.1rem` |
+| `radius.sm`   | `0.3rem` |
+| `radius.md`   | `0.5rem` |
+| `radius.lg`   | `0.7rem` |
+| `radius.xl`   | `1.2rem` |
+| `radius.2xl`  | `2.3rem` |
+| `radius.3xl`  | `3.4rem` |
+| `radius.4xl`  | `4.5rem` |
+| `radius.5xl`  | `6.1rem` |
+| `radius.6xl`  | `8.2rem` |
+
+The radius tokens have a few special token variants:
+
+| Token           | Value    |
+|-----------------|----------|
+| `radius.pill`   | `5000px` |
+| `radius.circle` | `50%`    |
+
 ### Dimension Tokens
 Dimension tokens are applied to anything that defines the width and height of an element. We recommend only using these
 for max and min values to preserve the responsiveness.
