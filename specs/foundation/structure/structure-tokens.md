@@ -6,9 +6,11 @@ slug: /foundation/structure/tokens
 Gaia provides an extensive list of carefully crafted, pre-made structure tokens ready to go.
 
 ## Structure Token Schema
-The structure tokens follow a specific schema to make indexing much easier. The tokens follow a `none`-`xs-xl` schema and extends to a `2xl-6xl` schema when needed.
+The structure tokens follow a specific schema to make indexing much easier. The tokens follow a `none`-`xs-xl` schema
+and extends to a `2xl-6xl` schema when needed.
 
-The structure token schema depends on the type of structure property. For example, `border-size` tokens is different from the `spacing` and `el-spacing` tokens.
+The structure token schema depends on the type of structure property. For example, `border-size` tokens are different
+from the `spacing` and `el-spacing` tokens.
 
 ### Spacing Tokens
 Spacing tokens are used to space out (usually large or large sets of) elements outside and inside. The spacing tokens borrow the **
@@ -59,3 +61,15 @@ for max and min values to preserve the responsiveness.
 | `dimension.md`   | `640px`  |
 | `dimension.lg`   | `890px`  |
 | `dimension.xl`   | `1077px` |
+
+### Border Tokens
+Border tokens define the size of the edges of an element.
+
+| Token            | Value  |
+|------------------|--------|
+| `dimension.none` | `0`    |
+| `dimension.xs`   | `1px`  |
+| `dimension.sm`   | `3px`  |
+| `dimension.md`   | `5px`  |
+| `dimension.lg`   | `7x`   |
+| `dimension.xl`   | `11px` |
