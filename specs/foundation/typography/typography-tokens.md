@@ -10,20 +10,17 @@ The typography tokens follow a specific schema to make indexing much easier. Eac
 
 | Token         | Schema                                                |
 |---------------|-------------------------------------------------------|
-| `family`      | "Font purpose" schema.                                |
+| `family`      | Descriptive font name-based schema.                   |
 | `size`        | `none`-`xs-xl` schema; extends to a `2xl-6xl` schema. |
 | `weight`      | Descriptive `light-black` schema.                     |
 | `line-height` | Descriptive `broad-condensed` schema.                 |
 
 ### Family Tokens
-| Token               | Value                 |
-|---------------------|-----------------------|
-| `family.global`     | `'Inter', sans-serif` |
-| `family.supertitle` | `family.global`       |
-| `family.title`      | `family.global`       |
-| `family.subtitle`   | `family.global`       |
-| `family.body`       | `family.global`       |
-| `family.small`      | `family.global`       |
+| Token               | Value                         |
+|---------------------|-------------------------------|
+| `family.sans-serif` | `'Inter', sans-serif`         |
+| `family.mono`       | `'Jetbrains Mono', monospace` |
+| `family.serif`      | `'Lora', serif`               |
 
 ### Size Tokens
 | Token      | Value  |
@@ -40,12 +37,12 @@ The typography tokens follow a specific schema to make indexing much easier. Eac
 | `size.6xl` | `66px` |
 
 ### Weight Tokens
-| Token           | Value     |
-|-----------------|-----------|
-| `weight.light`  | `300`     |
-| `weight.normal` | `400`     |
-| `weight.bold`   | `700`     |
-| `weight.black`  | `800/900` |
+| Token           | Value  |
+|-----------------|--------|
+| `weight.light`  | `300`  |
+| `weight.normal` | `400`  |
+| `weight.bold`   | `700`  |
+| `weight.black`  | `900`  |
 
 ### Line Height Tokens
 | Token                   | Value  |
