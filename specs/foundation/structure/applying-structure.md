@@ -17,6 +17,8 @@ The component structure anatomy uses the native DOM structuring, wherein we take
 Dimensions define the width and height of an element in a 2D space. This is commonly associated with the `width`, and `height` CSS properties.
 
 #### SCSS
+For the API information, please visit the [structure composition API page](../../api/composition/structure.md).
+
 ```scss
 @use 'node_modules/@growstocks/gaia';
 
@@ -29,6 +31,8 @@ Dimensions define the width and height of an element in a 2D space. This is comm
 Padding defines the space inside an element. This is commonly associated with the `padding` CSS property.
 
 #### SCSS
+For the API information, please visit the [structure composition API page](../../api/composition/structure.md).
+
 ```scss
 @use 'node_modules/@growstocks/gaia';
 
@@ -40,6 +44,8 @@ Padding defines the space inside an element. This is commonly associated with th
 Margin defines the space outside an element. This is commonly associated with the `margin` CSS property.
 
 #### SCSS
+For the API information, please visit the [structure composition API page](../../api/composition/structure.md).
+
 ```scss
 @use 'node_modules/@growstocks/gaia';
 
@@ -52,6 +58,8 @@ Margin defines the space outside an element. This is commonly associated with th
 Border defines the space at the edges of an element. This is commonly associated with the `border-size` CSS property.
 
 #### SCSS
+For the API information, please visit the [structure composition API page](../../api/composition/structure.md).
+
 ```scss
 @use 'node_modules/@growstocks/gaia';
 
@@ -61,7 +69,7 @@ Border defines the space at the edges of an element. This is commonly associated
 ```
 
 ## Applying structs together
-Gaia provides an SCSS mixin that lets you apply all three in one go. It's the `struct-apply()` mixin. It takes the component name, and the color map.
+Gaia provides an SCSS mixin that lets you apply all structs in one go. It's the `struct-apply()` mixin. It takes the component name, and the struct map.
 
 For the API information, please visit the [structure composition API page](../../api/composition/structure.md).
 
