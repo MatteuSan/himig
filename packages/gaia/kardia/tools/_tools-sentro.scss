@@ -20,15 +20,8 @@
 //  SOFTWARE.
 ///
 
-@use 'node_modules/@matteusan/sentro' with (
-  $prefix: 'gs',
-  $context: 'theme'
-);
+@use 'node_modules/@matteusan/sentro';
 
-@forward 'color' as color-*;
-@forward 'struct' as struct-*;
-@forward 'typography' as typography-*;
-
-@forward 'sprite';
-@forward 'theme';
-@forward 'tools';
+@function to-rem($px) {
+  @return sentro.px-to-rem($px);
+}

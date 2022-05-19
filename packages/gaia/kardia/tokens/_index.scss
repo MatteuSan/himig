@@ -20,15 +20,5 @@
 //  SOFTWARE.
 ///
 
-@use 'node_modules/@matteusan/sentro' with (
-  $prefix: 'gs',
-  $context: 'theme'
-);
-
-@forward 'color' as color-*;
-@forward 'struct' as struct-*;
-@forward 'typography' as typography-*;
-
-@forward 'sprite';
-@forward 'theme';
-@forward 'tools';
+// @forward 'token-data';
+@forward 'token-getter';
