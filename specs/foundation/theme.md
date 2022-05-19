@@ -61,6 +61,11 @@ map, insert a theme variant, and use
 a [structure token key](structure/structure-tokens.md) to change the value, or pass in a raw value if you want something
 more custom.
 
+| $parameter     | Type                                 |
+|----------------|--------------------------------------|
+| `$radius`      | Map of Structure Tokens or raw value |
+| `$breakpoints` | Map of Structure Tokens or raw value |
+
 ```scss
 @use 'node_modules/@growstocks/gaia';
 
