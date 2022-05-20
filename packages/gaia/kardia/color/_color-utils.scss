@@ -20,6 +20,43 @@
 //  SOFTWARE.
 ///
 
-@forward 'color-constants';
-@forward 'color-setters';
-@forward 'color-utils';
+@use '../theme';
+
+/// Mixin for applying background colors.
+/// @param {string} $component
+/// @param {token|color} $color
+/// @param {string} $intent
+/// @return {void} background color styles.
+@mixin fill($component, $color, $intent: 'create') {
+  @include theme.property(
+    background-color,
+    ('#{$component}-fill', $color),
+    $intent
+  );
+}
+
+/// Mixin for applying text colors.
+/// @param {string} $component
+/// @param {token|color} $color
+/// @param {string} $intent
+/// @return {void} text color styles.
+@mixin ink($component, $color, $intent: 'create') {
+  @include theme.property(
+    color,
+    ('#{$component}-ink', $color),
+    $intent
+  );
+}
+
+/// Mixin for applying border colors.
+/// @param {string} $component
+/// @param {token|color} $color
+/// @param {string} $intent
+/// @return {void} border color styles.
+@mixin border($component, $color, $intent: 'create') {
+  @include theme.property(
+    border-color,
+    ('#{$component}-border', $color),
+    $intent
+  );
+}
