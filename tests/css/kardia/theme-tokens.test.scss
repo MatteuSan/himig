@@ -51,7 +51,7 @@
   }
   @include true.it('should switch to itself when not valid') {
     $test: kardia.token-switch('accent-400');
-    $test2: kardia.token-switch(inherited);
+    $test2: kardia.token-switch(inherit);
     @include true.assert-equal($test, var(--gs-theme-accent-400));
     @include true.assert-equal($test2, inherit);
   }
