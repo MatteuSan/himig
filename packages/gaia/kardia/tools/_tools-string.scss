@@ -20,33 +20,26 @@
 //  SOFTWARE.
 ///
 
-@use 'node_modules/@matteusan/sentro';
+@use 'sass:list';
+@use 'sass:string';
 
-/// Converts px values to rem values.
-/// @param {int} $px
-/// @return {int} rem value.
-@function to-rem($px) {
-  @return sentro.px-to-rem($px);
-}
+/// Splits a string from a given separator.
+/// Source: https://stackoverflow.com/a/42295154
+/// @param {string} $string
+/// @param {string} $separator
+/// @return {list} returns split string list.
+@function split($string, $separator) {
+  $split-list: ();
+  $index : string.index($string, $separator);
 
-/// Converts rem values to px values.
-/// @param {int} $rem
-/// @return {int} px value.
-@function to-px($rem) {
-  @return sentro.rem-to-px($rem);
-}
+  @while $index != null {
+    $item: string.slice($string, 1, $index - 1);
+    $split-list: list.append($split-list, $item, comma);
+    $string: string.slice($string, $index + string.length($separator));
+    $index : string.index($string, $separator);
+  }
 
-/// Prefixes properties
-/// @param {string} $property
-/// @param {*} $value
-/// @return {*} generated CSS.
-@mixin prefix($property, $value) {
-  @include sentro.prefix($property, $value);
-}
+  $split-list: list.append($split-list, $string, comma);
 
-/// Line clamp mixin.
-/// @param {string|int} $lines
-/// @return {*} queried line clamp styles.
-@mixin break($lines) {
-  @include sentro.line-clamp($lines);
+  @return $split-list;
 }

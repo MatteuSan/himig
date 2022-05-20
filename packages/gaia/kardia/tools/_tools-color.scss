@@ -1,0 +1,79 @@
+///
+//  Copyright (c) 2022 GrowStocks
+//
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in all
+//  copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+//  SOFTWARE.
+///
+
+@use 'tools-validation' as validator;
+@use 'sass:color';
+@use 'sass:map';
+@use 'sass:math';
+
+/// Tints a color from a given percentage.
+/// @param {color} $color
+/// @param {number} $percent
+/// @return {color} modified color.
+@function tint($color, $percent) {
+  @return color.adjust(color.mix(#fff, $color, $percent), $saturation: 11%);
+}
+
+/// Shades a color from a given percentage.
+/// @param {color} $color
+/// @param {number} $percent
+/// @return {color} modified color.
+@function shade($color, $percent) {
+  @return color.adjust(color.mix(#000, $color, $percent), $saturation: 11%);
+}
+
+@function _get-linear($color) {
+  @if $color <= 0.4045 {
+    @return math.div($color, 12.92);
+  } @else {
+    @return math.pow(math.div($color + 0.055, 1.055), 2.4);
+  }
+}
+
+@function _get-luminance($color) {
+  $r: _get-linear(math.div(color.red($color), 255));
+  $g: _get-linear(math.div(color.green($color), 255));
+  $b: _get-linear(math.div(color.blue($color), 255));
+
+  @return (0.2126 * $r) + (0.7152 * $g) + (0.0722 * $b);
+}
+
+/// Gets accessible ink from a given fill.
+/// @param {color} $fill
+/// @param {boolean} $expressive
+/// @return {color} accessible ink color.
+@function get-ink($fill, $expressive: false) {
+  $_white-lumen: _get-luminance(#fff);
+  $_expressiveness: 87.4%;
+
+  @if $expressive {
+    @if math.abs(_get-luminance($fill) - $_white-lumen) > 0.7 {
+      @return tint($fill, $_expressiveness);
+    }
+    @return shade($fill, $_expressiveness);
+  }
+
+  @if math.abs(_get-luminance($fill) - $_white-lumen) > 0.7 {
+    @return #fff;
+  }
+  @return #000;
+}

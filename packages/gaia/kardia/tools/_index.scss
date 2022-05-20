@@ -20,4 +20,7 @@
 //  SOFTWARE.
 ///
 
+@forward 'tools-color';
 @forward 'tools-sentro';
+@forward 'tools-string' as str-*;
+@forward 'tools-validation';
