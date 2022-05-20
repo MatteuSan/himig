@@ -1,0 +1,89 @@
+///
+//  Copyright (c) 2022 GrowStocks
+//
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in all
+//  copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+//  SOFTWARE.
+///
+
+@use 'node_modules/@matteusan/sentro';
+@use '../tokens';
+@use '../tools';
+@use 'sass:map';
+@use 'theme-tokens' as token;
+
+$expressive-inks: false !default;
+
+@mixin theme-config(
+  $surface: (),
+  $accent: (),
+  $background: (),
+  $error: (),
+  $warning: (),
+  $success: (),
+  $radius: (),
+  $breakpoints: ()
+) {
+
+  $_init-radius: (
+    'small': tokens.primitive-token-get('radius.sm'),
+    'medium': tokens.primitive-token-get('radius.md'),
+    'large': tokens.primitive-token-get('radius.lg'),
+  );
+
+  $_init-breakpoints: (
+    'small': tokens.primitive-token-get('breakpoint.sm'),
+    'medium': tokens.primitive-token-get('breakpoint.md'),
+    'large': tokens.primitive-token-get('breakpoint.lg'),
+    'xlarge': tokens.primitive-token-get('breakpoint.xl'),
+  );
+
+  @include token.config(
+    $surface: _color-theme-token-module($surface),
+    $accent: _color-theme-token-module($accent),
+    $background: tokens.primitive-token-switch($background),
+    $background-ink: tools.get-ink(tokens.primitive-token-switch($background)),
+    $error: _color-theme-token-module($error),
+    $warning: _color-theme-token-module($warning),
+    $success: _color-theme-token-module($success),
+    $radius: map.merge($_init-radius, $radius),
+  );
+
+  @include sentro.breakpoint-config(map.merge($_init-breakpoints, $breakpoints));
+}
+
+@function _color-theme-token-module($query) {
+  @if tools.is-type($query, 'map', $errors: false) {
+    @return (
+      200: tokens.primitive-token-switch('#{map.get($query, 200)}.200', map.get($query, 200)),
+      300: tokens.primitive-token-switch('#{map.get($query, 300)}.300', map.get($query, 300)),
+      400: tokens.primitive-token-switch('#{map.get($query, 400)}.400', map.get($query, 400)),
+      600: tokens.primitive-token-switch('#{map.get($query, 600)}.600', map.get($query, 600)),
+      800: tokens.primitive-token-switch('#{map.get($query, 800)}.800', map.get($query, 800)),
+      'ink': tools.get-ink(tokens.primitive-token-switch('#{map.get($query, 400)}.400', map.get($query, 400)), $expressive-inks)
+    );
+  }
+
+  @return (
+    200: tokens.primitive-token-get('#{$query}.200'),
+    300: tokens.primitive-token-get('#{$query}.300'),
+    400: tokens.primitive-token-get('#{$query}.400'),
+    600: tokens.primitive-token-get('#{$query}.600'),
+    800: tokens.primitive-token-get('#{$query}.800'),
+    'ink': tools.get-ink(tokens.primitive-token-get('#{$query}.400'), $expressive-inks)
+  );
+}

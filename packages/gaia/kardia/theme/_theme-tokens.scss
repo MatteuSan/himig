@@ -20,6 +20,38 @@
 //  SOFTWARE.
 ///
 
-@forward 'theme-keys' as key-*;
-@forward 'theme-setters';
-@forward 'theme-tokens' as token-*;
+@use 'node_modules/@matteusan/sentro';
+@use '../tools';
+
+@function get($query) {
+  @return sentro.token-get($query);
+}
+
+@function get-raw($query) {
+  @return sentro.token-get-raw($query);
+}
+
+@function switch($query, $fallback: ()) {
+  @if not check($query) == true and not tools.is-empty($fallback) {
+    @return $fallback;
+  }
+  @return sentro.token-switch($query);
+}
+
+@function switch-raw($query, $fallback: ()) {
+  @if check($query) == true {
+    @return sentro.token-get-raw($query);
+  }
+  @if not tools.is-empty($fallback) {
+    @return $fallback;
+  }
+  @return $query;
+}
+
+@function check($query) {
+  @return sentro.token-check($query);
+}
+
+@mixin config($map: (), $tokens...) {
+  @include sentro.token-config($map, $tokens...);
+}

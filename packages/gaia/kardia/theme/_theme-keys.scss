@@ -20,6 +20,24 @@
 //  SOFTWARE.
 ///
 
-@forward 'theme-keys' as key-*;
-@forward 'theme-setters';
-@forward 'theme-tokens' as token-*;
+@use 'node_modules/@matteusan/sentro';
+
+@function create($key, $value) {
+  @return sentro.key-create($key, $value);
+}
+
+@function get($key) {
+  @return sentro.key-get($key);
+}
+
+@function get-raw($key) {
+  @return sentro.key-get-raw($key);
+}
+
+@function check($key) {
+  @return sentro.key-check($key);
+}
+
+@mixin bind($key, $value) {
+  @include sentro.key-bind($key, $value);
+}
