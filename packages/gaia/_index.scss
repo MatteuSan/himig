@@ -19,3 +19,73 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
 ///
+
+$expressive-inks: false !default;
+$vue-mode: false !default;
+$validation: if($vue-mode == true, false, true);
+
+@use 'kardia' with (
+  $expressive-inks: $expressive-inks,
+  $validation: $validation,
+);
+@forward 'kardia';
+
+@mixin init(
+  $surface: 'gs-blue',
+  $accent: 'gs-yellow',
+  $background: 'gs-blue.800',
+  $error: 'gs-red',
+  $warning: 'gs-yellow',
+  $success: 'gs-green',
+  $radius: (),
+  $breakpoints: ()
+) {
+  :root {
+    @include kardia.theme-config(
+      $surface: $surface,
+      $accent: $accent,
+      $background: $background,
+      $error: $error,
+      $warning: $warning,
+      $success: $success,
+      $radius: $radius,
+      $breakpoints: $breakpoints
+    );
+  }
+
+  *,
+  :before,
+  :after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    color: inherit;
+  }
+
+  html {
+    box-sizing: border-box;
+    font-size: 100%;
+  }
+
+  body {
+    background: kardia.key-create('body-fill', kardia.token-get('background'));
+    color: kardia.key-create('body-ink', kardia.token-get('background-ink'));
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  span,
+  a {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: kardia.primitive-token-get('weight.normal');
+    line-height: kardia.primitive-token-get('line-height.normal');
+  }
+
+  @content;
+}
