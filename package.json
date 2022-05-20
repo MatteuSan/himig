@@ -11,10 +11,11 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "build:sass": "gulp",
+    "build:sass": "gulp --gulpfile=\"gulpfile-build.ts\"",
+    "lint:sass": "npx stylelint \"**/*.scss\"",
     "pack:dist": "npm pack --pack-destination=\"./dist\"",
     "pack:root": "npm pack --pack-destination=\"./\"",
-    "lint:sass": "npx stylelint \"**/*.scss\""
+    "test:sass": "gulp --gulpfile=\"gulpfile-tests.ts\""
   },
   "devDependencies": {
     "@growstocks/gaia": "file:./packages/gaia",
@@ -24,6 +25,7 @@
     "gulp-sass": "5.1.0",
     "postcss-scss": "4.0.4",
     "sass": "1.51.0",
+    "sass-true": "^6.1.0",
     "stylelint": "14.8.2",
     "stylelint-scss": "4.2.0",
     "ts-node": "10.7.0"
