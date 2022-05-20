@@ -56,6 +56,39 @@
       }
     }
   }
+
+  @include true.it('binds colors to a component') {
+    @include true.assert {
+      @include true.output {
+        @include kardia.color-bind('component', (
+          fill: 'gs-orange.400',
+          ink: 'gs-white.200',
+          border: 'gs-orange.400'
+        ));
+      }
+      @include true.expect {
+        --gs-component-fill: #ff6a00;
+        --gs-component-ink: #ffffff;
+        --gs-component-border: #ff6a00;
+      }
+    }
+  }
+  @include true.it('binds colors to a component (theme ver.)') {
+    @include true.assert {
+      @include true.output {
+        @include kardia.color-bind('component', (
+          fill: 'accent-400',
+          ink: 'accent-ink',
+          border: 'accent-400',
+        ));
+      }
+      @include true.expect {
+        --gs-component-fill: var(--hs-theme-accent-400);
+        --gs-component-ink: var(--hs-theme-accent-ink);
+        --gs-component-border: var(--hs-theme-accent-400);
+      }
+    }
+  }
 }
 
 @include true.report();
