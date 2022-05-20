@@ -1,10 +1,23 @@
+# Package folders
 /node_modules
 /**/node_modules
 /vendor
 
+# Build directories
 /build
 /dist
+
+# Dump directory
 /dump
 
+# Workspaces
 /.idea
 /.vscode
+
+# Test build files
+tests/**/*.test.css
+tests/**/*.test.js
+
+# Package build files
+packages/**/*.css
+packages/**/*.js
