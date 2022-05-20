@@ -26,12 +26,12 @@
 @include true.describe('Font Pack [module]') {
   @include true.it('Loads the font-pack') {
     @include true.assert {
-      @include true.output {
+      @include true.output($selector: false) {
         @include font-pack.load((
           'small': 'family.sans-serif',
         ));
       }
-      @include true.expect {
+      @include true.expect($selector: false) {
         @font-face {
           font-family: 'Inter';
           font-style: normal;
