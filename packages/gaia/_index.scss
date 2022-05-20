@@ -22,11 +22,10 @@
 
 $expressive-inks: false !default;
 $vue-mode: false !default;
-$validation: if($vue-mode == true, false, true);
 
 @use 'kardia' with (
   $expressive-inks: $expressive-inks,
-  $validation: $validation,
+  $vue-mode: $vue-mode,
 );
 @use 'sass:map';
 @use 'init-font-pack' as font-pack;
