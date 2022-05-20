@@ -21,7 +21,7 @@
 ///
 
 @use 'node_modules/@growstocks/gaia/kardia';
-@use 'sass-true' as true;
+@use 'node_modules/sass-true' as true with ($terminal-output: true);
 
 @include true.describe('Theme Property [function]') {
   @include true.it('should return a themed property') {
