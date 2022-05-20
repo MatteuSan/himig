@@ -49,6 +49,18 @@
     @include true.assert-equal($test, #f70);
     @include true.assert-equal($test2, #8bf);
   }
+  @include true.it('should switch to itself when not valid') {
+    $test: kardia.token-switch('accent-400');
+    $test2: kardia.token-switch(inherited);
+    @include true.assert-equal($test, var(--gs-theme-accent-400));
+    @include true.assert-equal($test2, inherit);
+  }
+  @include true.it('should switch to itself when not valid; when valid, it uses the raw value') {
+    $test: kardia.token-switch-raw('accent-400');
+    $test2: kardia.token-switch-raw(inherit);
+    @include true.assert-equal($test, #f70);
+    @include true.assert-equal($test2, inherit);
+  }
 }
 
 @include true.report();
