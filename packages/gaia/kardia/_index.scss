@@ -20,7 +20,8 @@
 //  SOFTWARE.
 ///
 
-$validation: true !default;
+$vue-mode: false !default;
+$validation: if($vue-mode == true, false, true);
 $expressive-inks: false !default;
 
 @use 'node_modules/@matteusan/sentro' with (
