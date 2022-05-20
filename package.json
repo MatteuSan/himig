@@ -18,7 +18,7 @@
     "test:sass": "gulp --gulpfile=\"gulpfile-tests.ts\"",
     "test:ts": "jest --config=\"jest.config.ts\""
   },
-  "dependencies": {
+  "devDependencies": {
     "@growstocks/gaia": "file:./packages/gaia",
     "@matteusan/sentro": "0.1.22",
     "@types/jest": "27.5.1",
