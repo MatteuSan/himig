@@ -20,7 +20,7 @@
 //  SOFTWARE.
 ///
 
-@use 'node_modules/@growstocks/gaia/kardia';
+@use 'node_modules/@growstocks/gaia/kardia' with ($vue-mode: true);
 @use 'node_modules/sass-true' as true with ($terminal-output: true);
 
 @include true.describe('Color Setters [module]') {
@@ -34,9 +34,25 @@
         ));
       }
       @include true.expect {
-        background-color: var(--component-fill, #ff6a00);
-        color: var(--component-ink, #ffffff);
-        border-color: var(--component-border, #ff6a00);
+        background-color: var(--gs-component-fill, #ff6a00);
+        color: var(--gs-component-ink, #ffffff);
+        border-color: var(--gs-component-border, #ff6a00);
+      }
+    }
+  }
+  @include true.it('applies colors to a component (theme ver.)') {
+    @include true.assert {
+      @include true.output {
+        @include kardia.color-apply('component', (
+          fill: 'accent-400',
+          ink: 'accent-ink',
+          border: 'accent-400',
+        ));
+      }
+      @include true.expect {
+        background-color: var(--gs-component-fill, var(--hs-theme-accent-400));
+        color: var(--gs-component-ink, var(--hs-theme-accent-ink));
+        border-color: var(--gs-component-border, var(--hs-theme-accent-400));
       }
     }
   }
