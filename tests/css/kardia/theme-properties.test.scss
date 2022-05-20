@@ -23,6 +23,12 @@
 @use 'node_modules/@growstocks/gaia/kardia';
 @use 'node_modules/sass-true' as true with ($terminal-output: true);
 
+:root {
+  @include kardia.token-config($accent: (
+    400: #f70
+  ));
+}
+
 @include true.describe('Theme Property [function]') {
   @include true.it('should return a themed property') {
     @include true.assert {
@@ -32,7 +38,7 @@
         ));
       }
       @include true.expect {
-        background-color: var(--component-fill, #ff6a00);
+        background-color: var(--gs-component-fill, #ff6a00);
       }
     }
   }
@@ -45,7 +51,35 @@
         ), $intent: 'bind');
       }
       @include true.expect {
-        --component-fill: #ff6a00;
+        --gs-component-fill: #ff6a00;
+      }
+    }
+  }
+}
+
+@include true.describe('Theme Property (theme vs primitive) [function]') {
+  @include true.it('should return a themed property') {
+    @include true.assert {
+      @include true.output {
+        @include kardia.property(background-color, (
+          'component-fill', 'gs-orange.400'
+        ));
+      }
+      @include true.expect {
+        background-color: var(--gs-component-fill, #ff6a00);
+      }
+    }
+  }
+
+  @include true.it('should return a themed property binding') {
+    @include true.assert {
+      @include true.output {
+        @include kardia.property(background-color, (
+          'component-fill', 'accent-400'
+        ), $intent: 'bind');
+      }
+      @include true.expect {
+        --gs-component-fill: var(--gs-theme-accent-400);
       }
     }
   }
