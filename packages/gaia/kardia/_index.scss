@@ -21,6 +21,7 @@
 ///
 
 $validation: true !default;
+$expressive-inks: false !default;
 
 @use 'node_modules/@matteusan/sentro' with (
   $prefix: 'gs',
@@ -30,11 +31,11 @@ $validation: true !default;
   $breakpoint-validation: $validation,
 );
 
+@forward 'tokens';
+@forward 'theme' with ($expressive-inks: $expressive-inks);
+@forward 'tools';
+
 @forward 'color' as color-*;
 @forward 'struct' as struct-*;
-@forward 'typography' as typography-*;
-
 @forward 'sprite';
-@forward 'theme';
-@forward 'tokens';
-@forward 'tools';
+@forward 'typography' as typography-*;
