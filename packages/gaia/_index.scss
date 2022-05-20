@@ -87,5 +87,13 @@ $validation: if($vue-mode == true, false, true);
     line-height: kardia.primitive-token-get('line-height.normal');
   }
 
+  .content-wrap {
+    $margin: 15px;
+    width: calc(100% - #{$margin * 2});
+    max-width: kardia.primitive-token-get('dimension.xl');
+    margin: 0 auto;
+    padding: kardia.primitive-token-get('space.lg') kardia.primitive-token-get('space.none');
+  }
+
   @content;
 }
