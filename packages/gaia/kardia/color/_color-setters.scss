@@ -39,7 +39,7 @@
   $ink: map.get($theme, 'ink');
   $border: map.get($theme, 'border');
 
-  @if not tools.is-type('map', $theme) {
+  @if not tools.is-type($theme, 'map') {
     @error '$theme is expecting a map. Map was not given.';
   } @else {
     @include validator.inspect-color-props(map.keys($theme)) {
