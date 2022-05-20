@@ -28,7 +28,11 @@ $validation: if($vue-mode == true, false, true);
   $expressive-inks: $expressive-inks,
   $validation: $validation,
 );
+@use 'sass:map';
+@use 'init-font-pack' as font-pack;
+
 @forward 'kardia';
+// @forward 'kardia' hide token-config;
 
 @mixin init(
   $surface: 'gs-blue',
@@ -38,8 +42,68 @@ $validation: if($vue-mode == true, false, true);
   $warning: 'gs-yellow',
   $success: 'gs-green',
   $radius: (),
-  $breakpoints: ()
+  $breakpoints: (),
+  $global: (),
+  $supertitle: (),
+  $title: (),
+  $subtitle: (),
+  $body: (),
+  $mono: (),
+  $small: (),
 ) {
+
+  $_init-family: 'family.sans-serif';
+  $_init-line-height: 'line-height.normal';
+
+  $_init-type-global: (
+    'family': $_init-family,
+    'size': 'size.sm',
+    'weight': 'weight.normal',
+    'line-height': $_init-line-height,
+  );
+
+  $_init-type-supertitle: (
+    'family': $_init-family,
+    'size': 'size.xl',
+    'weight': 'weight.black',
+    'line-height': $_init-line-height,
+  );
+
+  $_init-type-title: (
+    'family': $_init-family,
+    'size': 'size.lg',
+    'weight': 'weight.bold',
+    'line-height': $_init-line-height,
+  );
+
+  $_init-type-subtitle: (
+    'family': $_init-family,
+    'size': 'size.md',
+    'weight': 'weight.bold',
+    'line-height': $_init-line-height,
+  );
+
+  $_init-type-body: (
+    'family': $_init-family,
+    'size': 'size.sm',
+    'weight': 'weight.normal',
+    'line-height': $_init-line-height,
+  );
+
+  $_init-type-mono: (
+    'family': 'family.mono',
+    'size': 'size.sm',
+    'weight': 'weight.normal',
+    'line-height': $_init-line-height,
+  );
+
+  $_init-type-small: (
+    'family': $_init-family,
+    'size': 'size.xs',
+    'weight': 'weight.light',
+    'line-height': $_init-line-height,
+  );
+
   :root {
     @include kardia.theme-config(
       $surface: $surface,
@@ -49,9 +113,26 @@ $validation: if($vue-mode == true, false, true);
       $warning: $warning,
       $success: $success,
       $radius: $radius,
-      $breakpoints: $breakpoints
+      $breakpoints: $breakpoints,
+      $global: map.merge($_init-type-global, $global),
+      $supertitle: map.merge($_init-type-supertitle, $supertitle),
+      $title: map.merge($_init-type-title, $title),
+      $subtitle: map.merge($_init-type-subtitle, $subtitle),
+      $body: map.merge($_init-type-body, $body),
+      $mono: map.merge($_init-type-mono, $mono),
+      $small: map.merge($_init-type-small, $small),
     );
   }
+
+  @include font-pack.load((
+    'global': map.get(map.merge($_init-type-global, $global), 'family'),
+    'supertitle': map.get(map.merge($_init-type-supertitle, $supertitle), 'family'),
+    'title': map.get(map.merge($_init-type-title, $title), 'family'),
+    'subtitle': map.get(map.merge($_init-type-subtitle, $subtitle), 'family'),
+    'body': map.get(map.merge($_init-type-body, $body), 'family'),
+    'mono': map.get(map.merge($_init-type-mono, $mono), 'family'),
+    'small': map.get(map.merge($_init-type-small, $small), 'family'),
+  ));
 
   *,
   :before,
@@ -87,10 +168,13 @@ $validation: if($vue-mode == true, false, true);
     line-height: kardia.primitive-token-get('line-height.normal');
   }
 
-  .content-wrap {
+  main.content-wrap {
     $margin: 15px;
     width: calc(100% - #{$margin * 2});
     max-width: kardia.primitive-token-get('dimension.xl');
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: kardia.primitive-token-get('spacing.md');
     margin: 0 auto;
     padding: kardia.primitive-token-get('spacing.lg') kardia.primitive-token-get('spacing.none');
   }
