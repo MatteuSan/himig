@@ -20,9 +20,11 @@
 //  SOFTWARE.
 ///
 
+@use '../tokens' as primitive-token;
 @use 'sass:map';
 @use 'sass:list';
 
+@use 'theme-tokens' as token;
 @use 'theme-keys' as key;
 
 $_valid-intents: (
@@ -39,8 +41,12 @@ $_valid-intents: (
   }
 
   @if $intent == 'bind' {
-    @include key.bind($key, $value);
+    @include key.bind($key, _assert-value($value));
   } @else if $intent == 'create' {
-    #{$property}: key.create($key, $value);
+    #{$property}: key.create($key, _assert-value($value));
   }
+}
+
+@function _assert-value($query) {
+  @return token.switch(primitive-token.primitive-token-switch($query));
 }
