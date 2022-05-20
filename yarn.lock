@@ -2690,7 +2690,7 @@ safe-regex@^1.1.0:
   dependencies:
     ret "~0.1.10"
 
-sass-true@^6.1.0:
+sass-true@6.1.0:
   version "6.1.0"
   resolved "https://registry.yarnpkg.com/sass-true/-/sass-true-6.1.0.tgz#cbcb78135071b1bae0882ea456a2b0dd9a6c8b3a"
   integrity sha512-Qt6TpPe8Ogr8g9FvBSwXvzfrkbtHD7rej0X3lzyoiZ+I0kKV9NFeefcF560uMn5NFCA7g5rcVKxc9UHrrMcDrw==
@@ -2700,10 +2700,10 @@ sass-true@^6.1.0:
     jest-diff "^27.5.1"
     lodash "^4.17.21"
 
-sass@1.51.0:
-  version "1.51.0"
-  resolved "https://registry.yarnpkg.com/sass/-/sass-1.51.0.tgz#25ea36cf819581fe1fe8329e8c3a4eaaf70d2845"
-  integrity sha512-haGdpTgywJTvHC2b91GSq+clTKGbtkkZmVAb82jZQN/wTy6qs8DdFm2lhEQbEwrY0QDRgSQ3xDurqM977C3noA==
+sass@1.52.0:
+  version "1.52.0"
+  resolved "https://registry.yarnpkg.com/sass/-/sass-1.52.0.tgz#3dc755ff459858ce7062887181648701f028c4f5"
+  integrity sha512-6EnTglag2oVD8sNJCxUi2Jd3ICH9tJ5Mqudt/gIZNBR2uKJUBZuTpW9O1t04SkDLP7VFa76FCWTV2rwchqM8Kw==
   dependencies:
     chokidar ">=3.0.0 <4.0.0"
     immutable "^4.0.0"

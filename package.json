@@ -24,7 +24,7 @@
     "gulp-cli": "2.3.0",
     "gulp-sass": "5.1.0",
     "postcss-scss": "4.0.4",
-    "sass": "1.51.0",
+    "sass": "1.52.0",
     "sass-true": "6.1.0",
     "stylelint": "14.8.2",
     "stylelint-scss": "4.2.0",
