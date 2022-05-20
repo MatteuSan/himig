@@ -20,4 +20,29 @@
  *  SOFTWARE.
  */
 
-test
+import { GSComponentBase } from '@growstocks/gaia/kardia';
+
+class TestComponent extends GSComponentBase {
+  constructor() {
+    super(
+      document.querySelector('#bruh'),
+      'gs-button'
+    );
+  }
+}
+
+const testComponent = new TestComponent();
+
+describe('Kardia Component Base [class]', () => {
+  it('initializes a component', () => {
+    expect(new TestComponent()).toBeInstanceOf(GSComponentBase);
+  });
+
+  it('retrieves the component element information', () => {
+    expect(new TestComponent().getComponent()).toBe(document.querySelector('#bruh'));
+  });
+
+  it('retrieves the reference component information', () => {
+    expect(new TestComponent().getReference()).toBe('gs-button');
+  });
+});
