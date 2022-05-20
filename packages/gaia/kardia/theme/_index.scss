@@ -20,7 +20,9 @@
 //  SOFTWARE.
 ///
 
+$expressive-inks: false !default;
+
 @forward 'theme-keys' as key-*;
-@forward 'theme-setters';
 @forward 'theme-tokens' as token-*;
+@forward 'theme-setters' with ($expressive-inks: $expressive-inks);
 @forward 'theme-properties';
