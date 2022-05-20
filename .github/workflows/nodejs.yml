@@ -3,6 +3,9 @@ name: Node CI
 on:
   push:
     branches: [ $default-branch ]
+  pull_request:
+    branches:
+      - '**'
 
 jobs:
   test-sass:
