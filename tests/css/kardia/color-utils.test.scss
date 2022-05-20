@@ -33,7 +33,7 @@
         );
       }
       @include true.expect {
-        background-color: var(--component-filler, #ff6a00);
+        background-color: var(--gs-component-fill, #ff6a00);
       }
     }
   }
@@ -47,7 +47,7 @@
         );
       }
       @include true.expect {
-        background-color: var(--component-ink, #ff6a00);
+        background-color: var(--gs-component-ink, #ff6a00);
       }
     }
   }
@@ -61,7 +61,7 @@
         );
       }
       @include true.expect {
-        background-color: var(--component-border, #ff6a00);
+        background-color: var(--gs-component-border, #ff6a00);
       }
     }
   }
@@ -76,7 +76,7 @@
         );
       }
       @include true.expect {
-        --component-fill: #ff6a00;
+        --gs-component-fill: #ff6a00;
       }
     }
   }
@@ -91,7 +91,7 @@
         );
       }
       @include true.expect {
-        --component-ink: #ff6a00;
+        --gs-component-ink: #ff6a00;
       }
     }
   }
@@ -101,12 +101,12 @@
       @include true.output {
         @include kardia.color-border(
           'component',
-          kardia.primitive-token-get('gs-orange.400')
+          kardia.primitive-token-get('gs-orange.400'),
           'bind'
         );
       }
       @include true.expect {
-        --component-border: #ff6a00;
+        --gs-component-border: #ff6a00;
       }
     }
   }
