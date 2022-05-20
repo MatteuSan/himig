@@ -1,0 +1,65 @@
+///
+//  Copyright (c) 2022 GrowStocks
+//
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in all
+//  copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+//  SOFTWARE.
+///
+
+@use '../theme';
+@use '../tools';
+@use 'sass:map';
+@use 'sass:list';
+
+@use 'color-utils' as util;
+@use 'color-validators' as validator;
+
+@mixin _base($component, $theme, $settings: ()) {
+  $_init-settings: ('intent': create);
+  $_settings: map.merge($_init-settings, $settings);
+
+  /// @type string
+  $intent: map.get($_settings, 'intent');
+
+  $fill: map.get($theme, 'fill');
+  $ink: map.get($theme, 'ink');
+  $border: map.get($theme, 'border');
+
+  @if not tools.is-type('map', $theme) {
+    @error '$theme is expecting a map. Map was not given.';
+  } @else {
+    @include validator.inspect-color-props(map.keys($theme)) {
+      @if $fill {
+        @include util.fill($component, $fill, $intent);
+      }
+      @if $ink {
+        @include util.ink($component, $ink, $intent);
+      }
+      @if $border {
+        @include util.border($component, $border, $intent);
+      }
+    }
+  }
+}
+
+@mixin apply($component, $theme) {
+  @include _base($component, $theme);
+}
+
+@mixin bind($component, $theme) {
+  @include _base($component, $theme, (intent: 'bind'));
+}
