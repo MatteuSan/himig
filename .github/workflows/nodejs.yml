@@ -1,0 +1,15 @@
+name: Node CI
+
+on:
+  push:
+    branches: [ $default-branch ]
+
+jobs:
+  test-sass:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 14.x, 16.x ]
+    steps:
+      - name: Use NodeJS version ${{ matrix.node-version }}
+      - run: npm test:sass
