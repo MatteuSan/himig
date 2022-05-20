@@ -26,6 +26,7 @@
     "gulp-cli": "2.3.0",
     "gulp-sass": "5.1.0",
     "jest": "28.1.0",
+    "jest-environment-jsdom": "28.1.0",
     "postcss-scss": "4.0.4",
     "sass": "1.52.0",
     "sass-true": "6.1.0",
