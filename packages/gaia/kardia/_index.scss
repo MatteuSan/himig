@@ -20,9 +20,14 @@
 //  SOFTWARE.
 ///
 
+$validation: true !default;
+
 @use 'node_modules/@matteusan/sentro' with (
   $prefix: 'gs',
-  $context: 'theme'
+  $context: 'theme',
+  $token-validation: $validation,
+  $key-validation: $validation,
+  $breakpoint-validation: $validation,
 );
 
 @forward 'color' as color-*;
@@ -31,4 +36,5 @@
 
 @forward 'sprite';
 @forward 'theme';
+@forward 'tokens';
 @forward 'tools';
