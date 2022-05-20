@@ -36,20 +36,27 @@ $expressive-inks: false !default;
   $warning: (),
   $success: (),
   $radius: (),
-  $breakpoints: ()
+  $breakpoints: (),
+  $global: (),
+  $supertitle: (),
+  $title: (),
+  $subtitle: (),
+  $body: (),
+  $mono: (),
+  $small: (),
 ) {
 
   $_init-radius: (
-    'small': tokens.primitive-token-get('radius.sm'),
-    'medium': tokens.primitive-token-get('radius.md'),
-    'large': tokens.primitive-token-get('radius.lg'),
+    'small': 'radius.sm',
+    'medium': 'radius.md',
+    'large': 'radius.lg',
   );
 
   $_init-breakpoints: (
-    'small': tokens.primitive-token-get('breakpoint.sm'),
-    'medium': tokens.primitive-token-get('breakpoint.md'),
-    'large': tokens.primitive-token-get('breakpoint.lg'),
-    'xlarge': tokens.primitive-token-get('breakpoint.xl'),
+    'small': 'breakpoint.sm',
+    'medium': 'breakpoint.md',
+    'large': 'breakpoint.lg',
+    'xlarge': 'breakpoint.xl',
   );
 
   @include token.config(
@@ -60,12 +67,22 @@ $expressive-inks: false !default;
     $error: _color-theme-token-module($error),
     $warning: _color-theme-token-module($warning),
     $success: _color-theme-token-module($success),
-    $radius: map.merge($_init-radius, $radius),
+    $radius: _shape-theme-token-module(map.merge($_init-radius, $radius)),
+    $global: _typography-theme-token-module($global),
+    $supertitle: _typography-theme-token-module($supertitle),
+    $title: _typography-theme-token-module($title),
+    $subtitle: _typography-theme-token-module($subtitle),
+    $body: _typography-theme-token-module($body),
+    $mono: _typography-theme-token-module($mono),
+    $small: _typography-theme-token-module($small),
   );
 
-  @include sentro.breakpoint-config(map.merge($_init-breakpoints, $breakpoints));
+  @include sentro.breakpoint-config(
+    _shape-theme-token-module(map.merge($_init-breakpoints, $breakpoints))
+  );
 }
 
+/// @access private
 @function _color-theme-token-module($query) {
   @if tools.is-type($query, 'map', $errors: false) {
     @return (
@@ -85,5 +102,24 @@ $expressive-inks: false !default;
     600: tokens.primitive-token-get('#{$query}.600'),
     800: tokens.primitive-token-get('#{$query}.800'),
     'ink': tools.get-ink(tokens.primitive-token-get('#{$query}.400'), $expressive-inks)
+  );
+}
+
+/// @access private
+@function _shape-theme-token-module($query) {
+  $result: ();
+  @each $key, $value in $query {
+    $result: map.set($result, $key, tokens.primitive-token-switch($value));
+  }
+  @return $result;
+}
+
+/// @access private
+@function _typography-theme-token-module($query) {
+  @return (
+    'family': tokens.primitive-token-switch(map.get($query, 'family')),
+    'size': tokens.primitive-token-switch(map.get($query, 'size')),
+    'weight': tokens.primitive-token-switch(map.get($query, 'weight')),
+    'line-height': tokens.primitive-token-switch(map.get($query, 'line-height')),
   );
 }
