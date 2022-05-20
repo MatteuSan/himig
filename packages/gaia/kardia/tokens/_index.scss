@@ -20,5 +20,4 @@
 //  SOFTWARE.
 ///
 
-// @forward 'token-data';
-@forward 'token-getter';
+@forward 'token-methods' as primitive-token-*;
