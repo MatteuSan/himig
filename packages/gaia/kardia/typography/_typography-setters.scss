@@ -1,0 +1,77 @@
+///
+//  Copyright (c) 2022 GrowStocks
+//
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in all
+//  copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+//  SOFTWARE.
+///
+
+@use '../tools';
+@use 'sass:map';
+@use 'sass:list';
+@use 'typography-utils' as util;
+@use 'typography-validators' as validator;
+
+/// Base mixin for apply() and bind()
+/// @access private
+@mixin _base($component, $theme, $settings: ()) {
+  $_init-settings: ('intent': create);
+  $_settings: map.merge($_init-settings, $settings);
+
+  /// @type string
+  $intent: map.get($_settings, 'intent');
+
+  $family: map.merge($theme, 'family');
+  $size: map.merge($theme, 'size');
+  $weight: map.merge($theme, 'weight');
+  $line-height: map.merge($theme, 'line-height');
+
+  @if tools.is-type($theme, 'map', $custom-error: '$theme is expecting a map. Map was not given.') {
+    @include validator.validate-typography-props(map.keys($theme)) {
+      @if $family {
+        @include util.family($component, $family, $intent);
+      }
+      @if $size {
+        @include util.size($component, $size, $intent);
+      }
+      @if $weight {
+        @include util.weight($component, $weight, $intent);
+      }
+      @if $line-height {
+        @include util.line-height($component, $line-height, $intent);
+      }
+    }
+  }
+}
+
+/// Mixin that applies typography styles to a component.
+/// @param {string} $component
+/// @param {map<string, string>} $theme
+/// @return {void} void.
+@mixin apply($component, $theme) {
+  @include _base($component, $theme);
+}
+
+/// Mixin that binds typography styles to a component with existing keys.
+/// @param {string} $component
+/// @param {map<string, string>} $theme
+/// @return {void} void.
+@mixin bind($component, $theme) {
+  @include _base($component, $theme, (
+    'intent': bind
+  ));
+}

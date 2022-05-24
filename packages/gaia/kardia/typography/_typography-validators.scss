@@ -20,23 +20,27 @@
 //  SOFTWARE.
 ///
 
-$vue-mode: false !default;
-$validation: if($vue-mode == true, false, true);
-$expressive-inks: false !default;
+@use 'sass:list';
 
-@use 'node_modules/@matteusan/sentro' with (
-  $prefix: 'gs',
-  $context: 'theme',
-  $token-validation: $validation,
-  $key-validation: $validation,
-  $breakpoint-validation: $validation,
-);
+/// Valid component props
+/// @access private
+$_valid-props: ('family', 'size', 'weight', 'line-height');
 
-@forward 'tokens';
-@forward 'theme' with ($expressive-inks: $expressive-inks);
-@forward 'tools';
+/// Validates a set of typography props.
+/// @param {map} $props
+/// @access protected
+@mixin validate-typography-props($props) {
+  @each $prop in $props {
+    @if _is-typography-prop($prop) { }
+  }
+  @content;
+}
 
-@forward 'color' as color-*;
-@forward 'struct' as struct-*;
-@forward 'sprite' as sprite-*;
-@forward 'typography' as typography-*;
+/// Validates a typography prop.
+/// @access private
+@function _is-typography-prop($query) {
+  @if not list.index($_valid-props, $query) {
+    @error 'Invalid/unrecognized prop: #{$query}. Please use one of the following props: #{$_valid-props}.'
+  }
+  @return true;
+}
