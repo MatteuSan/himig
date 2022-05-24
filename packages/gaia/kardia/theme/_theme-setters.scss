@@ -59,6 +59,15 @@ $expressive-inks: false !default;
     'xlarge': 'breakpoint.xl',
   );
 
+  $_typography-mapper: (
+    'supertitle': $supertitle,
+    'title': $title,
+    'subtitle': $subtitle,
+    'body': $body,
+    'mono': $mono,
+    'small': $small,
+  );
+
   @include token.config(
     $surface: _color-theme-token-module($surface),
     $accent: _color-theme-token-module($accent),
@@ -68,13 +77,10 @@ $expressive-inks: false !default;
     $warning: _color-theme-token-module($warning),
     $success: _color-theme-token-module($success),
     $radius: _shape-theme-token-module(map.merge($_init-radius, $radius)),
-    $global: _typography-theme-token-module($global),
-    $supertitle: _typography-theme-token-module($supertitle),
-    $title: _typography-theme-token-module($title),
-    $subtitle: _typography-theme-token-module($subtitle),
-    $body: _typography-theme-token-module($body),
-    $mono: _typography-theme-token-module($mono),
-    $small: _typography-theme-token-module($small),
+    $family: _typography-theme-token-module($_typography-mapper, 'family'),
+    $size: _typography-theme-token-module($_typography-mapper, 'size'),
+    $weight: _typography-theme-token-module($_typography-mapper, 'weight'),
+    $line-height: _typography-theme-token-module($_typography-mapper, 'line-height'),
   );
 
   @include sentro.breakpoint-config(
@@ -115,11 +121,13 @@ $expressive-inks: false !default;
 }
 
 /// @access private
-@function _typography-theme-token-module($query) {
+@function _typography-theme-token-module($query, $property) {
   @return (
-    'family': tokens.primitive-token-switch(map.get($query, 'family')),
-    'size': tokens.primitive-token-switch(map.get($query, 'size')),
-    'weight': tokens.primitive-token-switch(map.get($query, 'weight')),
-    'line-height': tokens.primitive-token-switch(map.get($query, 'line-height')),
+    'supertitle': tokens.primitive-token-switch(map.get(map.get($query, 'supertitle'), $property)),
+    'title': tokens.primitive-token-switch(map.get(map.get($query, 'title'), $property)),
+    'subtitle': tokens.primitive-token-switch(map.get(map.get($query, 'subtitle'), $property)),
+    'body': tokens.primitive-token-switch(map.get(map.get($query, 'body'), $property)),
+    'mono': tokens.primitive-token-switch(map.get(map.get($query, 'mono'), $property)),
+    'small': tokens.primitive-token-switch(map.get(map.get($query, 'small'), $property)),
   );
 }

@@ -104,14 +104,6 @@ $vue-mode: $module-mode !default;
     'line-height': $_init-line-height,
   );
 
-  $global: map.merge($_init-type-global, $global);
-  $supertitle: map.merge($_init-type-supertitle, $supertitle);
-  $title: map.merge($_init-type-title, $title);
-  $subtitle: map.merge($_init-type-subtitle, $subtitle);
-  $body: map.merge($_init-type-body, $body);
-  $mono: map.merge($_init-type-mono, $mono);
-  $small: map.merge($_init-type-small, $small);
-
   :root {
     // Immutables
     --gs-shadow-color: rgba(0, 0, 0, 0.25);
@@ -126,38 +118,13 @@ $vue-mode: $module-mode !default;
       $success: $success,
       $radius: $radius,
       $breakpoints: $breakpoints,
-      $family: (
-        'supertitle': map.get($supertitle, 'family'),
-        'subtitle': map.get($subtitle, 'family'),
-        'title': map.get($title, 'family'),
-        'body': map.get($body, 'family'),
-        'mono': map.get($mono, 'family'),
-        'small': map.get($small, 'family'),
-      ),
-      $size: (
-        'supertitle': map.get($supertitle, 'size'),
-        'subtitle': map.get($subtitle, 'size'),
-        'title': map.get($title, 'size'),
-        'body': map.get($body, 'size'),
-        'mono': map.get($mono, 'size'),
-        'small': map.get($small, 'size'),
-      ),
-      $weight: (
-        'supertitle': map.get($supertitle, 'weight'),
-        'subtitle': map.get($subtitle, 'weight'),
-        'title': map.get($title, 'weight'),
-        'body': map.get($body, 'weight'),
-        'mono': map.get($mono, 'weight'),
-        'small': map.get($small, 'weight'),
-      ),
-      $line-height: (
-        'supertitle': map.get($supertitle, 'line-height'),
-        'subtitle': map.get($subtitle, 'line-height'),
-        'title': map.get($title, 'line-height'),
-        'body': map.get($body, 'line-height'),
-        'mono': map.get($mono, 'line-height'),
-        'small': map.get($small, 'line-height'),
-      ),
+      $global: map.merge($_init-type-global, $global),
+      $supertitle: map.merge($_init-type-supertitle, $supertitle),
+      $title: map.merge($_init-type-title, $title),
+      $subtitle: map.merge($_init-type-subtitle, $subtitle),
+      $body: map.merge($_init-type-body, $body),
+      $mono: map.merge($_init-type-mono, $mono),
+      $small: map.merge($_init-type-small, $small),
     );
   }
 
