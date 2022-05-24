@@ -28,12 +28,15 @@
 /// @param {string} $reference
 /// @param {boolean} $errors
 /// @return {boolean|error} true if matching, error/false if not.
-@function is-type($query, $reference, $errors: true) {
+@function is-type($query, $reference, $errors: true, $custom-error: null) {
   @if $errors != true {
     @return _validate-data-type($reference, $query);
   } @else {
     @if _validate-data-type($reference, $query) == false {
-      @error "Invalid #{string.unquote($reference)}: #{$query}! Expecting a valid #{string.unquote($reference)}.";
+      @if not is-empty($custom-error) {
+        @error $custom-error;
+      }
+      @error 'Invalid #{string.unquote($reference)}: #{$query}! Expecting a valid #{string.unquote($reference)}.';
     } @else {
       @return true;
     }
