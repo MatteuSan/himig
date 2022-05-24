@@ -20,5 +20,37 @@
 //  SOFTWARE.
 ///
 
-@forward 'struct-utils';
-@forward 'struct-setters';
+@use 'sass:map';
+@use 'sass:list';
+
+/// Valid component props
+/// @access private
+$_valid-props: (
+  'width',
+  'radius',
+  'padding',
+  'margin',
+  'gap',
+  'shadow',
+  'border-style',
+  'border-width'
+);
+
+/// Validates a set of structure props.
+/// @param {map} $props
+/// @access protected
+@mixin validate-struct-props($props) {
+  @each $prop in $props {
+    @if _is-struct-prop($prop) { }
+  }
+  @content;
+}
+
+/// Validates a structure prop.
+/// @access private
+@function _is-struct-prop($query) {
+  @if not list.index($_valid-props, $query) {
+    @error 'Invalid/unrecognized prop: #{$query}. Please use one of the following props: #{$_valid-props}.'
+  }
+  @return true;
+}

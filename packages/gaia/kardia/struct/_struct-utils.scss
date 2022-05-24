@@ -1,0 +1,216 @@
+///
+//  Copyright (c) 2022 GrowStocks
+//
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in all
+//  copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+//  SOFTWARE.
+///
+
+@use '../theme';
+@use '../tokens';
+@use '../tools';
+@use 'sass:map';
+@use 'sass:list';
+
+/// Mixin for applying width.
+/// @param {string} $component
+/// @param {map<string, any>|number|width} $width
+/// @param {string} $intent
+/// @return {void} width styles.
+@mixin width($component, $width, $intent: 'create') {
+  @if tools.is-type($width, 'map', $errors: false) {
+    $min: map.get($width, 'min');
+    $default: map.get($width, 'default');
+    $max: map.get($width, 'max');
+
+    @if $min {
+      @include theme.property(
+        min-width,
+        ('#{$component}-min-width', theme.token-switch('dimension.#{$min}', $min)),
+        $intent
+      );
+    }
+    @if $default {
+      @include theme.property(
+        width,
+        ('#{$component}-width', theme.token-switch('dimension.#{$default}', $default)),
+        $intent
+      );
+    }
+    @if $max {
+      @include theme.property(
+        max-width,
+        ('#{$component}-max-width', theme.token-switch('dimension.#{$max}', $max)),
+        $intent
+      );
+    }
+  } @else {
+    @include theme.property(
+      width,
+      ('#{$component}-width', theme.token-switch('dimension.#{$width}', $width)),
+      $intent
+    );
+  }
+}
+
+/// Mixin for applying height.
+/// @param {string} $component
+/// @param {map<string, any>|number|height} $height
+/// @param {string} $intent
+/// @return {void} width styles.
+@mixin height($component, $height, $intent: 'create') {
+  @if tools.is-type('map', $height, $errors: false) {
+    $min: map.get($height, 'min');
+    $default: map.get($height, 'default');
+    $max: map.get($height, 'max');
+
+    @if $min {
+      @include theme.property(
+        min-height,
+        ('#{$component}-min-height', theme.token-switch('dimension.#{$min}', $min)),
+        $intent
+      );
+    }
+    @if $default {
+      @include theme.property(
+        height,
+        ('#{$component}-height', theme.token-switch('dimension.#{$default}', $default)),
+        $intent
+      );
+    }
+    @if $max {
+      @include theme.property(
+        max-height,
+        ('#{$component}-max-height', theme.token-switch('dimension.#{$max}', $max)),
+        $intent
+      );
+    }
+  } @else {
+    @include theme.property(
+      height,
+      ('#{$component}-height', theme.token-switch('dimension.#{$height}', $height)),
+      $intent
+    );
+  }
+}
+
+/// Mixin for applying radii.
+/// @param {string} $component
+/// @param {list<token|number>|token|number} $radius
+/// @param {string} $intent
+/// @return {void} radii styles.
+@mixin radius($component, $radius, $intent: 'create') {
+  @include theme.property(
+    border-radius,
+    ('#{$component}-radius', _parse-value('radius', $radius)),
+    $intent
+  );
+}
+
+/// Mixin for applying padding.
+/// @param {string} $component
+/// @param {list<token|number>|token|number} $padding
+/// @param {string} $intent
+/// @return {void} padding styles.
+@mixin padding($component, $padding, $intent: 'create') {
+  @include theme.property(
+    padding,
+    ('#{$component}-padding', _parse-value('padding', $padding)),
+    $intent
+  );
+}
+
+/// Mixin for applying margin.
+/// @param {string} $component
+/// @param {list<token|number>|token|number} $margin
+/// @param {string} $intent
+/// @return {void} margin styles.
+@mixin margin($component, $margin, $intent: 'create') {
+  @include theme.property(
+    margin,
+    ('#{$component}-margin', _parse-value('margin', $margin)),
+    $intent
+  );
+}
+
+/// Mixin for applying border width.
+/// @param {string} $component
+/// @param {token|number} $border-width
+/// @param {string} $intent
+/// @return {void} border width styles.
+@mixin border-width($component, $border-width, $intent: 'create') {
+  @include theme.property(
+    border-width,
+    ('#{$component}-border-width', $border-width),
+    $intent
+  );
+}
+
+/// Mixin for applying border style.
+/// @param {string} $component
+/// @param {string} $border-style
+/// @param {string} $intent
+/// @return {void} border style styles.
+@mixin border-style($component, $border-style, $intent: 'create') {
+  @include theme.property(
+    border-style,
+    ('#{$component}-border-style', $border-style),
+    $intent
+  );
+}
+
+/// Mixin for applying shadow.
+/// @param {string} $component
+/// @param {token} $shadow
+/// @param {string} $intent
+/// @return {void} shadow styles.
+@mixin shadow($component, $shadow, $intent: 'create') {
+  @include theme.property(
+    box-shadow,
+    ('#{$component}-shadow', $shadow),
+    $intent
+  );
+}
+
+/// Mixin for applying gap.
+/// @param {string} $component
+/// @param {token} $gap
+/// @param {string} $intent
+/// @return {void} gap styles.
+@mixin gap($component, $gap, $intent: 'create') {
+  @include theme.property(
+    gap,
+    ('#{$component}-gap', $gap),
+    $intent
+  );
+}
+
+/// Value parser for the shape setter mixins.
+/// @access private
+@function _parse-value($key, $query) {
+  $result: ();
+  @each $value in $query {
+    @if $value != 0 {
+      @error 'Invalid value: #{$value}. Please use a valid #{$key} token, or the number 0.';
+    } @else {
+      $result: list.append($result,
+        theme.token-switch('#{$key}-#{$value}', tokens.primitive-token-switch('#{$key}.#{$value}', $value)),
+      'space');
+    }
+  }
+  @return $result;
+}
