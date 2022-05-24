@@ -178,6 +178,13 @@ $_struct-tokens: (
     'lg': 7px,
     'xl': 11px,
   ),
+  'shadow': (
+    'xs': 0 0.3rem 0.5rem var(--gs-shadow-color),
+    'sm': 0 0.7rem 1.2rem var(--gs-shadow-color),
+    'md': 0 1.2rem 1.5rem var(--gs-shadow-color),
+    'lg': 0 1.7rem 2.1rem var(--gs-shadow-color),
+    'xl': 0 2.3rem 3.5rem var(--gs-shadow-color),
+  ),
 );
 
 $_typography-tokens: (
