@@ -22,7 +22,7 @@
 
 @use 'sass:list';
 
-/// Required component props
+/// Valid component props
 /// @access private
 $_valid-props: ('fill', 'ink', 'border');
 $_valid-colors: (
@@ -36,7 +36,7 @@ $_valid-colors: (
 /// Validates a set of color props.
 /// @param {map} $props
 /// @access protected
-@mixin inspect-color-props($props) {
+@mixin validate-color-props($props) {
   @each $prop in $props {
     @if _is-color-prop($prop) { }
   }

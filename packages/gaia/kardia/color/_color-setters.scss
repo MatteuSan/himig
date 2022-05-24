@@ -42,7 +42,7 @@
   @if not tools.is-type($theme, 'map') {
     @error '$theme is expecting a map. Map was not given.';
   } @else {
-    @include validator.inspect-color-props(map.keys($theme)) {
+    @include validator.validate-color-props(map.keys($theme)) {
       @if $fill {
         @include util.fill($component, $fill, $intent);
       }
@@ -56,10 +56,20 @@
   }
 }
 
+/// Mixin that applies color styles to a component.
+/// @param {string} $component
+/// @param {map<string, string>} $theme
+/// @return {void} void.
 @mixin apply($component, $theme) {
   @include _base($component, $theme);
 }
 
+/// Mixin that binds color styles to a component with existing keys.
+/// @param {string} $component
+/// @param {map<string, string>} $theme
+/// @return {void} void.
 @mixin bind($component, $theme) {
-  @include _base($component, $theme, (intent: 'bind'));
+  @include _base($component, $theme, (
+    'intent': bind
+  ));
 }
