@@ -1,0 +1,76 @@
+///
+//  Copyright (c) 2022 GrowStocks
+//
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in all
+//  copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+//  SOFTWARE.
+///
+
+@use '../kardia';
+
+@mixin init() {
+  .gs-button {
+    display: inline-flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    user-select: none;
+    overflow: visible;
+    vertical-align: middle;
+
+    cursor: pointer;
+    outline: none;
+
+    -webkit-appearance: caret;
+    @include kardia.prefix(transition, all var(--gs-transition-time) ease);
+
+    @content;
+
+    .gs-button__icon {
+      position: relative;
+      @include kardia.color-ink('button-icon', inherit);
+      @include kardia.typography-size('button-icon', 'size.md');
+      /* @fallback */
+      width: kardia.key-create('button-icon-size', kardia.primitive-token-get('size.md'));
+      max-width: max-content;
+      height: kardia.key-create('button-icon-size', kardia.primitive-token-get('size.md'));
+
+      > * {
+        position: relative;
+        @include kardia.color-ink('button-icon', inherit);
+        @include kardia.typography-size('button-icon', 'size.md');
+        /* @fallback */
+        width: kardia.key-create('button-icon-size', kardia.primitive-token-get('size.md'));
+        max-width: max-content;
+        height: kardia.key-create('button-icon-size', kardia.primitive-token-get('size.md'));
+      }
+    }
+
+    .gs-button__label {
+      @include kardia.color-ink('button-label', inherit);
+      @include kardia.typography-apply('button-label', (
+        family: inherit,
+        size: inherit,
+        weight: inherit,
+        line-height: inherit
+      ));
+      text-align: center;
+    }
+  }
+}

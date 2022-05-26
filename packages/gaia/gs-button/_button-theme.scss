@@ -20,5 +20,50 @@
 //  SOFTWARE.
 ///
 
-@forward 'button-styles';
-@forward 'button-extend';
+$init-color: (
+  default: (
+    fill: 'accent-400',
+    ink: 'accent-ink',
+    border: 'accent-400',
+  ),
+  hover: (
+    fill: 'accent-300',
+    ink: 'accent-ink',
+    border: 'accent-300',
+  ),
+  active: (
+    fill: 'accent-200',
+    ink: 'accent-ink',
+    border: 'accent-200',
+  ),
+  focus: (
+    fill: 'accent-400',
+    ink: 'accent-ink',
+    border: 'accent-400',
+  ),
+  disabled: (
+    fill: 'accent-800',
+    ink: 'accent-ink',
+    border: 'accent-800',
+  ),
+);
+
+$init-struct: (
+  width: (
+    default: 100%,
+    min: 69px,
+    max: max-content
+  ),
+  padding: ('sm' 'md'),
+  radius: 'small',
+  border-width: 'xs',
+  border-style: solid,
+  gap: 'sm'
+);
+
+$init-typography: (
+  family: 'global',
+  size: 'body',
+  weight: 'bold',
+  line-height: 'condensed'
+);
