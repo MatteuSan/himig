@@ -15,6 +15,7 @@
     "lint:sass": "npx stylelint \"**/*.scss\"",
     "pack:dist": "npm pack --pack-destination=\"./dist\"",
     "pack:root": "npm pack --pack-destination=\"./\"",
+    "run:docs": "cd documentation && yarn dev",
     "test:sass": "gulp --gulpfile=\"gulpfile-tests.ts\"",
     "test:ts": "jest --config=\"jest.config.ts\""
   },
