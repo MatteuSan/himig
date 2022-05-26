@@ -1,0 +1,10 @@
+{
+  "name": "@growstocks/gaia-configs",
+  "version": "1.0.0",
+  "description": "Configuration files for the Gaia Design System",
+  "main": "index.ts",
+  "repository": "https://github.com/GrowStocks/gaia",
+  "author": "Matteu",
+  "license": "MIT",
+  "private": false
+}
