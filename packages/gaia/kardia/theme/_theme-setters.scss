@@ -60,6 +60,7 @@ $expressive-inks: false !default;
   );
 
   $_typography-mapper: (
+    'global': $global,
     'supertitle': $supertitle,
     'title': $title,
     'subtitle': $subtitle,
@@ -123,6 +124,7 @@ $expressive-inks: false !default;
 /// @access private
 @function _typography-theme-token-module($query, $property) {
   @return (
+    'global': tokens.primitive-token-switch(map.get(map.get($query, 'global'), $property)),
     'supertitle': tokens.primitive-token-switch(map.get(map.get($query, 'supertitle'), $property)),
     'title': tokens.primitive-token-switch(map.get(map.get($query, 'title'), $property)),
     'subtitle': tokens.primitive-token-switch(map.get(map.get($query, 'subtitle'), $property)),
