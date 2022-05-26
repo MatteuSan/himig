@@ -21,6 +21,7 @@
 ///
 
 @use '../theme';
+@use '../tokens' as token;
 
 /// Mixin for applying font family.
 /// @param {string} $component
@@ -29,8 +30,8 @@
 /// @return {void} font family styles.
 @mixin family($component, $family, $intent: 'create') {
   @include theme.property(
-    border-style,
-    ('#{$component}-family', $family),
+    font-family,
+    ('#{$component}-family', theme.token-switch('family-#{$family}', token.primitive-token-switch('family.#{$family}', $family))),
     $intent
   );
 }
@@ -42,8 +43,8 @@
 /// @return {void} font size styles.
 @mixin size($component, $size, $intent: 'create') {
   @include theme.property(
-    border-style,
-    ('#{$component}-size', $size),
+    font-size,
+    ('#{$component}-size', theme.token-switch('size-#{$size}', token.primitive-token-switch('size.#{$size}', $size))),
     $intent
   );
 }
@@ -55,8 +56,8 @@
 /// @return {void} font weight styles.
 @mixin weight($component, $weight, $intent: 'create') {
   @include theme.property(
-    border-style,
-    ('#{$component}-weight', $weight),
+    font-weight,
+    ('#{$component}-weight', theme.token-switch('weight-#{$weight}', token.primitive-token-switch('weight.#{$weight}', $weight))),
     $intent
   );
 }
@@ -68,8 +69,8 @@
 /// @return {void} line height styles.
 @mixin line-height($component, $line-height, $intent: 'create') {
   @include theme.property(
-    border-style,
-    ('#{$component}-line-height', $line-height),
+    line-height,
+    ('#{$component}-line-height', theme.token-switch('line-height-#{$line-height}', token.primitive-token-switch('line-height.#{$line-height}', $line-height))),
     $intent
   );
 }
