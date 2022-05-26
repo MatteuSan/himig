@@ -187,6 +187,14 @@ $_struct-tokens: (
   ),
 );
 
+$_abstracted-struct-tokens: (
+  'padding': map.get($_struct-tokens, 'el-spacing'),
+  'margin': map.get($_struct-tokens, 'spacing'),
+  'width': map.get($_struct-tokens, 'dimension'),
+  'height': map.get($_struct-tokens, 'dimension'),
+  'gap': map.get($_struct-tokens, 'spacing'),
+);
+
 $_typography-tokens: (
   'family': (
     'mono': ('Jetbrains Mono', monospace),
@@ -218,4 +226,8 @@ $_typography-tokens: (
   ),
 );
 
-$gs-tokens: map.deep-merge($_color-tokens, map.deep-merge($_struct-tokens, $_typography-tokens));
+$gs-tokens: map.deep-merge(
+  $_color-tokens, map.deep-merge(
+    $_typography-tokens, map.deep-merge($_struct-tokens, $_abstracted-struct-tokens)
+  )
+);
