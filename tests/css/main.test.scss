@@ -21,17 +21,8 @@
 ///
 
 @use 'node_modules/@growstocks/gaia' with ($expressive-inks: true);
+@use 'node_modules/@growstocks/gaia/gs-button';
 
-@include gaia.init(
-  $surface: (
-    200: #9878c4,
-    300: #8376b9,
-    400: #497c9b,
-    600: #12705e,
-    800: #077835,
-  )
-) {
-  .component {
-    // color: gaia.token-get('sufrace-300');
-  }
+@include gaia.init() {
+  @include gs-button.render();
 }
