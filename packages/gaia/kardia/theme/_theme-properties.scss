@@ -47,6 +47,6 @@ $_valid-intents: (
   }
 }
 
-@function _assert-value($query) {
-  @return token.switch(primitive-token.primitive-token-switch($query));
+@function _assert-value($query, $fallback: ()) {
+  @return token.switch($query, primitive-token.primitive-token-switch($query, $fallback));
 }
