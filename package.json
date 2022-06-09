@@ -29,7 +29,7 @@
     "jest": "28.1.0",
     "jest-environment-jsdom": "28.1.0",
     "postcss-scss": "4.0.4",
-    "sass": "1.52.2",
+    "sass": "1.52.3",
     "sass-true": "6.1.0",
     "stylelint": "14.8.5",
     "stylelint-scss": "4.2.0",
