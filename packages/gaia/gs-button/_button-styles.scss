@@ -41,30 +41,30 @@ $_states: (
   $color: map.merge(theme.$init-color, $color);
   $struct: map.merge(theme.$init-struct, $struct);
   $typography: map.merge(theme.$init-typography, $typography);
-  // $settings: map.merge(theme.$init-settings, $settings);
+  $settings: map.merge(theme.$init-settings, $settings);
 
   $fills: (
-    default: map.get($color, 'default', 'fill'),
-    hover: map.get($color, 'hover', 'fill'),
-    focus: map.get($color, 'focus', 'fill'),
-    active: map.get($color, 'active', 'fill'),
-    disabled: map.get($color, 'disabled', 'fill'),
+    default: map.get($color, 'fill', 'default'),
+    hover: map.get($color, 'fill', 'hover'),
+    focus: map.get($color, 'fill', 'focus'),
+    active: map.get($color, 'fill', 'active'),
+    disabled: map.get($color, 'fill', 'disabled'),
   );
 
   $inks: (
-    default: map.get($color, 'default', 'ink'),
-    hover: map.get($color, 'hover', 'ink'),
-    focus: map.get($color, 'focus', 'ink'),
-    active: map.get($color, 'active', 'ink'),
-    disabled: map.get($color, 'disabled', 'ink'),
+    default: map.get($color, 'ink', 'default'),
+    hover: map.get($color, 'ink', 'hover'),
+    focus: map.get($color, 'ink', 'focus'),
+    active: map.get($color, 'ink', 'active'),
+    disabled: map.get($color, 'ink', 'disabled'),
   );
 
   $borders: (
-    default: map.get($color, 'default', 'border'),
-    hover: map.get($color, 'hover', 'border'),
-    focus: map.get($color, 'focus', 'border'),
-    active: map.get($color, 'active', 'border'),
-    disabled: map.get($color, 'disabled', 'border'),
+    default: map.get($color, 'border', 'default'),
+    hover: map.get($color, 'border', 'hover'),
+    focus: map.get($color, 'border', 'focus'),
+    active: map.get($color, 'border', 'active'),
+    disabled: map.get($color, 'border', 'disabled'),
   );
 
   @include base.init() {
