@@ -35,7 +35,7 @@
       ink: $fill,
       border: transparent
     ));
-    outline: 2px solid kardia.key-create('button-outline', rgba(raw($fill), kardia.$color-fill-default-opacity));
+    @include kardia.key-bind('button-outline', 2px solid rgba(raw($fill), kardia.$color-fill-default-opacity));
 
     &:hover {
       @include kardia.color-bind('button', (
@@ -51,7 +51,7 @@
         ink: $fill,
         border: rgba(raw($border), kardia.$color-border-focus-opacity)
       ));
-      @include kardia.key-bind('button-outline', rgba(raw($fill), kardia.$color-outline-focus-opacity));
+      @include kardia.key-bind('button-outline', 2px solid rgba(raw($fill), kardia.$color-outline-focus-opacity));
     }
 
     &:active {
@@ -92,7 +92,7 @@
       ink: $fill,
       border: $border
     ));
-    outline: 2px solid kardia.key-create('button-outline', rgba(raw($fill), kardia.$color-fill-default-opacity));
+    @include kardia.key-bind('button-outline', 2px solid rgba(raw($fill), kardia.$color-fill-default-opacity));
 
     &:focus {
       @include kardia.color-bind('button', (
@@ -100,7 +100,7 @@
         ink: $fill,
         border: $border
       ));
-      @include kardia.key-bind('button-outline', rgba(raw($fill), kardia.$color-outline-focus-opacity));
+      @include kardia.key-bind('button-outline', 2px solid rgba(raw($fill), kardia.$color-outline-focus-opacity));
     }
 
     &:hover {
@@ -149,7 +149,7 @@
       ink: $ink,
       border: $border
     ));
-    outline: 2px solid kardia.key-create('button-outline', rgba(raw($fill), kardia.$color-fill-default-opacity));
+    @include kardia.key-bind('button-outline', 2px solid rgba(raw($fill), kardia.$color-fill-default-opacity));
 
     &:hover {
       @include kardia.color-bind('button', (
@@ -165,7 +165,7 @@
         ink: $ink,
         border: $border-focus
       ));
-      @include kardia.key-bind('button-outline', rgba(raw($fill), kardia.$color-outline-focus-opacity));
+      @include kardia.key-bind('button-outline', 2px solid rgba(raw($fill), kardia.$color-outline-focus-opacity));
     }
 
     &:active {

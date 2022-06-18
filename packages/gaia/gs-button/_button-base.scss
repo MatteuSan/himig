@@ -35,7 +35,7 @@
     vertical-align: middle;
 
     cursor: pointer;
-    outline: none;
+    outline: kardia.key-create('button-outline', none);
 
     -webkit-appearance: caret;
     @include kardia.prefix(transition, all var(--gs-transition-time) ease);
