@@ -21,16 +21,24 @@
  */
 
 module.exports = {
-  preset: 'ts-jest',
+  clearMocks: true,
+  rootDir: "./tests/sass",
   // collectCoverage: true,
-  // coverageDirectory: ".coverage",
-  // coverageProvider: "v8",
-  testEnvironment: "jsdom",
-  // verbose: true,
-  rootDir: "./tests",
+  // collectCoverageFrom: ['tests/css/sass.test.ts'],
+  // coverageDirectory: 'coverage',
+  // coverageReporters: ['text-summary', 'html'],
+  // coverageThreshold: {
+  //   global: {
+  //     branches: 90,
+  //     functions: 100,
+  //     lines: 100,
+  //     statements: 100,
+  //   },
+  // },
   globals: {
     "ts-jest": {
-      tsconfig: "./tsconfig-build.json"
+      tsconfig: "./tsconfig-test.json"
     }
-  }
+  },
+  verbose: true,
 };

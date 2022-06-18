@@ -21,7 +21,7 @@
 ///
 
 @use 'node_modules/@growstocks/gaia/kardia';
-@use 'node_modules/sass-true' as true with ($terminal-output: true);
+@use 'node_modules/sass-true' as true;
 
 @include true.describe('Color Utils [module]') {
   @include true.it('returns a fill color') {
@@ -47,7 +47,7 @@
         );
       }
       @include true.expect {
-        background-color: var(--gs-component-ink, #ff6a00);
+        color: var(--gs-component-ink, #ff6a00);
       }
     }
   }
@@ -61,7 +61,7 @@
         );
       }
       @include true.expect {
-        background-color: var(--gs-component-border, #ff6a00);
+        border-color: var(--gs-component-border, #ff6a00);
       }
     }
   }

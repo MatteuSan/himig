@@ -21,7 +21,7 @@
 ///
 
 @use 'node_modules/@growstocks/gaia/kardia';
-@use 'node_modules/sass-true' as true with ($terminal-output: true);
+@use 'node_modules/sass-true' as true;
 
 :root {
   @include kardia.token-config(

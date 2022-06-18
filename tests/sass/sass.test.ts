@@ -20,19 +20,7 @@
  *  SOFTWARE.
  */
 
-// @ts-ignore
-const { src, dest, series } = require('gulp');
-// @ts-ignore
-const sass = require('gulp-sass')(require('sass'));
-
-const testSass = () => {
-  return src('tests/**/*.test.scss')
-    .pipe(sass({
-      includePaths: ['node_modules']
-    }).on('error', sass.logError))
-    .pipe(dest('tests'));
-}
-
-exports.default = series(
-  testSass
-);
+const path = require('path');
+const sassTest = require('sass-true');
+const filePath = path.join(__dirname, './main.test.scss');
+sassTest.runSass({ file: filePath }, { describe, it });

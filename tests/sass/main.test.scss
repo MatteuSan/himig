@@ -20,24 +20,12 @@
 //  SOFTWARE.
 ///
 
-@use 'node_modules/@growstocks/gaia/kardia';
+@use 'node_modules/@growstocks/gaia';
 @use 'node_modules/sass-true' as true with ($terminal-output: true);
 
-@include true.describe('primitive-token-get() test') {
-  @include true.it('Retrieves a token from the primitive token registry.') {
-    $test: kardia.primitive-token-get('gs-red.400');
-    @include true.assert-equal($test, #c41b1b);
-  }
-}
+// Core Modules
+@use 'kardia';
+@use 'font-pack.test';
 
-@include true.describe('primitive-token-check() test') {
-  @include true.it('Soft validates if the query is a valid primitive token.') {
-    $test: kardia.primitive-token-check('gs-red.400');
-    $test2: kardia.primitive-token-check('gs-red.900');
-    @include true.assert-equal($test, true);
-    @include true.assert-equal($test2, false);
-  }
-}
-
-
-@include true.report();
+// Components
+@use 'gs-button';

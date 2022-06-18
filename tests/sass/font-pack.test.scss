@@ -21,7 +21,7 @@
 ///
 
 @use 'node_modules/@growstocks/gaia/init-font-pack' as font-pack;
-@use 'sass-true' as true with ($terminal-output: true);
+@use 'node_modules/sass-true' as true;
 
 @include true.describe('Font Pack [module]') {
   @include true.it('Loads the font-pack') {

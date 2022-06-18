@@ -8,7 +8,7 @@
     "skipLibCheck": true
   },
   "include": [
-    "./tests/**/*.ts"
+    "./tests/**/*.test.ts"
   ],
   "exclude": [
     "./node_modules",

@@ -16,8 +16,8 @@
     "pack:dist": "npm pack --pack-destination=\"./dist\"",
     "pack:root": "npm pack --pack-destination=\"./\"",
     "run:docs": "cd documentation && yarn dev",
-    "test:sass": "gulp --gulpfile=\"gulpfile-tests.ts\"",
-    "test:ts": "jest --config=\"jest.config.ts\""
+    "test:sass": "jest --config=\"jest-sass.config.ts\"",
+    "test:ts": "jest --config=\"jest-ts.config.ts\""
   },
   "devDependencies": {
     "@growstocks/gaia": "file:./packages/gaia",

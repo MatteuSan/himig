@@ -20,8 +20,17 @@
 //  SOFTWARE.
 ///
 
-@use 'node_modules/@growstocks/gaia/kardia' with ($vue-mode: true);
-@use 'node_modules/sass-true' as true with ($terminal-output: true);
+@use 'node_modules/@growstocks/gaia/kardia';
+@use 'node_modules/sass-true' as true;
+
+:root {
+  @include kardia.token-config(
+    $accent: (
+      400: 'gs-orange.400',
+      ink: 'gs-white.200'
+    )
+  );
+}
 
 @include true.describe('Color Setters [module]') {
   @include true.it('applies colors to a component') {
@@ -50,9 +59,9 @@
         ));
       }
       @include true.expect {
-        background-color: var(--gs-component-fill, var(--hs-theme-accent-400));
-        color: var(--gs-component-ink, var(--hs-theme-accent-ink));
-        border-color: var(--gs-component-border, var(--hs-theme-accent-400));
+        background-color: var(--gs-component-fill, var(--gs-theme-accent-400));
+        color: var(--gs-component-ink, var(--gs-theme-accent-ink));
+        border-color: var(--gs-component-border, var(--gs-theme-accent-400));
       }
     }
   }
@@ -83,9 +92,9 @@
         ));
       }
       @include true.expect {
-        --gs-component-fill: var(--hs-theme-accent-400);
-        --gs-component-ink: var(--hs-theme-accent-ink);
-        --gs-component-border: var(--hs-theme-accent-400);
+        --gs-component-fill: var(--gs-theme-accent-400);
+        --gs-component-ink: var(--gs-theme-accent-ink);
+        --gs-component-border: var(--gs-theme-accent-400);
       }
     }
   }
