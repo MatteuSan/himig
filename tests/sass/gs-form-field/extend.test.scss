@@ -21,27 +21,27 @@
 ///
 
 @use 'node_modules/@growstocks/gaia';
-@use 'node_modules/@growstocks/gaia/gs-button';
+@use 'node_modules/@growstocks/gaia/gs-form-field';
 @use 'node_modules/sass-true' as true;
 
 @include gaia.init {
-  @include true.describe('GS Button Extend [mixin]') {
-    @include true.it('should extend the styles of a gs-button component') {
+  @include true.describe('GS Form Field Extend [mixin]') {
+    @include true.it('should extend the styles of a gs-form-field component') {
       @include true.assert {
         @include true.output {
-          @include gs-button.extend('large') {
-            @include gs-button.struct((
+          @include gs-form-field.extend('large') {
+            @include gs-form-field.struct((
               padding: ('lg' 'xl')
             ));
-            @include gs-button.typography((
+            @include gs-form-field.typography((
               size: 'supertitle'
             ));
           }
         }
         @include true.expect {
-          .gs-button.is-large {
-            --gs-button-padding: 1.2rem 2.3rem;
-            --gs-button-size: var(--gs-theme-size-supertitle);
+          .gs-form-field.is-large {
+            --gs-form-field-padding: 1.2rem 2.3rem;
+            --gs-form-field-size: var(--gs-theme-size-supertitle);
           }
         }
       }

@@ -20,31 +20,4 @@
 //  SOFTWARE.
 ///
 
-@use 'node_modules/@growstocks/gaia';
-@use 'node_modules/@growstocks/gaia/gs-button';
-@use 'node_modules/sass-true' as true;
-
-@include gaia.init {
-  @include true.describe('GS Button Extend [mixin]') {
-    @include true.it('should extend the styles of a gs-button component') {
-      @include true.assert {
-        @include true.output {
-          @include gs-button.extend('large') {
-            @include gs-button.struct((
-              padding: ('lg' 'xl')
-            ));
-            @include gs-button.typography((
-              size: 'supertitle'
-            ));
-          }
-        }
-        @include true.expect {
-          .gs-button.is-large {
-            --gs-button-padding: 1.2rem 2.3rem;
-            --gs-button-size: var(--gs-theme-size-supertitle);
-          }
-        }
-      }
-    }
-  }
-}
+@use 'extend.test';
