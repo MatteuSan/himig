@@ -35,19 +35,19 @@
 /// @param {map} $color-map
 /// @return {*} color styles.
 @mixin color($color-map) {
-  @include kardia.color-bind('button', $color-map);
+  @include kardia.color-bind('form-field', $color-map);
 }
 
 /// Structure variant mixin.
 /// @param {map} $struct-map
 /// @return {*} struct styles.
 @mixin struct($struct-map) {
-  @include kardia.struct-bind('button', $struct-map);
+  @include kardia.struct-bind('form-field', $struct-map);
 }
 
 /// Typography variant mixin.
 /// @param {map} $type-map
 /// @return {*} typography styles.
 @mixin typography($type-map) {
-  @include kardia.typography-bind('button', $type-map);
+  @include kardia.typography-bind('form-field', $type-map);
 }
