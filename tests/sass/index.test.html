@@ -28,19 +28,19 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Gaia Design System Testing File</title>
-    <link rel="stylesheet" href="main.test.css">
+    <link rel="stylesheet" href="with-html.test.css">
 </head>
 <body>
-<button class="gs-button" disabled>
+<button class="gs-button">
     <span class="gs-button__label">Button</span>
 </button>
-<button class="gs-button is-outlined" disabled>
+<button class="gs-button is-outlined">
     <span class="gs-button__label">Button</span>
 </button>
-<button class="gs-button is-filled" disabled>
+<button class="gs-button is-filled">
     <span class="gs-button__label">Button</span>
 </button>
-<button class="gs-button is-filled is-raised" disabled>
+<button class="gs-button is-filled is-raised">
     <span class="gs-button__label">Button</span>
 </button>
 <button class="gs-button is-fullwidth">
@@ -56,5 +56,34 @@
 <button class="gs-button is-filled is-error">
     <span class="gs-button__label">Button</span>
 </button>
+<label class="gs-form-field">
+    <input type="text" class="gs-form-field__input" placeholder="a" name="text-field" />
+    <span class="gs-form-field__label">GS Form Field</span>
+    <span class="gs-form-field__helper">Helper Text</span>
+</label>
+
+<label class="gs-form-field is-error">
+    <input type="text" class="gs-form-field__input" placeholder="a" name="text-field" />
+    <span class="gs-form-field__label">GS Form Field</span>
+    <span class="gs-form-field__helper">Helper Text</span>
+</label>
+
+<label class="gs-form-field is-filled is-raised">
+    <input type="text" class="gs-form-field__input" placeholder="a" name="text-field" />
+    <span class="gs-form-field__label">GS Form Field</span>
+    <span class="gs-form-field__helper">Helper Text</span>
+</label>
+
+<label class="gs-form-field is-filled is-error is-raised">
+    <input type="text" class="gs-form-field__input" placeholder="a" name="text-field" />
+    <span class="gs-form-field__label">GS Form Field</span>
+    <span class="gs-form-field__helper">Helper Text</span>
+</label>
+
+<label class="gs-form-field is-filled is-error is-raised">
+    <textarea name="bruh" cols="30" class="gs-form-field__input" placeholder="a" rows="10"></textarea>
+    <span class="gs-form-field__label">GS Form Field</span>
+    <span class="gs-form-field__helper">Helper Text</span>
+</label>
 </body>
 </html>
