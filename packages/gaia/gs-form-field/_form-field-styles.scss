@@ -40,7 +40,7 @@
   $resolve-padding: if(list.length(map.get($struct, 'padding')) >= 2, list.nth(map.get($struct, 'padding'), 2), list.nth(map.get($struct, 'padding'), 1));
 
   @include base.init(
-    0.8rem,
+    0.7rem,
     kardia.primitive-token-switch('padding.#{$resolve-padding}', $resolve-padding),
     kardia.primitive-token-switch('padding.#{list.nth(map.get($struct, 'padding'), 1)}', list.nth(map.get($struct, 'padding'), 1)),
   ) {
