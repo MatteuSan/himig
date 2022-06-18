@@ -20,27 +20,93 @@
 //  SOFTWARE.
 ///
 
-@mixin init() {
+@use '../kardia';
+
+@mixin init($top-label-distance, $left-label-distance, $top-padding) {
   .gs-form-field {
     display: flex;
     flex-flow: column nowrap;
+    position: relative;
 
     @content;
 
     .gs-form-field__label {
-      //
-
-      &.is-floating {
-        //
-      }
+      position: absolute;
+      top: calc(#{$top-label-distance} + 2px);
+      left: calc(#{$left-label-distance} + 1px);
+      @include kardia.color-apply('form-field-label', (
+        fill: rgba(0 0 0 / 0),
+        ink: inherit,
+      ));
+      @include kardia.struct-apply('form-field-label', (
+        padding: ('xs' 'xs' 'xs' 0),
+      ));
+      @include kardia.typography-apply('form-field-label', (
+        family: inherit,
+        size: inherit,
+        weight: inherit,
+        line-height: inherit,
+      ));
+      @include kardia.prefix(transition, all var(--gs-transition-time) ease);
+      cursor: text;
     }
 
     .gs-form-field__input {
-      //
+      @include kardia.struct-apply('form-field', (
+        width: 100%,
+        margin: 0,
+        radius: 0,
+        border-width: 2px,
+        border-style: solid,
+      ));
+      padding: kardia.key-get('form-field-padding');
+      padding-top: calc(#{$top-padding} + 1rem) !important;
+      @include kardia.color-apply('form-field', (
+        fill: inherit,
+        ink: inherit,
+        border: inherit
+      ));
+      @include kardia.typography-apply('form-field', (
+        family: inherit,
+        size: inherit,
+        weight: inherit,
+        line-height: inherit,
+      ));
+      outline: none;
+      resize: none;
+      cursor: text;
+      -webkit-appearance: caret;
+      @include kardia.prefix(transition, all var(--gs-transition-time) ease);
+
+      &::placeholder {
+        // display: none !important;
+        color: rgba(0 0 0 / 0) !important;
+        user-select: none !important;
+      }
+
+      &:focus,
+      &:not(:placeholder-shown){
+        + .gs-form-field__label {
+          top: 0.43rem;
+          @include kardia.typography-bind('form-field-label', (
+            family: 'small',
+            size: 'small',
+          ));
+        }
+      }
     }
 
     .gs-form-field__helper {
-      //
+      @include kardia.color-apply('form-field-helper', (
+        ink: inherit,
+      ));
+      @include kardia.typography-apply('form-field-helper', (
+        family: inherit,
+        size: inherit,
+        weight: inherit,
+        line-height: inherit,
+      ));
+      @include kardia.prefix(transition, all var(--gs-transition-time) ease);
     }
   }
 }

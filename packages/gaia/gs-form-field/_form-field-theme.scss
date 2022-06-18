@@ -21,21 +21,21 @@
 ///
 
 $init-color: (
-  fill: 'primary-400',
-  ink: 'primary-ink',
+  fill: (
+    default: 'surface-200',
+    disabled: 'surface-400'
+  ),
+  ink: 'surface-ink',
   border: (
-    default: 'primary-600',
-    focus: 'accent-400'
+    default: 'surface-400',
+    focus: 'surface-400',
+    disabled: 'surface-600'
   ),
 );
 
 $init-struct: (
-  width: (
-    default: 100%,
-    min: auto,
-    max: auto,
-  ),
-  padding: ('sm' 'md'),
+  width: 100%,
+  padding: ('sm', 'md'),
   radius: 'small',
   border-width: 'xs',
   border-style: solid,
@@ -43,20 +43,14 @@ $init-struct: (
 );
 
 $init-typography: (
-  family: (
-    default: 'global',
-    helper: 'small'
-  ),
+  family: 'global',
   size: (
     default: 'body',
-    label: (
-      default: 'body',
-      focus: 'small'
-    ),
+    label: 'body',
     helper: 'small'
   ),
-  weight: 'bold',
-  line-height: 'condensed'
+  weight: 'normal',
+  line-height: 'normal'
 );
 
 $init-settings: ();

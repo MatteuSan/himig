@@ -20,7 +20,11 @@
 //  SOFTWARE.
 ///
 
+@use '../kardia';
+@use 'sass:map';
+@use 'sass:list';
 @use 'form-field-base' as base;
+@use 'form-field-theme' as theme;
 
 @mixin render(
   $color: (),
@@ -28,7 +32,139 @@
   $typography: (),
   $settings: ()
 ) {
-  @include base.init() {
-    //
+  $color: map.merge(theme.$init-color, $color);
+  $struct: map.merge(theme.$init-struct, $struct);
+  $typography: map.merge(theme.$init-typography, $typography);
+  $settings: map.merge(theme.$init-settings, $settings);
+
+  $resolve-padding: if(list.length(map.get($struct, 'padding')) >= 2, list.nth(map.get($struct, 'padding'), 2), list.nth(map.get($struct, 'padding'), 1));
+
+  @include base.init(
+    0.8rem,
+    kardia.primitive-token-switch('padding.#{$resolve-padding}', $resolve-padding),
+    kardia.primitive-token-switch('padding.#{list.nth(map.get($struct, 'padding'), 1)}', list.nth(map.get($struct, 'padding'), 1)),
+  ) {
+    .gs-form-field__label {
+      @include kardia.color-bind('form-field-label', (
+        ink: map.get($color, 'ink'),
+      ));
+      @include kardia.typography-bind('form-field-label', (
+        family: map.get($typography, 'family'),
+        size: map.get($typography, 'size', 'label'),
+        weight: map.get($typography, 'weight'),
+        line-height: map.get($typography, 'height'),
+      ));
+    }
+
+    .gs-form-field__input {
+      @include kardia.struct-bind('form-field', (
+        width: map.get($struct, 'width'),
+        padding: map.get($struct, 'padding'),
+        radius: map.get($struct, 'radius'),
+        border-width: map.get($struct, 'border-width'),
+        border-style: map.get($struct, 'border-style'),
+        gap: map.get($struct, 'gap'),
+      ));
+      @include kardia.typography-bind('form-field', (
+        family: map.get($typography, 'family'),
+        size: map.get($typography, 'size', 'default'),
+        weight: map.get($typography, 'weight'),
+        line-height: map.get($typography, 'height'),
+      ));
+
+      &:not(:read-only),
+      &:not(:disabled) {
+        @include kardia.color-bind('form-field', (
+          fill: map.get($color, 'fill', 'default'),
+          ink: map.get($color, 'ink'),
+          border: map.get($color, 'border', 'default'),
+        ));
+
+        &:focus {
+          @include kardia.color-bind('form-field', (
+            border: map.get($color, 'border', 'focus'),
+          ));
+
+          + .gs-form-field__label {
+            @include kardia.color-bind('form-field-label', (
+              fill: map.get($color, 'fill', 'default'),
+            ));
+          }
+        }
+      }
+
+      &:read-only,
+      &:disabled {
+        @include kardia.color-bind('form-field', (
+          fill: map.get($color, 'fill', 'disabled'),
+          ink: map.get($color, 'ink'),
+          border: map.get($color, 'border', 'disabled'),
+        ));
+      }
+    }
+
+    .gs-form-field__helper {
+      padding: 0.3rem kardia.primitive-token-switch('padding.#{$resolve-padding}', $resolve-padding) 0;
+      @include kardia.color-bind('form-field-helper', (
+        ink: map.get($color, 'ink'),
+      ));
+      @include kardia.typography-bind('form-field-helper', (
+        family: map.get($typography, 'family'),
+        size: map.get($typography, 'size', 'helper'),
+        weight: map.get($typography, 'weight'),
+        line-height: map.get($typography, 'height'),
+      ));
+    }
+
+    &.is-error {
+      .gs-form-field__label {
+        @include kardia.color-bind('form-field-label', (
+          ink: 'error-400',
+        ));
+      }
+
+      .gs-form-field__helper {
+        @include kardia.color-bind('form-field-helper', (
+          ink: 'error-400',
+        ));
+      }
+
+      &:not(.is-filled) {
+        .gs-form-field__input:not(:read-only),
+        .gs-form-field__input:not(:disabled) {
+          @include kardia.color-bind('form-field', (
+            ink: 'error-400',
+            border: 'error-400'
+          ));
+        }
+      }
+
+      .gs-form-field__input:not(:read-only),
+      .gs-form-field__input:not(:disabled) {
+        @include kardia.color-bind('form-field', (
+          ink: 'error-400',
+        ));
+
+        &:focus {
+          @include kardia.color-bind('form-field', (
+            border: 'error-400'
+          ));
+        }
+      }
+    }
+
+    &.is-filled {
+      .gs-form-field__input {
+        @include kardia.color-bind('form-field', (
+          border: map.get($color, 'fill', 'default'),
+        ));
+      }
+
+      &.is-raised {
+        .gs-form-field__input {
+          @include kardia.struct-shadow('form-field', 'sm');
+        }
+      }
+    }
   }
 }
