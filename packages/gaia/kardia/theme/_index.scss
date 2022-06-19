@@ -26,3 +26,4 @@ $expressive-inks: false !default;
 @forward 'theme-tokens' as token-*;
 @forward 'theme-setters' with ($expressive-inks: $expressive-inks);
 @forward 'theme-properties';
+@forward 'theme-merge';
