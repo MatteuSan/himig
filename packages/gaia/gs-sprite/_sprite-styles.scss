@@ -20,4 +20,10 @@
 //  SOFTWARE.
 ///
 
-@forward 'sprite-styles';
+@use '../kardia';
+
+@mixin render() {
+  .gs-sprite {
+    @include kardia.sprite-styles();
+  }
+}
