@@ -23,8 +23,8 @@
 @use 'node_modules/@growstocks/gaia/init-font-pack' as font-pack;
 @use 'node_modules/sass-true' as true;
 
-@include true.describe('Font Pack [module]') {
-  @include true.it('Loads the font-pack') {
+@include true.describe('Font Pack [mixin]') {
+  @include true.it('should load font pack') {
     @include true.assert {
       @include true.output($selector: false) {
         @include font-pack.load((

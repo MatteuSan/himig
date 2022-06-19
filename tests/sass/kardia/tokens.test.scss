@@ -23,7 +23,7 @@
 @use 'node_modules/@growstocks/gaia';
 @use 'node_modules/sass-true' as true;
 
-@include true.describe('Tokens [module]') {
+@include true.describe('Token [module]') {
   @include true.it('Creates a set of tokens') {
     @include true.assert {
       @include true.output {
@@ -46,12 +46,12 @@
     }
   }
 
-  @include true.it('Queries a token.') {
+  @include true.it('should query a token') {
     $token: gaia.token-get('surface-300');
     @include true.assert-equal($token, var(--gs-theme-surface-300));
   }
 
-  @include true.it('Queries a token\'s raw value.') {
+  @include true.it('should query a token\'s raw value') {
     $token: gaia.token-get-raw('surface-300');
     @include true.assert-equal($token, #700);
   }
