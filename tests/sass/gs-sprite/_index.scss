@@ -20,14 +20,4 @@
 //  SOFTWARE.
 ///
 
-@use 'node_modules/@growstocks/gaia';
-@use 'node_modules/sass-true' as true with ($terminal-output: true);
-
-// Core Modules
-@use 'kardia';
-@use 'font-pack.test';
-
-// Components
-@use 'gs-button';
-@use 'gs-form-field';
-@use 'gs-sprite';
+@use 'styles.test';

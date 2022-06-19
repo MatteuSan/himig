@@ -21,13 +21,24 @@
 ///
 
 @use 'node_modules/@growstocks/gaia';
-@use 'node_modules/sass-true' as true with ($terminal-output: true);
+@use 'node_modules/@growstocks/gaia/gs-sprite';
+@use 'node_modules/sass-true' as true;
 
-// Core Modules
-@use 'kardia';
-@use 'font-pack.test';
-
-// Components
-@use 'gs-button';
-@use 'gs-form-field';
-@use 'gs-sprite';
+@include gaia.init {
+  @include true.describe('GS Sprite Render [mixin]') {
+    @include true.it('should render the styles of a gs-sprite component') {
+      @include true.assert {
+        @include true.output {
+          @include gs-sprite.render();
+        }
+        @include true.expect {
+          .gs-sprite {
+            width: var(--gs-sprite-size);
+            height: var(--gs-sprite-size);
+            user-select: none;
+          }
+        }
+      }
+    }
+  }
+}
