@@ -23,18 +23,6 @@
 module.exports = {
   clearMocks: true,
   rootDir: "./tests/sass",
-  // collectCoverage: true,
-  // collectCoverageFrom: ['tests/css/sass.test.ts'],
-  // coverageDirectory: 'coverage',
-  // coverageReporters: ['text-summary', 'html'],
-  // coverageThreshold: {
-  //   global: {
-  //     branches: 90,
-  //     functions: 100,
-  //     lines: 100,
-  //     statements: 100,
-  //   },
-  // },
   globals: {
     "ts-jest": {
       tsconfig: "./tsconfig-test.json"
