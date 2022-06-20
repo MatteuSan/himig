@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "@growstocks/gaia": "file:./packages/gaia",
-    "@matteusan/sentro": "0.1.22",
+    "@matteusan/sentro": "0.1.23",
     "@types/jest": "28.1.2",
     "gulp": "4.0.2",
     "gulp-cli": "2.3.0",
