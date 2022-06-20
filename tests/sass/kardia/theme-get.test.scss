@@ -20,11 +20,22 @@
 //  SOFTWARE.
 ///
 
-$expressive-inks: false !default;
+@use 'node_modules/@growstocks/gaia';
+@use 'node_modules/sass-true/sass/true';
 
-@forward 'theme-keys' as key-*;
-@forward 'theme-tokens' as token-*;
-@forward 'theme-setters' with ($expressive-inks: $expressive-inks);
-@forward 'theme-properties';
-@forward 'theme-get';
-@forward 'theme-merge';
+@include true.describe('Theme Get [function]') {
+  @include true.it('should retrieve a theme value from a map') {
+    $theme: (
+      fill: (
+        default: 'gs-orange.400',
+        hover: 'gs-orange.200'
+      ),
+      ink: 'gs-white.200',
+      border: 'gs-orange.400'
+    );
+    @include true.assert-equal(gaia.theme-get($theme, 'fill'), 'gs-orange.400');
+    @include true.assert-equal(gaia.theme-get($theme, 'fill', 'hover'), 'gs-orange.200');
+    @include true.assert-equal(gaia.theme-get($theme, 'ink'), 'gs-white.200');
+    @include true.assert-equal(gaia.theme-get($theme, 'border'), 'gs-orange.400');
+  }
+}

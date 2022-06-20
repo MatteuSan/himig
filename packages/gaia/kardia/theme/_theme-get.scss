@@ -20,11 +20,22 @@
 //  SOFTWARE.
 ///
 
-$expressive-inks: false !default;
+@use '../tools';
+@use 'sass:map';
+@use 'sass:list';
 
-@forward 'theme-keys' as key-*;
-@forward 'theme-tokens' as token-*;
-@forward 'theme-setters' with ($expressive-inks: $expressive-inks);
-@forward 'theme-properties';
-@forward 'theme-get';
-@forward 'theme-merge';
+/// Retrieves a value from a theme map by key.
+/// @param {map} $map
+/// @param {string} $key
+/// @return {*} value.
+@function theme-get($map, $key, $keys...) {
+  $final-map: map.get($map, $key, $keys...);
+  @if tools.is-type($final-map, 'map', $errors: false) {
+    $map-keys: map.keys($final-map);
+    @if not list.index($map-keys, 'default') {
+      @error 'Missing `default` key in theme map. Please specify a key, or add a `default` key with a value.';
+    }
+    @return map.get($final-map, 'default');
+  }
+  @return $final-map;
+}
