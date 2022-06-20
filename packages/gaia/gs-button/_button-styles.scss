@@ -21,7 +21,6 @@
 ///
 
 @use '../kardia';
-@use 'sass:map';
 @use 'button-base' as base;
 @use 'button-theme' as theme;
 @use 'button-mixins' as style;
@@ -38,33 +37,33 @@ $_states: (
   $typography: (),
   $settings: ()
 ) {
-  $color: map.merge(theme.$init-color, $color);
-  $struct: map.merge(theme.$init-struct, $struct);
-  $typography: map.merge(theme.$init-typography, $typography);
-  $settings: map.merge(theme.$init-settings, $settings);
+  $color: kardia.theme-merge(theme.$init-color, $color);
+  $struct: kardia.theme-merge(theme.$init-struct, $struct);
+  $typography: kardia.theme-merge(theme.$init-typography, $typography);
+  $settings: kardia.theme-merge(theme.$init-settings, $settings);
 
   $fills: (
-    default: map.get($color, 'fill', 'default'),
-    hover: map.get($color, 'fill', 'hover'),
-    focus: map.get($color, 'fill', 'focus'),
-    active: map.get($color, 'fill', 'active'),
-    disabled: map.get($color, 'fill', 'disabled'),
+    default: kardia.theme-get($color, 'fill'),
+    hover: kardia.theme-get($color, 'fill', 'hover'),
+    focus: kardia.theme-get($color, 'fill', 'focus'),
+    active: kardia.theme-get($color, 'fill', 'active'),
+    disabled: kardia.theme-get($color, 'fill', 'disabled'),
   );
 
   $inks: (
-    default: map.get($color, 'ink', 'default'),
-    hover: map.get($color, 'ink', 'hover'),
-    focus: map.get($color, 'ink', 'focus'),
-    active: map.get($color, 'ink', 'active'),
-    disabled: map.get($color, 'ink', 'disabled'),
+    default: kardia.theme-get($color, 'ink'),
+    hover: kardia.theme-get($color, 'ink', 'hover'),
+    focus: kardia.theme-get($color, 'ink', 'focus'),
+    active: kardia.theme-get($color, 'ink', 'active'),
+    disabled: kardia.theme-get($color, 'ink', 'disabled'),
   );
 
   $borders: (
-    default: map.get($color, 'border', 'default'),
-    hover: map.get($color, 'border', 'hover'),
-    focus: map.get($color, 'border', 'focus'),
-    active: map.get($color, 'border', 'active'),
-    disabled: map.get($color, 'border', 'disabled'),
+    default: kardia.theme-get($color, 'border'),
+    hover: kardia.theme-get($color, 'border', 'hover'),
+    focus: kardia.theme-get($color, 'border', 'focus'),
+    active: kardia.theme-get($color, 'border', 'active'),
+    disabled: kardia.theme-get($color, 'border', 'disabled'),
   );
 
   @include base.init() {
