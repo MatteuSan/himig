@@ -20,5 +20,20 @@
 //  SOFTWARE.
 ///
 
-@forward 'badge-styles';
-@forward 'badge-extend';
+@use '../kardia';
+
+@mixin init() {
+  .gs-badge {
+    //
+
+    @content;
+
+    .gs-badge__icon {
+      //
+    }
+
+    .gs-badge__label {
+      //
+    }
+  }
+}

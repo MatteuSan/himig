@@ -20,5 +20,34 @@
 //  SOFTWARE.
 ///
 
-@forward 'badge-styles';
-@forward 'badge-extend';
+@use '../kardia';
+
+/// Component variant maker.
+/// @param {string} $variant
+/// @return {*} extension class.
+@mixin extend($variant) {
+  .gs-badge.is-#{$variant} {
+    @content;
+  }
+}
+
+/// Color variant map.
+/// @param {map} $color-map
+/// @return {*} color styles.
+@mixin color($color-map) {
+  @include kardia.color-bind('badge', $color-map);
+}
+
+/// Structure variant mixin.
+/// @param {map} $struct-map
+/// @return {*} struct styles.
+@mixin struct($struct-map) {
+  @include kardia.struct-bind('badge', $struct-map);
+}
+
+/// Typography variant mixin.
+/// @param {map} $type-map
+/// @return {*} typography styles.
+@mixin typography($type-map) {
+  @include kardia.typography-bind('badge', $type-map);
+}
