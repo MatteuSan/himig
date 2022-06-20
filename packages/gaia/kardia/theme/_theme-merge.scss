@@ -42,16 +42,5 @@
 /// @param {map} $modifying-map
 /// @return {map} The merged map.
 @function _smart-merge($base-map, $modifying-map) {
-  $final-modified: ();
-
-  @if meta.type-of($base-map) != map {
-    @error 'TYPE ERROR. $base-map must be a map.';
-  }
-
-  @if meta.type-of($modifying-map) != map {
-    @error 'TYPE ERROR. $modifying-map must be a map.';
-  }
-
   @return map.merge($base-map, $modifying-map);
-
 }
