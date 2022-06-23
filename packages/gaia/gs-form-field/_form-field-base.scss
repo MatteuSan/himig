@@ -39,7 +39,7 @@
         ink: inherit,
       ));
       @include kardia.struct-apply('form-field-label', (
-        padding: ('xs' 'xs' 'xs' 0),
+        padding: ('xs' 'xs' 0 0),
       ));
       @include kardia.typography-apply('form-field-label', (
         family: inherit,
@@ -87,7 +87,7 @@
       &:focus,
       &:not(:placeholder-shown){
         + .gs-form-field__label {
-          top: 0.43rem;
+          top: 0.33rem;
           @include kardia.typography-bind('form-field-label', (
             family: 'small',
             size: 'small',
