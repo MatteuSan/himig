@@ -20,28 +20,31 @@
 //  SOFTWARE.
 ///
 
-$init-color: (
-  fill: 'accent-400',
-  ink: 'accent-ink',
-  border: 'accent-400',
-);
+@use 'node_modules/@growstocks/gaia';
+@use 'node_modules/@growstocks/gaia/gs-badge';
+@use 'node_modules/sass-true' as true;
 
-$init-struct: (
-  width: (
-    default: 100%,
-    max: max-content
-  ),
-  padding: ('xs' 'sm'),
-  radius: 'small',
-  border-width: 'xs',
-  border-style: solid,
-);
-
-$init-typography: (
-  family: 'global',
-  size: 'small',
-  weight: 'normal',
-  line-height: 'condensed'
-);
-
-$init-settings: ();
+@include gaia.init {
+  @include true.describe('GS Badge Extend [mixin]') {
+    @include true.it('should extend the styles of a gs-badge component') {
+      @include true.assert {
+        @include true.output {
+          @include gs-badge.extend('large') {
+            @include gs-badge.struct((
+              padding: ('lg' 'xl')
+            ));
+            @include gs-badge.typography((
+              size: 'supertitle'
+            ));
+          }
+        }
+        @include true.expect {
+          .gs-badge.is-large {
+            --gs-badge-padding: 1.2rem 2.3rem;
+            --gs-badge-size: var(--gs-theme-size-supertitle);
+          }
+        }
+      }
+    }
+  }
+}

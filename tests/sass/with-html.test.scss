@@ -21,10 +21,12 @@
 ///
 
 @use 'node_modules/@growstocks/gaia';
+@use 'node_modules/@growstocks/gaia/gs-badge';
 @use 'node_modules/@growstocks/gaia/gs-button';
 @use 'node_modules/@growstocks/gaia/gs-form-field';
 
 @include gaia.init {
+  @include gs-badge.render();
   @include gs-button.render();
   @include gs-form-field.render();
 }

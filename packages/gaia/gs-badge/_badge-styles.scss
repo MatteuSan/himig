@@ -36,10 +36,8 @@
   $settings: kardia.theme-merge(theme.$init-settings, $settings);
 
   @include base.init() {
-    @include kardia.color-apply('badge', (
-      fill: kardia.theme-get($color, 'fill'),
-      ink: kardia.theme-get($color, 'ink'),
-      border: kardia.theme-get($color, 'border')
-    ));
+    @include kardia.color-apply('badge', $color);
+    @include kardia.struct-apply('badge', $struct);
+    @include kardia.typography-bind('badge', $typography);
   }
 }

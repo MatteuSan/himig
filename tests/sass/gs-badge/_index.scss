@@ -20,28 +20,4 @@
 //  SOFTWARE.
 ///
 
-$init-color: (
-  fill: 'accent-400',
-  ink: 'accent-ink',
-  border: 'accent-400',
-);
-
-$init-struct: (
-  width: (
-    default: 100%,
-    max: max-content
-  ),
-  padding: ('xs' 'sm'),
-  radius: 'small',
-  border-width: 'xs',
-  border-style: solid,
-);
-
-$init-typography: (
-  family: 'global',
-  size: 'small',
-  weight: 'normal',
-  line-height: 'condensed'
-);
-
-$init-settings: ();
+@use 'extend.test';

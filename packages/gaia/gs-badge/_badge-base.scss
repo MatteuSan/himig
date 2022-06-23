@@ -24,7 +24,8 @@
 
 @mixin init() {
   .gs-badge {
-    //
+    display: flex;
+    flex-flow: row nowrap;
 
     @content;
 
@@ -33,7 +34,12 @@
     }
 
     .gs-badge__label {
-      //
+      @include kardia.typography-apply('badge', (
+        family: inherit,
+        size: inherit,
+        weight: inherit,
+        line-height: inherit
+      ));
     }
   }
 }
