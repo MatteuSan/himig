@@ -3,6 +3,8 @@ title: Foundation
 slug: /foundation
 ---
 # Foundation
+Gaia's foundation is crafted from the ground up to serve as solid ground the for entire design system. It includes all
+the 'materials' needed to craft living and breathing experiences.
 
 **[Tokens](tokens.md)**<br/>
 All about how Gaia uses tokens to power itself.
