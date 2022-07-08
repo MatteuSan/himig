@@ -92,7 +92,7 @@ $_color-tokens: (
     '300': #8396b9,
     '400': #496c9b,
     '600': #12305e,
-    '800': #071835,
+    '800': #030e23,
   ),
   'gs-purple': (
     '200': #c0a2ee,
@@ -123,6 +123,7 @@ $_struct-tokens: (
     '4xl': tools.to-rem(80px),
     '5xl': tools.to-rem(96px),
     '6xl': tools.to-rem(112px),
+    'auto': auto
   ),
   'el-spacing': (
     'none': 0,
@@ -136,6 +137,7 @@ $_struct-tokens: (
     '4xl': 6.1rem,
     '5xl': 8.2rem,
     '6xl': 12.3rem,
+    'auto': auto
   ),
   'radius': (
     'none': 0,
@@ -160,6 +162,7 @@ $_struct-tokens: (
     'lg': tools.to-rem(890px),
     'xl': tools.to-rem(1077px),
     'sprite': tools.to-rem(32px),
+    'full': 100%,
   ),
   'breakpoint': (
     'none': 0,
