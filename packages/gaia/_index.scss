@@ -31,8 +31,8 @@ $vue-mode: $module-mode !default;
 @use 'sass:map';
 @use 'init-font-pack' as font-pack;
 
-@forward 'kardia';
-// @forward 'kardia' hide token-config;
+// Removed because of redundancy.
+// @forward 'kardia';
 
 @mixin init(
   $surface: 'gs-blue',
@@ -42,7 +42,6 @@ $vue-mode: $module-mode !default;
   $warning: 'gs-yellow',
   $success: 'gs-green',
   $radius: (),
-  $breakpoints: (),
   $global: (),
   $supertitle: (),
   $title: (),
@@ -50,6 +49,7 @@ $vue-mode: $module-mode !default;
   $body: (),
   $mono: (),
   $small: (),
+  $breakpoints: (),
 ) {
 
   $_init-family: 'family.sans-serif';
@@ -104,11 +104,14 @@ $vue-mode: $module-mode !default;
     'line-height': $_init-line-height,
   );
 
+  $_init-breakpoints: (
+    'small': kardia.primitive-token-get('breakpoint.sm'),
+    'medium': kardia.primitive-token-get('breakpoint.md'),
+    'large': kardia.primitive-token-get('breakpoint.lg'),
+    'xlarge': kardia.primitive-token-get('breakpoint.xl'),
+  );
+
   :root {
-    // Immutables
-    --gs-shadow-color: rgba(0, 0, 0, 0.25);
-    --gs-sprite-size: 32px;
-    --gs-transition-time: 0.2s;
     @include kardia.theme-config(
       $surface: $surface,
       $accent: $accent,
@@ -126,7 +129,14 @@ $vue-mode: $module-mode !default;
       $mono: map.merge($_init-type-mono, $mono),
       $small: map.merge($_init-type-small, $small),
     );
+
+    // Immutables
+    --gs-shadow-color: rgba(0, 0, 0, 0.25);
+    --gs-sprite-size: 32px;
+    --gs-transition-time: 0.2s;
   }
+
+  @include kardia.breakpoint-config(map.merge($_init-breakpoints, $breakpoints));
 
   @include font-pack.load((
     'global': map.get($global, 'family'),
