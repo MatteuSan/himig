@@ -301,7 +301,7 @@
 "@growstocks/gaia@file:./packages/gaia":
   version "0.1.0"
   dependencies:
-    "@matteusan/sentro" "0.1.22"
+    "@matteusan/sentro" "0.1.23"
 
 "@istanbuljs/load-nyc-config@^1.0.0":
   version "1.1.0"
@@ -571,11 +571,6 @@
   dependencies:
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
-
-"@matteusan/sentro@0.1.22":
-  version "0.1.22"
-  resolved "https://registry.yarnpkg.com/@matteusan/sentro/-/sentro-0.1.22.tgz#0caff06245426db6ca58c7817ba3c0ed08ea2674"
-  integrity sha512-j7XFgzKiPB8Az9cJVdfeFBP4VHiJu5y9zGPMg9JtzG5ILQwmg29rWzgTWotigeGix/iK1pQCQ8T97wDWyYRwsQ==
 
 "@matteusan/sentro@0.1.23":
   version "0.1.23"
