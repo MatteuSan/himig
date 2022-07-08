@@ -31,64 +31,115 @@
     <link rel="stylesheet" href="with-html.test.css">
 </head>
 <body>
-<div>
-    <span class="gs-badge">
-        <span class="gs-badge__label">Hello! :)</span>
-    </span>
-</div>
-<button class="gs-button">
-    <span class="gs-button__label">Button</span>
-</button>
-<button class="gs-button is-outlined">
-    <span class="gs-button__label">Button</span>
-</button>
-<button class="gs-button is-filled">
-    <span class="gs-button__label">Button</span>
-</button>
-<button class="gs-button is-filled is-raised">
-    <span class="gs-button__label">Button</span>
-</button>
-<button class="gs-button is-fullwidth">
-    <span class="gs-button__label">Button</span>
-</button>
+<main class="my-2xl grid pc-center gap-sm">
+    <div class="grid pi-center">
+        <span class="gs-badge">
+            <span class="gs-badge__label">Hello! :)</span>
+        </span>
+    </div>
+    <div class="grid cols-4 gap-sm pi-center">
+        <button class="gs-button">
+            <span class="gs-button__label">Button</span>
+        </button>
+        <button class="gs-button is-outlined">
+            <span class="gs-button__label">Button</span>
+        </button>
+        <button class="gs-button is-filled">
+            <span class="gs-button__label">Button</span>
+        </button>
+        <button class="gs-button is-filled" disabled>
+            <span class="gs-button__label">Button</span>
+        </button>
 
-<button class="gs-button is-success">
-    <span class="gs-button__label">Button</span>
-</button>
-<button class="gs-button is-outlined is-warning">
-    <span class="gs-button__label">Button</span>
-</button>
-<button class="gs-button is-filled is-error">
-    <span class="gs-button__label">Button</span>
-</button>
-<label class="gs-form-field">
-    <input type="text" class="gs-form-field__input" placeholder="a" name="text-field" />
-    <span class="gs-form-field__label">GS Form Field</span>
-    <span class="gs-form-field__helper">Helper Text</span>
-</label>
+        <button class="gs-button is-success">
+            <span class="gs-button__label">Button</span>
+        </button>
+        <button class="gs-button is-outlined is-success">
+            <span class="gs-button__label">Button</span>
+        </button>
+        <button class="gs-button is-filled is-success">
+            <span class="gs-button__label">Button</span>
+        </button>
+        <button class="gs-button is-filled is-success" disabled>
+            <span class="gs-button__label">Button</span>
+        </button>
 
-<label class="gs-form-field is-error">
-    <input type="text" class="gs-form-field__input" placeholder="a" name="text-field" />
-    <span class="gs-form-field__label">GS Form Field</span>
-    <span class="gs-form-field__helper">Helper Text</span>
-</label>
+        <button class="gs-button is-warning">
+            <span class="gs-button__label">Button</span>
+        </button>
+        <button class="gs-button is-outlined is-warning">
+            <span class="gs-button__label">Button</span>
+        </button>
+        <button class="gs-button is-filled is-warning">
+            <span class="gs-button__label">Button</span>
+        </button>
+        <button class="gs-button is-filled  is-warning" disabled>
+            <span class="gs-button__label">Button</span>
+        </button>
 
-<label class="gs-form-field is-filled is-raised">
-    <input type="text" class="gs-form-field__input" placeholder="a" name="text-field" />
-    <span class="gs-form-field__label">GS Form Field</span>
-    <span class="gs-form-field__helper">Helper Text</span>
-</label>
+        <button class="gs-button is-error">
+            <span class="gs-button__label">Button</span>
+        </button>
 
-<label class="gs-form-field is-filled is-error is-raised">
-    <input type="text" class="gs-form-field__input" placeholder="a" name="text-field" />
-    <span class="gs-form-field__label">GS Form Field</span>
-    <span class="gs-form-field__helper">Helper Text</span>
-</label>
+        <button class="gs-button is-outlined is-error">
+            <span class="gs-button__label">Button</span>
+        </button>
+        <button class="gs-button is-filled is-error">
+            <span class="gs-button__label">Button</span>
+        </button>
+        <button class="gs-button is-filled is-error" disabled>
+            <span class="gs-button__label">Button</span>
+        </button>
+    </div>
+    <div class="grid cols-2 gap-sm pi-center">
+        <label class="gs-form-field">
+            <input type="text" class="gs-form-field__input" placeholder="a" name="text-field" />
+            <span class="gs-form-field__label">GS Form Field</span>
+            <span class="gs-form-field__helper">Helper Text</span>
+        </label>
 
-<label class="gs-form-field is-filled is-error is-raised">
-    <textarea name="bruh" cols="30" class="gs-form-field__input" placeholder="a" rows="10"></textarea>
-    <span class="gs-form-field__label">GS Form Field</span>
-    <span class="gs-form-field__helper">Helper Text</span>
-</label>
+        <label class="gs-form-field is-error">
+            <input type="text" class="gs-form-field__input" placeholder="a" name="text-field" />
+            <span class="gs-form-field__label">GS Form Field</span>
+            <span class="gs-form-field__helper">Helper Text</span>
+        </label>
+
+        <label class="gs-form-field">
+            <input type="text" class="gs-form-field__input" placeholder="a" name="text-field" disabled />
+            <span class="gs-form-field__label">GS Form Field</span>
+            <span class="gs-form-field__helper">Helper Text</span>
+        </label>
+
+        <label class="gs-form-field is-error">
+            <input type="text" class="gs-form-field__input" placeholder="a" name="text-field" disabled />
+            <span class="gs-form-field__label">GS Form Field</span>
+            <span class="gs-form-field__helper">Helper Text</span>
+        </label>
+
+        <label class="gs-form-field">
+            <textarea name="bruh" cols="30" class="gs-form-field__input" placeholder="a" rows="10"></textarea>
+            <span class="gs-form-field__label">GS Form Field</span>
+            <span class="gs-form-field__helper">Helper Text</span>
+        </label>
+
+        <label class="gs-form-field is-error">
+            <textarea name="bruh" cols="30" class="gs-form-field__input" placeholder="a" rows="10"></textarea>
+            <span class="gs-form-field__label">GS Form Field</span>
+            <span class="gs-form-field__helper">Helper Text</span>
+        </label>
+
+        <label class="gs-form-field">
+            <textarea name="bruh" cols="30" class="gs-form-field__input" placeholder="a" rows="10" disabled></textarea>
+            <span class="gs-form-field__label">GS Form Field</span>
+            <span class="gs-form-field__helper">Helper Text</span>
+        </label>
+
+        <label class="gs-form-field is-error">
+            <textarea name="bruh" cols="30" class="gs-form-field__input" placeholder="a" rows="10" disabled></textarea>
+            <span class="gs-form-field__label">GS Form Field</span>
+            <span class="gs-form-field__helper">Helper Text</span>
+        </label>
+    </div>
+</main>
 </body>
 </html>
