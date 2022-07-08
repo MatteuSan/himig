@@ -20,24 +20,34 @@
 //  SOFTWARE.
 ///
 
-$vue-mode: false !default;
-$validation: if($vue-mode == true, false, true);
-$expressive-inks: false !default;
+@use '../tools';
+@use 'node_modules/@matteusan/sentro';
+@use 'sass:map';
+@use 'sass:meta';
 
-@use 'node_modules/@matteusan/sentro' with (
-  $prefix: 'gs',
-  $context: 'theme',
-  $token-validation: $validation,
-  $key-validation: $validation,
-  $breakpoint-validation: $validation,
-);
+$_registry: ();
 
-@forward 'tokens';
-@forward 'theme' with ($expressive-inks: $expressive-inks);
-@forward 'tools';
-@forward 'breakpoint' as breakpoint-*;
+@mixin config($map: (), $breakpoints...) {
+  @if not tools.is-empty($map) {
+    @each $key, $value in $map {
+      $_registry: map.set($_registry, $key, $value) !global;
+    }
+  }
+  @if meta.keywords($breakpoints) {
+    @each $key, $value in meta.keywords($breakpoints) {
+      $_registry: map.set($_registry, $key, $value) !global;
+    }
+  }
+  @include sentro.breakpoint-config($map, $breakpoints...);
+}
 
-@forward 'color' as color-*;
-@forward 'struct' as struct-*;
-@forward 'sprite' as sprite-*;
-@forward 'typography' as typography-*;
+@mixin create($query) {
+  @include sentro.breakpoint-create($query) {
+    @content;
+  }
+}
+
+/// @access protected
+@function registry-get() {
+  @return $_registry;
+}

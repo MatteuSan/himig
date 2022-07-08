@@ -20,24 +20,4 @@
 //  SOFTWARE.
 ///
 
-$vue-mode: false !default;
-$validation: if($vue-mode == true, false, true);
-$expressive-inks: false !default;
-
-@use 'node_modules/@matteusan/sentro' with (
-  $prefix: 'gs',
-  $context: 'theme',
-  $token-validation: $validation,
-  $key-validation: $validation,
-  $breakpoint-validation: $validation,
-);
-
-@forward 'tokens';
-@forward 'theme' with ($expressive-inks: $expressive-inks);
-@forward 'tools';
-@forward 'breakpoint' as breakpoint-*;
-
-@forward 'color' as color-*;
-@forward 'struct' as struct-*;
-@forward 'sprite' as sprite-*;
-@forward 'typography' as typography-*;
+@forward 'breakpoint-sentro';
