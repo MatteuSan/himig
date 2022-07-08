@@ -45,7 +45,7 @@
   ) {
     .gs-form-field__label {
       @include kardia.color-bind('form-field-label', (
-        ink: kardia.theme-get($color, 'ink'),
+        ink: kardia.theme-get($color, 'ink', 'disabled'),
       ));
       @include kardia.typography-bind('form-field-label', (
         family: kardia.theme-get($typography, 'family'),
@@ -76,12 +76,15 @@
         @include kardia.color-bind('form-field', (
           fill: kardia.theme-get($color, 'fill'),
           ink: kardia.theme-get($color, 'ink'),
-          border: kardia.theme-get($color, 'border'),
+          border: kardia.theme-get($color, 'fill'),
         ));
 
         &:focus {
           @include kardia.color-bind('form-field', (
             border: kardia.theme-get($color, 'border', 'focus'),
+          ));
+          @include kardia.struct-bind('form-field', (
+            border-width: kardia.theme-get($struct, 'border-width', 'focus'),
           ));
 
           + .gs-form-field__label {
@@ -90,14 +93,19 @@
             ));
           }
         }
+
+        + .gs-form-field__label {
+          @include kardia.color-bind('form-field-label', (
+            ink: kardia.theme-get($color, 'ink'),
+          ));
+        }
       }
 
       &:read-only,
       &:disabled {
         @include kardia.color-bind('form-field', (
           fill: kardia.theme-get($color, 'fill', 'disabled'),
-          ink: kardia.theme-get($color, 'ink'),
-          border: kardia.theme-get($color, 'border', 'disabled'),
+          border: kardia.theme-get($color, 'fill', 'disabled'),
         ));
       }
     }
@@ -105,7 +113,7 @@
     .gs-form-field__helper {
       padding: 0.3rem kardia.primitive-token-switch('padding.#{$resolve-padding}', $resolve-padding) 0;
       @include kardia.color-bind('form-field-helper', (
-        ink: kardia.theme-get($color, 'ink'),
+        ink: kardia.theme-get($color, 'ink', 'helper'),
       ));
       @include kardia.typography-bind('form-field-helper', (
         family: kardia.theme-get($typography, 'family'),
@@ -116,28 +124,6 @@
     }
 
     &.is-error {
-      .gs-form-field__label {
-        @include kardia.color-bind('form-field-label', (
-          ink: 'error-400',
-        ));
-      }
-
-      .gs-form-field__helper {
-        @include kardia.color-bind('form-field-helper', (
-          ink: 'error-400',
-        ));
-      }
-
-      &:not(.is-filled) {
-        .gs-form-field__input:not(:read-only),
-        .gs-form-field__input:not(:disabled) {
-          @include kardia.color-bind('form-field', (
-            ink: 'error-400',
-            border: 'error-400'
-          ));
-        }
-      }
-
       .gs-form-field__input:not(:read-only),
       .gs-form-field__input:not(:disabled) {
         @include kardia.color-bind('form-field', (
@@ -149,20 +135,30 @@
             border: 'error-400'
           ));
         }
-      }
-    }
 
-    &.is-filled {
-      .gs-form-field__input {
-        @include kardia.color-bind('form-field', (
-          border: kardia.theme-get($color, 'fill'),
+        + .gs-form-field__label {
+          @include kardia.color-bind('form-field-label', (
+            ink: 'error-400',
+          ));
+
+          + .gs-form-field__helper {
+            @include kardia.color-bind('form-field-helper', (
+              ink: 'error-400',
+            ));
+          }
+        }
+      }
+
+      .gs-form-field__label {
+        @include kardia.color-bind('form-field-label', (
+          ink: kardia.theme-get($color, 'ink', 'disabled'),
         ));
       }
 
-      &.is-raised {
-        .gs-form-field__input {
-          @include kardia.struct-shadow('form-field', 'sm');
-        }
+      .gs-form-field__helper {
+        @include kardia.color-bind('form-field-helper', (
+          ink: kardia.theme-get($color, 'ink', 'helper'),
+        ));
       }
     }
   }

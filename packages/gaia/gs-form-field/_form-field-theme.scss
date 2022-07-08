@@ -25,11 +25,15 @@ $init-color: (
     default: 'surface-200',
     disabled: 'surface-400'
   ),
-  ink: 'surface-ink',
+  ink: (
+    default: 'surface-800',
+    helper: 'surface-ink',
+    disabled: 'surface-600'
+  ),
   border: (
-    default: 'surface-300',
-    focus: 'surface-400',
-    disabled: 'surface-800'
+    default: 'surface-200',
+    focus: 'surface-600',
+    disabled: 'surface-400'
   ),
 );
 
@@ -37,7 +41,10 @@ $init-struct: (
   width: 100%,
   padding: ('sm', 'md'),
   radius: 'small',
-  border-width: 'xs',
+  border-width: (
+    'default': 2px,
+    'focus': 2px
+  ),
   border-style: solid,
   gap: 'sm'
 );
