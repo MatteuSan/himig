@@ -32,18 +32,18 @@ $_colors: (
   'warning',
   'error'
 );
-$_tones: (200, 300, 400, 600, 800);
+$_tones: (200, 300, 400, 600, 800, 'ink');
 
 @mixin color() {
   // Background color
   @each $color in $_colors {
     @each $tone in $_tones {
-      .bg-#{$color}-#{$tone} {
+      .fill-#{$color}-#{$tone} {
         background-color: kardia.token-get('#{$color}-#{$tone}');
       }
 
       @each $breakpoint in $_breakpoints {
-        .\@#{$breakpoint}\:bg-#{$color}-#{$tone} {
+        .\@#{$breakpoint}\:fill-#{$color}-#{$tone} {
           @include kardia.breakpoint-create($breakpoint) {
             background-color: kardia.token-get('#{$color}-#{$tone}');
           }
@@ -55,12 +55,12 @@ $_tones: (200, 300, 400, 600, 800);
   // Text color
   @each $color in $_colors {
     @each $tone in $_tones {
-      .text-#{$color}-#{$tone} {
+      .ink-#{$color}-#{$tone} {
         color: kardia.token-get('#{$color}-#{$tone}');
       }
 
       @each $breakpoint in $_breakpoints {
-        .\@#{$breakpoint}\:text-#{$color}-#{$tone} {
+        .\@#{$breakpoint}\:ink-#{$color}-#{$tone} {
           @include kardia.breakpoint-create($breakpoint) {
             color: kardia.token-get('#{$color}-#{$tone}');
           }
