@@ -20,7 +20,7 @@
 //  SOFTWARE.
 ///
 
-@use 'node_modules/@growstocks/gaia';
+@use 'node_modules/@growstocks/gaia/kardia';
 @use 'node_modules/sass-true/sass/true';
 
 @include true.describe('Theme Get [function]') {
@@ -33,9 +33,9 @@
       ink: 'gs-white.200',
       border: 'gs-orange.400'
     );
-    @include true.assert-equal(gaia.theme-get($theme, 'fill'), 'gs-orange.400');
-    @include true.assert-equal(gaia.theme-get($theme, 'fill', 'hover'), 'gs-orange.200');
-    @include true.assert-equal(gaia.theme-get($theme, 'ink'), 'gs-white.200');
-    @include true.assert-equal(gaia.theme-get($theme, 'border'), 'gs-orange.400');
+    @include true.assert-equal(kardia.theme-get($theme, 'fill'), 'gs-orange.400');
+    @include true.assert-equal(kardia.theme-get($theme, 'fill', 'hover'), 'gs-orange.200');
+    @include true.assert-equal(kardia.theme-get($theme, 'ink'), 'gs-white.200');
+    @include true.assert-equal(kardia.theme-get($theme, 'border'), 'gs-orange.400');
   }
 }
