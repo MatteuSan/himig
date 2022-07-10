@@ -20,16 +20,16 @@
 //  SOFTWARE.
 ///
 
-@use 'node_modules/@growstocks/gaia/kardia';
+@use 'node_modules/@growstocks/gaia';
 @use 'node_modules/sass-true' as true;
 
 @include true.describe('Color Utils [module]') {
   @include true.it('should return a fill color') {
     @include true.assert {
       @include true.output {
-        @include kardia.color-fill(
+        @include gaia.color-fill(
           'component',
-          kardia.primitive-token-get('gs-orange.400')
+          gaia.primitive-token-get('gs-orange.400')
         );
       }
       @include true.expect {
@@ -41,9 +41,9 @@
   @include true.it('should return an ink color') {
     @include true.assert {
       @include true.output {
-        @include kardia.color-ink(
+        @include gaia.color-ink(
           'component',
-          kardia.primitive-token-get('gs-orange.400')
+          gaia.primitive-token-get('gs-orange.400')
         );
       }
       @include true.expect {
@@ -55,9 +55,9 @@
   @include true.it('should return a border color') {
     @include true.assert {
       @include true.output {
-        @include kardia.color-border(
+        @include gaia.color-border(
           'component',
-          kardia.primitive-token-get('gs-orange.400')
+          gaia.primitive-token-get('gs-orange.400')
         );
       }
       @include true.expect {
@@ -69,9 +69,9 @@
   @include true.it('should return a fill color binding') {
     @include true.assert {
       @include true.output {
-        @include kardia.color-fill(
+        @include gaia.color-fill(
           'component',
-          kardia.primitive-token-get('gs-orange.400'),
+          gaia.primitive-token-get('gs-orange.400'),
           'bind'
         );
       }
@@ -84,9 +84,9 @@
   @include true.it('should return an ink color binding') {
     @include true.assert {
       @include true.output {
-        @include kardia.color-ink(
+        @include gaia.color-ink(
           'component',
-          kardia.primitive-token-get('gs-orange.400'),
+          gaia.primitive-token-get('gs-orange.400'),
           'bind'
         );
       }
@@ -99,9 +99,9 @@
   @include true.it('should return a border color binding') {
     @include true.assert {
       @include true.output {
-        @include kardia.color-border(
+        @include gaia.color-border(
           'component',
-          kardia.primitive-token-get('gs-orange.400'),
+          gaia.primitive-token-get('gs-orange.400'),
           'bind'
         );
       }

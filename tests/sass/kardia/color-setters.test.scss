@@ -20,11 +20,11 @@
 //  SOFTWARE.
 ///
 
-@use 'node_modules/@growstocks/gaia/kardia';
+@use 'node_modules/@growstocks/gaia';
 @use 'node_modules/sass-true' as true;
 
 :root {
-  @include kardia.token-config(
+  @include gaia.token-config(
     $accent: (
       400: 'gs-orange.400',
       ink: 'gs-white.200'
@@ -36,7 +36,7 @@
   @include true.it('should apply colors to a component') {
     @include true.assert {
       @include true.output {
-        @include kardia.color-apply('component', (
+        @include gaia.color-apply('component', (
           fill: 'gs-orange.400',
           ink: 'gs-white.200',
           border: 'gs-orange.400'
@@ -52,7 +52,7 @@
   @include true.it('shoul apply colors to a component from the theme') {
     @include true.assert {
       @include true.output {
-        @include kardia.color-apply('component', (
+        @include gaia.color-apply('component', (
           fill: 'accent-400',
           ink: 'accent-ink',
           border: 'accent-400',
@@ -69,7 +69,7 @@
   @include true.it('should bind colors to a component') {
     @include true.assert {
       @include true.output {
-        @include kardia.color-bind('component', (
+        @include gaia.color-bind('component', (
           fill: 'gs-orange.400',
           ink: 'gs-white.200',
           border: 'gs-orange.400'
@@ -85,7 +85,7 @@
   @include true.it('should bind colors to a component from the theme') {
     @include true.assert {
       @include true.output {
-        @include kardia.color-bind('component', (
+        @include gaia.color-bind('component', (
           fill: 'accent-400',
           ink: 'accent-ink',
           border: 'accent-400',

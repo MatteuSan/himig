@@ -20,7 +20,7 @@
 //  SOFTWARE.
 ///
 
-@use 'node_modules/@growstocks/gaia/kardia';
+@use 'node_modules/@growstocks/gaia';
 @use 'node_modules/sass-true' as true;
 
 @include true.describe('Theme Merge [module]') {
@@ -39,7 +39,7 @@
     $user-theme: (
       fill: 'gs-red.400',
     );
-    $theme: kardia.theme-merge($init-theme, $user-theme);
+    $theme: gaia.theme-merge($init-theme, $user-theme);
     @include true.assert-equal($theme, (
       fill: 'gs-red.400',
       ink: 'gs-orange.800',

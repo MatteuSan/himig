@@ -20,11 +20,11 @@
 //  SOFTWARE.
 ///
 
-@use 'node_modules/@growstocks/gaia/kardia';
+@use 'node_modules/@growstocks/gaia';
 @use 'node_modules/sass-true' as true;
 
 :root {
-  @include kardia.token-config($accent: (
+  @include gaia.token-config($accent: (
     400: #f70
   ));
 }
@@ -33,8 +33,8 @@
   @include true.it('should return a themed property') {
     @include true.assert {
       @include true.output {
-        @include kardia.property(background-color, (
-          'component-fill', kardia.primitive-token-get('gs-orange.400')
+        @include gaia.property(background-color, (
+          'component-fill', gaia.primitive-token-get('gs-orange.400')
         ));
       }
       @include true.expect {
@@ -46,8 +46,8 @@
   @include true.it('should return a themed property binding') {
     @include true.assert {
       @include true.output {
-        @include kardia.property(background-color, (
-          'component-fill', kardia.primitive-token-get('gs-orange.400')
+        @include gaia.property(background-color, (
+          'component-fill', gaia.primitive-token-get('gs-orange.400')
         ), $intent: 'bind');
       }
       @include true.expect {
@@ -61,7 +61,7 @@
   @include true.it('should return a themed property') {
     @include true.assert {
       @include true.output {
-        @include kardia.property(background-color, (
+        @include gaia.property(background-color, (
           'component-fill', 'gs-orange.400'
         ));
       }
@@ -74,7 +74,7 @@
   @include true.it('should return a themed property binding') {
     @include true.assert {
       @include true.output {
-        @include kardia.property(background-color, (
+        @include gaia.property(background-color, (
           'component-fill', 'accent-400'
         ), $intent: 'bind');
       }

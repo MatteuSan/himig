@@ -20,11 +20,11 @@
 //  SOFTWARE.
 ///
 
-@use 'node_modules/@growstocks/gaia/kardia';
+@use 'node_modules/@growstocks/gaia';
 @use 'node_modules/sass-true' as true;
 
 :root {
-  @include kardia.token-config(
+  @include gaia.token-config(
     $surface: (
       200: #8bf,
       400: #07f
@@ -38,26 +38,26 @@
 
 @include true.describe('Theme Tokens [module]') {
   @include true.it('should return a theme token custom property') {
-    $test: kardia.token-get('accent-400');
-    $test2: kardia.token-get('surface-200');
+    $test: gaia.token-get('accent-400');
+    $test2: gaia.token-get('surface-200');
     @include true.assert-equal($test, var(--gs-theme-accent-400));
     @include true.assert-equal($test2, var(--gs-theme-surface-200));
   }
   @include true.it('should return a theme token raw value') {
-    $test: kardia.token-get-raw('accent-400');
-    $test2: kardia.token-get-raw('surface-200');
+    $test: gaia.token-get-raw('accent-400');
+    $test2: gaia.token-get-raw('surface-200');
     @include true.assert-equal($test, #f70);
     @include true.assert-equal($test2, #8bf);
   }
   @include true.it('should switch to itself when not valid') {
-    $test: kardia.token-switch('accent-400');
-    $test2: kardia.token-switch(inherit);
+    $test: gaia.token-switch('accent-400');
+    $test2: gaia.token-switch(inherit);
     @include true.assert-equal($test, var(--gs-theme-accent-400));
     @include true.assert-equal($test2, inherit);
   }
   @include true.it('should switch to itself when not valid; when valid, it uses the raw value') {
-    $test: kardia.token-switch-raw('accent-400');
-    $test2: kardia.token-switch-raw(inherit);
+    $test: gaia.token-switch-raw('accent-400');
+    $test2: gaia.token-switch-raw(inherit);
     @include true.assert-equal($test, #f70);
     @include true.assert-equal($test2, inherit);
   }
