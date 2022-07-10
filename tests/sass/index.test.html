@@ -29,6 +29,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Gaia Design System Testing File</title>
     <link rel="stylesheet" href="with-html.test.css">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet"/>
 </head>
 <body>
 <main class="my-2xl grid pc-center gap-sm">
@@ -139,6 +140,42 @@
             <span class="gs-form-field__label">GS Form Field</span>
             <span class="gs-form-field__helper">Helper Text</span>
         </label>
+    </div>
+    <div class="gs-surface is-raised mt-3xl">
+        <div class="gs-surface__header start-1 end-9 flex flow-row wrap-none jc-space-between ai-center">
+            <h2>Report an item</h2>
+            <button class="gs-button">
+                <span class="gs-button__label">Cancel</span>
+            </button>
+        </div>
+        <div class="gs-surface__body flex flow-column start-1 end-9 gap-sm">
+            <label class="gs-form-field">
+                <input type="text" class="gs-form-field__input" placeholder="a" name="text-field" />
+                <span class="gs-form-field__label">Item to report</span>
+                <span class="gs-form-field__helper">Must be a valid item</span>
+            </label>
+            <label>
+                <input type="radio" placeholder="a" />
+                <span>Report reason</span>
+            </label>
+            <div class="flex flow-row jc-end">
+                <button class="gs-button is-filled is-raised">
+                    <span class="gs-button__label">Button</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="gs-surface is-raised mt-3xl">
+        <div class="gs-surface__header start-1 end-9 flex flow-row wrap-none jc-space-between ai-center">
+            <h2>Item information</h2>
+        </div>
+        <ul class="start-1 end-9">
+            <li class="gs-surface__row fill-warning-400 ink-warning-ink">Price Status: <b>SEMI-STABLE</b></li>
+            <li class="gs-surface__row fill-error-400 ink-error-ink">Demand Status: <b>IN-DEMAND</b></li>
+            <li class="gs-surface__row fill-surface-400 ink-surface-ink">Source: <b>BLARNEY2</b></li>
+            <li class="gs-surface__row fill-surface-400 ink-surface-ink">Edited <b>14h ago</b> by <b>Editor</b></li>
+            <li class="gs-surface__row flex flow-row wrap ac-center fill-error-400 ink-error-ink"><i class="material-icons mr-sm">warning</i> The price above may be outdated</li>
+        </ul>
     </div>
 </main>
 </body>
