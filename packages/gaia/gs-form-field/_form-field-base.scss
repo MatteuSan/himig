@@ -58,6 +58,7 @@
         radius: 0,
         border-width: 2px,
         border-style: solid,
+        shadow: 'none',
       ));
       padding: kardia.key-get('form-field-padding');
       padding-top: calc(#{$top-padding} + 1rem) !important;

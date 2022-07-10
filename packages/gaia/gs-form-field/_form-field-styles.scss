@@ -161,5 +161,11 @@
         ));
       }
     }
+
+    &.is-raised {
+      @include kardia.struct-bind('form-field', (
+        shadow: 'xs',
+      ));
+    }
   }
 }

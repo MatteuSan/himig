@@ -187,15 +187,15 @@ $_states: (
 
       &.is-raised {
         &:not(:disabled) {
-          @include kardia.struct-shadow('button', 'sm');
+          @include kardia.struct-shadow('button', 'xs');
 
           &:hover,
           &:focus {
-            @include kardia.struct-shadow('button', 'md');
+            @include kardia.struct-shadow('button', 'xs');
           }
 
           &:active {
-            @include kardia.struct-shadow('button', 'lg');
+            @include kardia.struct-shadow('button', 'sm');
           }
         }
       }
