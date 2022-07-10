@@ -182,11 +182,17 @@ $_struct-tokens: (
     'xl': 11px,
   ),
   'shadow': (
-    'xs': 0 0.3rem 0.5rem var(--gs-shadow-color),
-    'sm': 0 0.7rem 1.2rem var(--gs-shadow-color),
-    'md': 0 1.2rem 1.5rem var(--gs-shadow-color),
-    'lg': 0 1.7rem 2.1rem var(--gs-shadow-color),
-    'xl': 0 2.3rem 3.5rem var(--gs-shadow-color),
+    'none': 0 0 0 rgba(0 0 0 / 0),
+    'xs': 0 0.1rem 0.3rem var(--gs-shadow-color),
+    'sm': 0 0.3rem 0.5rem var(--gs-shadow-color),
+    'md': 0 0.7rem 1.2rem var(--gs-shadow-color),
+    'lg': 0 1.2rem 1.5rem var(--gs-shadow-color),
+    'xl': 0 1.7rem 2.1rem var(--gs-shadow-color),
+    '2xl': 0 2.3rem 3.5rem var(--gs-shadow-color),
+    '3xl': 0 3.5rem 4.7rem var(--gs-shadow-color),
+    '4xl': 0 4.7rem 5.2rem var(--gs-shadow-color),
+    '5xl': 0 5.2rem 6.5rem var(--gs-shadow-color),
+    '6xl': 0 6.7rem 7.3rem var(--gs-shadow-color),
   ),
 );
 
