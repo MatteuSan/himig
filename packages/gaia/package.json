@@ -10,7 +10,7 @@
     "@matteusan/sentro": "0.1.23"
   },
   "devDependencies": {
-    "stylelint-scss": "4.2.0",
+    "stylelint-scss": "4.3.0",
     "postcss-scss": "4.0.4"
   }
 }
