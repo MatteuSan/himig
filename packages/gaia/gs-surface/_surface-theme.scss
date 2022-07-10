@@ -20,3 +20,36 @@
 //  SOFTWARE.
 ///
 
+$init-color: (
+  fill: (
+    default: 'surface-400',
+    header: 'surface-600'
+  ),
+  ink: 'surface-ink',
+  border: 'surface-400'
+);
+
+$init-struct: (
+  width: 'full',
+  radius: 'small',
+  padding: ('md' 'lg'),
+  border-width: 'xs',
+  border-style: 'solid'
+);
+
+$init-typography: (
+  family: (
+    default: 'global',
+    header: 'subtitle'
+  ),
+  size: (
+    default: 'body',
+    header: 'subtitle'
+  ),
+  weight: (
+    default: 'normal',
+    header: 'subtitle',
+    footer: 'bold'
+  ),
+  line-height: 'normal'
+);
