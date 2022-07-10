@@ -31,8 +31,8 @@ $vue-mode: $module-mode !default;
 @use 'sass:map';
 @use 'init-font-pack' as font-pack;
 
-// Removed because of redundancy.
-// @forward 'kardia';
+// For accessing core lib from the main gaia module.
+@forward 'kardia';
 
 @mixin init(
   $surface: 'gs-blue',
