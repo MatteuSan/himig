@@ -167,5 +167,46 @@
         shadow: 'xs',
       ));
     }
+
+    &.is-control {
+      $target-dimension: kardia.theme-get($typography, 'size');
+
+      .gs-form-field__label,
+      .gs-form-field__input,
+      .gs-form-field__helper {
+        width: auto;
+        position: static;
+        padding: 0;
+      }
+
+      .gs-form-field__label,
+      .gs-form-field__input:focus + .gs-form-field__label {
+        background-color: unset;
+        @include kardia.color-bind('form-field-label', (
+          ink: kardia.theme-get($color, 'ink', 'helper') !important,
+        ));
+        border-color: unset;
+        font-size: unset;
+      }
+
+      .gs-form-field__label {
+        width: 100%;
+        user-select: none;
+        cursor: default;
+      }
+
+      .gs-form-field__input[type='radio'],
+      .gs-form-field__input[type='checkbox'] {
+        width: kardia.token-switch('size-#{$target-dimension}', kardia.primitive-token-switch('size.#{$target-dimension}'));
+        height: kardia.token-switch('size-#{$target-dimension}', kardia.primitive-token-switch('size.#{$target-dimension}'));
+        margin-right: kardia.primitive-token-get('spacing.xs');
+        cursor: pointer;
+      }
+
+      .gs-form-field__helper {
+        margin-left: calc(calc(#{kardia.token-switch('size-#{$target-dimension}', kardia.primitive-token-switch('size.#{$target-dimension}'))} + 3px) + #{kardia.primitive-token-get('spacing.xs')});
+        user-select: none;
+      }
+    }
   }
 }
