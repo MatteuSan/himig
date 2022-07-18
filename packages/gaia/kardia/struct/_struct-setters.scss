@@ -36,8 +36,8 @@
   /// @type string
   $intent: map.get($_settings, 'intent');
 
-  $width: theme.theme-get($theme, 'width');
-  $height: theme.theme-get($theme, 'height');
+  $width: map.get($theme, 'width');
+  $height: map.get($theme, 'height');
   $radius: theme.theme-get($theme, 'radius');
   $padding: theme.theme-get($theme, 'padding');
   $margin: theme.theme-get($theme, 'margin');
