@@ -20,8 +20,10 @@
 //  SOFTWARE.
 ///
 
+@use '../theme';
+
 @mixin styles() {
-  width: var(--gs-sprite-size);
-  height: var(--gs-sprite-size);
+  width: theme.key-create('sprite-width', var(--gs-sprite-size));
+  height: theme.key-create('sprite-height', var(--gs-sprite-size));
   user-select: none;
 }

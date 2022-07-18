@@ -25,5 +25,33 @@
 @mixin render() {
   .gs-sprite {
     @include kardia.sprite-styles();
+
+    &.is-icon {
+      position: relative;
+      @include kardia.color-ink('sprite', inherit);
+      @include kardia.typography-size('sprite-font', 'size.md');
+      /* @fallback */
+      @include kardia.struct-bind('sprite', (
+        width: (
+          default: 'size.md',
+          max: max-content
+        ),
+        height: 'size.md',
+      ));
+
+      > * {
+        position: relative;
+        @include kardia.color-ink('sprite', inherit);
+        @include kardia.typography-size('sprite-font', 'size.md');
+        /* @fallback */
+        @include kardia.struct-bind('sprite', (
+          width: (
+            default: 'size.md',
+            max: max-content
+          ),
+          height: 'size.md',
+        ));
+      }
+    }
   }
 }
