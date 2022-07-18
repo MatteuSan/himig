@@ -24,14 +24,18 @@
 @use 'node_modules/@growstocks/gaia/gs-badge';
 @use 'node_modules/@growstocks/gaia/gs-button';
 @use 'node_modules/@growstocks/gaia/gs-form-field';
+@use 'node_modules/@growstocks/gaia/gs-list';
 @use 'node_modules/@growstocks/gaia/gs-surface';
+@use 'node_modules/@growstocks/gaia/gs-sprite';
 @use 'node_modules/@growstocks/gaia/gs-utils';
 
 @include gaia.init {
   @include gs-badge.render();
   @include gs-button.render();
   @include gs-form-field.render();
+  @include gs-list.render();
   @include gs-surface.render();
+  @include gs-sprite.render();
 
   @include gs-utils.layout();
   @include gs-utils.color();
