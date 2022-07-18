@@ -20,5 +20,40 @@
 //  SOFTWARE.
 ///
 
-@forward 'list-styles';
-@forward 'list-extend';
+$init-color: (
+  fill: (
+    default: 'surface-400',
+    hover: 'surface-300',
+    focus: 'surface-300',
+    active: 'surface-200'
+  ),
+  ink: 'surface-ink',
+  border: (
+    default: 'surface-400',
+    hover: 'surface-300',
+    focus: 'surface-300',
+    active: 'surface-200'
+  ),
+);
+
+$init-struct: (
+  width: (
+    default: 100%,
+    min: 140px,
+    max: max-content
+  ),
+  padding: ('sm' 'md'),
+  radius: 'small',
+  border-width: 'xs',
+  border-style: solid,
+  gap: 'xs'
+);
+
+$init-typography: (
+  family: 'global',
+  size: 'body',
+  weight: 'normal',
+  line-height: 'condensed'
+);
+
+$init-settings: ();

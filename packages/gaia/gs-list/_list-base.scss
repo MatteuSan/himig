@@ -20,5 +20,43 @@
 //  SOFTWARE.
 ///
 
-@forward 'list-styles';
-@forward 'list-extend';
+@use '../kardia';
+
+@mixin init() {
+  .gs-list {
+    display: flex;
+    flex-flow: column nowrap;
+    overflow: hidden;
+
+    @content;
+
+    .gs-list__item {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      list-style: none;
+      @include kardia.color-apply('list-item', (
+        fill: rgba(0 0 0 / 0),
+        ink: currentColor,
+        border: rgba(0 0 0 / 0),
+      ));
+      @include kardia.struct-apply('list-item', (
+        width: (
+          default: 100%,
+          min: auto,
+          max: auto
+        ),
+        padding: 0,
+        border-width: 'xs',
+        border-style: 'solid',
+        gap: 0
+      ));
+      @include kardia.typography-apply('list-item', (
+        family: inherit,
+        size: inherit,
+        weight: inherit,
+        line-height: inherit,
+      ));
+    }
+  }
+}
