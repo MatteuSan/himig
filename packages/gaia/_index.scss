@@ -169,6 +169,11 @@ $vue-mode: $module-mode !default;
     color: kardia.key-create('body-ink', kardia.token-get('background-ink'));
   }
 
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
   h1,
   h2,
   h3,
@@ -180,7 +185,7 @@ $vue-mode: $module-mode !default;
   a {
     font-family: inherit;
     font-size: inherit;
-    font-weight: kardia.primitive-token-get('weight.normal');
+    font-weight: inherit;
     line-height: kardia.primitive-token-get('line-height.normal');
   }
 
