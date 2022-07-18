@@ -20,6 +20,7 @@
 //  SOFTWARE.
 ///
 
+@use '../theme';
 @use '../tools';
 @use 'sass:map';
 @use 'sass:list';
@@ -35,15 +36,15 @@
   /// @type string
   $intent: map.get($_settings, 'intent');
 
-  $width: map.get($theme, 'width');
-  $height: map.get($theme, 'height');
-  $radius: map.get($theme, 'radius');
-  $padding: map.get($theme, 'padding');
-  $margin: map.get($theme, 'margin');
-  $gap: map.get($theme, 'gap');
-  $shadow: map.get($theme, 'shadow');
-  $border-style: map.get($theme, 'border-style');
-  $border-width: map.get($theme, 'border-width');
+  $width: theme.theme-get($theme, 'width');
+  $height: theme.theme-get($theme, 'height');
+  $radius: theme.theme-get($theme, 'radius');
+  $padding: theme.theme-get($theme, 'padding');
+  $margin: theme.theme-get($theme, 'margin');
+  $gap: theme.theme-get($theme, 'gap');
+  $shadow: theme.theme-get($theme, 'shadow');
+  $border-style: theme.theme-get($theme, 'border-style');
+  $border-width: theme.theme-get($theme, 'border-width');
 
   @if tools.is-type($theme, 'map', $custom-error: '$theme is expecting a map. Map was not given.') {
     @include validator.validate-struct-props(map.keys($theme)) {

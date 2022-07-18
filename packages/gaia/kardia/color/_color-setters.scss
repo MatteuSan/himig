@@ -35,9 +35,9 @@
   /// @type string
   $intent: map.get($_settings, 'intent');
 
-  $fill: map.get($theme, 'fill');
-  $ink: map.get($theme, 'ink');
-  $border: map.get($theme, 'border');
+  $fill: theme.theme-get($theme, 'fill');
+  $ink: theme.theme-get($theme, 'ink');
+  $border: theme.theme-get($theme, 'border');
 
   @if not tools.is-type($theme, 'map') {
     @error '$theme is expecting a map. Map was not given.';

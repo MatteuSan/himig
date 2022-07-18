@@ -20,6 +20,7 @@
 //  SOFTWARE.
 ///
 
+@use '../theme';
 @use '../tools';
 @use 'sass:map';
 @use 'sass:list';
@@ -35,10 +36,10 @@
   /// @type string
   $intent: map.get($_settings, 'intent');
 
-  $family: map.get($theme, 'family');
-  $size: map.get($theme, 'size');
-  $weight: map.get($theme, 'weight');
-  $line-height: map.get($theme, 'line-height');
+  $family: theme.theme-get($theme, 'family');
+  $size: theme.theme-get($theme, 'size');
+  $weight: theme.theme-get($theme, 'weight');
+  $line-height: theme.theme-get($theme, 'line-height');
 
   @if tools.is-type($theme, 'map', $custom-error: '$theme is expecting a map. Map was not given.') {
     @include validator.validate-typography-props(map.keys($theme)) {
