@@ -21,6 +21,7 @@
 ///
 
 @use '../kardia';
+@use 'sass:list';
 @use 'button-base' as base;
 @use 'button-theme' as theme;
 @use 'button-mixins' as style;
@@ -82,6 +83,11 @@ $_states: (
     outline-offset: 2px;
 
     &.is-icon-only {
+      @include kardia.struct-bind('button', (
+        width: (min: auto),
+        padding: list.nth(kardia.theme-get($struct, 'padding'), 1)
+      ));
+
       > .gs-button__label {
         display: none;
       }
