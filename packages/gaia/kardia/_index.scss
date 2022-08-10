@@ -24,6 +24,18 @@ $vue-mode: false !default;
 $validation: if($vue-mode == true, false, true);
 $expressive-inks: false !default;
 
+$color-inherit-template: (
+  fill: inherit,
+  ink: inherit,
+  border: inherit
+);
+$type-inherit-template: (
+  family: inherit,
+  size: inherit,
+  weight: inherit,
+  line-height: inherit
+);
+
 @use 'node_modules/@matteusan/sentro' with (
   $prefix: 'gs',
   $context: 'theme',
