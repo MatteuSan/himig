@@ -21,7 +21,7 @@
   -->
 
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:x-on="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -30,6 +30,7 @@
     <title>Gaia Design System Testing File</title>
     <link rel="stylesheet" href="with-html.test.css">
     <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet"/>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 <body>
 <main class="my-2xl grid pc-center gap-sm">
@@ -198,11 +199,11 @@
         <li class="gs-list__item">Bruh</li>
         <li class="gs-list__item">Bruh</li>
     </ul>
-    <div class="relative">
-        <button class="gs-button">
+    <div class="relative" x-data="{ isMenuOpen: false }">
+        <button class="gs-button" x-on:click="isMenuOpen = !isMenuOpen">
             <span class="gs-button__label">Open Menu</span>
         </button>
-        <ul class="gs-list is-selectable absolute">
+        <ul class="gs-list is-selectable absolute" x-show="isMenuOpen">
             <li class="gs-list__item">
                 <i class="gs-sprite is-icon material-icons">edit</i>
                 <a href="#">Edit</a>
