@@ -32,7 +32,7 @@
     "postcss-scss": "4.0.4",
     "sass": "1.53.0",
     "sass-true": "6.1.0",
-    "stylelint": "14.9.1",
+    "stylelint": "14.12.1",
     "stylelint-scss": "4.3.0",
     "ts-jest": "28.0.7",
     "ts-node": "10.9.1",
