@@ -26,6 +26,8 @@
 @use 'sass:map';
 @use 'sass:list';
 
+$_valid-arbitrary-values: (0, inherit);
+
 /// Mixin for applying width.
 /// @param {string} $component
 /// @param {map<string, any>|number|width} $width
@@ -209,8 +211,8 @@
         theme.token-switch('#{$key}-#{$value}', tokens.primitive-token-switch('#{$key}.#{$value}', $value)),
       'space');
     } @else {
-      @if $value != 0 {
-        @error 'Invalid value: #{$value}. Expecting a valid #{$key} token, or the number 0.';
+      @if not list.index($_valid-arbitrary-values, $value) {
+        @error 'Invalid value: #{$value}. Expecting a valid #{$key} token, inherit, or the number 0.';
       } @else {
         $result: list.append($result, $value, 'space');
       }
