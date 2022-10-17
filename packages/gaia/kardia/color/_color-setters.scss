@@ -29,7 +29,7 @@
 @use 'color-validators' as validator;
 
 @mixin _base($component, $theme, $settings: ()) {
-  $_init-settings: ('intent': create);
+  $_init-settings: (intent: 'create');
   $_settings: map.merge($_init-settings, $settings);
 
   /// @type string
