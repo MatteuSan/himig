@@ -23,17 +23,17 @@
 $init-color: (
   fill: (
     default: 'surface-200',
-    disabled: 'surface-400'
+    disabled: 'undefined-300'
   ),
   ink: (
     default: 'surface-800',
     helper: 'surface-ink',
-    disabled: 'surface-600'
+    disabled: 'undefined-600'
   ),
   border: (
     default: 'surface-200',
     focus: 'surface-600',
-    disabled: 'surface-400'
+    disabled: 'undefined-300'
   ),
 );
 

@@ -26,21 +26,21 @@ $init-color: (
     hover: 'accent-300',
     active: 'accent-200',
     focus: 'accent-400',
-    disabled: 'accent-800',
+    disabled: 'undefined-300',
   ),
   ink: (
     default: 'accent-ink',
     hover: 'accent-ink',
     active: 'accent-ink',
     focus: 'accent-ink',
-    disabled: 'accent-ink',
+    disabled: 'undefined-600',
   ),
   border: (
     default: 'accent-400',
     hover: 'accent-300',
     active: 'accent-200',
     focus: 'accent-400',
-    disabled: 'accent-800',
+    disabled: 'undefined-300',
   ),
 );
 
