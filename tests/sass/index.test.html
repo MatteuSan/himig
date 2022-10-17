@@ -181,6 +181,37 @@
             </div>
         </div>
     </div>
+    <div class="gs-item-card" x-data="{ isMenuOpen: false }">
+        <div class="gs-item-card__header">
+            <div class="gs-item-card__sprite">
+                <img src="gds-icon.png" alt="Item Sprite" class="gs-sprite"/>
+            </div>
+            <div class="gs-item-card__mast">
+                <h3 class="gs-item-card__title">Item Name</h3>
+                <p class="gs-item-card__subtitle mb-xs">Price: <b class="fill-warning-400 ink-warning-ink px-sm py-xs r-sm inline-block">55 WLs</b></p>
+                <p class="gs-item-card__subtitle">Rate: <b class="fill-success-400 ink-success-ink px-sm py-xs r-sm inline-block">+200%</b></p>
+            </div>
+            <div class="gs-item-card__menu relative">
+                <button class="gs-button is-icon-only" x-on:click="isMenuOpen = !isMenuOpen">
+                    <i class="gs-button__icon material-icons">menu</i>
+                </button>
+                <ul class="gs-list is-selectable is-raised absolute" x-show="isMenuOpen">
+                    <li class="gs-list__item">
+                        <a href="#">Option 1</a>
+                    </li>
+                    <li class="gs-list__item">
+                        <a href="#">Option 2</a>
+                    </li>
+                    <li class="gs-list__item">
+                        <a href="#">Option 3</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="gs-item-card__footer fill-error-400 ink-error-ink border-error-400">
+            <span>The price is STABLE | Edited 22h ago</span>
+        </div>
+    </div>
     <div class="gs-surface is-raised mt-3xl">
         <div class="gs-surface__header start-1 end-9 flex flow-row wrap-none jc-space-between ai-center">
             <h2>Item information</h2>
