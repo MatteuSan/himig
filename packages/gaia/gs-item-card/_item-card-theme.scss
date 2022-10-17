@@ -20,5 +20,47 @@
 //  SOFTWARE.
 ///
 
-@forward 'item-card-styles';
-@forward 'item-card-extend';
+$init-color: (
+  fill: 'surface-400',
+  ink: 'surface-ink',
+  border: 'surface-400',
+);
+
+$init-struct: (
+  padding: (
+    default: 'md',
+    footer: ('sm' 'md')
+  ),
+  radius: 'small',
+  gap: 'sm',
+  border-width: 'xs',
+  border-style: solid,
+);
+
+$init-typography: (
+  family: (
+    default: 'global',
+    title: 'title',
+    subtitle: 'subtitle',
+    footer: 'small'
+  ),
+  size: (
+    default: 'body',
+    title: 'subtitle',
+    subtitle: 'small',
+    footer: 'small'
+  ),
+  weight: (
+    default: 'normal',
+    title: 'bold',
+    subtitle: 'normal',
+    footer: 'normal'
+  ),
+  line-height: (
+    default: 'normal',
+    title: 'normal',
+    footer: 'condensed',
+  )
+);
+
+$init-settings: ();
