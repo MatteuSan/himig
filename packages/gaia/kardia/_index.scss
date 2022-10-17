@@ -29,6 +29,17 @@ $color-inherit-template: (
   ink: inherit,
   border: inherit
 );
+$struct-inherit-template: (
+  width: inherit,
+  height: inherit,
+  radius: inherit,
+  padding: inherit,
+  margin: inherit,
+  gap: inherit,
+  border-width: inherit,
+  border-style: inherit,
+  shadow: inherit
+);
 $type-inherit-template: (
   family: inherit,
   size: inherit,
