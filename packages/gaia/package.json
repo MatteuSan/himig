@@ -1,6 +1,6 @@
 {
   "name": "@growstocks/gaia",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A design system for building living and breathing experiences for Growtopians.",
   "repository": "https://github.com/GrowStocks/gaia",
   "author": "Matteu <matteugt@gmail.com>",
@@ -8,9 +8,5 @@
   "private": false,
   "dependencies": {
     "@matteusan/sentro": "0.1.23"
-  },
-  "devDependencies": {
-    "stylelint-scss": "4.3.0",
-    "postcss-scss": "4.0.5"
   }
 }
