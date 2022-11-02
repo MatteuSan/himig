@@ -193,7 +193,7 @@
             </div>
             <div class="gs-item-card__menu relative">
                 <button class="gs-button is-icon-only" x-on:click="isMenuOpen = !isMenuOpen">
-                    <i class="gs-button__icon material-icons">menu</i>
+                    <i class="gs-button__icon material-icons" x-text="isMenuOpen ? 'close' : 'menu'"></i>
                 </button>
                 <ul class="gs-list is-selectable is-raised absolute" x-show="isMenuOpen">
                     <li class="gs-list__item">
