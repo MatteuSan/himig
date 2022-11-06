@@ -192,12 +192,14 @@ $vue-mode: $module-mode !default;
   main.content-wrap {
     $margin: 15px;
     width: calc(100% - #{$margin * 2});
-    max-width: kardia.primitive-token-get('dimension.xl');
-    display: grid;
+    max-width: kardia.key-create('content-wrap-max-width', kardia.primitive-token-get('dimension.xl'));
+    display: kardia.key-create('content-wrap-display', grid);
     grid-template-columns: repeat(12, 1fr);
-    gap: kardia.primitive-token-get('spacing.md');
+    gap: kardia.key-create('content-wrap-gap', kardia.primitive-token-get('spacing.md'));
     margin: 0 auto;
-    padding: kardia.primitive-token-get('spacing.lg') kardia.primitive-token-get('spacing.none');
+    padding:
+      kardia.key-create('content-wrap-padding-y', kardia.primitive-token-get('spacing.lg'))
+      kardia.key-create('content-wrap-padding-x', kardia.primitive-token-get('spacing.none'));
   }
 
   @content;
