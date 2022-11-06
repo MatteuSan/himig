@@ -6,6 +6,9 @@
   "author": "Matteu <matteugt@gmail.com>",
   "license": "MIT",
   "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "@matteusan/sentro": "0.1.23"
   }
