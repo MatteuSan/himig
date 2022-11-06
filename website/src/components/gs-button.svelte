@@ -30,11 +30,11 @@
 <script lang="ts">
   import { GSButtonType } from '../lib/types/gs-button-types';
 
-  export let label: string|undefined;
-  export let link: string|undefined = null;
-  export let type: GSButtonType|string|undefined;
+  export let label: string | undefined;
+  export let link: string | undefined = null;
+  export let type: GSButtonType | string | undefined = null;
   export let isDisabled: boolean = false;
-  export let onClick: ((e: Event) => void)|undefined;
+  export let onClick: ((e: Event) => void) | undefined;
 
   const assertClassSet = (classes: string): string => {
     const finalClasses = [];
@@ -44,20 +44,20 @@
     return finalClasses.join(' ');
   };
 
-  const assertLinkTarget= (link: string): string => {
+  const assertLinkTarget = (link: string): string => {
     if (!link.indexOf('http://') && !link.indexOf('https://')) {
       return '_self';
     }
     return '_blank';
   };
 
-  const variantClassSet: string = assertClassSet(type);
-  const linkTarget: string = assertLinkTarget(link);
+  const _variantClassSet: string = assertClassSet(type);
+  const _linkTarget: string = assertLinkTarget(link);
 </script>
 
 {#if !link}
     <button
-        class="gs-button{type && ' ' + variantClassSet}"
+        class="gs-button{type && ' ' + _variantClassSet}"
         disabled={isDisabled}
         on:click={onClick}
         aria-label={label}
@@ -74,7 +74,7 @@
         {/if}
     </button>
 {:else}
-    <a href={link} target={linkTarget} rel="noreferrer" aria-label={label}>
+    <a href={link} target={_linkTarget} rel="noreferrer" aria-label={label}>
         {#if $$slots.icon}
             <i class="gs-button__icon">
                 <slot name="icon"></slot>
