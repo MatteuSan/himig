@@ -232,17 +232,18 @@ $_gaps: (
       }
 
       .end-#{$i} {
-        grid-column-end: $i;
+        grid-column-end: $i + 1;
       }
 
       @each $breakpoint in $_breakpoints {
         .\@#{$breakpoint}\:end-#{$i} {
           @include kardia.breakpoint-create($breakpoint) {
-            grid-column-end: $i;
+            grid-column-end: $i + 1 ;
           }
         }
       }
     }
+  }
 
     @each $gap in $_gaps {
       &.gap-#{$gap} {
