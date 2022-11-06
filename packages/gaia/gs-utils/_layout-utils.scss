@@ -22,7 +22,9 @@
 
 @use '../kardia';
 @use 'sass:string';
+@use 'sass:list';
 @use 'consts';
+@use 'util-helpers' as helpers;
 
 $_breakpoints: consts.$breakpoints;
 $_displays: ('none', 'block', 'inline', 'inline-block', 'flex', 'inline-flex', 'grid', 'inline-grid');
@@ -46,70 +48,94 @@ $_gaps: (
   '6xl'
 );
 
-@mixin layout() {
-  @each $display in $_displays {
-    .#{$display} {
-      display: string.unquote($display);
-    }
+@mixin layout($include: (), $exclude: ()) {
+  $utils-to-render: helpers.handle-include-exclude((
+    'display',
+    'position',
+    'flow',
+    'wrap',
+    'jc',
+    'ji',
+    'ai',
+    'ac',
+    'pi',
+    'pc',
+    'cols',
+    'rows',
+    'start',
+    'end',
+    'gap',
+  ), $include, $exclude);
 
-    @each $breakpoint in $_breakpoints {
-      .\@#{$breakpoint}\:#{$display} {
-        @include kardia.breakpoint-create($breakpoint) {
-          display: string.unquote($display);
+  @if list.index($utils-to-render, 'display') {
+    @each $display in $_displays {
+      .#{$display} {
+        display: string.unquote($display);
+      }
+
+      @each $breakpoint in $_breakpoints {
+        .\@#{$breakpoint}\:#{$display} {
+          @include kardia.breakpoint-create($breakpoint) {
+            display: string.unquote($display);
+          }
         }
       }
     }
   }
 
-  @each $position in $_positions {
-    .#{$position} {
-      position: string.unquote($position);
-    }
+  @if list.index($utils-to-render, 'position') {
+    @each $position in $_positions {
+      .#{$position} {
+        position: string.unquote($position);
+      }
 
-    @each $breakpoint in $_breakpoints {
-      .\@#{$breakpoint}\:#{$position} {
-        @include kardia.breakpoint-create($breakpoint) {
-          position: string.unquote($position);
+      @each $breakpoint in $_breakpoints {
+        .\@#{$breakpoint}\:#{$position} {
+          @include kardia.breakpoint-create($breakpoint) {
+            position: string.unquote($position);
+          }
         }
       }
     }
   }
 
-  .flex, .inline-flex {
+  @if list.index($utils-to-render, 'flow') {
     @each $flow in $_flows {
-      &.flow-#{$flow} {
+      .flow-#{$flow} {
         flex-direction: string.unquote($flow);
       }
 
       @each $breakpoint in $_breakpoints {
-        &.\@#{$breakpoint}\:flow-#{$flow} {
+        .\@#{$breakpoint}\:flow-#{$flow} {
           @include kardia.breakpoint-create($breakpoint) {
             flex-direction: string.unquote($flow);
           }
         }
       }
     }
+  }
 
+  @if list.index($utils-to-render, 'wrap') {
     @each $wrap, $value in $_wraps {
       @if $wrap == 'default' {
-        &.wrap {
+        .wrap {
           flex-wrap: string.unquote($value);
         }
       } @else {
-        &.wrap-#{$wrap} {
+        .wrap-#{$wrap} {
           flex-wrap: string.unquote($value);
         }
       }
 
       @each $breakpoint in $_breakpoints {
         @if $wrap == 'default' {
-          &.\@#{$breakpoint}\:wrap {
+          .\@#{$breakpoint}\:wrap {
             @include kardia.breakpoint-create($breakpoint) {
               flex-wrap: string.unquote($value);
             }
           }
         } @else {
-          &.\@#{$breakpoint}\:wrap-#{$wrap} {
+          .\@#{$breakpoint}\:wrap-#{$wrap} {
             @include kardia.breakpoint-create($breakpoint) {
               flex-wrap: string.unquote($value);
             }
@@ -119,106 +145,122 @@ $_gaps: (
     }
   }
 
-  .flex, .inline-flex, .grid, .inline-grid {
-    @each $alignment in $_alignments {
-      &.jc-#{$alignment} {
+  @each $alignment in $_alignments {
+    @if list.index($utils-to-render, 'jc') {
+      .jc-#{$alignment} {
         justify-content: string.unquote($alignment);
       }
 
       @each $breakpoint in $_breakpoints {
-        &.\@#{$breakpoint}\:jc-#{$alignment} {
+        .\@#{$breakpoint}\:jc-#{$alignment} {
           @include kardia.breakpoint-create($breakpoint) {
             justify-content: string.unquote($alignment);
           }
         }
       }
+    }
 
-      &.ji-#{$alignment} {
+    @if list.index($utils-to-render, 'ji') {
+      .ji-#{$alignment} {
         justify-items: string.unquote($alignment);
       }
 
       @each $breakpoint in $_breakpoints {
-        &.\@#{$breakpoint}\:ji-#{$alignment} {
+        .\@#{$breakpoint}\:ji-#{$alignment} {
           @include kardia.breakpoint-create($breakpoint) {
             justify-items: string.unquote($alignment);
           }
         }
       }
+    }
 
-      &.ac-#{$alignment} {
+    @if list.index($utils-to-render, 'ac') {
+      .ac-#{$alignment} {
         align-content: string.unquote($alignment);
       }
 
       @each $breakpoint in $_breakpoints {
-        &.\@#{$breakpoint}\:ac-#{$alignment} {
+        .\@#{$breakpoint}\:ac-#{$alignment} {
           @include kardia.breakpoint-create($breakpoint) {
             align-content: string.unquote($alignment);
           }
         }
       }
+    }
 
-      &.ai-#{$alignment} {
+    @if list.index($utils-to-render, 'ai') {
+      .ai-#{$alignment} {
         align-items: string.unquote($alignment);
       }
 
       @each $breakpoint in $_breakpoints {
-        &.\@#{$breakpoint}\:ai-#{$alignment} {
+        .\@#{$breakpoint}\:ai-#{$alignment} {
           @include kardia.breakpoint-create($breakpoint) {
             align-items: string.unquote($alignment);
           }
         }
       }
+    }
 
-      &.pc-#{$alignment} {
+    @if list.index($utils-to-render, 'pc') {
+      .pc-#{$alignment} {
         place-content: string.unquote($alignment);
       }
 
       @each $breakpoint in $_breakpoints {
-        &.\@#{$breakpoint}\:pc-#{$alignment} {
+        .\@#{$breakpoint}\:pc-#{$alignment} {
           @include kardia.breakpoint-create($breakpoint) {
             place-content: string.unquote($alignment);
           }
         }
       }
+    }
 
-      &.pi-#{$alignment} {
+    @if list.index($utils-to-render, 'pi') {
+      .pi-#{$alignment} {
         place-items: string.unquote($alignment);
       }
 
       @each $breakpoint in $_breakpoints {
-        &.\@#{$breakpoint}\:pi-#{$alignment} {
+        .\@#{$breakpoint}\:pi-#{$alignment} {
           @include kardia.breakpoint-create($breakpoint) {
             place-items: string.unquote($alignment);
           }
         }
       }
     }
+  }
 
-    @for $i from 1 to $_max-columns {
-      &.cols-#{$i} {
+  @for $i from 1 to $_max-columns {
+    @if list.index($utils-to-render, 'cols') {
+      .cols-#{$i} {
         grid-template-columns: repeat($i, 1fr);
       }
 
       @each $breakpoint in $_breakpoints {
-        &.\@#{$breakpoint}\:cols-#{$i} {
+        .\@#{$breakpoint}\:cols-#{$i} {
           @include kardia.breakpoint-create($breakpoint) {
             grid-template-columns: repeat($i, 1fr);
           }
         }
       }
+    }
 
-      &.rows-#{$i} {
+    @if list.index($utils-to-render, 'rows') {
+      .rows-#{$i} {
         grid-template-rows: repeat($i, 1fr);
       }
 
       @each $breakpoint in $_breakpoints {
-        &.\@#{$breakpoint}\:rows-#{$i} {
+        .\@#{$breakpoint}\:rows-#{$i} {
           @include kardia.breakpoint-create($breakpoint) {
             grid-template-rows: repeat($i, 1fr);
           }
         }
       }
+    }
 
+    @if list.index($utils-to-render, 'start') {
       .start-#{$i} {
         grid-column-start: $i;
       }
@@ -230,7 +272,9 @@ $_gaps: (
           }
         }
       }
+    }
 
+    @if list.index($utils-to-render, 'end') {
       .end-#{$i} {
         grid-column-end: $i + 1;
       }
@@ -245,13 +289,14 @@ $_gaps: (
     }
   }
 
+  @if list.index($utils-to-render, 'gap') {
     @each $gap in $_gaps {
-      &.gap-#{$gap} {
+      .gap-#{$gap} {
         gap: kardia.primitive-token-get('gap.#{$gap}');
       }
 
       @each $breakpoint in $_breakpoints {
-        &.\@#{$breakpoint}\:gap-#{$gap} {
+        .\@#{$breakpoint}\:gap-#{$gap} {
           @include kardia.breakpoint-create($breakpoint) {
             gap: kardia.primitive-token-get('gap.#{$gap}');
           }
@@ -259,8 +304,4 @@ $_gaps: (
       }
     }
   }
-}
-
-@mixin layout-utils() {
-  @include layout();
 }

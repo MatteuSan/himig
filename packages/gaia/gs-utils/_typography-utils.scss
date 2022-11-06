@@ -25,6 +25,7 @@
 @use 'sass:meta';
 @use 'sass:list';
 @use 'consts';
+@use 'util-helpers' as helpers;
 
 $_breakpoints: consts.$breakpoints;
 $_presets: (
@@ -69,84 +70,98 @@ $_sizes: ('xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl');
 $_weights: ('black', 'bold', 'normal', 'light');
 $_line-heights: ('broad', 'normal', 'condensed');
 
-@mixin typography() {
-  @each $preset, $values in $_presets {
-    .#{$preset} {
-      font-family: kardia.token-get('family-#{map.get($values, 'family')}');
-      font-size: kardia.token-get('size-#{map.get($values, 'size')}');
-      font-weight: kardia.token-get('weight-#{map.get($values, 'family')}');
-      line-height: kardia.token-get('line-height-#{map.get($values, 'family')}');
-    }
+@mixin typography($include: (), $exclude: ()) {
+  $utils-to-render: helpers.handle-include-exclude((
+    'preset',
+    'family',
+    'size',
+    'weight',
+    'line-height',
+  ), $include, $exclude);
 
-    @each $breakpoint in $_breakpoints {
-      .\@#{$breakpoint}\:#{$preset} {
-        @include kardia.breakpoint-create($breakpoint) {
-          font-family: kardia.token-get('family-#{map.get($values, 'family')}');
-          font-size: kardia.token-get('size-#{map.get($values, 'size')}');
-          font-weight: kardia.token-get('weight-#{map.get($values, 'family')}');
-          line-height: kardia.token-get('line-height-#{map.get($values, 'family')}');
+  @if list.index($utils-to-render, 'preset') {
+    @each $preset, $values in $_presets {
+      .#{$preset} {
+        font-family: kardia.token-get('family-#{map.get($values, 'family')}');
+        font-size: kardia.token-get('size-#{map.get($values, 'size')}');
+        font-weight: kardia.token-get('weight-#{map.get($values, 'family')}');
+        line-height: kardia.token-get('line-height-#{map.get($values, 'family')}');
+      }
+
+      @each $breakpoint in $_breakpoints {
+        .\@#{$breakpoint}\:#{$preset} {
+          @include kardia.breakpoint-create($breakpoint) {
+            font-family: kardia.token-get('family-#{map.get($values, 'family')}');
+            font-size: kardia.token-get('size-#{map.get($values, 'size')}');
+            font-weight: kardia.token-get('weight-#{map.get($values, 'family')}');
+            line-height: kardia.token-get('line-height-#{map.get($values, 'family')}');
+          }
         }
       }
     }
   }
 
-  @each $preset, $values in $_presets {
-    .family-#{$preset} {
-      font-family: kardia.token-get('family-#{$preset}');
-    }
+  @if list.index($utils-to-render, 'family') {
+    @each $preset, $values in $_presets {
+      .family-#{$preset} {
+        font-family: kardia.token-get('family-#{$preset}');
+      }
 
-    @each $breakpoint in $_breakpoints {
-      .\@#{$breakpoint}\:family-#{$preset} {
-        @include kardia.breakpoint-create($breakpoint) {
-          font-family: kardia.token-get('family-#{$preset}');
+      @each $breakpoint in $_breakpoints {
+        .\@#{$breakpoint}\:family-#{$preset} {
+          @include kardia.breakpoint-create($breakpoint) {
+            font-family: kardia.token-get('family-#{$preset}');
+          }
         }
       }
     }
   }
 
-  @each $size in $_sizes {
-    .size-#{$size} {
-      font-size: kardia.primitive-token-get('size.#{$size}');
-    }
+  @if list.index($utils-to-render, 'size') {
+    @each $size in $_sizes {
+      .size-#{$size} {
+        font-size: kardia.primitive-token-get('size.#{$size}');
+      }
 
-    @each $breakpoint in $_breakpoints {
-      .\@#{$breakpoint}\:size-#{$size} {
-        @include kardia.breakpoint-create($breakpoint) {
-          font-size: kardia.primitive-token-get('size.#{$size}');
+      @each $breakpoint in $_breakpoints {
+        .\@#{$breakpoint}\:size-#{$size} {
+          @include kardia.breakpoint-create($breakpoint) {
+            font-size: kardia.primitive-token-get('size.#{$size}');
+          }
         }
       }
     }
   }
 
-  @each $weight in $_weights {
-    .weight-#{$weight} {
-      font-weight: kardia.primitive-token-get('weight.#{$weight}');
-    }
+  @if list.index($utils-to-render, 'weight') {
+    @each $weight in $_weights {
+      .weight-#{$weight} {
+        font-weight: kardia.primitive-token-get('weight.#{$weight}');
+      }
 
-    @each $breakpoint in $_breakpoints {
-      .\@#{$breakpoint}\:weight-#{$weight} {
-        @include kardia.breakpoint-create($breakpoint) {
-          font-weight: kardia.primitive-token-get('weight.#{$weight}');
+      @each $breakpoint in $_breakpoints {
+        .\@#{$breakpoint}\:weight-#{$weight} {
+          @include kardia.breakpoint-create($breakpoint) {
+            font-weight: kardia.primitive-token-get('weight.#{$weight}');
+          }
         }
       }
     }
   }
 
-  @each $line-height in $_line-heights {
-    .line-height-#{$line-height} {
-      line-height: kardia.primitive-token-get('line-height.#{$line-height}');
-    }
+  @if list.index($utils-to-render, 'line-height') {
+    @each $line-height in $_line-heights {
+      .line-height-#{$line-height} {
+        line-height: kardia.primitive-token-get('line-height.#{$line-height}');
+      }
 
-    @each $breakpoint in $_breakpoints {
-      .\@#{$breakpoint}\:line-height-#{$line-height} {
-        @include kardia.breakpoint-create($breakpoint) {
-          line-height: kardia.primitive-token-get('line-height.#{$line-height}');
+      @each $breakpoint in $_breakpoints {
+        .\@#{$breakpoint}\:line-height-#{$line-height} {
+          @include kardia.breakpoint-create($breakpoint) {
+            line-height: kardia.primitive-token-get('line-height.#{$line-height}');
+          }
         }
       }
     }
   }
-}
-
-@mixin typography-utils() {
-  @include typography();
 }

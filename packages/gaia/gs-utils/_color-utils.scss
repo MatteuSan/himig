@@ -22,7 +22,9 @@
 
 @use '../kardia';
 @use 'sass:map';
+@use 'sass:list';
 @use 'consts';
+@use 'util-helpers' as helpers;
 
 $_breakpoints: consts.$breakpoints;
 $_colors: (
@@ -35,18 +37,22 @@ $_colors: (
 );
 $_tones: (200, 300, 400, 600, 800, 'ink');
 
-@mixin color() {
-  // Background color
-  @each $color in $_colors {
-    @each $tone in $_tones {
-      .fill-#{$color}-#{$tone} {
-        background-color: kardia.token-get('#{$color}-#{$tone}');
-      }
+@mixin color($include: (), $exclude: ()) {
+  $utils-to-render: helpers.handle-include-exclude(('fill', 'ink', 'border'), $include, $exclude);
 
-      @each $breakpoint in $_breakpoints {
-        .\@#{$breakpoint}\:fill-#{$color}-#{$tone} {
-          @include kardia.breakpoint-create($breakpoint) {
-            background-color: kardia.token-get('#{$color}-#{$tone}');
+  // Background color
+  @if list.index($utils-to-render, 'fill') {
+    @each $color in $_colors {
+      @each $tone in $_tones {
+        .fill-#{$color}-#{$tone} {
+          background-color: kardia.token-get('#{$color}-#{$tone}');
+        }
+
+        @each $breakpoint in $_breakpoints {
+          .\@#{$breakpoint}\:fill-#{$color}-#{$tone} {
+            @include kardia.breakpoint-create($breakpoint) {
+              background-color: kardia.token-get('#{$color}-#{$tone}');
+            }
           }
         }
       }
@@ -54,16 +60,18 @@ $_tones: (200, 300, 400, 600, 800, 'ink');
   }
 
   // Text color
-  @each $color in $_colors {
-    @each $tone in $_tones {
-      .ink-#{$color}-#{$tone} {
-        color: kardia.token-get('#{$color}-#{$tone}');
-      }
+  @if list.index($utils-to-render, 'ink') {
+    @each $color in $_colors {
+      @each $tone in $_tones {
+        .ink-#{$color}-#{$tone} {
+          color: kardia.token-get('#{$color}-#{$tone}');
+        }
 
-      @each $breakpoint in $_breakpoints {
-        .\@#{$breakpoint}\:ink-#{$color}-#{$tone} {
-          @include kardia.breakpoint-create($breakpoint) {
-            color: kardia.token-get('#{$color}-#{$tone}');
+        @each $breakpoint in $_breakpoints {
+          .\@#{$breakpoint}\:ink-#{$color}-#{$tone} {
+            @include kardia.breakpoint-create($breakpoint) {
+              color: kardia.token-get('#{$color}-#{$tone}');
+            }
           }
         }
       }
@@ -71,23 +79,21 @@ $_tones: (200, 300, 400, 600, 800, 'ink');
   }
 
   // Border color
-  @each $color in $_colors {
-    @each $tone in $_tones {
-      .border-#{$color}-#{$tone} {
-        border-color: kardia.token-get('#{$color}-#{$tone}');
-      }
+  @if list.index($utils-to-render, 'border') {
+    @each $color in $_colors {
+      @each $tone in $_tones {
+        .border-#{$color}-#{$tone} {
+          border-color: kardia.token-get('#{$color}-#{$tone}');
+        }
 
-      @each $breakpoint in $_breakpoints {
-        .\@#{$breakpoint}\:border-#{$color}-#{$tone} {
-          @include kardia.breakpoint-create($breakpoint) {
-            border-color: kardia.token-get('#{$color}-#{$tone}');
+        @each $breakpoint in $_breakpoints {
+          .\@#{$breakpoint}\:border-#{$color}-#{$tone} {
+            @include kardia.breakpoint-create($breakpoint) {
+              border-color: kardia.token-get('#{$color}-#{$tone}');
+            }
           }
         }
       }
     }
   }
-}
-
-@mixin color-utils() {
-  @include color();
 }
