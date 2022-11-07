@@ -82,19 +82,35 @@ $_line-heights: ('broad', 'normal', 'condensed');
   @if list.index($utils-to-render, 'preset') {
     @each $preset, $values in $_presets {
       .#{$preset} {
-        font-family: kardia.token-get('family-#{map.get($values, 'family')}');
-        font-size: kardia.token-get('size-#{map.get($values, 'size')}');
-        font-weight: kardia.token-get('weight-#{map.get($values, 'family')}');
-        line-height: kardia.token-get('line-height-#{map.get($values, 'family')}');
+        font-family: kardia.key-create('util-family',
+          kardia.token-get('family-#{map.get($values, 'family')}')
+        );
+        font-size: kardia.key-create('util-size',
+          kardia.token-get('size-#{map.get($values, 'size')}')
+        );
+        font-weight: kardia.key-create('util-weight',
+          kardia.token-get('weight-#{map.get($values, 'weight')}')
+        );
+        line-height: kardia.key-create('util-line-height',
+          kardia.token-get('line-height-#{map.get($values, 'line-height')}')
+        );
       }
 
       @each $breakpoint in $_breakpoints {
         .\@#{$breakpoint}\:#{$preset} {
           @include kardia.breakpoint-create($breakpoint) {
-            font-family: kardia.token-get('family-#{map.get($values, 'family')}');
-            font-size: kardia.token-get('size-#{map.get($values, 'size')}');
-            font-weight: kardia.token-get('weight-#{map.get($values, 'family')}');
-            line-height: kardia.token-get('line-height-#{map.get($values, 'family')}');
+            @include kardia.key-bind('util-family',
+              kardia.token-get('family-#{map.get($values, 'family')}')
+            );
+            @include kardia.key-bind('util-size',
+              kardia.token-get('size-#{map.get($values, 'size')}')
+            );
+            @include kardia.key-bind('util-weight',
+              kardia.token-get('weight-#{map.get($values, 'weight')}')
+            );
+            @include kardia.key-bind('util-line-height',
+              kardia.token-get('line-height-#{map.get($values, 'line-height')}')
+            );
           }
         }
       }
@@ -104,13 +120,13 @@ $_line-heights: ('broad', 'normal', 'condensed');
   @if list.index($utils-to-render, 'family') {
     @each $preset, $values in $_presets {
       .family-#{$preset} {
-        font-family: kardia.token-get('family-#{$preset}');
+        font-family: kardia.key-create('util-family', kardia.token-get('family-#{$preset}'));
       }
 
       @each $breakpoint in $_breakpoints {
         .\@#{$breakpoint}\:family-#{$preset} {
           @include kardia.breakpoint-create($breakpoint) {
-            font-family: kardia.token-get('family-#{$preset}');
+            @include kardia.key-bind('util-family', kardia.token-get('family-#{$preset}'));
           }
         }
       }
@@ -120,13 +136,13 @@ $_line-heights: ('broad', 'normal', 'condensed');
   @if list.index($utils-to-render, 'size') {
     @each $size in $_sizes {
       .size-#{$size} {
-        font-size: kardia.primitive-token-get('size.#{$size}');
+        font-size: kardia.key-create('util-size', kardia.primitive-token-get('size.#{$size}'));
       }
 
       @each $breakpoint in $_breakpoints {
         .\@#{$breakpoint}\:size-#{$size} {
           @include kardia.breakpoint-create($breakpoint) {
-            font-size: kardia.primitive-token-get('size.#{$size}');
+            @include kardia.key-bind('util-size', kardia.primitive-token-get('size.#{$size}'));
           }
         }
       }
@@ -136,13 +152,13 @@ $_line-heights: ('broad', 'normal', 'condensed');
   @if list.index($utils-to-render, 'weight') {
     @each $weight in $_weights {
       .weight-#{$weight} {
-        font-weight: kardia.primitive-token-get('weight.#{$weight}');
+        font-weight: kardia.key-create('util-weight', kardia.primitive-token-get('weight.#{$weight}'));
       }
 
       @each $breakpoint in $_breakpoints {
         .\@#{$breakpoint}\:weight-#{$weight} {
           @include kardia.breakpoint-create($breakpoint) {
-            font-weight: kardia.primitive-token-get('weight.#{$weight}');
+            @include kardia.key-bind('util-weight', kardia.primitive-token-get('weight.#{$weight}'));
           }
         }
       }
@@ -152,13 +168,13 @@ $_line-heights: ('broad', 'normal', 'condensed');
   @if list.index($utils-to-render, 'line-height') {
     @each $line-height in $_line-heights {
       .line-height-#{$line-height} {
-        line-height: kardia.primitive-token-get('line-height.#{$line-height}');
+        line-height: kardia.key-create('util-line-height', kardia.primitive-token-get('line-height.#{$line-height}'));
       }
 
       @each $breakpoint in $_breakpoints {
         .\@#{$breakpoint}\:line-height-#{$line-height} {
           @include kardia.breakpoint-create($breakpoint) {
-            line-height: kardia.primitive-token-get('line-height.#{$line-height}');
+            @include kardia.key-bind('util-line-height', kardia.primitive-token-get('line-height.#{$line-height}'));
           }
         }
       }
