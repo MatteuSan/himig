@@ -197,12 +197,20 @@ $vue-mode: $test-mode !default;
     width: calc(100% - #{$margin * 2});
     max-width: kardia.key-create('content-wrap-max-width', kardia.primitive-token-get('dimension.xl'));
     display: kardia.key-create('content-wrap-display', grid);
-    grid-template-columns: repeat(12, 1fr);
+    grid-template-columns: repeat(kardia.key-create('content-wrap-cols', 4), 1fr);
     gap: kardia.key-create('content-wrap-gap', kardia.primitive-token-get('spacing.md'));
     margin: 0 auto;
     padding:
       kardia.key-create('content-wrap-padding-y', kardia.primitive-token-get('spacing.lg'))
       kardia.key-create('content-wrap-padding-x', kardia.primitive-token-get('spacing.none'));
+
+    @include kardia.breakpoint-create('medium') {
+      @include kardia.key-bind('content-wrap-cols', repeat(8, 1fr));
+    }
+
+    @include kardia.breakpoint-create('large') {
+      @include kardia.key-bind('content-wrap-cols', repeat(12, 1fr));
+    }
   }
 
   @content;
