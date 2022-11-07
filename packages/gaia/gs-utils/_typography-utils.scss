@@ -89,10 +89,10 @@ $_line-heights: ('broad', 'normal', 'condensed');
           kardia.token-get('size-#{map.get($values, 'size')}')
         );
         font-weight: kardia.key-create('util-weight',
-          kardia.token-get('weight-#{map.get($values, 'weight')}')
+          kardia.primitive-token-get('weight.#{map.get($values, 'weight')}')
         );
         line-height: kardia.key-create('util-line-height',
-          kardia.token-get('line-height-#{map.get($values, 'line-height')}')
+          kardia.primitive-token-get('line-height.#{map.get($values, 'line-height')}')
         );
       }
 
@@ -106,10 +106,10 @@ $_line-heights: ('broad', 'normal', 'condensed');
               kardia.token-get('size-#{map.get($values, 'size')}')
             );
             @include kardia.key-bind('util-weight',
-              kardia.token-get('weight-#{map.get($values, 'weight')}')
+              kardia.primitive-token-get('weight.#{map.get($values, 'weight')}')
             );
             @include kardia.key-bind('util-line-height',
-              kardia.token-get('line-height-#{map.get($values, 'line-height')}')
+              kardia.primitive-token-get('line-height.#{map.get($values, 'line-height')}')
             );
           }
         }
