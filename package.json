@@ -1,6 +1,6 @@
 {
   "name": "gaia",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "A design system for building living and breathing experiences for Growtopians.",
   "main": "packages/gaia/_index.scss",
   "files": [
