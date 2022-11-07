@@ -231,7 +231,7 @@ $_gaps: (
     }
   }
 
-  @for $i from 1 to $_max-columns {
+  @for $i from 1 through $_max-columns {
     @if list.index($utils-to-render, 'cols') {
       .cols-#{$i} {
         grid-template-columns: repeat($i, 1fr);
