@@ -22,10 +22,13 @@
 
 $expressive-inks: false !default;
 $module-mode: false !default;
-$vue-mode: $module-mode !default;
+$test-mode: $module-mode !default;
+$vue-mode: $test-mode !default;
 
 @use 'kardia' with (
   $expressive-inks: $expressive-inks,
+  $module-mode: $module-mode,
+  $test-mode: $test-mode,
   $vue-mode: $vue-mode,
 );
 @use 'sass:map';

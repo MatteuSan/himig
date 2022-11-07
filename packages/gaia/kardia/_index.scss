@@ -20,7 +20,9 @@
 //  SOFTWARE.
 ///
 
-$vue-mode: false !default;
+$module-mode: false !default;
+$test-mode: $module-mode !default;
+$vue-mode: $test-mode !default;
 $validation: if($vue-mode == true, false, true);
 $expressive-inks: false !default;
 
