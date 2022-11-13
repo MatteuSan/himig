@@ -10,6 +10,6 @@
     "access": "public"
   },
   "dependencies": {
-    "@matteusan/sentro": "0.1.23"
+    "@matteusan/sentro": "0.1.25"
   }
 }
