@@ -101,39 +101,39 @@ $_stroke-style: (
     @if list.index($utils-to-render, 'w') {
       // Width
       .w-#{$dimension} {
-        width: kardia.key-create('util-w', kardia.primitive-token-get('width.#{$dimension}'));
+        width: kardia.primitive-token-get('width.#{$dimension}');
       }
 
       @each $breakpoint in $_breakpoints {
         .\@#{$breakpoint}\:w-#{$dimension} {
           @include kardia.breakpoint-create($breakpoint) {
-            @include kardia.key-bind('util-w', kardia.primitive-token-get('width.#{$dimension}'));
+            width: kardia.primitive-token-get('width.#{$dimension}');
           }
         }
       }
 
       // Min Width
       .min-w-#{$dimension} {
-        min-width: kardia.key-create('util-min-w', kardia.primitive-token-get('width.#{$dimension}'));
+        min-width: kardia.primitive-token-get('width.#{$dimension}');
       }
 
       @each $breakpoint in $_breakpoints {
         .\@#{$breakpoint}\:min-w-#{$dimension} {
           @include kardia.breakpoint-create($breakpoint) {
-            @include kardia.key-bind('util-min-w', kardia.primitive-token-get('width.#{$dimension}'));
+            min-width: kardia.primitive-token-get('width.#{$dimension}');
           }
         }
       }
 
       // Max Width
       .max-w-#{$dimension} {
-        max-width: kardia.key-create('util-max-w', kardia.primitive-token-get('width.#{$dimension}'));
+        max-width: kardia.primitive-token-get('width.#{$dimension}');
       }
 
       @each $breakpoint in $_breakpoints {
         .\@#{$breakpoint}\:max-w-#{$dimension} {
           @include kardia.breakpoint-create($breakpoint) {
-            @include kardia.key-bind('util-max-w', kardia.primitive-token-get('width.#{$dimension}'));
+            max-width: kardia.primitive-token-get('width.#{$dimension}');
           }
         }
       }
@@ -142,39 +142,39 @@ $_stroke-style: (
     @if list.index($utils-to-render, 'h') {
       // Height
       .h-#{$dimension} {
-        height: kardia.key-create('util-h', kardia.primitive-token-get('height.#{$dimension}'));
+        height: kardia.primitive-token-get('height.#{$dimension}');
       }
 
       @each $breakpoint in $_breakpoints {
         .\@#{$breakpoint}\:h-#{$dimension} {
           @include kardia.breakpoint-create($breakpoint) {
-            @include kardia.key-bind('util-h', kardia.primitive-token-get('height.#{$dimension}'));
+            height: kardia.primitive-token-get('height.#{$dimension}');
           }
         }
       }
 
       // Min Height
       .min-h-#{$dimension} {
-        min-height: kardia.key-create('util-min-h', kardia.primitive-token-get('height.#{$dimension}'));
+        min-height: kardia.primitive-token-get('height.#{$dimension}');
       }
 
       @each $breakpoint in $_breakpoints {
         .\@#{$breakpoint}\:min-h-#{$dimension} {
           @include kardia.breakpoint-create($breakpoint) {
-            @include kardia.key-bind('util-min-h', kardia.primitive-token-get('height.#{$dimension}'));
+            min-height: kardia.primitive-token-get('height.#{$dimension}');
           }
         }
       }
 
       // Max Height
       .max-h-#{$dimension} {
-        max-height: kardia.key-create('util-max-h', kardia.primitive-token-get('height.#{$dimension}'));
+        max-height: kardia.primitive-token-get('height.#{$dimension}');
       }
 
       @each $breakpoint in $_breakpoints {
         .\@#{$breakpoint}\:max-h-#{$dimension} {
           @include kardia.breakpoint-create($breakpoint) {
-            @include kardia.key-bind('util-max-h', kardia.primitive-token-get('height.#{$dimension}'));
+            max-height: kardia.primitive-token-get('height.#{$dimension}');
           }
         }
       }
@@ -185,13 +185,13 @@ $_stroke-style: (
     @if list.index($utils-to-render, 'p') {
       // Padding
       .p-#{$variant} {
-        padding: kardia.key-create('util-p', kardia.primitive-token-get('padding.#{$variant}'));
+        padding: kardia.primitive-token-get('padding.#{$variant}');
       }
 
       @each $breakpoint in $_breakpoints {
         .\@#{$breakpoint}\:p-#{$variant} {
           @include kardia.breakpoint-create($breakpoint) {
-            @include kardia.key-bind('util-p', kardia.primitive-token-get('padding.#{$variant}'));
+            padding: kardia.primitive-token-get('padding.#{$variant}');
           }
         }
       }
@@ -199,7 +199,7 @@ $_stroke-style: (
       @each $direction, $direction-val in $_directions {
         .p#{$direction}-#{$variant} {
           @each $sub-direction in $direction-val {
-            padding-#{$sub-direction}: kardia.key-create('util-p#{$direction}', kardia.primitive-token-get('padding.#{$variant}'));
+            padding-#{$sub-direction}: kardia.primitive-token-get('padding.#{$variant}');
           }
         }
 
@@ -207,7 +207,7 @@ $_stroke-style: (
           .\@#{$breakpoint}\:p#{$direction}-#{$variant} {
             @include kardia.breakpoint-create($breakpoint) {
               @each $sub-direction in $direction-val {
-                @include kardia.key-bind('util-p#{$direction}', kardia.primitive-token-get('padding.#{$variant}'));
+                padding-#{$sub-direction}: kardia.primitive-token-get('padding.#{$variant}');
               }
             }
           }
@@ -218,13 +218,13 @@ $_stroke-style: (
     @if list.index($utils-to-render, 'm') {
       // Margin
       .m-#{$variant} {
-        margin: kardia.key-create('util-m', kardia.primitive-token-get('margin.#{$variant}'));
+        margin: kardia.primitive-token-get('margin.#{$variant}');
       }
 
       @each $breakpoint in $_breakpoints {
         .\@#{$breakpoint}\:m-#{$variant} {
           @include kardia.breakpoint-create($breakpoint) {
-            @include kardia.key-bind('util-m', kardia.primitive-token-get('margin.#{$variant}'));
+            margin: kardia.primitive-token-get('margin.#{$variant}');
           }
         }
       }
@@ -232,7 +232,7 @@ $_stroke-style: (
       @each $direction, $direction-val in $_directions {
         .m#{$direction}-#{$variant} {
           @each $sub-direction in $direction-val {
-            margin-#{$sub-direction}: kardia.key-create('util-m#{$direction}', kardia.primitive-token-get('margin.#{$variant}'));
+            margin-#{$sub-direction}: kardia.primitive-token-get('margin.#{$variant}');
           }
         }
 
@@ -240,7 +240,7 @@ $_stroke-style: (
           .\@#{$breakpoint}\:m#{$direction}-#{$variant} {
             @include kardia.breakpoint-create($breakpoint) {
               @each $sub-direction in $direction-val {
-                @include kardia.key-bind('util-m#{$direction}', kardia.primitive-token-get('margin.#{$variant}'));
+                margin-#{$sub-direction}: kardia.primitive-token-get('margin.#{$variant}');
               }
             }
           }
@@ -254,13 +254,13 @@ $_stroke-style: (
         // Do nothing
       } @else {
         .r-#{$variant} {
-          border-radius: kardia.key-create('util-r', kardia.primitive-token-get('radius.#{$variant}'));
+          border-radius: kardia.primitive-token-get('radius.#{$variant}');
         }
 
         @each $breakpoint in $_breakpoints {
           .\@#{$breakpoint}\:r-#{$variant} {
             @include kardia.breakpoint-create($breakpoint) {
-              @include kardia.key-bind('util-r', kardia.primitive-token-get('radius.#{$variant}'));
+              border-radius: kardia.primitive-token-get('radius.#{$variant}');
             }
           }
         }
@@ -268,7 +268,7 @@ $_stroke-style: (
         @each $direction, $direction-val in $_r-directions {
           .r#{$direction}-#{$variant} {
             @each $sub-direction in $direction-val {
-              border-#{$sub-direction}-radius: kardia.key-create('util-r#{$direction}', kardia.primitive-token-get('radius.#{$variant}'));
+              border-#{$sub-direction}-radius: kardia.primitive-token-get('radius.#{$variant}');
             }
           }
 
@@ -276,7 +276,7 @@ $_stroke-style: (
             .\@#{$breakpoint}\:r#{$direction}-#{$variant} {
               @include kardia.breakpoint-create($breakpoint) {
                 @each $sub-direction in $direction-val {
-                  @include kardia.key-bind('util-r#{$direction}', kardia.primitive-token-get('radius.#{$variant}'));
+                  border-#{$sub-direction}-radius: kardia.primitive-token-get('radius.#{$variant}');
                 }
               }
             }
@@ -290,13 +290,13 @@ $_stroke-style: (
     @each $variant in $_stroke-size {
       // Border Width
       .border-#{$variant} {
-        border-width: kardia.key-create('util-border-width', kardia.primitive-token-get('border.#{$variant}'));
+        border-width: kardia.primitive-token-get('border.#{$variant}');
       }
 
       @each $breakpoint in $_breakpoints {
         .\@#{$breakpoint}\:border-#{$variant} {
           @include kardia.breakpoint-create($breakpoint) {
-            @include kardia.key-bind('util-border-width', kardia.primitive-token-get('border.#{$variant}'));
+            border-width: kardia.primitive-token-get('border.#{$variant}');
           }
         }
       }
@@ -307,13 +307,13 @@ $_stroke-style: (
     @each $variant in $_stroke-style {
       // Border Style
       .border-#{$variant} {
-        border-style: kardia.key-create('util-border-style', $variant);
+        border-style: $variant;
       }
 
       @each $breakpoint in $_breakpoints {
         .\@#{$breakpoint}\:border-#{$variant} {
           @include kardia.breakpoint-create($breakpoint) {
-            @include kardia.key-bind('util-border-style', $variant);
+            border-style: $variant;
           }
         }
       }

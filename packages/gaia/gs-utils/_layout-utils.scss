@@ -70,13 +70,13 @@ $_gaps: (
   @if list.index($utils-to-render, 'display') {
     @each $display in $_displays {
       .#{$display} {
-        display: kardia.key-create('util-display', string.unquote($display));
+        display: string.unquote($display);
       }
 
       @each $breakpoint in $_breakpoints {
         .\@#{$breakpoint}\:#{$display} {
           @include kardia.breakpoint-create($breakpoint) {
-            @include kardia.key-bind('util-display', string.unquote($display));
+            display: string.unquote($display);
           }
         }
       }
@@ -86,13 +86,13 @@ $_gaps: (
   @if list.index($utils-to-render, 'position') {
     @each $position in $_positions {
       .#{$position} {
-        position: kardia.key-create('util-position', string.unquote($position));
+        position: string.unquote($position);
       }
 
       @each $breakpoint in $_breakpoints {
         .\@#{$breakpoint}\:#{$position} {
           @include kardia.breakpoint-create($breakpoint) {
-            position: kardia.key-create('util-position', string.unquote($position));
+            position: string.unquote($position);
           }
         }
       }
@@ -102,13 +102,13 @@ $_gaps: (
   @if list.index($utils-to-render, 'flow') {
     @each $flow in $_flows {
       .flow-#{$flow} {
-        flex-direction: kardia.key-create('util-flow', string.unquote($flow));
+        flex-flow: string.unquote($flow);
       }
 
       @each $breakpoint in $_breakpoints {
         .\@#{$breakpoint}\:flow-#{$flow} {
           @include kardia.breakpoint-create($breakpoint) {
-            @include kardia.key-bind('util-flow', string.unquote($flow));
+            flex-flow: string.unquote($flow);
           }
         }
       }
@@ -119,11 +119,11 @@ $_gaps: (
     @each $wrap, $value in $_wraps {
       @if $wrap == 'default' {
         .wrap {
-          flex-wrap: kardia.key-create('util-wrap', string.unquote($value));
+          flex-wrap: string.unquote($value);
         }
       } @else {
         .wrap-#{$wrap} {
-          flex-wrap: kardia.key-create('util-wrap', string.unquote($value));
+          flex-wrap: string.unquote($value);
         }
       }
 
@@ -131,13 +131,13 @@ $_gaps: (
         @if $wrap == 'default' {
           .\@#{$breakpoint}\:wrap {
             @include kardia.breakpoint-create($breakpoint) {
-              @include kardia.key-bind('util-wrap', string.unquote($value));
+              flex-wrap: string.unquote($value);
             }
           }
         } @else {
           .\@#{$breakpoint}\:wrap-#{$wrap} {
             @include kardia.breakpoint-create($breakpoint) {
-              @include kardia.key-bind('util-wrap', string.unquote($value));
+              flex-wrap: string.unquote($value);
             }
           }
         }
@@ -148,13 +148,13 @@ $_gaps: (
   @each $alignment in $_alignments {
     @if list.index($utils-to-render, 'jc') {
       .jc-#{$alignment} {
-        justify-content: kardia.key-create('util-alignment', string.unquote($alignment));
+        justify-content: string.unquote($alignment);
       }
 
       @each $breakpoint in $_breakpoints {
         .\@#{$breakpoint}\:jc-#{$alignment} {
           @include kardia.breakpoint-create($breakpoint) {
-            @include kardia.key-bind('util-alignment', string.unquote($alignment));
+            justify-content: string.unquote($alignment);
           }
         }
       }
@@ -162,13 +162,13 @@ $_gaps: (
 
     @if list.index($utils-to-render, 'ji') {
       .ji-#{$alignment} {
-        justify-items: kardia.key-create('util-alignment', string.unquote($alignment));
+        justify-items: string.unquote($alignment);
       }
 
       @each $breakpoint in $_breakpoints {
         .\@#{$breakpoint}\:ji-#{$alignment} {
           @include kardia.breakpoint-create($breakpoint) {
-            @include kardia.key-bind('util-alignment', string.unquote($alignment));
+            justify-items: string.unquote($alignment);
           }
         }
       }
@@ -176,13 +176,13 @@ $_gaps: (
 
     @if list.index($utils-to-render, 'ac') {
       .ac-#{$alignment} {
-        align-content: kardia.key-create('util-alignment', string.unquote($alignment));
+        align-content: string.unquote($alignment);
       }
 
       @each $breakpoint in $_breakpoints {
         .\@#{$breakpoint}\:ac-#{$alignment} {
           @include kardia.breakpoint-create($breakpoint) {
-            @include kardia.key-bind('util-alignment', string.unquote($alignment));
+            align-content: string.unquote($alignment);
           }
         }
       }
@@ -190,13 +190,13 @@ $_gaps: (
 
     @if list.index($utils-to-render, 'ai') {
       .ai-#{$alignment} {
-        align-items: kardia.key-create('util-alignment', string.unquote($alignment));
+        align-items: string.unquote($alignment);
       }
 
       @each $breakpoint in $_breakpoints {
         .\@#{$breakpoint}\:ai-#{$alignment} {
           @include kardia.breakpoint-create($breakpoint) {
-            @include kardia.key-bind('util-alignment', string.unquote($alignment));
+            align-items: string.unquote($alignment);
           }
         }
       }
@@ -204,13 +204,13 @@ $_gaps: (
 
     @if list.index($utils-to-render, 'pc') {
       .pc-#{$alignment} {
-        place-content: kardia.key-create('util-alignment', string.unquote($alignment));
+        place-content: string.unquote($alignment);
       }
 
       @each $breakpoint in $_breakpoints {
         .\@#{$breakpoint}\:pc-#{$alignment} {
           @include kardia.breakpoint-create($breakpoint) {
-            @include kardia.key-bind('util-alignment', string.unquote($alignment));
+            place-content: string.unquote($alignment);
           }
         }
       }
@@ -218,13 +218,13 @@ $_gaps: (
 
     @if list.index($utils-to-render, 'pi') {
       .pi-#{$alignment} {
-        place-items: kardia.key-create('util-alignment', string.unquote($alignment));
+        place-items: string.unquote($alignment);
       }
 
       @each $breakpoint in $_breakpoints {
         .\@#{$breakpoint}\:pi-#{$alignment} {
           @include kardia.breakpoint-create($breakpoint) {
-            @include kardia.key-bind('util-alignment', string.unquote($alignment));
+            place-items: string.unquote($alignment);
           }
         }
       }
@@ -234,13 +234,13 @@ $_gaps: (
   @for $i from 1 through $_max-columns {
     @if list.index($utils-to-render, 'cols') {
       .cols-#{$i} {
-        grid-template-columns: repeat(kardia.key-create('util-grid-cols', $i), 1fr);
+        grid-template-columns: repeat($i, 1fr);
       }
 
       @each $breakpoint in $_breakpoints {
         .\@#{$breakpoint}\:cols-#{$i} {
           @include kardia.breakpoint-create($breakpoint) {
-            @include kardia.key-bind('util-grid-cols', $i);
+            grid-template-columns: repeat($i, 1fr);
           }
         }
       }
@@ -248,13 +248,13 @@ $_gaps: (
 
     @if list.index($utils-to-render, 'rows') {
       .rows-#{$i} {
-        grid-template-rows: repeat(kardia.key-create('util-grid-rows', $i), 1fr);
+        grid-template-rows: repeat($i, 1fr);
       }
 
       @each $breakpoint in $_breakpoints {
         .\@#{$breakpoint}\:rows-#{$i} {
           @include kardia.breakpoint-create($breakpoint) {
-            @include kardia.key-bind('util-grid-rows', $i);
+            grid-template-rows: repeat($i, 1fr);
           }
         }
       }
@@ -262,13 +262,13 @@ $_gaps: (
 
     @if list.index($utils-to-render, 'start') {
       .start-#{$i} {
-        grid-column-start: kardia.key-create('util-grid-col-start', $i);
+        grid-column-start: $i;
       }
 
       @each $breakpoint in $_breakpoints {
         .\@#{$breakpoint}\:start-#{$i} {
           @include kardia.breakpoint-create($breakpoint) {
-            @include kardia.key-bind('util-grid-col-start', $i);
+            grid-column-start: $i;
           }
         }
       }
@@ -276,13 +276,13 @@ $_gaps: (
 
     @if list.index($utils-to-render, 'end') {
       .end-#{$i} {
-        grid-column-end: kardia.key-create('util-grid-col-end', $i + 1);
+        grid-column-end: $i + 1;
       }
 
       @each $breakpoint in $_breakpoints {
         .\@#{$breakpoint}\:end-#{$i} {
           @include kardia.breakpoint-create($breakpoint) {
-            @include kardia.key-bind('util-grid-col-end', $i + 1);
+            grid-column-end: $i + 1;
           }
         }
       }
@@ -292,13 +292,13 @@ $_gaps: (
   @if list.index($utils-to-render, 'gap') {
     @each $gap in $_gaps {
       .gap-#{$gap} {
-        gap: kardia.key-create('util-gap', kardia.primitive-token-get('gap.#{$gap}'));
+        gap: kardia.primitive-token-get('gap.#{$gap}');
       }
 
       @each $breakpoint in $_breakpoints {
         .\@#{$breakpoint}\:gap-#{$gap} {
           @include kardia.breakpoint-create($breakpoint) {
-            @include kardia.key-bind('util-gap', kardia.primitive-token-get('gap.#{$gap}'));
+            gap: kardia.primitive-token-get('gap.#{$gap}');
           }
         }
       }
