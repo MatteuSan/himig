@@ -51,7 +51,7 @@ $_tones: (200, 300, 400, 600, 800, 'ink');
         @each $breakpoint in $_breakpoints {
           .\@#{$breakpoint}\:fill-#{$color}-#{$tone} {
             @include kardia.breakpoint-create($breakpoint) {
-              background-color: kardia.token-get('#{$color}-#{$tone}');
+              background-color: kardia.token-get('#{$color}-#{$tone}') !important;
             }
           }
         }
@@ -70,7 +70,7 @@ $_tones: (200, 300, 400, 600, 800, 'ink');
         @each $breakpoint in $_breakpoints {
           .\@#{$breakpoint}\:ink-#{$color}-#{$tone} {
             @include kardia.breakpoint-create($breakpoint) {
-              color: kardia.token-get('#{$color}-#{$tone}');
+              color: kardia.token-get('#{$color}-#{$tone}') !important;
             }
           }
         }
@@ -89,7 +89,7 @@ $_tones: (200, 300, 400, 600, 800, 'ink');
         @each $breakpoint in $_breakpoints {
           .\@#{$breakpoint}\:border-#{$color}-#{$tone} {
             @include kardia.breakpoint-create($breakpoint) {
-              border-color: kardia.token-get('#{$color}-#{$tone}');
+              border-color: kardia.token-get('#{$color}-#{$tone}') !important;
             }
           }
         }
