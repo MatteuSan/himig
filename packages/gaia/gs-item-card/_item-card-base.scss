@@ -43,6 +43,10 @@
       ));
       border-radius: kardia.key-get('item-card-radius') kardia.key-get('item-card-radius') 0 0;
 
+      &:only-child {
+        border-radius: kardia.key-get('item-card-radius');
+      }
+
       .gs-item-card__sprite {
         @include kardia.sprite-styles();
       }
