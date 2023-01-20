@@ -1,5 +1,5 @@
 <!--
-  -  Copyright (c) 2022 GrowStocks
+  -  Copyright (c) 2023 GrowStocks
   -
   -  Permission is hereby granted, free of charge, to any person obtaining a copy
   -  of this software and associated documentation files (the "Software"), to deal
@@ -20,36 +20,33 @@
   -  SOFTWARE.
   -->
 
-<style lang="scss">
-  @use 'node_modules/@growstocks/gaia' with ($vue-mode: true);
-  @use 'node_modules/@growstocks/gaia/gs-button';
-
-  @include gs-button.render();
-</style>
-
 <script lang="ts">
-  import { GSButtonType } from '../lib/types/gs-button-types';
+  type GSButtonStyleType = 'outlined' | 'filled' | 'filled raised' | 'icon-only';
+  type GSButtonStateType = 'success' | 'warning' | 'danger';
+  export type GSButtonType = GSButtonStyleType | GSButtonStateType | `${ GSButtonStyleType } ${ GSButtonStateType }`;
 
   export let label: string | undefined;
-  export let link: string | undefined = null;
-  export let type: GSButtonType | string | undefined = null;
+  export let link: string | undefined = '';
+  export let type: GSButtonType | string | undefined = '';
   export let isDisabled: boolean = false;
   export let onClick: ((e: Event) => void) | undefined;
 
-  const assertClassSet = (classes: string): string => {
-    const finalClasses = [];
-    classes.split(' ').forEach((className: string) => {
-      finalClasses.push('is-' + className);
-    });
-    return finalClasses.join(' ');
-  };
+  const assertClassSet = (classes: string | null): string => {
+    if (classes) {
+      if (classes == null) return '';
+      const finalClasses = [];
+      classes.split(' ').forEach((className: string) => {
+        finalClasses.push('is-' + className);
+      });
+      return finalClasses.join(' ');
+    }
+    return '';
+  }
 
   const assertLinkTarget = (link: string): string => {
-    if (!link.indexOf('http://') && !link.indexOf('https://')) {
-      return '_self';
-    }
+    if (link) if (!link.indexOf('http://') && !link.indexOf('https://')) return '_self';
     return '_blank';
-  };
+  }
 
   const _variantClassSet: string = assertClassSet(type);
   const _linkTarget: string = assertLinkTarget(link);
@@ -58,12 +55,12 @@
 {#if !link}
     <button
         class="gs-button{type && ' ' + _variantClassSet}"
-        disabled={isDisabled}
         on:click={onClick}
         aria-label={label}
+        disabled={isDisabled}
     >
         {#if $$slots.icon}
-            <i class="gs-button__icon">
+            <i class="gs-button__icon material-symbols-outlined">
                 <slot name="icon"></slot>
             </i>
         {/if}
@@ -74,9 +71,10 @@
         {/if}
     </button>
 {:else}
-    <a href={link} target={_linkTarget} rel="noreferrer" aria-label={label}>
+    <a href={link} class={`gs-button${type ? ' ' + _variantClassSet : '' }`} target={_linkTarget} rel="noreferrer"
+       aria-label={label}>
         {#if $$slots.icon}
-            <i class="gs-button__icon">
+            <i aria-hidden="true" class="gs-button__icon material-symbols-outlined">
                 <slot name="icon"></slot>
             </i>
         {/if}

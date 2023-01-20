@@ -21,13 +21,18 @@
   -->
 
 <script lang="ts">
-  import GSButton from '$components/gs-button.svelte';
+  import { page } from '$app/stores';
+
+  export let label: string;
+  export let link: string = '/';
+  export let isActive: boolean = $page.url.pathname === link;
+
+  const assertLinkTarget = (link: string): string => {
+    if (link) if (!link.indexOf('http://') && !link.indexOf('https://')) return '_self';
+    return '_blank';
+  }
 </script>
 
-<style lang="scss">
-
-</style>
-
-<GSButton>Sample Button</GSButton>
-<GSButton type="outlined">Sample Button</GSButton>
-<GSButton type="filled">Sample Button</GSButton>
+<li class={`gs-navbar__item${isActive ? ' is-active' : ''}`}>
+    <a href={link} target={assertLinkTarget(link)}>{label}</a>
+</li>

@@ -1,5 +1,5 @@
 /*
- *  Copyright (c) 2022 GrowStocks
+ *  Copyright (c) 2023 GrowStocks
  *
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -29,7 +29,14 @@ const config = {
 	// for more information about preprocessors
 	preprocess: preprocess(),
 	kit: {
-		adapter: adapter()
+		adapter: adapter(),
+    alias: {
+      $assets: './src/assets',
+      $components: './src/components',
+      $lib: './src/lib',
+      $utils: './src/utils',
+      $styles: './src/scss',
+    }
 	}
 };
 
