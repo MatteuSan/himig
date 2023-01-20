@@ -1,0 +1,104 @@
+///
+//  Copyright (c) 2023 GrowStocks
+//
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in all
+//  copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+//  SOFTWARE.
+///
+
+@use 'node_modules/@growstocks/gaia';
+
+@mixin render() {
+  .gs-js-navbar__trigger {
+    //
+  }
+
+  .gs-navbar {
+    display: gaia.key-create('navbar-visibility', none);
+    position: gaia.key-create('navbar-position', fixed);
+    top: 76px;
+    left: 0;
+    right: 0;
+    @include gaia.color-apply('navbar', (
+      fill: 'surface-400',
+      ink: 'surface-ink'
+    ));
+    @include gaia.struct-apply('navbar', (
+      padding: 'md',
+      shadow: 'md'
+    ));
+
+    &.is-open {
+      display: gaia.key-create('navbar-visibility', block);
+    }
+
+    @include gaia.breakpoint-create('medium') {
+      @include gaia.key-bind('navbar-position', static);
+      @include gaia.key-bind('navbar-visibility', block);
+      @include gaia.color-bind('navbar', (
+        fill: rgba(0 0 0 / 0)
+      ));
+      @include gaia.struct-bind('navbar', (
+        shadow: 'none'
+      ));
+    }
+
+    .gs-navbar__wrapper {
+      display: flex;
+      flex-flow: row nowrap;
+      gap: gaia.primitive-token-get('gap.sm');
+
+      .gs-navbar__item {
+        transition: all var(--gs-transition-time) ease;
+        @include gaia.struct-apply('navbar-item', (
+          padding: ('sm' 'md'),
+          radius: 'small'
+        ));
+
+        &:not(.is-active) {
+          @include gaia.color-apply('navbar-item', (
+            fill: rgba(0 0 0 / 0),
+            ink: 'surface-ink'
+          ));
+
+          &:hover,
+          &:focus {
+            @include gaia.color-apply('navbar-item', (
+              fill: rgba(#fff, 20%),
+              ink: 'surface-ink'
+            ));
+          }
+
+          &:active {
+            @include gaia.color-apply('navbar-item', (
+              fill: rgba(#fff, 33%),
+              ink: 'surface-ink'
+            ));
+          }
+        }
+
+        &.is-active {
+          @include gaia.color-apply('navbar-item', (
+            fill: rgba(gaia.token-get-raw('accent-400'), 20%),
+            ink: gaia.token-get('accent-400')
+          ));
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}

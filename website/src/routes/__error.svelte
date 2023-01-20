@@ -21,14 +21,14 @@
   -->
 
 <script lang="ts">
-  import { page } from '$app/stores';
-
-  export let label: string;
-  export let link: string = '/';
-  export let isActive: boolean = $page.url.pathname === link;
-  const isLinkExternal: boolean = link.startsWith('http://') || link.startsWith('https://');
+    import { page } from '$app/stores';
+    import GSButton from '$components/gs-button.svelte';
 </script>
 
-<li class={`gs-navbar__item${isActive ? ' is-active' : ''}`}>
-    <a href={link} target={isLinkExternal ? '_blank' : '_self'}>{label}</a>
-</li>
+<section class="mb-lg">
+    <h1 class="supertitle">Error {$page.status}</h1>
+    <p class="body">{$page.error.message}</p>
+</section>
+<section>
+    <GSButton type="filled" link="/">Go back home</GSButton>
+</section>
