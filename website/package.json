@@ -11,7 +11,7 @@
     "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch"
   },
   "devDependencies": {
-    "@growstocks/gaia": "0.4.6",
+    "@growstocks/gaia": "0.4.7",
     "@sveltejs/adapter-auto": "next",
     "@sveltejs/kit": "next",
     "sass": "1.58.0",
