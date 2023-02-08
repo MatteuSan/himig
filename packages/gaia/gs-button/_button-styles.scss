@@ -1,5 +1,5 @@
 ///
-//  Copyright (c) 2022 GrowStocks
+//  Copyright (c) 2023 GrowStocks
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -82,7 +82,7 @@ $_states: (
     );
     outline-offset: 2px;
 
-    &.is-icon-only {
+    &:where(.is-icon-only) {
       @include kardia.struct-bind('button', (
         width: (min: auto),
         padding: list.nth(kardia.theme-get($struct, 'padding'), 1)
@@ -94,7 +94,7 @@ $_states: (
     }
 
     @each $state in $_states {
-      &.is-#{$state} {
+      &:where(.is-#{$state}) {
         @include style.text(
           $fills: (
             'default': '#{$state}-400',
@@ -118,7 +118,7 @@ $_states: (
       }
     }
 
-    &.is-fullwidth {
+    &:where(.is-fullwidth) {
       @include kardia.struct-width('button', (
         default: 100%,
         min: auto,
@@ -126,7 +126,7 @@ $_states: (
       ), 'bind');
     }
 
-    &.is-outlined {
+    &:where(.is-outlined) {
       @include style.outlined(
         $fills: $fills,
         $inks: $inks,
@@ -134,7 +134,7 @@ $_states: (
       );
 
       @each $state in $_states {
-        &.is-#{$state} {
+        &:where(.is-#{$state}) {
           @include style.outlined(
             $fills: (
               'default': '#{$state}-400',
@@ -159,7 +159,7 @@ $_states: (
       }
     }
 
-    &.is-filled {
+    &:where(.is-filled) {
       @include style.filled(
         $fills: $fills,
         $inks: $inks,
@@ -167,7 +167,7 @@ $_states: (
       );
 
       @each $state in $_states {
-        &.is-#{$state} {
+        &:where(.is-#{$state}) {
           @include style.filled(
             $fills: (
               'default': '#{$state}-400',
@@ -191,7 +191,7 @@ $_states: (
         }
       }
 
-      &.is-raised {
+      &:where(.is-raised) {
         &:not(:disabled) {
           @include kardia.struct-shadow('button', 'xs');
 

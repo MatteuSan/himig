@@ -1,5 +1,5 @@
 ///
-//  Copyright (c) 2022 GrowStocks
+//  Copyright (c) 2023 GrowStocks
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -123,7 +123,7 @@
       ));
     }
 
-    &.is-error {
+    &:where(.is-error) {
       .gs-form-field__input:not(:read-only),
       .gs-form-field__input:not(:disabled) {
         @include kardia.color-bind('form-field', (
@@ -162,13 +162,13 @@
       }
     }
 
-    &.is-raised {
+    &:where(.is-raised) {
       @include kardia.struct-bind('form-field', (
         shadow: 'xs',
       ));
     }
 
-    &.is-control {
+    &:where(.is-control) {
       $target-dimension: kardia.theme-get($typography, 'size');
 
       .gs-form-field__label,

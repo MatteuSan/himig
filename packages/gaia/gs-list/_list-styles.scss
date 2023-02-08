@@ -1,5 +1,5 @@
 ///
-//  Copyright (c) 2022 GrowStocks
+//  Copyright (c) 2023 GrowStocks
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -43,7 +43,7 @@
     @include kardia.struct-bind('list-item', $struct);
     @include kardia.typography-bind('list-item', $typography);
 
-    &.is-selectable {
+    &:where(.is-selectable) {
       .gs-list__item {
         cursor: pointer;
 
@@ -70,7 +70,7 @@
       }
     }
 
-    &.is-raised {
+    &:where(.is-raised) {
       @include kardia.struct-shadow('list', 'xs');
     }
   }
