@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@growstocks/gaia@0.4.6":
-  version "0.4.6"
-  resolved "https://registry.yarnpkg.com/@growstocks/gaia/-/gaia-0.4.6.tgz#84922c0806c86f6323eedc7fe6f66be1f62f73c0"
-  integrity sha512-UqKoVR+Al1e5T2YcmSDlxaVth5Lta3xHgdYt1Z/6mf7H9a8XDx+dv4ZzbIZY7IXgZtE/1Hneu6D+39/Bip3pAA==
+"@growstocks/gaia@0.4.7":
+  version "0.4.7"
+  resolved "https://registry.yarnpkg.com/@growstocks/gaia/-/gaia-0.4.7.tgz#9703881e7ed57361ab7a74bc0becc1c0fc307072"
+  integrity sha512-xjGcqOJNeIVd8rvwaK05FQrEOaGPutFEGY71BjJGyflbs7QAJ9WY1f4SSUYG3ZUXM0BbGAFx4+2J5a7e5pJJCg==
   dependencies:
     "@matteusan/sentro" "0.1.25"
 
