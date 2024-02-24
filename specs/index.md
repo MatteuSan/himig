@@ -3,11 +3,8 @@ title: Introduction
 slug: /
 ---
 # Introduction
-Gaia (formerly Stack) is GrowStocks' design system for building living and breathing experiences for Growtopians. It
-helps us build products faster, make it more accessible, and deliver quality and unforgettable experiences.
-
-Throughout the life of the design system, GrowStocks has changed its objectives and goals. And with this big rebranding
-and from-scratch refactoring, we've aligned our design and development goals to GrowStocks' as well.
+Himig (formerly Gaia) is Matteu's design system for building web-based products and projects. It
+helps me build products faster, make it more accessible, and deliver quality and unforgettable experiences.
 
 ## Goals
 Aside from being device-agnostic, beautiful/aesthetic, and accessible, we've also had a few more goals in mind:
@@ -27,8 +24,4 @@ practices, and principles we've already made and agreed on.
 ### Framework Agnostic
 Whether you're rendering HTML from the server using server-side code, or you're rendering client-side interfaces using Javascript, the design system should be able to cater to different tech stacks.
 
-### For Growtopians
-The design system should be able to cater experiences that are tailored fit for Growtopians. It should provide specifications on how
-to handle Growtopia-specific data like item sprites, typography, and workflow.
-
-Now, are you ready to start working with Gaia? Click [here](getting-started/setup.md) to get started!
+Now, are you ready to start working with Himig? Click [here](getting-started/setup.md) to get started!

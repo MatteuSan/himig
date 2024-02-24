@@ -1,0 +1,322 @@
+//---------------------------------------------------
+//  Copyright (c) 2024 MatteuSan
+//
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in all
+//  copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+//  SOFTWARE.
+//---------------------------------------------------
+
+@use '../ms-core';
+@use 'sass:map';
+@use 'sass:meta';
+@use 'sass:list';
+@use 'consts';
+@use 'util-helpers' as helpers;
+
+$_breakpoints: consts.$breakpoints;
+$_variants: (
+  'none',
+  'auto',
+  'xs',
+  'sm',
+  'md',
+  'lg',
+  'xl',
+  '2xl',
+  '3xl',
+  '4xl',
+  '5xl',
+  '6xl',
+);
+$_directions: (
+  't': top,
+  'l': left,
+  'b': bottom,
+  'r': right,
+  'x': (left, right),
+  'y': (top, bottom)
+);
+$_r-directions: (
+  'tl': top-left,
+  'tr': top-right,
+  'br': bottom-right,
+  'bl': bottom-left,
+  't': (top-left, top-right),
+  'l': (top-left, bottom-left),
+  'b': (bottom-left, bottom-right),
+  'r': (top-right, bottom-right),
+);
+$_dimensions: (
+  'none',
+  'full',
+  'xs',
+  'sm',
+  'md',
+  'lg',
+  'xl',
+  'sprite',
+);
+$_stroke-size: (
+  'none',
+  'xs',
+  'sm',
+  'md',
+  'lg',
+  'xl'
+);
+$_stroke-style: (
+  'none',
+  'solid',
+  'dashed',
+  'dotted',
+  'double'
+);
+
+@mixin struct($include: (), $exclude: ()) {
+  $utils-to-render: helpers.handle-include-exclude((
+    'w',
+    'h',
+    'p',
+    'm',
+    'r',
+    'border-width',
+    'border-style'
+  ), $include, $exclude);
+
+  @each $dimension in $_dimensions {
+    @if list.index($utils-to-render, 'w') {
+      // Width
+      .w-#{$dimension} {
+        width: ms-core.primitive-token-get('width.#{$dimension}');
+      }
+
+      @each $breakpoint in $_breakpoints {
+        .\@#{$breakpoint}\:w-#{$dimension} {
+          @include ms-core.breakpoint-create($breakpoint) {
+            width: ms-core.primitive-token-get('width.#{$dimension}') !important;
+          }
+        }
+      }
+
+      // Min Width
+      .min-w-#{$dimension} {
+        min-width: ms-core.primitive-token-get('width.#{$dimension}');
+      }
+
+      @each $breakpoint in $_breakpoints {
+        .\@#{$breakpoint}\:min-w-#{$dimension} {
+          @include ms-core.breakpoint-create($breakpoint) {
+            min-width: ms-core.primitive-token-get('width.#{$dimension}') !important;
+          }
+        }
+      }
+
+      // Max Width
+      .max-w-#{$dimension} {
+        max-width: ms-core.primitive-token-get('width.#{$dimension}');
+      }
+
+      @each $breakpoint in $_breakpoints {
+        .\@#{$breakpoint}\:max-w-#{$dimension} {
+          @include ms-core.breakpoint-create($breakpoint) {
+            max-width: ms-core.primitive-token-get('width.#{$dimension}') !important;
+          }
+        }
+      }
+    }
+
+    @if list.index($utils-to-render, 'h') {
+      // Height
+      .h-#{$dimension} {
+        height: ms-core.primitive-token-get('height.#{$dimension}');
+      }
+
+      @each $breakpoint in $_breakpoints {
+        .\@#{$breakpoint}\:h-#{$dimension} {
+          @include ms-core.breakpoint-create($breakpoint) {
+            height: ms-core.primitive-token-get('height.#{$dimension}') !important;
+          }
+        }
+      }
+
+      // Min Height
+      .min-h-#{$dimension} {
+        min-height: ms-core.primitive-token-get('height.#{$dimension}');
+      }
+
+      @each $breakpoint in $_breakpoints {
+        .\@#{$breakpoint}\:min-h-#{$dimension} {
+          @include ms-core.breakpoint-create($breakpoint) {
+            min-height: ms-core.primitive-token-get('height.#{$dimension}') !important;
+          }
+        }
+      }
+
+      // Max Height
+      .max-h-#{$dimension} {
+        max-height: ms-core.primitive-token-get('height.#{$dimension}');
+      }
+
+      @each $breakpoint in $_breakpoints {
+        .\@#{$breakpoint}\:max-h-#{$dimension} {
+          @include ms-core.breakpoint-create($breakpoint) {
+            max-height: ms-core.primitive-token-get('height.#{$dimension}') !important;
+          }
+        }
+      }
+    }
+  }
+
+  @each $variant in $_variants {
+    @if list.index($utils-to-render, 'p') {
+      // Padding
+      .p-#{$variant} {
+        padding: ms-core.primitive-token-get('padding.#{$variant}');
+      }
+
+      @each $breakpoint in $_breakpoints {
+        .\@#{$breakpoint}\:p-#{$variant} {
+          @include ms-core.breakpoint-create($breakpoint) {
+            padding: ms-core.primitive-token-get('padding.#{$variant}') !important;
+          }
+        }
+      }
+
+      @each $direction, $direction-val in $_directions {
+        .p#{$direction}-#{$variant} {
+          @each $sub-direction in $direction-val {
+            padding-#{$sub-direction}: ms-core.primitive-token-get('padding.#{$variant}');
+          }
+        }
+
+        @each $breakpoint in $_breakpoints {
+          .\@#{$breakpoint}\:p#{$direction}-#{$variant} {
+            @include ms-core.breakpoint-create($breakpoint) {
+              @each $sub-direction in $direction-val {
+                padding-#{$sub-direction}: ms-core.primitive-token-get('padding.#{$variant}') !important;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    @if list.index($utils-to-render, 'm') {
+      // Margin
+      .m-#{$variant} {
+        margin: ms-core.primitive-token-get('margin.#{$variant}');
+      }
+
+      @each $breakpoint in $_breakpoints {
+        .\@#{$breakpoint}\:m-#{$variant} {
+          @include ms-core.breakpoint-create($breakpoint) {
+            margin: ms-core.primitive-token-get('margin.#{$variant}') !important;
+          }
+        }
+      }
+
+      @each $direction, $direction-val in $_directions {
+        .m#{$direction}-#{$variant} {
+          @each $sub-direction in $direction-val {
+            margin-#{$sub-direction}: ms-core.primitive-token-get('margin.#{$variant}');
+          }
+        }
+
+        @each $breakpoint in $_breakpoints {
+          .\@#{$breakpoint}\:m#{$direction}-#{$variant} {
+            @include ms-core.breakpoint-create($breakpoint) {
+              @each $sub-direction in $direction-val {
+                margin-#{$sub-direction}: ms-core.primitive-token-get('margin.#{$variant}') !important;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    @if list.index($utils-to-render, 'r') {
+      // Border Radius
+      @if $variant == 'auto' {
+        // Do nothing
+      } @else {
+        .r-#{$variant} {
+          border-radius: ms-core.primitive-token-get('radius.#{$variant}');
+        }
+
+        @each $breakpoint in $_breakpoints {
+          .\@#{$breakpoint}\:r-#{$variant} {
+            @include ms-core.breakpoint-create($breakpoint) {
+              border-radius: ms-core.primitive-token-get('radius.#{$variant}') !important;
+            }
+          }
+        }
+
+        @each $direction, $direction-val in $_r-directions {
+          .r#{$direction}-#{$variant} {
+            @each $sub-direction in $direction-val {
+              border-#{$sub-direction}-radius: ms-core.primitive-token-get('radius.#{$variant}');
+            }
+          }
+
+          @each $breakpoint in $_breakpoints {
+            .\@#{$breakpoint}\:r#{$direction}-#{$variant} {
+              @include ms-core.breakpoint-create($breakpoint) {
+                @each $sub-direction in $direction-val {
+                  border-#{$sub-direction}-radius: ms-core.primitive-token-get('radius.#{$variant}') !important;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @if list.index($utils-to-render, 'border-width') {
+    @each $variant in $_stroke-size {
+      // Border Width
+      .border-#{$variant} {
+        border-width: ms-core.primitive-token-get('border.#{$variant}');
+      }
+
+      @each $breakpoint in $_breakpoints {
+        .\@#{$breakpoint}\:border-#{$variant} {
+          @include ms-core.breakpoint-create($breakpoint) {
+            border-width: ms-core.primitive-token-get('border.#{$variant}') !important;
+          }
+        }
+      }
+    }
+  }
+
+  @if list.index($utils-to-render, 'border-style') {
+    @each $variant in $_stroke-style {
+      // Border Style
+      .border-#{$variant} {
+        border-style: $variant;
+      }
+
+      @each $breakpoint in $_breakpoints {
+        .\@#{$breakpoint}\:border-#{$variant} {
+          @include ms-core.breakpoint-create($breakpoint) {
+            border-style: $variant !important;
+          }
+        }
+      }
+    }
+  }
+}

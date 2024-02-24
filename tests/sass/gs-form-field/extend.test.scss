@@ -21,27 +21,27 @@
 //---------------------------------------------------
 
 @use 'node_modules/@growstocks/gaia';
-@use 'node_modules/@growstocks/gaia/gs-form-field';
+@use 'node_modules/@growstocks/gaia/ms-form-field';
 @use 'node_modules/sass-true' as true;
 
 @include gaia.init {
   @include true.describe('GS Form Field Extend [mixin]') {
-    @include true.it('should extend the styles of a gs-form-field component') {
+    @include true.it('should extend the styles of a ms-form-field component') {
       @include true.assert {
         @include true.output {
-          @include gs-form-field.extend('large') {
-            @include gs-form-field.struct((
+          @include ms-form-field.extend('large') {
+            @include ms-form-field.struct((
               padding: ('lg' 'xl')
             ));
-            @include gs-form-field.typography((
+            @include ms-form-field.typography((
               size: 'supertitle'
             ));
           }
         }
         @include true.expect {
-          .gs-form-field.is-large {
-            --gs-form-field-padding: 1.2rem 2.3rem;
-            --gs-form-field-size: var(--gs-theme-size-supertitle);
+          .ms-form-field.is-large {
+            --ms-form-field-padding: 1.2rem 2.3rem;
+            --ms-form-field-size: var(--ms-theme-size-supertitle);
           }
         }
       }

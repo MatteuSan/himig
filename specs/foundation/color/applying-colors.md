@@ -26,7 +26,7 @@ For the API information, please visit the [color composition API page](../../api
 ```scss
 @use 'node_modules/@growstocks/gaia';
 
-.gs-component {
+.ms-component {
   @include gaia.color-fill('component', 'token-or-value');
 }
 ```
@@ -43,7 +43,7 @@ For the API information, please visit the [color composition API page](../../api
 ```scss
 @use 'node_modules/@growstocks/gaia';
 
-.gs-component {
+.ms-component {
   @include gaia.color-ink('component', 'token-or-value');
 }
 ```
@@ -59,7 +59,7 @@ For the API information, please visit the [color composition API page](../../api
 ```scss
 @use 'node_modules/@growstocks/gaia';
 
-.gs-component {
+.ms-component {
   @include gaia.color-border('component', 'token-or-value');
 }
 ```
@@ -72,7 +72,7 @@ For the API information, please visit the [color composition API page](../../api
 ```scss
 @use 'node_modules/@growstocks/gaia';
 
-.gs-component {
+.ms-component {
   @include gaia.color-apply('component', (
     fill: 'token-or-value',
     ink: 'token-or-value',

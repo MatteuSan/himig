@@ -23,11 +23,11 @@
 @use 'node_modules/@growstocks/gaia';
 
 @mixin render() {
-  .gs-js-navbar__trigger {
+  .ms-js-navbar__trigger {
     //
   }
 
-  .gs-navbar {
+  .ms-navbar {
     display: gaia.key-create('navbar-visibility', none);
     position: gaia.key-create('navbar-position', fixed);
     top: 76px;
@@ -57,13 +57,13 @@
       ));
     }
 
-    .gs-navbar__wrapper {
+    .ms-navbar__wrapper {
       display: flex;
       flex-flow: row nowrap;
       gap: gaia.primitive-token-get('gap.sm');
 
-      .gs-navbar__item {
-        transition: all var(--gs-transition-time) ease;
+      .ms-navbar__item {
+        transition: all var(--ms-transition-time) ease;
         @include gaia.struct-apply('navbar-item', (
           padding: ('sm' 'md'),
           radius: 'small'

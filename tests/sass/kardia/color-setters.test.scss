@@ -26,8 +26,8 @@
 :root {
   @include gaia.token-config(
     $accent: (
-      400: 'gs-orange.400',
-      ink: 'gs-white.200'
+      400: 'ms-orange.400',
+      ink: 'ms-white.200'
     )
   );
 }
@@ -37,15 +37,15 @@
     @include true.assert {
       @include true.output {
         @include gaia.color-apply('component', (
-          fill: 'gs-orange.400',
-          ink: 'gs-white.200',
-          border: 'gs-orange.400'
+          fill: 'ms-orange.400',
+          ink: 'ms-white.200',
+          border: 'ms-orange.400'
         ));
       }
       @include true.expect {
-        background-color: var(--gs-component-fill, #ff6a00);
-        color: var(--gs-component-ink, #ffffff);
-        border-color: var(--gs-component-border, #ff6a00);
+        background-color: var(--ms-component-fill, #ff6a00);
+        color: var(--ms-component-ink, #ffffff);
+        border-color: var(--ms-component-border, #ff6a00);
       }
     }
   }
@@ -59,9 +59,9 @@
         ));
       }
       @include true.expect {
-        background-color: var(--gs-component-fill, var(--gs-theme-accent-400));
-        color: var(--gs-component-ink, var(--gs-theme-accent-ink));
-        border-color: var(--gs-component-border, var(--gs-theme-accent-400));
+        background-color: var(--ms-component-fill, var(--ms-theme-accent-400));
+        color: var(--ms-component-ink, var(--ms-theme-accent-ink));
+        border-color: var(--ms-component-border, var(--ms-theme-accent-400));
       }
     }
   }
@@ -70,15 +70,15 @@
     @include true.assert {
       @include true.output {
         @include gaia.color-bind('component', (
-          fill: 'gs-orange.400',
-          ink: 'gs-white.200',
-          border: 'gs-orange.400'
+          fill: 'ms-orange.400',
+          ink: 'ms-white.200',
+          border: 'ms-orange.400'
         ));
       }
       @include true.expect {
-        --gs-component-fill: #ff6a00;
-        --gs-component-ink: #ffffff;
-        --gs-component-border: #ff6a00;
+        --ms-component-fill: #ff6a00;
+        --ms-component-ink: #ffffff;
+        --ms-component-border: #ff6a00;
       }
     }
   }
@@ -92,9 +92,9 @@
         ));
       }
       @include true.expect {
-        --gs-component-fill: var(--gs-theme-accent-400);
-        --gs-component-ink: var(--gs-theme-accent-ink);
-        --gs-component-border: var(--gs-theme-accent-400);
+        --ms-component-fill: var(--ms-theme-accent-400);
+        --ms-component-ink: var(--ms-theme-accent-ink);
+        --ms-component-border: var(--ms-theme-accent-400);
       }
     }
   }

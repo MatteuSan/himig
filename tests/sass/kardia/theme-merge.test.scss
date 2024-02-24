@@ -27,25 +27,25 @@
   @include true.it('should merge a theme map') {
     $init-theme: (
       fill: (
-        default: 'gs-orange.400',
-        hover: 'gs-orange.300'
+        default: 'ms-orange.400',
+        hover: 'ms-orange.300'
       ),
-      ink: 'gs-orange.800',
+      ink: 'ms-orange.800',
       border: (
-        default: 'gs-orange.400',
-        hover: 'gs-orange.300'
+        default: 'ms-orange.400',
+        hover: 'ms-orange.300'
       )
     );
     $user-theme: (
-      fill: 'gs-red.400',
+      fill: 'ms-red.400',
     );
     $theme: gaia.theme-merge($init-theme, $user-theme);
     @include true.assert-equal($theme, (
-      fill: 'gs-red.400',
-      ink: 'gs-orange.800',
+      fill: 'ms-red.400',
+      ink: 'ms-orange.800',
       border: (
-        default: 'gs-orange.400',
-        hover: 'gs-orange.300'
+        default: 'ms-orange.400',
+        hover: 'ms-orange.300'
       )
     ));
   }

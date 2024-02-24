@@ -25,13 +25,13 @@
 
 @include true.describe('Primitive Token [module]') {
   @include true.it('should retrieve a token from the primitive token registry.') {
-    $test: gaia.primitive-token-get('gs-red.400');
+    $test: gaia.primitive-token-get('ms-red.400');
     @include true.assert-equal($test, #c41b1b);
   }
 
   @include true.it('should soft validate if the query is a valid primitive token.') {
-    $test: gaia.primitive-token-check('gs-red.400');
-    $test2: gaia.primitive-token-check('gs-red.900');
+    $test: gaia.primitive-token-check('ms-red.400');
+    $test2: gaia.primitive-token-check('ms-red.900');
     @include true.assert-equal($test, true);
     @include true.assert-equal($test2, false);
   }

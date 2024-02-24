@@ -21,27 +21,27 @@
 //---------------------------------------------------
 
 @use 'node_modules/@growstocks/gaia';
-@use 'node_modules/@growstocks/gaia/gs-button';
+@use 'node_modules/@growstocks/gaia/ms-button';
 @use 'node_modules/sass-true' as true;
 
 @include gaia.init {
   @include true.describe('GS Button Extend [mixin]') {
-    @include true.it('should extend the styles of a gs-button component') {
+    @include true.it('should extend the styles of a ms-button component') {
       @include true.assert {
         @include true.output {
-          @include gs-button.extend('large') {
-            @include gs-button.struct((
+          @include ms-button.extend('large') {
+            @include ms-button.struct((
               padding: ('lg' 'xl')
             ));
-            @include gs-button.typography((
+            @include ms-button.typography((
               size: 'supertitle'
             ));
           }
         }
         @include true.expect {
-          .gs-button.is-large {
-            --gs-button-padding: 1.2rem 2.3rem;
-            --gs-button-size: var(--gs-theme-size-supertitle);
+          .ms-button.is-large {
+            --ms-button-padding: 1.2rem 2.3rem;
+            --ms-button-size: var(--ms-theme-size-supertitle);
           }
         }
       }

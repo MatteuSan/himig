@@ -6,7 +6,7 @@
   "files": [
     "packages/**/*"
   ],
-"repository": "https://github.com/MatteuSan/gaia",
+  "repository": "https://github.com/MatteuSan/gaia",
   "author": "Matteu <matteugt@gmail.com>",
   "license": "MIT",
   "scripts": {
@@ -20,7 +20,7 @@
     "test:ts": "jest --config=\"jest-ts.config.ts\""
   },
   "devDependencies": {
-    "@growstocks/gaia": "file:./packages/gaia",
+    "@matteusan/himig": "file:./packages/himig",
     "@matteusan/sentro": "0.1.25",
     "@types/jest": "29.5.7",
     "gulp": "4.0.2",

@@ -3,15 +3,15 @@ title: Setup
 slug: /getting-started/setup
 ---
 # Setup
-A guide to setting up the development environment for Gaia.
+A guide to setting up the development environment for Himig.
 
 ## Installation
 ```sh
 # Yarn
-$ yarn add @growstocks/himig sass
+$ yarn add @matteusan/himig sass
 
 # NPM
-$ npm install @growstocks/himig sass
+$ npm install @matteusan/himig sass
 ```
 
 ## Instantiation
@@ -29,10 +29,10 @@ Whenever you feel the need to include a component, instantiate it inside the Gai
 
 ```scss
 @use 'node_modules/@growstocks/gaia';
-@use 'node_modules/@growstocks/gaia/gs-button';
+@use 'node_modules/@growstocks/gaia/ms-button';
 
 @include gaia.init() {
-  @include gs-button.render();
+  @include ms-button.render();
 }
 ```
 

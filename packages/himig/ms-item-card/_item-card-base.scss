@@ -1,0 +1,96 @@
+//---------------------------------------------------
+//  Copyright (c) 2024 MatteuSan
+//
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in all
+//  copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+//  SOFTWARE.
+//---------------------------------------------------
+
+@use '../ms-core';
+
+@mixin init() {
+  .ms-item-card {
+    display: flex;
+    flex-flow: column nowrap;
+    @include ms-core.struct-apply('item-card', (
+      width: 100%,
+      height: auto,
+      radius: inherit,
+    ));
+    @content;
+
+    .ms-item-card__header {
+      display: grid;
+      grid-template-columns: 32px 1fr 32px;
+      @include ms-core.color-apply('item-card', ms-core.$color-inherit-template);
+      @include ms-core.struct-apply('item-card', (
+        padding: inherit,
+        gap: inherit,
+      ));
+      border-radius: ms-core.key-get('item-card-radius') ms-core.key-get('item-card-radius') 0 0;
+
+      &:only-child {
+        border-radius: ms-core.key-get('item-card-radius');
+      }
+
+      .ms-item-card__sprite {
+        @include ms-core.sprite-styles();
+      }
+
+      .ms-item-card__mast {
+        display: flex;
+        flex-flow: column nowrap;
+
+        .ms-item-card__title {
+          @include ms-core.typography-apply('item-card-title', ms-core.$type-inherit-template);
+        }
+
+        .ms-item-card__subtitle {
+          @include ms-core.typography-apply('item-card-subtitle', ms-core.$type-inherit-template);
+        }
+      }
+
+      .ms-item-card__menu {
+        &.is-open {
+          .ms-item-card__menu-overlay {
+            display: block;
+          }
+        }
+
+        .ms-item-card__menu-overlay {
+          display: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          z-index: 80;
+        }
+
+        .ms-list {
+          z-index: 90;
+        }
+      }
+    }
+
+    .ms-item-card__footer {
+      @include ms-core.struct-apply('item-card-footer', ms-core.$struct-inherit-template);
+      border-radius: 0 0 ms-core.key-get('item-card-radius') ms-core.key-get('item-card-radius');
+      @include ms-core.typography-apply('item-card-footer', ms-core.$type-inherit-template);
+    }
+  }
+}

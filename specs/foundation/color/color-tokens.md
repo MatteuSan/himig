@@ -22,99 +22,99 @@ The [color theme](../theme.md) schema will follow the same schema in the variant
 ## Color Token Index
 | Key            | Hex value |
 |----------------|-----------|
-| `gs-white.200` | `#ffffff` |
-| `gs-white.300` | `#f70`    |
-| `gs-white.400` | `#f70`    |
-| `gs-white.600` | `#f70`    |
-| `gs-white.800` | `#c4c4c4` |
+| `ms-white.200` | `#ffffff` |
+| `ms-white.300` | `#f70`    |
+| `ms-white.400` | `#f70`    |
+| `ms-white.600` | `#f70`    |
+| `ms-white.800` | `#c4c4c4` |
 
 | Key            | Hex value |
 |----------------|-----------|
-| `gs-black.200` | `#232323` |
-| `gs-black.300` | `#f70`    |
-| `gs-black.400` | `#f70`    |
-| `gs-black.600` | `#f70`    |
-| `gs-black.800` | `#000000` |
+| `ms-black.200` | `#232323` |
+| `ms-black.300` | `#f70`    |
+| `ms-black.400` | `#f70`    |
+| `ms-black.600` | `#f70`    |
+| `ms-black.800` | `#000000` |
 
 | Key           | Hex value |
 |---------------|-----------|
-| `gs-grey.200` | `#545454` |
-| `gs-grey.300` | `#434343` |
-| `gs-grey.400` | `#323232` |
-| `gs-grey.600` | `#212121` |
-| `gs-grey.800` | `#101010` |
+| `ms-grey.200` | `#545454` |
+| `ms-grey.300` | `#434343` |
+| `ms-grey.400` | `#323232` |
+| `ms-grey.600` | `#212121` |
+| `ms-grey.800` | `#101010` |
 
 | Key          | Hex value |
 |--------------|-----------|
-| `gs-red.200` | `#f70`    |
-| `gs-red.300` | `#f70`    |
-| `gs-red.400` | `#f70`    |
-| `gs-red.600` | `#f70`    |
-| `gs-red.800` | `#f70`    |
+| `ms-red.200` | `#f70`    |
+| `ms-red.300` | `#f70`    |
+| `ms-red.400` | `#f70`    |
+| `ms-red.600` | `#f70`    |
+| `ms-red.800` | `#f70`    |
 
 | Key             | Hex value |
 |-----------------|-----------|
-| `gs-orange.200` | `#f70`    |
-| `gs-orange.300` | `#f70`    |
-| `gs-orange.400` | `#f70`    |
-| `gs-orange.600` | `#f70`    |
-| `gs-orange.800` | `#f70`    |
+| `ms-orange.200` | `#f70`    |
+| `ms-orange.300` | `#f70`    |
+| `ms-orange.400` | `#f70`    |
+| `ms-orange.600` | `#f70`    |
+| `ms-orange.800` | `#f70`    |
 
 | Key             | Hex value |
 |-----------------|-----------|
-| `gs-yellow.200` | `#f70`    |
-| `gs-yellow.300` | `#f70`    |
-| `gs-yellow.400` | `#f70`    |
-| `gs-yellow.600` | `#f70`    |
-| `gs-yellow.800` | `#f70`    |
+| `ms-yellow.200` | `#f70`    |
+| `ms-yellow.300` | `#f70`    |
+| `ms-yellow.400` | `#f70`    |
+| `ms-yellow.600` | `#f70`    |
+| `ms-yellow.800` | `#f70`    |
 
 | Key           | Hex value |
 |---------------|-----------|
-| `gs-lime.200` | `#f70`    |
-| `gs-lime.300` | `#f70`    |
-| `gs-lime.400` | `#f70`    |
-| `gs-lime.600` | `#f70`    |
-| `gs-lime.800` | `#f70`    |
+| `ms-lime.200` | `#f70`    |
+| `ms-lime.300` | `#f70`    |
+| `ms-lime.400` | `#f70`    |
+| `ms-lime.600` | `#f70`    |
+| `ms-lime.800` | `#f70`    |
 
 | Key            | Hex value |
 |----------------|-----------|
-| `gs-green.200` | `#f70`    |
-| `gs-green.300` | `#f70`    |
-| `gs-green.400` | `#f70`    |
-| `gs-green.600` | `#f70`    |
-| `gs-green.800` | `#f70`    |
+| `ms-green.200` | `#f70`    |
+| `ms-green.300` | `#f70`    |
+| `ms-green.400` | `#f70`    |
+| `ms-green.600` | `#f70`    |
+| `ms-green.800` | `#f70`    |
 
 | Key           | Hex value |
 |---------------|-----------|
-| `gs-aqua.200` | `#f70`    |
-| `gs-aqua.300` | `#f70`    |
-| `gs-aqua.400` | `#f70`    |
-| `gs-aqua.600` | `#f70`    |
-| `gs-aqua.800` | `#f70`    |
+| `ms-aqua.200` | `#f70`    |
+| `ms-aqua.300` | `#f70`    |
+| `ms-aqua.400` | `#f70`    |
+| `ms-aqua.600` | `#f70`    |
+| `ms-aqua.800` | `#f70`    |
 
 | Key           | Hex value |
 |---------------|-----------|
-| `gs-blue.200` | `#f70`    |
-| `gs-blue.300` | `#f70`    |
-| `gs-blue.400` | `#f70`    |
-| `gs-blue.600` | `#f70`    |
-| `gs-blue.800` | `#f70`    |
+| `ms-blue.200` | `#f70`    |
+| `ms-blue.300` | `#f70`    |
+| `ms-blue.400` | `#f70`    |
+| `ms-blue.600` | `#f70`    |
+| `ms-blue.800` | `#f70`    |
 
 | Key             | Hex value |
 |-----------------|-----------|
-| `gs-purple.200` | `#f70`    |
-| `gs-purple.300` | `#f70`    |
-| `gs-purple.400` | `#f70`    |
-| `gs-purple.600` | `#f70`    |
-| `gs-purple.800` | `#f70`    |
+| `ms-purple.200` | `#f70`    |
+| `ms-purple.300` | `#f70`    |
+| `ms-purple.400` | `#f70`    |
+| `ms-purple.600` | `#f70`    |
+| `ms-purple.800` | `#f70`    |
 
 | Key           | Hex value |
 |---------------|-----------|
-| `gs-pink.200` | `#f70`    |
-| `gs-pink.300` | `#f70`    |
-| `gs-pink.400` | `#f70`    |
-| `gs-pink.600` | `#f70`    |
-| `gs-pink.800` | `#f70`    |
+| `ms-pink.200` | `#f70`    |
+| `ms-pink.300` | `#f70`    |
+| `ms-pink.400` | `#f70`    |
+| `ms-pink.600` | `#f70`    |
+| `ms-pink.800` | `#f70`    |
 
 ## Color Token Usage
 These color tokens do not come with the main compiled style, hence we will use a special mixin to retrieve them from a specific file.
@@ -124,7 +124,7 @@ These color tokens do not come with the main compiled style, hence we will use a
 
 .component {
   @include gaia.color-apply('component', (
-    fill: gaia.color-token-get('gs-blue.400')
+    fill: gaia.color-token-get('ms-blue.400')
   ));
 }
 ```

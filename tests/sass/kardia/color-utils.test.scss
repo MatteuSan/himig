@@ -29,11 +29,11 @@
       @include true.output {
         @include gaia.color-fill(
           'component',
-          gaia.primitive-token-get('gs-orange.400')
+          gaia.primitive-token-get('ms-orange.400')
         );
       }
       @include true.expect {
-        background-color: var(--gs-component-fill, #ff6a00);
+        background-color: var(--ms-component-fill, #ff6a00);
       }
     }
   }
@@ -43,11 +43,11 @@
       @include true.output {
         @include gaia.color-ink(
           'component',
-          gaia.primitive-token-get('gs-orange.400')
+          gaia.primitive-token-get('ms-orange.400')
         );
       }
       @include true.expect {
-        color: var(--gs-component-ink, #ff6a00);
+        color: var(--ms-component-ink, #ff6a00);
       }
     }
   }
@@ -57,11 +57,11 @@
       @include true.output {
         @include gaia.color-border(
           'component',
-          gaia.primitive-token-get('gs-orange.400')
+          gaia.primitive-token-get('ms-orange.400')
         );
       }
       @include true.expect {
-        border-color: var(--gs-component-border, #ff6a00);
+        border-color: var(--ms-component-border, #ff6a00);
       }
     }
   }
@@ -71,12 +71,12 @@
       @include true.output {
         @include gaia.color-fill(
           'component',
-          gaia.primitive-token-get('gs-orange.400'),
+          gaia.primitive-token-get('ms-orange.400'),
           'bind'
         );
       }
       @include true.expect {
-        --gs-component-fill: #ff6a00;
+        --ms-component-fill: #ff6a00;
       }
     }
   }
@@ -86,12 +86,12 @@
       @include true.output {
         @include gaia.color-ink(
           'component',
-          gaia.primitive-token-get('gs-orange.400'),
+          gaia.primitive-token-get('ms-orange.400'),
           'bind'
         );
       }
       @include true.expect {
-        --gs-component-ink: #ff6a00;
+        --ms-component-ink: #ff6a00;
       }
     }
   }
@@ -101,12 +101,12 @@
       @include true.output {
         @include gaia.color-border(
           'component',
-          gaia.primitive-token-get('gs-orange.400'),
+          gaia.primitive-token-get('ms-orange.400'),
           'bind'
         );
       }
       @include true.expect {
-        --gs-component-border: #ff6a00;
+        --ms-component-border: #ff6a00;
       }
     }
   }

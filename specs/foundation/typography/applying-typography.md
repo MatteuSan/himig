@@ -22,7 +22,7 @@ For the API information, please visit the [typography composition API page](../.
 ```scss
 @use 'node_modules/@growstocks/gaia';
 
-.gs-component {
+.ms-component {
   @include gaia.typography-family('component', 'token-or-value');
 }
 ```
@@ -36,7 +36,7 @@ For the API information, please visit the [typography composition API page](../.
 ```scss
 @use 'node_modules/@growstocks/gaia';
 
-.gs-component {
+.ms-component {
   @include gaia.typography-size('component', 'token-or-value');
 }
 ```
@@ -51,7 +51,7 @@ For the API information, please visit the [typography composition API page](../.
 ```scss
 @use 'node_modules/@growstocks/gaia';
 
-.gs-component {
+.ms-component {
   @include gaia.typography-weight('component', 'token-or-value');
 }
 ```
@@ -66,7 +66,7 @@ For the API information, please visit the [typography composition API page](../.
 ```scss
 @use 'node_modules/@growstocks/gaia';
 
-.gs-component {
+.ms-component {
   @include gaia.typography-line-height('component', 'token-or-value');
 }
 ```
@@ -79,7 +79,7 @@ For the API information, please visit the [typography composition API page](../.
 ```scss
 @use 'node_modules/@growstocks/gaia';
 
-.gs-component {
+.ms-component {
   @include gaia.typography-apply('component', (
     family: 'token-or-value',
     size: 'token-or-value',

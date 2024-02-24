@@ -1,0 +1,307 @@
+//---------------------------------------------------
+//  Copyright (c) 2024 MatteuSan
+//
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in all
+//  copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+//  SOFTWARE.
+//---------------------------------------------------
+
+@use '../ms-core';
+@use 'sass:string';
+@use 'sass:list';
+@use 'consts';
+@use 'util-helpers' as helpers;
+
+$_breakpoints: consts.$breakpoints;
+$_displays: ('none', 'block', 'inline', 'inline-block', 'flex', 'inline-flex', 'grid', 'inline-grid');
+$_positions: ('static', 'relative', 'absolute', 'fixed', 'sticky');
+$_alignments: ('start', 'center', 'end', 'stretch', 'baseline', 'space-between', 'space-around', 'space-evenly');
+$_flows: ('row', 'column', 'row-reverse', 'column-reverse');
+$_wraps: ('none': 'nowrap', 'default': 'wrap','reverse': 'wrap-reverse');
+$_max-columns: 12;
+
+$_gaps: (
+  'none',
+  'xs',
+  'sm',
+  'md',
+  'lg',
+  'xl',
+  '2xl',
+  '3xl',
+  '4xl',
+  '5xl',
+  '6xl'
+);
+
+@mixin layout($include: (), $exclude: ()) {
+  $utils-to-render: helpers.handle-include-exclude((
+    'display',
+    'position',
+    'flow',
+    'wrap',
+    'jc',
+    'ji',
+    'ai',
+    'ac',
+    'pi',
+    'pc',
+    'cols',
+    'rows',
+    'start',
+    'end',
+    'gap',
+  ), $include, $exclude);
+
+  @if list.index($utils-to-render, 'display') {
+    @each $display in $_displays {
+      .#{$display} {
+        display: string.unquote($display);
+      }
+
+      @each $breakpoint in $_breakpoints {
+        .\@#{$breakpoint}\:#{$display} {
+          @include ms-core.breakpoint-create($breakpoint) {
+            display: string.unquote($display) !important;
+          }
+        }
+      }
+    }
+  }
+
+  @if list.index($utils-to-render, 'position') {
+    @each $position in $_positions {
+      .#{$position} {
+        position: string.unquote($position);
+      }
+
+      @each $breakpoint in $_breakpoints {
+        .\@#{$breakpoint}\:#{$position} {
+          @include ms-core.breakpoint-create($breakpoint) {
+            position: string.unquote($position) !important;
+          }
+        }
+      }
+    }
+  }
+
+  @if list.index($utils-to-render, 'flow') {
+    @each $flow in $_flows {
+      .flow-#{$flow} {
+        flex-flow: string.unquote($flow);
+      }
+
+      @each $breakpoint in $_breakpoints {
+        .\@#{$breakpoint}\:flow-#{$flow} {
+          @include ms-core.breakpoint-create($breakpoint) {
+            flex-flow: string.unquote($flow) !important;
+          }
+        }
+      }
+    }
+  }
+
+  @if list.index($utils-to-render, 'wrap') {
+    @each $wrap, $value in $_wraps {
+      @if $wrap == 'default' {
+        .wrap {
+          flex-wrap: string.unquote($value);
+        }
+      } @else {
+        .wrap-#{$wrap} {
+          flex-wrap: string.unquote($value);
+        }
+      }
+
+      @each $breakpoint in $_breakpoints {
+        @if $wrap == 'default' {
+          .\@#{$breakpoint}\:wrap {
+            @include ms-core.breakpoint-create($breakpoint) {
+              flex-wrap: string.unquote($value) !important;
+            }
+          }
+        } @else {
+          .\@#{$breakpoint}\:wrap-#{$wrap} {
+            @include ms-core.breakpoint-create($breakpoint) {
+              flex-wrap: string.unquote($value) !important;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @each $alignment in $_alignments {
+    @if list.index($utils-to-render, 'jc') {
+      .jc-#{$alignment} {
+        justify-content: string.unquote($alignment);
+      }
+
+      @each $breakpoint in $_breakpoints {
+        .\@#{$breakpoint}\:jc-#{$alignment} {
+          @include ms-core.breakpoint-create($breakpoint) {
+            justify-content: string.unquote($alignment) !important;
+          }
+        }
+      }
+    }
+
+    @if list.index($utils-to-render, 'ji') {
+      .ji-#{$alignment} {
+        justify-items: string.unquote($alignment);
+      }
+
+      @each $breakpoint in $_breakpoints {
+        .\@#{$breakpoint}\:ji-#{$alignment} {
+          @include ms-core.breakpoint-create($breakpoint) {
+            justify-items: string.unquote($alignment) !important;
+          }
+        }
+      }
+    }
+
+    @if list.index($utils-to-render, 'ac') {
+      .ac-#{$alignment} {
+        align-content: string.unquote($alignment);
+      }
+
+      @each $breakpoint in $_breakpoints {
+        .\@#{$breakpoint}\:ac-#{$alignment} {
+          @include ms-core.breakpoint-create($breakpoint) {
+            align-content: string.unquote($alignment) !important;
+          }
+        }
+      }
+    }
+
+    @if list.index($utils-to-render, 'ai') {
+      .ai-#{$alignment} {
+        align-items: string.unquote($alignment);
+      }
+
+      @each $breakpoint in $_breakpoints {
+        .\@#{$breakpoint}\:ai-#{$alignment} {
+          @include ms-core.breakpoint-create($breakpoint) {
+            align-items: string.unquote($alignment) !important;
+          }
+        }
+      }
+    }
+
+    @if list.index($utils-to-render, 'pc') {
+      .pc-#{$alignment} {
+        place-content: string.unquote($alignment);
+      }
+
+      @each $breakpoint in $_breakpoints {
+        .\@#{$breakpoint}\:pc-#{$alignment} {
+          @include ms-core.breakpoint-create($breakpoint) {
+            place-content: string.unquote($alignment) !important;
+          }
+        }
+      }
+    }
+
+    @if list.index($utils-to-render, 'pi') {
+      .pi-#{$alignment} {
+        place-items: string.unquote($alignment);
+      }
+
+      @each $breakpoint in $_breakpoints {
+        .\@#{$breakpoint}\:pi-#{$alignment} {
+          @include ms-core.breakpoint-create($breakpoint) {
+            place-items: string.unquote($alignment) !important;
+          }
+        }
+      }
+    }
+  }
+
+  @for $i from 1 through $_max-columns {
+    @if list.index($utils-to-render, 'cols') {
+      .cols-#{$i} {
+        grid-template-columns: repeat($i, 1fr);
+      }
+
+      @each $breakpoint in $_breakpoints {
+        .\@#{$breakpoint}\:cols-#{$i} {
+          @include ms-core.breakpoint-create($breakpoint) {
+            grid-template-columns: repeat($i, 1fr) !important;
+          }
+        }
+      }
+    }
+
+    @if list.index($utils-to-render, 'rows') {
+      .rows-#{$i} {
+        grid-template-rows: repeat($i, 1fr);
+      }
+
+      @each $breakpoint in $_breakpoints {
+        .\@#{$breakpoint}\:rows-#{$i} {
+          @include ms-core.breakpoint-create($breakpoint) {
+            grid-template-rows: repeat($i, 1fr) !important;
+          }
+        }
+      }
+    }
+
+    @if list.index($utils-to-render, 'start') {
+      .start-#{$i} {
+        grid-column-start: $i;
+      }
+
+      @each $breakpoint in $_breakpoints {
+        .\@#{$breakpoint}\:start-#{$i} {
+          @include ms-core.breakpoint-create($breakpoint) {
+            grid-column-start: $i !important;
+          }
+        }
+      }
+    }
+
+    @if list.index($utils-to-render, 'end') {
+      .end-#{$i} {
+        grid-column-end: $i + 1;
+      }
+
+      @each $breakpoint in $_breakpoints {
+        .\@#{$breakpoint}\:end-#{$i} {
+          @include ms-core.breakpoint-create($breakpoint) {
+            grid-column-end: $i + 1 !important;
+          }
+        }
+      }
+    }
+  }
+
+  @if list.index($utils-to-render, 'gap') {
+    @each $gap in $_gaps {
+      .gap-#{$gap} {
+        gap: ms-core.primitive-token-get('gap.#{$gap}');
+      }
+
+      @each $breakpoint in $_breakpoints {
+        .\@#{$breakpoint}\:gap-#{$gap} {
+          @include ms-core.breakpoint-create($breakpoint) {
+            gap: ms-core.primitive-token-get('gap.#{$gap}') !important;
+          }
+        }
+      }
+    }
+  }
+}

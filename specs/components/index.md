@@ -12,10 +12,10 @@ initializer (`gaia.init()`) using the component's provided `render()` mixin.
 
 ```scss
 @use 'node_modules/@growstocks/gaia';
-@use 'node_modules/@growstocks/gaia/gs-component';
+@use 'node_modules/@growstocks/gaia/ms-component';
 
 @include gaia.init() {
-  @include gs-component.render();
+  @include ms-component.render();
 }
 ```
 
@@ -25,13 +25,13 @@ It's as easy as that!
 Modifying a component in the markup is your first way of customizing a component according to your user interface needs. By using the component's variant classes ([or your own](#extending-components)).
 ```html
 <!-- Default Variant -->
-<button class="gs-button">
-    <span class="gs-button__label">Button</span>
+<button class="ms-button">
+    <span class="ms-button__label">Button</span>
 </button>
 
 <!-- Outlined Variant -->
-<button class="gs-button is-outlined">
-    <span class="gs-button__label">Button</span>
+<button class="ms-button is-outlined">
+    <span class="ms-button__label">Button</span>
 </button>
 ```
 
@@ -39,25 +39,25 @@ Modifying a component in the markup is your first way of customizing a component
 Modifying a component in the SCSS is your second way of customizing a component. By using the parameters in the component initializer, you can globally modify the component's properties.
 ```scss
 @use 'node_modules/@growstocks/gaia';
-@use 'node_modules/@growstocks/gaia/gs-component';
+@use 'node_modules/@growstocks/gaia/ms-component';
 
 @include gaia.init() {
-  @include gs-component.render(
+  @include ms-component.render(
     $color: (
       fill: (
-        default: 'gs-green.400',
-        hover: 'gs-green.300',
-        active: 'gs-green.200',
-        focus: 'gs-green.300',
-        disabled: 'gs-green.800',
+        default: 'ms-green.400',
+        hover: 'ms-green.300',
+        active: 'ms-green.200',
+        focus: 'ms-green.300',
+        disabled: 'ms-green.800',
       ),
-      ink: 'gs-white.200',
+      ink: 'ms-white.200',
       border: (
-        default: 'gs-green.400',
-        hover: 'gs-green.300',
-        active: 'gs-green.200',
-        focus: 'gs-green.300',
-        disabled: 'gs-green.800',
+        default: 'ms-green.400',
+        hover: 'ms-green.300',
+        active: 'ms-green.200',
+        focus: 'ms-green.300',
+        disabled: 'ms-green.800',
       ),
     )
   );
@@ -69,10 +69,10 @@ Creating your own variant component uses Gaia's provided extension API. Instanti
 
 ```scss
 @use 'node_modules/@growstocks/gaia';
-@use 'node_modules/@growstocks/gaia/gs-component';
+@use 'node_modules/@growstocks/gaia/ms-component';
 
 @include gaia.init() {
-  @include gs-component.extend('large') {
+  @include ms-component.extend('large') {
     //
   }
 }
@@ -82,14 +82,14 @@ Make adjustments to the variant by calling the modifier mixins. These mixins are
 
 ```scss
 @use 'node_modules/@growstocks/gaia';
-@use 'node_modules/@growstocks/gaia/gs-component';
+@use 'node_modules/@growstocks/gaia/ms-component';
 
 @include gaia.init() {
-  @include gs-component.extend('large') {
-    @include gs-component.struct((
+  @include ms-component.extend('large') {
+    @include ms-component.struct((
       padding: ('md' 'xl')
     ));
-    @include gs-component.typography((
+    @include ms-component.typography((
       size: 'subtitle',
     ));
   }

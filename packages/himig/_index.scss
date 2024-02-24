@@ -25,7 +25,7 @@ $module-mode: false !default;
 $test-mode: $module-mode !default;
 $vue-mode: $test-mode !default;
 
-@use 'kardia' with (
+@use 'ms-core' with (
   $expressive-inks: $expressive-inks,
   $module-mode: $module-mode,
   $test-mode: $test-mode,
@@ -35,16 +35,16 @@ $vue-mode: $test-mode !default;
 @use 'init-font-pack' as font-pack;
 
 // For accessing core lib from the main himig module.
-@forward 'kardia';
+@forward 'ms-core';
 
 @mixin init(
-  $surface: 'gs-blue',
-  $accent: 'gs-yellow',
-  $background: 'gs-blue.800',
-  $error: 'gs-red',
-  $warning: 'gs-yellow',
-  $success: 'gs-green',
-  $undefined: 'gs-grey',
+  $surface: 'ms-blue',
+  $accent: 'ms-yellow',
+  $background: 'ms-blue.800',
+  $error: 'ms-red',
+  $warning: 'ms-yellow',
+  $success: 'ms-green',
+  $undefined: 'ms-grey',
   $radius: (),
   $global: (),
   $supertitle: (),
@@ -110,15 +110,15 @@ $vue-mode: $test-mode !default;
   );
 
   $_init-breakpoints: (
-    'small': kardia.primitive-token-get('breakpoint.sm'),
-    'medium': kardia.primitive-token-get('breakpoint.md'),
-    'large': kardia.primitive-token-get('breakpoint.lg'),
-    'xlarge': kardia.primitive-token-get('breakpoint.xl'),
+    'small': ms-core.primitive-token-get('breakpoint.sm'),
+    'medium': ms-core.primitive-token-get('breakpoint.md'),
+    'large': ms-core.primitive-token-get('breakpoint.lg'),
+    'xlarge': ms-core.primitive-token-get('breakpoint.xl'),
   );
 
   :root {
-    @include kardia.primitive-token-register($map: $extend);
-    @include kardia.theme-config(
+    @include ms-core.primitive-token-register($map: $extend);
+    @include ms-core.theme-config(
       $surface: $surface,
       $accent: $accent,
       $background: $background,
@@ -138,12 +138,12 @@ $vue-mode: $test-mode !default;
     );
 
     // Immutables
-    --gs-shadow-color: rgba(0, 0, 0, 0.25);
-    --gs-sprite-size: 32px;
-    --gs-transition-time: 0.2s;
+    --ms-shadow-color: rgba(0, 0, 0, 0.25);
+    --ms-sprite-size: 32px;
+    --ms-transition-time: 0.2s;
   }
 
-  @include kardia.breakpoint-config(map.merge($_init-breakpoints, $breakpoints));
+  @include ms-core.breakpoint-config(map.merge($_init-breakpoints, $breakpoints));
 
   @include font-pack.load((
     'global': map.get($global, 'family'),
@@ -170,8 +170,8 @@ $vue-mode: $test-mode !default;
   }
 
   body {
-    background: kardia.key-create('body-fill', kardia.token-get('background'));
-    color: kardia.key-create('body-ink', kardia.token-get('background-ink'));
+    background: ms-core.key-create('body-fill', ms-core.token-get('background'));
+    color: ms-core.key-create('body-ink', ms-core.token-get('background-ink'));
   }
 
   a {
@@ -191,27 +191,27 @@ $vue-mode: $test-mode !default;
     font-family: inherit;
     font-size: inherit;
     font-weight: inherit;
-    line-height: kardia.primitive-token-get('line-height.normal');
+    line-height: ms-core.primitive-token-get('line-height.normal');
   }
 
   main.content-wrap {
     $margin: 15px;
     width: calc(100% - #{$margin * 2});
-    max-width: kardia.key-create('content-wrap-max-width', kardia.primitive-token-get('dimension.xl'));
-    display: kardia.key-create('content-wrap-display', grid);
-    grid-template-columns: repeat(kardia.key-create('content-wrap-cols', 4), 1fr);
-    gap: kardia.key-create('content-wrap-gap', kardia.primitive-token-get('spacing.md'));
+    max-width: ms-core.key-create('content-wrap-max-width', ms-core.primitive-token-get('dimension.xl'));
+    display: ms-core.key-create('content-wrap-display', grid);
+    grid-template-columns: repeat(ms-core.key-create('content-wrap-cols', 4), 1fr);
+    gap: ms-core.key-create('content-wrap-gap', ms-core.primitive-token-get('spacing.md'));
     margin: 0 auto;
     padding:
-      kardia.key-create('content-wrap-padding-y', kardia.primitive-token-get('spacing.lg'))
-      kardia.key-create('content-wrap-padding-x', kardia.primitive-token-get('spacing.none'));
+      ms-core.key-create('content-wrap-padding-y', ms-core.primitive-token-get('spacing.lg'))
+      ms-core.key-create('content-wrap-padding-x', ms-core.primitive-token-get('spacing.none'));
 
-    @include kardia.breakpoint-create('medium') {
-      @include kardia.key-bind('content-wrap-cols', repeat(8, 1fr));
+    @include ms-core.breakpoint-create('medium') {
+      @include ms-core.key-bind('content-wrap-cols', repeat(8, 1fr));
     }
 
-    @include kardia.breakpoint-create('large') {
-      @include kardia.key-bind('content-wrap-cols', repeat(12, 1fr));
+    @include ms-core.breakpoint-create('large') {
+      @include ms-core.key-bind('content-wrap-cols', repeat(12, 1fr));
     }
   }
 

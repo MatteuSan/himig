@@ -478,15 +478,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@growstocks/gaia@file:./packages/gaia::locator=gaia%40workspace%3A.":
-  version: 5.0.0-rc
-  resolution: "@growstocks/gaia@file:./packages/gaia#./packages/gaia::hash=2ab09b&locator=gaia%40workspace%3A."
-  dependencies:
-    "@matteusan/sentro": 0.1.25
-  checksum: b3831269cb635f805d1110290ef0b2f0aa13c6524d3a3a2e2be817df738ba3a9bcfc8813003d0212105945714e03ed5e6349663f1eb334485a23587fb0ea13ba
-  languageName: node
-  linkType: hard
-
 "@isaacs/cliui@npm:^8.0.2":
   version: 8.0.2
   resolution: "@isaacs/cliui@npm:8.0.2"
@@ -879,6 +870,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@matteusan/himig@file:./packages/himig::locator=himig%40workspace%3A.":
+  version: 1.0.0
+  resolution: "@matteusan/himig@file:./packages/himig#./packages/himig::hash=38dbd8&locator=himig%40workspace%3A."
+  dependencies:
+    "@matteusan/sentro": 0.1.25
+  checksum: 99212032ac9791fdd4a94c4bb8774b7bf70ceaf46245c72968242a1b939abf8b9a33c9cb3643a612425439e04309b46636e3af031bd7cf7c9d3d78695b5719c5
+  languageName: node
+  linkType: hard
+
 "@matteusan/sentro@npm:0.1.25":
   version: 0.1.25
   resolution: "@matteusan/sentro@npm:0.1.25"
@@ -1147,9 +1147,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/yargs-parser@npm:*":
+"@types/yarms-parser@npm:*":
   version: 21.0.0
-  resolution: "@types/yargs-parser@npm:21.0.0"
+  resolution: "@types/yarms-parser@npm:21.0.0"
   checksum: b2f4c8d12ac18a567440379909127cf2cec393daffb73f246d0a25df36ea983b93b7e9e824251f959e9f928cbc7c1aab6728d0a0ff15d6145f66cec2be67d9a2
   languageName: node
   linkType: hard
@@ -1158,7 +1158,7 @@ __metadata:
   version: 17.0.10
   resolution: "@types/yargs@npm:17.0.10"
   dependencies:
-    "@types/yargs-parser": "*"
+    "@types/yarms-parser": "*"
   checksum: f0673cbfc08e17239dc58952a88350d6c4db04a027a28a06fbad27d87b670e909f9cd9e66f9c64cebdd5071d1096261e33454a55868395f125297e5c50992ca8
   languageName: node
   linkType: hard
@@ -3270,29 +3270,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gaia@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "gaia@workspace:."
-  dependencies:
-    "@growstocks/gaia": "file:./packages/gaia"
-    "@matteusan/sentro": 0.1.25
-    "@types/jest": 29.5.7
-    gulp: 4.0.2
-    gulp-cli: 2.3.0
-    gulp-sass: 5.1.0
-    jest: 29.7.0
-    jest-environment-jsdom: 29.7.0
-    postcss-scss: 4.0.6
-    sass: 1.69.5
-    sass-true: 6.1.0
-    stylelint: 15.11.0
-    stylelint-scss: 4.6.0
-    ts-jest: 29.1.0
-    ts-node: 10.9.1
-    typescript: 5.0.4
-  languageName: unknown
-  linkType: soft
-
 "gensync@npm:^1.0.0-beta.2":
   version: 1.0.0-beta.2
   resolution: "gensync@npm:1.0.0-beta.2"
@@ -3685,6 +3662,29 @@ __metadata:
   checksum: b9ad53d53be4af90ce5d1c38331e712522417d017d5ef1ebd0507e07c2fbad8686fffb8e12ddecd4c39ca9b9b47431afbb975b8abf7f3c3b82c98e9aad052792
   languageName: node
   linkType: hard
+
+"himig@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "himig@workspace:."
+  dependencies:
+    "@matteusan/himig": "file:./packages/himig"
+    "@matteusan/sentro": 0.1.25
+    "@types/jest": 29.5.7
+    gulp: 4.0.2
+    gulp-cli: 2.3.0
+    gulp-sass: 5.1.0
+    jest: 29.7.0
+    jest-environment-jsdom: 29.7.0
+    postcss-scss: 4.0.6
+    sass: 1.69.5
+    sass-true: 6.1.0
+    stylelint: 15.11.0
+    stylelint-scss: 4.6.0
+    ts-jest: 29.1.0
+    ts-node: 10.9.1
+    typescript: 5.0.4
+  languageName: unknown
+  linkType: soft
 
 "homedir-polyfill@npm:^1.0.1":
   version: 1.0.3
@@ -5318,7 +5318,7 @@ __metadata:
     redent: ^4.0.0
     trim-newlines: ^4.0.2
     type-fest: ^1.2.2
-    yargs-parser: ^20.2.9
+    yarms-parser: ^20.2.9
   checksum: dd5f0caa4af18517813547dc66741dcbf52c4c23def5062578d39b11189fd9457aee5c1f2263a5cd6592a465023df8357e8ac876b685b64dbcf545e3f66c23a7
   languageName: node
   linkType: hard
@@ -7557,7 +7557,7 @@ __metadata:
     lodash.memoize: 4.x
     make-error: 1.x
     semver: 7.x
-    yargs-parser: ^21.0.1
+    yarms-parser: ^21.0.1
   peerDependencies:
     "@babel/core": ">=7.0.0-beta.0 <8"
     "@jest/types": ^29.0.0
@@ -8145,23 +8145,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"yargs-parser@npm:^20.2.9":
+"yarms-parser@npm:^20.2.9":
   version: 20.2.9
-  resolution: "yargs-parser@npm:20.2.9"
+  resolution: "yarms-parser@npm:20.2.9"
   checksum: 8bb69015f2b0ff9e17b2c8e6bfe224ab463dd00ca211eece72a4cd8a906224d2703fb8a326d36fdd0e68701e201b2a60ed7cf81ce0fd9b3799f9fe7745977ae3
   languageName: node
   linkType: hard
 
-"yargs-parser@npm:^21.0.0, yargs-parser@npm:^21.0.1":
+"yarms-parser@npm:^21.0.0, yarms-parser@npm:^21.0.1":
   version: 21.0.1
-  resolution: "yargs-parser@npm:21.0.1"
+  resolution: "yarms-parser@npm:21.0.1"
   checksum: c3ea2ed12cad0377ce3096b3f138df8267edf7b1aa7d710cd502fe16af417bafe4443dd71b28158c22fcd1be5dfd0e86319597e47badf42ff83815485887323a
   languageName: node
   linkType: hard
 
-"yargs-parser@npm:^5.0.1":
+"yarms-parser@npm:^5.0.1":
   version: 5.0.1
-  resolution: "yargs-parser@npm:5.0.1"
+  resolution: "yarms-parser@npm:5.0.1"
   dependencies:
     camelcase: ^3.0.0
     object.assign: ^4.1.0
@@ -8179,7 +8179,7 @@ __metadata:
     require-directory: ^2.1.1
     string-width: ^4.2.3
     y18n: ^5.0.5
-    yargs-parser: ^21.0.0
+    yarms-parser: ^21.0.0
   checksum: 00d58a2c052937fa044834313f07910fd0a115dec5ee35919e857eeee3736b21a4eafa8264535800ba8bac312991ce785ecb8a51f4d2cc8c4676d865af1cfbde
   languageName: node
   linkType: hard
@@ -8200,7 +8200,7 @@ __metadata:
     string-width: ^1.0.2
     which-module: ^1.0.0
     y18n: ^3.2.1
-    yargs-parser: ^5.0.1
+    yarms-parser: ^5.0.1
   checksum: 0c330ce1338cd9f293157bf8955af6833ae59032ab1bc936510ce7a216de9bb65b05b39a82ff0e7359bfb643342cc05de5049ce50ee9404b0818f65911fb59a5
   languageName: node
   linkType: hard

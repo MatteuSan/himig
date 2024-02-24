@@ -23,7 +23,7 @@
 @use 'node_modules/@growstocks/gaia';
 
 @mixin render() {
-  .gs-footer {
+  .ms-footer {
     width: 100%;
     position: absolute;
     bottom: 0;
@@ -36,7 +36,7 @@
       shadow: 'sm'
     ));
 
-    .gs-footer__wrapper {
+    .ms-footer__wrapper {
       width: 100%;
       max-width: 1077px;
       margin: 0 auto;
@@ -56,7 +56,7 @@
       }
     }
 
-    .gs-footer__links {
+    .ms-footer__links {
       width: 100%;
       max-width: max-content;
       display: grid;
@@ -64,7 +64,7 @@
       gap: gaia.primitive-token-get('gap.sm');
       margin: gaia.primitive-token-get('margin.md') 0;
 
-      .gs-footer__link {
+      .ms-footer__link {
         @include gaia.color-apply('footer-link', (
           ink: 'surface-ink',
           border: 'surface-ink'
@@ -74,7 +74,7 @@
           border-width: 1px,
           border-style: solid
         ));
-        transition: all var(--gs-transition-time) ease;
+        transition: all var(--ms-transition-time) ease;
 
         &:hover {
           @include gaia.color-bind('footer-link', (

@@ -1,0 +1,212 @@
+//---------------------------------------------------
+//  Copyright (c) 2024 MatteuSan
+//
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in all
+//  copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+//  SOFTWARE.
+//---------------------------------------------------
+
+@use '../ms-core';
+@use 'sass:list';
+@use 'form-field-base' as base;
+@use 'form-field-theme' as theme;
+
+@mixin render(
+  $color: (),
+  $struct: (),
+  $typography: (),
+  $settings: ()
+) {
+  $color: ms-core.theme-merge(theme.$init-color, $color);
+  $struct: ms-core.theme-merge(theme.$init-struct, $struct);
+  $typography: ms-core.theme-merge(theme.$init-typography, $typography);
+  $settings: ms-core.theme-merge(theme.$init-settings, $settings);
+
+  $resolve-padding: if(list.length(ms-core.theme-get($struct, 'padding')) >= 2, list.nth(ms-core.theme-get($struct, 'padding'), 2), list.nth(ms-core.theme-get($struct, 'padding'), 1));
+
+  @include base.init(
+    0.7rem,
+    ms-core.primitive-token-switch('padding.#{$resolve-padding}', $resolve-padding),
+    ms-core.primitive-token-switch('padding.#{list.nth(ms-core.theme-get($struct, 'padding'), 1)}', list.nth(ms-core.theme-get($struct, 'padding'), 1)),
+  ) {
+    .ms-form-field__label {
+      @include ms-core.color-bind('form-field-label', (
+        ink: ms-core.theme-get($color, 'ink', 'disabled'),
+      ));
+      @include ms-core.typography-bind('form-field-label', (
+        family: ms-core.theme-get($typography, 'family'),
+        size: ms-core.theme-get($typography, 'size', 'label'),
+        weight: ms-core.theme-get($typography, 'weight'),
+        line-height: ms-core.theme-get($typography, 'height'),
+      ));
+    }
+
+    .ms-form-field__input {
+      @include ms-core.struct-bind('form-field', (
+        width: ms-core.theme-get($struct, 'width'),
+        padding: ms-core.theme-get($struct, 'padding'),
+        radius: ms-core.theme-get($struct, 'radius'),
+        border-width: ms-core.theme-get($struct, 'border-width'),
+        border-style: ms-core.theme-get($struct, 'border-style'),
+        gap: ms-core.theme-get($struct, 'gap'),
+      ));
+      @include ms-core.typography-bind('form-field', (
+        family: ms-core.theme-get($typography, 'family'),
+        size: ms-core.theme-get($typography, 'size', 'default'),
+        weight: ms-core.theme-get($typography, 'weight'),
+        line-height: ms-core.theme-get($typography, 'height'),
+      ));
+
+      &:not(:read-only),
+      &:not(:disabled) {
+        @include ms-core.color-bind('form-field', (
+          fill: ms-core.theme-get($color, 'fill'),
+          ink: ms-core.theme-get($color, 'ink'),
+          border: ms-core.theme-get($color, 'fill'),
+        ));
+
+        &:focus {
+          @include ms-core.color-bind('form-field', (
+            border: ms-core.theme-get($color, 'border', 'focus'),
+          ));
+          @include ms-core.struct-bind('form-field', (
+            border-width: ms-core.theme-get($struct, 'border-width', 'focus'),
+          ));
+
+          + .ms-form-field__label {
+            @include ms-core.color-bind('form-field-label', (
+              fill: ms-core.theme-get($color, 'fill'),
+            ));
+          }
+        }
+
+        + .ms-form-field__label {
+          @include ms-core.color-bind('form-field-label', (
+            ink: ms-core.theme-get($color, 'ink'),
+          ));
+        }
+      }
+
+      &:read-only,
+      &:disabled {
+        @include ms-core.color-bind('form-field', (
+          fill: ms-core.theme-get($color, 'fill', 'disabled'),
+          border: ms-core.theme-get($color, 'fill', 'disabled'),
+        ));
+      }
+    }
+
+    .ms-form-field__helper {
+      padding: 0.3rem ms-core.primitive-token-switch('padding.#{$resolve-padding}', $resolve-padding) 0;
+      @include ms-core.color-bind('form-field-helper', (
+        ink: ms-core.theme-get($color, 'ink', 'helper'),
+      ));
+      @include ms-core.typography-bind('form-field-helper', (
+        family: ms-core.theme-get($typography, 'family'),
+        size: ms-core.theme-get($typography, 'size', 'helper'),
+        weight: ms-core.theme-get($typography, 'weight'),
+        line-height: ms-core.theme-get($typography, 'height'),
+      ));
+    }
+
+    &:where(.is-error) {
+      .ms-form-field__input:not(:read-only),
+      .ms-form-field__input:not(:disabled) {
+        @include ms-core.color-bind('form-field', (
+          ink: 'error-400',
+        ));
+
+        &:focus {
+          @include ms-core.color-bind('form-field', (
+            border: 'error-400'
+          ));
+        }
+
+        + .ms-form-field__label {
+          @include ms-core.color-bind('form-field-label', (
+            ink: 'error-400',
+          ));
+
+          + .ms-form-field__helper {
+            @include ms-core.color-bind('form-field-helper', (
+              ink: 'error-400',
+            ));
+          }
+        }
+      }
+
+      .ms-form-field__label {
+        @include ms-core.color-bind('form-field-label', (
+          ink: ms-core.theme-get($color, 'ink', 'disabled'),
+        ));
+      }
+
+      .ms-form-field__helper {
+        @include ms-core.color-bind('form-field-helper', (
+          ink: ms-core.theme-get($color, 'ink', 'helper'),
+        ));
+      }
+    }
+
+    &:where(.is-raised) {
+      @include ms-core.struct-bind('form-field', (
+        shadow: 'xs',
+      ));
+    }
+
+    &:where(.is-control) {
+      $target-dimension: ms-core.theme-get($typography, 'size');
+
+      .ms-form-field__label,
+      .ms-form-field__input,
+      .ms-form-field__helper {
+        width: auto;
+        position: static;
+        padding: 0;
+      }
+
+      .ms-form-field__label,
+      .ms-form-field__input:focus + .ms-form-field__label {
+        background-color: unset;
+        @include ms-core.color-bind('form-field-label', (
+          ink: ms-core.theme-get($color, 'ink', 'helper') !important,
+        ));
+        border-color: unset;
+        font-size: unset;
+      }
+
+      .ms-form-field__label {
+        width: 100%;
+        user-select: none;
+        cursor: default;
+      }
+
+      .ms-form-field__input[type='radio'],
+      .ms-form-field__input[type='checkbox'] {
+        width: ms-core.token-switch('size-#{$target-dimension}', ms-core.primitive-token-switch('size.#{$target-dimension}'));
+        height: ms-core.token-switch('size-#{$target-dimension}', ms-core.primitive-token-switch('size.#{$target-dimension}'));
+        margin-right: ms-core.primitive-token-get('spacing.xs');
+        cursor: pointer;
+      }
+
+      .ms-form-field__helper {
+        margin-left: calc(calc(#{ms-core.token-switch('size-#{$target-dimension}', ms-core.primitive-token-switch('size.#{$target-dimension}'))} + 3px) + #{ms-core.primitive-token-get('spacing.xs')});
+        user-select: none;
+      }
+    }
+  }
+}

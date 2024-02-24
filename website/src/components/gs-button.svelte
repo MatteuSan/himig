@@ -54,32 +54,32 @@
 
 {#if !link}
     <button
-        class="gs-button{type && ' ' + _variantClassSet}"
+        class="ms-button{type && ' ' + _variantClassSet}"
         on:click={onClick}
         aria-label={label}
         disabled={isDisabled}
     >
         {#if $$slots.icon}
-            <i class="gs-button__icon material-symbols-outlined">
+            <i class="ms-button__icon material-symbols-outlined">
                 <slot name="icon"></slot>
             </i>
         {/if}
         {#if $$slots}
-            <span class="gs-button__label">
+            <span class="ms-button__label">
                 <slot></slot>
             </span>
         {/if}
     </button>
 {:else}
-    <a href={link} class={`gs-button${type ? ' ' + _variantClassSet : '' }`} target={_linkTarget} rel="noreferrer"
+    <a href={link} class={`ms-button${type ? ' ' + _variantClassSet : '' }`} target={_linkTarget} rel="noreferrer"
        aria-label={label}>
         {#if $$slots.icon}
-            <i aria-hidden="true" class="gs-button__icon material-symbols-outlined">
+            <i aria-hidden="true" class="ms-button__icon material-symbols-outlined">
                 <slot name="icon"></slot>
             </i>
         {/if}
         {#if $$slots}
-            <span class="gs-button__label">
+            <span class="ms-button__label">
                 <slot></slot>
             </span>
         {/if}

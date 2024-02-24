@@ -41,8 +41,8 @@ Primitive tokens have this same exact syntax:
 
 For example:
 ```txt
-gs-red.400
-gs-white.200
+ms-red.400
+ms-white.200
 ```
 
 ### Theme token syntax

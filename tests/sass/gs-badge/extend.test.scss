@@ -21,27 +21,27 @@
 //---------------------------------------------------
 
 @use 'node_modules/@growstocks/gaia';
-@use 'node_modules/@growstocks/gaia/gs-badge';
+@use 'node_modules/@growstocks/gaia/ms-badge';
 @use 'node_modules/sass-true' as true;
 
 @include gaia.init {
   @include true.describe('GS Badge Extend [mixin]') {
-    @include true.it('should extend the styles of a gs-badge component') {
+    @include true.it('should extend the styles of a ms-badge component') {
       @include true.assert {
         @include true.output {
-          @include gs-badge.extend('large') {
-            @include gs-badge.struct((
+          @include ms-badge.extend('large') {
+            @include ms-badge.struct((
               padding: ('lg' 'xl')
             ));
-            @include gs-badge.typography((
+            @include ms-badge.typography((
               size: 'supertitle'
             ));
           }
         }
         @include true.expect {
-          .gs-badge.is-large {
-            --gs-badge-padding: 1.2rem 2.3rem;
-            --gs-badge-size: var(--gs-theme-size-supertitle);
+          .ms-badge.is-large {
+            --ms-badge-padding: 1.2rem 2.3rem;
+            --ms-badge-size: var(--ms-theme-size-supertitle);
           }
         }
       }

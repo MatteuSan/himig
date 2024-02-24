@@ -40,8 +40,8 @@
   @include true.it('should return a theme token custom property') {
     $test: gaia.token-get('accent-400');
     $test2: gaia.token-get('surface-200');
-    @include true.assert-equal($test, var(--gs-theme-accent-400));
-    @include true.assert-equal($test2, var(--gs-theme-surface-200));
+    @include true.assert-equal($test, var(--ms-theme-accent-400));
+    @include true.assert-equal($test2, var(--ms-theme-surface-200));
   }
   @include true.it('should return a theme token raw value') {
     $test: gaia.token-get-raw('accent-400');
@@ -52,7 +52,7 @@
   @include true.it('should switch to itself when not valid') {
     $test: gaia.token-switch('accent-400');
     $test2: gaia.token-switch(inherit);
-    @include true.assert-equal($test, var(--gs-theme-accent-400));
+    @include true.assert-equal($test, var(--ms-theme-accent-400));
     @include true.assert-equal($test2, inherit);
   }
   @include true.it('should switch to itself when not valid; when valid, it uses the raw value') {

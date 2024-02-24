@@ -18,13 +18,13 @@ $ yarn add @growstocks/himig
 ```scss
 // main.scss
 
-@use 'node_modules/@growstocks/gaia';
-@use 'node_modules/@growstocks/gaia/gs-button';
+@use 'node_modules/@matteusan/himig';
+@use 'node_modules/@matteusan/himig/ms-button';
 
-@include gaia.init {
-  @include gs-button.render();
+@include himig.init {
+  @include ms-button.render();
 }
 ```
 
 ## Contributing
-Contributing guidelines are located [here](https://github.com/GrowStocks/gaia/tree/main/.github/CONTRIBUTING.md).
+Contributing guidelines are located [here](https://github.com/MatteuSan/himig/tree/main/.github/CONTRIBUTING.md).

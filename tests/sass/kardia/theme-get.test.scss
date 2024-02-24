@@ -27,15 +27,15 @@
   @include true.it('should retrieve a theme value from a map') {
     $theme: (
       fill: (
-        default: 'gs-orange.400',
-        hover: 'gs-orange.200'
+        default: 'ms-orange.400',
+        hover: 'ms-orange.200'
       ),
-      ink: 'gs-white.200',
-      border: 'gs-orange.400'
+      ink: 'ms-white.200',
+      border: 'ms-orange.400'
     );
-    @include true.assert-equal(gaia.theme-get($theme, 'fill'), 'gs-orange.400');
-    @include true.assert-equal(gaia.theme-get($theme, 'fill', 'hover'), 'gs-orange.200');
-    @include true.assert-equal(gaia.theme-get($theme, 'ink'), 'gs-white.200');
-    @include true.assert-equal(gaia.theme-get($theme, 'border'), 'gs-orange.400');
+    @include true.assert-equal(gaia.theme-get($theme, 'fill'), 'ms-orange.400');
+    @include true.assert-equal(gaia.theme-get($theme, 'fill', 'hover'), 'ms-orange.200');
+    @include true.assert-equal(gaia.theme-get($theme, 'ink'), 'ms-white.200');
+    @include true.assert-equal(gaia.theme-get($theme, 'border'), 'ms-orange.400');
   }
 }

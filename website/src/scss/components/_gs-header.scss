@@ -23,7 +23,7 @@
 @use 'node_modules/@growstocks/gaia';
 
 @mixin render() {
-  .gs-header {
+  .ms-header {
     width: 100%;
     position: fixed;
     top: 0;
@@ -38,7 +38,7 @@
       shadow: 'sm'
     ));
 
-    .gs-header__wrapper {
+    .ms-header__wrapper {
       width: 100%;
       max-width: 1077px;
       display: flex;
@@ -46,7 +46,7 @@
       justify-content: space-between;
       margin: 0 auto;
 
-      .gs-header__section {
+      .ms-header__section {
         //
 
         &.is-navbar-trigger {
@@ -60,7 +60,7 @@
         }
       }
 
-      .gs-header__mast {
+      .ms-header__mast {
         display: flex;
         flex-flow: row nowrap;
         align-items: center;

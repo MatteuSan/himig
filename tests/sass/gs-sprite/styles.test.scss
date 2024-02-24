@@ -21,20 +21,20 @@
 //---------------------------------------------------
 
 @use 'node_modules/@growstocks/gaia';
-@use 'node_modules/@growstocks/gaia/gs-sprite';
+@use 'node_modules/@growstocks/gaia/ms-sprite';
 @use 'node_modules/sass-true' as true;
 
 @include gaia.init {
   @include true.describe('GS Sprite Render [mixin]') {
-    @include true.it('should render the styles of a gs-sprite component') {
+    @include true.it('should render the styles of a ms-sprite component') {
       @include true.assert {
         @include true.output {
-          @include gs-sprite.render();
+          @include ms-sprite.render();
         }
         @include true.expect {
-          .gs-sprite {
-            width: var(--gs-sprite-size);
-            height: var(--gs-sprite-size);
+          .ms-sprite {
+            width: var(--ms-sprite-size);
+            height: var(--ms-sprite-size);
             user-select: none;
           }
         }

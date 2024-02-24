@@ -21,12 +21,12 @@
 //---------------------------------------------------
 
 @use 'node_modules/@growstocks/gaia';
-@use 'node_modules/@growstocks/gaia/gs-button';
-@use 'node_modules/@growstocks/gaia/gs-utils';
+@use 'node_modules/@growstocks/gaia/ms-button';
+@use 'node_modules/@growstocks/gaia/ms-utils';
 
-@use 'components/gs-footer';
-@use 'components/gs-header';
-@use 'components/gs-navbar';
+@use 'components/ms-footer';
+@use 'components/ms-header';
+@use 'components/ms-navbar';
 
 @include gaia.init() {
   ul { list-style: none; }
@@ -35,11 +35,11 @@
     @include gaia.key-bind('content-wrap-padding-y', gaia.to-rem(97px));
   }
 
-  @include gs-button.render();
-  @include gs-utils.struct();
-  @include gs-utils.typography('preset');
+  @include ms-button.render();
+  @include ms-utils.struct();
+  @include ms-utils.typography('preset');
 
-  @include gs-footer.render();
-  @include gs-header.render();
-  @include gs-navbar.render();
+  @include ms-footer.render();
+  @include ms-header.render();
+  @include ms-navbar.render();
 }

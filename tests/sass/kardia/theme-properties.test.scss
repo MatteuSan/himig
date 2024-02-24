@@ -34,11 +34,11 @@
     @include true.assert {
       @include true.output {
         @include gaia.property(background-color, (
-          'component-fill', gaia.primitive-token-get('gs-orange.400')
+          'component-fill', gaia.primitive-token-get('ms-orange.400')
         ));
       }
       @include true.expect {
-        background-color: var(--gs-component-fill, #ff6a00);
+        background-color: var(--ms-component-fill, #ff6a00);
       }
     }
   }
@@ -47,11 +47,11 @@
     @include true.assert {
       @include true.output {
         @include gaia.property(background-color, (
-          'component-fill', gaia.primitive-token-get('gs-orange.400')
+          'component-fill', gaia.primitive-token-get('ms-orange.400')
         ), $intent: 'bind');
       }
       @include true.expect {
-        --gs-component-fill: #ff6a00;
+        --ms-component-fill: #ff6a00;
       }
     }
   }
@@ -62,11 +62,11 @@
     @include true.assert {
       @include true.output {
         @include gaia.property(background-color, (
-          'component-fill', 'gs-orange.400'
+          'component-fill', 'ms-orange.400'
         ));
       }
       @include true.expect {
-        background-color: var(--gs-component-fill, #ff6a00);
+        background-color: var(--ms-component-fill, #ff6a00);
       }
     }
   }
@@ -79,7 +79,7 @@
         ), $intent: 'bind');
       }
       @include true.expect {
-        --gs-component-fill: var(--gs-theme-accent-400);
+        --ms-component-fill: var(--ms-theme-accent-400);
       }
     }
   }

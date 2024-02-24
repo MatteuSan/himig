@@ -1,0 +1,77 @@
+//---------------------------------------------------
+//  Copyright (c) 2024 MatteuSan
+//
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in all
+//  copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+//  SOFTWARE.
+//---------------------------------------------------
+
+@use '../ms-core';
+@use 'list-base' as base;
+@use 'list-theme' as theme;
+
+@mixin render(
+  $color: (),
+  $struct: (),
+  $typography: (),
+  $settings: ()
+) {
+  $color: ms-core.theme-merge(theme.$init-color, $color);
+  $struct: ms-core.theme-merge(theme.$init-struct, $struct);
+  $typography: ms-core.theme-merge(theme.$init-typography, $typography);
+  $settings: ms-core.theme-merge(theme.$init-settings, $settings);
+
+  @include base.init() {
+    @include ms-core.color-bind('list-item', $color);
+    @include ms-core.struct-apply('list', (
+      radius: ms-core.theme-get($struct, 'radius'),
+    ));
+    @include ms-core.struct-bind('list-item', $struct);
+    @include ms-core.typography-bind('list-item', $typography);
+
+    &:where(.is-selectable) {
+      .ms-list__item {
+        cursor: pointer;
+
+        &:hover {
+          @include ms-core.color-bind('list-item', (
+            fill: ms-core.theme-get($color, 'fill', 'hover'),
+            border: ms-core.theme-get($color, 'border', 'hover')
+          ));
+        }
+
+        &:focus {
+          @include ms-core.color-bind('list-item', (
+            fill: ms-core.theme-get($color, 'fill', 'focus'),
+            border: ms-core.theme-get($color, 'border', 'focus')
+          ));
+        }
+
+        &:active {
+          @include ms-core.color-bind('list-item', (
+            fill: ms-core.theme-get($color, 'fill', 'active'),
+            border: ms-core.theme-get($color, 'border', 'active')
+          ));
+        }
+      }
+    }
+
+    &:where(.is-raised) {
+      @include ms-core.struct-shadow('list', 'xs');
+    }
+  }
+}

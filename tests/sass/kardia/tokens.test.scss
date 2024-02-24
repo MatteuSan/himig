@@ -38,8 +38,8 @@
       }
       @include true.expect {
         :root {
-          --gs-theme-surface-300: #700;
-          --gs-theme-surface-400: #400;
+          --ms-theme-surface-300: #700;
+          --ms-theme-surface-400: #400;
         }
 
       }
@@ -48,7 +48,7 @@
 
   @include true.it('should query a token') {
     $token: gaia.token-get('surface-300');
-    @include true.assert-equal($token, var(--gs-theme-surface-300));
+    @include true.assert-equal($token, var(--ms-theme-surface-300));
   }
 
   @include true.it('should query a token\'s raw value') {

@@ -41,8 +41,8 @@ have to pass in a `map` with the [`200-800` schema](color/color-tokens.md#color-
     600: #f70,
     800: #f70,
   ),
-  $accent: 'gs-yellow',
-  $background: 'gs-green.800',
+  $accent: 'ms-yellow',
+  $background: 'ms-green.800',
 ) {
   // Components...
 }

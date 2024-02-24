@@ -29,6 +29,6 @@
   const isLinkExternal: boolean = link.startsWith('http://') || link.startsWith('https://');
 </script>
 
-<li class={`gs-navbar__item${isActive ? ' is-active' : ''}`}>
+<li class={`ms-navbar__item${isActive ? ' is-active' : ''}`}>
     <a href={link} target={isLinkExternal ? '_blank' : '_self'}>{label}</a>
 </li>

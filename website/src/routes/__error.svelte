@@ -22,7 +22,7 @@
 
 <script lang="ts">
     import { page } from '$app/stores';
-    import GSButton from '$components/gs-button.svelte';
+    import GSButton from '$components/ms-button.svelte';
 </script>
 
 <section class="mb-lg">

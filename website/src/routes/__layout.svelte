@@ -21,8 +21,8 @@
   -->
 
 <script lang="ts">
-  import GSButton from '$components/gs-button.svelte';
-  import GSNavbarItem from '$components/gs-navbar-item.svelte';
+  import GSButton from '$components/ms-button.svelte';
+  import GSNavbarItem from '$components/ms-navbar-item.svelte';
 
   import favicon from '$assets/gds-icon.png';
 
@@ -67,17 +67,17 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,0,0" />
 </svelte:head>
 
-<header class="gs-header">
-    <div class="gs-header__wrapper">
-        <div class="gs-header__section">
-            <a href="/" class="gs-header__mast">
+<header class="ms-header">
+    <div class="ms-header__wrapper">
+        <div class="ms-header__section">
+            <a href="/" class="ms-header__mast">
                 <img aria-hidden="true" src={favicon} alt="Gaia Design System" />
                 <h1>Gaia Design System</h1>
             </a>
         </div>
-        <div class="gs-header__section">
-            <nav class={`gs-navbar${isNavbarOpen ? ' is-open' : ''}`}>
-                <ul class="gs-navbar__wrapper">
+        <div class="ms-header__section">
+            <nav class={`ms-navbar${isNavbarOpen ? ' is-open' : ''}`}>
+                <ul class="ms-navbar__wrapper">
                     <GSNavbarItem label="Home" link="/" />
                     <GSNavbarItem label="Documentation" link="/docs" />
                     <!--<GSNavbarItem label="Examples" link="/examples" />-->
@@ -85,7 +85,7 @@
                 </ul>
             </nav>
         </div>
-        <div class="gs-header__section is-navbar-trigger">
+        <div class="ms-header__section is-navbar-trigger">
             <GSButton onClick={() => isNavbarOpen = !isNavbarOpen} type="icon-only">
                 <svelte:fragment slot="icon">
                     { isNavbarOpen ? 'close' : 'menu' }
@@ -97,20 +97,20 @@
 <main class="content-wrap">
     <slot />
 </main>
-<footer class="gs-footer">
-    <div class="gs-footer__wrapper">
+<footer class="ms-footer">
+    <div class="ms-footer__wrapper">
         <h2>Gaia Design System <span><small>v0.6.4</small></span></h2>
-        <ul class="gs-footer__links">
-            <li class="gs-footer__link">
+        <ul class="ms-footer__links">
+            <li class="ms-footer__link">
                 <a href="https://growstocks.org">Price index</a>
             </li>
-            <li class="gs-footer__link">
+            <li class="ms-footer__link">
                 <a href="https://shop.growstocks.org">Services Store</a>
             </li>
-            <li class="gs-footer__link">
+            <li class="ms-footer__link">
                 <a href="https://pay.growstocks.org">GrowStocks Pay</a>
             </li>
-            <li class="gs-footer__link">
+            <li class="ms-footer__link">
                 <a href="https://developers.growstocks.org">GrowStocks for Developers</a>
             </li>
         </ul>

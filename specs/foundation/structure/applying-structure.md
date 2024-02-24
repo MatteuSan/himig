@@ -76,7 +76,7 @@ For the API information, please visit the [structure composition API page](../..
 ```scss
 @use 'node_modules/@growstocks/gaia';
 
-.gs-component {
+.ms-component {
   @include gaia.struct-apply('component', (
     width: (
       default: 'token-or-value',

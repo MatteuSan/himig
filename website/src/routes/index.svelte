@@ -21,7 +21,7 @@
   -->
 
 <script lang="ts">
-  import GSButton from '$components/gs-button.svelte';
+  import GSButton from '$components/ms-button.svelte';
 </script>
 
 <style lang="scss">

@@ -1,0 +1,210 @@
+//---------------------------------------------------
+//  Copyright (c) 2024 MatteuSan
+//
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in all
+//  copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+//  SOFTWARE.
+//---------------------------------------------------
+
+@use '../ms-core';
+@use 'sass:list';
+@use 'button-base' as base;
+@use 'button-theme' as theme;
+@use 'button-mixins' as style;
+
+$_states: (
+  'success',
+  'warning',
+  'error'
+);
+
+@mixin render(
+  $color: (),
+  $struct: (),
+  $typography: (),
+  $settings: ()
+) {
+  $color: ms-core.theme-merge(theme.$init-color, $color);
+  $struct: ms-core.theme-merge(theme.$init-struct, $struct);
+  $typography: ms-core.theme-merge(theme.$init-typography, $typography);
+  $settings: ms-core.theme-merge(theme.$init-settings, $settings);
+
+  $fills: (
+    default: ms-core.theme-get($color, 'fill'),
+    hover: ms-core.theme-get($color, 'fill', 'hover'),
+    focus: ms-core.theme-get($color, 'fill', 'focus'),
+    active: ms-core.theme-get($color, 'fill', 'active'),
+    disabled: ms-core.theme-get($color, 'fill', 'disabled'),
+  );
+
+  $inks: (
+    default: ms-core.theme-get($color, 'ink'),
+    hover: ms-core.theme-get($color, 'ink', 'hover'),
+    focus: ms-core.theme-get($color, 'ink', 'focus'),
+    active: ms-core.theme-get($color, 'ink', 'active'),
+    disabled: ms-core.theme-get($color, 'ink', 'disabled'),
+  );
+
+  $borders: (
+    default: ms-core.theme-get($color, 'border'),
+    hover: ms-core.theme-get($color, 'border', 'hover'),
+    focus: ms-core.theme-get($color, 'border', 'focus'),
+    active: ms-core.theme-get($color, 'border', 'active'),
+    disabled: ms-core.theme-get($color, 'border', 'disabled'),
+  );
+
+  @include base.init() {
+    @include ms-core.struct-apply('button', $struct);
+    @include ms-core.typography-apply('button', $typography);
+    @include ms-core.color-apply('button', (
+      fill: 'ms-grey.400',
+      ink: 'ms-grey.800',
+      border: 'ms-grey.400',
+    ));
+    @include style.text(
+      $fills: $fills,
+      $inks: $inks,
+      $borders: $borders,
+    );
+    outline-offset: 2px;
+
+    &:where(.is-icon-only) {
+      @include ms-core.struct-bind('button', (
+        width: (min: auto),
+        padding: list.nth(ms-core.theme-get($struct, 'padding'), 1)
+      ));
+
+      > .ms-button__label {
+        display: none;
+      }
+    }
+
+    @each $state in $_states {
+      &:where(.is-#{$state}) {
+        @include style.text(
+          $fills: (
+            'default': '#{$state}-400',
+            'hover': '#{$state}-300',
+            'focus': '#{$state}-400',
+            'active': '#{$state}-200',
+            'disabled': '#{$state}-800',
+          ),
+          $inks: (
+            'default': '#{$state}-ink',
+            'disabled': '#{$state}-800'
+          ),
+          $borders: (
+            'default': '#{$state}-400',
+            'hover': '#{$state}-300',
+            'focus': '#{$state}-400',
+            'active': '#{$state}-200',
+            'disabled': '#{$state}-800',
+          )
+        );
+      }
+    }
+
+    &:where(.is-fullwidth) {
+      @include ms-core.struct-width('button', (
+        default: 100%,
+        min: auto,
+        max: 100%
+      ), 'bind');
+    }
+
+    &:where(.is-outlined) {
+      @include style.outlined(
+        $fills: $fills,
+        $inks: $inks,
+        $borders: $borders,
+      );
+
+      @each $state in $_states {
+        &:where(.is-#{$state}) {
+          @include style.outlined(
+            $fills: (
+              'default': '#{$state}-400',
+              'hover': '#{$state}-300',
+              'focus': '#{$state}-400',
+              'active': '#{$state}-200',
+              'disabled': '#{$state}-800',
+            ),
+            $inks: (
+              'default': '#{$state}-ink',
+              'disabled': '#{$state}-800'
+            ),
+            $borders: (
+              'default': '#{$state}-400',
+              'hover': '#{$state}-300',
+              'focus': '#{$state}-400',
+              'active': '#{$state}-200',
+              'disabled': '#{$state}-800',
+            )
+          );
+        }
+      }
+    }
+
+    &:where(.is-filled) {
+      @include style.filled(
+        $fills: $fills,
+        $inks: $inks,
+        $borders: $borders,
+      );
+
+      @each $state in $_states {
+        &:where(.is-#{$state}) {
+          @include style.filled(
+            $fills: (
+              'default': '#{$state}-400',
+              'hover': '#{$state}-300',
+              'focus': '#{$state}-400',
+              'active': '#{$state}-200',
+              'disabled': '#{$state}-800',
+            ),
+            $inks: (
+              'default': '#{$state}-ink',
+              'disabled': '#{$state}-600'
+            ),
+            $borders: (
+              'default': '#{$state}-400',
+              'hover': '#{$state}-300',
+              'focus': '#{$state}-400',
+              'active': '#{$state}-200',
+              'disabled': '#{$state}-800',
+            )
+          );
+        }
+      }
+
+      &:where(.is-raised) {
+        &:not(:disabled) {
+          @include ms-core.struct-shadow('button', 'xs');
+
+          &:hover,
+          &:focus {
+            @include ms-core.struct-shadow('button', 'xs');
+          }
+
+          &:active {
+            @include ms-core.struct-shadow('button', 'sm');
+          }
+        }
+      }
+    }
+  }
+}
