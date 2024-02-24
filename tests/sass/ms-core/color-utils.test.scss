@@ -91,7 +91,7 @@
         );
       }
       @include true.expect {
-        --ms-component-ink: #ff6a00;
+        --ms-component-ink: #e16c1d;
       }
     }
   }
@@ -106,7 +106,7 @@
         );
       }
       @include true.expect {
-        --ms-component-border: #ff6a00;
+        --ms-component-border: #e16c1d;
       }
     }
   }
