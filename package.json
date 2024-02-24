@@ -1,6 +1,6 @@
 {
   "name": "himig",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "MatteuSan's personal design system for building user interfaces. ",
   "main": "packages/himig/_index.scss",
   "files": [

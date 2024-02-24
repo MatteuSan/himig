@@ -38,9 +38,9 @@ $vue-mode: $test-mode !default;
 @forward 'ms-core';
 
 @mixin init(
-  $surface: 'ms-grey',
+  $surface: 'ms-dark-grey',
   $accent: 'ms-orange',
-  $background: 'ms-blue.800',
+  $background: 'ms-dark-grey.800',
   $error: 'ms-red',
   $warning: 'ms-yellow',
   $success: 'ms-green',
