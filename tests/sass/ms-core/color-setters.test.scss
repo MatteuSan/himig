@@ -43,9 +43,9 @@
         ));
       }
       @include true.expect {
-        background-color: var(--ms-component-fill, #ff6a00);
+        background-color: var(--ms-component-fill, #e16c1d);
         color: var(--ms-component-ink, #ffffff);
-        border-color: var(--ms-component-border, #ff6a00);
+        border-color: var(--ms-component-border, #e16c1d);
       }
     }
   }
@@ -76,9 +76,9 @@
         ));
       }
       @include true.expect {
-        --ms-component-fill: #ff6a00;
+        --ms-component-fill: #e16c1d;
         --ms-component-ink: #ffffff;
-        --ms-component-border: #ff6a00;
+        --ms-component-border: #e16c1d;
       }
     }
   }
