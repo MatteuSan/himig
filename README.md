@@ -1,6 +1,3 @@
-![Gaia Logo Light Mode](https://raw.githubusercontent.com/GrowStocks/gaia/main/media/gds-logo-light.svg?sanitize=true#gh-light-mode-only)
-![Gaia Logo Dark Mode](https://raw.githubusercontent.com/GrowStocks/gaia/main/media/gds-logo-dark.svg?sanitize=true#gh-dark-mode-only)
-
 ## Prerequisites
 Be sure to have [NodeJS](https://nodejs.org) LTS installed. Any other version will risk the project breaking in
 development.
@@ -9,11 +6,11 @@ use DartSass instead of the now deprecated LibSass (node-sass)**.
 
 ## Setup
 ```sh
-$ npm install @growstocks/himig --save
+$ npm install @matteusan/himig --save
 
 # or
 
-$ yarn add @growstocks/himig
+$ yarn add @matteusan/himig
 ```
 ```scss
 // main.scss
