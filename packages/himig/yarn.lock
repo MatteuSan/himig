@@ -2,7 +2,13 @@
 # yarn lockfile v1
 
 
+"@matteusan/himig@file:../../../../../.nvm/versions/node/v20.9.0/lib/node_modules/@matteusan/himig":
+  version "1.0.0"
+  resolved "file:../../../../../.nvm/versions/node/v20.9.0/lib/node_modules/@matteusan/himig"
+  dependencies:
+    "@matteusan/sentro" "0.1.25"
+
 "@matteusan/sentro@0.1.25":
   version "0.1.25"
-  resolved "https://registry.yarnpkg.com/@matteusan/sentro/-/sentro-0.1.25.tgz#626f8795ada5f31a746acad80c4c49cc6134d879"
+  resolved "https://registry.npmjs.org/@matteusan/sentro/-/sentro-0.1.25.tgz"
   integrity sha512-WADroUoOEnbGBij9ZSJkGbYp2yiNVi6UJZymJsSVyo1zuekM1pIzKF8+nI31SGt5wS3ChmOOR5+w1Z7c6jg9TQ==

@@ -32,7 +32,9 @@
 
 @include himig.init(
   $extend: (
-    'bruh': 0.5rem
+    'bruh': (
+      'lol': 0.5rem
+    )
   )
 ) {
   @include ms-badge.render();

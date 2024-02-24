@@ -28,4 +28,3 @@ packages/**/*.js
 
 # Yarn
 .yarn
-.yarnrc.yml

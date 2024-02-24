@@ -41,10 +41,30 @@ $token-keys: map.keys(data.$ms-tokens);
     $variant-keys: map.keys(map.get($map, $token-key));
     @each $variant-key in $variant-keys {
       $_primitive-token-registry: list.append($_primitive-token-registry, '#{$token-key}.#{$variant-key}') !global;
-      @debug $_primitive-token-registry;
     }
   }
 }
+
+// TODO: Look further into this function at a later time.
+// @function registry-get($targets: 'all') {
+//   @if not tools.is-empty($targets) {
+//     $targeted-tokens: ();
+//     @each $target in $targets {
+//       @each $key, $value in $_primitive-token-registry {
+//         @if string.index($key, $target) == 1 {
+//           $targeted-tokens: map.set($targeted-tokens, $key, $value);
+//         }
+//       }
+//     }
+//     @return $targeted-tokens;
+//   }
+//
+//   @if $targets == 'all' {
+//     @return $_primitive-token-registry;
+//   }
+//
+//   @return $_primitive-token-registry;
+// }
 
 /// Retrieves a token from the primitive token registry based on a given query.
 /// @param {PrimitiveToken} $query
