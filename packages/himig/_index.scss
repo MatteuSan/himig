@@ -34,7 +34,7 @@ $vue-mode: $test-mode !default;
 @use 'sass:map';
 @use 'init-font-pack' as font-pack;
 
-// For accessing core lib from the main gaia module.
+// For accessing core lib from the main himig module.
 @forward 'kardia';
 
 @mixin init(

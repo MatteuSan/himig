@@ -1,8 +1,8 @@
 {
-  "name": "@matteusan/gaia",
-  "version": "5.0.0",
+  "name": "@matteusan/himig",
+  "version": "1.0.0",
   "description": "MatteuSan's personal design system for building user interfaces.",
-  "repository": "https://github.com/GrowStocks/gaia",
+  "repository": "https://github.com/MatteuSan/himig",
   "author": "Matteu <matteugt@gmail.com>",
   "license": "MIT",
   "private": false,

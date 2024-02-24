@@ -8,10 +8,10 @@ A guide to setting up the development environment for Gaia.
 ## Installation
 ```sh
 # Yarn
-$ yarn add @growstocks/gaia sass
+$ yarn add @growstocks/himig sass
 
 # NPM
-$ npm install @growstocks/gaia sass
+$ npm install @growstocks/himig sass
 ```
 
 ## Instantiation

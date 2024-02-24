@@ -9,11 +9,11 @@ use DartSass instead of the now deprecated LibSass (node-sass)**.
 
 ## Setup
 ```sh
-$ npm install @growstocks/gaia --save
+$ npm install @growstocks/himig --save
 
 # or
 
-$ yarn add @growstocks/gaia
+$ yarn add @growstocks/himig
 ```
 ```scss
 // main.scss

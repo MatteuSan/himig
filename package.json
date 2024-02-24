@@ -2,7 +2,7 @@
   "name": "himig",
   "version": "5.0.0",
   "description": "MatteuSan's personal design system for building user interfaces. ",
-  "main": "packages/gaia/_index.scss",
+  "main": "packages/himig/_index.scss",
   "files": [
     "packages/**/*"
   ],

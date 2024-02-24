@@ -26,11 +26,11 @@ const { src, dest, series } = require('gulp');
 const sass = require('gulp-sass')(require('sass'));
 
 const buildSass = () => {
-  return src('packages/gaia/**/*.scss')
+  return src('packages/himig/**/*.scss')
     .pipe(sass({
       includePaths: ['node_modules']
     }).on('error', sass.logError))
-    .pipe(dest('packages/gaia'));
+    .pipe(dest('packages/himig'));
 }
 
 exports.default = series(

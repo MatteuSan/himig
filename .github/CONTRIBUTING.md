@@ -54,11 +54,11 @@ And finally, execute the linking command.
 > NOTE: the `current-dev-version` is usually spat out in the terminal after running the first `npm link` command in the source directory. When using yarn, you usually don't have to worry about this.
 
 ```sh
-$ npm link @growstocks/gaia@[current-dev-version]
+$ npm link @growstocks/himig@[current-dev-version]
 
 # or
 
-$ yarn link @growstocks/gaia
+$ yarn link @growstocks/himig
 ```
 
 ### Code Style
