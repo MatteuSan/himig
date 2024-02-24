@@ -26,9 +26,9 @@ parameter.
 By using this mixin, you can add/modify current values but can never delete the defaults.
 
 ```scss
-@use 'node_modules/@growstocks/gaia';
+@use 'node_modules/@matteusan/himig';
 
-@include gaia.breakpoint-config-override((
+@include himigbreakpoint-config-override((
   // Breakpoints...
 ));
 ```
@@ -36,9 +36,9 @@ By using this mixin, you can add/modify current values but can never delete the 
 If you want to completely reset the breakpoints, you can set the `$override` parameter to `true`.
 
 ```scss
-@use 'node_modules/@growstocks/gaia';
+@use 'node_modules/@matteusan/himig';
 
-@include gaia.breakpoint-config-override((
+@include himigbreakpoint-config-override((
   // Breakpoints...
 ), $override: true);
 ```
@@ -48,12 +48,12 @@ To apply a breakpoint on an element, use the `breakpoint()` mixin. Query a [brea
 content inside the declaration.
 
 ```scss
-@use 'node_modules/@growstocks/gaia';
+@use 'node_modules/@matteusan/himig';
 
 .component {
   // Initial styles...
   
-  @include gaia.breakpoint('md') {
+  @include himigbreakpoint('md') {
     // New styles...
   }
 }

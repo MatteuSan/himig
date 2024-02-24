@@ -58,7 +58,7 @@ $type-inherit-template: (
 );
 
 @use 'node_modules/@matteusan/sentro' with (
-  $prefix: 'gs',
+  $prefix: 'ms',
   $context: 'theme',
   $token-validation: $validation,
   $key-validation: $validation,

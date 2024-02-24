@@ -20,10 +20,10 @@ Font family defines the style of the content. This can signify text hierarchy, e
 For the API information, please visit the [typography composition API page](../../api/composition/typography.md).
 
 ```scss
-@use 'node_modules/@growstocks/gaia';
+@use 'node_modules/@matteusan/himig';
 
 .ms-component {
-  @include gaia.typography-family('component', 'token-or-value');
+  @include himigtypography-family('component', 'token-or-value');
 }
 ```
 
@@ -34,10 +34,10 @@ Font size defines the size of the content. This can be useful when you want to a
 For the API information, please visit the [typography composition API page](../../api/composition/typography.md).
 
 ```scss
-@use 'node_modules/@growstocks/gaia';
+@use 'node_modules/@matteusan/himig';
 
 .ms-component {
-  @include gaia.typography-size('component', 'token-or-value');
+  @include himigtypography-size('component', 'token-or-value');
 }
 ```
 
@@ -49,10 +49,10 @@ content.
 For the API information, please visit the [typography composition API page](../../api/composition/typography.md).
 
 ```scss
-@use 'node_modules/@growstocks/gaia';
+@use 'node_modules/@matteusan/himig';
 
 .ms-component {
-  @include gaia.typography-weight('component', 'token-or-value');
+  @include himigtypography-weight('component', 'token-or-value');
 }
 ```
 
@@ -64,10 +64,10 @@ the user's reading experience.
 For the API information, please visit the [typography composition API page](../../api/composition/typography.md).
 
 ```scss
-@use 'node_modules/@growstocks/gaia';
+@use 'node_modules/@matteusan/himig';
 
 .ms-component {
-  @include gaia.typography-line-height('component', 'token-or-value');
+  @include himigtypography-line-height('component', 'token-or-value');
 }
 ```
 
@@ -77,10 +77,10 @@ Gaia provides an SCSS mixin that lets you apply all properties in one go. It's t
 For the API information, please visit the [typography composition API page](../../api/composition/typography.md).
 
 ```scss
-@use 'node_modules/@growstocks/gaia';
+@use 'node_modules/@matteusan/himig';
 
 .ms-component {
-  @include gaia.typography-apply('component', (
+  @include himigtypography-apply('component', (
     family: 'token-or-value',
     size: 'token-or-value',
     weight: 'token-or-value',

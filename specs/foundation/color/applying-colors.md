@@ -24,10 +24,10 @@ This color's value can either be a [primitive token](../tokens.md#primitive-toke
 For the API information, please visit the [color composition API page](../../api/composition/color.md).
 
 ```scss
-@use 'node_modules/@growstocks/gaia';
+@use 'node_modules/@matteusan/himig';
 
 .ms-component {
-  @include gaia.color-fill('component', 'token-or-value');
+  @include himigcolor-fill('component', 'token-or-value');
 }
 ```
 
@@ -41,10 +41,10 @@ This color's value can either be a [primitive token](../tokens.md#primitive-toke
 For the API information, please visit the [color composition API page](../../api/composition/color.md).
 
 ```scss
-@use 'node_modules/@growstocks/gaia';
+@use 'node_modules/@matteusan/himig';
 
 .ms-component {
-  @include gaia.color-ink('component', 'token-or-value');
+  @include himigcolor-ink('component', 'token-or-value');
 }
 ```
 
@@ -57,10 +57,10 @@ This color's value can either be a [primitive token](../tokens.md#primitive-toke
 For the API information, please visit the [color composition API page](../../api/composition/color.md).
 
 ```scss
-@use 'node_modules/@growstocks/gaia';
+@use 'node_modules/@matteusan/himig';
 
 .ms-component {
-  @include gaia.color-border('component', 'token-or-value');
+  @include himigcolor-border('component', 'token-or-value');
 }
 ```
 
@@ -70,10 +70,10 @@ Gaia provides an SCSS mixin that lets you apply all three in one go. It's the `c
 For the API information, please visit the [color composition API page](../../api/composition/color.md).
 
 ```scss
-@use 'node_modules/@growstocks/gaia';
+@use 'node_modules/@matteusan/himig';
 
 .ms-component {
-  @include gaia.color-apply('component', (
+  @include himigcolor-apply('component', (
     fill: 'token-or-value',
     ink: 'token-or-value',
     border: 'token-or-value'

@@ -8,13 +8,13 @@ the same experiences all throughout the GrowStocks ecosystem.
 
 ## Instantiation
 All components follow the same instantiation API: Always instantiating the component inside the design system
-initializer (`gaia.init()`) using the component's provided `render()` mixin.
+initializer (`himig.init()`) using the component's provided `render()` mixin.
 
 ```scss
-@use 'node_modules/@growstocks/gaia';
-@use 'node_modules/@growstocks/gaia/ms-component';
+@use 'node_modules/@matteusan/himig';
+@use 'node_modules/@matteusan/himig/ms-component';
 
-@include gaia.init() {
+@include himig.init() {
   @include ms-component.render();
 }
 ```
@@ -38,10 +38,10 @@ Modifying a component in the markup is your first way of customizing a component
 ## Modification (SCSS)
 Modifying a component in the SCSS is your second way of customizing a component. By using the parameters in the component initializer, you can globally modify the component's properties.
 ```scss
-@use 'node_modules/@growstocks/gaia';
-@use 'node_modules/@growstocks/gaia/ms-component';
+@use 'node_modules/@matteusan/himig';
+@use 'node_modules/@matteusan/himig/ms-component';
 
-@include gaia.init() {
+@include himig.init() {
   @include ms-component.render(
     $color: (
       fill: (
@@ -68,10 +68,10 @@ Modifying a component in the SCSS is your second way of customizing a component.
 Creating your own variant component uses Gaia's provided extension API. Instantiate a new variant by calling the `extend()` mixin and filling in the variant name parameter.
 
 ```scss
-@use 'node_modules/@growstocks/gaia';
-@use 'node_modules/@growstocks/gaia/ms-component';
+@use 'node_modules/@matteusan/himig';
+@use 'node_modules/@matteusan/himig/ms-component';
 
-@include gaia.init() {
+@include himig.init() {
   @include ms-component.extend('large') {
     //
   }
@@ -81,10 +81,10 @@ Creating your own variant component uses Gaia's provided extension API. Instanti
 Make adjustments to the variant by calling the modifier mixins. These mixins are: `color()`, `struct()`, and `typography`.
 
 ```scss
-@use 'node_modules/@growstocks/gaia';
-@use 'node_modules/@growstocks/gaia/ms-component';
+@use 'node_modules/@matteusan/himig';
+@use 'node_modules/@matteusan/himig/ms-component';
 
-@include gaia.init() {
+@include himig.init() {
   @include ms-component.extend('large') {
     @include ms-component.struct((
       padding: ('md' 'xl')

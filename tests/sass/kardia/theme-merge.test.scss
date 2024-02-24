@@ -20,7 +20,7 @@
 //  SOFTWARE.
 //---------------------------------------------------
 
-@use 'node_modules/@growstocks/gaia';
+@use 'node_modules/@matteusan/himig';
 @use 'node_modules/sass-true' as true;
 
 @include true.describe('Theme Merge [module]') {
@@ -39,7 +39,7 @@
     $user-theme: (
       fill: 'ms-red.400',
     );
-    $theme: gaia.theme-merge($init-theme, $user-theme);
+    $theme: himigtheme-merge($init-theme, $user-theme);
     @include true.assert-equal($theme, (
       fill: 'ms-red.400',
       ink: 'ms-orange.800',

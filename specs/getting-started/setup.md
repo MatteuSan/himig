@@ -18,9 +18,9 @@ $ npm install @matteusan/himig sass
 In your project's sass entry file. Initialize the design system.
 
 ```scss
-@use 'node_modules/@growstocks/gaia';
+@use 'node_modules/@matteusan/himig';
 
-@include gaia.init() {
+@include himig.init() {
   // ...
 }
 ```
@@ -28,10 +28,10 @@ In your project's sass entry file. Initialize the design system.
 Whenever you feel the need to include a component, instantiate it inside the Gaia initializer.
 
 ```scss
-@use 'node_modules/@growstocks/gaia';
-@use 'node_modules/@growstocks/gaia/ms-button';
+@use 'node_modules/@matteusan/himig';
+@use 'node_modules/@matteusan/himig/ms-button';
 
-@include gaia.init() {
+@include himig.init() {
   @include ms-button.render();
 }
 ```

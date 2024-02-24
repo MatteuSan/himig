@@ -17,7 +17,7 @@
 5. Create a pull request.
 6. Wait for the pull request to be reviewed.
     - If the pull request is approved, the pull request will be merged into the main branch.
-7. 🎉 Congratulations! You've successfully contributed to Gaia.
+7. 🎉 Congratulations! You've successfully contributed to himig
 
 ## Details on Contributing
 ### Contributing Scopes
@@ -27,7 +27,7 @@ When contributing to Gaia, it is important to keep in mind what a contributor ca
 - Code deviating from the specifications is NOT allowed. Follow the specifications in the design docs or in the `/specs` directory.
 
 ### Installing Dependencies
-The current dependency list will always be compatible with the latest version of Gaia. However, the root directory, the tests and dev versions of the docs require the current in-development version of Gaia (aka the version you're working on). Which is why we're going to be using the `npm link` feature to easily link the dev version of Gaia to the tests and docs.
+The current dependency list will always be compatible with the latest version of himig However, the root directory, the tests and dev versions of the docs require the current in-development version of Gaia (aka the version you're working on). Which is why we're going to be using the `npm link` feature to easily link the dev version of Gaia to the tests and docs.
 
 First `cd` into the source folder.
 ```sh

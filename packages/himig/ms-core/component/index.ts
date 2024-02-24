@@ -20,10 +20,10 @@
  *  SOFTWARE.
  */
 
-import { GSComponentBase } from './component-base';
+import { MSComponentBase } from './component-base';
 import { accessProperty } from './component-properties';
 
 export {
-  GSComponentBase,
+  MSComponentBase,
   accessProperty
 };

@@ -1,12 +1,12 @@
 {
   "name": "himig",
-  "version": "5.0.0",
+  "version": "1.0.0",
   "description": "MatteuSan's personal design system for building user interfaces. ",
   "main": "packages/himig/_index.scss",
   "files": [
     "packages/**/*"
   ],
-  "repository": "https://github.com/MatteuSan/gaia",
+  "repository": "https://github.com/MatteuSan/himig",
   "author": "Matteu <matteugt@gmail.com>",
   "license": "MIT",
   "scripts": {

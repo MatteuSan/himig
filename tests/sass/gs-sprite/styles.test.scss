@@ -20,11 +20,11 @@
 //  SOFTWARE.
 //---------------------------------------------------
 
-@use 'node_modules/@growstocks/gaia';
-@use 'node_modules/@growstocks/gaia/ms-sprite';
+@use 'node_modules/@matteusan/himig';
+@use 'node_modules/@matteusan/himig/ms-sprite';
 @use 'node_modules/sass-true' as true;
 
-@include gaia.init {
+@include himig.init {
   @include true.describe('GS Sprite Render [mixin]') {
     @include true.it('should render the styles of a ms-sprite component') {
       @include true.assert {

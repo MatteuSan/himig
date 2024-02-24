@@ -21,4 +21,4 @@
  */
 
 type Component = 'button' | 'card' | 'dialog' | 'overview' | 'form-field' | 'select-field' | 'tag' | 'button-group' | 'profile' | 'title-bar';
-export type GSComponent = `ms-${Component}`;
+export type MSComponent = `ms-${Component}`;

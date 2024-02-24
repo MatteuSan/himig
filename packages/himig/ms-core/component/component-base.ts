@@ -20,19 +20,19 @@
  *  SOFTWARE.
  */
 
-import { GSComponent } from './types/ms-component';
+import { MSComponent } from './types/ms-component';
 import { accessProperty } from './component-properties';
 
-export class GSComponentBase {
+export class MSComponentBase {
 
   protected GS_TARGET_COMPONENT: Element | HTMLElement | null;
-  protected GS_REFERENCE_COMPONENT: GSComponent;
+  protected GS_REFERENCE_COMPONENT: MSComponent;
   protected GS_CUSTOM_PROPERTIES: string[];
   private readonly GS_COMPONENT_NAME: string;
 
   constructor(
     targetComponent: Element | HTMLElement | null,
-    referenceComponent: GSComponent,
+    referenceComponent: MSComponent,
     customProperties: string[],
   ) {
     this.GS_TARGET_COMPONENT = targetComponent;
@@ -61,7 +61,7 @@ export class GSComponentBase {
     return this.GS_TARGET_COMPONENT;
   }
 
-  getReference(): GSComponent {
+  getReference(): MSComponent {
     return this.GS_REFERENCE_COMPONENT;
   }
 

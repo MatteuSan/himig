@@ -20,11 +20,11 @@
 //  SOFTWARE.
 //---------------------------------------------------
 
-@use 'node_modules/@growstocks/gaia';
-@use 'node_modules/@growstocks/gaia/ms-form-field';
+@use 'node_modules/@matteusan/himig';
+@use 'node_modules/@matteusan/himig/ms-form-field';
 @use 'node_modules/sass-true' as true;
 
-@include gaia.init {
+@include himig.init {
   @include true.describe('GS Form Field Extend [mixin]') {
     @include true.it('should extend the styles of a ms-form-field component') {
       @include true.assert {

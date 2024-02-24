@@ -20,7 +20,7 @@
 //  SOFTWARE.
 //---------------------------------------------------
 
-@use 'node_modules/@growstocks/gaia';
+@use 'node_modules/@matteusan/himig';
 @use 'node_modules/sass-true/sass/true';
 
 @include true.describe('Theme Get [function]') {
@@ -33,9 +33,9 @@
       ink: 'ms-white.200',
       border: 'ms-orange.400'
     );
-    @include true.assert-equal(gaia.theme-get($theme, 'fill'), 'ms-orange.400');
-    @include true.assert-equal(gaia.theme-get($theme, 'fill', 'hover'), 'ms-orange.200');
-    @include true.assert-equal(gaia.theme-get($theme, 'ink'), 'ms-white.200');
-    @include true.assert-equal(gaia.theme-get($theme, 'border'), 'ms-orange.400');
+    @include true.assert-equal(himigtheme-get($theme, 'fill'), 'ms-orange.400');
+    @include true.assert-equal(himigtheme-get($theme, 'fill', 'hover'), 'ms-orange.200');
+    @include true.assert-equal(himigtheme-get($theme, 'ink'), 'ms-white.200');
+    @include true.assert-equal(himigtheme-get($theme, 'border'), 'ms-orange.400');
   }
 }

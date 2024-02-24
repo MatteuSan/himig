@@ -20,11 +20,11 @@
 //  SOFTWARE.
 //---------------------------------------------------
 
-@use 'node_modules/@growstocks/gaia';
+@use 'node_modules/@matteusan/himig';
 @use 'node_modules/sass-true' as true;
 
 :root {
-  @include gaia.token-config($accent: (
+  @include himigtoken-config($accent: (
     400: #f70
   ));
 }
@@ -33,8 +33,8 @@
   @include true.it('should return a themed property') {
     @include true.assert {
       @include true.output {
-        @include gaia.property(background-color, (
-          'component-fill', gaia.primitive-token-get('ms-orange.400')
+        @include himigproperty(background-color, (
+          'component-fill', himigprimitive-token-get('ms-orange.400')
         ));
       }
       @include true.expect {
@@ -46,8 +46,8 @@
   @include true.it('should return a themed property binding') {
     @include true.assert {
       @include true.output {
-        @include gaia.property(background-color, (
-          'component-fill', gaia.primitive-token-get('ms-orange.400')
+        @include himigproperty(background-color, (
+          'component-fill', himigprimitive-token-get('ms-orange.400')
         ), $intent: 'bind');
       }
       @include true.expect {
@@ -61,7 +61,7 @@
   @include true.it('should return a themed property') {
     @include true.assert {
       @include true.output {
-        @include gaia.property(background-color, (
+        @include himigproperty(background-color, (
           'component-fill', 'ms-orange.400'
         ));
       }
@@ -74,7 +74,7 @@
   @include true.it('should return a themed property binding') {
     @include true.assert {
       @include true.output {
-        @include gaia.property(background-color, (
+        @include himigproperty(background-color, (
           'component-fill', 'accent-400'
         ), $intent: 'bind');
       }

@@ -20,11 +20,11 @@
 //  SOFTWARE.
 //---------------------------------------------------
 
-@use 'node_modules/@growstocks/gaia';
-@use 'node_modules/@growstocks/gaia/ms-button';
+@use 'node_modules/@matteusan/himig';
+@use 'node_modules/@matteusan/himig/ms-button';
 @use 'node_modules/sass-true' as true;
 
-@include gaia.init {
+@include himig.init {
   @include true.describe('GS Button Extend [mixin]') {
     @include true.it('should extend the styles of a ms-button component') {
       @include true.assert {

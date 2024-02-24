@@ -8,10 +8,10 @@ This mixin is located inside the main `gaia` module. This mixin allows you to ap
 color anatomy spec, and creating an API with it.
 
 ```scss
-@use 'node_modules/@growstocks/gaia';
+@use 'node_modules/@matteusan/himig';
 
 .hs-component {
-  @include gaia.color-apply('component', (
+  @include himigcolor-apply('component', (
     fill: '',
     ink: '',
     border: ''
@@ -39,10 +39,10 @@ color anatomy spec to an existing styled component (with the appropriate keys).
 This is especially useful whenever you want to make variants in color on an already styled component.
 
 ```scss
-@use 'node_modules/@growstocks/gaia';
+@use 'node_modules/@matteusan/himig';
 
 .hs-component {
-  @include gaia.color-bind('component', (
+  @include himigcolor-bind('component', (
     fill: '',
     ink: '',
     border: ''
@@ -67,10 +67,10 @@ This is especially useful whenever you want to make variants in color on an alre
 The border mixin lets you apply border color to an element while creating an API around it that follows the Gaia spec.
 
 ```scss
-@use 'node_modules/@growstocks/gaia';
+@use 'node_modules/@matteusan/himig';
 
 .hs-component {
-  @include gaia.color-border('component', 'primary-400');
+  @include himigcolor-border('component', 'primary-400');
 }
 ```
 
@@ -84,10 +84,10 @@ The border mixin lets you apply border color to an element while creating an API
 The fill mixin lets you apply background color to an element while creating an API around it that follows the Gaia spec.
 
 ```scss
-@use 'node_modules/@growstocks/gaia';
+@use 'node_modules/@matteusan/himig';
 
 .hs-component {
-  @include gaia.color-fill('component', 'primary-400');
+  @include himigcolor-fill('component', 'primary-400');
 }
 ```
 
@@ -101,10 +101,10 @@ The fill mixin lets you apply background color to an element while creating an A
 The ink mixin lets you apply text color to an element while creating an API around it that follows the Gaia spec.
 
 ```scss
-@use 'node_modules/@growstocks/gaia';
+@use 'node_modules/@matteusan/himig';
 
 .hs-component {
-  @include gaia.color-ink('component', 'primary-400');
+  @include himigcolor-ink('component', 'primary-400');
 }
 ```
 

@@ -20,17 +20,17 @@
 //  SOFTWARE.
 //---------------------------------------------------
 
-@use 'node_modules/@growstocks/gaia' with ($expressive-inks: true);
-@use 'node_modules/@growstocks/gaia/ms-badge';
-@use 'node_modules/@growstocks/gaia/ms-button';
-@use 'node_modules/@growstocks/gaia/ms-form-field';
-@use 'node_modules/@growstocks/gaia/ms-item-card';
-@use 'node_modules/@growstocks/gaia/ms-list';
-@use 'node_modules/@growstocks/gaia/ms-surface';
-@use 'node_modules/@growstocks/gaia/ms-sprite';
-@use 'node_modules/@growstocks/gaia/ms-utils';
+@use 'node_modules/@matteusan/himig' with ($expressive-inks: true);
+@use 'node_modules/@matteusan/himig/ms-badge';
+@use 'node_modules/@matteusan/himig/ms-button';
+@use 'node_modules/@matteusan/himig/ms-form-field';
+@use 'node_modules/@matteusan/himig/ms-item-card';
+@use 'node_modules/@matteusan/himig/ms-list';
+@use 'node_modules/@matteusan/himig/ms-surface';
+@use 'node_modules/@matteusan/himig/ms-sprite';
+@use 'node_modules/@matteusan/himig/ms-utils';
 
-@include gaia.init(
+@include himig.init(
   $extend: (
     'bruh': 0.5rem
   )

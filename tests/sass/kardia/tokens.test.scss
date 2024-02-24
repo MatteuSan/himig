@@ -20,7 +20,7 @@
 //  SOFTWARE.
 //---------------------------------------------------
 
-@use 'node_modules/@growstocks/gaia';
+@use 'node_modules/@matteusan/himig';
 @use 'node_modules/sass-true' as true;
 
 @include true.describe('Token [module]') {
@@ -28,7 +28,7 @@
     @include true.assert {
       @include true.output {
         :root {
-          @include gaia.token-config(
+          @include himigtoken-config(
             $surface: (
               300: #700,
               400: #400
@@ -47,12 +47,12 @@
   }
 
   @include true.it('should query a token') {
-    $token: gaia.token-get('surface-300');
+    $token: himigtoken-get('surface-300');
     @include true.assert-equal($token, var(--ms-theme-surface-300));
   }
 
   @include true.it('should query a token\'s raw value') {
-    $token: gaia.token-get-raw('surface-300');
+    $token: himigtoken-get-raw('surface-300');
     @include true.assert-equal($token, #700);
   }
 }

@@ -20,10 +20,10 @@
  *  SOFTWARE.
  */
 
-import { GSComponent } from './component/types/ms-component';
-import { GSComponentBase } from './component';
+import { MSComponent } from './component/types/ms-component';
+import { MSComponentBase } from './component';
 
 export {
-  GSComponent,
-  GSComponentBase
+  MSComponent,
+  MSComponentBase
 }

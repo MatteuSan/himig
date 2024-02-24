@@ -31,9 +31,9 @@ have to pass in a `map` with the [`200-800` schema](color/color-tokens.md#color-
 | `$success`    | Color Token Key or Map |
 
 ```scss
-@use 'node_modules/@growstocks/gaia';
+@use 'node_modules/@matteusan/himig';
 
-@include gaia.init(
+@include himig.init(
   $surface: (
     200: #f70,
     300: #f70,
@@ -67,9 +67,9 @@ more custom.
 | `$breakpoints` | Map of Structure Tokens or raw value |
 
 ```scss
-@use 'node_modules/@growstocks/gaia';
+@use 'node_modules/@matteusan/himig';
 
-@include gaia.init(
+@include himig.init(
   $radius: (
     small: 'radius.sm',
     medium: 'radius.md',
@@ -103,9 +103,9 @@ a [typography token key](typography/typography-tokens.md) to change the value, o
 something more custom.
 
 ```scss
-@use 'node_modules/@growstocks/gaia';
+@use 'node_modules/@matteusan/himig';
 
-@include gaia.init(
+@include himig.init(
   $global: (
     family: 'family.inter',
     size: 'size.sm',

@@ -20,11 +20,11 @@
 //  SOFTWARE.
 //---------------------------------------------------
 
-@use 'node_modules/@growstocks/gaia';
-@use 'node_modules/@growstocks/gaia/ms-badge';
+@use 'node_modules/@matteusan/himig';
+@use 'node_modules/@matteusan/himig/ms-badge';
 @use 'node_modules/sass-true' as true;
 
-@include gaia.init {
+@include himig.init {
   @include true.describe('GS Badge Extend [mixin]') {
     @include true.it('should extend the styles of a ms-badge component') {
       @include true.assert {

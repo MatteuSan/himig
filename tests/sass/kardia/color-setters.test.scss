@@ -20,11 +20,11 @@
 //  SOFTWARE.
 //---------------------------------------------------
 
-@use 'node_modules/@growstocks/gaia';
+@use 'node_modules/@matteusan/himig';
 @use 'node_modules/sass-true' as true;
 
 :root {
-  @include gaia.token-config(
+  @include himigtoken-config(
     $accent: (
       400: 'ms-orange.400',
       ink: 'ms-white.200'
@@ -36,7 +36,7 @@
   @include true.it('should apply colors to a component') {
     @include true.assert {
       @include true.output {
-        @include gaia.color-apply('component', (
+        @include himigcolor-apply('component', (
           fill: 'ms-orange.400',
           ink: 'ms-white.200',
           border: 'ms-orange.400'
@@ -52,7 +52,7 @@
   @include true.it('shoul apply colors to a component from the theme') {
     @include true.assert {
       @include true.output {
-        @include gaia.color-apply('component', (
+        @include himigcolor-apply('component', (
           fill: 'accent-400',
           ink: 'accent-ink',
           border: 'accent-400',
@@ -69,7 +69,7 @@
   @include true.it('should bind colors to a component') {
     @include true.assert {
       @include true.output {
-        @include gaia.color-bind('component', (
+        @include himigcolor-bind('component', (
           fill: 'ms-orange.400',
           ink: 'ms-white.200',
           border: 'ms-orange.400'
@@ -85,7 +85,7 @@
   @include true.it('should bind colors to a component from the theme') {
     @include true.assert {
       @include true.output {
-        @include gaia.color-bind('component', (
+        @include himigcolor-bind('component', (
           fill: 'accent-400',
           ink: 'accent-ink',
           border: 'accent-400',
