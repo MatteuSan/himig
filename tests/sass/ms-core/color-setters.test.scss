@@ -24,7 +24,7 @@
 @use 'node_modules/sass-true' as true;
 
 :root {
-  @include himigtoken-config(
+  @include himig.token-config(
     $accent: (
       400: 'ms-orange.400',
       ink: 'ms-white.200'
@@ -36,7 +36,7 @@
   @include true.it('should apply colors to a component') {
     @include true.assert {
       @include true.output {
-        @include himigcolor-apply('component', (
+        @include himig.color-apply('component', (
           fill: 'ms-orange.400',
           ink: 'ms-white.200',
           border: 'ms-orange.400'
@@ -52,7 +52,7 @@
   @include true.it('shoul apply colors to a component from the theme') {
     @include true.assert {
       @include true.output {
-        @include himigcolor-apply('component', (
+        @include himig.color-apply('component', (
           fill: 'accent-400',
           ink: 'accent-ink',
           border: 'accent-400',
@@ -69,7 +69,7 @@
   @include true.it('should bind colors to a component') {
     @include true.assert {
       @include true.output {
-        @include himigcolor-bind('component', (
+        @include himig.color-bind('component', (
           fill: 'ms-orange.400',
           ink: 'ms-white.200',
           border: 'ms-orange.400'
@@ -85,7 +85,7 @@
   @include true.it('should bind colors to a component from the theme') {
     @include true.assert {
       @include true.output {
-        @include himigcolor-bind('component', (
+        @include himig.color-bind('component', (
           fill: 'accent-400',
           ink: 'accent-ink',
           border: 'accent-400',

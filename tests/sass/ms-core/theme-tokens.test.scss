@@ -24,7 +24,7 @@
 @use 'node_modules/sass-true' as true;
 
 :root {
-  @include himigtoken-config(
+  @include himig.token-config(
     $surface: (
       200: #8bf,
       400: #07f
@@ -38,26 +38,26 @@
 
 @include true.describe('Theme Tokens [module]') {
   @include true.it('should return a theme token custom property') {
-    $test: himigtoken-get('accent-400');
-    $test2: himigtoken-get('surface-200');
+    $test: himig.token-get('accent-400');
+    $test2: himig.token-get('surface-200');
     @include true.assert-equal($test, var(--ms-theme-accent-400));
     @include true.assert-equal($test2, var(--ms-theme-surface-200));
   }
   @include true.it('should return a theme token raw value') {
-    $test: himigtoken-get-raw('accent-400');
-    $test2: himigtoken-get-raw('surface-200');
+    $test: himig.token-get-raw('accent-400');
+    $test2: himig.token-get-raw('surface-200');
     @include true.assert-equal($test, #f70);
     @include true.assert-equal($test2, #8bf);
   }
   @include true.it('should switch to itself when not valid') {
-    $test: himigtoken-switch('accent-400');
-    $test2: himigtoken-switch(inherit);
+    $test: himig.token-switch('accent-400');
+    $test2: himig.token-switch(inherit);
     @include true.assert-equal($test, var(--ms-theme-accent-400));
     @include true.assert-equal($test2, inherit);
   }
   @include true.it('should switch to itself when not valid; when valid, it uses the raw value') {
-    $test: himigtoken-switch-raw('accent-400');
-    $test2: himigtoken-switch-raw(inherit);
+    $test: himig.token-switch-raw('accent-400');
+    $test2: himig.token-switch-raw(inherit);
     @include true.assert-equal($test, #f70);
     @include true.assert-equal($test2, inherit);
   }

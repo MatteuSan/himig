@@ -24,7 +24,7 @@
 @use 'node_modules/sass-true' as true;
 
 :root {
-  @include himigtoken-config($accent: (
+  @include himig.token-config($accent: (
     400: #f70
   ));
 }
@@ -33,8 +33,8 @@
   @include true.it('should return a themed property') {
     @include true.assert {
       @include true.output {
-        @include himigproperty(background-color, (
-          'component-fill', himigprimitive-token-get('ms-orange.400')
+        @include himig.property(background-color, (
+          'component-fill', himig.primitive-token-get('ms-orange.400')
         ));
       }
       @include true.expect {
@@ -46,8 +46,8 @@
   @include true.it('should return a themed property binding') {
     @include true.assert {
       @include true.output {
-        @include himigproperty(background-color, (
-          'component-fill', himigprimitive-token-get('ms-orange.400')
+        @include himig.property(background-color, (
+          'component-fill', himig.primitive-token-get('ms-orange.400')
         ), $intent: 'bind');
       }
       @include true.expect {
@@ -61,7 +61,7 @@
   @include true.it('should return a themed property') {
     @include true.assert {
       @include true.output {
-        @include himigproperty(background-color, (
+        @include himig.property(background-color, (
           'component-fill', 'ms-orange.400'
         ));
       }
@@ -74,7 +74,7 @@
   @include true.it('should return a themed property binding') {
     @include true.assert {
       @include true.output {
-        @include himigproperty(background-color, (
+        @include himig.property(background-color, (
           'component-fill', 'accent-400'
         ), $intent: 'bind');
       }

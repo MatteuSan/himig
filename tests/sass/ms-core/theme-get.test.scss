@@ -33,9 +33,9 @@
       ink: 'ms-white.200',
       border: 'ms-orange.400'
     );
-    @include true.assert-equal(himigtheme-get($theme, 'fill'), 'ms-orange.400');
-    @include true.assert-equal(himigtheme-get($theme, 'fill', 'hover'), 'ms-orange.200');
-    @include true.assert-equal(himigtheme-get($theme, 'ink'), 'ms-white.200');
-    @include true.assert-equal(himigtheme-get($theme, 'border'), 'ms-orange.400');
+    @include true.assert-equal(himig.theme-get($theme, 'fill'), 'ms-orange.400');
+    @include true.assert-equal(himig.theme-get($theme, 'fill', 'hover'), 'ms-orange.200');
+    @include true.assert-equal(himig.theme-get($theme, 'ink'), 'ms-white.200');
+    @include true.assert-equal(himig.theme-get($theme, 'border'), 'ms-orange.400');
   }
 }

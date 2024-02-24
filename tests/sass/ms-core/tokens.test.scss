@@ -28,7 +28,7 @@
     @include true.assert {
       @include true.output {
         :root {
-          @include himigtoken-config(
+          @include himig.token-config(
             $surface: (
               300: #700,
               400: #400
@@ -47,12 +47,12 @@
   }
 
   @include true.it('should query a token') {
-    $token: himigtoken-get('surface-300');
+    $token: himig.token-get('surface-300');
     @include true.assert-equal($token, var(--ms-theme-surface-300));
   }
 
   @include true.it('should query a token\'s raw value') {
-    $token: himigtoken-get-raw('surface-300');
+    $token: himig.token-get-raw('surface-300');
     @include true.assert-equal($token, #700);
   }
 }
