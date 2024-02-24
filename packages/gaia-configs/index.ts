@@ -1,5 +1,5 @@
 /*
- *  Copyright (c) 2022 GrowStocks
+ *  Copyright (c) 2024 MatteuSan
  *
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -20,4 +20,28 @@
  *  SOFTWARE.
  */
 
-//
+const sass = require('sass');
+
+sass.compileString(`$colors: parse-tokens(); @debug $colors`, {
+  alertAscii: false,
+  alertColor: false,
+  charset: false,
+  importer: undefined,
+  importers: [],
+  loadPaths: [],
+  logger: undefined,
+  quietDeps: false,
+  sourceMap: false,
+  sourceMapIncludeSources: false,
+  style: undefined,
+  syntax: undefined,
+  verbose: false,
+  url: undefined,
+  functions: {
+    'parse-tokens($tokens)': (tokens: JSON) => {
+      return new sass.SassMap(Object.entries(tokens).map(([key, value]) => {
+          return [new sass.SassString(key), new sass.SassString(value)];
+      }));
+    }
+  }
+});

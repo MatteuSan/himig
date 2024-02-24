@@ -1,15 +1,14 @@
 {
-  "name": "gaia",
-  "version": "0.4.7",
-  "description": "A design system for building living and breathing experiences for Growtopians.",
+  "name": "himig",
+  "version": "5.0.0",
+  "description": "MatteuSan's personal design system for building user interfaces. ",
   "main": "packages/gaia/_index.scss",
   "files": [
     "packages/**/*"
   ],
-  "repository": "https://github.com/GrowStocks/gaia",
+"repository": "https://github.com/MatteuSan/gaia",
   "author": "Matteu <matteugt@gmail.com>",
   "license": "MIT",
-  "private": false,
   "scripts": {
     "build:sass": "gulp --gulpfile=\"gulpfile-build.ts\"",
     "lint:sass": "npx stylelint \"**/*.scss\"",

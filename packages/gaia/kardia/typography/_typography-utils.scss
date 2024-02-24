@@ -1,5 +1,5 @@
-///
-//  Copyright (c) 2022 GrowStocks
+//---------------------------------------------------
+//  Copyright (c) 2024 MatteuSan
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -18,7 +18,7 @@
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
-///
+//---------------------------------------------------
 
 @use '../theme';
 @use '../tokens' as token;
@@ -30,9 +30,9 @@
 /// @return {void} font family styles.
 @mixin family($component, $family, $intent: 'create') {
   @include theme.property(
-    font-family,
-    ('#{$component}-family', theme.token-switch('family-#{$family}', token.primitive-token-switch('family.#{$family}', $family))),
-    $intent
+      font-family,
+        ('#{$component}-family', theme.token-switch('family-#{$family}', token.primitive-token-switch('family.#{$family}', $family))),
+      $intent
   );
 }
 
@@ -43,9 +43,9 @@
 /// @return {void} font size styles.
 @mixin size($component, $size, $intent: 'create') {
   @include theme.property(
-    font-size,
-    ('#{$component}-size', theme.token-switch('size-#{$size}', token.primitive-token-switch('size.#{$size}', $size))),
-    $intent
+      font-size,
+        ('#{$component}-size', theme.token-switch('size-#{$size}', token.primitive-token-switch('size.#{$size}', $size))),
+      $intent
   );
 }
 
@@ -56,9 +56,9 @@
 /// @return {void} font weight styles.
 @mixin weight($component, $weight, $intent: 'create') {
   @include theme.property(
-    font-weight,
-    ('#{$component}-weight', theme.token-switch('weight-#{$weight}', token.primitive-token-switch('weight.#{$weight}', $weight))),
-    $intent
+      font-weight,
+        ('#{$component}-weight', theme.token-switch('weight-#{$weight}', token.primitive-token-switch('weight.#{$weight}', $weight))),
+      $intent
   );
 }
 
@@ -69,8 +69,8 @@
 /// @return {void} line height styles.
 @mixin line-height($component, $line-height, $intent: 'create') {
   @include theme.property(
-    line-height,
-    ('#{$component}-line-height', theme.token-switch('line-height-#{$line-height}', token.primitive-token-switch('line-height.#{$line-height}', $line-height))),
-    $intent
+      line-height,
+        ('#{$component}-line-height', theme.token-switch('line-height-#{$line-height}', token.primitive-token-switch('line-height.#{$line-height}', $line-height))),
+      $intent
   );
 }

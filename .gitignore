@@ -25,3 +25,7 @@ packages/**/*.js
 # Test byproducts
 **/.coverage
 **/coverage
+
+# Yarn
+.yarn
+.yarnrc.yml

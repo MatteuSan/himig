@@ -1,5 +1,5 @@
-///
-//  Copyright (c) 2022 GrowStocks
+//---------------------------------------------------
+//  Copyright (c) 2024 MatteuSan
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -18,7 +18,7 @@
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
-///
+//---------------------------------------------------
 
 @use '../tools';
 @use 'sass:map';
@@ -32,6 +32,17 @@ $token-keys: map.keys(data.$gs-tokens);
   $variant-keys: map.keys(map.get(data.$gs-tokens, $token-key));
   @each $variant-key in $variant-keys {
     $_primitive-token-registry: list.append($_primitive-token-registry, '#{$token-key}.#{$variant-key}') !global;
+  }
+}
+
+@mixin register($map: ()) {
+  $token-keys: map.keys($map);
+  @each $token-key in $token-keys {
+    $variant-keys: map.keys(map.get($map, $token-key));
+    @each $variant-key in $variant-keys {
+      $_primitive-token-registry: list.append($_primitive-token-registry, '#{$token-key}.#{$variant-key}') !global;
+      @debug $_primitive-token-registry;
+    }
   }
 }
 

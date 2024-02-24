@@ -1,7 +1,7 @@
 {
-  "name": "@growstocks/gaia-configs",
+  "name": "@growstocks/gaia-extensions",
   "version": "1.0.0",
-  "description": "Configuration files for the Gaia Design System",
+  "description": "Extension files for the Gaia Design System",
   "main": "index.ts",
   "repository": "https://github.com/GrowStocks/gaia",
   "author": "Matteu",
