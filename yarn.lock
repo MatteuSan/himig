@@ -734,11 +734,11 @@ __metadata:
   linkType: hard
 
 "@matteusan/himig@file:./packages/himig::locator=himig%40workspace%3A.":
-  version: 1.2.2
-  resolution: "@matteusan/himig@file:./packages/himig#./packages/himig::hash=f9a32b&locator=himig%40workspace%3A."
+  version: 1.2.4
+  resolution: "@matteusan/himig@file:./packages/himig#./packages/himig::hash=d71587&locator=himig%40workspace%3A."
   dependencies:
     "@matteusan/sentro": 0.1.25
-  checksum: 2faa8159714510447b08aeacdd68d8376a58036685e007c899df5fa37ded2ea6acc53d1b808768c84d6029878900bab59b2645a9e70ac65e1f90de5f64765ce4
+  checksum: 9cd68ca821ab830d45a8277db32f47023dcdeac337aff9826d2da2144f20b4ba2c35b8fcb351a6ce968ec3367a43383161decb7cf0c94b332374a2cf1e79e2c3
   languageName: node
   linkType: hard
 
