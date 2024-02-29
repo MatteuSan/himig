@@ -56,7 +56,6 @@ $vue-mode: $test-mode !default;
   $breakpoints: (),
   $extend: (),
 ) {
-
   $primary: ms-core.prioritize(map.get($theme, 'primary'), $primary);
   $accent: ms-core.prioritize(map.get($theme, 'accent'), $accent);
   $surface: ms-core.prioritize(map.get($theme, 'surface'), $surface);
@@ -157,6 +156,8 @@ $vue-mode: $test-mode !default;
     --ms-shadow-color: rgba(0, 0, 0, 0.25);
     --ms-sprite-size: 32px;
     --ms-transition-time: 0.2s;
+
+    font-family: ms-core.token-get('family-global');
   }
 
   @include ms-core.breakpoint-config(map.merge($_init-breakpoints, $breakpoints));

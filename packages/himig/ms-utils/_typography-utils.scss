@@ -84,8 +84,8 @@ $_line-heights: ('broad', 'normal', 'condensed');
       .#{$preset} {
         font-family: ms-core.token-get('family-#{map.get($values, 'family')}');
         font-size: ms-core.token-get('size-#{map.get($values, 'size')}');
-        font-weight: ms-core.primitive-token-get('weight.#{map.get($values, 'weight')}');
-        line-height: ms-core.primitive-token-get('line-height.#{map.get($values, 'line-height')}');
+        font-weight: ms-core.token-switch('weight-#{map.get($values, 'weight')}', ms-core.primitive-token-switch('weight.#{map.get($values, 'weight')}', $values));
+        line-height: ms-core.token-switch('line-height-#{map.get($values, 'weight')}', ms-core.primitive-token-switch('line-height.#{map.get($values, 'line-height')}', $values));
       }
 
       @each $breakpoint in $_breakpoints {
@@ -93,8 +93,8 @@ $_line-heights: ('broad', 'normal', 'condensed');
           @include ms-core.breakpoint-create($breakpoint) {
             font-family: ms-core.token-get('family-#{map.get($values, 'family')}') !important;
             font-size: ms-core.token-get('size-#{map.get($values, 'size')}') !important;
-            font-weight: ms-core.primitive-token-get('weight.#{map.get($values, 'weight')}') !important;
-            line-height: ms-core.primitive-token-get('line-height.#{map.get($values, 'line-height')}') !important;
+            font-weight: ms-core.token-switch('weight-#{map.get($values, 'weight')}', ms-core.primitive-token-switch('weight.#{map.get($values, 'weight')}', $values));
+            line-height: ms-core.token-switch('line-height-#{map.get($values, 'weight')}', ms-core.primitive-token-switch('line-height.#{map.get($values, 'line-height')}', $values));
           }
         }
       }

@@ -215,7 +215,7 @@ $_typography-tokens: (
   'family': (
     'mono': ('Jetbrains Mono', monospace),
     'sans-serif': ('Inter', sans-serif),
-    'serif': ('Lora', serif),
+    'serif': ('Noto Serif Display', serif),
   ),
   'size': (
     'xs': clamp(#{tools.to-rem(10px)}, 2vw, #{tools.to-rem(12px)}),
