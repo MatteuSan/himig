@@ -32,38 +32,38 @@ $_presets: (
   'supertitle': (
     family: 'supertitle',
     size: 'supertitle',
-    weight: 'bold',
-    line-height: 'normal'
+    weight: 'supertitle',
+    line-height: 'supertitle'
   ),
   'title': (
     family: 'title',
     size: 'title',
-    weight: 'bold',
-    line-height: 'normal'
+    weight: 'title',
+    line-height: 'title'
   ),
   'subtitle': (
     family: 'subtitle',
     size: 'subtitle',
-    weight: 'bold',
-    line-height: 'normal'
+    weight: 'subtitle',
+    line-height: 'subtitle'
   ),
   'body': (
     family: 'body',
     size: 'body',
-    weight: 'normal',
-    line-height: 'normal'
+    weight: 'body',
+    line-height: 'body'
   ),
   'mono': (
     family: 'mono',
     size: 'mono',
-    weight: 'normal',
-    line-height: 'normal'
+    weight: 'mono',
+    line-height: 'mono'
   ),
   'small': (
     family: 'small',
     size: 'small',
-    weight: 'light',
-    line-height: 'normal'
+    weight: 'small',
+    line-height: 'small'
   )
 );
 $_sizes: ('xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl');
