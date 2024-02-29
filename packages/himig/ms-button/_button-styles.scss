@@ -26,11 +26,7 @@
 @use 'button-theme' as theme;
 @use 'button-mixins' as style;
 
-$_states: (
-  'success',
-  'warning',
-  'error'
-);
+$_states: ('error');
 
 @mixin render(
   $color: (),
