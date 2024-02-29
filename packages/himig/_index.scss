@@ -134,7 +134,6 @@ $vue-mode: $test-mode !default;
   );
 
   :root {
-    @include ms-core.primitive-token-register($map: $extend);
     @include ms-core.theme-config(
       $primary: $primary,
       $accent: $accent,
@@ -151,6 +150,7 @@ $vue-mode: $test-mode !default;
       $body: map.merge($_init-type-body, $body),
       $mono: map.merge($_init-type-mono, $mono),
       $small: map.merge($_init-type-small, $small),
+      $extend: $extend,
     );
 
     // Immutables
