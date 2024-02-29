@@ -20,8 +20,11 @@
 //  SOFTWARE.
 //---------------------------------------------------
 
-@forward 'tools-color';
-@forward 'tools-helpers';
-@forward 'tools-sentro';
-@forward 'tools-string' as str-*;
-@forward 'tools-validation';
+@use 'tools-validation' as validators;
+
+@function prioritize($priority, $fallback) {
+  @if validators.is-empty($priority) {
+    @return $fallback;
+  }
+  @return $priority;
+}
