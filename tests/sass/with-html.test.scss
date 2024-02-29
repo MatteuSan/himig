@@ -23,11 +23,10 @@
 @use 'node_modules/@matteusan/himig' with ($expressive-inks: true);
 @use 'node_modules/@matteusan/himig/ms-badge';
 @use 'node_modules/@matteusan/himig/ms-button';
+@use 'node_modules/@matteusan/himig/ms-card';
 @use 'node_modules/@matteusan/himig/ms-form-field';
-@use 'node_modules/@matteusan/himig/ms-item-card';
 @use 'node_modules/@matteusan/himig/ms-list';
-@use 'node_modules/@matteusan/himig/ms-surface';
-@use 'node_modules/@matteusan/himig/ms-sprite';
+@use 'node_modules/@matteusan/himig/ms-select-field';
 @use 'node_modules/@matteusan/himig/ms-utils';
 
 @include himig.init(
@@ -42,11 +41,10 @@
 ) {
   @include ms-badge.render();
   @include ms-button.render();
+  @include ms-card.render();
   @include ms-form-field.render();
-  @include ms-item-card.render();
   @include ms-list.render();
-  @include ms-surface.render();
-  @include ms-sprite.render();
+  @include ms-select-field.render();
 
   @include ms-utils.layout();
   @include ms-utils.color();

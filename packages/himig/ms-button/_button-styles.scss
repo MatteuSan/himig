@@ -78,6 +78,10 @@ $_states: ('error');
     );
     outline-offset: 2px;
 
+    &:where(:disabled) {
+      cursor: not-allowed;
+    }
+
     &:where(.is-icon-only) {
       @include ms-core.struct-bind('button', (
         width: (min: auto),
@@ -97,18 +101,18 @@ $_states: ('error');
             'hover': '#{$state}-300',
             'focus': '#{$state}-400',
             'active': '#{$state}-200',
-            'disabled': '#{$state}-800',
+            'disabled': 'disabled-ink',
           ),
           $inks: (
             'default': '#{$state}-ink',
-            'disabled': '#{$state}-800'
+            'disabled': 'disabled-ink'
           ),
           $borders: (
             'default': '#{$state}-400',
             'hover': '#{$state}-300',
             'focus': '#{$state}-400',
             'active': '#{$state}-200',
-            'disabled': '#{$state}-800',
+            'disabled': 'disabled-ink',
           )
         );
       }
@@ -137,18 +141,18 @@ $_states: ('error');
               'hover': '#{$state}-300',
               'focus': '#{$state}-400',
               'active': '#{$state}-200',
-              'disabled': '#{$state}-800',
+              'disabled': 'disabled-ink',
             ),
             $inks: (
               'default': '#{$state}-ink',
-              'disabled': '#{$state}-800'
+              'disabled': 'disabled-ink'
             ),
             $borders: (
               'default': '#{$state}-400',
               'hover': '#{$state}-300',
               'focus': '#{$state}-400',
               'active': '#{$state}-200',
-              'disabled': '#{$state}-800',
+              'disabled': 'disabled-ink',
             )
           );
         }
@@ -170,18 +174,18 @@ $_states: ('error');
               'hover': '#{$state}-300',
               'focus': '#{$state}-400',
               'active': '#{$state}-200',
-              'disabled': '#{$state}-800',
+              'disabled': 'disabled',
             ),
             $inks: (
               'default': '#{$state}-ink',
-              'disabled': '#{$state}-600'
+              'disabled': 'disabled-ink'
             ),
             $borders: (
               'default': '#{$state}-400',
               'hover': '#{$state}-300',
               'focus': '#{$state}-400',
               'active': '#{$state}-200',
-              'disabled': '#{$state}-800',
+              'disabled': 'disabled',
             )
           );
         }

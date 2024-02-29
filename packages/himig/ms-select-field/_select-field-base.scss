@@ -25,7 +25,7 @@
 @use 'sass:math';
 
 @mixin init($top-label-distance, $left-label-distance, $top-padding) {
-  .ms-form-field {
+  .ms-select-field {
     width: 100%;
     display: flex;
     flex-flow: column nowrap;
@@ -33,29 +33,8 @@
 
     @content;
 
-    .ms-form-field__label {
-      position: absolute;
-      top: calc(#{$top-label-distance});
-      left: calc(#{$left-label-distance} + 2px);
-      @include ms-core.color-apply('form-field-label', (
-        fill: rgba(0 0 0 / 0),
-        ink: inherit,
-      ));
-      @include ms-core.struct-apply('form-field-label', (
-        padding: ('xs' 'xs' 0 0),
-      ));
-      @include ms-core.typography-apply('form-field-label', (
-        family: inherit,
-        size: inherit,
-        weight: inherit,
-        line-height: inherit,
-      ));
-      @include ms-core.prefix(transition, all var(--ms-transition-time) ease);
-      cursor: text;
-    }
-
-    .ms-form-field__input {
-      @include ms-core.struct-apply('form-field', (
+    .ms-select-field__input {
+      @include ms-core.struct-apply('select-field', (
         width: 100%,
         margin: 0,
         radius: 0,
@@ -63,14 +42,13 @@
         border-style: solid,
         shadow: 'none',
       ));
-      padding: ms-core.key-get('form-field-padding');
-      padding-top: calc(#{$top-padding} + 1rem) !important;
-      @include ms-core.color-apply('form-field', (
+      padding: $top-label-distance;
+      @include ms-core.color-apply('select-field', (
         fill: inherit,
         ink: inherit,
         border: inherit
       ));
-      @include ms-core.typography-apply('form-field', (
+      @include ms-core.typography-apply('select-field', (
         family: inherit,
         size: inherit,
         weight: inherit,
@@ -87,24 +65,13 @@
         color: rgba(0 0 0 / 0) !important;
         user-select: none !important;
       }
-
-      &:focus,
-      &:not(:placeholder-shown){
-        + .ms-form-field__label {
-          top: math.div($top-label-distance, 2);
-          @include ms-core.typography-bind('form-field-label', (
-            family: 'small',
-            size: 'small',
-          ));
-        }
-      }
     }
 
-    .ms-form-field__helper {
-      @include ms-core.color-apply('form-field-helper', (
+    .ms-select-field__helper {
+      @include ms-core.color-apply('select-field-helper', (
         ink: inherit,
       ));
-      @include ms-core.typography-apply('form-field-helper', (
+      @include ms-core.typography-apply('select-field-helper', (
         family: inherit,
         size: inherit,
         weight: inherit,

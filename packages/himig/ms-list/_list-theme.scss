@@ -42,11 +42,11 @@ $init-struct: (
     min: 140px,
     max: max-content
   ),
-  padding: ('sm' 'md'),
+  padding: 'md',
   radius: 'small',
   border-width: 'xs',
   border-style: solid,
-  gap: 'xs'
+  gap: 'sm'
 );
 
 $init-typography: (

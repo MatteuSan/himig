@@ -39,5 +39,13 @@
     @include ms-core.color-apply('badge', $color);
     @include ms-core.struct-apply('badge', $struct);
     @include ms-core.typography-bind('badge', $typography);
+
+    &:where(.is-outlined) {
+      @include ms-core.color-bind('badge', (
+        fill: transparent,
+        ink: ms-core.theme-get($color, 'fill'),
+        border: ms-core.theme-get($color, 'border')
+      ));
+    }
   }
 }

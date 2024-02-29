@@ -20,25 +20,48 @@
 //  SOFTWARE.
 //---------------------------------------------------
 
-@use 'node_modules/@matteusan/himig';
-@use 'node_modules/@matteusan/himig/ms-sprite';
-@use 'node_modules/sass-true' as true;
+@use '../ms-core';
+@use 'sass:list';
+@use 'card-base' as base;
+@use 'card-theme' as theme;
 
-@include himig.init {
-  @include true.describe('MS Sprite Render [mixin]') {
-    @include true.it('should render the styles of a ms-sprite component') {
-      @include true.assert {
-        @include true.output {
-          @include ms-sprite.render();
-        }
-        @include true.expect {
-          .ms-sprite {
-            width: var(--ms-sprite-width, var(--ms-sprite-size));
-            height: var(--ms-sprite-height, var(--ms-sprite-size));
-            user-select: none;
-          }
-        }
-      }
+@mixin render(
+  $color: (),
+  $struct: (),
+  $typography: (),
+  $settings: ()
+) {
+  $color: ms-core.theme-merge(theme.$init-color, $color);
+  $struct: ms-core.theme-merge(theme.$init-struct, $struct);
+  $typography: ms-core.theme-merge(theme.$init-typography, $typography);
+  $settings: ms-core.theme-merge(theme.$init-settings, $settings);
+
+  @include base.init(
+    $struct,
+    $typography
+  ) {
+    @include ms-core.color-apply('card', (
+      fill: ms-core.theme-get($color, 'fill'),
+      ink: ms-core.theme-get($color, 'ink'),
+    ));
+    @include ms-core.color-border('card', ms-core.theme-get($color, 'border'), 'bind');
+    @include ms-core.struct-apply('card', (
+      radius: ms-core.theme-get($struct, 'radius'),
+      shadow: 'none',
+    ));
+
+    &:where(.is-outlined) {
+      @include ms-core.color-bind('card', (
+        fill: transparent,
+        ink: ms-core.theme-get($color, 'ink'),
+        border: ms-core.theme-get($color, 'border')
+      ));
+    }
+
+    &:where(.is-raised) {
+      @include ms-core.struct-bind('card', (
+        shadow: 'low'
+      ));
     }
   }
 }

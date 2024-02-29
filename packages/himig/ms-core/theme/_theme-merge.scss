@@ -42,5 +42,5 @@
 /// @param {map} $modifying-map
 /// @return {map} The merged map.
 @function _smart-merge($base-map, $modifying-map) {
-  @return map.merge($base-map, $modifying-map);
+  @return map.deep-merge($base-map, $modifying-map);
 }

@@ -23,10 +23,10 @@
 @use '../ms-core';
 
 /// Component variant maker.
-/// @param {string} $variant
+/// @param {string} $variants
 /// @return {*} extension class.
-@mixin extend($variant) {
-  .ms-item-card.is-#{$variant} {
+@mixin extend($variants) {
+  @include ms-core.component-extend('card', $variants) {
     @content;
   }
 }
@@ -35,19 +35,19 @@
 /// @param {map} $color-map
 /// @return {*} color styles.
 @mixin color($color-map) {
-  @include ms-core.color-bind('item-card', $color-map);
+  @include ms-core.color-bind('card', $color-map);
 }
 
 /// Structure variant mixin.
 /// @param {map} $struct-map
 /// @return {*} struct styles.
 @mixin struct($struct-map) {
-  @include ms-core.struct-bind('item-card', $struct-map);
+  @include ms-core.struct-bind('card', $struct-map);
 }
 
 /// Typography variant mixin.
 /// @param {map} $type-map
 /// @return {*} typography styles.
 @mixin typography($type-map) {
-  @include ms-core.typography-bind('item-card', $type-map);
+  @include ms-core.typography-bind('card', $type-map);
 }

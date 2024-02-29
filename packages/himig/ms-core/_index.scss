@@ -74,3 +74,4 @@ $type-inherit-template: (
 @forward 'struct' as struct-*;
 @forward 'sprite' as sprite-*;
 @forward 'typography' as typography-*;
+@forward 'component' as component-*;

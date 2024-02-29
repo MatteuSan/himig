@@ -57,6 +57,7 @@
         weight: inherit,
         line-height: inherit,
       ));
+      @include ms-core.prefix(transition, all var(--ms-transition-time) ease);
     }
   }
 }

@@ -20,47 +20,34 @@
 //  SOFTWARE.
 //---------------------------------------------------
 
-$init-color: (
-  fill: 'surface-400',
-  ink: 'surface-ink',
-  border: 'surface-400',
-);
+@use '../ms-core';
 
-$init-struct: (
-  padding: (
-    default: 'md',
-    footer: ('sm' 'md')
-  ),
-  radius: 'small',
-  gap: 'sm',
-  border-width: 'xs',
-  border-style: solid,
-);
+/// Component variant maker.
+/// @param {string} $variants
+/// @return {*} extension class.
+@mixin extend($variants) {
+  @include ms-core.component-extend('select-field', $variants) {
+    @content;
+  }
+}
 
-$init-typography: (
-  family: (
-    default: 'global',
-    title: 'title',
-    subtitle: 'subtitle',
-    footer: 'small'
-  ),
-  size: (
-    default: 'body',
-    title: 'subtitle',
-    subtitle: 'small',
-    footer: 'small'
-  ),
-  weight: (
-    default: 'normal',
-    title: 'bold',
-    subtitle: 'normal',
-    footer: 'normal'
-  ),
-  line-height: (
-    default: 'normal',
-    title: 'normal',
-    footer: 'condensed',
-  )
-);
+/// Color variant map.
+/// @param {map} $color-map
+/// @return {*} color styles.
+@mixin color($color-map) {
+  @include ms-core.color-bind('select-field', $color-map);
+}
 
-$init-settings: ();
+/// Structure variant mixin.
+/// @param {map} $struct-map
+/// @return {*} struct styles.
+@mixin struct($struct-map) {
+  @include ms-core.struct-bind('select-field', $struct-map);
+}
+
+/// Typography variant mixin.
+/// @param {map} $type-map
+/// @return {*} typography styles.
+@mixin typography($type-map) {
+  @include ms-core.typography-bind('select-field', $type-map);
+}

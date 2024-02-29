@@ -44,7 +44,10 @@ $vue-mode: $test-mode !default;
   $surface: 'ms-dark-grey',
   $background: 'ms-dark-grey.800',
   $error: 'ms-red',
-  $undefined: 'ms-grey',
+  $disabled: (
+    'default': rgba(#fff, 12%),
+    'ink': rgba(#fff, 34%)
+  ),
   $radius: (),
   $global: (),
   $supertitle: (),
@@ -61,7 +64,7 @@ $vue-mode: $test-mode !default;
   $surface: ms-core.prioritize(map.get($theme, 'surface'), $surface);
   $background: ms-core.prioritize(map.get($theme, 'background'), $background);
   $error: ms-core.prioritize(map.get($theme, 'error'), $error);
-  $undefined: ms-core.prioritize(map.get($theme, 'undefined'), $undefined);
+  $disabled: ms-core.prioritize(map.get($theme, 'disabled'), $disabled);
   $radius: ms-core.prioritize(map.get($theme, 'radius'), $radius);
   $global: ms-core.prioritize(map.get($theme, 'global'), $global);
   $supertitle: ms-core.prioritize(map.get($theme, 'supertitle'), $supertitle);
@@ -139,7 +142,7 @@ $vue-mode: $test-mode !default;
       $surface: $surface,
       $background: $background,
       $error: $error,
-      $undefined: $undefined,
+      $disabled: $disabled,
       $radius: $radius,
       $breakpoints: $breakpoints,
       $global: map.merge($_init-type-global, $global),
@@ -158,18 +161,19 @@ $vue-mode: $test-mode !default;
     --ms-transition-time: 0.2s;
 
     font-family: ms-core.token-get('family-global');
+    line-height: ms-core.token-get('line-height-global');
   }
 
   @include ms-core.breakpoint-config(map.merge($_init-breakpoints, $breakpoints));
 
   @include font-pack.load((
-    'global': map.get($global, 'family'),
-    'supertitle': map.get($supertitle, 'family'),
-    'title': map.get($title, 'family'),
-    'subtitle': map.get($subtitle, 'family'),
-    'body': map.get($body, 'family'),
-    'mono': map.get($mono, 'family'),
-    'small': map.get($small, 'family'),
+    'global': map.get(map.merge($_init-type-global, $global), 'family'),
+    'supertitle': map.get(map.merge($_init-type-supertitle, $supertitle), 'family'),
+    'title': map.get(map.merge($_init-type-title, $title), 'family'),
+    'subtitle': map.get(map.merge($_init-type-subtitle, $subtitle), 'family'),
+    'body': map.get(map.merge($_init-type-body, $body), 'family'),
+    'mono': map.get(map.merge($_init-type-mono, $mono), 'family'),
+    'small': map.get(map.merge($_init-type-small, $small), 'family'),
   ));
 
   *,
@@ -208,7 +212,7 @@ $vue-mode: $test-mode !default;
     font-family: inherit;
     font-size: inherit;
     font-weight: inherit;
-    line-height: ms-core.primitive-token-get('line-height.normal');
+    line-height: inherit;
   }
 
   main.content-wrap {

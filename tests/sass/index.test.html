@@ -1,16 +1,16 @@
 <!--
   ~  Copyright (c) 2024 MatteuSan
-  ~
+  ~  
   ~  Permission is hereby granted, free of charge, to any person obtaining a copy
   ~  of this software and associated documentation files (the "Software"), to deal
   ~  in the Software without restriction, including without limitation the rights
   ~  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
   ~  copies of the Software, and to permit persons to whom the Software is
   ~  furnished to do so, subject to the following conditions:
-  ~
+  ~  
   ~  The above copyright notice and this permission notice shall be included in all
   ~  copies or substantial portions of the Software.
-  ~
+  ~  
   ~  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
   ~  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
   ~  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -38,6 +38,12 @@
         <span class="ms-badge">
             <span class="ms-badge__label">Hello! :)</span>
         </span>
+        <span class="ms-badge is-outlined">
+            <span class="ms-badge__label">こんにちは! :)</span>
+        </span>
+        <span class="ms-badge">
+            <span class="ms-badge__label">Mabuhay! :)</span>
+        </span>
     </div>
     <div class="grid cols-4 gap-sm pi-center">
         <button class="ms-button">
@@ -50,33 +56,33 @@
         <button class="ms-button is-filled">
             <span class="ms-button__label">Button</span>
         </button>
-        <button class="ms-button is-filled" disabled>
+        <button class="ms-button" disabled>
             <span class="ms-button__label">Button</span>
         </button>
 
         <button class="ms-button is-success">
             <span class="ms-button__label">Button</span>
         </button>
-        <button class="ms-button is-outlined is-success">
+        <button class="ms-button is-outlined">
             <span class="ms-button__label">Button</span>
         </button>
-        <button class="ms-button is-filled is-success">
+        <button class="ms-button is-filled">
             <span class="ms-button__label">Button</span>
         </button>
-        <button class="ms-button is-filled is-success" disabled>
+        <button class="ms-button is-outlined" disabled>
             <span class="ms-button__label">Button</span>
         </button>
 
         <button class="ms-button is-warning">
             <span class="ms-button__label">Button</span>
         </button>
-        <button class="ms-button is-outlined is-warning">
+        <button class="ms-button is-outlined">
             <span class="ms-button__label">Button</span>
         </button>
-        <button class="ms-button is-filled is-warning">
+        <button class="ms-button is-filled">
             <span class="ms-button__label">Button</span>
         </button>
-        <button class="ms-button is-filled  is-warning" disabled>
+        <button class="ms-button is-filled" disabled>
             <span class="ms-button__label">Button</span>
         </button>
 
@@ -94,6 +100,39 @@
             <span class="ms-button__label">Button</span>
         </button>
     </div>
+
+    <section class="flex flow-row gap-md">
+        <div class="ms-card">
+            <div class="ms-card__media">
+                <img src="https://www.matteusan.com/img/purplecress.png" alt="lol">
+            </div>
+            <header class="ms-card__header">
+                <div class="ms-card__mast">
+                    <h2 class="ms-card__title">CARD TITLE</h2>
+                    <p class="ms-card__subtitle">Card Subtitle.</p>
+                </div>
+            </header>
+            <main class="ms-card__content">
+                Card content :)
+            </main>
+        </div>
+
+        <div class="ms-card is-outlined">
+            <div class="ms-card__media">
+                <img src="https://www.matteusan.com/img/purplecress.png" alt="lol">
+            </div>
+            <header class="ms-card__header">
+                <div class="ms-card__mast">
+                    <h2 class="ms-card__title">CARD TITLE</h2>
+                    <p class="ms-card__subtitle">Card Subtitle.</p>
+                </div>
+            </header>
+            <main class="ms-card__content">
+                Card content :)
+            </main>
+        </div>
+    </section>
+
     <div class="grid cols-2 gap-sm pi-center">
         <label class="ms-form-field">
             <input type="text" class="ms-form-field__input" placeholder="a" name="text-field" />
@@ -107,6 +146,18 @@
             <span class="ms-form-field__helper">Helper Text</span>
         </label>
 
+        <label class="ms-form-field is-outlined">
+            <input type="text" class="ms-form-field__input" placeholder="a" name="text-field" />
+            <span class="ms-form-field__label">GS Form Field</span>
+            <span class="ms-form-field__helper">Helper Text</span>
+        </label>
+
+        <label class="ms-form-field is-outlined is-error">
+            <input type="text" class="ms-form-field__input" placeholder="a" name="text-field" />
+            <span class="ms-form-field__label">GS Form Field</span>
+            <span class="ms-form-field__helper">Helper Text</span>
+        </label>
+
         <label class="ms-form-field">
             <input type="text" class="ms-form-field__input" placeholder="a" name="text-field" disabled />
             <span class="ms-form-field__label">GS Form Field</span>
@@ -117,6 +168,60 @@
             <input type="text" class="ms-form-field__input" placeholder="a" name="text-field" disabled />
             <span class="ms-form-field__label">GS Form Field</span>
             <span class="ms-form-field__helper">Helper Text</span>
+        </label>
+
+        <label class="ms-select-field">
+            <select type="text" class="ms-select-field__input" placeholder="" name="text-field">
+                <option value="a">A</option>
+                <option value="b">B</option>
+                <option value="c">C</option>
+            </select>
+            <span class="ms-select-field__helper">Helper Text</span>
+        </label>
+
+        <label class="ms-select-field is-error">
+            <select type="text" class="ms-select-field__input" placeholder="" name="text-field">
+                <option value="a">A</option>
+                <option value="b">B</option>
+                <option value="c">C</option>
+            </select>
+            <span class="ms-select-field__helper">Helper Text</span>
+        </label>
+
+        <label class="ms-select-field is-outlined">
+            <select type="text" class="ms-select-field__input" name="text-field">
+                <option value="a">A</option>
+                <option value="b">B</option>
+                <option value="c">C</option>
+            </select>
+            <span class="ms-select-field__helper">Helper Text</span>
+        </label>
+
+        <label class="ms-select-field is-outlined is-error">
+            <select type="text" class="ms-select-field__input" name="text-field">
+                <option value="a">A</option>
+                <option value="b">B</option>
+                <option value="c">C</option>
+            </select>
+            <span class="ms-select-field__helper">Helper Text</span>
+        </label>
+
+        <label class="ms-select-field is-outlined">
+            <select type="text" class="ms-select-field__input" disabled name="text-field">
+                <option value="a">A</option>
+                <option value="b">B</option>
+                <option value="c">C</option>
+            </select>
+            <span class="ms-select-field__helper">Helper Text</span>
+        </label>
+
+        <label class="ms-select-field">
+            <select type="text" class="ms-select-field__input" disabled name="text-field">
+                <option value="a">A</option>
+                <option value="b">B</option>
+                <option value="c">C</option>
+            </select>
+            <span class="ms-select-field__helper">Helper Text</span>
         </label>
 
         <label class="ms-form-field">
@@ -130,134 +235,15 @@
             <span class="ms-form-field__label">GS Form Field</span>
             <span class="ms-form-field__helper">Helper Text</span>
         </label>
-
-        <label class="ms-form-field">
-            <textarea name="bruh" cols="30" class="ms-form-field__input" placeholder="a" rows="10" disabled></textarea>
-            <span class="ms-form-field__label">GS Form Field</span>
-            <span class="ms-form-field__helper">Helper Text</span>
-        </label>
-
-        <label class="ms-form-field is-error">
-            <textarea name="bruh" cols="30" class="ms-form-field__input" placeholder="a" rows="10" disabled></textarea>
-            <span class="ms-form-field__label">GS Form Field</span>
-            <span class="ms-form-field__helper">Helper Text</span>
-        </label>
     </div>
-    <div class="ms-surface is-raised mt-3xl">
-        <div class="ms-surface__header start-1 end-9 flex flow-row wrap-none jc-space-between ai-center">
-            <h2>Report an item</h2>
-            <button class="ms-button">
-                <span class="ms-button__label">Cancel</span>
-            </button>
-        </div>
-        <div class="ms-surface__body flex flow-column start-1 end-9 gap-sm">
-            <label class="ms-form-field">
-                <input type="text" class="ms-form-field__input" placeholder="a" name="text-field" />
-                <span class="ms-form-field__label">Item to report</span>
-                <span class="ms-form-field__helper">Must be a valid item</span>
-            </label>
-            <label class="ms-form-field is-control">
-                <span class="ms-form-field__label">
-                    <input type="radio" class="ms-form-field__input" name="choice" />
-                    Price is inaccurate
-                </span>
-            </label>
-            <label class="ms-form-field is-control">
-                <span class="ms-form-field__label">
-                    <input type="radio" class="ms-form-field__input" name="choice" />
-                    Item does not exist
-                </span>
-            </label>
-            <label class="ms-form-field is-control">
-                <span class="ms-form-field__label">
-                    <input type="radio" class="ms-form-field__input" name="choice" />
-                    Item is unobtainable
-                </span>
-            </label>
-            <div class="flex flow-row jc-end">
-                <button class="ms-button is-filled is-raised">
-                    <span class="ms-button__label">Button</span>
-                </button>
-            </div>
-        </div>
-    </div>
-    <div class="ms-item-card" x-data="{ isMenuOpen: false }">
-        <div class="ms-item-card__header">
-            <div class="ms-item-card__sprite">
-                <img src="gds-icon.png" alt="Item Sprite" class="ms-sprite"/>
-            </div>
-            <div class="ms-item-card__mast">
-                <h3 class="ms-item-card__title">Item Name</h3>
-                <p class="ms-item-card__subtitle mb-xs">Price: <b class="fill-warning-400 ink-warning-ink px-sm py-xs r-sm inline-block">55 WLs</b></p>
-                <p class="ms-item-card__subtitle">Rate: <b class="fill-success-400 ink-success-ink px-sm py-xs r-sm inline-block">+200%</b></p>
-            </div>
-            <div class="ms-item-card__menu relative">
-                <button class="ms-button is-icon-only" x-on:click="isMenuOpen = !isMenuOpen">
-                    <i class="ms-button__icon material-icons" x-text="isMenuOpen ? 'close' : 'menu'"></i>
-                </button>
-                <ul class="ms-list is-selectable is-raised absolute" x-show="isMenuOpen">
-                    <li class="ms-list__item">
-                        <a href="#">Option 1</a>
-                    </li>
-                    <li class="ms-list__item">
-                        <a href="#">Option 2</a>
-                    </li>
-                    <li class="ms-list__item">
-                        <a href="#">Option 3</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="ms-item-card__footer fill-error-400 ink-error-ink border-error-400">
-            <span>The price is STABLE | Edited 22h ago</span>
-        </div>
-    </div>
-    <div class="ms-item-card" x-data="{ isMenuOpen: false }">
-        <div class="ms-item-card__header">
-            <div class="ms-item-card__sprite">
-                <img src="gds-icon.png" alt="Item Sprite" class="ms-sprite"/>
-            </div>
-            <div class="ms-item-card__mast">
-                <h3 class="ms-item-card__title">Item Name</h3>
-                <p class="ms-item-card__subtitle mb-xs">Price: <b class="fill-warning-400 ink-warning-ink px-sm py-xs r-sm inline-block">55 WLs</b></p>
-                <p class="ms-item-card__subtitle">Rate: <b class="fill-success-400 ink-success-ink px-sm py-xs r-sm inline-block">+200%</b></p>
-            </div>
-            <div class="ms-item-card__menu relative">
-                <button class="ms-button is-icon-only" x-on:click="isMenuOpen = !isMenuOpen">
-                    <i class="ms-button__icon material-icons" x-text="isMenuOpen ? 'close' : 'menu'"></i>
-                </button>
-                <ul class="ms-list is-selectable is-raised absolute" x-show="isMenuOpen">
-                    <li class="ms-list__item">
-                        <a href="#">Option 1</a>
-                    </li>
-                    <li class="ms-list__item">
-                        <a href="#">Option 2</a>
-                    </li>
-                    <li class="ms-list__item">
-                        <a href="#">Option 3</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="ms-surface is-raised mt-3xl">
-        <div class="ms-surface__header start-1 end-9 flex flow-row wrap-none jc-space-between ai-center">
-            <h2>Item information</h2>
-        </div>
-        <ul class="start-1 end-9">
-            <li class="ms-surface__row fill-warning-400 ink-warning-ink">Price Status: <b>SEMI-STABLE</b></li>
-            <li class="ms-surface__row fill-error-400 ink-error-ink">Demand Status: <b>IN-DEMAND</b></li>
-            <li class="ms-surface__row fill-surface-400 ink-surface-ink">Source: <b>BLARNEY2</b></li>
-            <li class="ms-surface__row fill-surface-400 ink-surface-ink">Edited <b>14h ago</b> by <b>Editor</b></li>
-            <li class="ms-surface__row flex flow-row wrap ac-center fill-error-400 ink-error-ink"><i class="ms-sprite is-icon material-icons mr-sm">warning</i> The price above may be outdated</li>
+    <div>
+        <ul class="ms-list">
+            <li class="ms-list__item">Bruh</li>
+            <li class="ms-list__item">Bruh</li>
+            <li class="ms-list__item">Bruh</li>
+            <li class="ms-list__item">Bruh</li>
         </ul>
     </div>
-    <ul class="ms-list">
-        <li class="ms-list__item">Bruh</li>
-        <li class="ms-list__item">Bruh</li>
-        <li class="ms-list__item">Bruh</li>
-        <li class="ms-list__item">Bruh</li>
-    </ul>
     <div class="relative" x-data="{ isMenuOpen: false }">
         <button class="ms-button" x-on:click="isMenuOpen = !isMenuOpen">
             <span class="ms-button__label">Open Menu</span>

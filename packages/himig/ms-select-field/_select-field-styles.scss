@@ -22,8 +22,8 @@
 
 @use '../ms-core';
 @use 'sass:list';
-@use 'form-field-base' as base;
-@use 'form-field-theme' as theme;
+@use 'select-field-base' as base;
+@use 'select-field-theme' as theme;
 
 @mixin render(
   $color: (),
@@ -43,11 +43,11 @@
     ms-core.primitive-token-switch('padding.#{$resolve-padding}', $resolve-padding),
     ms-core.primitive-token-switch('padding.#{list.nth(ms-core.theme-get($struct, 'padding'), 1)}', list.nth(ms-core.theme-get($struct, 'padding'), 1)),
   ) {
-    .ms-form-field__label {
-      @include ms-core.color-bind('form-field-label', (
+    .ms-select-field__label {
+      @include ms-core.color-bind('select-field-label', (
         ink: ms-core.theme-get($color, 'ink', 'disabled'),
       ));
-      @include ms-core.typography-bind('form-field-label', (
+      @include ms-core.typography-bind('select-field-label', (
         family: ms-core.theme-get($typography, 'family'),
         size: ms-core.theme-get($typography, 'size', 'label'),
         weight: ms-core.theme-get($typography, 'weight'),
@@ -55,8 +55,8 @@
       ));
     }
 
-    .ms-form-field__input {
-      @include ms-core.struct-bind('form-field', (
+    .ms-select-field__input {
+      @include ms-core.struct-bind('select-field', (
         width: ms-core.theme-get($struct, 'width'),
         padding: ms-core.theme-get($struct, 'padding'),
         radius: ms-core.theme-get($struct, 'radius'),
@@ -64,63 +64,52 @@
         border-style: ms-core.theme-get($struct, 'border-style'),
         gap: ms-core.theme-get($struct, 'gap'),
       ));
-      @include ms-core.typography-bind('form-field', (
+      @include ms-core.typography-bind('select-field', (
         family: ms-core.theme-get($typography, 'family'),
         size: ms-core.theme-get($typography, 'size', 'default'),
         weight: ms-core.theme-get($typography, 'weight'),
         line-height: ms-core.theme-get($typography, 'height'),
       ));
 
-      &:not(:read-only),
       &:not(:disabled) {
-        @include ms-core.color-bind('form-field', (
+        @include ms-core.color-bind('select-field', (
           fill: ms-core.theme-get($color, 'fill'),
           ink: ms-core.theme-get($color, 'ink'),
           border: ms-core.theme-get($color, 'fill'),
         ));
 
         &:focus {
-          @include ms-core.color-bind('form-field', (
+          @include ms-core.color-bind('select-field', (
             border: ms-core.theme-get($color, 'border', 'focus'),
           ));
-          @include ms-core.struct-bind('form-field', (
+          @include ms-core.struct-bind('select-field', (
             border-width: ms-core.theme-get($struct, 'border-width', 'focus'),
           ));
 
-          + .ms-form-field__label {
-            @include ms-core.color-bind('form-field-label', (
+          + .ms-select-field__label {
+            @include ms-core.color-bind('select-field-label', (
               fill: ms-core.theme-get($color, 'fill'),
             ));
           }
         }
-
-        + .ms-form-field__label {
-          @include ms-core.color-bind('form-field-label', (
-            ink: ms-core.theme-get($color, 'ink'),
-          ));
-        }
       }
 
-      &:read-only,
       &:disabled {
-        @include ms-core.color-bind('form-field', (
+        @include ms-core.color-bind('select-field', (
           fill: ms-core.theme-get($color, 'fill', 'disabled'),
+          ink: ms-core.theme-get($color, 'ink', 'disabled'),
           border: ms-core.theme-get($color, 'fill', 'disabled'),
         ));
         cursor: not-allowed;
       }
-
-      + .ms-form-field__label {
-        user-select: none;
-      }
     }
 
-    .ms-form-field__helper {
+    .ms-select-field__helper {
       padding: 0.3rem ms-core.primitive-token-switch('padding.#{$resolve-padding}', $resolve-padding) 0;
-      @include ms-core.color-bind('form-field-helper', (
+      @include ms-core.color-bind('select-field-helper', (
         ink: ms-core.theme-get($color, 'ink', 'helper'),
       ));
-      @include ms-core.typography-bind('form-field-helper', (
+      @include ms-core.typography-bind('select-field-helper', (
         family: ms-core.theme-get($typography, 'family'),
         size: ms-core.theme-get($typography, 'size', 'helper'),
         weight: ms-core.theme-get($typography, 'weight'),
@@ -129,40 +118,26 @@
     }
 
     &:where(.is-outlined) {
-      .ms-form-field__input {
-        &:not(:read-only),
+      .ms-select-field__input {
         &:not(:disabled) {
-          @include ms-core.color-bind('form-field', (
+          @include ms-core.color-bind('select-field', (
             fill: transparent,
             ink: ms-core.theme-get($color, 'ink'),
             border: ms-core.theme-get($color, 'fill'),
           ));
 
           &:focus {
-            @include ms-core.color-bind('form-field', (
+            @include ms-core.color-bind('select-field', (
               border: ms-core.theme-get($color, 'border', 'focus'),
             ));
-            @include ms-core.struct-bind('form-field', (
+            @include ms-core.struct-bind('select-field', (
               border-width: ms-core.theme-get($struct, 'border-width', 'focus'),
-            ));
-
-            + .ms-form-field__label {
-              @include ms-core.color-bind('form-field-label', (
-                fill: transparent,
-              ));
-            }
-          }
-
-          + .ms-form-field__label {
-            @include ms-core.color-bind('form-field-label', (
-              ink: ms-core.theme-get($color, 'ink'),
             ));
           }
         }
 
-        &:read-only,
         &:disabled {
-          @include ms-core.color-bind('form-field', (
+          @include ms-core.color-bind('select-field', (
             fill: transparent,
             ink: ms-core.theme-get($color, 'ink', 'disabled'),
             border: ms-core.theme-get($color, 'fill', 'disabled'),
@@ -171,9 +146,9 @@
       }
 
       &:where(.is-error) {
-        .ms-form-field__input:not(:read-only),
-        .ms-form-field__input:not(:disabled) {
-          @include ms-core.color-bind('form-field', (
+        .ms-select-field__input:not(:read-only),
+        .ms-select-field__input:not(:disabled) {
+          @include ms-core.color-bind('select-field', (
             border: 'error-400',
           ));
         }
@@ -181,46 +156,34 @@
     }
 
     &:where(.is-error) {
-      .ms-form-field__input:not(:read-only),
-      .ms-form-field__input:not(:disabled) {
-        @include ms-core.color-bind('form-field', (
+      .ms-select-field__input:not(:read-only),
+      .ms-select-field__input:not(:disabled) {
+        @include ms-core.color-bind('select-field', (
           ink: 'error-400',
         ));
 
         &:focus {
-          @include ms-core.color-bind('form-field', (
+          @include ms-core.color-bind('select-field', (
             border: 'error-400'
           ));
         }
 
-        + .ms-form-field__label {
-          @include ms-core.color-bind('form-field-label', (
+        + .ms-select-field__helper {
+          @include ms-core.color-bind('select-field-helper', (
             ink: 'error-400',
           ));
-
-          + .ms-form-field__helper {
-            @include ms-core.color-bind('form-field-helper', (
-              ink: 'error-400',
-            ));
-          }
         }
       }
 
-      .ms-form-field__label {
-        @include ms-core.color-bind('form-field-label', (
-          ink: ms-core.theme-get($color, 'ink', 'disabled'),
-        ));
-      }
-
-      .ms-form-field__helper {
-        @include ms-core.color-bind('form-field-helper', (
+      .ms-select-field__helper {
+        @include ms-core.color-bind('select-field-helper', (
           ink: ms-core.theme-get($color, 'ink', 'helper'),
         ));
       }
     }
 
     &:where(.is-raised) {
-      @include ms-core.struct-bind('form-field', (
+      @include ms-core.struct-bind('select-field', (
         shadow: 'xs',
       ));
     }

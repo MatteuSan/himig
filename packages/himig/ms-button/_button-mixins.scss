@@ -22,11 +22,11 @@
 
 @use '../ms-core';
 @use 'sass:map';
+@use 'sass:string';
 
 @mixin text($fills, $inks, $borders) {
   $fill: map.get($fills, 'default');
-  $fill-disabled: map.get($fills, 'disabled');
-  $ink-disabled: map.get($fills, 'disabled');
+  $ink-disabled: map.get($inks, 'disabled');
   $border: map.get($borders, 'default');
 
   &:not(:disabled) {
@@ -35,30 +35,30 @@
       ink: $fill,
       border: transparent
     ));
-    @include ms-core.key-bind('button-outline', 2px solid rgba(raw($fill), ms-core.$color-fill-default-opacity));
+    @include ms-core.key-bind('button-outline', 2px solid rgba(_raw($fill), ms-core.$color-fill-default-opacity));
 
     &:hover {
       @include ms-core.color-bind('button', (
-        fill: rgba(raw($fill), ms-core.$color-fill-hover-opacity),
+        fill: _smart-alpha-color($fill, ms-core.$color-fill-hover-opacity),
         ink: $fill,
-        border: rgba(raw($border), ms-core.$color-border-hover-opacity)
+        border: _smart-alpha-color($border, ms-core.$color-border-hover-opacity, $type: 'border')
       ));
     }
 
     &:focus {
       @include ms-core.color-bind('button', (
-        fill: rgba(raw($fill), ms-core.$color-fill-focus-opacity),
+        fill: _smart-alpha-color($fill, ms-core.$color-fill-focus-opacity),
         ink: $fill,
-        border: rgba(raw($border), ms-core.$color-border-focus-opacity)
+        border: _smart-alpha-color($border, ms-core.$color-border-focus-opacity, $type: 'border')
       ));
-      @include ms-core.key-bind('button-outline', 2px solid rgba(raw($fill), ms-core.$color-outline-focus-opacity));
+      @include ms-core.key-bind('button-outline', 2px solid rgba(_raw($fill), ms-core.$color-outline-focus-opacity));
     }
 
     &:active {
       @include ms-core.color-bind('button', (
-        fill: rgba(raw($fill), ms-core.$color-fill-active-opacity),
+        fill: _smart-alpha-color($fill, ms-core.$color-fill-active-opacity),
         ink: $fill,
-        border: rgba(raw($border), ms-core.$color-border-active-opacity)
+        border: _smart-alpha-color($border, ms-core.$color-border-active-opacity, $type: 'border')
       ));
     }
   }
@@ -79,7 +79,7 @@
   $fill-active: map.get($fills, 'active');
   $fill-disabled: map.get($fills, 'disabled');
   $ink: map.get($inks, 'default');
-  $ink-disabled: map.get($fills, 'disabled');
+  $ink-disabled: map.get($inks, 'disabled');
   $border: map.get($borders, 'default');
   $border-hover: map.get($borders, 'hover');
   $border-focus: map.get($borders, 'focus');
@@ -92,15 +92,15 @@
       ink: $fill,
       border: $border
     ));
-    @include ms-core.key-bind('button-outline', 2px solid rgba(raw($fill), ms-core.$color-fill-default-opacity));
+    @include ms-core.key-bind('button-outline', 2px solid rgba(_raw($fill), ms-core.$color-fill-default-opacity));
 
     &:focus {
       @include ms-core.color-bind('button', (
-        fill: rgba(raw($fill), ms-core.$color-fill-focus-opacity),
+        fill: _smart-alpha-color($fill, ms-core.$color-fill-focus-opacity),
         ink: $fill,
         border: $border
       ));
-      @include ms-core.key-bind('button-outline', 2px solid rgba(raw($fill), ms-core.$color-outline-focus-opacity));
+      @include ms-core.key-bind('button-outline', 2px solid rgba(_raw($fill), ms-core.$color-outline-focus-opacity));
     }
 
     &:hover {
@@ -149,7 +149,7 @@
       ink: $ink,
       border: $border
     ));
-    @include ms-core.key-bind('button-outline', 2px solid rgba(raw($fill), ms-core.$color-fill-default-opacity));
+    @include ms-core.key-bind('button-outline', 2px solid rgba(_raw($fill), ms-core.$color-fill-default-opacity));
 
     &:hover {
       @include ms-core.color-bind('button', (
@@ -165,7 +165,7 @@
         ink: $ink,
         border: $border-focus
       ));
-      @include ms-core.key-bind('button-outline', 2px solid rgba(raw($fill), ms-core.$color-outline-focus-opacity));
+      @include ms-core.key-bind('button-outline', 2px solid rgba(_raw($fill), ms-core.$color-outline-focus-opacity));
     }
 
     &:active {
@@ -186,6 +186,17 @@
   }
 }
 
-@function raw($query) {
+@function _smart-alpha-color($query, $opacity, $type: 'fill', $state: 'hover') {
+  $_tones: ('hover': 400, 'active': 600);
+  $_color: string.slice($query, 1, (string.length($query) - 4));
+  // $_tone: string.slice($query, (string.length($_color) + 2), (string.length($query)));
+  @if $type == 'border' { @return rgba(#fff, 0%); }
+  @if ms-core.token-check('#{$_color}-alpha-#{map.get($_tones, $state)}') {
+    @return ms-core.token-get('#{$_color}-alpha-#{map.get($_tones, $state)}');
+  }
+  @return _raw($query, $opacity);
+}
+
+@function _raw($query) {
   @return ms-core.token-switch-raw($query);
 }

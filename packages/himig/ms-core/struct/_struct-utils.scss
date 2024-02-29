@@ -157,7 +157,7 @@ $_valid-arbitrary-values: (0, inherit);
 @mixin border-width($component, $border-width, $intent: 'create') {
   @include theme.property(
     border-width,
-    ('#{$component}-border-width', theme.token-switch('border-#{$border-width}', tokens.primitive-token-switch('border.#{$border-width}', $border-width))),
+    ('#{$component}-border-width', _parse-value('border', $border-width)),
     $intent
   );
 }
@@ -211,11 +211,7 @@ $_valid-arbitrary-values: (0, inherit);
         theme.token-switch('#{$key}-#{$value}', tokens.primitive-token-switch('#{$key}.#{$value}', $value)),
       'space');
     } @else {
-      @if not list.index($_valid-arbitrary-values, $value) {
-        @error 'Invalid value: #{$value}. Expecting a valid #{$key} token, inherit, or the number 0.';
-      } @else {
-        $result: list.append($result, $value, 'space');
-      }
+      $result: list.append($result, $value, 'space');
     }
   }
   @return $result;

@@ -26,21 +26,21 @@ $init-color: (
     hover: 'accent-300',
     active: 'accent-200',
     focus: 'accent-400',
-    disabled: 'undefined-300',
+    disabled: 'disabled',
   ),
   ink: (
     default: 'accent-ink',
     hover: 'accent-ink',
     active: 'accent-ink',
     focus: 'accent-ink',
-    disabled: 'undefined-600',
+    disabled: 'disabled-ink',
   ),
   border: (
     default: 'accent-400',
     hover: 'accent-300',
     active: 'accent-200',
     focus: 'accent-400',
-    disabled: 'undefined-300',
+    disabled: 'disabled',
   ),
 );
 
@@ -50,7 +50,7 @@ $init-struct: (
     min: 69px,
     max: max-content
   ),
-  padding: ('sm' 'md'),
+  padding: ('md' 'lg'),
   radius: 'small',
   border-width: 'xs',
   border-style: solid,
@@ -61,7 +61,7 @@ $init-typography: (
   family: 'global',
   size: 'body',
   weight: 'bold',
-  line-height: 'condensed'
+  line-height: 1.25rem
 );
 
 $init-settings: ();

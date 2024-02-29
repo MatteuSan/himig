@@ -23,23 +23,23 @@
 $init-color: (
   fill: (
     default: 'surface-200',
-    disabled: 'undefined-300'
+    disabled: 'disabled'
   ),
   ink: (
-    default: 'surface-800',
+    default: 'surface-ink',
     helper: 'surface-ink',
-    disabled: 'undefined-600'
+    disabled: 'disabled-ink'
   ),
   border: (
     default: 'surface-200',
-    focus: 'surface-600',
-    disabled: 'undefined-300'
+    focus: 'accent-400',
+    disabled: 'disabled'
   ),
 );
 
 $init-struct: (
   width: 100%,
-  padding: ('sm', 'md'),
+  padding: ('md', 'lg'),
   radius: 'small',
   border-width: (
     'default': 2px,

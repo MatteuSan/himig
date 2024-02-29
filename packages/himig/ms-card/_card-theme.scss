@@ -20,4 +20,46 @@
 //  SOFTWARE.
 //---------------------------------------------------
 
-@forward 'sprite-styles';
+$init-color: (
+  fill: 'surface-200',
+  ink: 'surface-ink',
+  border: 'surface-200',
+);
+
+$init-struct: (
+  radius: 'md',
+  padding: 'lg',
+  border-width: 'xs',
+  border-style: 'solid',
+  gap: (
+    section: 'md',
+    header: 'md',
+    footer: 'md',
+  )
+);
+
+$init-typography: (
+  family: (
+    'default': 'body',
+    'title': 'subtitle',
+    'subtitle': 'body',
+  ),
+  size: (
+    'default': 'body',
+    'title': 'title',
+    'subtitle': 'body',
+    'icon': 66px
+  ),
+  weight: (
+    'default': 'normal',
+    'title': 'bold',
+    'subtitle': 'normal',
+  ),
+  line-height: (
+    'default': 'normal',
+    'title': 'normal',
+    'subtitle': 'normal',
+  ),
+);
+
+$init-settings: ();
