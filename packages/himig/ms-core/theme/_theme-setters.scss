@@ -30,6 +30,7 @@ $expressive-inks: false !default;
 
 @mixin theme-config(
   $primary: (),
+  $accent: (),
   $surface: (),
   $accent: (),
   $background: (),
@@ -75,8 +76,11 @@ $expressive-inks: false !default;
   @include token.config($map: $extend);
   @include token.config(
     $primary: _color-theme-token-module($primary),
-    $surface: _color-theme-token-module($surface),
     $accent: _color-theme-token-module($accent),
+    $surface: _color-theme-token-module($surface),
+    $primary-alpha: _alpha-color-theme-token-module($primary),
+    $accent-alpha: _alpha-color-theme-token-module($accent),
+    $surface-alpha: _alpha-color-theme-token-module($surface),
     $background: tokens.primitive-token-switch($background),
     $background-ink: tools.get-ink(tokens.primitive-token-switch($background)),
     $error: _color-theme-token-module($error),

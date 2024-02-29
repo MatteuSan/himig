@@ -38,7 +38,7 @@ $vue-mode: $test-mode !default;
 @forward 'ms-core';
 
 @mixin init(
-  $surface: 'ms-dark-grey',
+  $theme: (),
   $primary: 'ms-dark-grey',
   $accent: 'ms-orange',
   $surface: 'ms-dark-grey',
@@ -58,6 +58,23 @@ $vue-mode: $test-mode !default;
   $breakpoints: (),
   $extend: (),
 ) {
+
+  $primary: ms-core.prioritize(map.get($theme, 'primary'), $primary);
+  $accent: ms-core.prioritize(map.get($theme, 'accent'), $accent);
+  $surface: ms-core.prioritize(map.get($theme, 'surface'), $surface);
+  $background: ms-core.prioritize(map.get($theme, 'background'), $background);
+  $error: ms-core.prioritize(map.get($theme, 'error'), $error);
+  $undefined: ms-core.prioritize(map.get($theme, 'undefined'), $undefined);
+  $radius: ms-core.prioritize(map.get($theme, 'radius'), $radius);
+  $global: ms-core.prioritize(map.get($theme, 'global'), $global);
+  $supertitle: ms-core.prioritize(map.get($theme, 'supertitle'), $supertitle);
+  $title: ms-core.prioritize(map.get($theme, 'title'), $title);
+  $subtitle: ms-core.prioritize(map.get($theme, 'subtitle'), $subtitle);
+  $body: ms-core.prioritize(map.get($theme, 'body'), $body);
+  $mono: ms-core.prioritize(map.get($theme, 'mono'), $mono);
+  $small: ms-core.prioritize(map.get($theme, 'small'), $small);
+  $breakpoints: ms-core.prioritize(map.get($theme, 'breakpoints'), $breakpoints);
+  $extend: ms-core.prioritize(map.get($theme, 'extend'), $extend);
 
   $_init-family: 'family.sans-serif';
   $_init-line-height: 'line-height.normal';
