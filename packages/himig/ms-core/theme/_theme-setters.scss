@@ -83,8 +83,7 @@ $expressive-inks: false !default;
     $background: tokens.primitive-token-switch($background),
     $background-ink: tools.get-ink(tokens.primitive-token-switch($background)),
     $error: _color-theme-token-module($error),
-    $warning: _color-theme-token-module($warning),
-    $success: _color-theme-token-module($success),
+    $error-alpha: _alpha-color-theme-token-module($error),
     $undefined: _color-theme-token-module($undefined),
     $radius: _shape-theme-token-module(map.merge($_init-radius, $radius)),
     $family: _typography-theme-token-module($_typography-mapper, 'family'),
@@ -119,6 +118,27 @@ $expressive-inks: false !default;
     800: tokens.primitive-token-get('#{$query}.800'),
     'ink': tools.get-ink(tokens.primitive-token-get('#{$query}.400'), $expressive-inks)
   );
+}
+
+/// @access private
+@function _alpha-color-theme-token-module($query) {
+  @if tools.is-type($query, 'map', $errors: false) {
+    @return (
+      200: tokens.primitive-token-switch('#{map.get($query, 200)}.200', map.get($query, 200)),
+      300: tokens.primitive-token-switch('#{map.get($query, 300)}.300', map.get($query, 300)),
+      400: tokens.primitive-token-switch('#{map.get($query, 400)}.400', map.get($query, 400)),
+      600: tokens.primitive-token-switch('#{map.get($query, 600)}.600', map.get($query, 600)),
+      800: tokens.primitive-token-switch('#{map.get($query, 800)}.800', map.get($query, 800)),
+    );
+  }
+
+  @return (
+    200: rgba(tokens.primitive-token-get('#{$query}.200'), 8%),
+    300: rgba(tokens.primitive-token-get('#{$query}.300'), 12%),
+    400: rgba(tokens.primitive-token-get('#{$query}.400'), 20%),
+    600: rgba(tokens.primitive-token-get('#{$query}.600'), 33%),
+    800: rgba(tokens.primitive-token-get('#{$query}.800'), 42%)
+  )
 }
 
 /// @access private
