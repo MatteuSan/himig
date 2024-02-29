@@ -31,11 +31,14 @@
 @use 'node_modules/@matteusan/himig/ms-utils';
 
 @include himig.init(
-  $extend: (
-    'bruh': (
-      'lol': 0.5rem
+  $theme: (
+    'primary': 'ms-red',
+    'extend': (
+      'bruh': (
+        'lol': 0.5rem
+      )
     )
-  )
+  ),
 ) {
   @include ms-badge.render();
   @include ms-button.render();
@@ -48,5 +51,5 @@
   @include ms-utils.layout();
   @include ms-utils.color();
   @include ms-utils.struct();
-  // @include ms-utils.typography();
+  @include ms-utils.typography();
 }

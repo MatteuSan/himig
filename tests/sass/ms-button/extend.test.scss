@@ -25,7 +25,7 @@
 @use 'node_modules/sass-true' as true;
 
 @include himig.init {
-  @include true.describe('GS Button Extend [mixin]') {
+  @include true.describe('MS Button Extend [mixin]') {
     @include true.it('should extend the styles of a ms-button component') {
       @include true.assert {
         @include true.output {
