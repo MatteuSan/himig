@@ -29,6 +29,7 @@
 $expressive-inks: false !default;
 
 @mixin theme-config(
+  $primary: (),
   $surface: (),
   $accent: (),
   $background: (),
@@ -73,6 +74,7 @@ $expressive-inks: false !default;
 
   @include token.config($map: $extend);
   @include token.config(
+    $primary: _color-theme-token-module($primary),
     $surface: _color-theme-token-module($surface),
     $accent: _color-theme-token-module($accent),
     $background: tokens.primitive-token-switch($background),

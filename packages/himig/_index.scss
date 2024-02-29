@@ -39,7 +39,9 @@ $vue-mode: $test-mode !default;
 
 @mixin init(
   $surface: 'ms-dark-grey',
+  $primary: 'ms-dark-grey',
   $accent: 'ms-orange',
+  $surface: 'ms-dark-grey',
   $background: 'ms-dark-grey.800',
   $error: 'ms-red',
   $warning: 'ms-yellow',
@@ -119,8 +121,9 @@ $vue-mode: $test-mode !default;
   :root {
     @include ms-core.primitive-token-register($map: $extend);
     @include ms-core.theme-config(
-      $surface: $surface,
+      $primary: $primary,
       $accent: $accent,
+      $surface: $surface,
       $background: $background,
       $error: $error,
       $warning: $warning,
