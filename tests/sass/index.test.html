@@ -33,15 +33,15 @@
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 <body>
-<main class="my-2xl grid pc-center gap-sm">
-    <div class="grid pi-center">
+<main class="content-wrap">
+    <div class="grid pi-center gap-sm">
         <span class="ms-badge">
             <span class="ms-badge__label">Hello! :)</span>
         </span>
         <span class="ms-badge is-outlined">
             <span class="ms-badge__label">こんにちは! :)</span>
         </span>
-        <span class="ms-badge">
+        <span class="ms-badge fill-error-400 border-error-300">
             <span class="ms-badge__label">Mabuhay! :)</span>
         </span>
     </div>
@@ -135,42 +135,52 @@
 
     <div class="grid cols-2 gap-sm pi-center">
         <label class="ms-form-field">
-            <input type="text" class="ms-form-field__input" placeholder="a" name="text-field" />
             <span class="ms-form-field__label">GS Form Field</span>
+            <input type="text" class="ms-form-field__input" placeholder="a" name="text-field" />
             <span class="ms-form-field__helper">Helper Text</span>
         </label>
 
         <label class="ms-form-field is-error">
-            <input type="text" class="ms-form-field__input" placeholder="a" name="text-field" />
             <span class="ms-form-field__label">GS Form Field</span>
+            <input type="text" class="ms-form-field__input" placeholder="a" name="text-field" />
             <span class="ms-form-field__helper">Helper Text</span>
         </label>
 
         <label class="ms-form-field is-outlined">
-            <input type="text" class="ms-form-field__input" placeholder="a" name="text-field" />
             <span class="ms-form-field__label">GS Form Field</span>
+            <input type="text" class="ms-form-field__input" placeholder="a" name="text-field" />
             <span class="ms-form-field__helper">Helper Text</span>
         </label>
 
         <label class="ms-form-field is-outlined is-error">
-            <input type="text" class="ms-form-field__input" placeholder="a" name="text-field" />
             <span class="ms-form-field__label">GS Form Field</span>
+            <input type="text" class="ms-form-field__input" placeholder="a" name="text-field" />
             <span class="ms-form-field__helper">Helper Text</span>
         </label>
 
         <label class="ms-form-field">
-            <input type="text" class="ms-form-field__input" placeholder="a" name="text-field" disabled />
             <span class="ms-form-field__label">GS Form Field</span>
+            <input type="text" class="ms-form-field__input" placeholder="a" name="text-field" disabled />
             <span class="ms-form-field__helper">Helper Text</span>
         </label>
 
-        <label class="ms-form-field is-error">
-            <input type="text" class="ms-form-field__input" placeholder="a" name="text-field" disabled />
+        <label class="ms-form-field is-outlined">
             <span class="ms-form-field__label">GS Form Field</span>
+            <input type="text" class="ms-form-field__input" placeholder="a" name="text-field" disabled />
             <span class="ms-form-field__helper">Helper Text</span>
         </label>
 
         <label class="ms-select-field">
+            <span class="ms-select-field__label">GS Select Field</span>
+            <select type="text" class="ms-select-field__input" name="text-field">
+                <option value="a">Placeholder</option>
+                <option value="b">B</option>
+                <option value="c">C</option>
+            </select>
+            <span class="ms-select-field__helper">Helper Text</span>
+        </label>
+
+        <label class="ms-select-field is-outlined">
             <select type="text" class="ms-select-field__input" placeholder="" name="text-field">
                 <option value="a">A</option>
                 <option value="b">B</option>
@@ -180,15 +190,6 @@
         </label>
 
         <label class="ms-select-field is-error">
-            <select type="text" class="ms-select-field__input" placeholder="" name="text-field">
-                <option value="a">A</option>
-                <option value="b">B</option>
-                <option value="c">C</option>
-            </select>
-            <span class="ms-select-field__helper">Helper Text</span>
-        </label>
-
-        <label class="ms-select-field is-outlined">
             <select type="text" class="ms-select-field__input" name="text-field">
                 <option value="a">A</option>
                 <option value="b">B</option>
@@ -206,7 +207,7 @@
             <span class="ms-select-field__helper">Helper Text</span>
         </label>
 
-        <label class="ms-select-field is-outlined">
+        <label class="ms-select-field">
             <select type="text" class="ms-select-field__input" disabled name="text-field">
                 <option value="a">A</option>
                 <option value="b">B</option>
@@ -215,7 +216,7 @@
             <span class="ms-select-field__helper">Helper Text</span>
         </label>
 
-        <label class="ms-select-field">
+        <label class="ms-select-field is-outlined">
             <select type="text" class="ms-select-field__input" disabled name="text-field">
                 <option value="a">A</option>
                 <option value="b">B</option>
@@ -234,6 +235,32 @@
             <textarea name="bruh" cols="30" class="ms-form-field__input" placeholder="a" rows="10"></textarea>
             <span class="ms-form-field__label">GS Form Field</span>
             <span class="ms-form-field__helper">Helper Text</span>
+        </label>
+    </div>
+    <div class="grid cols-2 gap-sm pi-center">
+        <label class="ms-tick-field">
+            <input type="checkbox" class="ms-tick-field__input" id="value" name="input" value="value" checked />
+            <span class="ms-tick-field__text">
+                <span class="ms-tick-field__label">MSTickField Label</span>
+            </span>
+        </label>
+        <label class="ms-tick-field">
+            <input type="checkbox" class="ms-tick-field__input" id="value2" name="input" value="value2" checked />
+            <span class="ms-tick-field__text">
+                <span class="ms-tick-field__label">MSTickField Label</span>
+            </span>
+        </label>
+        <label class="ms-tick-field">
+            <input type="radio" class="ms-tick-field__input" id="value3" name="input" value="value3" checked />
+            <span class="ms-tick-field__text">
+                <span class="ms-tick-field__label">MSTickField Label</span>
+            </span>
+        </label>
+        <label class="ms-tick-field">
+            <input type="radio" class="ms-tick-field__input" id="value4" name="input" value="value4" checked />
+            <span class="ms-tick-field__text">
+                <span class="ms-tick-field__label">MSTickField Label</span>
+            </span>
         </label>
     </div>
     <div>
