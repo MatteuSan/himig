@@ -50,7 +50,7 @@
     }
   }
 
-  .hs-#{$component-name}.is-#{$_sanitized-extension} {
+  .ms-#{$component-name}.is-#{$_sanitized-extension} {
     @content;
   }
 }
