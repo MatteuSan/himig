@@ -52,7 +52,7 @@
 
     &:where(.is-outlined) {
       @include ms-core.color-bind('card', (
-        fill: transparent,
+        fill: ms-core.theme-get($color, 'fill', 'outlined'),
         ink: ms-core.theme-get($color, 'ink'),
         border: ms-core.theme-get($color, 'border')
       ));

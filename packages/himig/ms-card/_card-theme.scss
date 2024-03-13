@@ -21,7 +21,10 @@
 //---------------------------------------------------
 
 $init-color: (
-  fill: 'surface-200',
+  fill: (
+    default: 'surface-200',
+    outlined: 'surface-alpha-400'
+  ),
   ink: 'surface-ink',
   border: 'surface-200',
 );
