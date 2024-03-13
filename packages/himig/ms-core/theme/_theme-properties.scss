@@ -21,8 +21,10 @@
 //---------------------------------------------------
 
 @use '../tokens' as primitive-token;
+@use '../tools';
 @use 'sass:map';
 @use 'sass:list';
+@use 'sass:string';
 
 @use 'theme-tokens' as token;
 @use 'theme-keys' as key;
@@ -48,5 +50,12 @@ $_valid-intents: (
 }
 
 @function _assert-value($query) {
+  @if tools.is-type($query, 'list', false) {
+    @if list.length($query) == 2 and
+     token.check(list.nth($query, 1)) or primitive-token.primitive-token-check(list.nth($query, 1)) and
+     list.nth($query, 2) == string.unquote('!important') {
+      @return token.switch(list.nth($query, 1), primitive-token.primitive-token-switch(list.nth($query, 1))) + ' ' + list.nth($query, 2);
+    }
+  }
   @return token.switch($query, primitive-token.primitive-token-switch($query));
 }
