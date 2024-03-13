@@ -219,13 +219,17 @@ $vue-mode: $test-mode !default;
     $margin: 15px;
     width: calc(100% - #{$margin * 2});
     max-width: ms-core.key-create('content-wrap-max-width', ms-core.primitive-token-get('dimension.xl'));
-    display: ms-core.key-create('content-wrap-display', grid);
-    grid-template-columns: repeat(ms-core.key-create('content-wrap-cols', 4), 1fr);
+    height: 100%;
+    display: ms-core.key-create('content-wrap-display', flex);
+    flex-flow: column nowrap;
     gap: ms-core.key-create('content-wrap-gap', ms-core.primitive-token-get('spacing.md'));
     margin: 0 auto;
     padding:
       ms-core.key-create('content-wrap-padding-y', ms-core.primitive-token-get('spacing.lg'))
       ms-core.key-create('content-wrap-padding-x', ms-core.primitive-token-get('spacing.none'));
+
+    // If grid
+    grid-template-columns: repeat(ms-core.key-create('content-wrap-cols', 4), 1fr);
 
     @include ms-core.breakpoint-create('medium') {
       @include ms-core.key-bind('content-wrap-cols', repeat(8, 1fr));
