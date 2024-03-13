@@ -22,7 +22,8 @@
 
 $init-color: (
   fill: (
-    default: 'surface-200',
+    default: 'surface-alpha-600',
+    hover: 'accent-alpha-300',
     disabled: 'disabled'
   ),
   ink: (
@@ -31,7 +32,8 @@ $init-color: (
     disabled: 'disabled-ink'
   ),
   border: (
-    default: 'surface-200',
+    default: 'surface-600',
+    hover: 'accent-alpha-600',
     focus: 'accent-400',
     disabled: 'disabled'
   ),

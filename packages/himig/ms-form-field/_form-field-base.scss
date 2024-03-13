@@ -44,14 +44,27 @@
       @include ms-core.struct-apply('form-field-label', (
         padding: ('xs' 'xs' 0 0),
       ));
-      @include ms-core.typography-apply('form-field-label', (
-        family: inherit,
-        size: inherit,
-        weight: inherit,
-        line-height: inherit,
-      ));
+      @include ms-core.typography-apply('form-field-label', ms-core.$type-inherit-template);
       @include ms-core.prefix(transition, all var(--ms-transition-time) ease);
       cursor: text;
+    }
+
+    &:has(.ms-form-field__input:focus),
+    &:has(.ms-form-field__input:not(:placeholder-shown)), {
+      .ms-form-field__label {
+        top: math.div($top-label-distance, 2);
+        @include ms-core.typography-bind('form-field-label', (
+          family: 'small',
+          size: 'small',
+        ));
+      }
+    }
+
+    &:has(.ms-form-field__label) {
+      .ms-form-field__input {
+        @include ms-core.key-bind('form-field-placeholder-ink', rgba(0 0 0 / 0) !important);
+        padding-top: calc(#{$top-padding} + 1rem) !important;
+      }
     }
 
     .ms-form-field__input {
@@ -64,7 +77,6 @@
         shadow: 'none',
       ));
       padding: ms-core.key-get('form-field-padding');
-      padding-top: calc(#{$top-padding} + 1rem) !important;
       @include ms-core.color-apply('form-field', (
         fill: inherit,
         ink: inherit,
@@ -83,20 +95,8 @@
       @include ms-core.prefix(transition, all var(--ms-transition-time) ease);
 
       &::placeholder {
-        // display: none !important;
-        color: rgba(0 0 0 / 0) !important;
+        color: ms-core.key-create('form-field-placeholder-ink', inherit);
         user-select: none !important;
-      }
-
-      &:focus,
-      &:not(:placeholder-shown){
-        + .ms-form-field__label {
-          top: math.div($top-label-distance, 2);
-          @include ms-core.typography-bind('form-field-label', (
-            family: 'small',
-            size: 'small',
-          ));
-        }
       }
     }
 

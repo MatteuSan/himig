@@ -53,6 +53,19 @@
         weight: ms-core.theme-get($typography, 'weight'),
         line-height: ms-core.theme-get($typography, 'height'),
       ));
+      user-select: none;
+    }
+
+    &:has(.ms-form-field__input:not(:read-only):not(:disabled)) {
+      .ms-form-field__label {
+        @include ms-core.color-bind('form-field-label', (
+          ink: ms-core.theme-get($color, 'ink'),
+        ));
+      }
+    }
+
+    &:has(.ms-form-field__input:read-only:disabled) {
+      @include ms-core.color-ink('form-field-helper', ms-core.theme-get($color, 'ink', 'disabled'), 'bind');
     }
 
     .ms-form-field__input {
@@ -76,27 +89,16 @@
         @include ms-core.color-bind('form-field', (
           fill: ms-core.theme-get($color, 'fill'),
           ink: ms-core.theme-get($color, 'ink'),
-          border: ms-core.theme-get($color, 'fill'),
+          border: ms-core.theme-get($color, 'border'),
         ));
 
         &:focus {
           @include ms-core.color-bind('form-field', (
+            fill: ms-core.theme-get($color, 'fill', 'hover'),
             border: ms-core.theme-get($color, 'border', 'focus'),
           ));
           @include ms-core.struct-bind('form-field', (
             border-width: ms-core.theme-get($struct, 'border-width', 'focus'),
-          ));
-
-          + .ms-form-field__label {
-            @include ms-core.color-bind('form-field-label', (
-              fill: ms-core.theme-get($color, 'fill'),
-            ));
-          }
-        }
-
-        + .ms-form-field__label {
-          @include ms-core.color-bind('form-field-label', (
-            ink: ms-core.theme-get($color, 'ink'),
           ));
         }
       }
@@ -105,13 +107,10 @@
       &:disabled {
         @include ms-core.color-bind('form-field', (
           fill: ms-core.theme-get($color, 'fill', 'disabled'),
+          ink: ms-core.theme-get($color, 'ink', 'disabled'),
           border: ms-core.theme-get($color, 'fill', 'disabled'),
         ));
         cursor: not-allowed;
-      }
-
-      + .ms-form-field__label {
-        user-select: none;
       }
     }
 
@@ -129,13 +128,21 @@
     }
 
     &:where(.is-outlined) {
+      &:has(.ms-form-field__input:not(:read-only):not(:disabled)) {
+        .ms-form-field__label {
+          @include ms-core.color-bind('form-field-label', (
+            ink: ms-core.theme-get($color, 'ink'),
+          ));
+        }
+      }
+
       .ms-form-field__input {
         &:not(:read-only),
         &:not(:disabled) {
           @include ms-core.color-bind('form-field', (
-            fill: transparent,
+            fill: rgba(0 0 0 / 0) !important,
             ink: ms-core.theme-get($color, 'ink'),
-            border: ms-core.theme-get($color, 'fill'),
+            border: ms-core.theme-get($color, 'border'),
           ));
 
           &:focus {
@@ -144,18 +151,6 @@
             ));
             @include ms-core.struct-bind('form-field', (
               border-width: ms-core.theme-get($struct, 'border-width', 'focus'),
-            ));
-
-            + .ms-form-field__label {
-              @include ms-core.color-bind('form-field-label', (
-                fill: transparent,
-              ));
-            }
-          }
-
-          + .ms-form-field__label {
-            @include ms-core.color-bind('form-field-label', (
-              ink: ms-core.theme-get($color, 'ink'),
             ));
           }
         }
@@ -174,47 +169,47 @@
         .ms-form-field__input:not(:read-only),
         .ms-form-field__input:not(:disabled) {
           @include ms-core.color-bind('form-field', (
-            border: 'error-400',
+            fill: rgba(0 0 0 / 0) !important,
+            border: 'error-alpha-600',
           ));
         }
       }
     }
 
     &:where(.is-error) {
-      .ms-form-field__input:not(:read-only),
-      .ms-form-field__input:not(:disabled) {
-        @include ms-core.color-bind('form-field', (
-          ink: 'error-400',
-        ));
-
-        &:focus {
-          @include ms-core.color-bind('form-field', (
-            border: 'error-400'
-          ));
-        }
-
-        + .ms-form-field__label {
-          @include ms-core.color-bind('form-field-label', (
-            ink: 'error-400',
-          ));
-
-          + .ms-form-field__helper {
-            @include ms-core.color-bind('form-field-helper', (
-              ink: 'error-400',
-            ));
-          }
-        }
-      }
-
       .ms-form-field__label {
         @include ms-core.color-bind('form-field-label', (
           ink: ms-core.theme-get($color, 'ink', 'disabled'),
         ));
       }
 
+      &:has(.ms-form-field__input:not(:read-only):not(:disabled)) {
+        .ms-form-field__label {
+          @include ms-core.color-bind('form-field-label', (
+            ink: 'error-400',
+          ));
+        }
+      }
+
+      .ms-form-field__input:not(:disabled),
+      .ms-form-field__input:not(:read-only) {
+        @include ms-core.color-bind('form-field', (
+          fill: 'error-alpha-300',
+          ink: 'error-400',
+          border: 'error-alpha-400'
+        ));
+
+        &:focus {
+          @include ms-core.color-bind('form-field', (
+            fill: 'error-alpha-300',
+            border: 'error-400'
+          ));
+        }
+      }
+
       .ms-form-field__helper {
         @include ms-core.color-bind('form-field-helper', (
-          ink: ms-core.theme-get($color, 'ink', 'helper'),
+          ink: 'error-400',
         ));
       }
     }
