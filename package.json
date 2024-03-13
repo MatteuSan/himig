@@ -25,7 +25,7 @@
     "pub:major": "npm version patch --force && yarn pub:core:major && yarn pub:main:major",
     "run:docs": "cd documentation && yarn dev",
     "test:html": "yarn && gulp --gulpfile=\"gulpfile-test.ts\"",
-    "test:sass": "jest --config=\"jest-sass.config.ts\"",
+    "test:sass": "yarn && jest --config=\"jest-sass.config.ts\"",
     "test:ts": "jest --config=\"jest-ts.config.ts\""
   },
   "devDependencies": {
