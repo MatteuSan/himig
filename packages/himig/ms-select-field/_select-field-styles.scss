@@ -43,35 +43,56 @@
     ms-core.primitive-token-switch('padding.#{$resolve-padding}', $resolve-padding),
     ms-core.primitive-token-switch('padding.#{list.nth(ms-core.theme-get($struct, 'padding'), 1)}', list.nth(ms-core.theme-get($struct, 'padding'), 1)),
   ) {
-    .ms-select-field__label {
-      @include ms-core.color-bind('select-field-label', (
-        ink: ms-core.theme-get($color, 'ink', 'disabled'),
-      ));
-      @include ms-core.typography-bind('select-field-label', (
-        family: ms-core.theme-get($typography, 'family'),
-        size: ms-core.theme-get($typography, 'size', 'label'),
-        weight: ms-core.theme-get($typography, 'weight'),
-        line-height: ms-core.theme-get($typography, 'height'),
-      ));
+    @include ms-core.color-bind('select-field-label', (
+      ink: ms-core.theme-get($color, 'ink', 'disabled'),
+    ));
+    @include ms-core.typography-bind('select-field-label', (
+      family: ms-core.theme-get($typography, 'family'),
+      size: ms-core.theme-get($typography, 'size', 'label'),
+      weight: ms-core.theme-get($typography, 'weight'),
+      line-height: ms-core.theme-get($typography, 'height'),
+    ));
+
+    @include ms-core.struct-bind('select-field', (
+      width: ms-core.theme-get($struct, 'width'),
+      padding: ms-core.theme-get($struct, 'padding'),
+      radius: ms-core.theme-get($struct, 'radius'),
+      border-width: ms-core.theme-get($struct, 'border-width'),
+      border-style: ms-core.theme-get($struct, 'border-style'),
+      gap: ms-core.theme-get($struct, 'gap'),
+    ));
+    @include ms-core.typography-bind('select-field', (
+      family: ms-core.theme-get($typography, 'family'),
+      size: ms-core.theme-get($typography, 'size', 'default'),
+      weight: ms-core.theme-get($typography, 'weight'),
+      line-height: ms-core.theme-get($typography, 'height'),
+    ));
+
+    @include ms-core.color-bind('select-field-helper', (
+      ink: ms-core.theme-get($color, 'ink', 'helper'),
+    ));
+    @include ms-core.typography-bind('select-field-helper', (
+      family: ms-core.theme-get($typography, 'family'),
+      size: ms-core.theme-get($typography, 'size', 'helper'),
+      weight: ms-core.theme-get($typography, 'weight'),
+      line-height: ms-core.theme-get($typography, 'height'),
+    ));
+
+    &:has(.ms-select-field__input:not(:read-only):not(:disabled)) {
+      .ms-select-field__label {
+        @include ms-core.color-bind('select-field-label', (
+          ink: ms-core.theme-get($color, 'ink'),
+        ));
+      }
+    }
+
+    &:has(.ms-select-field__input:read-only:disabled) {
+      @include ms-core.color-ink('select-field-helper', ms-core.theme-get($color, 'ink', 'disabled'), 'bind');
     }
 
     .ms-select-field__input {
-      @include ms-core.struct-bind('select-field', (
-        width: ms-core.theme-get($struct, 'width'),
-        padding: ms-core.theme-get($struct, 'padding'),
-        radius: ms-core.theme-get($struct, 'radius'),
-        border-width: ms-core.theme-get($struct, 'border-width'),
-        border-style: ms-core.theme-get($struct, 'border-style'),
-        gap: ms-core.theme-get($struct, 'gap'),
-      ));
-      @include ms-core.typography-bind('select-field', (
-        family: ms-core.theme-get($typography, 'family'),
-        size: ms-core.theme-get($typography, 'size', 'default'),
-        weight: ms-core.theme-get($typography, 'weight'),
-        line-height: ms-core.theme-get($typography, 'height'),
-      ));
-
-      &:not(:disabled) {
+      &:not(:disabled),
+      &:not(:read-only) {
         @include ms-core.color-bind('select-field', (
           fill: ms-core.theme-get($color, 'fill'),
           ink: ms-core.theme-get($color, 'ink'),
@@ -80,17 +101,12 @@
 
         &:focus {
           @include ms-core.color-bind('select-field', (
+            fill: ms-core.theme-get($color, 'fill', 'hover'),
             border: ms-core.theme-get($color, 'border', 'focus'),
           ));
           @include ms-core.struct-bind('select-field', (
             border-width: ms-core.theme-get($struct, 'border-width', 'focus'),
           ));
-
-          + .ms-select-field__label {
-            @include ms-core.color-bind('select-field-label', (
-              fill: ms-core.theme-get($color, 'fill'),
-            ));
-          }
         }
       }
 
@@ -106,20 +122,12 @@
 
     .ms-select-field__helper {
       padding: 0.3rem ms-core.primitive-token-switch('padding.#{$resolve-padding}', $resolve-padding) 0;
-      @include ms-core.color-bind('select-field-helper', (
-        ink: ms-core.theme-get($color, 'ink', 'helper'),
-      ));
-      @include ms-core.typography-bind('select-field-helper', (
-        family: ms-core.theme-get($typography, 'family'),
-        size: ms-core.theme-get($typography, 'size', 'helper'),
-        weight: ms-core.theme-get($typography, 'weight'),
-        line-height: ms-core.theme-get($typography, 'height'),
-      ));
     }
 
     &:where(.is-outlined) {
       .ms-select-field__input {
-        &:not(:disabled) {
+        &:not(:disabled),
+        &:not(:read-only) {
           @include ms-core.color-bind('select-field', (
             fill: transparent,
             ink: ms-core.theme-get($color, 'ink'),
@@ -146,24 +154,28 @@
       }
 
       &:where(.is-error) {
-        .ms-select-field__input:not(:read-only),
-        .ms-select-field__input:not(:disabled) {
+        .ms-select-field__input:not(:disabled),
+        .ms-select-field__input:not(:read-only) {
           @include ms-core.color-bind('select-field', (
-            border: 'error-400',
+            fill: rgba(0 0 0 / 0) !important,
+            border: 'error-alpha-400',
           ));
         }
       }
     }
 
     &:where(.is-error) {
-      .ms-select-field__input:not(:read-only),
-      .ms-select-field__input:not(:disabled) {
+      .ms-select-field__input:not(:disabled),
+      .ms-select-field__input:not(:read-only) {
         @include ms-core.color-bind('select-field', (
+          fill: 'error-alpha-300',
           ink: 'error-400',
+          border: 'error-alpha-400'
         ));
 
         &:focus {
           @include ms-core.color-bind('select-field', (
+            fill: 'error-alpha-300',
             border: 'error-400'
           ));
         }

@@ -33,16 +33,47 @@
 
     @content;
 
+    &:has(.ms-select-field__label) {
+      .ms-select-field__input {
+        padding-top: calc(#{$top-padding} + 1rem) !important;
+      }
+    }
+
+    &:has(.ms-select-field__input:focus),
+    &:has(.ms-select-field__input:valid), {
+      .ms-select-field__label {
+        top: math.div($top-label-distance, 2) !important;
+        @include ms-core.typography-bind('select-field-label', (
+          family: 'small',
+          size: 'small',
+        ));
+      }
+    }
+
+    .ms-select-field__label {
+      position: absolute;
+      top: calc(#{$top-label-distance});
+      left: calc(#{$left-label-distance} + 2px);
+      @include ms-core.color-apply('select-field-label', (
+        fill: rgba(0 0 0 / 0),
+        ink: inherit,
+      ));
+      @include ms-core.struct-apply('select-field-label', (
+        padding: ('xs' 'xs' 0 0),
+      ));
+      @include ms-core.typography-apply('select-field-label', ms-core.$type-inherit-template);
+    }
+
     .ms-select-field__input {
       @include ms-core.struct-apply('select-field', (
         width: 100%,
-        margin: 0,
-        radius: 0,
+        margin: inherit,
+        radius: inherit,
         border-width: 2px,
         border-style: solid,
         shadow: 'none',
       ));
-      padding: $top-label-distance;
+      padding: ms-core.key-get('select-field-padding');
       @include ms-core.color-apply('select-field', (
         fill: inherit,
         ink: inherit,
@@ -59,12 +90,6 @@
       cursor: text;
       -webkit-appearance: caret;
       @include ms-core.prefix(transition, all var(--ms-transition-time) ease);
-
-      &::placeholder {
-        // display: none !important;
-        color: rgba(0 0 0 / 0) !important;
-        user-select: none !important;
-      }
     }
 
     .ms-select-field__helper {
