@@ -75,7 +75,7 @@ $_valid-arbitrary-values: (0, inherit);
 /// @param {string} $intent
 /// @return {void} width styles.
 @mixin height($component, $height, $intent: 'create') {
-  @if tools.is-type('map', $height, $errors: false) {
+  @if tools.is-type($height, 'map', $errors: false) {
     $min: map.get($height, 'min');
     $default: map.get($height, 'default');
     $max: map.get($height, 'max');
