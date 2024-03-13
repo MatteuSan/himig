@@ -15,7 +15,7 @@
     "pack:dist": "npm pack --pack-destination=\"./dist\"",
     "pack:root": "npm pack --pack-destination=\"./\"",
     "run:docs": "cd documentation && yarn dev",
-    "test:html": "gulp --gulpfile=\"gulpfile-test.ts\"",
+    "test:html": "yarn && gulp --gulpfile=\"gulpfile-test.ts\"",
     "test:sass": "jest --config=\"jest-sass.config.ts\"",
     "test:ts": "jest --config=\"jest-ts.config.ts\""
   },
