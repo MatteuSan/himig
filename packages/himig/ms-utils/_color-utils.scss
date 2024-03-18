@@ -28,8 +28,9 @@
 
 $_breakpoints: consts.$breakpoints;
 $_colors: (
-  'surface',
+  'primary',
   'accent',
+  'surface',
   'error',
 );
 $_tones: (200, 300, 400, 600, 800, 'ink');
