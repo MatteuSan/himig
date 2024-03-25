@@ -20,13 +20,13 @@
 //  SOFTWARE.
 //---------------------------------------------------
 
-@use '../ms-core';
+@use '@matteusan/pintig';
 
 /// Component variant maker.
 /// @param {string} $variants
 /// @return {*} extension class.
 @mixin extend($variants) {
-  @include ms-core.component-extend('badge', $variants) {
+  @include pintig.component-extend('badge', $variants) {
     @content;
   }
 }
@@ -35,19 +35,19 @@
 /// @param {map} $color-map
 /// @return {*} color styles.
 @mixin color($color-map) {
-  @include ms-core.color-bind('badge', $color-map);
+  @include pintig.color-bind('badge', $color-map);
 }
 
 /// Structure variant mixin.
 /// @param {map} $struct-map
 /// @return {*} struct styles.
 @mixin struct($struct-map) {
-  @include ms-core.struct-bind('badge', $struct-map);
+  @include pintig.struct-bind('badge', $struct-map);
 }
 
 /// Typography variant mixin.
 /// @param {map} $type-map
 /// @return {*} typography styles.
 @mixin typography($type-map) {
-  @include ms-core.typography-bind('badge', $type-map);
+  @include pintig.typography-bind('badge', $type-map);
 }

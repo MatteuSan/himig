@@ -1,7 +1,7 @@
 {
-  "name": "@matteusan/ms-core",
+  "name": "@matteusan/pintig",
   "version": "1.3.3",
-  "description": "The core library for the Himig Design System.",
+  "description": "The core library for the Himig Design System. Portable to any design system.",
   "main": "_index.scss",
   "repository": "https://github.com/MatteuSan/himig",
   "author": "Matteu <matteugt@gmail.com>",

@@ -20,7 +20,7 @@
 //  SOFTWARE.
 //---------------------------------------------------
 
-@use '../ms-core';
+@use '@matteusan/pintig';
 @use 'sass:list';
 @use 'card-base' as base;
 @use 'card-theme' as theme;
@@ -31,35 +31,35 @@
   $typography: (),
   $settings: ()
 ) {
-  $color: ms-core.theme-merge(theme.$init-color, $color);
-  $struct: ms-core.theme-merge(theme.$init-struct, $struct);
-  $typography: ms-core.theme-merge(theme.$init-typography, $typography);
-  $settings: ms-core.theme-merge(theme.$init-settings, $settings);
+  $color: pintig.theme-merge(theme.$init-color, $color);
+  $struct: pintig.theme-merge(theme.$init-struct, $struct);
+  $typography: pintig.theme-merge(theme.$init-typography, $typography);
+  $settings: pintig.theme-merge(theme.$init-settings, $settings);
 
   @include base.init(
     $struct,
     $typography
   ) {
-    @include ms-core.color-apply('card', (
-      fill: ms-core.theme-get($color, 'fill'),
-      ink: ms-core.theme-get($color, 'ink'),
+    @include pintig.color-apply('card', (
+      fill: pintig.theme-get($color, 'fill'),
+      ink: pintig.theme-get($color, 'ink'),
     ));
-    @include ms-core.color-border('card', ms-core.theme-get($color, 'border'), 'bind');
-    @include ms-core.struct-apply('card', (
-      radius: ms-core.theme-get($struct, 'radius'),
+    @include pintig.color-border('card', pintig.theme-get($color, 'border'), 'bind');
+    @include pintig.struct-apply('card', (
+      radius: pintig.theme-get($struct, 'radius'),
       shadow: 'none',
     ));
 
     &:where(.is-outlined) {
-      @include ms-core.color-bind('card', (
-        fill: ms-core.theme-get($color, 'fill', 'outlined'),
-        ink: ms-core.theme-get($color, 'ink'),
-        border: ms-core.theme-get($color, 'border')
+      @include pintig.color-bind('card', (
+        fill: pintig.theme-get($color, 'fill', 'outlined'),
+        ink: pintig.theme-get($color, 'ink'),
+        border: pintig.theme-get($color, 'border')
       ));
     }
 
     &:where(.is-raised) {
-      @include ms-core.struct-bind('card', (
+      @include pintig.struct-bind('card', (
         shadow: 'low'
       ));
     }

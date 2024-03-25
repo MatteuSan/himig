@@ -20,7 +20,7 @@
 //  SOFTWARE.
 //---------------------------------------------------
 
-@use '../ms-core';
+@use '@matteusan/pintig';
 
 @mixin init() {
   .ms-tick-field {
@@ -28,7 +28,7 @@
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
-    gap: ms-core.key-create('tick-field-gap', 0.5rem);
+    gap: pintig.key-create('tick-field-gap', 0.5rem);
     transition: all var(--ms-transition-time) ease;
 
     @content;
@@ -36,10 +36,10 @@
     .ms-tick-field__input {
       display: grid;
       place-content: center;
-      @include ms-core.struct-radius('tick-field-input', inherit);
-      @include ms-core.color-apply('tick-field-input', ms-core.$color-inherit-template);
+      @include pintig.struct-radius('tick-field-input', inherit);
+      @include pintig.color-apply('tick-field-input', pintig.$color-inherit-template);
       transition: all var(--ms-transition-time) ease;
-      @include ms-core.prefix('appearance', none);
+      @include pintig.prefix('appearance', none);
       outline: none;
 
       &::before {
@@ -48,8 +48,8 @@
         height: 0.65rem;
         transform: scale(0);
         transition: 120ms transform ease-in-out;
-        box-shadow: inset 1em 1em ms-core.key-get('tick-field-input-fill');
-        color: ms-core.key-get('tick-field-input-ink');
+        box-shadow: inset 1em 1em pintig.key-get('tick-field-input-fill');
+        color: pintig.key-get('tick-field-input-ink');
       }
 
       &:checked {
@@ -63,15 +63,15 @@
       display: flex;
       flex-flow: column;
       align-items: center;
-      @include ms-core.struct-gap('tick-field-text', inherit);
+      @include pintig.struct-gap('tick-field-text', inherit);
 
       .ms-tick-field__label {
         user-select: none;
-        @include ms-core.typography-apply('tick-field', ms-core.$type-inherit-template);
+        @include pintig.typography-apply('tick-field', pintig.$type-inherit-template);
       }
 
       .ms-tick-field__helper {
-        @include ms-core.typography-apply('tick-field-helper', ms-core.$type-inherit-template);
+        @include pintig.typography-apply('tick-field-helper', pintig.$type-inherit-template);
       }
     }
   }

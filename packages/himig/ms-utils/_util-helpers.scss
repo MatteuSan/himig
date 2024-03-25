@@ -20,17 +20,17 @@
 //  SOFTWARE.
 //---------------------------------------------------
 
-@use '../ms-core';
+@use '@matteusan/pintig';
 @use 'sass:list';
 
 @function handle-include-exclude($default-utils, $include: (), $exclude: ()) {
   $resolved-utils: $default-utils;
 
-  @if not ms-core.is-empty($include) and not ms-core.is-empty($exclude) {
+  @if not pintig.is-empty($include) and not pintig.is-empty($exclude) {
     @error 'Cannot use $include and $exclude at the same time. Please only use one or the other.';
   }
 
-  @if not ms-core.is-empty($include) {
+  @if not pintig.is-empty($include) {
     @each $included in $include {
       @if not list.index($default-utils, $included) {
         @error 'Invalid utility key: #{$included}. Expecting a valid util key: #{$default-utils}.';
@@ -40,7 +40,7 @@
     @return $resolved-utils;
   }
 
-  @if not ms-core.is-empty($exclude) {
+  @if not pintig.is-empty($exclude) {
     @each $excluded in $exclude {
       @if not list.index($default-utils, $excluded) {
         @error 'Invalid utility key: #{$excluded}. Expecting a valid util key: #{$default-utils}.';

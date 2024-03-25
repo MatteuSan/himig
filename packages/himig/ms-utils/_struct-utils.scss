@@ -20,7 +20,7 @@
 //  SOFTWARE.
 //---------------------------------------------------
 
-@use '../ms-core';
+@use '@matteusan/pintig';
 @use 'sass:map';
 @use 'sass:meta';
 @use 'sass:list';
@@ -101,39 +101,39 @@ $_stroke-style: (
     @if list.index($utils-to-render, 'w') {
       // Width
       .w-#{$dimension} {
-        width: ms-core.primitive-token-get('width.#{$dimension}');
+        width: pintig.primitive-token-get('width.#{$dimension}');
       }
 
       @each $breakpoint in $_breakpoints {
         .\@#{$breakpoint}\:w-#{$dimension} {
-          @include ms-core.breakpoint-create($breakpoint) {
-            width: ms-core.primitive-token-get('width.#{$dimension}') !important;
+          @include pintig.breakpoint-create($breakpoint) {
+            width: pintig.primitive-token-get('width.#{$dimension}') !important;
           }
         }
       }
 
       // Min Width
       .min-w-#{$dimension} {
-        min-width: ms-core.primitive-token-get('width.#{$dimension}');
+        min-width: pintig.primitive-token-get('width.#{$dimension}');
       }
 
       @each $breakpoint in $_breakpoints {
         .\@#{$breakpoint}\:min-w-#{$dimension} {
-          @include ms-core.breakpoint-create($breakpoint) {
-            min-width: ms-core.primitive-token-get('width.#{$dimension}') !important;
+          @include pintig.breakpoint-create($breakpoint) {
+            min-width: pintig.primitive-token-get('width.#{$dimension}') !important;
           }
         }
       }
 
       // Max Width
       .max-w-#{$dimension} {
-        max-width: ms-core.primitive-token-get('width.#{$dimension}');
+        max-width: pintig.primitive-token-get('width.#{$dimension}');
       }
 
       @each $breakpoint in $_breakpoints {
         .\@#{$breakpoint}\:max-w-#{$dimension} {
-          @include ms-core.breakpoint-create($breakpoint) {
-            max-width: ms-core.primitive-token-get('width.#{$dimension}') !important;
+          @include pintig.breakpoint-create($breakpoint) {
+            max-width: pintig.primitive-token-get('width.#{$dimension}') !important;
           }
         }
       }
@@ -142,39 +142,39 @@ $_stroke-style: (
     @if list.index($utils-to-render, 'h') {
       // Height
       .h-#{$dimension} {
-        height: ms-core.primitive-token-get('height.#{$dimension}');
+        height: pintig.primitive-token-get('height.#{$dimension}');
       }
 
       @each $breakpoint in $_breakpoints {
         .\@#{$breakpoint}\:h-#{$dimension} {
-          @include ms-core.breakpoint-create($breakpoint) {
-            height: ms-core.primitive-token-get('height.#{$dimension}') !important;
+          @include pintig.breakpoint-create($breakpoint) {
+            height: pintig.primitive-token-get('height.#{$dimension}') !important;
           }
         }
       }
 
       // Min Height
       .min-h-#{$dimension} {
-        min-height: ms-core.primitive-token-get('height.#{$dimension}');
+        min-height: pintig.primitive-token-get('height.#{$dimension}');
       }
 
       @each $breakpoint in $_breakpoints {
         .\@#{$breakpoint}\:min-h-#{$dimension} {
-          @include ms-core.breakpoint-create($breakpoint) {
-            min-height: ms-core.primitive-token-get('height.#{$dimension}') !important;
+          @include pintig.breakpoint-create($breakpoint) {
+            min-height: pintig.primitive-token-get('height.#{$dimension}') !important;
           }
         }
       }
 
       // Max Height
       .max-h-#{$dimension} {
-        max-height: ms-core.primitive-token-get('height.#{$dimension}');
+        max-height: pintig.primitive-token-get('height.#{$dimension}');
       }
 
       @each $breakpoint in $_breakpoints {
         .\@#{$breakpoint}\:max-h-#{$dimension} {
-          @include ms-core.breakpoint-create($breakpoint) {
-            max-height: ms-core.primitive-token-get('height.#{$dimension}') !important;
+          @include pintig.breakpoint-create($breakpoint) {
+            max-height: pintig.primitive-token-get('height.#{$dimension}') !important;
           }
         }
       }
@@ -185,13 +185,13 @@ $_stroke-style: (
     @if list.index($utils-to-render, 'p') {
       // Padding
       .p-#{$variant} {
-        padding: ms-core.primitive-token-get('padding.#{$variant}');
+        padding: pintig.primitive-token-get('padding.#{$variant}');
       }
 
       @each $breakpoint in $_breakpoints {
         .\@#{$breakpoint}\:p-#{$variant} {
-          @include ms-core.breakpoint-create($breakpoint) {
-            padding: ms-core.primitive-token-get('padding.#{$variant}') !important;
+          @include pintig.breakpoint-create($breakpoint) {
+            padding: pintig.primitive-token-get('padding.#{$variant}') !important;
           }
         }
       }
@@ -199,15 +199,15 @@ $_stroke-style: (
       @each $direction, $direction-val in $_directions {
         .p#{$direction}-#{$variant} {
           @each $sub-direction in $direction-val {
-            padding-#{$sub-direction}: ms-core.primitive-token-get('padding.#{$variant}');
+            padding-#{$sub-direction}: pintig.primitive-token-get('padding.#{$variant}');
           }
         }
 
         @each $breakpoint in $_breakpoints {
           .\@#{$breakpoint}\:p#{$direction}-#{$variant} {
-            @include ms-core.breakpoint-create($breakpoint) {
+            @include pintig.breakpoint-create($breakpoint) {
               @each $sub-direction in $direction-val {
-                padding-#{$sub-direction}: ms-core.primitive-token-get('padding.#{$variant}') !important;
+                padding-#{$sub-direction}: pintig.primitive-token-get('padding.#{$variant}') !important;
               }
             }
           }
@@ -218,13 +218,13 @@ $_stroke-style: (
     @if list.index($utils-to-render, 'm') {
       // Margin
       .m-#{$variant} {
-        margin: ms-core.primitive-token-get('margin.#{$variant}');
+        margin: pintig.primitive-token-get('margin.#{$variant}');
       }
 
       @each $breakpoint in $_breakpoints {
         .\@#{$breakpoint}\:m-#{$variant} {
-          @include ms-core.breakpoint-create($breakpoint) {
-            margin: ms-core.primitive-token-get('margin.#{$variant}') !important;
+          @include pintig.breakpoint-create($breakpoint) {
+            margin: pintig.primitive-token-get('margin.#{$variant}') !important;
           }
         }
       }
@@ -232,15 +232,15 @@ $_stroke-style: (
       @each $direction, $direction-val in $_directions {
         .m#{$direction}-#{$variant} {
           @each $sub-direction in $direction-val {
-            margin-#{$sub-direction}: ms-core.primitive-token-get('margin.#{$variant}');
+            margin-#{$sub-direction}: pintig.primitive-token-get('margin.#{$variant}');
           }
         }
 
         @each $breakpoint in $_breakpoints {
           .\@#{$breakpoint}\:m#{$direction}-#{$variant} {
-            @include ms-core.breakpoint-create($breakpoint) {
+            @include pintig.breakpoint-create($breakpoint) {
               @each $sub-direction in $direction-val {
-                margin-#{$sub-direction}: ms-core.primitive-token-get('margin.#{$variant}') !important;
+                margin-#{$sub-direction}: pintig.primitive-token-get('margin.#{$variant}') !important;
               }
             }
           }
@@ -254,13 +254,13 @@ $_stroke-style: (
         // Do nothing
       } @else {
         .r-#{$variant} {
-          border-radius: ms-core.primitive-token-get('radius.#{$variant}');
+          border-radius: pintig.primitive-token-get('radius.#{$variant}');
         }
 
         @each $breakpoint in $_breakpoints {
           .\@#{$breakpoint}\:r-#{$variant} {
-            @include ms-core.breakpoint-create($breakpoint) {
-              border-radius: ms-core.primitive-token-get('radius.#{$variant}') !important;
+            @include pintig.breakpoint-create($breakpoint) {
+              border-radius: pintig.primitive-token-get('radius.#{$variant}') !important;
             }
           }
         }
@@ -268,15 +268,15 @@ $_stroke-style: (
         @each $direction, $direction-val in $_r-directions {
           .r#{$direction}-#{$variant} {
             @each $sub-direction in $direction-val {
-              border-#{$sub-direction}-radius: ms-core.primitive-token-get('radius.#{$variant}');
+              border-#{$sub-direction}-radius: pintig.primitive-token-get('radius.#{$variant}');
             }
           }
 
           @each $breakpoint in $_breakpoints {
             .\@#{$breakpoint}\:r#{$direction}-#{$variant} {
-              @include ms-core.breakpoint-create($breakpoint) {
+              @include pintig.breakpoint-create($breakpoint) {
                 @each $sub-direction in $direction-val {
-                  border-#{$sub-direction}-radius: ms-core.primitive-token-get('radius.#{$variant}') !important;
+                  border-#{$sub-direction}-radius: pintig.primitive-token-get('radius.#{$variant}') !important;
                 }
               }
             }
@@ -290,13 +290,13 @@ $_stroke-style: (
     @each $variant in $_stroke-size {
       // Border Width
       .border-#{$variant} {
-        border-width: ms-core.primitive-token-get('border.#{$variant}');
+        border-width: pintig.primitive-token-get('border.#{$variant}');
       }
 
       @each $breakpoint in $_breakpoints {
         .\@#{$breakpoint}\:border-#{$variant} {
-          @include ms-core.breakpoint-create($breakpoint) {
-            border-width: ms-core.primitive-token-get('border.#{$variant}') !important;
+          @include pintig.breakpoint-create($breakpoint) {
+            border-width: pintig.primitive-token-get('border.#{$variant}') !important;
           }
         }
       }
@@ -312,7 +312,7 @@ $_stroke-style: (
 
       @each $breakpoint in $_breakpoints {
         .\@#{$breakpoint}\:border-#{$variant} {
-          @include ms-core.breakpoint-create($breakpoint) {
+          @include pintig.breakpoint-create($breakpoint) {
             border-style: $variant !important;
           }
         }

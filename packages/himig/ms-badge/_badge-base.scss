@@ -20,7 +20,7 @@
 //  SOFTWARE.
 //---------------------------------------------------
 
-@use '../ms-core';
+@use '@matteusan/pintig';
 
 @mixin init() {
   .ms-badge {
@@ -34,7 +34,7 @@
     }
 
     .ms-badge__label {
-      @include ms-core.typography-apply('badge', (
+      @include pintig.typography-apply('badge', (
         family: inherit,
         size: inherit,
         weight: inherit,

@@ -20,7 +20,7 @@
 //  SOFTWARE.
 //---------------------------------------------------
 
-@use '../ms-core';
+@use '@matteusan/pintig';
 @use 'list-base' as base;
 @use 'list-theme' as theme;
 
@@ -30,48 +30,48 @@
   $typography: (),
   $settings: ()
 ) {
-  $color: ms-core.theme-merge(theme.$init-color, $color);
-  $struct: ms-core.theme-merge(theme.$init-struct, $struct);
-  $typography: ms-core.theme-merge(theme.$init-typography, $typography);
-  $settings: ms-core.theme-merge(theme.$init-settings, $settings);
+  $color: pintig.theme-merge(theme.$init-color, $color);
+  $struct: pintig.theme-merge(theme.$init-struct, $struct);
+  $typography: pintig.theme-merge(theme.$init-typography, $typography);
+  $settings: pintig.theme-merge(theme.$init-settings, $settings);
 
   @include base.init() {
-    @include ms-core.color-bind('list-item', $color);
-    @include ms-core.struct-apply('list', (
-      radius: ms-core.theme-get($struct, 'radius'),
+    @include pintig.color-bind('list-item', $color);
+    @include pintig.struct-apply('list', (
+      radius: pintig.theme-get($struct, 'radius'),
     ));
-    @include ms-core.struct-bind('list-item', $struct);
-    @include ms-core.typography-bind('list-item', $typography);
+    @include pintig.struct-bind('list-item', $struct);
+    @include pintig.typography-bind('list-item', $typography);
 
     &:where(.is-selectable) {
       .ms-list__item {
         cursor: pointer;
 
         &:hover {
-          @include ms-core.color-bind('list-item', (
-            fill: ms-core.theme-get($color, 'fill', 'hover'),
-            border: ms-core.theme-get($color, 'border', 'hover')
+          @include pintig.color-bind('list-item', (
+            fill: pintig.theme-get($color, 'fill', 'hover'),
+            border: pintig.theme-get($color, 'border', 'hover')
           ));
         }
 
         &:focus {
-          @include ms-core.color-bind('list-item', (
-            fill: ms-core.theme-get($color, 'fill', 'focus'),
-            border: ms-core.theme-get($color, 'border', 'focus')
+          @include pintig.color-bind('list-item', (
+            fill: pintig.theme-get($color, 'fill', 'focus'),
+            border: pintig.theme-get($color, 'border', 'focus')
           ));
         }
 
         &:active {
-          @include ms-core.color-bind('list-item', (
-            fill: ms-core.theme-get($color, 'fill', 'active'),
-            border: ms-core.theme-get($color, 'border', 'active')
+          @include pintig.color-bind('list-item', (
+            fill: pintig.theme-get($color, 'fill', 'active'),
+            border: pintig.theme-get($color, 'border', 'active')
           ));
         }
       }
     }
 
     &:where(.is-raised) {
-      @include ms-core.struct-shadow('list', 'xs');
+      @include pintig.struct-shadow('list', 'xs');
     }
   }
 }

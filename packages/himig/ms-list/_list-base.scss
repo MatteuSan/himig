@@ -20,7 +20,7 @@
 //  SOFTWARE.
 //---------------------------------------------------
 
-@use '../ms-core';
+@use '@matteusan/pintig';
 
 @mixin init() {
   .ms-list {
@@ -35,12 +35,12 @@
       flex-flow: row nowrap;
       align-items: center;
       list-style: none;
-      @include ms-core.color-apply('list-item', (
+      @include pintig.color-apply('list-item', (
         fill: rgba(0 0 0 / 0),
         ink: currentColor,
         border: rgba(0 0 0 / 0),
       ));
-      @include ms-core.struct-apply('list-item', (
+      @include pintig.struct-apply('list-item', (
         width: (
           default: 100%,
           min: auto,
@@ -51,13 +51,13 @@
         border-style: 'solid',
         gap: 0
       ));
-      @include ms-core.typography-apply('list-item', (
+      @include pintig.typography-apply('list-item', (
         family: inherit,
         size: inherit,
         weight: inherit,
         line-height: inherit,
       ));
-      @include ms-core.prefix(transition, all var(--ms-transition-time) ease);
+      @include pintig.prefix(transition, all var(--ms-transition-time) ease);
     }
   }
 }

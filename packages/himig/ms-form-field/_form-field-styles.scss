@@ -20,7 +20,7 @@
 //  SOFTWARE.
 //---------------------------------------------------
 
-@use '../ms-core';
+@use '@matteusan/pintig';
 @use 'sass:list';
 @use 'form-field-base' as base;
 @use 'form-field-theme' as theme;
@@ -31,107 +31,107 @@
   $typography: (),
   $settings: ()
 ) {
-  $color: ms-core.theme-merge(theme.$init-color, $color);
-  $struct: ms-core.theme-merge(theme.$init-struct, $struct);
-  $typography: ms-core.theme-merge(theme.$init-typography, $typography);
-  $settings: ms-core.theme-merge(theme.$init-settings, $settings);
+  $color: pintig.theme-merge(theme.$init-color, $color);
+  $struct: pintig.theme-merge(theme.$init-struct, $struct);
+  $typography: pintig.theme-merge(theme.$init-typography, $typography);
+  $settings: pintig.theme-merge(theme.$init-settings, $settings);
 
-  $resolve-padding: if(list.length(ms-core.theme-get($struct, 'padding')) >= 2, list.nth(ms-core.theme-get($struct, 'padding'), 2), list.nth(ms-core.theme-get($struct, 'padding'), 1));
+  $resolve-padding: if(list.length(pintig.theme-get($struct, 'padding')) >= 2, list.nth(pintig.theme-get($struct, 'padding'), 2), list.nth(pintig.theme-get($struct, 'padding'), 1));
 
   @include base.init(
-    ms-core.primitive-token-switch('padding.#{$resolve-padding}', $resolve-padding),
-    ms-core.primitive-token-switch('padding.#{$resolve-padding}', $resolve-padding),
-    ms-core.primitive-token-switch('padding.#{list.nth(ms-core.theme-get($struct, 'padding'), 1)}', list.nth(ms-core.theme-get($struct, 'padding'), 1)),
+    pintig.primitive-token-switch('padding.#{$resolve-padding}', $resolve-padding),
+    pintig.primitive-token-switch('padding.#{$resolve-padding}', $resolve-padding),
+    pintig.primitive-token-switch('padding.#{list.nth(pintig.theme-get($struct, 'padding'), 1)}', list.nth(pintig.theme-get($struct, 'padding'), 1)),
   ) {
     .ms-form-field__label {
-      @include ms-core.color-bind('form-field-label', (
-        ink: ms-core.theme-get($color, 'ink', 'disabled'),
+      @include pintig.color-bind('form-field-label', (
+        ink: pintig.theme-get($color, 'ink', 'disabled'),
       ));
-      @include ms-core.typography-bind('form-field-label', (
-        family: ms-core.theme-get($typography, 'family'),
-        size: ms-core.theme-get($typography, 'size', 'label'),
-        weight: ms-core.theme-get($typography, 'weight'),
-        line-height: ms-core.theme-get($typography, 'height'),
+      @include pintig.typography-bind('form-field-label', (
+        family: pintig.theme-get($typography, 'family'),
+        size: pintig.theme-get($typography, 'size', 'label'),
+        weight: pintig.theme-get($typography, 'weight'),
+        line-height: pintig.theme-get($typography, 'height'),
       ));
       user-select: none;
     }
 
     &:has(.ms-form-field__input:not(:read-only):not(:disabled)) {
       .ms-form-field__label {
-        @include ms-core.color-bind('form-field-label', (
-          ink: ms-core.theme-get($color, 'ink'),
+        @include pintig.color-bind('form-field-label', (
+          ink: pintig.theme-get($color, 'ink'),
         ));
       }
     }
 
     &:has(.ms-form-field__input:read-only:disabled) {
-      @include ms-core.color-ink('form-field-helper', ms-core.theme-get($color, 'ink', 'disabled'), 'bind');
+      @include pintig.color-ink('form-field-helper', pintig.theme-get($color, 'ink', 'disabled'), 'bind');
     }
 
     .ms-form-field__input {
-      @include ms-core.struct-bind('form-field', (
-        width: ms-core.theme-get($struct, 'width'),
-        padding: ms-core.theme-get($struct, 'padding'),
-        radius: ms-core.theme-get($struct, 'radius'),
-        border-width: ms-core.theme-get($struct, 'border-width'),
-        border-style: ms-core.theme-get($struct, 'border-style'),
-        gap: ms-core.theme-get($struct, 'gap'),
+      @include pintig.struct-bind('form-field', (
+        width: pintig.theme-get($struct, 'width'),
+        padding: pintig.theme-get($struct, 'padding'),
+        radius: pintig.theme-get($struct, 'radius'),
+        border-width: pintig.theme-get($struct, 'border-width'),
+        border-style: pintig.theme-get($struct, 'border-style'),
+        gap: pintig.theme-get($struct, 'gap'),
       ));
-      @include ms-core.typography-bind('form-field', (
-        family: ms-core.theme-get($typography, 'family'),
-        size: ms-core.theme-get($typography, 'size', 'default'),
-        weight: ms-core.theme-get($typography, 'weight'),
-        line-height: ms-core.theme-get($typography, 'height'),
+      @include pintig.typography-bind('form-field', (
+        family: pintig.theme-get($typography, 'family'),
+        size: pintig.theme-get($typography, 'size', 'default'),
+        weight: pintig.theme-get($typography, 'weight'),
+        line-height: pintig.theme-get($typography, 'height'),
       ));
 
       &:not(:read-only),
       &:not(:disabled) {
-        @include ms-core.color-bind('form-field', (
-          fill: ms-core.theme-get($color, 'fill'),
-          ink: ms-core.theme-get($color, 'ink'),
-          border: ms-core.theme-get($color, 'border'),
+        @include pintig.color-bind('form-field', (
+          fill: pintig.theme-get($color, 'fill'),
+          ink: pintig.theme-get($color, 'ink'),
+          border: pintig.theme-get($color, 'border'),
         ));
 
         &:focus {
-          @include ms-core.color-bind('form-field', (
-            fill: ms-core.theme-get($color, 'fill', 'hover'),
-            border: ms-core.theme-get($color, 'border', 'focus'),
+          @include pintig.color-bind('form-field', (
+            fill: pintig.theme-get($color, 'fill', 'hover'),
+            border: pintig.theme-get($color, 'border', 'focus'),
           ));
-          @include ms-core.struct-bind('form-field', (
-            border-width: ms-core.theme-get($struct, 'border-width', 'focus'),
+          @include pintig.struct-bind('form-field', (
+            border-width: pintig.theme-get($struct, 'border-width', 'focus'),
           ));
         }
       }
 
       &:read-only,
       &:disabled {
-        @include ms-core.color-bind('form-field', (
-          fill: ms-core.theme-get($color, 'fill', 'disabled'),
-          ink: ms-core.theme-get($color, 'ink', 'disabled'),
-          border: ms-core.theme-get($color, 'fill', 'disabled'),
+        @include pintig.color-bind('form-field', (
+          fill: pintig.theme-get($color, 'fill', 'disabled'),
+          ink: pintig.theme-get($color, 'ink', 'disabled'),
+          border: pintig.theme-get($color, 'fill', 'disabled'),
         ));
         cursor: not-allowed;
       }
     }
 
     .ms-form-field__helper {
-      padding: 0.3rem ms-core.primitive-token-switch('padding.#{$resolve-padding}', $resolve-padding) 0;
-      @include ms-core.color-bind('form-field-helper', (
-        ink: ms-core.theme-get($color, 'ink', 'helper'),
+      padding: 0.3rem pintig.primitive-token-switch('padding.#{$resolve-padding}', $resolve-padding) 0;
+      @include pintig.color-bind('form-field-helper', (
+        ink: pintig.theme-get($color, 'ink', 'helper'),
       ));
-      @include ms-core.typography-bind('form-field-helper', (
-        family: ms-core.theme-get($typography, 'family'),
-        size: ms-core.theme-get($typography, 'size', 'helper'),
-        weight: ms-core.theme-get($typography, 'weight'),
-        line-height: ms-core.theme-get($typography, 'height'),
+      @include pintig.typography-bind('form-field-helper', (
+        family: pintig.theme-get($typography, 'family'),
+        size: pintig.theme-get($typography, 'size', 'helper'),
+        weight: pintig.theme-get($typography, 'weight'),
+        line-height: pintig.theme-get($typography, 'height'),
       ));
     }
 
     &:where(.is-outlined) {
       &:has(.ms-form-field__input:not(:read-only):not(:disabled)) {
         .ms-form-field__label {
-          @include ms-core.color-bind('form-field-label', (
-            ink: ms-core.theme-get($color, 'ink'),
+          @include pintig.color-bind('form-field-label', (
+            ink: pintig.theme-get($color, 'ink'),
           ));
         }
       }
@@ -139,28 +139,28 @@
       .ms-form-field__input {
         &:not(:read-only),
         &:not(:disabled) {
-          @include ms-core.color-bind('form-field', (
+          @include pintig.color-bind('form-field', (
             fill: rgba(0 0 0 / 0) !important,
-            ink: ms-core.theme-get($color, 'ink'),
-            border: ms-core.theme-get($color, 'border'),
+            ink: pintig.theme-get($color, 'ink'),
+            border: pintig.theme-get($color, 'border'),
           ));
 
           &:focus {
-            @include ms-core.color-bind('form-field', (
-              border: ms-core.theme-get($color, 'border', 'focus'),
+            @include pintig.color-bind('form-field', (
+              border: pintig.theme-get($color, 'border', 'focus'),
             ));
-            @include ms-core.struct-bind('form-field', (
-              border-width: ms-core.theme-get($struct, 'border-width', 'focus'),
+            @include pintig.struct-bind('form-field', (
+              border-width: pintig.theme-get($struct, 'border-width', 'focus'),
             ));
           }
         }
 
         &:read-only,
         &:disabled {
-          @include ms-core.color-bind('form-field', (
+          @include pintig.color-bind('form-field', (
             fill: transparent,
-            ink: ms-core.theme-get($color, 'ink', 'disabled'),
-            border: ms-core.theme-get($color, 'fill', 'disabled'),
+            ink: pintig.theme-get($color, 'ink', 'disabled'),
+            border: pintig.theme-get($color, 'fill', 'disabled'),
           ));
         }
       }
@@ -168,7 +168,7 @@
       &:where(.is-error) {
         .ms-form-field__input:not(:read-only),
         .ms-form-field__input:not(:disabled) {
-          @include ms-core.color-bind('form-field', (
+          @include pintig.color-bind('form-field', (
             fill: rgba(0 0 0 / 0) !important,
             border: 'error-alpha-600',
           ));
@@ -178,14 +178,14 @@
 
     &:where(.is-error) {
       .ms-form-field__label {
-        @include ms-core.color-bind('form-field-label', (
-          ink: ms-core.theme-get($color, 'ink', 'disabled'),
+        @include pintig.color-bind('form-field-label', (
+          ink: pintig.theme-get($color, 'ink', 'disabled'),
         ));
       }
 
       &:has(.ms-form-field__input:not(:read-only):not(:disabled)) {
         .ms-form-field__label {
-          @include ms-core.color-bind('form-field-label', (
+          @include pintig.color-bind('form-field-label', (
             ink: 'error-400',
           ));
         }
@@ -193,14 +193,14 @@
 
       .ms-form-field__input:not(:disabled),
       .ms-form-field__input:not(:read-only) {
-        @include ms-core.color-bind('form-field', (
+        @include pintig.color-bind('form-field', (
           fill: 'error-alpha-300',
           ink: 'error-400',
           border: 'error-alpha-400'
         ));
 
         &:focus {
-          @include ms-core.color-bind('form-field', (
+          @include pintig.color-bind('form-field', (
             fill: 'error-alpha-300',
             border: 'error-400'
           ));
@@ -208,14 +208,14 @@
       }
 
       .ms-form-field__helper {
-        @include ms-core.color-bind('form-field-helper', (
+        @include pintig.color-bind('form-field-helper', (
           ink: 'error-400',
         ));
       }
     }
 
     &:where(.is-raised) {
-      @include ms-core.struct-bind('form-field', (
+      @include pintig.struct-bind('form-field', (
         shadow: 'xs',
       ));
     }

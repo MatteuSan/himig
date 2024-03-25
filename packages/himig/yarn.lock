@@ -9,9 +9,19 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@matteusan/himig@workspace:."
   dependencies:
+    "@matteusan/pintig": "file:../pintig"
     "@matteusan/sentro": 0.1.25
   languageName: unknown
   linkType: soft
+
+"@matteusan/pintig@file:../pintig::locator=%40matteusan%2Fhimig%40workspace%3A.":
+  version: 1.3.3
+  resolution: "@matteusan/pintig@file:../pintig#../pintig::hash=3b8b08&locator=%40matteusan%2Fhimig%40workspace%3A."
+  dependencies:
+    "@matteusan/sentro": 0.1.25
+  checksum: 8cba90ad6aa9c0eab03bfc0d53316d87674c01ec60deea2d2bb9dd7a81a6cb29a5016b092eba230e1a652c56523ad1a67b24e0c6e5a4f9ea993aaec3120d8ba2
+  languageName: node
+  linkType: hard
 
 "@matteusan/sentro@npm:0.1.25":
   version: 0.1.25

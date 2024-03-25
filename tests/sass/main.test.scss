@@ -24,10 +24,9 @@
 @use 'node_modules/sass-true' as true with ($terminal-output: true);
 
 // Core Modules
-@use 'ms-core';
+@use 'pintig';
 
 // Components
 @use 'ms-badge';
 @use 'ms-button';
 @use 'ms-form-field';
-// @use 'font-pack.test';

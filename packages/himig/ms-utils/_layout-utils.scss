@@ -20,7 +20,7 @@
 //  SOFTWARE.
 //---------------------------------------------------
 
-@use '../ms-core';
+@use '@matteusan/pintig';
 @use 'sass:string';
 @use 'sass:list';
 @use 'consts';
@@ -75,7 +75,7 @@ $_gaps: (
 
       @each $breakpoint in $_breakpoints {
         .\@#{$breakpoint}\:#{$display} {
-          @include ms-core.breakpoint-create($breakpoint) {
+          @include pintig.breakpoint-create($breakpoint) {
             display: string.unquote($display) !important;
           }
         }
@@ -91,7 +91,7 @@ $_gaps: (
 
       @each $breakpoint in $_breakpoints {
         .\@#{$breakpoint}\:#{$position} {
-          @include ms-core.breakpoint-create($breakpoint) {
+          @include pintig.breakpoint-create($breakpoint) {
             position: string.unquote($position) !important;
           }
         }
@@ -107,7 +107,7 @@ $_gaps: (
 
       @each $breakpoint in $_breakpoints {
         .\@#{$breakpoint}\:flow-#{$flow} {
-          @include ms-core.breakpoint-create($breakpoint) {
+          @include pintig.breakpoint-create($breakpoint) {
             flex-flow: string.unquote($flow) !important;
           }
         }
@@ -130,13 +130,13 @@ $_gaps: (
       @each $breakpoint in $_breakpoints {
         @if $wrap == 'default' {
           .\@#{$breakpoint}\:wrap {
-            @include ms-core.breakpoint-create($breakpoint) {
+            @include pintig.breakpoint-create($breakpoint) {
               flex-wrap: string.unquote($value) !important;
             }
           }
         } @else {
           .\@#{$breakpoint}\:wrap-#{$wrap} {
-            @include ms-core.breakpoint-create($breakpoint) {
+            @include pintig.breakpoint-create($breakpoint) {
               flex-wrap: string.unquote($value) !important;
             }
           }
@@ -153,7 +153,7 @@ $_gaps: (
 
       @each $breakpoint in $_breakpoints {
         .\@#{$breakpoint}\:jc-#{$alignment} {
-          @include ms-core.breakpoint-create($breakpoint) {
+          @include pintig.breakpoint-create($breakpoint) {
             justify-content: string.unquote($alignment) !important;
           }
         }
@@ -167,7 +167,7 @@ $_gaps: (
 
       @each $breakpoint in $_breakpoints {
         .\@#{$breakpoint}\:ji-#{$alignment} {
-          @include ms-core.breakpoint-create($breakpoint) {
+          @include pintig.breakpoint-create($breakpoint) {
             justify-items: string.unquote($alignment) !important;
           }
         }
@@ -181,7 +181,7 @@ $_gaps: (
 
       @each $breakpoint in $_breakpoints {
         .\@#{$breakpoint}\:ac-#{$alignment} {
-          @include ms-core.breakpoint-create($breakpoint) {
+          @include pintig.breakpoint-create($breakpoint) {
             align-content: string.unquote($alignment) !important;
           }
         }
@@ -195,7 +195,7 @@ $_gaps: (
 
       @each $breakpoint in $_breakpoints {
         .\@#{$breakpoint}\:ai-#{$alignment} {
-          @include ms-core.breakpoint-create($breakpoint) {
+          @include pintig.breakpoint-create($breakpoint) {
             align-items: string.unquote($alignment) !important;
           }
         }
@@ -209,7 +209,7 @@ $_gaps: (
 
       @each $breakpoint in $_breakpoints {
         .\@#{$breakpoint}\:pc-#{$alignment} {
-          @include ms-core.breakpoint-create($breakpoint) {
+          @include pintig.breakpoint-create($breakpoint) {
             place-content: string.unquote($alignment) !important;
           }
         }
@@ -223,7 +223,7 @@ $_gaps: (
 
       @each $breakpoint in $_breakpoints {
         .\@#{$breakpoint}\:pi-#{$alignment} {
-          @include ms-core.breakpoint-create($breakpoint) {
+          @include pintig.breakpoint-create($breakpoint) {
             place-items: string.unquote($alignment) !important;
           }
         }
@@ -239,7 +239,7 @@ $_gaps: (
 
       @each $breakpoint in $_breakpoints {
         .\@#{$breakpoint}\:cols-#{$i} {
-          @include ms-core.breakpoint-create($breakpoint) {
+          @include pintig.breakpoint-create($breakpoint) {
             grid-template-columns: repeat($i, 1fr) !important;
           }
         }
@@ -253,7 +253,7 @@ $_gaps: (
 
       @each $breakpoint in $_breakpoints {
         .\@#{$breakpoint}\:rows-#{$i} {
-          @include ms-core.breakpoint-create($breakpoint) {
+          @include pintig.breakpoint-create($breakpoint) {
             grid-template-rows: repeat($i, 1fr) !important;
           }
         }
@@ -267,7 +267,7 @@ $_gaps: (
 
       @each $breakpoint in $_breakpoints {
         .\@#{$breakpoint}\:start-#{$i} {
-          @include ms-core.breakpoint-create($breakpoint) {
+          @include pintig.breakpoint-create($breakpoint) {
             grid-column-start: $i !important;
           }
         }
@@ -281,7 +281,7 @@ $_gaps: (
 
       @each $breakpoint in $_breakpoints {
         .\@#{$breakpoint}\:end-#{$i} {
-          @include ms-core.breakpoint-create($breakpoint) {
+          @include pintig.breakpoint-create($breakpoint) {
             grid-column-end: $i + 1 !important;
           }
         }
@@ -292,13 +292,13 @@ $_gaps: (
   @if list.index($utils-to-render, 'gap') {
     @each $gap in $_gaps {
       .gap-#{$gap} {
-        gap: ms-core.primitive-token-get('gap.#{$gap}');
+        gap: pintig.primitive-token-get('gap.#{$gap}');
       }
 
       @each $breakpoint in $_breakpoints {
         .\@#{$breakpoint}\:gap-#{$gap} {
-          @include ms-core.breakpoint-create($breakpoint) {
-            gap: ms-core.primitive-token-get('gap.#{$gap}') !important;
+          @include pintig.breakpoint-create($breakpoint) {
+            gap: pintig.primitive-token-get('gap.#{$gap}') !important;
           }
         }
       }

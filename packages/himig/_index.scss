@@ -25,7 +25,7 @@ $module-mode: false !default;
 $test-mode: $module-mode !default;
 $vue-mode: $test-mode !default;
 
-@use 'ms-core' with (
+@use '@matteusan/pintig' with (
   $expressive-inks: $expressive-inks,
   $module-mode: $module-mode,
   $test-mode: $test-mode,
@@ -35,7 +35,7 @@ $vue-mode: $test-mode !default;
 @use 'init-font-pack' as font-pack;
 
 // For accessing core lib from the main himig module.
-@forward 'ms-core';
+@forward '@matteusan/pintig';
 
 @mixin init(
   $theme: (),
@@ -59,22 +59,22 @@ $vue-mode: $test-mode !default;
   $breakpoints: (),
   $extend: (),
 ) {
-  $primary: ms-core.prioritize(map.get($theme, 'primary'), $primary);
-  $accent: ms-core.prioritize(map.get($theme, 'accent'), $accent);
-  $surface: ms-core.prioritize(map.get($theme, 'surface'), $surface);
-  $background: ms-core.prioritize(map.get($theme, 'background'), $background);
-  $error: ms-core.prioritize(map.get($theme, 'error'), $error);
-  $disabled: ms-core.prioritize(map.get($theme, 'disabled'), $disabled);
-  $radius: ms-core.prioritize(map.get($theme, 'radius'), $radius);
-  $global: ms-core.prioritize(map.get($theme, 'global'), $global);
-  $supertitle: ms-core.prioritize(map.get($theme, 'supertitle'), $supertitle);
-  $title: ms-core.prioritize(map.get($theme, 'title'), $title);
-  $subtitle: ms-core.prioritize(map.get($theme, 'subtitle'), $subtitle);
-  $body: ms-core.prioritize(map.get($theme, 'body'), $body);
-  $mono: ms-core.prioritize(map.get($theme, 'mono'), $mono);
-  $small: ms-core.prioritize(map.get($theme, 'small'), $small);
-  $breakpoints: ms-core.prioritize(map.get($theme, 'breakpoints'), $breakpoints);
-  $extend: ms-core.prioritize(map.get($theme, 'extend'), $extend);
+  $primary: pintig.prioritize(map.get($theme, 'primary'), $primary);
+  $accent: pintig.prioritize(map.get($theme, 'accent'), $accent);
+  $surface: pintig.prioritize(map.get($theme, 'surface'), $surface);
+  $background: pintig.prioritize(map.get($theme, 'background'), $background);
+  $error: pintig.prioritize(map.get($theme, 'error'), $error);
+  $disabled: pintig.prioritize(map.get($theme, 'disabled'), $disabled);
+  $radius: pintig.prioritize(map.get($theme, 'radius'), $radius);
+  $global: pintig.prioritize(map.get($theme, 'global'), $global);
+  $supertitle: pintig.prioritize(map.get($theme, 'supertitle'), $supertitle);
+  $title: pintig.prioritize(map.get($theme, 'title'), $title);
+  $subtitle: pintig.prioritize(map.get($theme, 'subtitle'), $subtitle);
+  $body: pintig.prioritize(map.get($theme, 'body'), $body);
+  $mono: pintig.prioritize(map.get($theme, 'mono'), $mono);
+  $small: pintig.prioritize(map.get($theme, 'small'), $small);
+  $breakpoints: pintig.prioritize(map.get($theme, 'breakpoints'), $breakpoints);
+  $extend: pintig.prioritize(map.get($theme, 'extend'), $extend);
 
   $_init-family: 'family.sans-serif';
   $_init-line-height: 'line-height.normal';
@@ -129,14 +129,14 @@ $vue-mode: $test-mode !default;
   );
 
   $_init-breakpoints: (
-    'small': ms-core.primitive-token-get('breakpoint.sm'),
-    'medium': ms-core.primitive-token-get('breakpoint.md'),
-    'large': ms-core.primitive-token-get('breakpoint.lg'),
-    'xlarge': ms-core.primitive-token-get('breakpoint.xl'),
+    'small': pintig.primitive-token-get('breakpoint.sm'),
+    'medium': pintig.primitive-token-get('breakpoint.md'),
+    'large': pintig.primitive-token-get('breakpoint.lg'),
+    'xlarge': pintig.primitive-token-get('breakpoint.xl'),
   );
 
   :root {
-    @include ms-core.theme-config(
+    @include pintig.theme-config(
       $primary: $primary,
       $accent: $accent,
       $surface: $surface,
@@ -160,11 +160,11 @@ $vue-mode: $test-mode !default;
     --ms-sprite-size: 32px;
     --ms-transition-time: 0.2s;
 
-    font-family: ms-core.token-get('family-global');
-    line-height: ms-core.token-get('line-height-global');
+    font-family: pintig.token-get('family-global');
+    line-height: pintig.token-get('line-height-global');
   }
 
-  @include ms-core.breakpoint-config(map.merge($_init-breakpoints, $breakpoints));
+  @include pintig.breakpoint-config(map.merge($_init-breakpoints, $breakpoints));
 
   @include font-pack.load((
     'global': map.get(map.merge($_init-type-global, $global), 'family'),
@@ -191,8 +191,8 @@ $vue-mode: $test-mode !default;
   }
 
   body {
-    background: ms-core.key-create('body-fill', ms-core.token-get('background'));
-    color: ms-core.key-create('body-ink', ms-core.token-get('background-ink'));
+    background: pintig.key-create('body-fill', pintig.token-get('background'));
+    color: pintig.key-create('body-ink', pintig.token-get('background-ink'));
   }
 
   a {
@@ -218,25 +218,25 @@ $vue-mode: $test-mode !default;
   main.content-wrap {
     $margin: 15px;
     width: calc(100% - #{$margin * 2});
-    max-width: ms-core.key-create('content-wrap-max-width', ms-core.primitive-token-get('dimension.xl'));
+    max-width: pintig.key-create('content-wrap-max-width', pintig.primitive-token-get('dimension.xl'));
     height: 100%;
-    display: ms-core.key-create('content-wrap-display', flex);
+    display: pintig.key-create('content-wrap-display', flex);
     flex-flow: column nowrap;
-    gap: ms-core.key-create('content-wrap-gap', ms-core.primitive-token-get('spacing.md'));
+    gap: pintig.key-create('content-wrap-gap', pintig.primitive-token-get('spacing.md'));
     margin: 0 auto;
     padding:
-      ms-core.key-create('content-wrap-padding-y', ms-core.primitive-token-get('spacing.lg'))
-      ms-core.key-create('content-wrap-padding-x', ms-core.primitive-token-get('spacing.none'));
+      pintig.key-create('content-wrap-padding-y', pintig.primitive-token-get('spacing.lg'))
+      pintig.key-create('content-wrap-padding-x', pintig.primitive-token-get('spacing.none'));
 
     // If grid
-    grid-template-columns: repeat(ms-core.key-create('content-wrap-cols', 4), 1fr);
+    grid-template-columns: repeat(pintig.key-create('content-wrap-cols', 4), 1fr);
 
-    @include ms-core.breakpoint-create('medium') {
-      @include ms-core.key-bind('content-wrap-cols', repeat(8, 1fr));
+    @include pintig.breakpoint-create('medium') {
+      @include pintig.key-bind('content-wrap-cols', repeat(8, 1fr));
     }
 
-    @include ms-core.breakpoint-create('large') {
-      @include ms-core.key-bind('content-wrap-cols', repeat(12, 1fr));
+    @include pintig.breakpoint-create('large') {
+      @include pintig.key-bind('content-wrap-cols', repeat(12, 1fr));
     }
   }
 

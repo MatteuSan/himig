@@ -20,7 +20,7 @@
 //  SOFTWARE.
 //---------------------------------------------------
 
-@use '../ms-core';
+@use '@matteusan/pintig';
 @use 'badge-base' as base;
 @use 'badge-theme' as theme;
 
@@ -30,21 +30,21 @@
   $typography: (),
   $settings: ()
 ) {
-  $color: ms-core.theme-merge(theme.$init-color, $color);
-  $struct: ms-core.theme-merge(theme.$init-struct, $struct);
-  $typography: ms-core.theme-merge(theme.$init-typography, $typography);
-  $settings: ms-core.theme-merge(theme.$init-settings, $settings);
+  $color: pintig.theme-merge(theme.$init-color, $color);
+  $struct: pintig.theme-merge(theme.$init-struct, $struct);
+  $typography: pintig.theme-merge(theme.$init-typography, $typography);
+  $settings: pintig.theme-merge(theme.$init-settings, $settings);
 
   @include base.init() {
-    @include ms-core.color-apply('badge', $color);
-    @include ms-core.struct-apply('badge', $struct);
-    @include ms-core.typography-bind('badge', $typography);
+    @include pintig.color-apply('badge', $color);
+    @include pintig.struct-apply('badge', $struct);
+    @include pintig.typography-bind('badge', $typography);
 
     &:where(.is-outlined) {
-      @include ms-core.color-bind('badge', (
+      @include pintig.color-bind('badge', (
         fill: transparent,
-        ink: ms-core.theme-get($color, 'fill'),
-        border: ms-core.theme-get($color, 'border')
+        ink: pintig.theme-get($color, 'fill'),
+        border: pintig.theme-get($color, 'border')
       ));
     }
   }

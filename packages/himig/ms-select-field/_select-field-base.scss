@@ -20,7 +20,7 @@
 //  SOFTWARE.
 //---------------------------------------------------
 
-@use '../ms-core';
+@use '@matteusan/pintig';
 
 @use 'sass:math';
 
@@ -43,7 +43,7 @@
     &:has(.ms-select-field__input:valid), {
       .ms-select-field__label {
         top: math.div($top-label-distance, 2) !important;
-        @include ms-core.typography-bind('select-field-label', (
+        @include pintig.typography-bind('select-field-label', (
           family: 'small',
           size: 'small',
         ));
@@ -54,18 +54,18 @@
       position: absolute;
       top: calc(#{$top-label-distance});
       left: calc(#{$left-label-distance} + 2px);
-      @include ms-core.color-apply('select-field-label', (
+      @include pintig.color-apply('select-field-label', (
         fill: rgba(0 0 0 / 0),
         ink: inherit,
       ));
-      @include ms-core.struct-apply('select-field-label', (
+      @include pintig.struct-apply('select-field-label', (
         padding: ('xs' 'xs' 0 0),
       ));
-      @include ms-core.typography-apply('select-field-label', ms-core.$type-inherit-template);
+      @include pintig.typography-apply('select-field-label', pintig.$type-inherit-template);
     }
 
     .ms-select-field__input {
-      @include ms-core.struct-apply('select-field', (
+      @include pintig.struct-apply('select-field', (
         width: 100%,
         margin: inherit,
         radius: inherit,
@@ -73,13 +73,13 @@
         border-style: solid,
         shadow: 'none',
       ));
-      padding: ms-core.key-get('select-field-padding');
-      @include ms-core.color-apply('select-field', (
+      padding: pintig.key-get('select-field-padding');
+      @include pintig.color-apply('select-field', (
         fill: inherit,
         ink: inherit,
         border: inherit
       ));
-      @include ms-core.typography-apply('select-field', (
+      @include pintig.typography-apply('select-field', (
         family: inherit,
         size: inherit,
         weight: inherit,
@@ -89,20 +89,20 @@
       resize: none;
       cursor: text;
       -webkit-appearance: caret;
-      @include ms-core.prefix(transition, all var(--ms-transition-time) ease);
+      @include pintig.prefix(transition, all var(--ms-transition-time) ease);
     }
 
     .ms-select-field__helper {
-      @include ms-core.color-apply('select-field-helper', (
+      @include pintig.color-apply('select-field-helper', (
         ink: inherit,
       ));
-      @include ms-core.typography-apply('select-field-helper', (
+      @include pintig.typography-apply('select-field-helper', (
         family: inherit,
         size: inherit,
         weight: inherit,
         line-height: inherit,
       ));
-      @include ms-core.prefix(transition, all var(--ms-transition-time) ease);
+      @include pintig.prefix(transition, all var(--ms-transition-time) ease);
     }
   }
 }

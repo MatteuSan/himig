@@ -20,7 +20,7 @@
 //  SOFTWARE.
 //---------------------------------------------------
 
-@use '../ms-core';
+@use '@matteusan/pintig';
 
 @use 'sass:math';
 
@@ -37,15 +37,15 @@
       position: absolute;
       top: calc(#{$top-label-distance});
       left: calc(#{$left-label-distance} + 2px);
-      @include ms-core.color-apply('form-field-label', (
+      @include pintig.color-apply('form-field-label', (
         fill: rgba(0 0 0 / 0),
         ink: inherit,
       ));
-      @include ms-core.struct-apply('form-field-label', (
+      @include pintig.struct-apply('form-field-label', (
         padding: ('xs' 'xs' 0 0),
       ));
-      @include ms-core.typography-apply('form-field-label', ms-core.$type-inherit-template);
-      @include ms-core.prefix(transition, all var(--ms-transition-time) ease);
+      @include pintig.typography-apply('form-field-label', pintig.$type-inherit-template);
+      @include pintig.prefix(transition, all var(--ms-transition-time) ease);
       cursor: text;
     }
 
@@ -53,7 +53,7 @@
     &:has(.ms-form-field__input:not(:placeholder-shown)), {
       .ms-form-field__label {
         top: math.div($top-label-distance, 2);
-        @include ms-core.typography-bind('form-field-label', (
+        @include pintig.typography-bind('form-field-label', (
           family: 'small',
           size: 'small',
         ));
@@ -62,13 +62,13 @@
 
     &:has(.ms-form-field__label) {
       .ms-form-field__input {
-        @include ms-core.key-bind('form-field-placeholder-ink', rgba(0 0 0 / 0) !important);
+        @include pintig.key-bind('form-field-placeholder-ink', rgba(0 0 0 / 0) !important);
         padding-top: calc(#{$top-padding} + 1rem) !important;
       }
     }
 
     .ms-form-field__input {
-      @include ms-core.struct-apply('form-field', (
+      @include pintig.struct-apply('form-field', (
         width: 100%,
         margin: 0,
         radius: 0,
@@ -76,13 +76,13 @@
         border-style: solid,
         shadow: 'none',
       ));
-      padding: ms-core.key-get('form-field-padding');
-      @include ms-core.color-apply('form-field', (
+      padding: pintig.key-get('form-field-padding');
+      @include pintig.color-apply('form-field', (
         fill: inherit,
         ink: inherit,
         border: inherit
       ));
-      @include ms-core.typography-apply('form-field', (
+      @include pintig.typography-apply('form-field', (
         family: inherit,
         size: inherit,
         weight: inherit,
@@ -92,25 +92,25 @@
       resize: none;
       cursor: text;
       -webkit-appearance: caret;
-      @include ms-core.prefix(transition, all var(--ms-transition-time) ease);
+      @include pintig.prefix(transition, all var(--ms-transition-time) ease);
 
       &::placeholder {
-        color: ms-core.key-create('form-field-placeholder-ink', inherit);
+        color: pintig.key-create('form-field-placeholder-ink', inherit);
         user-select: none !important;
       }
     }
 
     .ms-form-field__helper {
-      @include ms-core.color-apply('form-field-helper', (
+      @include pintig.color-apply('form-field-helper', (
         ink: inherit,
       ));
-      @include ms-core.typography-apply('form-field-helper', (
+      @include pintig.typography-apply('form-field-helper', (
         family: inherit,
         size: inherit,
         weight: inherit,
         line-height: inherit,
       ));
-      @include ms-core.prefix(transition, all var(--ms-transition-time) ease);
+      @include pintig.prefix(transition, all var(--ms-transition-time) ease);
     }
   }
 }

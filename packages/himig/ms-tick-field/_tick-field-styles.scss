@@ -20,7 +20,7 @@
 //  SOFTWARE.
 //---------------------------------------------------
 
-@use '../ms-core';
+@use '@matteusan/pintig';
 @use 'sass:list';
 @use 'tick-field-base' as base;
 @use 'tick-field-theme' as theme;
@@ -31,89 +31,89 @@
   $typography: (),
   $settings: ()
 ) {
-  $color: ms-core.theme-merge(theme.$init-color, $color);
-  $struct: ms-core.theme-merge(theme.$init-struct, $struct);
-  $typography: ms-core.theme-merge(theme.$init-typography, $typography);
-  $settings: ms-core.theme-merge(theme.$init-settings, $settings);
+  $color: pintig.theme-merge(theme.$init-color, $color);
+  $struct: pintig.theme-merge(theme.$init-struct, $struct);
+  $typography: pintig.theme-merge(theme.$init-typography, $typography);
+  $settings: pintig.theme-merge(theme.$init-settings, $settings);
 
   @include base.init() {
-    @include ms-core.color-apply('tick-field', (
-      fill: ms-core.theme-get($color, 'fill'),
-      ink: ms-core.theme-get($color, 'ink'),
-      border: ms-core.theme-get($color, 'border'),
+    @include pintig.color-apply('tick-field', (
+      fill: pintig.theme-get($color, 'fill'),
+      ink: pintig.theme-get($color, 'ink'),
+      border: pintig.theme-get($color, 'border'),
     ));
-    @include ms-core.struct-apply('tick-field', (
-      radius: ms-core.theme-get($struct, 'radius'),
-      padding: ms-core.theme-get($struct, 'padding'),
-      gap: ms-core.theme-get($struct, 'gap'),
-      border-width: ms-core.theme-get($struct, 'border-width'),
-      border-style: ms-core.theme-get($struct, 'border-style'),
+    @include pintig.struct-apply('tick-field', (
+      radius: pintig.theme-get($struct, 'radius'),
+      padding: pintig.theme-get($struct, 'padding'),
+      gap: pintig.theme-get($struct, 'gap'),
+      border-width: pintig.theme-get($struct, 'border-width'),
+      border-style: pintig.theme-get($struct, 'border-style'),
     ));
-    @include ms-core.typography-bind('tick-field', (
-      family: ms-core.theme-get($typography, 'family'),
-      size: ms-core.theme-get($typography, 'size'),
-      weight: ms-core.theme-get($typography, 'weight'),
-      line-height: ms-core.theme-get($typography, 'line-height'),
+    @include pintig.typography-bind('tick-field', (
+      family: pintig.theme-get($typography, 'family'),
+      size: pintig.theme-get($typography, 'size'),
+      weight: pintig.theme-get($typography, 'weight'),
+      line-height: pintig.theme-get($typography, 'line-height'),
     ));
-    @include ms-core.typography-bind('tick-field-helper', (
-      family: ms-core.theme-get($typography, 'family'),
-      size: ms-core.theme-get($typography, 'size', 'helper'),
-      weight: ms-core.theme-get($typography, 'weight'),
-      line-height: ms-core.theme-get($typography, 'line-height'),
+    @include pintig.typography-bind('tick-field-helper', (
+      family: pintig.theme-get($typography, 'family'),
+      size: pintig.theme-get($typography, 'size', 'helper'),
+      weight: pintig.theme-get($typography, 'weight'),
+      line-height: pintig.theme-get($typography, 'line-height'),
     ));
 
-    @include ms-core.struct-bind('tick-field-text', (
-      gap: ms-core.theme-get($struct, 'gap', 'text'),
+    @include pintig.struct-bind('tick-field-text', (
+      gap: pintig.theme-get($struct, 'gap', 'text'),
     ));
 
     &:hover,
     &:has(.ms-tick-field__input:focus) {
-      @include ms-core.color-bind('tick-field', (
-        fill: ms-core.theme-get($color, 'fill', 'hover'),
-        border: ms-core.theme-get($color, 'border', 'hover'),
+      @include pintig.color-bind('tick-field', (
+        fill: pintig.theme-get($color, 'fill', 'hover'),
+        border: pintig.theme-get($color, 'border', 'hover'),
       ));
     }
 
     &:has(.ms-tick-field__input:checked) {
-      @include ms-core.color-bind('tick-field', (
-        fill: ms-core.theme-get($color, 'fill', 'checked'),
-        border: ms-core.theme-get($color, 'border', 'checked'),
+      @include pintig.color-bind('tick-field', (
+        fill: pintig.theme-get($color, 'fill', 'checked'),
+        border: pintig.theme-get($color, 'border', 'checked'),
       ));
     }
 
     .ms-tick-field__input {
-      @include ms-core.struct-apply('tick-field-input', (
+      @include pintig.struct-apply('tick-field-input', (
         width: 1.5rem,
         height: 1.5rem,
         margin: 0,
         border-width: 'sm',
         border-style: 'solid'
       ));
-      @include ms-core.color-bind('tick-field-input', (
-        fill: ms-core.theme-get($color, 'fill', 'input'),
-        ink: ms-core.theme-get($color, 'ink', 'input'),
-        border: ms-core.theme-get($color, 'border', 'input'),
+      @include pintig.color-bind('tick-field-input', (
+        fill: pintig.theme-get($color, 'fill', 'input'),
+        ink: pintig.theme-get($color, 'ink', 'input'),
+        border: pintig.theme-get($color, 'border', 'input'),
       ));
 
       &[type='checkbox'] {
-        @include ms-core.struct-radius('tick-field-input', ms-core.theme-get($struct, 'radius', 'input', 'checkbox'), 'bind');
+        @include pintig.struct-radius('tick-field-input', pintig.theme-get($struct, 'radius', 'input', 'checkbox'), 'bind');
       }
 
       &[type='radio'] {
-        @include ms-core.struct-radius('tick-field-input', ms-core.theme-get($struct, 'radius', 'input', 'radio'), 'bind');
+        @include pintig.struct-radius('tick-field-input', pintig.theme-get($struct, 'radius', 'input', 'radio'), 'bind');
       }
 
       &:hover,
       &:focus {
-        @include ms-core.color-fill('tick-field-input', ms-core.theme-get($color, 'fill', 'input', 'hover'), 'bind');
-        @include ms-core.color-border('tick-field-input', ms-core.theme-get($color, 'border', 'input', 'hover'), 'bind');
+        @include pintig.color-fill('tick-field-input', pintig.theme-get($color, 'fill', 'input', 'hover'), 'bind');
+        @include pintig.color-border('tick-field-input', pintig.theme-get($color, 'border', 'input', 'hover'), 'bind');
       }
 
       &:checked {
-        @include ms-core.color-bind('tick-field-input', (
-          fill: ms-core.theme-get($color, 'fill', 'input', 'checked'),
-          ink: ms-core.theme-get($color, 'ink', 'input'),
-          border: ms-core.theme-get($color, 'border', 'input', 'checked'),
+        @include pintig.color-bind('tick-field-input', (
+          fill: pintig.theme-get($color, 'fill', 'input', 'checked'),
+          ink: pintig.theme-get($color, 'ink', 'input'),
+          border: pintig.theme-get($color, 'border', 'input', 'checked'),
         ));
       }
     }

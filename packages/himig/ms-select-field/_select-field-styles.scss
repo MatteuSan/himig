@@ -20,7 +20,7 @@
 //  SOFTWARE.
 //---------------------------------------------------
 
-@use '../ms-core';
+@use '@matteusan/pintig';
 @use 'sass:list';
 @use 'select-field-base' as base;
 @use 'select-field-theme' as theme;
@@ -31,124 +31,124 @@
   $typography: (),
   $settings: ()
 ) {
-  $color: ms-core.theme-merge(theme.$init-color, $color);
-  $struct: ms-core.theme-merge(theme.$init-struct, $struct);
-  $typography: ms-core.theme-merge(theme.$init-typography, $typography);
-  $settings: ms-core.theme-merge(theme.$init-settings, $settings);
+  $color: pintig.theme-merge(theme.$init-color, $color);
+  $struct: pintig.theme-merge(theme.$init-struct, $struct);
+  $typography: pintig.theme-merge(theme.$init-typography, $typography);
+  $settings: pintig.theme-merge(theme.$init-settings, $settings);
 
-  $resolve-padding: if(list.length(ms-core.theme-get($struct, 'padding')) >= 2, list.nth(ms-core.theme-get($struct, 'padding'), 2), list.nth(ms-core.theme-get($struct, 'padding'), 1));
+  $resolve-padding: if(list.length(pintig.theme-get($struct, 'padding')) >= 2, list.nth(pintig.theme-get($struct, 'padding'), 2), list.nth(pintig.theme-get($struct, 'padding'), 1));
 
   @include base.init(
-    ms-core.primitive-token-switch('padding.#{$resolve-padding}', $resolve-padding),
-    ms-core.primitive-token-switch('padding.#{$resolve-padding}', $resolve-padding),
-    ms-core.primitive-token-switch('padding.#{list.nth(ms-core.theme-get($struct, 'padding'), 1)}', list.nth(ms-core.theme-get($struct, 'padding'), 1)),
+    pintig.primitive-token-switch('padding.#{$resolve-padding}', $resolve-padding),
+    pintig.primitive-token-switch('padding.#{$resolve-padding}', $resolve-padding),
+    pintig.primitive-token-switch('padding.#{list.nth(pintig.theme-get($struct, 'padding'), 1)}', list.nth(pintig.theme-get($struct, 'padding'), 1)),
   ) {
-    @include ms-core.color-bind('select-field-label', (
-      ink: ms-core.theme-get($color, 'ink', 'disabled'),
+    @include pintig.color-bind('select-field-label', (
+      ink: pintig.theme-get($color, 'ink', 'disabled'),
     ));
-    @include ms-core.typography-bind('select-field-label', (
-      family: ms-core.theme-get($typography, 'family'),
-      size: ms-core.theme-get($typography, 'size', 'label'),
-      weight: ms-core.theme-get($typography, 'weight'),
-      line-height: ms-core.theme-get($typography, 'height'),
-    ));
-
-    @include ms-core.struct-bind('select-field', (
-      width: ms-core.theme-get($struct, 'width'),
-      padding: ms-core.theme-get($struct, 'padding'),
-      radius: ms-core.theme-get($struct, 'radius'),
-      border-width: ms-core.theme-get($struct, 'border-width'),
-      border-style: ms-core.theme-get($struct, 'border-style'),
-      gap: ms-core.theme-get($struct, 'gap'),
-    ));
-    @include ms-core.typography-bind('select-field', (
-      family: ms-core.theme-get($typography, 'family'),
-      size: ms-core.theme-get($typography, 'size', 'default'),
-      weight: ms-core.theme-get($typography, 'weight'),
-      line-height: ms-core.theme-get($typography, 'height'),
+    @include pintig.typography-bind('select-field-label', (
+      family: pintig.theme-get($typography, 'family'),
+      size: pintig.theme-get($typography, 'size', 'label'),
+      weight: pintig.theme-get($typography, 'weight'),
+      line-height: pintig.theme-get($typography, 'height'),
     ));
 
-    @include ms-core.color-bind('select-field-helper', (
-      ink: ms-core.theme-get($color, 'ink', 'helper'),
+    @include pintig.struct-bind('select-field', (
+      width: pintig.theme-get($struct, 'width'),
+      padding: pintig.theme-get($struct, 'padding'),
+      radius: pintig.theme-get($struct, 'radius'),
+      border-width: pintig.theme-get($struct, 'border-width'),
+      border-style: pintig.theme-get($struct, 'border-style'),
+      gap: pintig.theme-get($struct, 'gap'),
     ));
-    @include ms-core.typography-bind('select-field-helper', (
-      family: ms-core.theme-get($typography, 'family'),
-      size: ms-core.theme-get($typography, 'size', 'helper'),
-      weight: ms-core.theme-get($typography, 'weight'),
-      line-height: ms-core.theme-get($typography, 'height'),
+    @include pintig.typography-bind('select-field', (
+      family: pintig.theme-get($typography, 'family'),
+      size: pintig.theme-get($typography, 'size', 'default'),
+      weight: pintig.theme-get($typography, 'weight'),
+      line-height: pintig.theme-get($typography, 'height'),
+    ));
+
+    @include pintig.color-bind('select-field-helper', (
+      ink: pintig.theme-get($color, 'ink', 'helper'),
+    ));
+    @include pintig.typography-bind('select-field-helper', (
+      family: pintig.theme-get($typography, 'family'),
+      size: pintig.theme-get($typography, 'size', 'helper'),
+      weight: pintig.theme-get($typography, 'weight'),
+      line-height: pintig.theme-get($typography, 'height'),
     ));
 
     &:has(.ms-select-field__input:not(:read-only):not(:disabled)) {
       .ms-select-field__label {
-        @include ms-core.color-bind('select-field-label', (
-          ink: ms-core.theme-get($color, 'ink'),
+        @include pintig.color-bind('select-field-label', (
+          ink: pintig.theme-get($color, 'ink'),
         ));
       }
     }
 
     &:has(.ms-select-field__input:read-only:disabled) {
-      @include ms-core.color-ink('select-field-helper', ms-core.theme-get($color, 'ink', 'disabled'), 'bind');
+      @include pintig.color-ink('select-field-helper', pintig.theme-get($color, 'ink', 'disabled'), 'bind');
     }
 
     .ms-select-field__input {
       &:not(:disabled),
       &:not(:read-only) {
-        @include ms-core.color-bind('select-field', (
-          fill: ms-core.theme-get($color, 'fill'),
-          ink: ms-core.theme-get($color, 'ink'),
-          border: ms-core.theme-get($color, 'fill'),
+        @include pintig.color-bind('select-field', (
+          fill: pintig.theme-get($color, 'fill'),
+          ink: pintig.theme-get($color, 'ink'),
+          border: pintig.theme-get($color, 'fill'),
         ));
 
         &:focus {
-          @include ms-core.color-bind('select-field', (
-            fill: ms-core.theme-get($color, 'fill', 'hover'),
-            border: ms-core.theme-get($color, 'border', 'focus'),
+          @include pintig.color-bind('select-field', (
+            fill: pintig.theme-get($color, 'fill', 'hover'),
+            border: pintig.theme-get($color, 'border', 'focus'),
           ));
-          @include ms-core.struct-bind('select-field', (
-            border-width: ms-core.theme-get($struct, 'border-width', 'focus'),
+          @include pintig.struct-bind('select-field', (
+            border-width: pintig.theme-get($struct, 'border-width', 'focus'),
           ));
         }
       }
 
       &:disabled {
-        @include ms-core.color-bind('select-field', (
-          fill: ms-core.theme-get($color, 'fill', 'disabled'),
-          ink: ms-core.theme-get($color, 'ink', 'disabled'),
-          border: ms-core.theme-get($color, 'fill', 'disabled'),
+        @include pintig.color-bind('select-field', (
+          fill: pintig.theme-get($color, 'fill', 'disabled'),
+          ink: pintig.theme-get($color, 'ink', 'disabled'),
+          border: pintig.theme-get($color, 'fill', 'disabled'),
         ));
         cursor: not-allowed;
       }
     }
 
     .ms-select-field__helper {
-      padding: 0.3rem ms-core.primitive-token-switch('padding.#{$resolve-padding}', $resolve-padding) 0;
+      padding: 0.3rem pintig.primitive-token-switch('padding.#{$resolve-padding}', $resolve-padding) 0;
     }
 
     &:where(.is-outlined) {
       .ms-select-field__input {
         &:not(:disabled),
         &:not(:read-only) {
-          @include ms-core.color-bind('select-field', (
+          @include pintig.color-bind('select-field', (
             fill: transparent,
-            ink: ms-core.theme-get($color, 'ink'),
-            border: ms-core.theme-get($color, 'fill'),
+            ink: pintig.theme-get($color, 'ink'),
+            border: pintig.theme-get($color, 'fill'),
           ));
 
           &:focus {
-            @include ms-core.color-bind('select-field', (
-              border: ms-core.theme-get($color, 'border', 'focus'),
+            @include pintig.color-bind('select-field', (
+              border: pintig.theme-get($color, 'border', 'focus'),
             ));
-            @include ms-core.struct-bind('select-field', (
-              border-width: ms-core.theme-get($struct, 'border-width', 'focus'),
+            @include pintig.struct-bind('select-field', (
+              border-width: pintig.theme-get($struct, 'border-width', 'focus'),
             ));
           }
         }
 
         &:disabled {
-          @include ms-core.color-bind('select-field', (
+          @include pintig.color-bind('select-field', (
             fill: transparent,
-            ink: ms-core.theme-get($color, 'ink', 'disabled'),
-            border: ms-core.theme-get($color, 'fill', 'disabled'),
+            ink: pintig.theme-get($color, 'ink', 'disabled'),
+            border: pintig.theme-get($color, 'fill', 'disabled'),
           ));
         }
       }
@@ -156,7 +156,7 @@
       &:where(.is-error) {
         .ms-select-field__input:not(:disabled),
         .ms-select-field__input:not(:read-only) {
-          @include ms-core.color-bind('select-field', (
+          @include pintig.color-bind('select-field', (
             fill: rgba(0 0 0 / 0) !important,
             border: 'error-alpha-400',
           ));
@@ -167,35 +167,35 @@
     &:where(.is-error) {
       .ms-select-field__input:not(:disabled),
       .ms-select-field__input:not(:read-only) {
-        @include ms-core.color-bind('select-field', (
+        @include pintig.color-bind('select-field', (
           fill: 'error-alpha-300',
           ink: 'error-400',
           border: 'error-alpha-400'
         ));
 
         &:focus {
-          @include ms-core.color-bind('select-field', (
+          @include pintig.color-bind('select-field', (
             fill: 'error-alpha-300',
             border: 'error-400'
           ));
         }
 
         + .ms-select-field__helper {
-          @include ms-core.color-bind('select-field-helper', (
+          @include pintig.color-bind('select-field-helper', (
             ink: 'error-400',
           ));
         }
       }
 
       .ms-select-field__helper {
-        @include ms-core.color-bind('select-field-helper', (
-          ink: ms-core.theme-get($color, 'ink', 'helper'),
+        @include pintig.color-bind('select-field-helper', (
+          ink: pintig.theme-get($color, 'ink', 'helper'),
         ));
       }
     }
 
     &:where(.is-raised) {
-      @include ms-core.struct-bind('select-field', (
+      @include pintig.struct-bind('select-field', (
         shadow: 'xs',
       ));
     }

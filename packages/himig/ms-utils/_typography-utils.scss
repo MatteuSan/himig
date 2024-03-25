@@ -20,7 +20,7 @@
 //  SOFTWARE.
 //---------------------------------------------------
 
-@use '../ms-core';
+@use '@matteusan/pintig';
 @use 'sass:map';
 @use 'sass:meta';
 @use 'sass:list';
@@ -69,6 +69,7 @@ $_presets: (
 $_sizes: ('xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl');
 $_weights: ('black', 'bold', 'normal', 'light');
 $_line-heights: ('broad', 'normal', 'condensed');
+$_alignments: ('center', 'left', 'right', 'justify', 'justify-all');
 
 @mixin typography($include: (), $exclude: ()) {
   $utils-to-render: helpers.handle-include-exclude((
@@ -77,24 +78,25 @@ $_line-heights: ('broad', 'normal', 'condensed');
     'size',
     'weight',
     'line-height',
+    'alignment'
   ), $include, $exclude);
 
   @if list.index($utils-to-render, 'preset') {
     @each $preset, $values in $_presets {
       .#{$preset} {
-        font-family: ms-core.token-get('family-#{map.get($values, 'family')}');
-        font-size: ms-core.token-get('size-#{map.get($values, 'size')}');
-        font-weight: ms-core.token-switch('weight-#{map.get($values, 'weight')}', ms-core.primitive-token-switch('weight.#{map.get($values, 'weight')}', $values));
-        line-height: ms-core.token-switch('line-height-#{map.get($values, 'weight')}', ms-core.primitive-token-switch('line-height.#{map.get($values, 'line-height')}', $values));
+        font-family: pintig.token-get('family-#{map.get($values, 'family')}');
+        font-size: pintig.token-get('size-#{map.get($values, 'size')}');
+        font-weight: pintig.token-switch('weight-#{map.get($values, 'weight')}', pintig.primitive-token-switch('weight.#{map.get($values, 'weight')}', $values));
+        line-height: pintig.token-switch('line-height-#{map.get($values, 'weight')}', pintig.primitive-token-switch('line-height.#{map.get($values, 'line-height')}', $values));
       }
 
       @each $breakpoint in $_breakpoints {
         .\@#{$breakpoint}\:#{$preset} {
-          @include ms-core.breakpoint-create($breakpoint) {
-            font-family: ms-core.token-get('family-#{map.get($values, 'family')}') !important;
-            font-size: ms-core.token-get('size-#{map.get($values, 'size')}') !important;
-            font-weight: ms-core.token-switch('weight-#{map.get($values, 'weight')}', ms-core.primitive-token-switch('weight.#{map.get($values, 'weight')}', $values));
-            line-height: ms-core.token-switch('line-height-#{map.get($values, 'weight')}', ms-core.primitive-token-switch('line-height.#{map.get($values, 'line-height')}', $values));
+          @include pintig.breakpoint-create($breakpoint) {
+            font-family: pintig.token-get('family-#{map.get($values, 'family')}') !important;
+            font-size: pintig.token-get('size-#{map.get($values, 'size')}') !important;
+            font-weight: pintig.token-switch('weight-#{map.get($values, 'weight')}', pintig.primitive-token-switch('weight.#{map.get($values, 'weight')}', $values));
+            line-height: pintig.token-switch('line-height-#{map.get($values, 'weight')}', pintig.primitive-token-switch('line-height.#{map.get($values, 'line-height')}', $values));
           }
         }
       }
@@ -104,13 +106,13 @@ $_line-heights: ('broad', 'normal', 'condensed');
   @if list.index($utils-to-render, 'family') {
     @each $preset, $values in $_presets {
       .family-#{$preset} {
-        font-family: ms-core.token-get('family-#{$preset}');
+        font-family: pintig.token-get('family-#{$preset}');
       }
 
       @each $breakpoint in $_breakpoints {
         .\@#{$breakpoint}\:family-#{$preset} {
-          @include ms-core.breakpoint-create($breakpoint) {
-            font-family: ms-core.token-get('family-#{$preset}') !important;
+          @include pintig.breakpoint-create($breakpoint) {
+            font-family: pintig.token-get('family-#{$preset}') !important;
           }
         }
       }
@@ -120,13 +122,13 @@ $_line-heights: ('broad', 'normal', 'condensed');
   @if list.index($utils-to-render, 'size') {
     @each $size in $_sizes {
       .size-#{$size} {
-        font-size: ms-core.primitive-token-get('size.#{$size}');
+        font-size: pintig.primitive-token-get('size.#{$size}');
       }
 
       @each $breakpoint in $_breakpoints {
         .\@#{$breakpoint}\:size-#{$size} {
-          @include ms-core.breakpoint-create($breakpoint) {
-            font-size: ms-core.primitive-token-get('size.#{$size}') !important;
+          @include pintig.breakpoint-create($breakpoint) {
+            font-size: pintig.primitive-token-get('size.#{$size}') !important;
           }
         }
       }
@@ -136,13 +138,13 @@ $_line-heights: ('broad', 'normal', 'condensed');
   @if list.index($utils-to-render, 'weight') {
     @each $weight in $_weights {
       .weight-#{$weight} {
-        font-weight: ms-core.primitive-token-get('weight.#{$weight}');
+        font-weight: pintig.primitive-token-get('weight.#{$weight}');
       }
 
       @each $breakpoint in $_breakpoints {
         .\@#{$breakpoint}\:weight-#{$weight} {
-          @include ms-core.breakpoint-create($breakpoint) {
-            font-weight: ms-core.primitive-token-get('weight.#{$weight}') !important;
+          @include pintig.breakpoint-create($breakpoint) {
+            font-weight: pintig.primitive-token-get('weight.#{$weight}') !important;
           }
         }
       }
@@ -152,13 +154,29 @@ $_line-heights: ('broad', 'normal', 'condensed');
   @if list.index($utils-to-render, 'line-height') {
     @each $line-height in $_line-heights {
       .line-height-#{$line-height} {
-        line-height: ms-core.primitive-token-get('line-height.#{$line-height}');
+        line-height: pintig.primitive-token-get('line-height.#{$line-height}');
       }
 
       @each $breakpoint in $_breakpoints {
         .\@#{$breakpoint}\:line-height-#{$line-height} {
-          @include ms-core.breakpoint-create($breakpoint) {
-            line-height: ms-core.primitive-token-get('line-height.#{$line-height}') !important;
+          @include pintig.breakpoint-create($breakpoint) {
+            line-height: pintig.primitive-token-get('line-height.#{$line-height}') !important;
+          }
+        }
+      }
+    }
+  }
+
+  @if list.index($utils-to-render, 'alignment') {
+    @each $alignment in $_alignments {
+      .align-#{$alignment} {
+        text-align: unquote($alignment);
+      }
+
+      @each $breakpoint in $_breakpoints {
+        .\@#{$breakpoint}\:align-#{$alignment} {
+          @include pintig.breakpoint-create($breakpoint) {
+            text-align: unquote($alignment) !important;
           }
         }
       }

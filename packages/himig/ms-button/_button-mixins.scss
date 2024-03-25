@@ -20,7 +20,7 @@
 //  SOFTWARE.
 //---------------------------------------------------
 
-@use '../ms-core';
+@use '@matteusan/pintig';
 @use 'sass:map';
 @use 'sass:string';
 
@@ -30,41 +30,41 @@
   $border: map.get($borders, 'default');
 
   &:not(:disabled) {
-    @include ms-core.color-bind('button', (
+    @include pintig.color-bind('button', (
       fill: transparent,
       ink: $fill,
       border: transparent
     ));
-    @include ms-core.key-bind('button-outline', 2px solid rgba(_raw($fill), ms-core.$color-fill-default-opacity));
+    @include pintig.key-bind('button-outline', 2px solid rgba(_raw($fill), pintig.$color-fill-default-opacity));
 
     &:hover {
-      @include ms-core.color-bind('button', (
-        fill: _smart-alpha-color($fill, ms-core.$color-fill-hover-opacity),
+      @include pintig.color-bind('button', (
+        fill: _smart-alpha-color($fill, pintig.$color-fill-hover-opacity),
         ink: $fill,
-        border: _smart-alpha-color($border, ms-core.$color-border-hover-opacity, $type: 'border')
+        border: _smart-alpha-color($border, pintig.$color-border-hover-opacity, $type: 'border')
       ));
     }
 
     &:focus {
-      @include ms-core.color-bind('button', (
-        fill: _smart-alpha-color($fill, ms-core.$color-fill-focus-opacity),
+      @include pintig.color-bind('button', (
+        fill: _smart-alpha-color($fill, pintig.$color-fill-focus-opacity),
         ink: $fill,
-        border: _smart-alpha-color($border, ms-core.$color-border-focus-opacity, $type: 'border')
+        border: _smart-alpha-color($border, pintig.$color-border-focus-opacity, $type: 'border')
       ));
-      @include ms-core.key-bind('button-outline', 2px solid rgba(_raw($fill), ms-core.$color-outline-focus-opacity));
+      @include pintig.key-bind('button-outline', 2px solid rgba(_raw($fill), pintig.$color-outline-focus-opacity));
     }
 
     &:active {
-      @include ms-core.color-bind('button', (
-        fill: _smart-alpha-color($fill, ms-core.$color-fill-active-opacity),
+      @include pintig.color-bind('button', (
+        fill: _smart-alpha-color($fill, pintig.$color-fill-active-opacity),
         ink: $fill,
-        border: _smart-alpha-color($border, ms-core.$color-border-active-opacity, $type: 'border')
+        border: _smart-alpha-color($border, pintig.$color-border-active-opacity, $type: 'border')
       ));
     }
   }
 
   &:disabled {
-    @include ms-core.color-bind('button', (
+    @include pintig.color-bind('button', (
       fill: transparent,
       ink: $ink-disabled,
       border: transparent
@@ -87,24 +87,24 @@
   $border-disabled: map.get($borders, 'disabled');
 
   &:not(:disabled) {
-    @include ms-core.color-bind('button', (
+    @include pintig.color-bind('button', (
       fill: transparent,
       ink: $fill,
       border: $border
     ));
-    @include ms-core.key-bind('button-outline', 2px solid rgba(_raw($fill), ms-core.$color-fill-default-opacity));
+    @include pintig.key-bind('button-outline', 2px solid rgba(_raw($fill), pintig.$color-fill-default-opacity));
 
     &:focus {
-      @include ms-core.color-bind('button', (
-        fill: _smart-alpha-color($fill, ms-core.$color-fill-focus-opacity),
+      @include pintig.color-bind('button', (
+        fill: _smart-alpha-color($fill, pintig.$color-fill-focus-opacity),
         ink: $fill,
         border: $border
       ));
-      @include ms-core.key-bind('button-outline', 2px solid rgba(_raw($fill), ms-core.$color-outline-focus-opacity));
+      @include pintig.key-bind('button-outline', 2px solid rgba(_raw($fill), pintig.$color-outline-focus-opacity));
     }
 
     &:hover {
-      @include ms-core.color-bind('button', (
+      @include pintig.color-bind('button', (
         fill: $fill-hover,
         ink: $ink,
         border: $border-hover
@@ -112,7 +112,7 @@
     }
 
     &:active {
-      @include ms-core.color-bind('button', (
+      @include pintig.color-bind('button', (
         fill: $fill-active,
         ink: $ink,
         border: $border-active
@@ -121,7 +121,7 @@
   }
 
   &:disabled {
-    @include ms-core.color-bind('button', (
+    @include pintig.color-bind('button', (
       fill: transparent,
       ink: $ink-disabled,
       border: $border-disabled
@@ -144,15 +144,15 @@
   $border-disabled: map.get($borders, 'disabled');
 
   &:not(:disabled) {
-    @include ms-core.color-bind('button', (
+    @include pintig.color-bind('button', (
       fill: $fill,
       ink: $ink,
       border: $border
     ));
-    @include ms-core.key-bind('button-outline', 2px solid rgba(_raw($fill), ms-core.$color-fill-default-opacity));
+    @include pintig.key-bind('button-outline', 2px solid rgba(_raw($fill), pintig.$color-fill-default-opacity));
 
     &:hover {
-      @include ms-core.color-bind('button', (
+      @include pintig.color-bind('button', (
         fill: $fill-hover,
         ink: $ink,
         border: $border-hover
@@ -160,16 +160,16 @@
     }
 
     &:focus {
-      @include ms-core.color-bind('button', (
+      @include pintig.color-bind('button', (
         fill: $fill-focus,
         ink: $ink,
         border: $border-focus
       ));
-      @include ms-core.key-bind('button-outline', 2px solid rgba(_raw($fill), ms-core.$color-outline-focus-opacity));
+      @include pintig.key-bind('button-outline', 2px solid rgba(_raw($fill), pintig.$color-outline-focus-opacity));
     }
 
     &:active {
-      @include ms-core.color-bind('button', (
+      @include pintig.color-bind('button', (
         fill: $fill-active,
         ink: $ink,
         border: $border-active
@@ -178,7 +178,7 @@
   }
 
   &:disabled {
-    @include ms-core.color-bind('button', (
+    @include pintig.color-bind('button', (
       fill: $fill-disabled,
       ink: $ink-disabled,
       border: $border-disabled
@@ -191,12 +191,12 @@
   $_color: string.slice($query, 1, (string.length($query) - 4));
   // $_tone: string.slice($query, (string.length($_color) + 2), (string.length($query)));
   @if $type == 'border' { @return rgba(#fff, 0%); }
-  @if ms-core.token-check('#{$_color}-alpha-#{map.get($_tones, $state)}') {
-    @return ms-core.token-get('#{$_color}-alpha-#{map.get($_tones, $state)}');
+  @if pintig.token-check('#{$_color}-alpha-#{map.get($_tones, $state)}') {
+    @return pintig.token-get('#{$_color}-alpha-#{map.get($_tones, $state)}');
   }
   @return _raw($query, $opacity);
 }
 
 @function _raw($query) {
-  @return ms-core.token-switch-raw($query);
+  @return pintig.token-switch-raw($query);
 }

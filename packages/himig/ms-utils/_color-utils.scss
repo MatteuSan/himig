@@ -20,7 +20,7 @@
 //  SOFTWARE.
 //---------------------------------------------------
 
-@use '../ms-core';
+@use '@matteusan/pintig';
 @use 'sass:map';
 @use 'sass:list';
 @use 'consts';
@@ -43,13 +43,13 @@ $_tones: (200, 300, 400, 600, 800, 'ink');
     @each $color in $_colors {
       @each $tone in $_tones {
         .fill-#{$color}-#{$tone} {
-          background-color: ms-core.token-get('#{$color}-#{$tone}');
+          background-color: pintig.token-get('#{$color}-#{$tone}');
         }
 
         @each $breakpoint in $_breakpoints {
           .\@#{$breakpoint}\:fill-#{$color}-#{$tone} {
-            @include ms-core.breakpoint-create($breakpoint) {
-              background-color: ms-core.token-get('#{$color}-#{$tone}') !important;
+            @include pintig.breakpoint-create($breakpoint) {
+              background-color: pintig.token-get('#{$color}-#{$tone}') !important;
             }
           }
         }
@@ -62,13 +62,13 @@ $_tones: (200, 300, 400, 600, 800, 'ink');
     @each $color in $_colors {
       @each $tone in $_tones {
         .ink-#{$color}-#{$tone} {
-          color: ms-core.token-get('#{$color}-#{$tone}');
+          color: pintig.token-get('#{$color}-#{$tone}');
         }
 
         @each $breakpoint in $_breakpoints {
           .\@#{$breakpoint}\:ink-#{$color}-#{$tone} {
-            @include ms-core.breakpoint-create($breakpoint) {
-              color: ms-core.token-get('#{$color}-#{$tone}') !important;
+            @include pintig.breakpoint-create($breakpoint) {
+              color: pintig.token-get('#{$color}-#{$tone}') !important;
             }
           }
         }
@@ -81,13 +81,13 @@ $_tones: (200, 300, 400, 600, 800, 'ink');
     @each $color in $_colors {
       @each $tone in $_tones {
         .border-#{$color}-#{$tone} {
-          border-color: ms-core.token-get('#{$color}-#{$tone}');
+          border-color: pintig.token-get('#{$color}-#{$tone}');
         }
 
         @each $breakpoint in $_breakpoints {
           .\@#{$breakpoint}\:border-#{$color}-#{$tone} {
-            @include ms-core.breakpoint-create($breakpoint) {
-              border-color: ms-core.token-get('#{$color}-#{$tone}') !important;
+            @include pintig.breakpoint-create($breakpoint) {
+              border-color: pintig.token-get('#{$color}-#{$tone}') !important;
             }
           }
         }

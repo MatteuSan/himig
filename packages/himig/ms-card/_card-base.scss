@@ -20,39 +20,39 @@
 //  SOFTWARE.
 //---------------------------------------------------
 
-@use '../ms-core';
+@use '@matteusan/pintig';
 @use 'sass:map';
 
 @mixin init(
   $struct,
   $typography,
 ) {
-  $radius: ms-core.theme-get($struct, 'radius');
-  $padding: ms-core.theme-get($struct, 'padding');
-  $section-gap: ms-core.theme-get($struct, 'gap', 'section');
-  $header-gap: ms-core.theme-get($struct, 'gap', 'header');
-  $footer-gap: ms-core.theme-get($struct, 'gap', 'footer');
+  $radius: pintig.theme-get($struct, 'radius');
+  $padding: pintig.theme-get($struct, 'padding');
+  $section-gap: pintig.theme-get($struct, 'gap', 'section');
+  $header-gap: pintig.theme-get($struct, 'gap', 'header');
+  $footer-gap: pintig.theme-get($struct, 'gap', 'footer');
 
-  $title-family: ms-core.theme-get($typography, 'family', 'title');
-  $title-size: ms-core.theme-get($typography, 'size', 'title');
-  $title-weight: ms-core.theme-get($typography, 'weight', 'title');
-  $title-line-height: ms-core.theme-get($typography, 'line-height', 'title');
+  $title-family: pintig.theme-get($typography, 'family', 'title');
+  $title-size: pintig.theme-get($typography, 'size', 'title');
+  $title-weight: pintig.theme-get($typography, 'weight', 'title');
+  $title-line-height: pintig.theme-get($typography, 'line-height', 'title');
 
-  $subtitle-family: ms-core.theme-get($typography, 'family', 'subtitle');
-  $subtitle-size: ms-core.theme-get($typography, 'size', 'subtitle');
-  $subtitle-weight: ms-core.theme-get($typography, 'weight', 'subtitle');
-  $subtitle-line-height: ms-core.theme-get($typography, 'line-height', 'subtitle');
+  $subtitle-family: pintig.theme-get($typography, 'family', 'subtitle');
+  $subtitle-size: pintig.theme-get($typography, 'size', 'subtitle');
+  $subtitle-weight: pintig.theme-get($typography, 'weight', 'subtitle');
+  $subtitle-line-height: pintig.theme-get($typography, 'line-height', 'subtitle');
 
-  $content-family: ms-core.theme-get($typography, 'family');
-  $content-size: ms-core.theme-get($typography, 'size');
-  $content-weight: ms-core.theme-get($typography, 'weight');
-  $content-line-height: ms-core.theme-get($typography, 'line-height');
+  $content-family: pintig.theme-get($typography, 'family');
+  $content-size: pintig.theme-get($typography, 'size');
+  $content-weight: pintig.theme-get($typography, 'weight');
+  $content-line-height: pintig.theme-get($typography, 'line-height');
 
-  $icon-size: ms-core.theme-get($struct, 'size', 'icon');
+  $icon-size: pintig.theme-get($struct, 'size', 'icon');
 
   .ms-card {
-    // @include ms-core.key-bind('card-section-gap', ms-core.primitive-token-switch('spacing.#{$section-gap}', $section-gap));
-    @include ms-core.struct-gap('card-section', $section-gap, 'bind');
+    // @include pintig.key-bind('card-section-gap', pintig.primitive-token-switch('spacing.#{$section-gap}', $section-gap));
+    @include pintig.struct-gap('card-section', $section-gap, 'bind');
     // overflow: hidden;
 
     @content;
@@ -62,7 +62,7 @@
       height: 100%;
       max-height: 120px;
       overflow: hidden;
-      @include ms-core.struct-apply('card-media', (
+      @include pintig.struct-apply('card-media', (
         radius: ($radius $radius 0 0),
       ));
 
@@ -78,9 +78,9 @@
       display: flex;
       flex-flow: row nowrap;
       justify-content: space-between;
-      gap: ms-core.key-create('card-header-gap', ms-core.primitive-token-switch('spacing.#{$header-gap}', $header-gap));
-      @include ms-core.color-border('card', transparent);
-      @include ms-core.struct-apply('card-header', (
+      gap: pintig.key-create('card-header-gap', pintig.primitive-token-switch('spacing.#{$header-gap}', $header-gap));
+      @include pintig.color-border('card', transparent);
+      @include pintig.struct-apply('card-header', (
         radius: (0),
         padding: ($padding $padding 0),
         border-width: ('xs' 'xs' 0),
@@ -89,11 +89,11 @@
 
       &:not(:only-child),
       &:not(:last-child) {
-        padding-bottom: ms-core.key-get('card-section-gap');
+        padding-bottom: pintig.key-get('card-section-gap');
       }
 
       &:last-child {
-        @include ms-core.struct-bind('card-header', (
+        @include pintig.struct-bind('card-header', (
           radius: (0 0 $radius $radius),
           border-width: (0 'xs' 'xs'),
           padding: (0 $padding $padding),
@@ -101,7 +101,7 @@
       }
 
       &:first-child {
-        @include ms-core.struct-bind('card-header', (
+        @include pintig.struct-bind('card-header', (
           radius: ($radius $radius 0 0),
           padding: ($padding $padding 0),
           border-width: ('xs' 'xs' 0),
@@ -109,7 +109,7 @@
       }
 
       &:only-child {
-        @include ms-core.struct-bind('card-header', (
+        @include pintig.struct-bind('card-header', (
           radius: $radius,
           padding: $padding,
           border-width: ('xs'),
@@ -118,34 +118,34 @@
 
       .ms-card__mast {
         .ms-card__title {
-          @include ms-core.typography-apply('card-title', (
+          @include pintig.typography-apply('card-title', (
             family: $title-family,
             size: $title-size,
             weight: $title-weight,
             line-height: $title-line-height
           ));
-          @include ms-core.break(1);
+          @include pintig.break(1);
         }
 
         .ms-card__subtitle {
-          @include ms-core.typography-apply('card-subtitle', (
+          @include pintig.typography-apply('card-subtitle', (
             family: $subtitle-family,
             size: $subtitle-size,
             weight: $subtitle-weight,
             line-height: $subtitle-line-height
           ));
-          @include ms-core.break(2);
+          @include pintig.break(2);
         }
       }
 
       .ms-card__icon {
-        width: ms-core.key-create('card-icon-size', ms-core.token-switch($icon-size));
-        height: ms-core.key-create('card-icon-size', ms-core.token-switch($icon-size));
+        width: pintig.key-create('card-icon-size', pintig.token-switch($icon-size));
+        height: pintig.key-create('card-icon-size', pintig.token-switch($icon-size));
         border-radius: 50%;
-        @include ms-core.color-apply('card-icon', (
+        @include pintig.color-apply('card-icon', (
           border: 'accent-400'
         ));
-        @include ms-core.struct-apply('card-icon', (
+        @include pintig.struct-apply('card-icon', (
           border-width: 1px,
           border-style: solid
         ));
@@ -159,8 +159,8 @@
     }
 
     .ms-card__content {
-      @include ms-core.color-border('card', transparent);
-      @include ms-core.struct-apply('card', (
+      @include pintig.color-border('card', transparent);
+      @include pintig.struct-apply('card', (
         radius: (0 0 $radius $radius),
         padding: (0 $padding),
         border-width: (0 'xs' 'xs'),
@@ -168,7 +168,7 @@
       ));
 
       p {
-        @include ms-core.typography-apply('card', (
+        @include pintig.typography-apply('card', (
           family: $content-family,
           size: $content-size,
           weight: $content-weight,
@@ -178,18 +178,18 @@
 
       &:not(:only-child),
       &:not(:last-child) {
-        padding-bottom: ms-core.key-get('card-section-gap');
+        padding-bottom: pintig.key-get('card-section-gap');
       }
 
       &:last-child {
-        @include ms-core.struct-bind('card', (
+        @include pintig.struct-bind('card', (
           radius: (0 0 $radius $radius),
           padding: (0 $padding $padding),
         ));
       }
 
       &:first-child {
-        @include ms-core.struct-bind('card', (
+        @include pintig.struct-bind('card', (
           radius: ($radius $radius 0 0),
           padding: ($padding $padding 0),
           border-width: ('xs' 'xs' 0),
@@ -197,7 +197,7 @@
       }
 
       &:only-child {
-        @include ms-core.struct-bind('card', (
+        @include pintig.struct-bind('card', (
           radius: $radius,
           padding: $padding,
           border-width: 'xs'
@@ -209,9 +209,9 @@
       display: flex;
       flex-flow: row nowrap;
       justify-content: end;
-      gap: ms-core.key-create('card-footer-gap', ms-core.primitive-token-switch('spacing.#{$footer-gap}', $footer-gap));
-      @include ms-core.color-border('card', transparent);
-      @include ms-core.struct-apply('card-footer', (
+      gap: pintig.key-create('card-footer-gap', pintig.primitive-token-switch('spacing.#{$footer-gap}', $footer-gap));
+      @include pintig.color-border('card', transparent);
+      @include pintig.struct-apply('card-footer', (
         radius: (0 0 $radius $radius),
         padding: (0 $padding),
         border-width: 'xs',
@@ -219,21 +219,21 @@
       ));
 
       &:last-child {
-        @include ms-core.struct-bind('card-footer', (
+        @include pintig.struct-bind('card-footer', (
           radius: (0 0 $radius $radius),
           padding: (0 $padding $padding),
         ));
       }
 
       &:first-child {
-        @include ms-core.struct-bind('card-footer', (
+        @include pintig.struct-bind('card-footer', (
           radius: ($radius $radius 0 0),
           padding: ($padding $padding 0),
         ));
       }
 
       &:only-child {
-        @include ms-core.struct-bind('card-footer', (
+        @include pintig.struct-bind('card-footer', (
           radius: $radius,
           padding: $padding,
         ));

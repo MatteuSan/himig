@@ -20,7 +20,7 @@
 //  SOFTWARE.
 //---------------------------------------------------
 
-@use '../ms-core';
+@use '@matteusan/pintig';
 
 @mixin init() {
   .ms-button {
@@ -35,36 +35,36 @@
     vertical-align: middle;
 
     cursor: pointer;
-    outline: ms-core.key-create('button-outline', none);
+    outline: pintig.key-create('button-outline', none);
 
     -webkit-appearance: caret;
-    @include ms-core.prefix(transition, all var(--ms-transition-time) ease);
+    @include pintig.prefix(transition, all var(--ms-transition-time) ease);
 
     @content;
 
     .ms-button__icon {
       position: relative;
-      @include ms-core.color-ink('button-icon', inherit);
-      @include ms-core.typography-size('button-icon', 'size.md');
+      @include pintig.color-ink('button-icon', inherit);
+      @include pintig.typography-size('button-icon', 'size.md');
       /* @fallback */
-      width: ms-core.key-create('button-icon-size', ms-core.primitive-token-get('size.md'));
+      width: pintig.key-create('button-icon-size', pintig.primitive-token-get('size.md'));
       max-width: max-content;
-      height: ms-core.key-create('button-icon-size', ms-core.primitive-token-get('size.md'));
+      height: pintig.key-create('button-icon-size', pintig.primitive-token-get('size.md'));
 
       > * {
         position: relative;
-        @include ms-core.color-ink('button-icon', inherit);
-        @include ms-core.typography-size('button-icon', 'size.md');
+        @include pintig.color-ink('button-icon', inherit);
+        @include pintig.typography-size('button-icon', 'size.md');
         /* @fallback */
-        width: ms-core.key-create('button-icon-size', ms-core.primitive-token-get('size.md'));
+        width: pintig.key-create('button-icon-size', pintig.primitive-token-get('size.md'));
         max-width: max-content;
-        height: ms-core.key-create('button-icon-size', ms-core.primitive-token-get('size.md'));
+        height: pintig.key-create('button-icon-size', pintig.primitive-token-get('size.md'));
       }
     }
 
     .ms-button__label {
-      @include ms-core.color-ink('button-label', inherit);
-      @include ms-core.typography-apply('button-label', (
+      @include pintig.color-ink('button-label', inherit);
+      @include pintig.typography-apply('button-label', (
         family: inherit,
         size: inherit,
         weight: inherit,
