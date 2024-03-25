@@ -1,6 +1,6 @@
 {
   "name": "himig",
-  "version": "1.3.5",
+  "version": "1.4.0",
   "description": "MatteuSan's personal design system for building user interfaces. ",
   "main": "packages/himig/_index.scss",
   "files": [
@@ -21,8 +21,8 @@
     "pub:core:major": "cd packages/pintig && npm version major --force && npm publish",
     "pub:main:major": "cd packages/himig && npm version major --force && npm publish",
     "pub:patch": "npm version patch --force && yarn pub:core:patch && yarn pub:main:patch",
-    "pub:minor": "npm version patch --force && yarn pub:core:minor && yarn pub:main:minor",
-    "pub:major": "npm version patch --force && yarn pub:core:major && yarn pub:main:major",
+    "pub:minor": "npm version minor --force && yarn pub:core:minor && yarn pub:main:minor",
+    "pub:major": "npm version major --force && yarn pub:core:major && yarn pub:main:major",
     "run:docs": "cd documentation && yarn dev",
     "test:html": "yarn && gulp --gulpfile=\"gulpfile-test.ts\"",
     "test:sass": "yarn && jest --config=\"jest-sass.config.ts\"",
