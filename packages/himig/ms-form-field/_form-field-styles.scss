@@ -70,7 +70,11 @@
 
     .ms-form-field__input {
       @include pintig.struct-bind('form-field', (
-        width: pintig.theme-get($struct, 'width'),
+        width: (
+          default: pintig.theme-get($struct, 'width'),
+          min: pintig.theme-get($struct, 'width', 'min'),
+          max: pintig.theme-get($struct, 'width', 'max')
+        ),
         padding: pintig.theme-get($struct, 'padding'),
         radius: pintig.theme-get($struct, 'radius'),
         border-width: pintig.theme-get($struct, 'border-width'),
@@ -94,7 +98,7 @@
 
         &:focus {
           @include pintig.color-bind('form-field', (
-            fill: pintig.theme-get($color, 'fill', 'hover'),
+            fill: pintig.theme-get($color, 'fill', 'focus'),
             border: pintig.theme-get($color, 'border', 'focus'),
           ));
           @include pintig.struct-bind('form-field', (
@@ -170,7 +174,7 @@
         .ms-form-field__input:not(:disabled) {
           @include pintig.color-bind('form-field', (
             fill: rgba(0 0 0 / 0) !important,
-            border: 'error-alpha-600',
+            border: pintig.theme-get($color, 'border', 'error'),
           ));
         }
       }
@@ -186,7 +190,7 @@
       &:has(.ms-form-field__input:not(:read-only):not(:disabled)) {
         .ms-form-field__label {
           @include pintig.color-bind('form-field-label', (
-            ink: 'error-400',
+            ink: pintig.theme-get($color, 'ink', 'error'),
           ));
         }
       }
@@ -194,22 +198,22 @@
       .ms-form-field__input:not(:disabled),
       .ms-form-field__input:not(:read-only) {
         @include pintig.color-bind('form-field', (
-          fill: 'error-alpha-300',
-          ink: 'error-400',
-          border: 'error-alpha-400'
+          fill: pintig.theme-get($color, 'fill', 'error'),
+          ink: pintig.theme-get($color, 'ink', 'error'),
+          border: pintig.theme-get($color, 'border', 'error'),
         ));
 
         &:focus {
           @include pintig.color-bind('form-field', (
-            fill: 'error-alpha-300',
-            border: 'error-400'
+            fill: pintig.theme-get($color, 'fill', 'error', 'focus'),
+            border: pintig.theme-get($color, 'border', 'error', 'focus'),
           ));
         }
       }
 
       .ms-form-field__helper {
         @include pintig.color-bind('form-field-helper', (
-          ink: 'error-400',
+          ink: pintig.theme-get($color, 'ink', 'error'),
         ));
       }
     }

@@ -69,7 +69,11 @@
 
     .ms-form-field__input {
       @include pintig.struct-apply('form-field', (
-        width: 100%,
+        width: (
+          default: 100%,
+          min: inherit,
+          max: inherit
+        ),
         margin: 0,
         radius: 0,
         border-width: 2px,
