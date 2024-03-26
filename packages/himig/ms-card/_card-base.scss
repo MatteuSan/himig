@@ -51,9 +51,9 @@
   $icon-size: pintig.theme-get($struct, 'size', 'icon');
 
   .ms-card {
-    // @include pintig.key-bind('card-section-gap', pintig.primitive-token-switch('spacing.#{$section-gap}', $section-gap));
+    display: flex;
+    flex-flow: column nowrap;
     @include pintig.struct-gap('card-section', $section-gap, 'bind');
-    // overflow: hidden;
 
     @content;
 

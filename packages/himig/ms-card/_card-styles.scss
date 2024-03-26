@@ -46,6 +46,11 @@
     ));
     @include pintig.color-border('card', pintig.theme-get($color, 'border'), 'bind');
     @include pintig.struct-apply('card', (
+      width: (
+        default: pintig.theme-get($struct, 'width'),
+        min: pintig.theme-get($struct, 'width', 'min'),
+        max: pintig.theme-get($struct, 'width', 'max'),
+      ),
       radius: pintig.theme-get($struct, 'radius'),
       shadow: 'none',
     ));

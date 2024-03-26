@@ -22,14 +22,19 @@
 
 $init-color: (
   fill: (
-    default: 'surface-200',
+    default: 'primary-400',
     outlined: 'surface-alpha-400'
   ),
-  ink: 'surface-ink',
-  border: 'surface-200',
+  ink: 'primary-ink',
+  border: 'primary-400',
 );
 
 $init-struct: (
+  width: (
+    default: 100%,
+    min: auto,
+    max: auto
+  ),
   radius: 'md',
   padding: 'lg',
   border-width: 'xs',
