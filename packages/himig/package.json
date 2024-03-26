@@ -9,7 +9,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@matteusan/pintig": "file:../pintig",
+    "@matteusan/pintig": "1.4.0",
     "@matteusan/sentro": "0.1.25"
   }
 }
