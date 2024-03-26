@@ -20,7 +20,7 @@
 //  SOFTWARE.
 //---------------------------------------------------
 
-@use '@matteusan/pintig';
+@use '../pintig';
 
 @mixin init() {
   .ms-button {

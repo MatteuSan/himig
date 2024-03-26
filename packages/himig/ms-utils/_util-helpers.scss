@@ -20,7 +20,7 @@
 //  SOFTWARE.
 //---------------------------------------------------
 
-@use '@matteusan/pintig';
+@use '../pintig';
 @use 'sass:list';
 
 @function handle-include-exclude($default-utils, $include: (), $exclude: ()) {
