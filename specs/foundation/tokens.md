@@ -3,7 +3,7 @@ title: Tokens
 slug: /foundation/tokens
 ---
 # Tokens
-Gaia uses tokens as the foundation of its design. Tokens provide the smallest unit of design in an interface.
+Himig uses tokens as the foundation of its design. Tokens provide the smallest unit of design in an interface.
 
 ## Token-Driven Architecture
 > Token-driven architecture is a type of design system architecture that uses design tokens to run the designs. Design
@@ -15,7 +15,7 @@ The token-driven architecture allows us to power the design language to create a
 system, and in turn allow our developers (and you!) to build user experiences with confidence.
 
 ## Types of tokens
-Gaia has two types of tokens, primitive tokens, and theme tokens.
+Himig has two types of tokens, primitive tokens, and theme tokens.
 
 ### Primitive tokens
 Primitive tokens have no theme value attached to them, and are generally used as 'for-value' only. These include the

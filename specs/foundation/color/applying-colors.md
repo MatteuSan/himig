@@ -3,7 +3,7 @@ title: Applying Colors
 slug: /foundation/color/applying-colors
 ---
 # Applying Colors
-Gaia's guidelines to applying colors to an element.
+Himig's guidelines to applying colors to an element.
 
 ## Component Color Anatomy
 When applying color to a component, we generally apply it to three main parts of an element/component:
@@ -27,7 +27,7 @@ For the API information, please visit the [color composition API page](../../api
 @use 'node_modules/@matteusan/himig';
 
 .ms-component {
-  @include himigcolor-fill('component', 'token-or-value');
+  @include himig.color-fill('component', 'token-or-value');
 }
 ```
 
@@ -44,7 +44,7 @@ For the API information, please visit the [color composition API page](../../api
 @use 'node_modules/@matteusan/himig';
 
 .ms-component {
-  @include himigcolor-ink('component', 'token-or-value');
+  @include himig.color-ink('component', 'token-or-value');
 }
 ```
 
@@ -60,12 +60,12 @@ For the API information, please visit the [color composition API page](../../api
 @use 'node_modules/@matteusan/himig';
 
 .ms-component {
-  @include himigcolor-border('component', 'token-or-value');
+  @include himig.color-border('component', 'token-or-value');
 }
 ```
 
 ## Applying the colors together
-Gaia provides an SCSS mixin that lets you apply all three in one go. It's the `color-apply()` mixin. It takes the component name, and the color map.
+Himig provides an SCSS mixin that lets you apply all three in one go. It's the `color-apply()` mixin. It takes the component name, and the color map.
 
 For the API information, please visit the [color composition API page](../../api/composition/color.md).
 
@@ -73,7 +73,7 @@ For the API information, please visit the [color composition API page](../../api
 @use 'node_modules/@matteusan/himig';
 
 .ms-component {
-  @include himigcolor-apply('component', (
+  @include himig.color-apply('component', (
     fill: 'token-or-value',
     ink: 'token-or-value',
     border: 'token-or-value'
@@ -82,7 +82,7 @@ For the API information, please visit the [color composition API page](../../api
 ```
 
 ### What if we don't want a color on the `x` part?
-The design system doesn't prohibit you to use the **transparent color** for a specific part of the component. In fact, it is used in the outlined styles of a component (see [outlined button style](page missing)).
+The design system doesn't prohibit you to use the **transparent color** for a specific part of the component. In fact, it is used in the outlined styles of a component (see [outlined button style](https://github.com/MatteuSan/himig/blob/main/packages/himig/ms-button/_button-mixins.scss#L91-L93)).
 
 ## Valid Raw Colors
 Here's a list of all the valid raw colors you can use:

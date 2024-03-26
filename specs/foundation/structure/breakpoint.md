@@ -3,7 +3,7 @@ title: Breakpoint
 slug: /foundation/structure/breakpoint
 ---
 # Breakpoint
-Breakpoints are points on a screen that defines an element's style. Gaia uses breakpoints to create fluid and responsive
+Breakpoints are points on a screen that defines an element's style. Himig uses breakpoints to create fluid and responsive
 interfaces that embody its philosophies across multiple devices.
 
 ## Breakpoint Tokens

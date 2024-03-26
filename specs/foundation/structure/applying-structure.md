@@ -3,7 +3,7 @@ title: Applying Structure
 slug: /foundation/structure/applying-structure
 ---
 # Applying Structure
-Gaia's guidelines to applying structure to an element.
+Himig's guidelines to applying structure to an element.
 
 ## Component Structure Anatomy
 The component structure anatomy uses the native DOM structuring, wherein we take advantage of these parts:
@@ -69,7 +69,7 @@ For the API information, please visit the [structure composition API page](../..
 ```
 
 ## Applying structs together
-Gaia provides an SCSS mixin that lets you apply all structs in one go. It's the `struct-apply()` mixin. It takes the component name, and the struct map.
+Himig provides an SCSS mixin that lets you apply all structs in one go. It's the `struct-apply()` mixin. It takes the component name, and the struct map.
 
 For the API information, please visit the [structure composition API page](../../api/composition/structure.md).
 

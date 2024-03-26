@@ -3,7 +3,7 @@ title: Applying Typography
 slug: /foundation/typography/applying-typography
 ---
 # Applying Typography
-Gaia's guidelines to using typography in interfaces.
+Himig's guidelines to using typography in interfaces.
 
 ## Content Typography Anatomy
 A content's typography can be defined in the following properties:
@@ -72,7 +72,7 @@ For the API information, please visit the [typography composition API page](../.
 ```
 
 ## Applying typography styles together
-Gaia provides an SCSS mixin that lets you apply all properties in one go. It's the `typography-apply()` mixin. It takes the component name, and the typography styles map.
+Himig provides an SCSS mixin that lets you apply all properties in one go. It's the `typography-apply()` mixin. It takes the component name, and the typography styles map.
 
 For the API information, please visit the [typography composition API page](../../api/composition/typography.md).
 

@@ -20,7 +20,7 @@ body:
     id: version
     attributes:
       label: Version
-      description: What version of Gaia are you using?
+      description: What version of Himig are you using?
       options:
         - 0.x
     validations:

@@ -11,10 +11,11 @@ The theme governs three aspects of the design system: Color, structure, and typo
 ## Color Theming
 The color theme is defined in four different parts:
 
-1) **Surface Color** - Defines the color of most of the surfaces like cards, profiles, overviews, headers, appbars, etc.
+1) **Primary Color** - Defines the color of most of the medium-sized surfaces like cards, profiles, lists, etc.
 2) **Accent Color** - Defines the color of elements that require attention like a button, alert, badge, etc.
-3) **Background Color** - Defines the color of the surface all elements will interact on.
-4) **State Colors** - Defines the color of surfaces that indicate a state like error, warning, and success.
+3) **Surface Colors** - Defines the color of most of the large-sized surfaces like overviews, headers, appbars, navigation bars etc.
+4) **Background Color** - Defines the color of the surface all elements will interact on.
+5) **State Colors** - Defines the color of surfaces that indicate a state like error, warning, and success.
 
 #### SCSS
 Typically, when setting this up the design system comes in with the GS Theme by default. To override these, you can use
@@ -23,12 +24,11 @@ have to pass in a `map` with the [`200-800` schema](color/color-tokens.md#color-
 
 | $parameter    | Type                   |
 |---------------|------------------------|
-| `$surface`    | Color Token Key or Map |
+| `$primary`    | Color Token Key or Map |
 | `$accent`     | Color Token Key or Map |
+| `$surface`    | Color Token Key or Map |
 | `$background` | Color Token            |
 | `$error`      | Color Token Key or Map |
-| `$warning`    | Color Token Key or Map |
-| `$success`    | Color Token Key or Map |
 
 ```scss
 @use 'node_modules/@matteusan/himig';
@@ -53,7 +53,7 @@ The structure theme is divided into different portions:
 
 1) **Radius** - Defines the corner radii of an element.
 2) **Breakpoints** - Defines points on the screen where certain styles can happen.
-3**Dimensions** - Defines the width and height of an element.
+3) **Dimensions** - Defines the width and height of an element.
 
 #### SCSS
 Typically, when setting this up the design system comes in with the GS Theme by default. To override these, pass in a
@@ -94,7 +94,7 @@ Typography Theming is divided by purpose:
 4) **Subtitle** - For subheadings. This defines a sub section of a section.
 5) **Body** - The default text style. Applies to most content.
 6) **Mono** - The default mono text style. Applies to code snippets, especially in pages that displays logs and metadata.
-6) **Small** - For small texts. Applies to content that are minor in hierarchy.
+7) **Small** - For small texts. Applies to content that are minor in hierarchy.
 
 #### SCSS
 Typically, when setting this up the design system comes in with the GS Theme by default. To override these, pass in a
@@ -107,7 +107,7 @@ something more custom.
 
 @include himig.init(
   $global: (
-    family: 'family.inter',
+    family: 'family.sans-serif',
     size: 'size.sm',
     weight: 'weight.normal',
     line-height: 'line-height.normal'

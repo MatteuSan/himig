@@ -25,7 +25,7 @@ In your project's sass entry file. Initialize the design system.
 }
 ```
 
-Whenever you feel the need to include a component, instantiate it inside the Gaia initializer.
+Whenever you feel the need to include a component, instantiate it inside the Himig initializer.
 
 ```scss
 @use 'node_modules/@matteusan/himig';

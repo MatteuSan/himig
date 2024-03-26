@@ -3,7 +3,7 @@ title: Typography Tokens
 slug: /foundation/typography/tokens
 ---
 # Typography Tokens
-Gaia provides an extensive list of carefully crafted, pre-made typography tokens ready to go.
+Himig provides an extensive list of carefully crafted, pre-made typography tokens ready to go.
 
 ## Typography Token Schema
 The typography tokens follow a specific schema to make indexing much easier. Each token type follows its own schema:

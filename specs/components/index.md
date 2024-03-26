@@ -3,7 +3,7 @@ title: Components
 slug: /components
 ---
 # Components
-Gaia's components serve as primitive building blocks to build complex interfaces. These are carefully crafted to produce
+Himig's components serve as primitive building blocks to build complex interfaces. These are carefully crafted to produce
 the same experiences all throughout the GrowStocks ecosystem.
 
 ## Instantiation
@@ -65,7 +65,7 @@ Modifying a component in the SCSS is your second way of customizing a component.
 ```
 
 ## Extending Components
-Creating your own variant component uses Gaia's provided extension API. Instantiate a new variant by calling the `extend()` mixin and filling in the variant name parameter.
+Creating your own variant component uses Himig's provided extension API. Instantiate a new variant by calling the `extend()` mixin and filling in the variant name parameter.
 
 ```scss
 @use 'node_modules/@matteusan/himig';
@@ -90,7 +90,7 @@ Make adjustments to the variant by calling the modifier mixins. These mixins are
       padding: ('md' 'xl')
     ));
     @include ms-component.typography((
-      size: 'subtitle',
+      size: 'md',
     ));
   }
 }

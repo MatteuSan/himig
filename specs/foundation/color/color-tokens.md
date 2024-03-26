@@ -3,7 +3,7 @@ title: Color Tokens
 slug: /foundation/color/tokens
 ---
 # Color Tokens
-Gaia provides an extensive list of carefully crafted, pre-made color tokens ready to go.
+Himig provides an extensive list of carefully crafted, pre-made color tokens ready to go.
 
 ## Color Token Schema
 The color tokens follow a specific schema to make indexing much easier. The color tokens follow a `200-800` color schema:

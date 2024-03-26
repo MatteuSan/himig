@@ -3,7 +3,7 @@ title: Structure Tokens
 slug: /foundation/structure/tokens
 ---
 # Structure Tokens
-Gaia provides an extensive list of carefully crafted, pre-made structure tokens ready to go.
+Himig provides an extensive list of carefully crafted, pre-made structure tokens ready to go.
 
 ## Structure Token Schema
 The structure tokens follow a specific schema to make indexing much easier. The tokens follow a `none`-`xs-xl` schema

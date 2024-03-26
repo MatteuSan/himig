@@ -3,10 +3,10 @@ title: Layout
 slug: /foundation/structure/layout
 ---
 # Layout
-Layout defines the static behavior of an element in an interface. Gaia uses layout to organize content in an interface.
+Layout defines the static behavior of an element in an interface. Himig uses layout to organize content in an interface.
 
 ## Grid
-Gaia uses the 12-column grid system to cover all use cases for layout on multiple devices.
+Himig uses the 12-column grid system to cover all use cases for layout on multiple devices.
 
 Read more about this layout system [here](https://material.io/design/layout/responsive-layout-grid.html).
 

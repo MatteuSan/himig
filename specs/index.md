@@ -3,7 +3,7 @@ title: Introduction
 slug: /
 ---
 # Introduction
-Himig (formerly Gaia) is Matteu's design system for building web-based products and projects. It
+Himig (formerly Himig Web) is Matteu's design system for building web-based products and projects. It
 helps me build products faster, make it more accessible, and deliver quality and unforgettable experiences.
 
 ## Goals
