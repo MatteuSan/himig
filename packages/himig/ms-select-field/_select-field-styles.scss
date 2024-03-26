@@ -44,7 +44,7 @@
     pintig.primitive-token-switch('padding.#{list.nth(pintig.theme-get($struct, 'padding'), 1)}', list.nth(pintig.theme-get($struct, 'padding'), 1)),
   ) {
     @include pintig.color-bind('select-field-label', (
-      ink: pintig.theme-get($color, 'ink', 'disabled'),
+      ink: pintig.theme-get($color, 'ink'),
     ));
     @include pintig.typography-bind('select-field-label', (
       family: pintig.theme-get($typography, 'family'),
@@ -80,14 +80,22 @@
 
     &:has(.ms-select-field__input:not(:read-only):not(:disabled)) {
       .ms-select-field__label {
-        @include pintig.color-bind('select-field-label', (
-          ink: pintig.theme-get($color, 'ink'),
-        ));
+        @include pintig.color-ink('select-field-label', pintig.theme-get($color, 'ink'), 'bind');
+      }
+
+      .ms-select-field__helper {
+        @include pintig.color-ink('select-field-helper', pintig.theme-get($color, 'ink', 'helper'), 'bind');
       }
     }
 
     &:has(.ms-select-field__input:read-only:disabled) {
-      @include pintig.color-ink('select-field-helper', pintig.theme-get($color, 'ink', 'disabled'), 'bind');
+      .ms-select-field__label {
+        @include pintig.color-ink('select-field-label', pintig.theme-get($color, 'ink', 'disabled'), 'bind');
+      }
+
+      .ms-select-field__helper {
+        @include pintig.color-ink('select-field-helper', pintig.theme-get($color, 'ink', 'disabled'), 'bind');
+      }
     }
 
     .ms-select-field__input {
@@ -96,12 +104,12 @@
         @include pintig.color-bind('select-field', (
           fill: pintig.theme-get($color, 'fill'),
           ink: pintig.theme-get($color, 'ink'),
-          border: pintig.theme-get($color, 'fill'),
+          border: pintig.theme-get($color, 'border'),
         ));
 
         &:focus {
           @include pintig.color-bind('select-field', (
-            fill: pintig.theme-get($color, 'fill', 'hover'),
+            fill: pintig.theme-get($color, 'fill', 'focus'),
             border: pintig.theme-get($color, 'border', 'focus'),
           ));
           @include pintig.struct-bind('select-field', (
@@ -114,7 +122,7 @@
         @include pintig.color-bind('select-field', (
           fill: pintig.theme-get($color, 'fill', 'disabled'),
           ink: pintig.theme-get($color, 'ink', 'disabled'),
-          border: pintig.theme-get($color, 'fill', 'disabled'),
+          border: pintig.theme-get($color, 'border', 'disabled'),
         ));
         cursor: not-allowed;
       }
@@ -131,7 +139,7 @@
           @include pintig.color-bind('select-field', (
             fill: transparent,
             ink: pintig.theme-get($color, 'ink'),
-            border: pintig.theme-get($color, 'fill'),
+            border: pintig.theme-get($color, 'border'),
           ));
 
           &:focus {

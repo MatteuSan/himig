@@ -22,26 +22,34 @@
 
 $init-color: (
   fill: (
-    default: 'surface-alpha-600',
-    hover: 'accent-alpha-300',
-    disabled: 'disabled'
+    default: 'surface-alpha-800',
+    focus: 'accent-alpha-300',
+    disabled: 'disabled',
+    error: (
+      default: 'error-alpha-300',
+      focus: 'error-alpha-400'
+    )
   ),
   ink: (
     default: 'surface-ink',
     helper: 'surface-ink',
-    disabled: 'disabled-ink'
+    disabled: 'disabled-ink',
+    error: 'error-400'
   ),
   border: (
-    default: 'surface-600',
-    hover: 'accent-alpha-600',
+    default: 'surface-400',
     focus: 'accent-400',
-    disabled: 'disabled'
+    disabled: 'disabled',
+    error: (
+      default: 'error-alpha-800',
+      focus: 'error-400'
+    )
   ),
 );
 
 $init-struct: (
   width: 100%,
-  padding: ('md' 'lg'),
+  padding: ('md', 'lg'),
   radius: 'small',
   border-width: (
     'default': 2px,
