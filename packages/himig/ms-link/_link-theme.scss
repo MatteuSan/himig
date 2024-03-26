@@ -32,10 +32,10 @@ $init-color: (
 $init-struct: ();
 
 $init-typography: (
-  family: 'global',
-  size: 'body',
-  weight: 'normal',
-  line-height: 'normal'
+  family: inherit,
+  size: inherit,
+  weight: inherit,
+  line-height: inherit
 );
 
 $init-settings: ();
