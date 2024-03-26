@@ -741,21 +741,21 @@ __metadata:
   linkType: hard
 
 "@matteusan/himig@file:./packages/himig::locator=himig%40workspace%3A.":
-  version: 1.4.1
-  resolution: "@matteusan/himig@file:./packages/himig#./packages/himig::hash=33430c&locator=himig%40workspace%3A."
+  version: 1.5.0
+  resolution: "@matteusan/himig@file:./packages/himig#./packages/himig::hash=983c56&locator=himig%40workspace%3A."
   dependencies:
     "@matteusan/pintig": 1.4.0
     "@matteusan/sentro": 0.1.25
-  checksum: 6072347fe504afe00b3bba9c2d471fc6c18b5d2bc5320386be1df9158327b6a872efa356053d5009712b0e64c8dfa8ca7f113cce3681b75fd315ef1e8a968769
+  checksum: e80c1ad0ae6869a154b7a98ef2688266aff2f7ce052ba1ae81ac57a81cf3dbdf52c71492dce0ced1c28d303b7135fc61c159693cad3194ca6b0da0a1547e4b25
   languageName: node
   linkType: hard
 
 "@matteusan/pintig@file:./packages/himig/pintig::locator=himig%40workspace%3A.":
-  version: 1.4.0
-  resolution: "@matteusan/pintig@file:./packages/himig/pintig#./packages/himig/pintig::hash=7616b6&locator=himig%40workspace%3A."
+  version: 1.5.0
+  resolution: "@matteusan/pintig@file:./packages/himig/pintig#./packages/himig/pintig::hash=55ddee&locator=himig%40workspace%3A."
   dependencies:
     "@matteusan/sentro": 0.1.25
-  checksum: e1fcbac712db7d27a53659352aa56f0a3b44c784871e04ffceff369ddbc110e7104f32d0afeaeab009845a97be69b1dae453a536294ab0e59dfd3bb567b0a40e
+  checksum: 11216feed8e34a3312dd0f4311c2ea4be4829e94bfc497ca9a51196dd4f9bf650bad2adf3c31c738c55fb0bd7293ebed30b297e6e4e6920df9066905be96f156
   languageName: node
   linkType: hard
 
