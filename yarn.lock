@@ -742,11 +742,11 @@ __metadata:
 
 "@matteusan/himig@file:./packages/himig::locator=himig%40workspace%3A.":
   version: 1.4.1
-  resolution: "@matteusan/himig@file:./packages/himig#./packages/himig::hash=e883c4&locator=himig%40workspace%3A."
+  resolution: "@matteusan/himig@file:./packages/himig#./packages/himig::hash=33430c&locator=himig%40workspace%3A."
   dependencies:
     "@matteusan/pintig": 1.4.0
     "@matteusan/sentro": 0.1.25
-  checksum: 90c8169c53fcca1062cd0a485edd0a1075bd198f6bf729e2ed878893a06f9200e745e32b9af3ba3f5c8de040c503b7e89e1190859ad3d3fec62e8d27d93688d0
+  checksum: 6072347fe504afe00b3bba9c2d471fc6c18b5d2bc5320386be1df9158327b6a872efa356053d5009712b0e64c8dfa8ca7f113cce3681b75fd315ef1e8a968769
   languageName: node
   linkType: hard
 
