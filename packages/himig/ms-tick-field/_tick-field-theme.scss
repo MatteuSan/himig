@@ -48,6 +48,11 @@ $init-color: (
 );
 
 $init-struct: (
+  width: (
+    default: 100%,
+    min: auto,
+    max: auto
+  ),
   radius: (
     default: 'sm',
     input: (

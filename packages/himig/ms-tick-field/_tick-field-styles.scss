@@ -42,19 +42,8 @@
       ink: pintig.theme-get($color, 'ink'),
       border: pintig.theme-get($color, 'border'),
     ));
-    @include pintig.struct-apply('tick-field', (
-      radius: pintig.theme-get($struct, 'radius'),
-      padding: pintig.theme-get($struct, 'padding'),
-      gap: pintig.theme-get($struct, 'gap'),
-      border-width: pintig.theme-get($struct, 'border-width'),
-      border-style: pintig.theme-get($struct, 'border-style'),
-    ));
-    @include pintig.typography-bind('tick-field', (
-      family: pintig.theme-get($typography, 'family'),
-      size: pintig.theme-get($typography, 'size'),
-      weight: pintig.theme-get($typography, 'weight'),
-      line-height: pintig.theme-get($typography, 'line-height'),
-    ));
+    @include pintig.struct-apply('tick-field', $struct);
+    @include pintig.typography-bind('tick-field', $typography);
     @include pintig.typography-bind('tick-field-helper', (
       family: pintig.theme-get($typography, 'family'),
       size: pintig.theme-get($typography, 'size', 'helper'),
