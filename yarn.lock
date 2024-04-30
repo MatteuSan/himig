@@ -742,11 +742,11 @@ __metadata:
 
 "@matteusan/himig@file:./packages/himig::locator=himig%40workspace%3A.":
   version: 1.5.1
-  resolution: "@matteusan/himig@file:./packages/himig#./packages/himig::hash=d4dbe4&locator=himig%40workspace%3A."
+  resolution: "@matteusan/himig@file:./packages/himig#./packages/himig::hash=1391e5&locator=himig%40workspace%3A."
   dependencies:
-    "@matteusan/pintig": 1.4.0
-    "@matteusan/sentro": 0.1.25
-  checksum: fe4cda9e02057927af50a159b552a153fbb999c0545b3a8db921736b1adc0528be1bfad0ba83d73bbc5dd625736941954463decca680a8253ce791d437d52169
+    "@matteusan/pintig": ^1.5.1
+    "@matteusan/sentro": ^1.1.0
+  checksum: ed40c97311069dd0de802afd5da2e2d96ff2c27e4662e845504d2bb20db4ad838f8c12752aac1f55ba4cea771764edbda46c049ffdd87cf3658ebe6061965f99
   languageName: node
   linkType: hard
 
@@ -759,12 +759,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@matteusan/pintig@npm:1.4.0":
-  version: 1.4.0
-  resolution: "@matteusan/pintig@npm:1.4.0"
+"@matteusan/pintig@npm:^1.5.1":
+  version: 1.5.1
+  resolution: "@matteusan/pintig@npm:1.5.1"
   dependencies:
     "@matteusan/sentro": 0.1.25
-  checksum: 725049469f48654b0d7aa9b7fdbae70cb7e2551b935ae9e4f857f3ad29f2d41705bff13279d13735652f4c7b1815fc417ba1f7f65f679915df6326e122e737ae
+  checksum: da39a8f430c50b263287108aebea8d397a576080ae25c227913575be5af592dfc52d5f1dd5f58fbb6d1d9c97822fe1f8a9554fea171ee91f22f222da516e4c7c
   languageName: node
   linkType: hard
 
@@ -775,12 +775,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@matteusan/sentro@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "@matteusan/sentro@npm:1.0.0"
+"@matteusan/sentro@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "@matteusan/sentro@npm:1.1.0"
   peerDependencies:
     sass: ^1.74.1
-  checksum: 04d6d5452bc44a9c633aab3a996a8d4ff960f47e543a4cee07e6f1159efda985a60814f995d53999abb3dc82f8be8f9345ef18f667bf0780046bff081f7963a8
+  checksum: 11ff7f27546d6b65d8c9a3be48a288837487ceec047d03b69188b710c8180c362d00a81d4e065308a4144e70309ba007ec5f25cedc8c810801171fb161169ce8
   languageName: node
   linkType: hard
 
@@ -3352,7 +3352,7 @@ __metadata:
   dependencies:
     "@matteusan/himig": "file:./packages/himig"
     "@matteusan/pintig": "file:./packages/himig/pintig"
-    "@matteusan/sentro": ^1.0.0
+    "@matteusan/sentro": ^1.1.0
     "@types/jest": ^29.5.12
     gulp: ^4.0.2
     gulp-cli: ^3.0.0
