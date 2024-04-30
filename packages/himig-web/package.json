@@ -1,0 +1,23 @@
+{
+  "name": "@matteusan/himig-web",
+  "version": "1.0.0",
+  "description": "A web-components implementation of MatteuSan's design system, Himig.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MatteuSan/himig.git"
+  },
+  "author": "MatteuSan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MatteuSan/himig/issues"
+  },
+  "homepage": "https://github.com/MatteuSan/himig#readme",
+  "peerDependencies": {
+    "lit": "^3.1.3",
+    "sass": "^1.75.0"
+  }
+}
