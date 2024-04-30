@@ -26,14 +26,7 @@
 /// @param {int} $px
 /// @return {int} rem value.
 @function to-rem($px) {
-  @return sentro.px-to-rem($px);
-}
-
-/// Converts rem values to px values.
-/// @param {int} $rem
-/// @return {int} px value.
-@function to-px($rem) {
-  @return sentro.rem-to-px($rem);
+  @return sentro.to-rem($px);
 }
 
 /// Prefixes properties
