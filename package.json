@@ -6,9 +6,6 @@
   "files": [
     "packages/**/*"
   ],
-  "workspaces": [
-    "tests/sass"
-  ],
   "repository": "https://github.com/MatteuSan/himig",
   "author": "Matteu <matteugt@gmail.com>",
   "license": "MIT",
