@@ -14,7 +14,7 @@
   "license": "MIT",
   "scripts": {
     "lit:css": "yarn lit:scss && tsx scripts/scss-to-lit.ts",
-    "lit:scss": "yarn && sass packages/himig-components:packages/himig-components --style=compressed --load-path=node_modules --no-source-map",
+    "lit:scss": "yarn && sass packages/himig-components:packages/himig-components --style=compressed --pkg-importer=node --no-source-map",
     "lit:ts": "tsc --pretty --project \"./config/tsconfig.lit.json\"",
     "lit:build": "yarn lit:scss && yarn lit:css && yarn lit:ts",
     "pack:dist": "npm pack --pack-destination=\"./dist\"",
@@ -29,7 +29,7 @@
     "pub:minor": "npm version minor --force && yarn pub:core:minor && yarn pub:main:minor",
     "pub:major": "npm version major --force && yarn pub:core:major && yarn pub:main:major",
     "run:docs": "cd documentation && yarn dev",
-    "test:html": "yarn && sass tests/sass/with-html.test.scss:tests/sass/with-html.test.css --load-path=node_modules --no-source-map",
+    "test:html": "yarn && sass tests/sass/with-html.test.scss:tests/sass/with-html.test.css --pkg-importer=node --no-source-map --style=compressed",
     "test:sass": "yarn && jest --config=\"jest.config.ts\""
   },
   "devDependencies": {
