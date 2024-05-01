@@ -1,0 +1,15 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "rootDir": "../packages/himig-components",
+    "outDir": "../packages/himig-components",
+    "plugins": [
+      {
+        "name": "ts-lit-plugin",
+        "strict": true
+      }
+    ]
+  },
+  "include": ["../packages/himig-components/**/*.ts"],
+  "exclude": []
+}

@@ -20,7 +20,10 @@ tests/**/*.test.js
 
 # Package build files
 packages/**/*.css
+packages/**/*.css.map
 packages/**/*.js
+packages/**/*.d.ts.map
+packages/**/*.d.ts
 packages/**/*.style.ts
 packages/**/*.styles.ts
 

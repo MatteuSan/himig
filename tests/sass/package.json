@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@matteusan/himig": "file:../../packages/himig",
+    "sass-true": "^8.0.0"
+  }
+}

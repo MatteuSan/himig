@@ -5,5 +5,7 @@
 @use 'button-base';
 
 @include button-base.init() {
-  //
+  &:not([disabled]) {
+    background-color: black;
+  }
 }

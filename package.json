@@ -6,14 +6,17 @@
   "files": [
     "packages/**/*"
   ],
-  "type": "module",
+  "workspaces": [
+    "tests/sass"
+  ],
   "repository": "https://github.com/MatteuSan/himig",
   "author": "Matteu <matteugt@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build:sass": "gulp --gulpfile=\"gulpfile-build.cjs\"",
-    "lint:sass": "npx stylelint \"**/*.scss\"",
-    "lit:css": "yarn build:sass && ts-node-esm scripts/scss-to-lit.mjs",
+    "lit:css": "yarn lit:scss && tsx scripts/scss-to-lit.ts",
+    "lit:scss": "yarn && sass packages/himig-components:packages/himig-components --style=compressed --load-path=node_modules --no-source-map",
+    "lit:ts": "tsc --pretty --project \"./config/tsconfig.lit.json\"",
+    "lit:build": "yarn lit:scss && yarn lit:css && yarn lit:ts",
     "pack:dist": "npm pack --pack-destination=\"./dist\"",
     "pack:root": "npm pack --pack-destination=\"./\"",
     "pub:core:patch": "cd packages/himig/pintig && npm version patch --force && npm publish",
@@ -26,16 +29,22 @@
     "pub:minor": "npm version minor --force && yarn pub:core:minor && yarn pub:main:minor",
     "pub:major": "npm version major --force && yarn pub:core:major && yarn pub:main:major",
     "run:docs": "cd documentation && yarn dev",
-    "test:html": "yarn && gulp --gulpfile=\"gulpfile-test.cjs\"",
-    "test:sass": "yarn && jest --config=\"jest-sass.config.ts\"",
-    "test:ts": "jest --config=\"jest-ts.config.ts\""
+    "test:html": "yarn && sass tests/sass/with-html.test.scss:tests/sass/with-html.test.css --load-path=node_modules --no-source-map",
+    "test:sass": "yarn && jest --config=\"jest.config.ts\""
   },
   "devDependencies": {
     "@matteusan/himig": "file:./packages/himig",
+    "@matteusan/himig-components": "file:./packages/himig-components",
     "@matteusan/pintig": "file:./packages/himig/pintig",
     "@matteusan/sentro": "^1.1.0",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-replace": "^5.0.2",
+    "@rollup/plugin-terser": "^0.4.4",
     "@types/jest": "^29.5.12",
     "@types/node": "^20.12.7",
+    "@web/rollup-plugin-copy": "^0.5.1",
+    "@web/rollup-plugin-html": "^2.3.0",
+    "@webcomponents/webcomponentsjs": "^2.8.0",
     "glob": "^10.3.12",
     "gulp": "^4.0.2",
     "gulp-cli": "^3.0.0",
@@ -44,10 +53,15 @@
     "jest-environment-jsdom": "^29.7.0",
     "lit": "^3.1.3",
     "postcss-scss": "^4.0.9",
+    "rollup": "^4.17.2",
+    "rollup-plugin-minify-html-literals": "^1.2.6",
+    "rollup-plugin-summary": "^2.0.0",
+    "rollup-plugin-terser": "^7.0.2",
     "sass": "^1.72.0",
-    "sass-true": "^6.1.0",
+    "sass-true": "^8.0.0",
     "ts-jest": "^29.1.0",
     "ts-node": "^10.9.1",
+    "tsx": "^4.8.1",
     "typescript": "^5.4.5"
   }
 }

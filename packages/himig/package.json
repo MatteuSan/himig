@@ -11,5 +11,8 @@
   "dependencies": {
     "@matteusan/pintig": "^1.5.1",
     "@matteusan/sentro": "^1.1.0"
+  },
+  "peerDependencies": {
+    "sass": "^1.71.0"
   }
 }

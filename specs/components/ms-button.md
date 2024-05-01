@@ -1,8 +1,8 @@
 ---
-title: MSButton
+title: Index
 slug: /components/ms-button
 ---
-# MSButton
+# Index
 Buttons call the user to a specific action in the page. May it be in a form, or a hyperlink.
 
 ## Usage
@@ -23,8 +23,8 @@ Additionally, anchor elements don't have a disabled attribute so you wouldn't re
 
 ### SCSS
 ```scss
-@use 'node_modules/@matteusan/himig';
-@use 'node_modules/@matteusan/himig/ms-button';
+@use 'pkg:@matteusan/sentro';
+@use 'pkg:@matteusan/himig/ms-button';
 
 @include himig.init() {
   @include ms-button.render();

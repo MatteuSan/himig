@@ -120,7 +120,7 @@ The [color theme](../theme.md) schema will follow the same schema in the variant
 These color tokens do not come with the main compiled style, hence we will use a special mixin to retrieve them from a specific file.
 
 ```scss
-@use 'node_modules/@matteusan/himig';
+@use 'pkg:@matteusan/sentro';
 
 .component {
   @include himigcolor-apply('component', (

@@ -18,7 +18,7 @@ $ npm install @matteusan/himig sass
 In your project's sass entry file. Initialize the design system.
 
 ```scss
-@use 'node_modules/@matteusan/himig';
+@use 'pkg:@matteusan/sentro';
 
 @include himig.init() {
   // ...
@@ -28,8 +28,8 @@ In your project's sass entry file. Initialize the design system.
 Whenever you feel the need to include a component, instantiate it inside the Himig initializer.
 
 ```scss
-@use 'node_modules/@matteusan/himig';
-@use 'node_modules/@matteusan/himig/ms-button';
+@use 'pkg:@matteusan/sentro';
+@use 'pkg:@matteusan/himig/ms-button';
 
 @include himig.init() {
   @include ms-button.render();

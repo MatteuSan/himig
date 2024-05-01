@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: MIT
  */
 
-import { html, LitElement, TemplateResult } from "lit";
+import { html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { styles } from './styles/ms-button.styles';
 
@@ -32,23 +32,25 @@ export default class MSButton extends LitElement {
     return '_self';
   }
 
-  protected override render() {
-    const BaseButton: TemplateResult = html`
-      <i class="ms-button__icon">
+  private renderBase() {
+    return html`
+      <i class="icon">
         <slot name="icon"></slot>
       </i>
-      <span class="ms-button__label">
+      <span class="label">
         <slot></slot>
       </span>
     `;
+  }
 
+  protected override render() {
     if (!this.link) {
       return html`
         <button 
           class="${this.type ? this.handleTypes(this.type) : ''}"
           @click="${this.onClick}"
         >
-          ${BaseButton}
+          ${this.renderBase()}
         </button>
       `;
     }
@@ -59,8 +61,10 @@ export default class MSButton extends LitElement {
         target="${this.handleLinkTarget(this.link)}" 
         class="${this.type ? this.handleTypes(this.type) : ''}"
       >
-        ${BaseButton}
+        ${this.renderBase()}
       </a>
     `;
   }
 }
+
+// customElements.define('ms-button', MSButton);
