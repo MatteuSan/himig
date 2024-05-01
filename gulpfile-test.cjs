@@ -20,9 +20,7 @@
  *  SOFTWARE.
  */
 
-// @ts-ignore
 const { src, dest, series } = require('gulp');
-// @ts-ignore
 const sass = require('gulp-sass')(require('sass'));
 
 const testSass = () => {

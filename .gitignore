@@ -21,6 +21,8 @@ tests/**/*.test.js
 # Package build files
 packages/**/*.css
 packages/**/*.js
+packages/**/*.style.ts
+packages/**/*.styles.ts
 
 # Test byproducts
 **/.coverage
