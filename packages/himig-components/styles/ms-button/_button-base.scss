@@ -2,19 +2,20 @@
 // Copyright (c) 2024 MatteuSan
 // SPDX-License-Identifier: MIT
 
-@use '@matteusan/pintig' with ($module-mode: true);
+@use '@matteusan/pintig';
 
 @mixin init() {
-  :host {
+  :host .ms-button {
     display: inline-flex;
     flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
     text-align: center;
-
     user-select: none;
     overflow: visible;
     vertical-align: middle;
+
+    text-decoration: none;
 
     cursor: pointer;
     outline: pintig.key-create('button-outline', none);
@@ -32,6 +33,10 @@
       width: pintig.key-create('button-icon-size', pintig.primitive-token-get('size.md'));
       max-width: max-content;
       height: pintig.key-create('button-icon-size', pintig.primitive-token-get('size.md'));
+
+      &:empty {
+        display: none;
+      }
 
       ::slotted(*) {
         position: relative;
@@ -53,6 +58,10 @@
         line-height: inherit
       ));
       text-align: center;
+
+      &:empty {
+        display: none;
+      }
     }
   }
 }
