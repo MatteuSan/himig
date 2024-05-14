@@ -4,8 +4,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-const fs = require('node:fs');
-const path = require('node:path');
+import * as fs from 'node:fs';
+import * as path from 'node:path';
 
 /**
  * @param {string} startPath
