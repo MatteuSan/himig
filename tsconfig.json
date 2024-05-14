@@ -1,12 +1,28 @@
 {
   "compilerOptions": {
-    "target": "es2015",
+    "allowUnreachableCode": false,
+    "declaration": true,
+    "declarationMap": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
     "module": "es2015",
     "moduleResolution": "node",
-    "lib": ["es2021", "dom"],
-    "declaration": true,
-    "declarationMap": true,
-    "experimentalDecorators": true,
-    "useDefineForClassFields": false
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUnusedLocals": true,
+    "paths": {
+      "@matteusan/himig-components/*": ["./packages/himig-components/*"]
+    },
+    "sourceMap": true,
+    "inlineSources": true,
+    "strict": true,
+    "strictNullChecks": false,
+    "target": "es2021",
+    "types": ["lit"]
   },
 }
