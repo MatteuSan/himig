@@ -1,0 +1,106 @@
+// @license
+// Copyright (c) 2024 MatteuSan
+// SPDX-License-Identifier: MIT
+
+@use '@matteusan/pintig' with ($module-mode: true);
+@use 'sass:list';
+@use 'sass:selector';
+
+@use '../helpers';
+@use 'button-base';
+@use 'button-theme' as theme;
+@use 'button-mixins' as style;
+
+$_states: ('error');
+
+$_states: ('error');
+
+@include button-base.init() {
+  outline-offset: 2px;
+
+  $color: theme.$init-color;
+  $struct: theme.$init-struct;
+  $typography: theme.$init-typography;
+  $settings: theme.$init-settings;
+
+  $fills: (
+    default: pintig.theme-get($color, 'fill'),
+    hover: pintig.theme-get($color, 'fill', 'hover'),
+    focus: pintig.theme-get($color, 'fill', 'focus'),
+    active: pintig.theme-get($color, 'fill', 'active'),
+    disabled: pintig.theme-get($color, 'fill', 'disabled'),
+  );
+
+  $inks: (
+    default: pintig.theme-get($color, 'ink'),
+    hover: pintig.theme-get($color, 'ink', 'hover'),
+    focus: pintig.theme-get($color, 'ink', 'focus'),
+    active: pintig.theme-get($color, 'ink', 'active'),
+    disabled: pintig.theme-get($color, 'ink', 'disabled'),
+  );
+
+  $borders: (
+    default: pintig.theme-get($color, 'border'),
+    hover: pintig.theme-get($color, 'border', 'hover'),
+    focus: pintig.theme-get($color, 'border', 'focus'),
+    active: pintig.theme-get($color, 'border', 'active'),
+    disabled: pintig.theme-get($color, 'border', 'disabled'),
+  );
+
+  @include pintig.struct-apply('button', $struct);
+  @include pintig.typography-apply('button', $typography);
+
+  @include helpers.state('[disabled]') {
+    cursor: default;
+    pointer-events: none;
+  }
+
+  @include style.text(
+    $fills: $fills,
+    $inks: $inks,
+    $borders: $borders,
+  );
+
+  @include style.outlined(
+    $fills: $fills,
+    $inks: $inks,
+    $borders: $borders,
+  );
+
+  @include style.filled(
+    $fills: $fills,
+    $inks: $inks,
+    $borders: $borders,
+  );
+
+  @include helpers.state(':not(:disabled)', '.is-raised') {
+    @include pintig.struct-shadow('button', 'xs');
+
+    @include helpers.state(':hover', '.is-raised') {
+      @include pintig.struct-shadow('button', 'xs');
+    }
+
+    @include helpers.state(':active', '.is-raised') {
+      @include pintig.struct-shadow('button', 'sm');
+    }
+  }
+
+  &.is-fullwidth {
+    @include pintig.struct-width('button', (
+      default: 100%,
+      min: auto,
+      max: 100%
+    ), 'bind');
+  }
+
+  &.is-icon-only {
+    @include pintig.struct-bind('button', (
+      width: (min: auto),
+      padding: list.nth(pintig.theme-get($struct, 'padding'), 1)
+    ));
+
+    > .label {
+      display: none;
+    }
+  }
+}

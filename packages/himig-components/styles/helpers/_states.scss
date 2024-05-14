@@ -1,0 +1,13 @@
+// @license
+// Copyright (c) 2024 MatteuSan
+// SPDX-License-Identifier: MIT
+
+@use '@matteusan/pintig';
+@use 'sass:selector';
+
+@mixin state($state, $target: ()) {
+  $selectors: ($state);
+  @at-root :host(#{$state}) #{if(not pintig.is-empty($target), #{unquote($target)}, '')} {
+    @content;
+  }
+}

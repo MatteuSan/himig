@@ -1,0 +1,49 @@
+// @license
+// Copyright (c) 2024 MatteuSan
+// SPDX-License-Identifier: MIT
+
+$init-color: (
+  fill: (
+    default: 'accent-400',
+    hover: 'accent-300',
+    active: 'accent-200',
+    focus: 'accent-400',
+    disabled: 'disabled',
+  ),
+  ink: (
+    default: 'accent-ink',
+    hover: 'accent-ink',
+    active: 'accent-ink',
+    focus: 'accent-ink',
+    disabled: 'disabled-ink',
+  ),
+  border: (
+    default: 'accent-400',
+    hover: 'accent-300',
+    active: 'accent-200',
+    focus: 'accent-400',
+    disabled: 'disabled',
+  ),
+);
+
+$init-struct: (
+  width: (
+    default: 100%,
+    min: 69px,
+    max: max-content
+  ),
+  padding: ('md' 'lg'),
+  radius: 'var(--ms-theme-radius-small)',
+  border-width: 'xs',
+  border-style: solid,
+  gap: 'xs'
+);
+
+$init-typography: (
+  family: 'var(--ms-theme-family-global)',
+  size: 'var(--ms-theme-size-global)',
+  weight: 'var(--ms-theme-weight-title)',
+  line-height: 1.25rem
+);
+
+$init-settings: ();

@@ -1,0 +1,192 @@
+// @license
+// Copyright (c) 2024 MatteuSan
+// SPDX-License-Identifier: MIT
+
+@use '@matteusan/pintig';
+@use 'sass:map';
+@use 'sass:list';
+@use 'sass:string';
+@use 'sass:meta';
+
+@use '../helpers';
+
+@mixin text($fills, $inks, $borders) {
+  $fill: map.get($fills, 'default');
+  $ink-disabled: map.get($inks, 'disabled');
+  $border: map.get($borders, 'default');
+
+  @include helpers.state(':not(:disabled)', '.ms-button') {
+    @include pintig.color-apply('button', (
+      fill: transparent,
+      ink: _default($fill),
+      border: transparent
+    ));
+
+    @include helpers.state(':hover', '.ms-button') {
+      @include pintig.color-apply('button', (
+        fill: _alpha($fill, 400),
+        ink: _default($fill),
+        border: _alpha($border, 200)
+      ));
+    }
+
+    @include helpers.state(':focus-visible', '.ms-button') {
+      @include pintig.color-apply('button', (
+        fill: _alpha($fill, 400),
+        ink: _default($fill),
+        border: _alpha($border, 200)
+      ));
+      @include pintig.key-bind('button-outline', 2px solid _alpha($fill, 400));
+    }
+
+    @include helpers.state(':active', '.ms-button') {
+      @include pintig.color-apply('button', (
+        fill: _alpha($fill, 800),
+        ink: _default($fill),
+        border: _alpha($border, 400)
+      ));
+    }
+  }
+
+  @include helpers.state('[disabled]', '.ms-button') {
+    @include pintig.color-apply('button', (
+      fill: transparent,
+      ink: _default($ink-disabled),
+      border: transparent
+    ));
+  }
+}
+
+@mixin outlined($fills, $inks, $borders) {
+  $fill: map.get($fills, 'default');
+  $fill-hover: map.get($fills, 'hover');
+  $fill-focus: map.get($fills, 'focus');
+  $fill-active: map.get($fills, 'active');
+  $fill-disabled: map.get($fills, 'disabled');
+  $ink: map.get($inks, 'default');
+  $ink-disabled: map.get($inks, 'disabled');
+  $border: map.get($borders, 'default');
+  $border-hover: map.get($borders, 'hover');
+  $border-focus: map.get($borders, 'focus');
+  $border-active: map.get($borders, 'active');
+  $border-disabled: map.get($borders, 'disabled');
+
+  @include helpers.state(':not(:disabled)', '.is-outlined') {
+    @include pintig.color-apply('button', (
+      fill: transparent,
+      ink: _default($fill),
+      border: _default($border)
+    ));
+
+    @include helpers.state(':hover', '.is-outlined') {
+      @include pintig.color-apply('button', (
+        fill: _default($fill-hover),
+        ink: _default($ink),
+        border: _default($border-hover)
+      ));
+    }
+
+    @include helpers.state(':focus-visible', '.is-outlined') {
+      @include pintig.color-apply('button', (
+        fill: _alpha($fill, 400),
+        ink: _default($fill),
+        border: _default($border)
+      ));
+      @include pintig.key-bind('button-outline', 2px solid _alpha($fill, 400));
+    }
+
+    @include helpers.state(':active', '.is-outlined') {
+      @include pintig.color-apply('button', (
+        fill: _default($fill-active),
+        ink: _default($ink),
+        border: _default($border-active)
+      ));
+    }
+  }
+
+  @include helpers.state('[disabled]', '.is-outlined') {
+    @include pintig.color-apply('button', (
+      fill: transparent,
+      ink: _default($ink-disabled),
+      border: _default($border-disabled)
+    ));
+  }
+}
+
+@mixin filled($fills, $inks, $borders) {
+  $fill: map.get($fills, 'default');
+  $fill-hover: map.get($fills, 'hover');
+  $fill-focus: map.get($fills, 'focus');
+  $fill-active: map.get($fills, 'active');
+  $fill-disabled: map.get($fills, 'disabled');
+  $ink: map.get($inks, 'default');
+  $ink-disabled: map.get($inks, 'disabled');
+  $border: map.get($borders, 'default');
+  $border-hover: map.get($borders, 'hover');
+  $border-focus: map.get($borders, 'focus');
+  $border-active: map.get($borders, 'active');
+  $border-disabled: map.get($borders, 'disabled');
+
+  @include helpers.state(':not(:disabled)', '.is-filled') {
+    @include pintig.color-apply('button', (
+      fill: _default($fill),
+      ink: _default($ink),
+      border: _default($border)
+    ));
+
+    @include helpers.state(':hover', '.is-filled') {
+      @include pintig.color-apply('button', (
+        fill: _default($fill-hover),
+        ink: _default($ink),
+        border: _default($border-hover)
+      ));
+    }
+
+    @include helpers.state(':focus-visible', '.is-filled') {
+      @include pintig.color-apply('button', (
+        fill: _default($fill-focus),
+        ink: _default($ink),
+        border: _default($border-focus)
+      ));
+      @include pintig.key-bind('button-outline', 2px solid _alpha($fill, 400));
+    }
+
+    @include helpers.state(':active', '.is-filled') {
+      @include pintig.color-apply('button', (
+        fill: _default($fill-active),
+        ink: _default($ink),
+        border: _default($border-active)
+      ));
+    }
+  }
+
+  @include helpers.state('[disabled]', '.is-filled') {
+    @include pintig.color-apply('button', (
+      fill: _default($border-disabled),
+      ink: _default($ink-disabled),
+      border: _default($border-disabled)
+    ));
+  }
+}
+
+@function _default($query, $tone: ()) {
+  @if pintig.is-empty($tone) {
+    $string: pintig.str-split($query, '-');
+    @if list.length($string) < 2 {
+      @return 'var(--ms-theme-#{list.nth($string, 1)})';
+    }
+    @return 'var(--ms-theme-#{list.nth($string, 1)}-#{list.nth($string, 2)})';
+  }
+  @return 'var(--ms-theme-#{$query}-#{$tone})';
+}
+
+@function _alpha($query, $opacity: ()) {
+  $string: pintig.str-split($query, '-');
+  @if pintig.is-empty($opacity) {
+    @if list.length($string) < 2 {
+      @return 'var(--ms-theme-#{list.nth($string, 1)})';
+    }
+    @return 'var(--ms-theme-#{list.nth($string, 1)}-alpha-#{list.nth($string, 2)})';
+  }
+  @return 'var(--ms-theme-#{list.nth($string, 1)}-alpha-#{$opacity})';
+}
