@@ -23,6 +23,6 @@
     "strict": true,
     "strictNullChecks": false,
     "target": "es2021",
-    "types": ["lit"]
+    "types": ["lit", "node"]
   },
 }
