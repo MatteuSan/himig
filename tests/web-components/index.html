@@ -8,12 +8,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
-  <script type="module" src="../../packages/himig-components/ms-button"></script>
+  <title>Himig Components Testing</title>
+  <link rel="stylesheet" href="../../node_modules/@matteusan/himig-components/styles.css">
+  <script type="module" src="../../node_modules/@matteusan/himig-components/ms-button.js"></script>
+  <style>
+    :root {
+      /*--ms-theme-background: #fff;*/
+    }
+  </style>
 </head>
 <body>
-<ms-button>
-  Build
-</ms-button>
+<section>
+  <ms-button>MSButton</ms-button>
+  <ms-button type="outlined">MSButton</ms-button>
+  <ms-button type="filled">MSButton</ms-button>
+</section>
+
+<section>
+  <ms-button disabled>MSButton</ms-button>
+  <ms-button disabled type="outlined">MSButton</ms-button>
+  <ms-button disabled type="filled">MSButton</ms-button>
+</section>
+
+<section>
+  <ms-button type="raised filled">MSButton</ms-button>
+  <ms-button type="fullwidth filled">MSButton</ms-button>
+</section>
 </body>
 </html>
