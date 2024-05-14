@@ -20,7 +20,7 @@ Dimensions define the width and height of an element in a 2D space. This is comm
 For the API information, please visit the [structure composition API page](../../api/composition/structure.md).
 
 ```scss
-@use 'pkg:@matteusan/sentro';
+@use '@matteusan/sentro';
 
 .component {
   @include himigstruct-width('component', 'token-or-map-or-value');
@@ -34,7 +34,7 @@ Padding defines the space inside an element. This is commonly associated with th
 For the API information, please visit the [structure composition API page](../../api/composition/structure.md).
 
 ```scss
-@use 'pkg:@matteusan/sentro';
+@use '@matteusan/sentro';
 
 .component {
   @include himigstruct-padding('component', 'token-or-value');
@@ -47,7 +47,7 @@ Margin defines the space outside an element. This is commonly associated with th
 For the API information, please visit the [structure composition API page](../../api/composition/structure.md).
 
 ```scss
-@use 'pkg:@matteusan/sentro';
+@use '@matteusan/sentro';
 
 .component {
   @include himigstruct-margin('component', 'token-or-value');
@@ -61,7 +61,7 @@ Border defines the space at the edges of an element. This is commonly associated
 For the API information, please visit the [structure composition API page](../../api/composition/structure.md).
 
 ```scss
-@use 'pkg:@matteusan/sentro';
+@use '@matteusan/sentro';
 
 .component {
   @include himigstruct-border('component', 'token-or-value');
@@ -74,7 +74,7 @@ Himig provides an SCSS mixin that lets you apply all structs in one go. It's the
 For the API information, please visit the [structure composition API page](../../api/composition/structure.md).
 
 ```scss
-@use 'pkg:@matteusan/sentro';
+@use '@matteusan/sentro';
 
 .ms-component {
   @include himigstruct-apply('component', (

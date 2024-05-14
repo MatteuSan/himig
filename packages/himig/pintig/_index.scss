@@ -39,7 +39,7 @@ $type-inherit-template: (
   line-height: inherit
 );
 
-@use 'pkg:@matteusan/sentro' with (
+@use '@matteusan/sentro' with (
   $prefix: 'ms',
   $context: 'theme',
   $token-validation: $validation,

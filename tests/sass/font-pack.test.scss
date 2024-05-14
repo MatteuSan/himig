@@ -2,7 +2,7 @@
 // Copyright (c) 2024 MatteuSan
 // SPDX-License-Identifier: MIT
 
-@use 'pkg:@matteusan/himig/init-font-pack' as font-pack;
+@use '@matteusan/himig/init-font-pack' as font-pack;
 @use 'pkg:sass-true' as true;
 
 @include true.describe('Font Pack [mixin]') {

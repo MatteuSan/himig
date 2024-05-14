@@ -6,7 +6,7 @@ slug: /foundation/structure
 Structure defines the physical appearance of an element that isn't related to the soft properties like color and
 typography.
 
-Guideline Index:
+Guideline MsButton:
 - [Applying Structure](applying-structure.md)
 - [Breakpoint](breakpoint.md)
 - [Layout](layout.md)

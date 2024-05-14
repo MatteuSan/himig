@@ -19,7 +19,7 @@ This schema is more than enough to cover the pre-made tokens.
 ### Color Theme Schema
 The [color theme](../theme.md) schema will follow the same schema in the variant generation, except the `-ink` theme token variant.
 
-## Color Token Index
+## Color Token MsButton
 | Key            | Hex value |
 |----------------|-----------|
 | `ms-white.200` | `#ffffff` |
@@ -120,7 +120,7 @@ The [color theme](../theme.md) schema will follow the same schema in the variant
 These color tokens do not come with the main compiled style, hence we will use a special mixin to retrieve them from a specific file.
 
 ```scss
-@use 'pkg:@matteusan/sentro';
+@use '@matteusan/sentro';
 
 .component {
   @include himigcolor-apply('component', (

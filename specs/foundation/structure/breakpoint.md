@@ -26,7 +26,7 @@ parameter.
 By using this mixin, you can add/modify current values but can never delete the defaults.
 
 ```scss
-@use 'pkg:@matteusan/sentro';
+@use '@matteusan/sentro';
 
 @include himigbreakpoint-config-override((
   // Breakpoints...
@@ -36,7 +36,7 @@ By using this mixin, you can add/modify current values but can never delete the 
 If you want to completely reset the breakpoints, you can set the `$override` parameter to `true`.
 
 ```scss
-@use 'pkg:@matteusan/sentro';
+@use '@matteusan/sentro';
 
 @include himigbreakpoint-config-override((
   // Breakpoints...
@@ -48,7 +48,7 @@ To apply a breakpoint on an element, use the `breakpoint()` mixin. Query a [brea
 content inside the declaration.
 
 ```scss
-@use 'pkg:@matteusan/sentro';
+@use '@matteusan/sentro';
 
 .component {
   // Initial styles...

@@ -24,7 +24,7 @@ This color's value can either be a [primitive token](../tokens.md#primitive-toke
 For the API information, please visit the [color composition API page](../../api/composition/color.md).
 
 ```scss
-@use 'pkg:@matteusan/sentro';
+@use '@matteusan/sentro';
 
 .ms-component {
   @include himig.color-fill('component', 'token-or-value');
@@ -41,7 +41,7 @@ This color's value can either be a [primitive token](../tokens.md#primitive-toke
 For the API information, please visit the [color composition API page](../../api/composition/color.md).
 
 ```scss
-@use 'pkg:@matteusan/sentro';
+@use '@matteusan/sentro';
 
 .ms-component {
   @include himig.color-ink('component', 'token-or-value');
@@ -57,7 +57,7 @@ This color's value can either be a [primitive token](../tokens.md#primitive-toke
 For the API information, please visit the [color composition API page](../../api/composition/color.md).
 
 ```scss
-@use 'pkg:@matteusan/sentro';
+@use '@matteusan/sentro';
 
 .ms-component {
   @include himig.color-border('component', 'token-or-value');
@@ -70,7 +70,7 @@ Himig provides an SCSS mixin that lets you apply all three in one go. It's the `
 For the API information, please visit the [color composition API page](../../api/composition/color.md).
 
 ```scss
-@use 'pkg:@matteusan/sentro';
+@use '@matteusan/sentro';
 
 .ms-component {
   @include himig.color-apply('component', (

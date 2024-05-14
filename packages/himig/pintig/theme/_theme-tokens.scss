@@ -2,7 +2,7 @@
 // Copyright (c) 2024 MatteuSan
 // SPDX-License-Identifier: MIT
 
-@use 'pkg:@matteusan/sentro';
+@use '@matteusan/sentro';
 @use '../tools';
 
 @function get($query) {

@@ -2,7 +2,7 @@
 // Copyright (c) 2024 MatteuSan
 // SPDX-License-Identifier: MIT
 
-@use 'pkg:@matteusan/himig';
+@use '@matteusan/himig';
 @use 'pkg:sass-true' as true;
 
 @include true.describe('Theme Merge [module]') {

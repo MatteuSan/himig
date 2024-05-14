@@ -15,10 +15,10 @@ $ yarn add @matteusan/himig
 ```scss
 // main.scss
 
-@use 'pkg:@matteusan/sentro';
-@use 'pkg:@matteusan/himig/ms-button';
+@use '@matteusan/sentro';
+@use '@matteusan/himig/ms-button';
 
-@include himig.init {
+@include himig.init() {
   @include ms-button.render();
 }
 ```
