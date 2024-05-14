@@ -6,17 +6,17 @@
 
 import { html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
-import { styles } from './styles/ms-button.styles';
+import { ifDefined } from 'lit/directives/if-defined.js';
+import { styles } from './styles/ms-button/ms-button.styles';
 
 @customElement('ms-button')
 export default class MSButton extends LitElement {
-  @property() type?: string;
-  @property() nativeType?: string;
-  @property() link?: string;
-  @property() isDisabled?: boolean;
-  @property() onClick?: () => void;
-
-  @property() a11tyLabel?: string;
+  @property({ type: String }) type?: string;
+  @property({ type: String }) nativeType?: string;
+  @property({ type: String }) link?: string;
+  @property({ type: String }) a11tyLabel?: string;
+  @property({ type: Boolean }) isDisabled?: boolean = false;
+  @property({ type: Function }) onClick?: () => void;
 
   static override styles = styles;
 
@@ -43,12 +43,14 @@ export default class MSButton extends LitElement {
     `;
   }
 
-  protected override render() {
+  override render() {
     if (!this.link) {
       return html`
         <button 
-          class="${this.type ? this.handleTypes(this.type) : ''}"
+          class="ms-button${this.type ? ' ' + this.handleTypes(this.type) : ''}"
           @click="${this.onClick}"
+          aria-label="${ifDefined(this.a11tyLabel)}"
+          ?disabled="${this.isDisabled}"
         >
           ${this.renderBase()}
         </button>
@@ -59,7 +61,8 @@ export default class MSButton extends LitElement {
       <a 
         href="${this.link}" 
         target="${this.handleLinkTarget(this.link)}" 
-        class="${this.type ? this.handleTypes(this.type) : ''}"
+        class="ms-button${this.type ? ' ' + this.handleTypes(this.type) : ''}"
+        aria-label="${ifDefined(this.a11tyLabel)}"
       >
         ${this.renderBase()}
       </a>
@@ -67,4 +70,4 @@ export default class MSButton extends LitElement {
   }
 }
 
-// customElements.define('ms-button', MSButton);
+// customElements.define('ms-button', MsButton);
