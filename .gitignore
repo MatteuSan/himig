@@ -22,10 +22,13 @@ tests/**/*.test.js
 packages/**/*.css
 packages/**/*.css.map
 packages/**/*.js
+packages/**/*.js.map
 packages/**/*.d.ts.map
 packages/**/*.d.ts
 packages/**/*.style.ts
 packages/**/*.styles.ts
+packages/himig-components/styles.ts
+packages/himig-components/styles.js
 
 # Test byproducts
 **/.coverage
