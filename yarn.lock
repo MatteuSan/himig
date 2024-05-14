@@ -1047,13 +1047,13 @@ __metadata:
 
 "@matteusan/himig@file:./packages/himig::locator=himig%40workspace%3A.":
   version: 1.5.1
-  resolution: "@matteusan/himig@file:./packages/himig#./packages/himig::hash=cb592f&locator=himig%40workspace%3A."
+  resolution: "@matteusan/himig@file:./packages/himig#./packages/himig::hash=f4d0ff&locator=himig%40workspace%3A."
   dependencies:
     "@matteusan/pintig": ^1.5.1
     "@matteusan/sentro": ^1.1.0
   peerDependencies:
     sass: ^1.71.0
-  checksum: d496ec0ecc4f92b228523d4631eaf68c58a25c6144e3b35574e597faff6c07595d100529aaf3c21b90c1c1bc7ae825318dcd8acdc7e3c105962098d689b6c3d1
+  checksum: 9e0ce77dec0047f6f3392afa873ef09c19657d3ba8b5042469fe2f5b5ed671f9d880a583f815c6e0acd64a6cc904a17a6cd179f4e4f9d2cf3a163725a198c990
   languageName: node
   linkType: hard
 
