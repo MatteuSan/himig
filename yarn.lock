@@ -6988,7 +6988,7 @@ __metadata:
   resolution: "read-pkg-up@npm:1.0.1"
   dependencies:
     find-up: ^1.0.0
-    read-pkg: ^1.0.0
+    read- ^1.0.0
   checksum: d18399a0f46e2da32beb2f041edd0cda49d2f2cc30195a05c759ef3ed9b5e6e19ba1ad1bae2362bdec8c6a9f2c3d18f4d5e8c369e808b03d498d5781cb9122c7
   languageName: node
   linkType: hard
