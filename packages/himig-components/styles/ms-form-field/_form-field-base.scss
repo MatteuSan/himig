@@ -1,0 +1,101 @@
+// @license
+// Copyright (c) 2024 MatteuSan
+// SPDX-License-Identifier: MIT
+
+@use '@matteusan/pintig';
+@use 'sass:math';
+
+@mixin init($top-label-distance, $left-label-distance, $top-padding) {
+  .ms-form-field {
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    position: relative;
+
+    @content;
+
+    .ms-form-field__label {
+      position: absolute;
+      top: calc(#{$top-label-distance});
+      left: calc(#{$left-label-distance} + 2px);
+      @include pintig.color-apply('form-field-label', (
+        fill: rgba(0 0 0 / 0),
+        ink: inherit,
+      ));
+      @include pintig.struct-apply('form-field-label', (
+        padding: ('xs' 'xs' 0 0),
+      ));
+      @include pintig.typography-apply('form-field-label', pintig.$type-inherit-template);
+      @include pintig.prefix(transition, all var(--ms-transition-time) ease);
+      cursor: text;
+    }
+
+    &:has(.ms-form-field__input:focus),
+    &:has(.ms-form-field__input:not(:placeholder-shown)), {
+      .ms-form-field__label {
+        top: math.div($top-label-distance, 2);
+        @include pintig.typography-bind('form-field-label', (
+          family: 'small',
+          size: 'small',
+        ));
+      }
+    }
+
+    &:has(.ms-form-field__label) {
+      .ms-form-field__input {
+        @include pintig.key-bind('form-field-placeholder-ink', rgba(0 0 0 / 0) !important);
+        padding-top: calc(#{$top-padding} + 1rem) !important;
+      }
+    }
+
+    .ms-form-field__input {
+      @include pintig.struct-apply('form-field', (
+        width: (
+          default: 100%,
+          min: inherit,
+          max: inherit
+        ),
+        margin: 0,
+        radius: 0,
+        border-width: 2px,
+        border-style: solid,
+        shadow: 'none',
+      ));
+      padding: pintig.key-get('form-field-padding');
+      @include pintig.color-apply('form-field', (
+        fill: inherit,
+        ink: inherit,
+        border: inherit
+      ));
+      @include pintig.typography-apply('form-field', (
+        family: inherit,
+        size: inherit,
+        weight: inherit,
+        line-height: inherit,
+      ));
+      outline: none;
+      resize: none;
+      cursor: text;
+      -webkit-appearance: caret;
+      @include pintig.prefix(transition, all var(--ms-transition-time) ease);
+
+      &::placeholder {
+        color: pintig.key-create('form-field-placeholder-ink', inherit);
+        user-select: none !important;
+      }
+    }
+
+    .ms-form-field__helper {
+      @include pintig.color-apply('form-field-helper', (
+        ink: inherit,
+      ));
+      @include pintig.typography-apply('form-field-helper', (
+        family: inherit,
+        size: inherit,
+        weight: inherit,
+        line-height: inherit,
+      ));
+      @include pintig.prefix(transition, all var(--ms-transition-time) ease);
+    }
+  }
+}

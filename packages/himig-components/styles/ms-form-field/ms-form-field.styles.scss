@@ -1,0 +1,12 @@
+// @license
+// Copyright (c) 2024 MatteuSan
+// SPDX-License-Identifier: MIT
+
+@use '@matteusan/pintig' with ($module-mode: true);
+
+@use '../helpers';
+@use 'form-field-base';
+
+@include form-field-base.init() {
+  //
+}
