@@ -12,7 +12,8 @@ import multiEntry from '@rollup/plugin-multi-entry';
 /** @type {import('rollup').RollupOptions} */
 export default {
   input: [
-    'packages/himig-components/ms-button.js'
+    'packages/himig-components/ms-button.js',
+    'packages/himig-components/ms-form-field.js',
   ],
   output: {
     dir: 'packages/himig-components',
