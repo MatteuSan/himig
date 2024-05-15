@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: MIT
 
 @use '@matteusan/himig';
-@use 'pkg:sass-true/sass/true';
+@use 'sass-true/sass/true';
 
 @include true.describe('Theme Get [function]') {
   @include true.it('should retrieve a theme value from a map') {

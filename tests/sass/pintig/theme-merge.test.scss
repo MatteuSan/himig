@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: MIT
 
 @use '@matteusan/himig';
-@use 'pkg:sass-true' as true;
+@use 'sass-true' as true;
 
 @include true.describe('Theme Merge [module]') {
   @include true.it('should merge a theme map') {

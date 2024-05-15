@@ -4,7 +4,7 @@
 
 @use '@matteusan/himig';
 @use '@matteusan/himig/ms-form-field';
-@use 'pkg:sass-true' as true;
+@use 'sass-true' as true;
 
 @include himig.init {
   @include true.describe('MS Form Field Extend [mixin]') {

@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: MIT
 
 @use '@matteusan/himig';
-@use 'pkg:sass-true' as true with ($terminal-output: true);
+@use 'sass-true' as true with ($terminal-output: true);
 
 // Core Modules
 @use 'pintig';
