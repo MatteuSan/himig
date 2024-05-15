@@ -49,14 +49,14 @@ $_states: ('error');
     @include pintig.struct-apply('button', $struct);
     @include pintig.typography-apply('button', $typography);
     @include pintig.color-apply('button', (
-      fill: 'ms-grey.400',
-      ink: 'ms-grey.800',
-      border: 'ms-grey.400',
+      fill: 'ms-black.800',
+      ink: 'ms-white.200',
+      border: 'ms-black.800',
     ));
     @include style.text(
-      $fills: black,
-      $inks: white,
-      $borders: black,
+      $fills: $fills,
+      $inks: $inks,
+      $borders: $borders,
     );
     outline-offset: 2px;
 

@@ -6,11 +6,8 @@
 
 const path = require('node:path');
 const sassTest = require('sass-true');
-const scss = require('sass');
 
 const filePath = path.join(__dirname, './main.test.scss');
-// @ts-ignore
-sassTest.runSass( { describe, it }, filePath, {
-  importers: [new scss.NodePackageImporter()],
-  loadPath: ['node_modules']
+sassTest.runSass({ describe, it }, filePath, {
+  loadPaths: ['node_modules'],
 });
