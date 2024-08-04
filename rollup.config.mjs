@@ -12,17 +12,14 @@ import multiEntry from '@rollup/plugin-multi-entry';
 /** @type {import('rollup').RollupOptions} */
 export default {
   input: [
-    'packages/himig-components/ms-button.js',
-    'packages/himig-components/ms-form-field.js',
+    'packages/himig-components/button/ms-button.js',
+    // 'packages/himig-components/form-field/ms-form-field.js'
   ],
   output: {
     dir: 'packages/himig-components',
-    format: 'esm'
+    format: 'esm',
   },
   plugins: [
-    multiEntry({
-      entryFileName: 'ms-button.js'
-    }),
     resolve(),
     babel({ babelHelpers: 'bundled' }),
     terser()

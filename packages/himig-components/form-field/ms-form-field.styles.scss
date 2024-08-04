@@ -7,6 +7,6 @@
 @use '../helpers';
 @use 'form-field-base';
 
-@include form-field-base.init() {
+@include form-field-base.init(10px, 10px, 10px) {
   //
 }

@@ -7,7 +7,7 @@
 import { html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { styles } from './styles/ms-button/ms-button.styles';
+import { styles } from './ms-button.styles';
 
 @customElement('ms-button')
 export default class MSButton extends LitElement {
@@ -69,5 +69,3 @@ export default class MSButton extends LitElement {
     `;
   }
 }
-
-// customElements.define('ms-button', MsButton);

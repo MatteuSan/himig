@@ -72,14 +72,14 @@
   $border-disabled: map.get($borders, 'disabled');
 
   @include helpers.state(':not(:disabled)', '.is-outlined') {
-    @include pintig.color-apply('button', (
+    @include pintig.color-apply('outlined-button', (
       fill: transparent,
       ink: _default($fill),
       border: _default($border)
     ));
 
     @include helpers.state(':hover', '.is-outlined') {
-      @include pintig.color-apply('button', (
+      @include pintig.color-apply('outlined-button', (
         fill: _default($fill-hover),
         ink: _default($ink),
         border: _default($border-hover)
@@ -87,7 +87,7 @@
     }
 
     @include helpers.state(':focus-visible', '.is-outlined') {
-      @include pintig.color-apply('button', (
+      @include pintig.color-apply('outlined-button', (
         fill: _alpha($fill, 400),
         ink: _default($fill),
         border: _default($border)
@@ -96,7 +96,7 @@
     }
 
     @include helpers.state(':active', '.is-outlined') {
-      @include pintig.color-apply('button', (
+      @include pintig.color-apply('outlined-button', (
         fill: _default($fill-active),
         ink: _default($ink),
         border: _default($border-active)
@@ -105,7 +105,7 @@
   }
 
   @include helpers.state('[disabled]', '.is-outlined') {
-    @include pintig.color-apply('button', (
+    @include pintig.color-apply('outlined-button', (
       fill: transparent,
       ink: _default($ink-disabled),
       border: _default($border-disabled)
@@ -128,14 +128,14 @@
   $border-disabled: map.get($borders, 'disabled');
 
   @include helpers.state(':not(:disabled)', '.is-filled') {
-    @include pintig.color-apply('button', (
+    @include pintig.color-apply('filled-button', (
       fill: _default($fill),
       ink: _default($ink),
       border: _default($border)
     ));
 
     @include helpers.state(':hover', '.is-filled') {
-      @include pintig.color-apply('button', (
+      @include pintig.color-apply('filled-button', (
         fill: _default($fill-hover),
         ink: _default($ink),
         border: _default($border-hover)
@@ -143,7 +143,7 @@
     }
 
     @include helpers.state(':focus-visible', '.is-filled') {
-      @include pintig.color-apply('button', (
+      @include pintig.color-apply('filled-button', (
         fill: _default($fill-focus),
         ink: _default($ink),
         border: _default($border-focus)
@@ -152,7 +152,7 @@
     }
 
     @include helpers.state(':active', '.is-filled') {
-      @include pintig.color-apply('button', (
+      @include pintig.color-apply('filled-button', (
         fill: _default($fill-active),
         ink: _default($ink),
         border: _default($border-active)
@@ -161,7 +161,7 @@
   }
 
   @include helpers.state('[disabled]', '.is-filled') {
-    @include pintig.color-apply('button', (
+    @include pintig.color-apply('filled-button', (
       fill: _default($border-disabled),
       ink: _default($ink-disabled),
       border: _default($border-disabled)
