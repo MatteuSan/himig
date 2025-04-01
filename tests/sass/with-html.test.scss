@@ -3,15 +3,15 @@
 // SPDX-License-Identifier: MIT
 
 @use 'pkg:@matteusan/himig' with ($expressive-inks: true);
-@use '@matteusan/himig/ms-badge';
-@use '@matteusan/himig/ms-button';
-@use '@matteusan/himig/ms-card';
-@use '@matteusan/himig/ms-form-field';
-@use '@matteusan/himig/ms-link';
-@use '@matteusan/himig/ms-list';
-@use '@matteusan/himig/ms-select-field';
-@use '@matteusan/himig/ms-tick-field';
-@use '@matteusan/himig/ms-utils';
+@use 'pkg:@matteusan/himig/ms-badge';
+@use 'pkg:@matteusan/himig/ms-button';
+@use 'pkg:@matteusan/himig/ms-card';
+@use 'pkg:@matteusan/himig/ms-form-field';
+@use 'pkg:@matteusan/himig/ms-link';
+@use 'pkg:@matteusan/himig/ms-list';
+@use 'pkg:@matteusan/himig/ms-select-field';
+@use 'pkg:@matteusan/himig/ms-tick-field';
+@use 'pkg:@matteusan/himig/ms-utils';
 
 @include himig.init(
   $theme: (
