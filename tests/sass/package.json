@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "@matteusan/himig": "file:../../packages/himig",
+    "@matteusan/pintig": "file:../../packages/pintig",
     "sass-true": "^8.0.0"
   }
 }
