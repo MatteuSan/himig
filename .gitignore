@@ -36,3 +36,7 @@ packages/himig-components/styles.js
 
 # Yarn
 .yarn
+
+# Junk files
+.DS_Store
+*/**/.DS_Store
