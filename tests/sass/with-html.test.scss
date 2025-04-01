@@ -1,8 +1,8 @@
 // @license
-// Copyright (c) 2024 MatteuSan
+// Copyright (c) 2025 MatteuSan
 // SPDX-License-Identifier: MIT
 
-@use '@matteusan/himig' with ($expressive-inks: true);
+@use 'pkg:@matteusan/himig' with ($expressive-inks: true);
 @use '@matteusan/himig/ms-badge';
 @use '@matteusan/himig/ms-button';
 @use '@matteusan/himig/ms-card';
