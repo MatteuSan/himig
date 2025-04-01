@@ -11,7 +11,7 @@ All components follow the same instantiation API: Always instantiating the compo
 initializer (`himig.init()`) using the component's provided `render()` mixin.
 
 ```scss
-@use '@matteusan/sentro';
+@use 'pkg:@matteusan/sentro';
 @use '@matteusan/himig/ms-component';
 
 @include himig.init() {
@@ -38,7 +38,7 @@ Modifying a component in the markup is your first way of customizing a component
 ## Modification (SCSS)
 Modifying a component in the SCSS is your second way of customizing a component. By using the parameters in the component initializer, you can globally modify the component's properties.
 ```scss
-@use '@matteusan/sentro';
+@use 'pkg:@matteusan/sentro';
 @use '@matteusan/himig/ms-component';
 
 @include himig.init() {
@@ -68,7 +68,7 @@ Modifying a component in the SCSS is your second way of customizing a component.
 Creating your own variant component uses Himig's provided extension API. Instantiate a new variant by calling the `extend()` mixin and filling in the variant name parameter.
 
 ```scss
-@use '@matteusan/sentro';
+@use 'pkg:@matteusan/sentro';
 @use '@matteusan/himig/ms-component';
 
 @include himig.init() {
@@ -81,7 +81,7 @@ Creating your own variant component uses Himig's provided extension API. Instant
 Make adjustments to the variant by calling the modifier mixins. These mixins are: `color()`, `struct()`, and `typography`.
 
 ```scss
-@use '@matteusan/sentro';
+@use 'pkg:@matteusan/sentro';
 @use '@matteusan/himig/ms-component';
 
 @include himig.init() {

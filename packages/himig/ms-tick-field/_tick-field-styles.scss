@@ -20,7 +20,7 @@
 //  SOFTWARE.
 //---------------------------------------------------
 
-@use '../pintig';
+@use 'pkg:@matteusan/pintig';
 @use 'sass:list';
 @use 'tick-field-base' as base;
 @use 'tick-field-theme' as theme;

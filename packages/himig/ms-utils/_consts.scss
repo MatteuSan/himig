@@ -20,6 +20,6 @@
 //  SOFTWARE.
 //---------------------------------------------------
 
-@use '../pintig';
+@use 'pkg:@matteusan/pintig';
 
 $breakpoints: ('small', 'medium', 'large', 'xlarge');

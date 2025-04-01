@@ -23,7 +23,7 @@ Additionally, anchor elements don't have a disabled attribute so you wouldn't re
 
 ### SCSS
 ```scss
-@use '@matteusan/sentro';
+@use 'pkg:@matteusan/sentro';
 @use '@matteusan/himig/ms-button';
 
 @include himig.init() {

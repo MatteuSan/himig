@@ -20,7 +20,7 @@ Font family defines the style of the content. This can signify text hierarchy, e
 For the API information, please visit the [typography composition API page](../../api/composition/typography.md).
 
 ```scss
-@use '@matteusan/sentro';
+@use 'pkg:@matteusan/sentro';
 
 .ms-component {
   @include himigtypography-family('component', 'token-or-value');
@@ -34,7 +34,7 @@ Font size defines the size of the content. This can be useful when you want to a
 For the API information, please visit the [typography composition API page](../../api/composition/typography.md).
 
 ```scss
-@use '@matteusan/sentro';
+@use 'pkg:@matteusan/sentro';
 
 .ms-component {
   @include himigtypography-size('component', 'token-or-value');
@@ -49,7 +49,7 @@ content.
 For the API information, please visit the [typography composition API page](../../api/composition/typography.md).
 
 ```scss
-@use '@matteusan/sentro';
+@use 'pkg:@matteusan/sentro';
 
 .ms-component {
   @include himigtypography-weight('component', 'token-or-value');
@@ -64,7 +64,7 @@ the user's reading experience.
 For the API information, please visit the [typography composition API page](../../api/composition/typography.md).
 
 ```scss
-@use '@matteusan/sentro';
+@use 'pkg:@matteusan/sentro';
 
 .ms-component {
   @include himigtypography-line-height('component', 'token-or-value');
@@ -77,7 +77,7 @@ Himig provides an SCSS mixin that lets you apply all properties in one go. It's 
 For the API information, please visit the [typography composition API page](../../api/composition/typography.md).
 
 ```scss
-@use '@matteusan/sentro';
+@use 'pkg:@matteusan/sentro';
 
 .ms-component {
   @include himigtypography-apply('component', (

@@ -1,8 +1,8 @@
 // @license
-// Copyright (c) 2024 MatteuSan
+// Copyright (c) 2025 MatteuSan
 // SPDX-License-Identifier: MIT
 
-@use '@matteusan/sentro';
+@use 'pkg:@matteusan/sentro';
 
 /// Converts px values to rem values.
 /// @param {int} $px

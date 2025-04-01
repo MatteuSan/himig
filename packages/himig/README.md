@@ -15,8 +15,8 @@ $ yarn add @matteusan/himig
 ```scss
 // main.scss
 
-@use '@matteusan/sentro';
-@use '@matteusan/himig/ms-button';
+@use 'pkg:@matteusan/himig';
+@use 'pkg:@matteusan/himig/ms-button';
 
 @include himig.init {
   @include ms-button.render();

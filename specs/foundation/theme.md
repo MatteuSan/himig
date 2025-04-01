@@ -31,7 +31,7 @@ have to pass in a `map` with the [`200-800` schema](color/color-tokens.md#color-
 | `$error`      | Color Token Key or Map |
 
 ```scss
-@use '@matteusan/sentro';
+@use 'pkg:@matteusan/sentro';
 
 @include himig.init(
   $surface: (
@@ -67,7 +67,7 @@ more custom.
 | `$breakpoints` | Map of Structure Tokens or raw value |
 
 ```scss
-@use '@matteusan/sentro';
+@use 'pkg:@matteusan/sentro';
 
 @include himig.init(
   $radius: (
@@ -103,7 +103,7 @@ a [typography token key](typography/typography-tokens.md) to change the value, o
 something more custom.
 
 ```scss
-@use '@matteusan/sentro';
+@use 'pkg:@matteusan/sentro';
 
 @include himig.init(
   $global: (

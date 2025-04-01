@@ -1,5 +1,5 @@
 // @license
-// Copyright (c) 2024 MatteuSan
+// Copyright (c) 2025 MatteuSan
 // SPDX-License-Identifier: MIT
 
 $module-mode: false !default;
@@ -39,7 +39,7 @@ $type-inherit-template: (
   line-height: inherit
 );
 
-@use '@matteusan/sentro' with (
+@use 'pkg:@matteusan/sentro' with (
   $prefix: 'ms',
   $context: 'theme',
   $token-validation: $validation,
