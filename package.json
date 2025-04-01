@@ -1,6 +1,6 @@
 {
   "name": "himig",
-  "version": "1.6.0",
+  "version": "1.5.1",
   "description": "MatteuSan's personal design system for building user interfaces. ",
   "main": "packages/himig/_index.scss",
   "files": [
@@ -34,7 +34,7 @@
   "devDependencies": {
     "@matteusan/himig": "file:./packages/himig",
     "@matteusan/himig-components": "file:./packages/himig-components",
-    "@matteusan/pintig": "file:./packages/pintig",
+    "@matteusan/pintig": "file:./packages/himig/pintig",
     "@matteusan/sentro": "latest",
     "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-multi-entry": "^6.0.1",
