@@ -4,7 +4,7 @@
 
 @use 'pkg:@matteusan/himig';
 @use '@matteusan/himig/ms-badge';
-@use 'sass-true' as true;
+@use 'pkg:sass-true' as true;
 
 @include himig.init {
   @include true.describe('MS Badge Extend [mixin]') {

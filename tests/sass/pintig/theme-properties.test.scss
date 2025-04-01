@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: MIT
 
 @use 'pkg:@matteusan/himig';
-@use 'sass-true' as true;
+@use 'pkg:sass-true' as true;
 
 :root {
   @include himig.token-config($accent: (
