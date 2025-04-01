@@ -9,7 +9,15 @@
   "publishConfig": {
     "access": "public"
   },
+  "exports": {
+    ".": {
+      "sass": "./_index.scss"
+    },
+    "./**/*.scss": {
+      "sass": "./**/*.scss"
+    }
+  },
   "dependencies": {
-    "@matteusan/sentro": "0.1.25"
+    "@matteusan/sentro": "^1.2.2"
   }
 }

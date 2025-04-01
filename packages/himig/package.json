@@ -8,11 +8,16 @@
   "publishConfig": {
     "access": "public"
   },
-  "dependencies": {
-    "@matteusan/pintig": "^1.5.1",
-    "@matteusan/sentro": "^1.1.0"
+  "exports": {
+    ".": {
+      "sass": "./_index.scss"
+    },
+    "./**/*.scss": {
+      "sass": "./**/*.scss"
+    }
   },
-  "peerDependencies": {
-    "sass": "^1.71.0"
+  "dependencies": {
+    "@matteusan/pintig": "latest",
+    "@matteusan/sentro": "^1.2.2"
   }
 }
