@@ -32,9 +32,9 @@
 }
 
 @function _get-luminance($color) {
-  $r: _get-linear(math.div(color.channel($color, 'red', $space: 'rgb'), 255));
-  $g: _get-linear(math.div(color.channel($color, 'green', $space: 'rgb'), 255));
-  $b: _get-linear(math.div(color.channel($color, 'blue', $space: 'rgb'), 255));
+  $r: _get-linear(math.div(color.channel($color, 'red', $space: rgb), 255));
+  $g: _get-linear(math.div(color.channel($color, 'green', $space: rgb), 255));
+  $b: _get-linear(math.div(color.channel($color, 'blue', $space: rgb), 255));
 
   @return (0.2126 * $r) + (0.7152 * $g) + (0.0722 * $b);
 }
