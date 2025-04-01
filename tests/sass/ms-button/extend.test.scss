@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: MIT
 
 @use 'pkg:@matteusan/himig';
-@use '@matteusan/himig/ms-button';
+@use 'pkg:@matteusan/himig/ms-button';
 @use 'pkg:sass-true' as true;
 
 @include himig.init {
