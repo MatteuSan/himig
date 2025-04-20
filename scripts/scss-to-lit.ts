@@ -34,7 +34,7 @@ fromDir("packages/himig-components", /\.css/, (filename) => {
   const tsFile = filename.replace('.css', '.ts');
     fs.writeFileSync(tsFile, `/**
  * @license
- * Copyright ${ new Date().getFullYear() } MatteuSan
+ * Copyright ${ new Date().getFullYear() } (c) MatteuSan
  * SPDX-License-Identifier: MIT
  */
 import { css } from 'lit';
