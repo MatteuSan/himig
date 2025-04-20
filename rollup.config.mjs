@@ -1,6 +1,6 @@
 /*
  * @license
- * Copyright (c) 2024 MatteuSan
+ * Copyright (c) 2025 MatteuSan
  * SPDX-License-Identifier: MIT
  */
 
