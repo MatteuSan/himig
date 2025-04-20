@@ -2,7 +2,7 @@
 // Copyright (c) 2025 MatteuSan
 // SPDX-License-Identifier: MIT
 
-@use '@matteusan/pintig';
+@use 'pkg:@matteusan/pintig';
 @use 'sass:math';
 
 @mixin init($top-label-distance, $left-label-distance, $top-padding) {

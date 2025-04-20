@@ -2,7 +2,7 @@
 // Copyright (c) 2025 MatteuSan
 // SPDX-License-Identifier: MIT
 
-@use '@matteusan/pintig' with ($module-mode: true);
+@use 'pkg:@matteusan/pintig' with ($module-mode: true);
 @use 'sass:list';
 @use 'sass:selector';
 
