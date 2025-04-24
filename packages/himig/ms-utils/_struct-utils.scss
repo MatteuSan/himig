@@ -6,6 +6,7 @@
 @use 'sass:map';
 @use 'sass:meta';
 @use 'sass:list';
+@use 'sass:string';
 @use 'consts';
 @use 'util-helpers' as helpers;
 
@@ -289,13 +290,13 @@ $_stroke-style: (
     @each $variant in $_stroke-style {
       // Border Style
       .border-#{$variant} {
-        border-style: $variant;
+        border-style: string.unquote($variant);
       }
 
       @each $breakpoint in $_breakpoints {
         .\@#{$breakpoint}\:border-#{$variant} {
           @include pintig.breakpoint-create($breakpoint) {
-            border-style: $variant !important;
+            border-style: string.unquote($variant) !important;
           }
         }
       }
