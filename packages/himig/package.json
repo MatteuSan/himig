@@ -1,6 +1,6 @@
 {
   "name": "@matteusan/himig",
-  "version": "1.7.2",
+  "version": "1.7.3",
   "description": "Matteu's personal design system for building user interfaces.",
   "repository": "https://github.com/MatteuSan/himig",
   "author": "Matteu <matteugt@gmail.com>",
@@ -17,7 +17,7 @@
     }
   },
   "dependencies": {
-    "@matteusan/pintig": "^1.0",
+    "@matteusan/pintig": "^1.8",
     "@matteusan/sentro": "^1.2.2"
   }
 }
