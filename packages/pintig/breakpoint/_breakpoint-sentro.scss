@@ -23,8 +23,8 @@ $_registry: ();
   @include sentro.breakpoint-config($map, $breakpoints...);
 }
 
-@mixin create($query) {
-  @include sentro.breakpoint-create($query) {
+@mixin create($query, $context: 'min', $property: 'width') {
+  @include sentro.breakpoint-create($query, $context, $property) {
     @content;
   }
 }
