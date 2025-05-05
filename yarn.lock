@@ -951,40 +951,40 @@ __metadata:
 
 "@matteusan/himig-components@file:./packages/himig-components::locator=himig%40workspace%3A.":
   version: 0.0.1
-  resolution: "@matteusan/himig-components@file:./packages/himig-components#./packages/himig-components::hash=24c302&locator=himig%40workspace%3A."
+  resolution: "@matteusan/himig-components@file:./packages/himig-components#./packages/himig-components::hash=463ea2&locator=himig%40workspace%3A."
   peerDependencies:
-    "@matteusan/pintig": ^1.7.0
-    lit: ^3.3.0
-    sass: ^1.86.3
-  checksum: df906f88e5da2dcaa8c9ff5bf7c9025f6e8bd2978c6f3b4c2178136c5c5475294d999fcb4eaf00fd8547ee41831048c538337658f979eacb4bd61840decaf33d
+    "@matteusan/pintig": ^1.5.1
+    lit: ^3.1.3
+    sass: ^1.75.0
+  checksum: 44088d533dca831755621c7516cad4f4cb101ba318a6e8ec5d405ecefe8110d9486053949438597bc1cb2ea54ad8a1def4bebd7813eee5e2c53afe8a96aea09b
   languageName: node
   linkType: hard
 
 "@matteusan/himig@file:./packages/himig::locator=himig%40workspace%3A.":
-  version: 1.7.1
-  resolution: "@matteusan/himig@file:./packages/himig#./packages/himig::hash=3e279d&locator=himig%40workspace%3A."
+  version: 1.7.3
+  resolution: "@matteusan/himig@file:./packages/himig#./packages/himig::hash=86baac&locator=himig%40workspace%3A."
   dependencies:
-    "@matteusan/pintig": ^1.0
+    "@matteusan/pintig": ^1.8
     "@matteusan/sentro": ^1.2.2
-  checksum: 4e060ed482937e1741f0c13a927e1af34b397e8aadcd5ee0bbbcfc5ddd1e9e3c8e82721947c584c656d418d29fc89c1776526040b91de0eb3ccc5c551063e599
+  checksum: 0b42b40aae93fcb602e7cdbce331516a76f8c596fa20bdde8f2078c5966a24e48eeb05f1434b86d96e8577c4c9723fa0c9081e0e3d2e3f629062d271bb52a134
   languageName: node
   linkType: hard
 
 "@matteusan/pintig@file:./packages/pintig::locator=himig%40workspace%3A.":
-  version: 1.7.0
-  resolution: "@matteusan/pintig@file:./packages/pintig#./packages/pintig::hash=c0bead&locator=himig%40workspace%3A."
+  version: 1.8.0
+  resolution: "@matteusan/pintig@file:./packages/pintig#./packages/pintig::hash=5d08c3&locator=himig%40workspace%3A."
   dependencies:
     "@matteusan/sentro": ^1.2.2
-  checksum: 9078689e880f76b7e5f241d8605afe7d3e4d0a85d32c2a5d2effa6a8b58ab1831b999ac40003076c658d03f91cef6a2d7aa8433b802d1769180b18c76f6606a3
+  checksum: 4c9fdd016a2c5a44467d5369e15f282ba18f82969779d56e2e605346dbe102d39235510bbab41c6055f5f051d146338cff80252c30ccac340e388afca5ca0937
   languageName: node
   linkType: hard
 
-"@matteusan/pintig@npm:^1.0":
-  version: 1.7.0
-  resolution: "@matteusan/pintig@npm:1.7.0"
+"@matteusan/pintig@npm:^1.8":
+  version: 1.8.0
+  resolution: "@matteusan/pintig@npm:1.8.0"
   dependencies:
     "@matteusan/sentro": ^1.2.2
-  checksum: 657f75d005dd33e28610db80c6399a941736b448092356db84f08923de73f66c6af5ba951e8506420ebd665d6211d5c08576344f79bbb3de61c54f53c63dde32
+  checksum: f83672ea90c7f8863eafc1fb2230a4094944280a556a451eb11ec3b03f8a6bbe4692b5cf9af400411f30574e09cb3b5cc94eb5c0c7522c6230b18d69b2db0d52
   languageName: node
   linkType: hard
 

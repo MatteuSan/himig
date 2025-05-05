@@ -11,7 +11,16 @@
 $_breakpoints: consts.$breakpoints;
 $_displays: ('none', 'block', 'inline', 'inline-block', 'flex', 'inline-flex', 'grid', 'inline-grid');
 $_positions: ('static', 'relative', 'absolute', 'fixed', 'sticky');
-$_alignments: ('start', 'center', 'end', 'stretch', 'baseline', 'space-between', 'space-around', 'space-evenly');
+$_alignments: (
+  'start': 'flex-start',
+  'center': 'center',
+  'end': 'flex-end',
+  'stretch': 'stretch',
+  'baseline': 'baseline',
+  'space-between': 'space-between',
+  'space-around': 'space-around',
+  'space-evenly': 'space-evenly'
+);
 $_flows: ('row', 'column', 'row-reverse', 'column-reverse');
 $_wraps: ('none': 'nowrap', 'default': 'wrap','reverse': 'wrap-reverse');
 $_max-columns: 12;
@@ -127,16 +136,16 @@ $_gaps: (
     }
   }
 
-  @each $alignment in $_alignments {
+  @each $alignment, $alignment-val in $_alignments {
     @if list.index($utils-to-render, 'jc') {
       .jc-#{$alignment} {
-        justify-content: string.unquote($alignment);
+        justify-content: string.unquote($alignment-val);
       }
 
       @each $breakpoint in $_breakpoints {
         .\@#{$breakpoint}\:jc-#{$alignment} {
           @include pintig.breakpoint-create($breakpoint) {
-            justify-content: string.unquote($alignment) !important;
+            justify-content: string.unquote($alignment-val) !important;
           }
         }
       }
