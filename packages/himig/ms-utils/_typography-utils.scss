@@ -51,8 +51,9 @@ $_presets: (
 );
 $_sizes: ('xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl');
 $_weights: ('black', 'bold', 'normal', 'light');
-$_line-heights: ('broad', 'normal', 'condensed');
+$_line-heights: ('broad', 'normal', 'condensed', 'tall', 'short');
 $_alignments: ('center', 'left', 'right', 'justify', 'justify-all');
+$_squeezes: ('tight', 'normal', 'loose');
 
 @mixin typography($include: (), $exclude: ()) {
   $utils-to-render: helpers.handle-include-exclude((
@@ -61,7 +62,8 @@ $_alignments: ('center', 'left', 'right', 'justify', 'justify-all');
     'size',
     'weight',
     'line-height',
-    'alignment'
+    'alignment',
+    'squeeze'
   ), $include, $exclude);
 
   @if list.index($utils-to-render, 'preset') {
@@ -160,6 +162,22 @@ $_alignments: ('center', 'left', 'right', 'justify', 'justify-all');
         .\@#{$breakpoint}\:align-#{$alignment} {
           @include pintig.breakpoint-create($breakpoint) {
             text-align: string.unquote($alignment) !important;
+          }
+        }
+      }
+    }
+  }
+
+  @if list.index($utils-to-render, 'squeeze') {
+    @each $squeeze in $_squeezes {
+      .squeeze-#{$squeeze} {
+        letter-spacing: pintig.primitive-token-get('squeeze.#{$squeeze}');
+      }
+
+      @each $breakpoint in $_breakpoints {
+        .\@#{$breakpoint}\:squeeze-#{$squeeze} {
+          @include pintig.breakpoint-create($breakpoint) {
+            letter-spacing: pintig.primitive-token-get('squeeze.#{$squeeze}') !important;
           }
         }
       }

@@ -218,10 +218,17 @@ $_typography-tokens: (
     'black': 900,
   ),
   'line-height': (
-    'broad': 2,
+    'tall': 2,
+    'broad': 2, // for backwards compatability
     'normal': 1.5,
-    'condensed': 1.25,
+    'short': 1.25,
+    'condensed': 1.25, // for backwards compatability
   ),
+  'squeeze': (
+    'tight': tools.to-rem(-1px),
+    'normal': 0,
+    'loose': tools.to-rem(1px),
+  )
 );
 
 $ms-tokens: map.deep-merge(
