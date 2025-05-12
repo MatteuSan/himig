@@ -16,37 +16,43 @@ $_presets: (
     family: 'supertitle',
     size: 'supertitle',
     weight: 'supertitle',
-    line-height: 'supertitle'
+    line-height: 'supertitle',
+    squeeze: 'supertitle'
   ),
   'title': (
     family: 'title',
     size: 'title',
     weight: 'title',
-    line-height: 'title'
+    line-height: 'title',
+    squeeze: 'title'
   ),
   'subtitle': (
     family: 'subtitle',
     size: 'subtitle',
     weight: 'subtitle',
-    line-height: 'subtitle'
+    line-height: 'subtitle',
+    squeeze: 'subtitle'
   ),
   'body': (
     family: 'body',
     size: 'body',
     weight: 'body',
-    line-height: 'body'
+    line-height: 'body',
+    squeeze: 'body'
   ),
   'mono': (
     family: 'mono',
     size: 'mono',
     weight: 'mono',
-    line-height: 'mono'
+    line-height: 'mono',
+    squeeze: 'mono'
   ),
   'small': (
     family: 'small',
     size: 'small',
     weight: 'small',
-    line-height: 'small'
+    line-height: 'small',
+    squeeze: 'small'
   )
 );
 $_sizes: ('xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl');
@@ -73,6 +79,7 @@ $_squeezes: ('tight', 'normal', 'loose');
         font-size: pintig.token-get('size-#{map.get($values, 'size')}');
         font-weight: pintig.token-switch('weight-#{map.get($values, 'weight')}', pintig.primitive-token-switch('weight.#{map.get($values, 'weight')}', $values));
         line-height: pintig.token-switch('line-height-#{map.get($values, 'weight')}', pintig.primitive-token-switch('line-height.#{map.get($values, 'line-height')}', $values));
+        letter-spacing: pintig.token-switch('squeeze-#{map.get($values, 'squeeze')}', pintig.primitive-token-switch('squeeze.#{map.get($values, 'squeeze')}', $values));
       }
 
       @each $breakpoint in $_breakpoints {
@@ -82,6 +89,7 @@ $_squeezes: ('tight', 'normal', 'loose');
             font-size: pintig.token-get('size-#{map.get($values, 'size')}') !important;
             font-weight: pintig.token-switch('weight-#{map.get($values, 'weight')}', pintig.primitive-token-switch('weight.#{map.get($values, 'weight')}', $values));
             line-height: pintig.token-switch('line-height-#{map.get($values, 'weight')}', pintig.primitive-token-switch('line-height.#{map.get($values, 'line-height')}', $values));
+            letter-spacing: pintig.token-switch('squeeze-#{map.get($values, 'squeeze')}', pintig.primitive-token-switch('squeeze.#{map.get($values, 'squeeze')}', $values));
           }
         }
       }
