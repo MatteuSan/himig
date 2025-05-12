@@ -56,3 +56,16 @@
       $intent
   );
 }
+
+/// Mixin for applying letter spacing.
+/// @param {string} $component
+/// @param {string} $squeeze
+/// @param {string} $intent
+/// @return {void} letter spacing styles.
+@mixin squeeze($component, $squeeze, $intent: 'create') {
+  @include theme.property(
+      letter-spacing,
+        ('#{$component}-squeeze', theme.token-switch('squeeze-#{$squeeze}', token.primitive-token-switch('squeeze.#{$squeeze}', $squeeze))),
+      $intent
+  );
+}

@@ -22,6 +22,7 @@
   $size: theme.theme-get($theme, 'size');
   $weight: theme.theme-get($theme, 'weight');
   $line-height: theme.theme-get($theme, 'line-height');
+  $squeeze: theme.theme-get($theme, 'squeeze');
 
   @if tools.is-type($theme, 'map', $custom-error: '$theme is expecting a map. Map was not given.') {
     @include validator.validate-typography-props(map.keys($theme)) {
@@ -36,6 +37,9 @@
       }
       @if $line-height {
         @include util.line-height($component, $line-height, $intent);
+      }
+      @if $squeeze {
+        @include util.squeeze($component, $squeeze, $intent);
       }
     }
   }
