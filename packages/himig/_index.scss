@@ -58,56 +58,60 @@ $vue-mode: $test-mode !default;
   $breakpoints: pintig.prioritize(map.get($theme, 'breakpoints'), $breakpoints);
   $extend: pintig.prioritize(map.get($theme, 'extend'), $extend);
 
-  $_init-family: 'family.sans-serif';
-  $_init-line-height: 'line-height.normal';
-
   $_init-type-global: (
-    'family': $_init-family,
+    'family': 'family.sans-serif',
     'size': 'size.sm',
     'weight': 'weight.normal',
-    'line-height': $_init-line-height,
+    'line-height': 'line-height.normal',
+    'squeeze': 'squeeze.normal',
   );
 
   $_init-type-supertitle: (
-    'family': $_init-family,
+    'family': 'family.serif',
     'size': 'size.xl',
     'weight': 'weight.black',
-    'line-height': $_init-line-height,
+    'line-height': 'line-height.short',
+    'squeeze': 'squeeze.tight',
   );
 
   $_init-type-title: (
-    'family': $_init-family,
+    'family': 'family.serif',
     'size': 'size.lg',
     'weight': 'weight.bold',
-    'line-height': $_init-line-height,
+    'line-height': 'line-height.short',
+    'squeeze': 'squeeze.tight',
   );
 
   $_init-type-subtitle: (
-    'family': $_init-family,
+    'family': 'family.sans-serif',
     'size': 'size.md',
     'weight': 'weight.bold',
-    'line-height': $_init-line-height,
+    'line-height': 'line-height.normal',
+    'squeeze': 'squeeze.normal',
   );
 
   $_init-type-body: (
-    'family': $_init-family,
+    'family': 'family.sans-serif',
     'size': 'size.sm',
     'weight': 'weight.normal',
-    'line-height': $_init-line-height,
+    'line-height': 'line-height.normal',
+    'squeeze': 'squeeze.normal',
   );
 
   $_init-type-mono: (
     'family': 'family.mono',
     'size': 'size.sm',
     'weight': 'weight.normal',
-    'line-height': $_init-line-height,
+    'line-height': 'line-height.normal',
+    'squeeze': 'squeeze.normal',
   );
 
   $_init-type-small: (
-    'family': $_init-family,
+    'family': 'family.sans-serif',
     'size': 'size.xs',
     'weight': 'weight.light',
-    'line-height': $_init-line-height,
+    'line-height': 'line-height.tall',
+    'squeeze': 'squeeze.normal',
   );
 
   $_init-breakpoints: (
