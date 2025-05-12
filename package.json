@@ -9,6 +9,11 @@
   "repository": "https://github.com/MatteuSan/himig",
   "author": "Matteu <matteugt@gmail.com>",
   "license": "MIT",
+  "workspaces": [
+    "packages/pintig/*",
+    "packages/himig/*",
+    "packages/himig-components/*"
+  ],
   "scripts": {
     "build:lit": "yarn lit:build && yarn lit:compile",
     "lit:css": "yarn lit:scss && tsx scripts/scss-to-lit.ts",
