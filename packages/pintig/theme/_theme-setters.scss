@@ -75,6 +75,7 @@ $expressive-inks: false !default;
     $size: _typography-theme-token-module($_typography-mapper, 'size'),
     $weight: _typography-theme-token-module($_typography-mapper, 'weight'),
     $line-height: _typography-theme-token-module($_typography-mapper, 'line-height'),
+    $squeeze: _typography-theme-token-module($_typography-mapper, 'squeeze'),
   );
 
   @include sentro.breakpoint-config(
