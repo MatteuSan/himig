@@ -68,16 +68,16 @@ $vue-mode: $test-mode !default;
 
   $_init-type-supertitle: (
     'family': 'family.serif',
-    'size': 'size.xl',
-    'weight': 'weight.black',
+    'size': 'size.3xl',
+    'weight': 'weight.normal',
     'line-height': 'line-height.short',
     'squeeze': 'squeeze.tight',
   );
 
   $_init-type-title: (
     'family': 'family.serif',
-    'size': 'size.lg',
-    'weight': 'weight.bold',
+    'size': 'size.xl',
+    'weight': 'weight.normal',
     'line-height': 'line-height.short',
     'squeeze': 'squeeze.tight',
   );
@@ -85,7 +85,7 @@ $vue-mode: $test-mode !default;
   $_init-type-subtitle: (
     'family': 'family.sans-serif',
     'size': 'size.md',
-    'weight': 'weight.bold',
+    'weight': 'weight.light',
     'line-height': 'line-height.normal',
     'squeeze': 'squeeze.normal',
   );
@@ -144,7 +144,7 @@ $vue-mode: $test-mode !default;
     // Immutables
     --ms-shadow-color: rgba(0, 0, 0, 0.25);
     --ms-sprite-size: 32px;
-    --ms-transition-time: 0.2s;
+    --ms-transition-time: 0.4s;
 
     font-family: pintig.token-get('family-global');
     line-height: pintig.token-get('line-height-global');
