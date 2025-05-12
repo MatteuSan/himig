@@ -41,8 +41,7 @@
     }
   },
   "dependencies": {
-    "@matteusan/pintig": "^1.8",
-    "@matteusan/sentro": "^1.2.2"
+    "@matteusan/pintig": "file:../pintig",
     "@matteusan/sentro": "^1.2.3"
   }
 }
