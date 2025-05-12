@@ -9,11 +9,6 @@
   "repository": "https://github.com/MatteuSan/himig",
   "author": "Matteu <matteugt@gmail.com>",
   "license": "MIT",
-  "workspaces": [
-    "packages/pintig/*",
-    "packages/himig/*",
-    "packages/himig-components/*"
-  ],
   "scripts": {
     "build:lit": "yarn lit:build && yarn lit:compile",
     "lit:css": "yarn lit:scss && tsx scripts/scss-to-lit.ts",
@@ -40,7 +35,7 @@
     "@matteusan/himig": "file:./packages/himig",
     "@matteusan/himig-components": "file:./packages/himig-components",
     "@matteusan/pintig": "file:./packages/pintig",
-    "@matteusan/sentro": "latest",
+    "@matteusan/sentro": "^1.2.3",
     "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-multi-entry": "^6.0.1",
     "@rollup/plugin-node-resolve": "^15.2.3",
