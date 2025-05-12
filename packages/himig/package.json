@@ -12,8 +12,32 @@
     ".": {
       "sass": "./_index.scss"
     },
-    "./**/*.scss": {
-      "sass": "./**/*.scss"
+    "./ms-badge.scss": {
+      "sass": "./ms-badge/_index.scss"
+    },
+    "./ms-button.scss": {
+      "sass": "./ms-button/_index.scss"
+    },
+    "./ms-card.scss": {
+      "sass": "./ms-card/_index.scss"
+    },
+    "./ms-form-field.scss": {
+      "sass": "./ms-form-field/_index.scss"
+    },
+    "./ms-link.scss": {
+      "sass": "./ms-link/_index.scss"
+    },
+    "./ms-list.scss": {
+      "sass": "./ms-list/_index.scss"
+    },
+    "./ms-select-field.scss": {
+      "sass": "./ms-select-field/_index.scss"
+    },
+    "./ms-tick-field.scss": {
+      "sass": "./ms-tick-field/_index.scss"
+    },
+    "./ms-utils.scss": {
+      "sass": "./ms-utils/_index.scss"
     }
   },
   "dependencies": {
