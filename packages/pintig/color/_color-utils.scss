@@ -11,7 +11,7 @@
 /// @return {void} background color styles.
 @mixin fill($component, $color, $intent: 'create') {
   @include theme.property(
-    background-color,
+    background,
     ('#{$component}-fill', $color),
     $intent
   );
