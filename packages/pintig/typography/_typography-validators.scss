@@ -6,7 +6,7 @@
 
 /// Valid component props
 /// @access private
-$_valid-props: ('family', 'size', 'weight', 'line-height');
+$_valid-props: ('family', 'size', 'weight', 'line-height', 'squeeze');
 
 /// Validates a set of typography props.
 /// @param {map} $props
