@@ -145,12 +145,12 @@ $_struct-tokens: (
   ),
   'dimension': (
     'none': 0,
-    'xs': tools.to-rem(277px),
-    'sm': tools.to-rem(320px),
-    'md': tools.to-rem(640px),
-    'lg': tools.to-rem(890px),
-    'xl': tools.to-rem(1077px),
-    'sprite': tools.to-rem(32px),
+    'xs': 277px,
+    'sm': 320px,
+    'md': 640px,
+    'lg': 890px,
+    'xl': 1077px,
+    'sprite': 32px,
     'full': 100%,
   ),
   'breakpoint': (
