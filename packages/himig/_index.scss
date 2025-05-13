@@ -145,6 +145,8 @@ $vue-mode: $test-mode !default;
     --ms-shadow-color: rgba(0, 0, 0, 0.25);
     --ms-sprite-size: 32px;
     --ms-transition-time: 0.4s;
+    --ms-easing-smooth: cubic-bezier(0.83, 0, 0.17, 1);
+    --ms-easing: ease-in-out;
 
     font-family: pintig.token-get('family-global');
     line-height: pintig.token-get('line-height-global');
