@@ -20,56 +20,58 @@ $_tones: (200, 300, 400, 600, 800, 'ink');
 @mixin color($include: (), $exclude: ()) {
   $utils-to-render: helpers.handle-include-exclude(('fill', 'ink', 'border'), $include, $exclude);
 
-  // Background color
-  @if list.index($utils-to-render, 'fill') {
-    @each $color in $_colors {
-      @each $tone in $_tones {
-        .fill-#{$color}-#{$tone} {
-          background-color: pintig.token-get('#{$color}-#{$tone}');
-        }
+  @layer utils {
+    // Background color
+    @if list.index($utils-to-render, 'fill') {
+      @each $color in $_colors {
+        @each $tone in $_tones {
+          .fill-#{$color}-#{$tone} {
+            background-color: pintig.token-get('#{$color}-#{$tone}');
+          }
 
-        @each $breakpoint in $_breakpoints {
-          .\@#{$breakpoint}\:fill-#{$color}-#{$tone} {
-            @include pintig.breakpoint-create($breakpoint) {
-              background-color: pintig.token-get('#{$color}-#{$tone}') !important;
+          @each $breakpoint in $_breakpoints {
+            .\@#{$breakpoint}\:fill-#{$color}-#{$tone} {
+              @include pintig.breakpoint-create($breakpoint) {
+                background-color: pintig.token-get('#{$color}-#{$tone}') !important;
+              }
             }
           }
         }
       }
     }
-  }
 
-  // Text color
-  @if list.index($utils-to-render, 'ink') {
-    @each $color in $_colors {
-      @each $tone in $_tones {
-        .ink-#{$color}-#{$tone} {
-          color: pintig.token-get('#{$color}-#{$tone}');
-        }
+    // Text color
+    @if list.index($utils-to-render, 'ink') {
+      @each $color in $_colors {
+        @each $tone in $_tones {
+          .ink-#{$color}-#{$tone} {
+            color: pintig.token-get('#{$color}-#{$tone}');
+          }
 
-        @each $breakpoint in $_breakpoints {
-          .\@#{$breakpoint}\:ink-#{$color}-#{$tone} {
-            @include pintig.breakpoint-create($breakpoint) {
-              color: pintig.token-get('#{$color}-#{$tone}') !important;
+          @each $breakpoint in $_breakpoints {
+            .\@#{$breakpoint}\:ink-#{$color}-#{$tone} {
+              @include pintig.breakpoint-create($breakpoint) {
+                color: pintig.token-get('#{$color}-#{$tone}') !important;
+              }
             }
           }
         }
       }
     }
-  }
 
-  // Border color
-  @if list.index($utils-to-render, 'border') {
-    @each $color in $_colors {
-      @each $tone in $_tones {
-        .border-#{$color}-#{$tone} {
-          border-color: pintig.token-get('#{$color}-#{$tone}');
-        }
+    // Border color
+    @if list.index($utils-to-render, 'border') {
+      @each $color in $_colors {
+        @each $tone in $_tones {
+          .border-#{$color}-#{$tone} {
+            border-color: pintig.token-get('#{$color}-#{$tone}');
+          }
 
-        @each $breakpoint in $_breakpoints {
-          .\@#{$breakpoint}\:border-#{$color}-#{$tone} {
-            @include pintig.breakpoint-create($breakpoint) {
-              border-color: pintig.token-get('#{$color}-#{$tone}') !important;
+          @each $breakpoint in $_breakpoints {
+            .\@#{$breakpoint}\:border-#{$color}-#{$tone} {
+              @include pintig.breakpoint-create($breakpoint) {
+                border-color: pintig.token-get('#{$color}-#{$tone}') !important;
+              }
             }
           }
         }
