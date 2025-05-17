@@ -7,343 +7,353 @@
 <!doctype html>
 <html lang="en" xmlns:x-on="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Himig Design System Testing File</title>
-    <link rel="stylesheet" href="with-html.test.css">
-    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet"/>
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Himig Design System Testing File</title>
+  <link rel="stylesheet" href="with-html.test.css">
+  <link
+    href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+    rel="stylesheet"/>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 <body>
 <main class="content-wrap">
-    <div class="grid gap-sm align-left">
-        <h1 class="supertitle">Supertitle</h1>
-        <h2 class="title">Title</h2>
-        <h3 class="subtitle">Subtitle</h3>
-        <p class="body">Body</p>
-        <p class="mono">Mono</p>
-        <small class="block small">Small</small>
-    </div>
-    <div class="grid pi-center gap-sm">
+  <div class="grid gap-sm align-left">
+    <h1 class="supertitle">Supertitle</h1>
+    <h2 class="title">Title</h2>
+    <h3 class="subtitle">Subtitle</h3>
+    <p class="body">Body</p>
+    <p class="mono">Mono</p>
+    <small class="block small">Small</small>
+  </div>
+  <div class="grid pi-center gap-sm">
         <span class="ms-badge">
             <span class="ms-badge__label">Hello! :)</span>
         </span>
-        <span class="ms-badge is-outlined">
+    <span class="ms-badge is-outlined">
             <span class="ms-badge__label">こんにちは! :)</span>
         </span>
-        <span class="ms-badge fill-error-400 border-error-300">
+    <span class="ms-badge fill-error-400 border-error-300">
             <span class="ms-badge__label">Mabuhay! :)</span>
         </span>
+  </div>
+  <a href="#" class="ms-link">LOOOL</a>
+  <div class="grid cols-4 gap-sm pi-center">
+    <button class="ms-button">
+      <i class="ms-button__icon">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+             class="size-6">
+          <path stroke-linecap="round" stroke-linejoin="round"
+                d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0"/>
+        </svg>
+
+      </i>
+      <span class="ms-button__label">Button</span>
+    </button>
+    <button class="ms-button is-outlined">
+      <i class="ms-button__icon">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+             class="size-6">
+          <path stroke-linecap="round" stroke-linejoin="round"
+                d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0"/>
+        </svg>
+
+      </i>
+      <span class="ms-button__label">Button</span>
+    </button>
+    <button class="ms-button is-filled">
+      <i class="ms-button__icon">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+             class="size-6">
+          <path stroke-linecap="round" stroke-linejoin="round"
+                d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0"/>
+        </svg>
+
+      </i>
+      <span class="ms-button__label">Button</span>
+    </button>
+    <button class="ms-button" disabled>
+      <i class="ms-button__icon">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+             class="size-6">
+          <path stroke-linecap="round" stroke-linejoin="round"
+                d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0"/>
+        </svg>
+
+      </i>
+      <span class="ms-button__label">Button</span>
+    </button>
+
+    <button class="ms-button is-success">
+      <span class="ms-button__label">Button</span>
+    </button>
+    <button class="ms-button is-outlined">
+      <span class="ms-button__label">Button</span>
+    </button>
+    <button class="ms-button is-filled">
+      <span class="ms-button__label">Button</span>
+    </button>
+    <button class="ms-button is-outlined" disabled>
+      <span class="ms-button__label">Button</span>
+    </button>
+
+    <button class="ms-button is-warning">
+      <span class="ms-button__label">Button</span>
+    </button>
+    <button class="ms-button is-outlined">
+      <span class="ms-button__label">Button</span>
+    </button>
+    <button class="ms-button is-filled">
+      <span class="ms-button__label">Button</span>
+    </button>
+    <button class="ms-button is-filled" disabled>
+      <span class="ms-button__label">Button</span>
+    </button>
+
+    <button class="ms-button is-error">
+      <span class="ms-button__label">Button</span>
+    </button>
+
+    <button class="ms-button is-outlined is-error">
+      <span class="ms-button__label">Button</span>
+    </button>
+    <button class="ms-button is-filled is-error">
+      <span class="ms-button__label">Button</span>
+    </button>
+    <button class="ms-button is-filled is-error" disabled>
+      <span class="ms-button__label">Button</span>
+    </button>
+  </div>
+
+  <section class="flex flow-row gap-md">
+    <div class="ms-card">
+      <div class="ms-card__media">
+        <img src="https://www.matteusan.com/img/purplecress.webp" alt="lol">
+      </div>
+      <div class="ms-card__details">
+        <header class="ms-card__header">
+          <div class="ms-card__mast">
+            <h2 class="ms-card__title">Card Title</h2>
+            <p class="ms-card__subtitle">Card subtitle. Lorem ipsum dolor sit amet.</p>
+          </div>
+        </header>
+        <main class="ms-card__content">
+          Card content :)
+        </main>
+      </div>
     </div>
-    <a href="#" class="ms-link">LOOOL</a>
-    <div class="grid cols-4 gap-sm pi-center">
-        <button class="ms-button">
-            <i class="ms-button__icon">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
-                </svg>
 
-            </i>
-            <span class="ms-button__label">Button</span>
-        </button>
-        <button class="ms-button is-outlined">
-            <i class="ms-button__icon">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
-                </svg>
+    <div class="ms-card is-outlined">
+      <div class="ms-card__media">
+        <img src="https://www.matteusan.com/img/purplecress.webp" alt="lol">
+      </div>
+      <div class="ms-card__details">
+        <header class="ms-card__header">
+          <div class="ms-card__mast">
+            <h2 class="ms-card__title">Card Title</h2>
+            <p class="ms-card__subtitle">Card subtitle. Lorem ipsum dolor sit amet.</p>
+          </div>
+        </header>
+        <main class="ms-card__content">
+          Card content :)
+        </main>
+      </div>
+    </div>
+  </section>
 
-            </i>
-            <span class="ms-button__label">Button</span>
-        </button>
-        <button class="ms-button is-filled">
-            <i class="ms-button__icon">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
-                </svg>
-
-            </i>
-            <span class="ms-button__label">Button</span>
-        </button>
-        <button class="ms-button" disabled>
-            <i class="ms-button__icon">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
-                </svg>
-
-            </i>
-            <span class="ms-button__label">Button</span>
-        </button>
-
-        <button class="ms-button is-success">
-            <span class="ms-button__label">Button</span>
-        </button>
-        <button class="ms-button is-outlined">
-            <span class="ms-button__label">Button</span>
-        </button>
-        <button class="ms-button is-filled">
-            <span class="ms-button__label">Button</span>
-        </button>
-        <button class="ms-button is-outlined" disabled>
-            <span class="ms-button__label">Button</span>
-        </button>
-
-        <button class="ms-button is-warning">
-            <span class="ms-button__label">Button</span>
-        </button>
-        <button class="ms-button is-outlined">
-            <span class="ms-button__label">Button</span>
-        </button>
-        <button class="ms-button is-filled">
-            <span class="ms-button__label">Button</span>
-        </button>
-        <button class="ms-button is-filled" disabled>
-            <span class="ms-button__label">Button</span>
-        </button>
-
-        <button class="ms-button is-error">
-            <span class="ms-button__label">Button</span>
-        </button>
-
-        <button class="ms-button is-outlined is-error">
-            <span class="ms-button__label">Button</span>
-        </button>
-        <button class="ms-button is-filled is-error">
-            <span class="ms-button__label">Button</span>
-        </button>
-        <button class="ms-button is-filled is-error" disabled>
-            <span class="ms-button__label">Button</span>
-        </button>
+  <section class="flex flow-row gap-md">
+    <div class="ms-card">
+      <div class="ms-card__details">
+        <header class="ms-card__header">
+          <div class="ms-card__mast">
+            <h2 class="ms-card__title">Card Title</h2>
+            <p class="ms-card__subtitle">Card subtitle. Lorem ipsum dolor sit amet.</p>
+          </div>
+        </header>
+        <main class="ms-card__content">
+          Card content :)
+        </main>
+      </div>
     </div>
 
-    <section class="flex flow-row gap-md">
-        <div class="ms-card">
-            <div class="ms-card__media">
-                <img src="https://www.matteusan.com/img/purplecress.webp" alt="lol">
-            </div>
-            <div class="ms-card__details">
-                <header class="ms-card__header">
-                    <div class="ms-card__mast">
-                        <h2 class="ms-card__title">Card Title</h2>
-                        <p class="ms-card__subtitle">Card subtitle. Lorem ipsum dolor sit amet.</p>
-                    </div>
-                </header>
-                <main class="ms-card__content">
-                    Card content :)
-                </main>
-            </div>
-        </div>
-
-        <div class="ms-card is-outlined">
-            <div class="ms-card__media">
-                <img src="https://www.matteusan.com/img/purplecress.webp" alt="lol">
-            </div>
-            <div class="ms-card__details">
-                <header class="ms-card__header">
-                    <div class="ms-card__mast">
-                        <h2 class="ms-card__title">Card Title</h2>
-                        <p class="ms-card__subtitle">Card subtitle. Lorem ipsum dolor sit amet.</p>
-                    </div>
-                </header>
-                <main class="ms-card__content">
-                    Card content :)
-                </main>
-            </div>
-        </div>
-    </section>
-
-    <section class="flex flow-row gap-md">
-        <div class="ms-card">
-            <div class="ms-card__details">
-                <header class="ms-card__header">
-                    <div class="ms-card__mast">
-                        <h2 class="ms-card__title">Card Title</h2>
-                        <p class="ms-card__subtitle">Card subtitle. Lorem ipsum dolor sit amet.</p>
-                    </div>
-                </header>
-                <main class="ms-card__content">
-                    Card content :)
-                </main>
-            </div>
-        </div>
-
-        <div class="ms-card is-outlined">
-            <div class="ms-card__details">
-                <header class="ms-card__header">
-                    <div class="ms-card__mast">
-                        <h2 class="ms-card__title">Card Title</h2>
-                        <p class="ms-card__subtitle">Card subtitle. Lorem ipsum dolor sit amet.</p>
-                    </div>
-                </header>
-                <main class="ms-card__content">
-                    Card content :)
-                </main>
-            </div>
-        </div>
-    </section>
-
-    <div class="grid cols-2 gap-sm pi-center">
-        <label class="ms-form-field">
-            <span class="ms-form-field__label">GS Form Field</span>
-            <input type="text" class="ms-form-field__input" placeholder="a" name="text-field" />
-            <span class="ms-form-field__helper">Helper Text</span>
-        </label>
-
-        <label class="ms-form-field is-error">
-            <span class="ms-form-field__label">GS Form Field</span>
-            <input type="text" class="ms-form-field__input" placeholder="a" name="text-field" />
-            <span class="ms-form-field__helper">Helper Text</span>
-        </label>
-
-        <label class="ms-form-field is-outlined">
-            <span class="ms-form-field__label">GS Form Field</span>
-            <input type="text" class="ms-form-field__input" placeholder="a" name="text-field" />
-            <span class="ms-form-field__helper">Helper Text</span>
-        </label>
-
-        <label class="ms-form-field is-outlined is-error">
-            <span class="ms-form-field__label">GS Form Field</span>
-            <input type="text" class="ms-form-field__input" placeholder="a" name="text-field" />
-            <span class="ms-form-field__helper">Helper Text</span>
-        </label>
-
-        <label class="ms-form-field">
-            <span class="ms-form-field__label">GS Form Field</span>
-            <input type="text" class="ms-form-field__input" placeholder="a" name="text-field" disabled />
-            <span class="ms-form-field__helper">Helper Text</span>
-        </label>
-
-        <label class="ms-form-field is-outlined">
-            <span class="ms-form-field__label">GS Form Field</span>
-            <input type="text" class="ms-form-field__input" placeholder="a" name="text-field" disabled />
-            <span class="ms-form-field__helper">Helper Text</span>
-        </label>
-
-        <label class="ms-select-field">
-            <span class="ms-select-field__label">GS Select Field</span>
-            <select type="text" class="ms-select-field__input" name="text-field">
-                <option value="a">Placeholder</option>
-                <option value="b">B</option>
-                <option value="c">C</option>
-            </select>
-            <span class="ms-select-field__helper">Helper Text</span>
-        </label>
-
-        <label class="ms-select-field is-outlined">
-            <select type="text" class="ms-select-field__input" placeholder="" name="text-field">
-                <option value="a">A</option>
-                <option value="b">B</option>
-                <option value="c">C</option>
-            </select>
-            <span class="ms-select-field__helper">Helper Text</span>
-        </label>
-
-        <label class="ms-select-field is-error">
-            <select type="text" class="ms-select-field__input" name="text-field">
-                <option value="a">A</option>
-                <option value="b">B</option>
-                <option value="c">C</option>
-            </select>
-            <span class="ms-select-field__helper">Helper Text</span>
-        </label>
-
-        <label class="ms-select-field is-outlined is-error">
-            <select type="text" class="ms-select-field__input" name="text-field">
-                <option value="a">A</option>
-                <option value="b">B</option>
-                <option value="c">C</option>
-            </select>
-            <span class="ms-select-field__helper">Helper Text</span>
-        </label>
-
-        <label class="ms-select-field">
-            <select type="text" class="ms-select-field__input" disabled name="text-field">
-                <option value="a">A</option>
-                <option value="b">B</option>
-                <option value="c">C</option>
-            </select>
-            <span class="ms-select-field__helper">Helper Text</span>
-        </label>
-
-        <label class="ms-select-field is-outlined">
-            <select type="text" class="ms-select-field__input" disabled name="text-field">
-                <option value="a">A</option>
-                <option value="b">B</option>
-                <option value="c">C</option>
-            </select>
-            <span class="ms-select-field__helper">Helper Text</span>
-        </label>
-
-        <label class="ms-form-field">
-            <textarea name="bruh" cols="30" class="ms-form-field__input" placeholder="a" rows="10"></textarea>
-            <span class="ms-form-field__label">GS Form Field</span>
-            <span class="ms-form-field__helper">Helper Text</span>
-        </label>
-
-        <label class="ms-form-field is-error">
-            <textarea name="bruh" cols="30" class="ms-form-field__input" placeholder="a" rows="10"></textarea>
-            <span class="ms-form-field__label">GS Form Field</span>
-            <span class="ms-form-field__helper">Helper Text</span>
-        </label>
+    <div class="ms-card is-outlined">
+      <div class="ms-card__details">
+        <header class="ms-card__header">
+          <div class="ms-card__mast">
+            <h2 class="ms-card__title">Card Title</h2>
+            <p class="ms-card__subtitle">Card subtitle. Lorem ipsum dolor sit amet.</p>
+          </div>
+        </header>
+        <main class="ms-card__content">
+          Card content :)
+        </main>
+      </div>
     </div>
-    <div class="grid cols-2 gap-sm pi-center">
-        <label class="ms-tick-field">
-            <input type="checkbox" class="ms-tick-field__input" id="value" name="input" value="value" checked />
-            <span class="ms-tick-field__text">
+  </section>
+
+  <div class="grid cols-2 gap-sm pi-center">
+    <label class="ms-form-field">
+      <span class="ms-form-field__label">GS Form Field</span>
+      <input type="text" class="ms-form-field__input" placeholder="a" name="text-field"/>
+      <span class="ms-form-field__helper">Helper Text</span>
+    </label>
+
+    <label class="ms-form-field is-error">
+      <span class="ms-form-field__label">GS Form Field</span>
+      <input type="text" class="ms-form-field__input" placeholder="a" name="text-field"/>
+      <span class="ms-form-field__helper">Helper Text</span>
+    </label>
+
+    <label class="ms-form-field is-outlined">
+      <span class="ms-form-field__label">GS Form Field</span>
+      <input type="text" class="ms-form-field__input" placeholder="a" name="text-field"/>
+      <span class="ms-form-field__helper">Helper Text</span>
+    </label>
+
+    <label class="ms-form-field is-outlined is-error">
+      <span class="ms-form-field__label">GS Form Field</span>
+      <input type="text" class="ms-form-field__input" placeholder="a" name="text-field"/>
+      <span class="ms-form-field__helper">Helper Text</span>
+    </label>
+
+    <label class="ms-form-field">
+      <span class="ms-form-field__label">GS Form Field</span>
+      <input type="text" class="ms-form-field__input" placeholder="a" name="text-field" disabled/>
+      <span class="ms-form-field__helper">Helper Text</span>
+    </label>
+
+    <label class="ms-form-field is-outlined">
+      <span class="ms-form-field__label">GS Form Field</span>
+      <input type="text" class="ms-form-field__input" placeholder="a" name="text-field" disabled/>
+      <span class="ms-form-field__helper">Helper Text</span>
+    </label>
+
+    <label class="ms-select-field">
+      <span class="ms-select-field__label">GS Select Field</span>
+      <select type="text" class="ms-select-field__input" name="text-field">
+        <option value="a">Placeholder</option>
+        <option value="b">B</option>
+        <option value="c">C</option>
+      </select>
+      <span class="ms-select-field__helper">Helper Text</span>
+    </label>
+
+    <label class="ms-select-field is-outlined">
+      <select type="text" class="ms-select-field__input" placeholder="" name="text-field">
+        <option value="a">A</option>
+        <option value="b">B</option>
+        <option value="c">C</option>
+      </select>
+      <span class="ms-select-field__helper">Helper Text</span>
+    </label>
+
+    <label class="ms-select-field is-error">
+      <select type="text" class="ms-select-field__input" name="text-field">
+        <option value="a">A</option>
+        <option value="b">B</option>
+        <option value="c">C</option>
+      </select>
+      <span class="ms-select-field__helper">Helper Text</span>
+    </label>
+
+    <label class="ms-select-field is-outlined is-error">
+      <select type="text" class="ms-select-field__input" name="text-field">
+        <option value="a">A</option>
+        <option value="b">B</option>
+        <option value="c">C</option>
+      </select>
+      <span class="ms-select-field__helper">Helper Text</span>
+    </label>
+
+    <label class="ms-select-field">
+      <select type="text" class="ms-select-field__input" disabled name="text-field">
+        <option value="a">A</option>
+        <option value="b">B</option>
+        <option value="c">C</option>
+      </select>
+      <span class="ms-select-field__helper">Helper Text</span>
+    </label>
+
+    <label class="ms-select-field is-outlined">
+      <select type="text" class="ms-select-field__input" disabled name="text-field">
+        <option value="a">A</option>
+        <option value="b">B</option>
+        <option value="c">C</option>
+      </select>
+      <span class="ms-select-field__helper">Helper Text</span>
+    </label>
+
+    <label class="ms-form-field">
+      <textarea name="bruh" cols="30" class="ms-form-field__input" placeholder="a" rows="10"></textarea>
+      <span class="ms-form-field__label">GS Form Field</span>
+      <span class="ms-form-field__helper">Helper Text</span>
+    </label>
+
+    <label class="ms-form-field is-error">
+      <textarea name="bruh" cols="30" class="ms-form-field__input" placeholder="a" rows="10"></textarea>
+      <span class="ms-form-field__label">GS Form Field</span>
+      <span class="ms-form-field__helper">Helper Text</span>
+    </label>
+  </div>
+  <div class="grid cols-2 gap-sm pi-center">
+    <label class="ms-tick-field">
+      <input type="checkbox" class="ms-tick-field__input" id="value" name="input" value="value" checked/>
+      <span class="ms-tick-field__text">
                 <span class="ms-tick-field__label">MSTickField Label</span>
             </span>
-        </label>
-        <label class="ms-tick-field">
-            <input type="checkbox" class="ms-tick-field__input" id="value2" name="input" value="value2" checked />
-            <span class="ms-tick-field__text">
+    </label>
+    <label class="ms-tick-field">
+      <input type="checkbox" class="ms-tick-field__input" id="value2" name="input" value="value2" checked/>
+      <span class="ms-tick-field__text">
                 <span class="ms-tick-field__label">MSTickField Label</span>
             </span>
-        </label>
-        <label class="ms-tick-field">
-            <input type="radio" class="ms-tick-field__input" id="value3" name="input" value="value3" checked />
-            <span class="ms-tick-field__text">
+    </label>
+    <label class="ms-tick-field">
+      <input type="radio" class="ms-tick-field__input" id="value3" name="input" value="value3" checked/>
+      <span class="ms-tick-field__text">
                 <span class="ms-tick-field__label">MSTickField Label</span>
             </span>
-        </label>
-        <label class="ms-tick-field">
-            <input type="radio" class="ms-tick-field__input" id="value4" name="input" value="value4" checked />
-            <span class="ms-tick-field__text">
+    </label>
+    <label class="ms-tick-field">
+      <input type="radio" class="ms-tick-field__input" id="value4" name="input" value="value4" checked/>
+      <span class="ms-tick-field__text">
                 <span class="ms-tick-field__label">MSTickField Label</span>
             </span>
-        </label>
-    </div>
-    <div>
-        <ul class="ms-list">
-            <li class="ms-list__item">Bruh</li>
-            <li class="ms-list__item">Bruh</li>
-            <li class="ms-list__item">Bruh</li>
-            <li class="ms-list__item">Bruh</li>
-        </ul>
-    </div>
-    <div class="relative" x-data="{ isMenuOpen: false }">
-        <button class="ms-button" x-on:click="isMenuOpen = !isMenuOpen">
-            <span class="ms-button__label">Open Menu</span>
-        </button>
-        <ul class="ms-list is-selectable absolute" x-show="isMenuOpen">
-            <li class="ms-list__item">
-                <i class="ms-sprite is-icon material-icons">edit</i>
-                <a href="#">Edit</a>
-            </li>
-            <li class="ms-list__item">
-                <i class="ms-sprite is-icon material-icons">settings</i>
-                <a href="#">Move</a>
-            </li>
-            <li class="ms-list__item">
-                <i class="ms-sprite is-icon material-icons">delete</i>
-                <a href="#">Delete</a>
-            </li>
-            <li class="ms-list__item">
-                <i class="ms-sprite is-icon material-icons">report</i>
-                <a href="#">Report</a>
-            </li>
-        </ul>
-    </div>
+    </label>
+  </div>
+  <div>
+    <ul class="ms-list">
+      <li class="ms-list__item">Bruh</li>
+      <li class="ms-list__item">Bruh</li>
+      <li class="ms-list__item">Bruh</li>
+      <li class="ms-list__item">Bruh</li>
+    </ul>
+  </div>
+  <div class="relative" x-data="{ isMenuOpen: false }">
+    <button class="ms-button" x-on:click="isMenuOpen = !isMenuOpen">
+      <span class="ms-button__label">Open Menu</span>
+    </button>
+    <ul class="ms-list is-selectable absolute" x-show="isMenuOpen">
+      <li class="ms-list__item">
+        <i class="ms-sprite is-icon material-icons">edit</i>
+        <a href="#">Edit</a>
+      </li>
+      <li class="ms-list__item">
+        <i class="ms-sprite is-icon material-icons">settings</i>
+        <a href="#">Move</a>
+      </li>
+      <li class="ms-list__item">
+        <i class="ms-sprite is-icon material-icons">delete</i>
+        <a href="#">Delete</a>
+      </li>
+      <li class="ms-list__item">
+        <i class="ms-sprite is-icon material-icons">report</i>
+        <a href="#">Report</a>
+      </li>
+    </ul>
+  </div>
 </main>
 </body>
 </html>
