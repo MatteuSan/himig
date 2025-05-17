@@ -962,11 +962,11 @@ __metadata:
 
 "@matteusan/himig@file:./packages/himig::locator=himig%40workspace%3A.":
   version: 1.7.4
-  resolution: "@matteusan/himig@file:./packages/himig#./packages/himig::hash=27fef9&locator=himig%40workspace%3A."
+  resolution: "@matteusan/himig@file:./packages/himig#./packages/himig::hash=014b8b&locator=himig%40workspace%3A."
   dependencies:
     "@matteusan/pintig": ^1.9
     "@matteusan/sentro": ^1.2.3
-  checksum: fc6721963e2b59835206e70c0461b1de427a1fe3c5b4b572e28c63976f5fdd838484ba59fb5cb947215256f3a832ac17462d695c07677c0164690928acc584b4
+  checksum: 2be5bc40ce7cba3d972fbbf5cca4b821da6a120dce9a40ac85cc39abfe1ac6d7ab4e8da2af271152ac6d5eee68b7da091423d25e6e87ec00e7b7dffcd2b5ecee
   languageName: node
   linkType: hard
 
