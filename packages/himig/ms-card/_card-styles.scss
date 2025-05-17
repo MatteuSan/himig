@@ -38,11 +38,11 @@
         .ms-card__details {
           @include pintig.color-bind('card', (
             fill: linear-gradient(180deg,
-              rgb(from pintig.token-switch-raw(pintig.theme-get($color, 'fill')) r g b / 0%) 0%,
-              rgb(from pintig.token-switch-raw(pintig.theme-get($color, 'fill')) r g b / 50%) 15%,
-              rgb(from pintig.token-switch-raw(pintig.theme-get($color, 'fill')) r g b / 70%) 30%,
-              rgb(from pintig.token-switch-raw(pintig.theme-get($color, 'fill')) r g b / 90%) 80%,
-              rgb(from pintig.token-switch-raw(pintig.theme-get($color, 'fill')) r g b / 100%) 100%
+              rgb(from pintig.token-switch(pintig.theme-get($color, 'fill')) r g b / 0%) 0%,
+              rgb(from pintig.token-switch(pintig.theme-get($color, 'fill')) r g b / 50%) 15%,
+              rgb(from pintig.token-switch(pintig.theme-get($color, 'fill')) r g b / 70%) 30%,
+              rgb(from pintig.token-switch(pintig.theme-get($color, 'fill')) r g b / 90%) 80%,
+              rgb(from pintig.token-switch(pintig.theme-get($color, 'fill')) r g b / 100%) 100%
             ),
             ink: pintig.theme-get($color, 'ink'),
           ));
@@ -56,7 +56,7 @@
 
         .ms-card__subtitle {
           @include pintig.color-apply('card-subtitle', (
-            ink: rgb(from pintig.token-switch-raw(pintig.theme-get($color, 'ink', 'subtitle')) r g b / 60%),
+            ink: rgb(from pintig.token-switch(pintig.theme-get($color, 'ink', 'subtitle')) r g b / 60%),
           ));
         }
       }
