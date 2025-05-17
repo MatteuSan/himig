@@ -17,7 +17,7 @@
 
     &:has(.ms-select-field__label) {
       .ms-select-field__input {
-        padding-top: calc(#{$top-padding} + 1rem) !important;
+        padding-block-start: calc(#{$top-padding} + 1rem) !important;
       }
     }
 
