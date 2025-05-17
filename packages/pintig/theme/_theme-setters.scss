@@ -59,13 +59,9 @@ $expressive-inks: false !default;
     $primary: _color-theme-token-module($primary),
     $accent: _color-theme-token-module($accent),
     $surface: _color-theme-token-module($surface),
-    $primary-alpha: _alpha-color-theme-token-module($primary),
-    $accent-alpha: _alpha-color-theme-token-module($accent),
-    $surface-alpha: _alpha-color-theme-token-module($surface),
     $background: tokens.primitive-token-switch($background),
     $background-ink: tools.get-ink(tokens.primitive-token-switch($background)),
     $error: _color-theme-token-module($error),
-    $error-alpha: _alpha-color-theme-token-module($error),
     $disabled: (
       'default': map.get($disabled, 'default'),
       'ink': tools.prioritize(map.get($disabled, 'ink'), tools.get-ink(map.get($disabled, 'default'), $expressive-inks)),
@@ -110,20 +106,20 @@ $expressive-inks: false !default;
 @function _alpha-color-theme-token-module($query) {
   @if tools.is-type($query, 'map', $errors: false) {
     @return (
-      200: rgba(tokens.primitive-token-switch('#{map.get($query, 400)}.200', map.get($query, 400)), 8%),
-      300: rgba(tokens.primitive-token-switch('#{map.get($query, 400)}.300', map.get($query, 400)), 12%),
-      400: rgba(tokens.primitive-token-switch('#{map.get($query, 400)}.400', map.get($query, 400)), 20%),
-      600: rgba(tokens.primitive-token-switch('#{map.get($query, 400)}.600', map.get($query, 400)), 33%),
-      800: rgba(tokens.primitive-token-switch('#{map.get($query, 400)}.800', map.get($query, 400)), 42%),
+      200: rgb(from tokens.primitive-token-switch('#{map.get($query, 400)}.200', map.get($query, 400)) r g b / 8%),
+      300: rgb(from tokens.primitive-token-switch('#{map.get($query, 400)}.300', map.get($query, 400)) r g b / 12%),
+      400: rgb(from tokens.primitive-token-switch('#{map.get($query, 400)}.400', map.get($query, 400)) r g b / 20%),
+      600: rgb(from tokens.primitive-token-switch('#{map.get($query, 400)}.600', map.get($query, 400)) r g b / 33%),
+      800: rgb(from tokens.primitive-token-switch('#{map.get($query, 400)}.800', map.get($query, 400)) r g b / 42%),
     );
   }
 
   @return (
-    200: rgba(tokens.primitive-token-get('#{$query}.400'), 8%),
-    300: rgba(tokens.primitive-token-get('#{$query}.400'), 12%),
-    400: rgba(tokens.primitive-token-get('#{$query}.400'), 20%),
-    600: rgba(tokens.primitive-token-get('#{$query}.400'), 33%),
-    800: rgba(tokens.primitive-token-get('#{$query}.400'), 42%)
+    200: rgb(from tokens.primitive-token-get('#{$query}.400') r g b / 8%),
+    300: rgb(from tokens.primitive-token-get('#{$query}.400') r g b / 12%),
+    400: rgb(from tokens.primitive-token-get('#{$query}.400') r g b / 20%),
+    600: rgb(from tokens.primitive-token-get('#{$query}.400') r g b / 33%),
+    800: rgb(from tokens.primitive-token-get('#{$query}.400') r g b / 42%)
   )
 }
 
