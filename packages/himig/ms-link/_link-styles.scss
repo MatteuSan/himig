@@ -17,36 +17,38 @@
   $typography: pintig.theme-merge(theme.$init-typography, $typography);
   $settings: pintig.theme-merge(theme.$init-settings, $settings);
 
-  @include base.init() {
-    @include pintig.color-apply('link', (
-      fill: transparent,
-      ink: pintig.theme-get($color, 'ink')
-    ));
-    @include pintig.typography-apply('link', (
-      family: pintig.theme-get($typography, 'family'),
-      size: pintig.theme-get($typography, 'size'),
-      weight: pintig.theme-get($typography, 'weight'),
-      line-height: pintig.theme-get($typography, 'line-height')
-    ));
-    text-decoration: underline;
-    @include pintig.prefix(transition, all var(--ms-transition-time) ease);
-
-    &:hover {
-      @include pintig.color-bind('link', (
-        fill: pintig.theme-get($color, 'fill', 'hover')
+  @layer components {
+    @include base.init() {
+      @include pintig.color-apply('link', (
+        fill: transparent,
+        ink: pintig.theme-get($color, 'ink')
       ));
-    }
-
-    &:focus {
-      @include pintig.color-bind('link', (
-        fill: pintig.theme-get($color, 'fill', 'focus')
+      @include pintig.typography-apply('link', (
+        family: pintig.theme-get($typography, 'family'),
+        size: pintig.theme-get($typography, 'size'),
+        weight: pintig.theme-get($typography, 'weight'),
+        line-height: pintig.theme-get($typography, 'line-height')
       ));
-    }
+      text-decoration: underline;
+      @include pintig.prefix(transition, all pintig.token-get('time-short') pintig.token-get('easing'));
 
-    &:active {
-      @include pintig.color-bind('link', (
-        fill: pintig.theme-get($color, 'fill', 'active')
-      ));
+      &:hover {
+        @include pintig.color-bind('link', (
+          fill: pintig.theme-get($color, 'fill', 'hover')
+        ));
+      }
+
+      &:focus {
+        @include pintig.color-bind('link', (
+          fill: pintig.theme-get($color, 'fill', 'focus')
+        ));
+      }
+
+      &:active {
+        @include pintig.color-bind('link', (
+          fill: pintig.theme-get($color, 'fill', 'active')
+        ));
+      }
     }
   }
 }

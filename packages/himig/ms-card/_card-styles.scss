@@ -18,37 +18,48 @@
   $typography: pintig.theme-merge(theme.$init-typography, $typography);
   $settings: pintig.theme-merge(theme.$init-settings, $settings);
 
-  @include base.init(
-    $struct,
-    $typography
-  ) {
-    @include pintig.color-apply('card', (
-      fill: pintig.theme-get($color, 'fill'),
-      ink: pintig.theme-get($color, 'ink'),
-    ));
-    @include pintig.color-border('card', pintig.theme-get($color, 'border'), 'bind');
-    @include pintig.struct-apply('card', (
-      width: (
-        default: pintig.theme-get($struct, 'width'),
-        min: pintig.theme-get($struct, 'width', 'min'),
-        max: pintig.theme-get($struct, 'width', 'max'),
-      ),
-      radius: pintig.theme-get($struct, 'radius'),
-      shadow: 'none',
-    ));
-
-    &:where(.is-outlined) {
-      @include pintig.color-bind('card', (
-        fill: pintig.theme-get($color, 'fill', 'outlined'),
-        ink: pintig.theme-get($color, 'ink'),
-        border: pintig.theme-get($color, 'border')
+  @layer components {
+    @include base.init(
+        $struct,
+        $typography
+    ) {
+      @include pintig.color-border('card', pintig.theme-get($color, 'border'), 'bind');
+      @include pintig.struct-apply('card', (
+        width: (
+          default: pintig.theme-get($struct, 'width'),
+          min: pintig.theme-get($struct, 'width', 'min'),
+          max: pintig.theme-get($struct, 'width', 'max'),
+        ),
+        radius: pintig.theme-get($struct, 'radius'),
+        shadow: 'none',
       ));
-    }
 
-    &:where(.is-raised) {
-      @include pintig.struct-bind('card', (
-        shadow: 'low'
-      ));
+      &:has(.ms-card__media) {
+        .ms-card__details {
+          @include pintig.color-bind('card', (
+            fill: linear-gradient(180deg,
+              rgb(from pintig.token-switch-raw(pintig.theme-get($color, 'fill')) r g b / 0%) 0%,
+              rgb(from pintig.token-switch-raw(pintig.theme-get($color, 'fill')) r g b / 50%) 15%,
+              rgb(from pintig.token-switch-raw(pintig.theme-get($color, 'fill')) r g b / 70%) 30%,
+              rgb(from pintig.token-switch-raw(pintig.theme-get($color, 'fill')) r g b / 90%) 80%,
+              rgb(from pintig.token-switch-raw(pintig.theme-get($color, 'fill')) r g b / 100%) 100%
+            ),
+            ink: pintig.theme-get($color, 'ink'),
+          ));
+        }
+      }
+
+      .ms-card__details {
+        @include pintig.color-apply('card', (
+          fill: pintig.theme-get($color, 'fill')
+        ));
+      }
+
+      &:where(.is-raised) {
+        @include pintig.struct-bind('card', (
+          shadow: 'low'
+        ));
+      }
     }
   }
 }

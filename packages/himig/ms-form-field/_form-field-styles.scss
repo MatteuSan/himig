@@ -20,100 +20,25 @@
 
   $resolve-padding: if(list.length(pintig.theme-get($struct, 'padding')) >= 2, list.nth(pintig.theme-get($struct, 'padding'), 2), list.nth(pintig.theme-get($struct, 'padding'), 1));
 
-  @include base.init(
-    pintig.primitive-token-switch('padding.#{$resolve-padding}', $resolve-padding),
-    pintig.primitive-token-switch('padding.#{$resolve-padding}', $resolve-padding),
-    pintig.primitive-token-switch('padding.#{list.nth(pintig.theme-get($struct, 'padding'), 1)}', list.nth(pintig.theme-get($struct, 'padding'), 1)),
-  ) {
-    .ms-form-field__label {
-      @include pintig.color-bind('form-field-label', (
-        ink: pintig.theme-get($color, 'ink', 'disabled'),
-      ));
-      @include pintig.typography-bind('form-field-label', (
-        family: pintig.theme-get($typography, 'family'),
-        size: pintig.theme-get($typography, 'size', 'label'),
-        weight: pintig.theme-get($typography, 'weight'),
-        line-height: pintig.theme-get($typography, 'height'),
-      ));
-      user-select: none;
-    }
-
-    &:has(.ms-form-field__input:not(:read-only):not(:disabled)) {
+  @layer components {
+    @include base.init(
+        pintig.primitive-token-switch('padding.#{$resolve-padding}', $resolve-padding),
+        pintig.primitive-token-switch('padding.#{$resolve-padding}', $resolve-padding),
+        pintig.primitive-token-switch('padding.#{list.nth(pintig.theme-get($struct, 'padding'), 1)}', list.nth(pintig.theme-get($struct, 'padding'), 1)),
+    ) {
       .ms-form-field__label {
         @include pintig.color-bind('form-field-label', (
-          ink: pintig.theme-get($color, 'ink'),
-        ));
-      }
-    }
-
-    &:has(.ms-form-field__input:read-only:disabled) {
-      @include pintig.color-ink('form-field-helper', pintig.theme-get($color, 'ink', 'disabled'), 'bind');
-    }
-
-    .ms-form-field__input {
-      @include pintig.struct-bind('form-field', (
-        width: (
-          default: pintig.theme-get($struct, 'width'),
-          min: pintig.theme-get($struct, 'width', 'min'),
-          max: pintig.theme-get($struct, 'width', 'max')
-        ),
-        padding: pintig.theme-get($struct, 'padding'),
-        radius: pintig.theme-get($struct, 'radius'),
-        border-width: pintig.theme-get($struct, 'border-width'),
-        border-style: pintig.theme-get($struct, 'border-style'),
-        gap: pintig.theme-get($struct, 'gap'),
-      ));
-      @include pintig.typography-bind('form-field', (
-        family: pintig.theme-get($typography, 'family'),
-        size: pintig.theme-get($typography, 'size', 'default'),
-        weight: pintig.theme-get($typography, 'weight'),
-        line-height: pintig.theme-get($typography, 'height'),
-      ));
-
-      &:not(:read-only),
-      &:not(:disabled) {
-        @include pintig.color-bind('form-field', (
-          fill: pintig.theme-get($color, 'fill'),
-          ink: pintig.theme-get($color, 'ink'),
-          border: pintig.theme-get($color, 'border'),
-        ));
-
-        &:focus {
-          @include pintig.color-bind('form-field', (
-            fill: pintig.theme-get($color, 'fill', 'focus'),
-            border: pintig.theme-get($color, 'border', 'focus'),
-          ));
-          @include pintig.struct-bind('form-field', (
-            border-width: pintig.theme-get($struct, 'border-width', 'focus'),
-          ));
-        }
-      }
-
-      &:read-only,
-      &:disabled {
-        @include pintig.color-bind('form-field', (
-          fill: pintig.theme-get($color, 'fill', 'disabled'),
           ink: pintig.theme-get($color, 'ink', 'disabled'),
-          border: pintig.theme-get($color, 'fill', 'disabled'),
         ));
-        cursor: not-allowed;
+        @include pintig.typography-bind('form-field-label', (
+          family: pintig.theme-get($typography, 'family'),
+          size: pintig.theme-get($typography, 'size', 'label'),
+          weight: pintig.theme-get($typography, 'weight'),
+          line-height: pintig.theme-get($typography, 'height'),
+        ));
+        user-select: none;
       }
-    }
 
-    .ms-form-field__helper {
-      padding: 0.3rem pintig.primitive-token-switch('padding.#{$resolve-padding}', $resolve-padding) 0;
-      @include pintig.color-bind('form-field-helper', (
-        ink: pintig.theme-get($color, 'ink', 'helper'),
-      ));
-      @include pintig.typography-bind('form-field-helper', (
-        family: pintig.theme-get($typography, 'family'),
-        size: pintig.theme-get($typography, 'size', 'helper'),
-        weight: pintig.theme-get($typography, 'weight'),
-        line-height: pintig.theme-get($typography, 'height'),
-      ));
-    }
-
-    &:where(.is-outlined) {
       &:has(.ms-form-field__input:not(:read-only):not(:disabled)) {
         .ms-form-field__label {
           @include pintig.color-bind('form-field-label', (
@@ -122,17 +47,41 @@
         }
       }
 
+      &:has(.ms-form-field__input:read-only:disabled) {
+        @include pintig.color-ink('form-field-helper', pintig.theme-get($color, 'ink', 'disabled'), 'bind');
+      }
+
       .ms-form-field__input {
+        @include pintig.struct-bind('form-field', (
+          width: (
+            default: pintig.theme-get($struct, 'width'),
+            min: pintig.theme-get($struct, 'width', 'min'),
+            max: pintig.theme-get($struct, 'width', 'max')
+          ),
+          padding: pintig.theme-get($struct, 'padding'),
+          radius: pintig.theme-get($struct, 'radius'),
+          border-width: pintig.theme-get($struct, 'border-width'),
+          border-style: pintig.theme-get($struct, 'border-style'),
+          gap: pintig.theme-get($struct, 'gap'),
+        ));
+        @include pintig.typography-bind('form-field', (
+          family: pintig.theme-get($typography, 'family'),
+          size: pintig.theme-get($typography, 'size', 'default'),
+          weight: pintig.theme-get($typography, 'weight'),
+          line-height: pintig.theme-get($typography, 'height'),
+        ));
+
         &:not(:read-only),
         &:not(:disabled) {
           @include pintig.color-bind('form-field', (
-            fill: rgba(0 0 0 / 0) !important,
+            fill: pintig.theme-get($color, 'fill'),
             ink: pintig.theme-get($color, 'ink'),
             border: pintig.theme-get($color, 'border'),
           ));
 
           &:focus {
             @include pintig.color-bind('form-field', (
+              fill: pintig.theme-get($color, 'fill', 'focus'),
               border: pintig.theme-get($color, 'border', 'focus'),
             ));
             @include pintig.struct-bind('form-field', (
@@ -144,66 +93,119 @@
         &:read-only,
         &:disabled {
           @include pintig.color-bind('form-field', (
-            fill: transparent,
+            fill: pintig.theme-get($color, 'fill', 'disabled'),
             ink: pintig.theme-get($color, 'ink', 'disabled'),
             border: pintig.theme-get($color, 'fill', 'disabled'),
           ));
+          cursor: not-allowed;
+        }
+      }
+
+      .ms-form-field__helper {
+        padding: 0.3rem pintig.primitive-token-switch('padding.#{$resolve-padding}', $resolve-padding) 0;
+        @include pintig.color-bind('form-field-helper', (
+          ink: pintig.theme-get($color, 'ink', 'helper'),
+        ));
+        @include pintig.typography-bind('form-field-helper', (
+          family: pintig.theme-get($typography, 'family'),
+          size: pintig.theme-get($typography, 'size', 'helper'),
+          weight: pintig.theme-get($typography, 'weight'),
+          line-height: pintig.theme-get($typography, 'height'),
+        ));
+      }
+
+      &:where(.is-outlined) {
+        &:has(.ms-form-field__input:not(:read-only):not(:disabled)) {
+          .ms-form-field__label {
+            @include pintig.color-bind('form-field-label', (
+              ink: pintig.theme-get($color, 'ink'),
+            ));
+          }
+        }
+
+        .ms-form-field__input {
+          &:not(:read-only),
+          &:not(:disabled) {
+            @include pintig.color-bind('form-field', (
+              fill: rgba(0 0 0 / 0) !important,
+              ink: pintig.theme-get($color, 'ink'),
+              border: pintig.theme-get($color, 'border'),
+            ));
+
+            &:focus {
+              @include pintig.color-bind('form-field', (
+                border: pintig.theme-get($color, 'border', 'focus'),
+              ));
+              @include pintig.struct-bind('form-field', (
+                border-width: pintig.theme-get($struct, 'border-width', 'focus'),
+              ));
+            }
+          }
+
+          &:read-only,
+          &:disabled {
+            @include pintig.color-bind('form-field', (
+              fill: transparent,
+              ink: pintig.theme-get($color, 'ink', 'disabled'),
+              border: pintig.theme-get($color, 'fill', 'disabled'),
+            ));
+          }
+        }
+
+        &:where(.is-error) {
+          .ms-form-field__input:not(:read-only),
+          .ms-form-field__input:not(:disabled) {
+            @include pintig.color-bind('form-field', (
+              fill: rgba(0 0 0 / 0) !important,
+              border: pintig.theme-get($color, 'border', 'error'),
+            ));
+          }
         }
       }
 
       &:where(.is-error) {
-        .ms-form-field__input:not(:read-only),
-        .ms-form-field__input:not(:disabled) {
-          @include pintig.color-bind('form-field', (
-            fill: rgba(0 0 0 / 0) !important,
-            border: pintig.theme-get($color, 'border', 'error'),
-          ));
-        }
-      }
-    }
-
-    &:where(.is-error) {
-      .ms-form-field__label {
-        @include pintig.color-bind('form-field-label', (
-          ink: pintig.theme-get($color, 'ink', 'disabled'),
-        ));
-      }
-
-      &:has(.ms-form-field__input:not(:read-only):not(:disabled)) {
         .ms-form-field__label {
           @include pintig.color-bind('form-field-label', (
+            ink: pintig.theme-get($color, 'ink', 'disabled'),
+          ));
+        }
+
+        &:has(.ms-form-field__input:not(:read-only):not(:disabled)) {
+          .ms-form-field__label {
+            @include pintig.color-bind('form-field-label', (
+              ink: pintig.theme-get($color, 'ink', 'error'),
+            ));
+          }
+        }
+
+        .ms-form-field__input:not(:disabled),
+        .ms-form-field__input:not(:read-only) {
+          @include pintig.color-bind('form-field', (
+            fill: pintig.theme-get($color, 'fill', 'error'),
+            ink: pintig.theme-get($color, 'ink', 'error'),
+            border: pintig.theme-get($color, 'border', 'error'),
+          ));
+
+          &:focus {
+            @include pintig.color-bind('form-field', (
+              fill: pintig.theme-get($color, 'fill', 'error', 'focus'),
+              border: pintig.theme-get($color, 'border', 'error', 'focus'),
+            ));
+          }
+        }
+
+        .ms-form-field__helper {
+          @include pintig.color-bind('form-field-helper', (
             ink: pintig.theme-get($color, 'ink', 'error'),
           ));
         }
       }
 
-      .ms-form-field__input:not(:disabled),
-      .ms-form-field__input:not(:read-only) {
-        @include pintig.color-bind('form-field', (
-          fill: pintig.theme-get($color, 'fill', 'error'),
-          ink: pintig.theme-get($color, 'ink', 'error'),
-          border: pintig.theme-get($color, 'border', 'error'),
-        ));
-
-        &:focus {
-          @include pintig.color-bind('form-field', (
-            fill: pintig.theme-get($color, 'fill', 'error', 'focus'),
-            border: pintig.theme-get($color, 'border', 'error', 'focus'),
-          ));
-        }
-      }
-
-      .ms-form-field__helper {
-        @include pintig.color-bind('form-field-helper', (
-          ink: pintig.theme-get($color, 'ink', 'error'),
+      &:where(.is-raised) {
+        @include pintig.struct-bind('form-field', (
+          shadow: 'xs',
         ));
       }
-    }
-
-    &:where(.is-raised) {
-      @include pintig.struct-bind('form-field', (
-        shadow: 'xs',
-      ));
     }
   }
 }

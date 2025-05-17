@@ -20,112 +20,79 @@
 
   $resolve-padding: if(list.length(pintig.theme-get($struct, 'padding')) >= 2, list.nth(pintig.theme-get($struct, 'padding'), 2), list.nth(pintig.theme-get($struct, 'padding'), 1));
 
-  @include base.init(
-    pintig.primitive-token-switch('padding.#{$resolve-padding}', $resolve-padding),
-    pintig.primitive-token-switch('padding.#{$resolve-padding}', $resolve-padding),
-    pintig.primitive-token-switch('padding.#{list.nth(pintig.theme-get($struct, 'padding'), 1)}', list.nth(pintig.theme-get($struct, 'padding'), 1)),
-  ) {
-    @include pintig.color-bind('select-field-label', (
-      ink: pintig.theme-get($color, 'ink'),
-    ));
-    @include pintig.typography-bind('select-field-label', (
-      family: pintig.theme-get($typography, 'family'),
-      size: pintig.theme-get($typography, 'size', 'label'),
-      weight: pintig.theme-get($typography, 'weight'),
-      line-height: pintig.theme-get($typography, 'height'),
-    ));
+  @layer components {
+    @include base.init(
+        pintig.primitive-token-switch('padding.#{$resolve-padding}', $resolve-padding),
+        pintig.primitive-token-switch('padding.#{$resolve-padding}', $resolve-padding),
+        pintig.primitive-token-switch('padding.#{list.nth(pintig.theme-get($struct, 'padding'), 1)}', list.nth(pintig.theme-get($struct, 'padding'), 1)),
+    ) {
+      @include pintig.color-bind('select-field-label', (
+        ink: pintig.theme-get($color, 'ink'),
+      ));
+      @include pintig.typography-bind('select-field-label', (
+        family: pintig.theme-get($typography, 'family'),
+        size: pintig.theme-get($typography, 'size', 'label'),
+        weight: pintig.theme-get($typography, 'weight'),
+        line-height: pintig.theme-get($typography, 'height'),
+      ));
 
-    @include pintig.struct-bind('select-field', (
-      width: pintig.theme-get($struct, 'width'),
-      padding: pintig.theme-get($struct, 'padding'),
-      radius: pintig.theme-get($struct, 'radius'),
-      border-width: pintig.theme-get($struct, 'border-width'),
-      border-style: pintig.theme-get($struct, 'border-style'),
-      gap: pintig.theme-get($struct, 'gap'),
-    ));
-    @include pintig.typography-bind('select-field', (
-      family: pintig.theme-get($typography, 'family'),
-      size: pintig.theme-get($typography, 'size', 'default'),
-      weight: pintig.theme-get($typography, 'weight'),
-      line-height: pintig.theme-get($typography, 'height'),
-    ));
+      @include pintig.struct-bind('select-field', (
+        width: pintig.theme-get($struct, 'width'),
+        padding: pintig.theme-get($struct, 'padding'),
+        radius: pintig.theme-get($struct, 'radius'),
+        border-width: pintig.theme-get($struct, 'border-width'),
+        border-style: pintig.theme-get($struct, 'border-style'),
+        gap: pintig.theme-get($struct, 'gap'),
+      ));
+      @include pintig.typography-bind('select-field', (
+        family: pintig.theme-get($typography, 'family'),
+        size: pintig.theme-get($typography, 'size', 'default'),
+        weight: pintig.theme-get($typography, 'weight'),
+        line-height: pintig.theme-get($typography, 'height'),
+      ));
 
-    @include pintig.color-bind('select-field-helper', (
-      ink: pintig.theme-get($color, 'ink', 'helper'),
-    ));
-    @include pintig.typography-bind('select-field-helper', (
-      family: pintig.theme-get($typography, 'family'),
-      size: pintig.theme-get($typography, 'size', 'helper'),
-      weight: pintig.theme-get($typography, 'weight'),
-      line-height: pintig.theme-get($typography, 'height'),
-    ));
+      @include pintig.color-bind('select-field-helper', (
+        ink: pintig.theme-get($color, 'ink', 'helper'),
+      ));
+      @include pintig.typography-bind('select-field-helper', (
+        family: pintig.theme-get($typography, 'family'),
+        size: pintig.theme-get($typography, 'size', 'helper'),
+        weight: pintig.theme-get($typography, 'weight'),
+        line-height: pintig.theme-get($typography, 'height'),
+      ));
 
-    &:has(.ms-select-field__input:not(:read-only):not(:disabled)) {
-      .ms-select-field__label {
-        @include pintig.color-ink('select-field-label', pintig.theme-get($color, 'ink'), 'bind');
-      }
+      &:has(.ms-select-field__input:not(:read-only):not(:disabled)) {
+        .ms-select-field__label {
+          @include pintig.color-ink('select-field-label', pintig.theme-get($color, 'ink'), 'bind');
+        }
 
-      .ms-select-field__helper {
-        @include pintig.color-ink('select-field-helper', pintig.theme-get($color, 'ink', 'helper'), 'bind');
-      }
-    }
-
-    &:has(.ms-select-field__input:read-only:disabled) {
-      .ms-select-field__label {
-        @include pintig.color-ink('select-field-label', pintig.theme-get($color, 'ink', 'disabled'), 'bind');
-      }
-
-      .ms-select-field__helper {
-        @include pintig.color-ink('select-field-helper', pintig.theme-get($color, 'ink', 'disabled'), 'bind');
-      }
-    }
-
-    .ms-select-field__input {
-      &:not(:disabled),
-      &:not(:read-only) {
-        @include pintig.color-bind('select-field', (
-          fill: pintig.theme-get($color, 'fill'),
-          ink: pintig.theme-get($color, 'ink'),
-          border: pintig.theme-get($color, 'border'),
-        ));
-
-        &:focus {
-          @include pintig.color-bind('select-field', (
-            fill: pintig.theme-get($color, 'fill', 'focus'),
-            border: pintig.theme-get($color, 'border', 'focus'),
-          ));
-          @include pintig.struct-bind('select-field', (
-            border-width: pintig.theme-get($struct, 'border-width', 'focus'),
-          ));
+        .ms-select-field__helper {
+          @include pintig.color-ink('select-field-helper', pintig.theme-get($color, 'ink', 'helper'), 'bind');
         }
       }
 
-      &:disabled {
-        @include pintig.color-bind('select-field', (
-          fill: pintig.theme-get($color, 'fill', 'disabled'),
-          ink: pintig.theme-get($color, 'ink', 'disabled'),
-          border: pintig.theme-get($color, 'border', 'disabled'),
-        ));
-        cursor: not-allowed;
+      &:has(.ms-select-field__input:read-only:disabled) {
+        .ms-select-field__label {
+          @include pintig.color-ink('select-field-label', pintig.theme-get($color, 'ink', 'disabled'), 'bind');
+        }
+
+        .ms-select-field__helper {
+          @include pintig.color-ink('select-field-helper', pintig.theme-get($color, 'ink', 'disabled'), 'bind');
+        }
       }
-    }
 
-    .ms-select-field__helper {
-      padding: 0.3rem pintig.primitive-token-switch('padding.#{$resolve-padding}', $resolve-padding) 0;
-    }
-
-    &:where(.is-outlined) {
       .ms-select-field__input {
         &:not(:disabled),
         &:not(:read-only) {
           @include pintig.color-bind('select-field', (
-            fill: transparent,
+            fill: pintig.theme-get($color, 'fill'),
             ink: pintig.theme-get($color, 'ink'),
             border: pintig.theme-get($color, 'border'),
           ));
 
           &:focus {
             @include pintig.color-bind('select-field', (
+              fill: pintig.theme-get($color, 'fill', 'focus'),
               border: pintig.theme-get($color, 'border', 'focus'),
             ));
             @include pintig.struct-bind('select-field', (
@@ -136,10 +103,55 @@
 
         &:disabled {
           @include pintig.color-bind('select-field', (
-            fill: transparent,
+            fill: pintig.theme-get($color, 'fill', 'disabled'),
             ink: pintig.theme-get($color, 'ink', 'disabled'),
-            border: pintig.theme-get($color, 'fill', 'disabled'),
+            border: pintig.theme-get($color, 'border', 'disabled'),
           ));
+          cursor: not-allowed;
+        }
+      }
+
+      .ms-select-field__helper {
+        padding: 0.3rem pintig.primitive-token-switch('padding.#{$resolve-padding}', $resolve-padding) 0;
+      }
+
+      &:where(.is-outlined) {
+        .ms-select-field__input {
+          &:not(:disabled),
+          &:not(:read-only) {
+            @include pintig.color-bind('select-field', (
+              fill: transparent,
+              ink: pintig.theme-get($color, 'ink'),
+              border: pintig.theme-get($color, 'border'),
+            ));
+
+            &:focus {
+              @include pintig.color-bind('select-field', (
+                border: pintig.theme-get($color, 'border', 'focus'),
+              ));
+              @include pintig.struct-bind('select-field', (
+                border-width: pintig.theme-get($struct, 'border-width', 'focus'),
+              ));
+            }
+          }
+
+          &:disabled {
+            @include pintig.color-bind('select-field', (
+              fill: transparent,
+              ink: pintig.theme-get($color, 'ink', 'disabled'),
+              border: pintig.theme-get($color, 'fill', 'disabled'),
+            ));
+          }
+        }
+
+        &:where(.is-error) {
+          .ms-select-field__input:not(:disabled),
+          .ms-select-field__input:not(:read-only) {
+            @include pintig.color-bind('select-field', (
+              fill: rgba(0 0 0 / 0) !important,
+              border: 'error-alpha-400',
+            ));
+          }
         }
       }
 
@@ -147,47 +159,37 @@
         .ms-select-field__input:not(:disabled),
         .ms-select-field__input:not(:read-only) {
           @include pintig.color-bind('select-field', (
-            fill: rgba(0 0 0 / 0) !important,
-            border: 'error-alpha-400',
-          ));
-        }
-      }
-    }
-
-    &:where(.is-error) {
-      .ms-select-field__input:not(:disabled),
-      .ms-select-field__input:not(:read-only) {
-        @include pintig.color-bind('select-field', (
-          fill: 'error-alpha-300',
-          ink: 'error-400',
-          border: 'error-alpha-400'
-        ));
-
-        &:focus {
-          @include pintig.color-bind('select-field', (
             fill: 'error-alpha-300',
-            border: 'error-400'
+            ink: 'error-400',
+            border: 'error-alpha-400'
           ));
+
+          &:focus {
+            @include pintig.color-bind('select-field', (
+              fill: 'error-alpha-300',
+              border: 'error-400'
+            ));
+          }
+
+          + .ms-select-field__helper {
+            @include pintig.color-bind('select-field-helper', (
+              ink: 'error-400',
+            ));
+          }
         }
 
-        + .ms-select-field__helper {
+        .ms-select-field__helper {
           @include pintig.color-bind('select-field-helper', (
-            ink: 'error-400',
+            ink: pintig.theme-get($color, 'ink', 'helper'),
           ));
         }
       }
 
-      .ms-select-field__helper {
-        @include pintig.color-bind('select-field-helper', (
-          ink: pintig.theme-get($color, 'ink', 'helper'),
+      &:where(.is-raised) {
+        @include pintig.struct-bind('select-field', (
+          shadow: 'xs',
         ));
       }
-    }
-
-    &:where(.is-raised) {
-      @include pintig.struct-bind('select-field', (
-        shadow: 'xs',
-      ));
     }
   }
 }

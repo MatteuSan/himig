@@ -45,163 +45,165 @@ $_states: ('error');
     disabled: pintig.theme-get($color, 'border', 'disabled'),
   );
 
-  @include base.init() {
-    @include pintig.struct-apply('button', $struct);
-    @include pintig.typography-apply('button', $typography);
-    @include pintig.color-apply('button', (
-      fill: 'ms-black.800',
-      ink: 'ms-white.200',
-      border: 'ms-black.800',
-    ));
-    @include style.text(
-      $fills: $fills,
-      $inks: $inks,
-      $borders: $borders,
-    );
-    outline-offset: 2px;
-
-    &:where(:disabled) {
-      cursor: not-allowed;
-    }
-
-    &:where(.is-icon-only) {
-      @include pintig.struct-bind('button', (
-        width: (min: auto),
-        padding: list.nth(pintig.theme-get($struct, 'padding'), 1)
+  @layer components {
+    @include base.init() {
+      @include pintig.struct-apply('button', $struct);
+      @include pintig.typography-apply('button', $typography);
+      @include pintig.color-apply('button', (
+        fill: 'ms-black.800',
+        ink: 'ms-white.200',
+        border: 'ms-black.800',
       ));
+      @include style.text(
+        $fills: $fills,
+        $inks: $inks,
+        $borders: $borders,
+      );
+      outline-offset: 2px;
 
-      > .ms-button__label {
-        display: none;
+      &:where(:disabled) {
+        cursor: not-allowed;
       }
-    }
 
-    &:where(.is-small) {
-      @include pintig.struct-bind('button', (
-        'padding': ('sm' 'md')
-      ));
-      @include pintig.typography-apply('button', (
-        'size': pintig.to-rem(12px)
-      ));
-    }
+      &:where(.is-icon-only) {
+        @include pintig.struct-bind('button', (
+          width: (min: auto),
+          padding: list.nth(pintig.theme-get($struct, 'padding'), 1)
+        ));
 
-    &:where(.is-large) {
-      @include pintig.struct-bind('button', (
-        'padding': ('md' 'lg')
-      ));
-      @include pintig.typography-apply('button', (
-        'size': 'md'
-      ));
-    }
+        > .ms-button__label {
+          display: none;
+        }
+      }
 
-    @each $state in $_states {
-      &:where(.is-#{$state}) {
-        @include style.text(
-          $fills: (
-            'default': '#{$state}-400',
-            'hover': '#{$state}-300',
-            'focus': '#{$state}-400',
-            'active': '#{$state}-200',
-            'disabled': 'disabled-ink',
-          ),
-          $inks: (
-            'default': '#{$state}-ink',
-            'disabled': 'disabled-ink'
-          ),
-          $borders: (
-            'default': '#{$state}-400',
-            'hover': '#{$state}-300',
-            'focus': '#{$state}-400',
-            'active': '#{$state}-200',
-            'disabled': 'disabled-ink',
-          )
+      &:where(.is-small) {
+        @include pintig.struct-bind('button', (
+          'padding': ('sm' 'md')
+        ));
+        @include pintig.typography-apply('button', (
+          'size': pintig.to-rem(12px)
+        ));
+      }
+
+      &:where(.is-large) {
+        @include pintig.struct-bind('button', (
+          'padding': ('md' 'lg')
+        ));
+        @include pintig.typography-apply('button', (
+          'size': 'md'
+        ));
+      }
+
+      @each $state in $_states {
+        &:where(.is-#{$state}) {
+          @include style.text(
+            $fills: (
+              'default': '#{$state}-400',
+              'hover': '#{$state}-300',
+              'focus': '#{$state}-400',
+              'active': '#{$state}-200',
+              'disabled': 'disabled-ink',
+            ),
+            $inks: (
+              'default': '#{$state}-ink',
+              'disabled': 'disabled-ink'
+            ),
+            $borders: (
+              'default': '#{$state}-400',
+              'hover': '#{$state}-300',
+              'focus': '#{$state}-400',
+              'active': '#{$state}-200',
+              'disabled': 'disabled-ink',
+            )
+          );
+        }
+      }
+
+      &:where(.is-fullwidth) {
+        @include pintig.struct-width('button', (
+          default: 100%,
+          min: auto,
+          max: 100%
+        ), 'bind');
+      }
+
+      &:where(.is-outlined) {
+        @include style.outlined(
+          $fills: $fills,
+          $inks: $inks,
+          $borders: $borders,
         );
-      }
-    }
 
-    &:where(.is-fullwidth) {
-      @include pintig.struct-width('button', (
-        default: 100%,
-        min: auto,
-        max: 100%
-      ), 'bind');
-    }
-
-    &:where(.is-outlined) {
-      @include style.outlined(
-        $fills: $fills,
-        $inks: $inks,
-        $borders: $borders,
-      );
-
-      @each $state in $_states {
-        &:where(.is-#{$state}) {
-          @include style.outlined(
-            $fills: (
-              'default': '#{$state}-400',
-              'hover': '#{$state}-300',
-              'focus': '#{$state}-400',
-              'active': '#{$state}-200',
-              'disabled': 'disabled-ink',
-            ),
-            $inks: (
-              'default': '#{$state}-ink',
-              'disabled': 'disabled-ink'
-            ),
-            $borders: (
-              'default': '#{$state}-400',
-              'hover': '#{$state}-300',
-              'focus': '#{$state}-400',
-              'active': '#{$state}-200',
-              'disabled': 'disabled-ink',
-            )
-          );
-        }
-      }
-    }
-
-    &:where(.is-filled) {
-      @include style.filled(
-        $fills: $fills,
-        $inks: $inks,
-        $borders: $borders,
-      );
-
-      @each $state in $_states {
-        &:where(.is-#{$state}) {
-          @include style.filled(
-            $fills: (
-              'default': '#{$state}-400',
-              'hover': '#{$state}-300',
-              'focus': '#{$state}-400',
-              'active': '#{$state}-200',
-              'disabled': 'disabled',
-            ),
-            $inks: (
-              'default': '#{$state}-ink',
-              'disabled': 'disabled-ink'
-            ),
-            $borders: (
-              'default': '#{$state}-400',
-              'hover': '#{$state}-300',
-              'focus': '#{$state}-400',
-              'active': '#{$state}-200',
-              'disabled': 'disabled',
-            )
-          );
-        }
-      }
-
-      &:where(.is-raised) {
-        &:not(:disabled) {
-          @include pintig.struct-shadow('button', 'xs');
-
-          &:hover,
-          &:focus {
-            @include pintig.struct-shadow('button', 'xs');
+        @each $state in $_states {
+          &:where(.is-#{$state}) {
+            @include style.outlined(
+              $fills: (
+                'default': '#{$state}-400',
+                'hover': '#{$state}-300',
+                'focus': '#{$state}-400',
+                'active': '#{$state}-200',
+                'disabled': 'disabled-ink',
+              ),
+              $inks: (
+                'default': '#{$state}-ink',
+                'disabled': 'disabled-ink'
+              ),
+              $borders: (
+                'default': '#{$state}-400',
+                'hover': '#{$state}-300',
+                'focus': '#{$state}-400',
+                'active': '#{$state}-200',
+                'disabled': 'disabled-ink',
+              )
+            );
           }
+        }
+      }
 
-          &:active {
-            @include pintig.struct-shadow('button', 'sm');
+      &:where(.is-filled) {
+        @include style.filled(
+          $fills: $fills,
+          $inks: $inks,
+          $borders: $borders,
+        );
+
+        @each $state in $_states {
+          &:where(.is-#{$state}) {
+            @include style.filled(
+              $fills: (
+                'default': '#{$state}-400',
+                'hover': '#{$state}-300',
+                'focus': '#{$state}-400',
+                'active': '#{$state}-200',
+                'disabled': 'disabled',
+              ),
+              $inks: (
+                'default': '#{$state}-ink',
+                'disabled': 'disabled-ink'
+              ),
+              $borders: (
+                'default': '#{$state}-400',
+                'hover': '#{$state}-300',
+                'focus': '#{$state}-400',
+                'active': '#{$state}-200',
+                'disabled': 'disabled',
+              )
+            );
+          }
+        }
+
+        &:where(.is-raised) {
+          &:not(:disabled) {
+            @include pintig.struct-shadow('button', 'xs');
+
+            &:hover,
+            &:focus {
+              @include pintig.struct-shadow('button', 'xs');
+            }
+
+            &:active {
+              @include pintig.struct-shadow('button', 'sm');
+            }
           }
         }
       }

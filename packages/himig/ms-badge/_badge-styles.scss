@@ -17,17 +17,19 @@
   $typography: pintig.theme-merge(theme.$init-typography, $typography);
   $settings: pintig.theme-merge(theme.$init-settings, $settings);
 
-  @include base.init() {
-    @include pintig.color-apply('badge', $color);
-    @include pintig.struct-apply('badge', $struct);
-    @include pintig.typography-bind('badge', $typography);
+  @layer components {
+    @include base.init() {
+      @include pintig.color-apply('badge', $color);
+      @include pintig.struct-apply('badge', $struct);
+      @include pintig.typography-bind('badge', $typography);
 
-    &:where(.is-outlined) {
-      @include pintig.color-bind('badge', (
-        fill: transparent,
-        ink: pintig.theme-get($color, 'fill'),
-        border: pintig.theme-get($color, 'border')
-      ));
+      &:where(.is-outlined) {
+        @include pintig.color-bind('badge', (
+          fill: transparent,
+          ink: pintig.theme-get($color, 'fill'),
+          border: pintig.theme-get($color, 'border')
+        ));
+      }
     }
   }
 }
