@@ -22,7 +22,8 @@
     }
 
     &:has(.ms-select-field__input:focus),
-    &:has(.ms-select-field__input:valid), {
+    &:has(.ms-select-field__input:valid),
+    &:has(.ms-select-field__input > option:checked),{
       .ms-select-field__label {
         top: math.div($top-label-distance, 2) !important;
         @include pintig.typography-bind('select-field-label', (

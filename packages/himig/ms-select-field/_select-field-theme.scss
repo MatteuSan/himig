@@ -4,12 +4,12 @@
 
 $init-color: (
   fill: (
-    default: 'surface-alpha-800',
-    focus: 'accent-alpha-300',
+    default: 'surface-400',
+    focus: 'surface-300',
     disabled: 'disabled',
     error: (
-      default: 'error-alpha-300',
-      focus: 'error-alpha-400'
+      default: 'error-800',
+      focus: 'error-800'
     )
   ),
   ink: (
@@ -23,7 +23,7 @@ $init-color: (
     focus: 'accent-400',
     disabled: 'disabled',
     error: (
-      default: 'error-alpha-800',
+      default: 'error-800',
       focus: 'error-400'
     )
   ),
@@ -34,8 +34,8 @@ $init-struct: (
   padding: ('md', 'lg'),
   radius: 'small',
   border-width: (
-    'default': 2px,
-    'focus': 2px
+    'default': 'xs',
+    'focus': 'xs'
   ),
   border-style: solid,
   gap: 'sm'

@@ -22,9 +22,9 @@
 
   @layer components {
     @include base.init(
-        pintig.primitive-token-switch('padding.#{$resolve-padding}', $resolve-padding),
-        pintig.primitive-token-switch('padding.#{$resolve-padding}', $resolve-padding),
-        pintig.primitive-token-switch('padding.#{list.nth(pintig.theme-get($struct, 'padding'), 1)}', list.nth(pintig.theme-get($struct, 'padding'), 1)),
+      pintig.primitive-token-switch('padding.#{$resolve-padding}', $resolve-padding),
+      pintig.primitive-token-switch('padding.#{$resolve-padding}', $resolve-padding),
+      pintig.primitive-token-switch('padding.#{list.nth(pintig.theme-get($struct, 'padding'), 1)}', list.nth(pintig.theme-get($struct, 'padding'), 1)),
     ) {
       .ms-form-field__label {
         @include pintig.color-bind('form-field-label', (
@@ -37,14 +37,6 @@
           line-height: pintig.theme-get($typography, 'height'),
         ));
         user-select: none;
-      }
-
-      &:has(.ms-form-field__input:not(:read-only):not(:disabled)) {
-        .ms-form-field__label {
-          @include pintig.color-bind('form-field-label', (
-            ink: pintig.theme-get($color, 'ink'),
-          ));
-        }
       }
 
       &:has(.ms-form-field__input:read-only:disabled) {
@@ -74,14 +66,14 @@
         &:not(:read-only),
         &:not(:disabled) {
           @include pintig.color-bind('form-field', (
-            fill: pintig.theme-get($color, 'fill'),
+            fill: rgb(from pintig.token-switch(pintig.theme-get($color, 'fill')) r g b / pintig.$color-fill-focus-opacity),
             ink: pintig.theme-get($color, 'ink'),
             border: pintig.theme-get($color, 'border'),
           ));
 
           &:focus {
             @include pintig.color-bind('form-field', (
-              fill: pintig.theme-get($color, 'fill', 'focus'),
+              fill: rgb(from pintig.token-switch(pintig.theme-get($color, 'fill', 'focus')) r g b / pintig.$color-fill-focus-opacity),
               border: pintig.theme-get($color, 'border', 'focus'),
             ));
             @include pintig.struct-bind('form-field', (
@@ -114,66 +106,11 @@
         ));
       }
 
-      &:where(.is-outlined) {
-        &:has(.ms-form-field__input:not(:read-only):not(:disabled)) {
-          .ms-form-field__label {
-            @include pintig.color-bind('form-field-label', (
-              ink: pintig.theme-get($color, 'ink'),
-            ));
-          }
-        }
-
-        .ms-form-field__input {
-          &:not(:read-only),
-          &:not(:disabled) {
-            @include pintig.color-bind('form-field', (
-              fill: rgba(0 0 0 / 0) !important,
-              ink: pintig.theme-get($color, 'ink'),
-              border: pintig.theme-get($color, 'border'),
-            ));
-
-            &:focus {
-              @include pintig.color-bind('form-field', (
-                border: pintig.theme-get($color, 'border', 'focus'),
-              ));
-              @include pintig.struct-bind('form-field', (
-                border-width: pintig.theme-get($struct, 'border-width', 'focus'),
-              ));
-            }
-          }
-
-          &:read-only,
-          &:disabled {
-            @include pintig.color-bind('form-field', (
-              fill: transparent,
-              ink: pintig.theme-get($color, 'ink', 'disabled'),
-              border: pintig.theme-get($color, 'fill', 'disabled'),
-            ));
-          }
-        }
-
-        &:where(.is-error) {
-          .ms-form-field__input:not(:read-only),
-          .ms-form-field__input:not(:disabled) {
-            @include pintig.color-bind('form-field', (
-              fill: rgba(0 0 0 / 0) !important,
-              border: pintig.theme-get($color, 'border', 'error'),
-            ));
-          }
-        }
-      }
-
       &:where(.is-error) {
-        .ms-form-field__label {
-          @include pintig.color-bind('form-field-label', (
-            ink: pintig.theme-get($color, 'ink', 'disabled'),
-          ));
-        }
-
         &:has(.ms-form-field__input:not(:read-only):not(:disabled)) {
           .ms-form-field__label {
             @include pintig.color-bind('form-field-label', (
-              ink: pintig.theme-get($color, 'ink', 'error'),
+              ink: rgb(from pintig.token-switch(pintig.theme-get($color, 'ink', 'error')) r g b / 70%),
             ));
           }
         }
@@ -181,14 +118,14 @@
         .ms-form-field__input:not(:disabled),
         .ms-form-field__input:not(:read-only) {
           @include pintig.color-bind('form-field', (
-            fill: pintig.theme-get($color, 'fill', 'error'),
+            fill: rgb(from pintig.token-switch(pintig.theme-get($color, 'fill', 'error')) r g b / pintig.$color-fill-focus-opacity),
             ink: pintig.theme-get($color, 'ink', 'error'),
             border: pintig.theme-get($color, 'border', 'error'),
           ));
 
           &:focus {
             @include pintig.color-bind('form-field', (
-              fill: pintig.theme-get($color, 'fill', 'error', 'focus'),
+              fill: rgb(from pintig.token-switch(pintig.theme-get($color, 'fill', 'error', 'focus')) r g b / pintig.$color-fill-focus-opacity),
               border: pintig.theme-get($color, 'border', 'error', 'focus'),
             ));
           }
