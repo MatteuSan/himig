@@ -19,8 +19,6 @@ $init-struct: (
   ),
   radius: 'md',
   padding: 'lg',
-  border-width: 'xs',
-  border-style: 'solid',
   gap: (
     section: 'md',
     header: 'md',
@@ -31,7 +29,7 @@ $init-struct: (
 $init-typography: (
   family: (
     'default': 'body',
-    'title': 'subtitle',
+    'title': 'title',
     'subtitle': 'body',
   ),
   size: (
@@ -42,12 +40,17 @@ $init-typography: (
   ),
   weight: (
     'default': 'normal',
-    'title': 'bold',
+    'title': 'normal',
     'subtitle': 'normal',
   ),
   line-height: (
     'default': 'normal',
     'title': 'normal',
+    'subtitle': 'normal',
+  ),
+  squeeze: (
+    'default': 'normal',
+    'title': 'tight',
     'subtitle': 'normal',
   ),
 );

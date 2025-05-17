@@ -19,206 +19,238 @@
   $title-size: pintig.theme-get($typography, 'size', 'title');
   $title-weight: pintig.theme-get($typography, 'weight', 'title');
   $title-line-height: pintig.theme-get($typography, 'line-height', 'title');
+  $title-squeeze: pintig.theme-get($typography, 'squeeze', 'title');
 
   $subtitle-family: pintig.theme-get($typography, 'family', 'subtitle');
   $subtitle-size: pintig.theme-get($typography, 'size', 'subtitle');
   $subtitle-weight: pintig.theme-get($typography, 'weight', 'subtitle');
   $subtitle-line-height: pintig.theme-get($typography, 'line-height', 'subtitle');
+  $subtitle-squeeze: pintig.theme-get($typography, 'squeeze', 'subtitle');
 
   $content-family: pintig.theme-get($typography, 'family');
   $content-size: pintig.theme-get($typography, 'size');
   $content-weight: pintig.theme-get($typography, 'weight');
   $content-line-height: pintig.theme-get($typography, 'line-height');
+  $content-squeeze: pintig.theme-get($typography, 'squeeze');
 
   $icon-size: pintig.theme-get($struct, 'size', 'icon');
 
   .ms-card {
     display: flex;
     flex-flow: column nowrap;
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow 0.2s ease;
     @include pintig.struct-gap('card-section', $section-gap, 'bind');
 
     @content;
 
-    .ms-card__media {
-      width: 100%;
-      height: 100%;
-      max-height: 120px;
-      overflow: hidden;
-      @include pintig.struct-apply('card-media', (
-        radius: ($radius $radius 0 0),
-      ));
+    &:hover {
+      .ms-card__media {
+        -webkit-filter: grayscale(0);
+        filter: grayscale(0);
+      }
 
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
+      @include pintig.breakpoint-create('large') {
+        &:has(.ms-card__media img) {
+          .ms-card__details {
+            bottom: 0;
+            transform: translateY(0);
+            opacity: 1;
+          }
+        }
       }
     }
 
     .ms-card__header {
+      padding-block-end: 0 !important;
+
+      .ms-card__title {
+        letter-spacing: pintig.to-rem(-1px);
+      }
+    }
+
+    &:has(.ms-card__media) {
+      .ms-card__details {
+        height: auto !important;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: flex-start;
+        transform-origin: bottom;
+
+        @include pintig.breakpoint-create('large') {
+          position: absolute;
+          right: 0;
+          bottom: -100%;
+          left: 0;
+          opacity: 0;
+          transform: translateY(100%);
+          transition: all pintig.token-get('time-short') pintig.token-get('easing-smooth');
+
+          .ms-card__header {
+            padding-block-end: 0 !important;
+          }
+        }
+      }
+    }
+
+    .ms-card__media {
+      width: 100%;
+      height: 100%;
+      max-height: 100%;
+      overflow: hidden;
+      @include pintig.struct-apply('card-media', (
+        radius: ($radius $radius 0 0),
+      ));
+      aspect-ratio: var(--ms-card-aspect-ratio, 16 / 8);
+      transition: all 0.4s ease;
+      -webkit-filter: grayscale(100%);
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .ms-card__details {
+      height: 100%;
       display: flex;
-      flex-flow: row nowrap;
+      flex-flow: column nowrap;
       justify-content: space-between;
-      gap: pintig.key-create('card-header-gap', pintig.primitive-token-switch('spacing.#{$header-gap}', $header-gap));
-      @include pintig.color-border('card', transparent);
-      @include pintig.struct-apply('card-header', (
-        radius: (0),
-        padding: ($padding $padding 0),
-        border-width: ('xs' 'xs' 0),
-        border-style: 'solid',
-      ));
+      transition: all 0.8s var(--easing);
+      will-change: transform;
 
-      &:not(:only-child),
-      &:not(:last-child) {
-        padding-bottom: pintig.key-get('card-section-gap');
-      }
-
-      &:last-child {
-        @include pintig.struct-bind('card-header', (
-          radius: (0 0 $radius $radius),
-          border-width: (0 'xs' 'xs'),
-          padding: (0 $padding $padding),
-        ));
-      }
-
-      &:first-child {
-        @include pintig.struct-bind('card-header', (
-          radius: ($radius $radius 0 0),
+      .ms-card__header {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        gap: pintig.key-create('card-header-gap', pintig.primitive-token-switch('spacing.#{$header-gap}', $header-gap));
+        @include pintig.struct-apply('card-header', (
+          radius: (0),
           padding: ($padding $padding 0),
-          border-width: ('xs' 'xs' 0),
         ));
-      }
 
-      &:only-child {
-        @include pintig.struct-bind('card-header', (
-          radius: $radius,
-          padding: $padding,
-          border-width: ('xs'),
-        ));
-      }
+        &:not(:only-child),
+        &:not(:last-child) {
+          padding-block-end: pintig.key-get('card-section-gap');
+        }
 
-      .ms-card__mast {
-        .ms-card__title {
-          @include pintig.typography-apply('card-title', (
-            family: $title-family,
-            size: $title-size,
-            weight: $title-weight,
-            line-height: $title-line-height
+        &:last-child {
+          @include pintig.struct-bind('card-header', (
+            radius: (0 0 $radius $radius),
+            padding: (0 $padding $padding),
           ));
-          @include pintig.break(1);
         }
 
-        .ms-card__subtitle {
-          @include pintig.typography-apply('card-subtitle', (
-            family: $subtitle-family,
-            size: $subtitle-size,
-            weight: $subtitle-weight,
-            line-height: $subtitle-line-height
+        &:first-child {
+          @include pintig.struct-bind('card-header', (
+            radius: ($radius $radius 0 0),
+            padding: ($padding $padding 0),
           ));
-          @include pintig.break(2);
+        }
+
+        &:only-child {
+          @include pintig.struct-bind('card-header', (
+            radius: $radius,
+            padding: $padding,
+          ));
+        }
+
+        .ms-card__mast {
+          .ms-card__title {
+            @include pintig.typography-apply('card-title', (
+              family: $title-family,
+              size: $title-size,
+              weight: $title-weight,
+              line-height: $title-line-height,
+              squeeze: $title-squeeze
+            ));
+            @include pintig.break(1);
+          }
+
+          .ms-card__subtitle {
+            @include pintig.typography-apply('card-subtitle', (
+              family: $subtitle-family,
+              size: $subtitle-size,
+              weight: $subtitle-weight,
+              line-height: $subtitle-line-height,
+              squeeze: $subtitle-squeeze
+            ));
+            @include pintig.break(2);
+          }
         }
       }
 
-      .ms-card__icon {
-        width: pintig.key-create('card-icon-size', pintig.token-switch($icon-size));
-        height: pintig.key-create('card-icon-size', pintig.token-switch($icon-size));
-        border-radius: 50%;
-        @include pintig.color-apply('card-icon', (
-          border: 'accent-400'
-        ));
-        @include pintig.struct-apply('card-icon', (
-          border-width: 1px,
-          border-style: solid
+      .ms-card__content {
+        @include pintig.struct-apply('card', (
+          radius: (0 0 $radius $radius),
+          padding: (0 $padding),
         ));
 
-        img {
-          height: 100%;
-          object-fit: cover;
-          object-position: center;
+        p {
+          @include pintig.typography-apply('card', (
+            family: $content-family,
+            size: $content-size,
+            weight: $content-weight,
+            line-height: $content-line-height,
+            squeeze: $content-squeeze
+          ));
+        }
+
+        &:not(:only-child),
+        &:not(:last-child) {
+          padding-block-end: pintig.key-get('card-section-gap');
+        }
+
+        &:last-child {
+          @include pintig.struct-bind('card', (
+            radius: (0 0 $radius $radius),
+            padding: (0 $padding $padding),
+          ));
+        }
+
+        &:first-child {
+          @include pintig.struct-bind('card', (
+            radius: ($radius $radius 0 0),
+            padding: ($padding $padding 0),
+          ));
+        }
+
+        &:only-child {
+          @include pintig.struct-bind('card', (
+            radius: $radius,
+            padding: $padding,
+          ));
         }
       }
-    }
 
-    .ms-card__content {
-      @include pintig.color-border('card', transparent);
-      @include pintig.struct-apply('card', (
-        radius: (0 0 $radius $radius),
-        padding: (0 $padding),
-        border-width: (0 'xs' 'xs'),
-        border-style: 'solid',
-      ));
-
-      p {
-        @include pintig.typography-apply('card', (
-          family: $content-family,
-          size: $content-size,
-          weight: $content-weight,
-          line-height: $content-line-height
-        ));
-      }
-
-      &:not(:only-child),
-      &:not(:last-child) {
-        padding-bottom: pintig.key-get('card-section-gap');
-      }
-
-      &:last-child {
-        @include pintig.struct-bind('card', (
+      .ms-card__footer {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: end;
+        gap: pintig.key-create('card-footer-gap', pintig.primitive-token-switch('spacing.#{$footer-gap}', $footer-gap));
+        @include pintig.struct-apply('card-footer', (
           radius: (0 0 $radius $radius),
-          padding: (0 $padding $padding),
+          padding: (0 $padding),
         ));
-      }
 
-      &:first-child {
-        @include pintig.struct-bind('card', (
-          radius: ($radius $radius 0 0),
-          padding: ($padding $padding 0),
-          border-width: ('xs' 'xs' 0),
-        ));
-      }
+        &:last-child {
+          @include pintig.struct-bind('card-footer', (
+            radius: (0 0 $radius $radius),
+            padding: (0 $padding $padding),
+          ));
+        }
 
-      &:only-child {
-        @include pintig.struct-bind('card', (
-          radius: $radius,
-          padding: $padding,
-          border-width: 'xs'
-        ));
-      }
-    }
+        &:first-child {
+          @include pintig.struct-bind('card-footer', (
+            radius: ($radius $radius 0 0),
+            padding: ($padding $padding 0),
+          ));
+        }
 
-    .ms-card__footer {
-      display: flex;
-      flex-flow: row nowrap;
-      justify-content: end;
-      gap: pintig.key-create('card-footer-gap', pintig.primitive-token-switch('spacing.#{$footer-gap}', $footer-gap));
-      @include pintig.color-border('card', transparent);
-      @include pintig.struct-apply('card-footer', (
-        radius: (0 0 $radius $radius),
-        padding: (0 $padding),
-        border-width: 'xs',
-        border-style: 'solid',
-      ));
-
-      &:last-child {
-        @include pintig.struct-bind('card-footer', (
-          radius: (0 0 $radius $radius),
-          padding: (0 $padding $padding),
-        ));
-      }
-
-      &:first-child {
-        @include pintig.struct-bind('card-footer', (
-          radius: ($radius $radius 0 0),
-          padding: ($padding $padding 0),
-        ));
-      }
-
-      &:only-child {
-        @include pintig.struct-bind('card-footer', (
-          radius: $radius,
-          padding: $padding,
-        ));
+        &:only-child {
+          @include pintig.struct-bind('card-footer', (
+            radius: $radius,
+            padding: $padding,
+          ));
+        }
       }
     }
   }
