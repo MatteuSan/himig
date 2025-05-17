@@ -1,6 +1,6 @@
 {
-  "name": "@matteusan",
-  "version": "1.9.0-alpha",
+  "name": "@matteusan/pintig",
+  "version": "1.8.0",
   "description": "The core library for the Himig Design System. Portable to any design system.",
   "main": "_index.scss",
   "repository": "https://github.com/MatteuSan/himig",
