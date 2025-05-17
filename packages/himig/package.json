@@ -41,7 +41,7 @@
     }
   },
   "dependencies": {
-    "@matteusan/pintig": "",
+    "@matteusan/pintig": "^1.9",
     "@matteusan/sentro": "^1.2.3"
   }
 }
