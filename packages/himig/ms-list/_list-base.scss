@@ -39,7 +39,7 @@
         weight: inherit,
         line-height: inherit,
       ));
-      @include pintig.prefix(transition, all var(--ms-transition-time) ease);
+      @include pintig.prefix(transition, all pintig.token-get('time-short') pintig.token-get('easing'));
     }
   }
 }

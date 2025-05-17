@@ -26,7 +26,7 @@
         padding: ('xs' 'xs' 0 0),
       ));
       @include pintig.typography-apply('form-field-label', pintig.$type-inherit-template);
-      @include pintig.prefix(transition, all var(--ms-transition-time) ease);
+      @include pintig.prefix(transition, all pintig.token-get('time-short') ease);
       cursor: text;
     }
 
