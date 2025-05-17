@@ -173,5 +173,5 @@
 }
 
 @function _raw($query) {
-  @return pintig.token-switch-raw($query);
+  @return pintig.token-switch($query);
 }

@@ -78,19 +78,21 @@ $_states: ('error');
 
       &:where(.is-small) {
         @include pintig.struct-bind('button', (
-          'padding': ('sm' 'md')
+          padding: ('sm' 'md'),
         ));
         @include pintig.typography-apply('button', (
-          'size': pintig.to-rem(12px)
+          size: 'xs'
         ));
       }
 
       &:where(.is-large) {
         @include pintig.struct-bind('button', (
-          'padding': ('md' 'lg')
+          padding: ('lg' 'xl'),
+          gap: 'sm',
+          radius: 'md'
         ));
         @include pintig.typography-apply('button', (
-          'size': 'md'
+          size: 'md'
         ));
       }
 
