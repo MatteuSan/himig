@@ -34,19 +34,19 @@
 
       &:hover {
         @include pintig.color-bind('link', (
-          fill: pintig.theme-get($color, 'fill', 'hover')
+          fill: rgb(from pintig.token-switch(pintig.theme-get($color, 'fill', 'hover')) r g b / pintig.$color-fill-hover-opacity)
         ));
       }
 
       &:focus {
         @include pintig.color-bind('link', (
-          fill: pintig.theme-get($color, 'fill', 'focus')
+          fill: rgb(from pintig.token-switch(pintig.theme-get($color, 'fill', 'focus')) r g b / pintig.$color-fill-focus-opacity)
         ));
       }
 
       &:active {
         @include pintig.color-bind('link', (
-          fill: pintig.theme-get($color, 'fill', 'active')
+          fill: rgb(from pintig.token-switch(pintig.theme-get($color, 'fill', 'active')) r g b / pintig.$color-fill-active-opacity)
         ));
       }
     }
