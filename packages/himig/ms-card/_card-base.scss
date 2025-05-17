@@ -47,8 +47,8 @@
 
     &:hover {
       .ms-card__media {
-        -webkit-filter: grayscale(0);
-        filter: grayscale(0);
+        -webkit-filter: saturate(15%) blur(5px);
+        filter: saturate(15%) blur(5px);
       }
 
       @include pintig.breakpoint-create('large') {
@@ -104,7 +104,6 @@
       ));
       aspect-ratio: var(--ms-card-aspect-ratio, 16 / 8);
       transition: all 0.4s ease;
-      -webkit-filter: grayscale(100%);
       object-fit: cover;
       object-position: center;
     }
@@ -116,6 +115,7 @@
       justify-content: space-between;
       transition: all 0.8s var(--easing);
       will-change: transform;
+      gap: pintig.key-get('card-section-gap');
 
       .ms-card__header {
         display: flex;
@@ -129,7 +129,9 @@
 
         &:not(:only-child),
         &:not(:last-child) {
-          padding-block-end: pintig.key-get('card-section-gap');
+          @include pintig.struct-bind('card-header', (
+            padding: (auto auto #{pintig.key-get('card-section-gap')}),
+          ));
         }
 
         &:last-child {
@@ -196,7 +198,9 @@
 
         &:not(:only-child),
         &:not(:last-child) {
-          padding-block-end: pintig.key-get('card-section-gap');
+          @include pintig.struct-bind('card', (
+            padding: (auto auto #{pintig.key-get('card-section-gap')}),
+          ));
         }
 
         &:last-child {

@@ -962,29 +962,29 @@ __metadata:
 
 "@matteusan/himig@file:./packages/himig::locator=himig%40workspace%3A.":
   version: 1.7.4
-  resolution: "@matteusan/himig@file:./packages/himig#./packages/himig::hash=41f763&locator=himig%40workspace%3A."
+  resolution: "@matteusan/himig@file:./packages/himig#./packages/himig::hash=bd7475&locator=himig%40workspace%3A."
   dependencies:
-    "@matteusan/pintig": "file:../pintig"
+    "@matteusan/pintig": ^1.9
     "@matteusan/sentro": ^1.2.3
-  checksum: 9c56512e689d440382dae79c885766a0b0016e13a2d1375bcad5c449e328265c2bd659d2e6ec7eb5bd7504e45696898cf791cddc1c2d44fac296693f1e3603fb
-  languageName: node
-  linkType: hard
-
-"@matteusan/pintig@file:../pintig::locator=%40matteusan%2Fhimig%40file%3A.%2Fpackages%2Fhimig%23.%2Fpackages%2Fhimig%3A%3Ahash%3D41f763%26locator%3Dhimig%2540workspace%253A.":
-  version: 1.9.0-alpha
-  resolution: "@matteusan/pintig@file:../pintig#../pintig::hash=4eb45a&locator=%40matteusan%2Fhimig%40file%3A.%2Fpackages%2Fhimig%23.%2Fpackages%2Fhimig%3A%3Ahash%3D41f763%26locator%3Dhimig%2540workspace%253A."
-  dependencies:
-    "@matteusan/sentro": ^1.2.3
-  checksum: 4fb01cd71af2c4f0654d981a7130454b2348905093daa21908552cad008633000b7dd1ac0c1e7a7bf487e64a55b50c7da1d9d2d9c52d2803f23c2bd7cdbe823a
+  checksum: 6f84c15169784be0ad5b6b34ac1d88d4257f6d5652aab4eff584d149f54b9f1206cb6d369558d17fcb3f3f6ad819dc0e0427f79908bc0a26438e178ff4b4a6f5
   languageName: node
   linkType: hard
 
 "@matteusan/pintig@file:./packages/pintig::locator=himig%40workspace%3A.":
-  version: 1.9.0-alpha
-  resolution: "@matteusan/pintig@file:./packages/pintig#./packages/pintig::hash=4eb45a&locator=himig%40workspace%3A."
+  version: 1.9.0
+  resolution: "@matteusan/pintig@file:./packages/pintig#./packages/pintig::hash=48b724&locator=himig%40workspace%3A."
   dependencies:
     "@matteusan/sentro": ^1.2.3
-  checksum: 4fb01cd71af2c4f0654d981a7130454b2348905093daa21908552cad008633000b7dd1ac0c1e7a7bf487e64a55b50c7da1d9d2d9c52d2803f23c2bd7cdbe823a
+  checksum: 56eeb036f5e123e2a77fd865595f0d2aae70907b07ee7d931d1f108e15f4d9294bf53ef414938716cf68482f1c942c9d2a8fbba2a087da0d0ee0547b82ffe929
+  languageName: node
+  linkType: hard
+
+"@matteusan/pintig@npm:^1.9":
+  version: 1.9.0
+  resolution: "@matteusan/pintig@npm:1.9.0"
+  dependencies:
+    "@matteusan/sentro": ^1.2.3
+  checksum: 9c9493bbb599cb870fa77d8097f78e20df924e51618f013e867c55787294efd91c653bd3a8dbd27d1b7ca3bcece3fa34104687cab93d1a962532320684bc2d46
   languageName: node
   linkType: hard
 

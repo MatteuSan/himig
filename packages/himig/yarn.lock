@@ -9,21 +9,21 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@matteusan/himig@workspace:."
   dependencies:
-    "@matteusan/pintig": ^1.8
-    "@matteusan/sentro": ^1.2.2
+    "@matteusan/pintig": ^1.9
+    "@matteusan/sentro": ^1.2.3
   languageName: unknown
   linkType: soft
 
-"@matteusan/pintig@npm:^1.8":
-  version: 1.8.0
-  resolution: "@matteusan/pintig@npm:1.8.0"
+"@matteusan/pintig@npm:^1.9":
+  version: 1.9.0
+  resolution: "@matteusan/pintig@npm:1.9.0"
   dependencies:
-    "@matteusan/sentro": ^1.2.2
-  checksum: f83672ea90c7f8863eafc1fb2230a4094944280a556a451eb11ec3b03f8a6bbe4692b5cf9af400411f30574e09cb3b5cc94eb5c0c7522c6230b18d69b2db0d52
+    "@matteusan/sentro": ^1.2.3
+  checksum: 9c9493bbb599cb870fa77d8097f78e20df924e51618f013e867c55787294efd91c653bd3a8dbd27d1b7ca3bcece3fa34104687cab93d1a962532320684bc2d46
   languageName: node
   linkType: hard
 
-"@matteusan/sentro@npm:^1.2.2":
+"@matteusan/sentro@npm:^1.2.3":
   version: 1.2.3
   resolution: "@matteusan/sentro@npm:1.2.3"
   peerDependencies:

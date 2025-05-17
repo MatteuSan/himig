@@ -20,8 +20,8 @@
 
   @layer components {
     @include base.init(
-        $struct,
-        $typography
+      $struct,
+      $typography
     ) {
       @include pintig.color-border('card', pintig.theme-get($color, 'border'), 'bind');
       @include pintig.struct-apply('card', (
@@ -53,6 +53,12 @@
         @include pintig.color-apply('card', (
           fill: pintig.theme-get($color, 'fill')
         ));
+
+        .ms-card__subtitle {
+          @include pintig.color-apply('card-subtitle', (
+            ink: rgb(from pintig.token-switch-raw(pintig.theme-get($color, 'ink', 'subtitle')) r g b / 60%),
+          ));
+        }
       }
 
       &:where(.is-raised) {
