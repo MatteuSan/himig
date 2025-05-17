@@ -16,6 +16,15 @@
   <link
     href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
     rel="stylesheet"/>
+  <style>
+    #button-container {
+      grid-template-columns: repeat(6, clamp(10px, 100%, 130px));
+
+      * {
+        flex: 1;
+      }
+    }
+  </style>
   <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 <body>
@@ -40,7 +49,7 @@
         </span>
   </div>
   <a href="#" class="ms-link">LOOOL</a>
-  <div class="grid cols-6 gap-sm pi-center">
+  <div id="button-container" class="w-full grid cols-6 gap-sm pi-center" style="overflow-x: auto">
     <!-- Default -->
     <button class="ms-button">
       <span class="ms-button__label">Button</span>
@@ -125,7 +134,7 @@
     </button>
   </div>
 
-  <section class="flex flow-row gap-md">
+  <section class="flex flow-column @medium:flow-row gap-md">
     <div class="ms-card">
       <div class="ms-card__media">
         <img src="https://www.matteusan.com/img/purplecress.webp" alt="lol">
@@ -161,7 +170,7 @@
     </div>
   </section>
 
-  <section class="flex flow-row gap-md">
+  <section class="flex flow-column @medium:flow-row gap-md">
     <div class="ms-card">
       <div class="ms-card__details">
         <header class="ms-card__header">
@@ -204,25 +213,13 @@
       <span class="ms-form-field__helper">Helper Text</span>
     </label>
 
-    <label class="ms-form-field is-outlined">
-      <span class="ms-form-field__label">GS Form Field</span>
-      <input type="text" class="ms-form-field__input" placeholder="a" name="text-field"/>
-      <span class="ms-form-field__helper">Helper Text</span>
-    </label>
-
-    <label class="ms-form-field is-outlined is-error">
-      <span class="ms-form-field__label">GS Form Field</span>
-      <input type="text" class="ms-form-field__input" placeholder="a" name="text-field"/>
-      <span class="ms-form-field__helper">Helper Text</span>
-    </label>
-
     <label class="ms-form-field">
       <span class="ms-form-field__label">GS Form Field</span>
       <input type="text" class="ms-form-field__input" placeholder="a" name="text-field" disabled/>
       <span class="ms-form-field__helper">Helper Text</span>
     </label>
 
-    <label class="ms-form-field is-outlined">
+    <label class="ms-form-field">
       <span class="ms-form-field__label">GS Form Field</span>
       <input type="text" class="ms-form-field__input" placeholder="a" name="text-field" disabled/>
       <span class="ms-form-field__helper">Helper Text</span>
@@ -238,8 +235,18 @@
       <span class="ms-select-field__helper">Helper Text</span>
     </label>
 
-    <label class="ms-select-field is-outlined">
-      <select type="text" class="ms-select-field__input" placeholder="" name="text-field">
+    <label class="ms-select-field is-error">
+      <span class="ms-select-field__label">GS Select Field</span>
+      <select type="text" class="ms-select-field__input" name="text-field">
+        <option value="a">Placeholder</option>
+        <option value="b">B</option>
+        <option value="c">C</option>
+      </select>
+      <span class="ms-select-field__helper">Helper Text</span>
+    </label>
+
+    <label class="ms-select-field">
+      <select type="text" class="ms-select-field__input" name="text-field">
         <option value="a">A</option>
         <option value="b">B</option>
         <option value="c">C</option>
@@ -256,9 +263,10 @@
       <span class="ms-select-field__helper">Helper Text</span>
     </label>
 
-    <label class="ms-select-field is-outlined is-error">
-      <select type="text" class="ms-select-field__input" name="text-field">
-        <option value="a">A</option>
+    <label class="ms-select-field">
+      <span class="ms-select-field__label">GS Select Field</span>
+      <select type="text" class="ms-select-field__input" disabled name="text-field">
+        <option value="a">Placeholder</option>
         <option value="b">B</option>
         <option value="c">C</option>
       </select>
@@ -266,15 +274,6 @@
     </label>
 
     <label class="ms-select-field">
-      <select type="text" class="ms-select-field__input" disabled name="text-field">
-        <option value="a">A</option>
-        <option value="b">B</option>
-        <option value="c">C</option>
-      </select>
-      <span class="ms-select-field__helper">Helper Text</span>
-    </label>
-
-    <label class="ms-select-field is-outlined">
       <select type="text" class="ms-select-field__input" disabled name="text-field">
         <option value="a">A</option>
         <option value="b">B</option>
