@@ -12,7 +12,10 @@
 /// @param {number} $percent
 /// @return {color} modified color.
 @function tint($color, $percent) {
-  @return color.adjust(color.mix(#fff, $color, $percent), $saturation: 11%);
+  @return color.change(
+    color.mix(#fff, $color, $percent, $method: color.space($color)),
+    $space: color.space($color)
+  );
 }
 
 /// Shades a color from a given percentage.
@@ -20,7 +23,10 @@
 /// @param {number} $percent
 /// @return {color} modified color.
 @function shade($color, $percent) {
-  @return color.adjust(color.mix(#000, $color, $percent), $saturation: 11%);
+  @return color.change(
+    color.mix(#000, $color, $percent, $method: color.space($color)),
+    $space: color.space($color),
+  );
 }
 
 @function _get-linear($color) {

@@ -17,30 +17,30 @@
       ink: $fill,
       border: transparent
     ));
-    @include pintig.key-bind('button-outline', 2px solid rgba(_raw($fill), pintig.$color-fill-default-opacity));
+    @include pintig.key-bind('button-outline', 2px solid rgb(from _raw($fill) r g b / pintig.$color-fill-default-opacity));
 
     &:hover {
       @include pintig.color-bind('button', (
-        fill: _smart-alpha-color($fill, pintig.$color-fill-hover-opacity),
+        fill: _alpha($fill, pintig.$color-fill-hover-opacity),
         ink: $fill,
-        border: _smart-alpha-color($border, pintig.$color-border-hover-opacity, $type: 'border')
+        border: _alpha($border, pintig.$color-border-hover-opacity, $type: 'border')
       ));
     }
 
     &:focus {
       @include pintig.color-bind('button', (
-        fill: _smart-alpha-color($fill, pintig.$color-fill-focus-opacity),
+        fill: _alpha($fill, pintig.$color-fill-focus-opacity),
         ink: $fill,
-        border: _smart-alpha-color($border, pintig.$color-border-focus-opacity, $type: 'border')
+        border: _alpha($border, pintig.$color-border-focus-opacity, $type: 'border')
       ));
-      @include pintig.key-bind('button-outline', 2px solid rgba(_raw($fill), pintig.$color-outline-focus-opacity));
+      @include pintig.key-bind('button-outline', 2px solid rgb(from _raw($fill) r g b / pintig.$color-outline-focus-opacity));
     }
 
     &:active {
       @include pintig.color-bind('button', (
-        fill: _smart-alpha-color($fill, pintig.$color-fill-active-opacity),
+        fill: _alpha($fill, pintig.$color-fill-active-opacity),
         ink: $fill,
-        border: _smart-alpha-color($border, pintig.$color-border-active-opacity, $type: 'border')
+        border: _alpha($border, pintig.$color-border-active-opacity, $type: 'border')
       ));
     }
   }
@@ -74,15 +74,15 @@
       ink: $fill,
       border: $border
     ));
-    @include pintig.key-bind('button-outline', 2px solid rgba(_raw($fill), pintig.$color-fill-default-opacity));
+    @include pintig.key-bind('button-outline', 2px solid rgb(from _raw($fill) r g b / pintig.$color-fill-default-opacity));
 
     &:focus {
       @include pintig.color-bind('button', (
-        fill: _smart-alpha-color($fill, pintig.$color-fill-focus-opacity),
+        fill: _alpha($fill, pintig.$color-fill-focus-opacity),
         ink: $fill,
         border: $border
       ));
-      @include pintig.key-bind('button-outline', 2px solid rgba(_raw($fill), pintig.$color-outline-focus-opacity));
+      @include pintig.key-bind('button-outline', 2px solid rgb(from _raw($fill) r g b / pintig.$color-outline-focus-opacity));
     }
 
     &:hover {
@@ -131,7 +131,7 @@
       ink: $ink,
       border: $border
     ));
-    @include pintig.key-bind('button-outline', 2px solid rgba(_raw($fill), pintig.$color-fill-default-opacity));
+    @include pintig.key-bind('button-outline', 2px solid rgb(from _raw($fill) r g b / pintig.$color-fill-default-opacity));
 
     &:hover {
       @include pintig.color-bind('button', (
@@ -147,7 +147,7 @@
         ink: $ink,
         border: $border-focus
       ));
-      @include pintig.key-bind('button-outline', 2px solid rgba(_raw($fill), pintig.$color-outline-focus-opacity));
+      @include pintig.key-bind('button-outline', 2px solid rgb(from _raw($fill) r g b / pintig.$color-outline-focus-opacity));
     }
 
     &:active {
@@ -168,15 +168,8 @@
   }
 }
 
-@function _smart-alpha-color($query, $opacity, $type: 'fill', $state: 'hover') {
-  $_tones: ('hover': 400, 'active': 600);
-  $_color: string.slice($query, 1, (string.length($query) - 4));
-  // $_tone: string.slice($query, (string.length($_color) + 2), (string.length($query)));
-  @if $type == 'border' { @return rgba(#fff, 0%); }
-  @if pintig.token-check('#{$_color}-alpha-#{map.get($_tones, $state)}') {
-    @return pintig.token-get('#{$_color}-alpha-#{map.get($_tones, $state)}');
-  }
-  @return _raw($query, $opacity);
+@function _alpha($query, $opacity, $type: 'fill', $state: 'hover') {
+  @return rgb(from _raw($query) r g b / $opacity);
 }
 
 @function _raw($query) {
