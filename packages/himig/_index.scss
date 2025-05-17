@@ -121,39 +121,6 @@ $vue-mode: $test-mode !default;
     'xlarge': pintig.primitive-token-get('breakpoint.xl'),
   );
 
-  :root {
-    @include pintig.theme-config(
-      $primary: $primary,
-      $accent: $accent,
-      $surface: $surface,
-      $background: $background,
-      $error: $error,
-      $disabled: $disabled,
-      $radius: $radius,
-      $breakpoints: $breakpoints,
-      $global: map.merge($_init-type-global, $global),
-      $supertitle: map.merge($_init-type-supertitle, $supertitle),
-      $title: map.merge($_init-type-title, $title),
-      $subtitle: map.merge($_init-type-subtitle, $subtitle),
-      $body: map.merge($_init-type-body, $body),
-      $mono: map.merge($_init-type-mono, $mono),
-      $small: map.merge($_init-type-small, $small),
-      $extend: $extend,
-    );
-
-    // Immutables
-    --ms-shadow-color: rgba(0, 0, 0, 0.25);
-    --ms-sprite-size: 32px;
-    --ms-transition-time: 0.4s;
-    --ms-easing-smooth: cubic-bezier(0.83, 0, 0.17, 1);
-    --ms-easing: ease-in-out;
-
-    font-family: pintig.token-get('family-global');
-    line-height: pintig.token-get('line-height-global');
-  }
-
-  @include pintig.breakpoint-config(map.merge($_init-breakpoints, $breakpoints));
-
   @include font-pack.load((
     'global': map.get(map.merge($_init-type-global, $global), 'family'),
     'supertitle': map.get(map.merge($_init-type-supertitle, $supertitle), 'family'),
@@ -164,67 +131,114 @@ $vue-mode: $test-mode !default;
     'small': map.get(map.merge($_init-type-small, $small), 'family'),
   ));
 
-  *,
-  :before,
-  :after {
-    margin: 0;
-    padding: 0;
-    box-sizing: inherit;
-    color: inherit;
-  }
+  @layer init, components, utils;
 
-  html {
-    box-sizing: border-box;
-    font-size: 100%;
-  }
+  @layer init {
+    :root {
+      @include pintig.theme-config(
+        $primary: $primary,
+        $accent: $accent,
+        $surface: $surface,
+        $background: $background,
+        $error: $error,
+        $disabled: $disabled,
+        $radius: $radius,
+        $breakpoints: $breakpoints,
+        $global: map.merge($_init-type-global, $global),
+        $supertitle: map.merge($_init-type-supertitle, $supertitle),
+        $title: map.merge($_init-type-title, $title),
+        $subtitle: map.merge($_init-type-subtitle, $subtitle),
+        $body: map.merge($_init-type-body, $body),
+        $mono: map.merge($_init-type-mono, $mono),
+        $small: map.merge($_init-type-small, $small),
+        $extend: $extend,
+      );
 
-  body {
-    background: pintig.key-create('body-fill', pintig.token-get('background'));
-    color: pintig.key-create('body-ink', pintig.token-get('background-ink'));
-  }
+      @include pintig.token-config((
+        'shadow-color': rgba(0, 0, 0, 0.25),
+        'easing': (
+          'default': ease-in-out,
+          'smooth': cubic-bezier(0.83, 0, 0.17, 1)
+        ),
+        'time': (
+          'short': 0.2s,
+          'default': 0.4s,
+          'long': 0.6s
+        )
+      ));
 
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
+      // Immutables
+      --ms-shadow-color: rgba(0, 0, 0, 0.25);
+      --ms-transition-time: 0.2s;
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p,
-  span,
-  a {
-    font-family: inherit;
-    font-size: inherit;
-    font-weight: inherit;
-    line-height: inherit;
-  }
-
-  main.content-wrap {
-    $margin: 15px;
-    width: calc(100% - #{$margin * 2});
-    max-width: pintig.key-create('content-wrap-max-width', pintig.primitive-token-get('dimension.xl'));
-    height: 100%;
-    display: pintig.key-create('content-wrap-display', flex);
-    flex-flow: column nowrap;
-    gap: pintig.key-create('content-wrap-gap', pintig.primitive-token-get('spacing.md'));
-    margin: 0 auto;
-    padding:
-      pintig.key-create('content-wrap-padding-y', pintig.primitive-token-get('spacing.lg'))
-      pintig.key-create('content-wrap-padding-x', pintig.primitive-token-get('spacing.none'));
-
-    // If grid
-    grid-template-columns: repeat(pintig.key-create('content-wrap-cols', 4), 1fr);
-
-    @include pintig.breakpoint-create('medium') {
-      @include pintig.key-bind('content-wrap-cols', repeat(8, 1fr));
+      font-family: pintig.token-get('family-global');
+      line-height: pintig.token-get('line-height-global');
     }
 
-    @include pintig.breakpoint-create('large') {
-      @include pintig.key-bind('content-wrap-cols', repeat(12, 1fr));
+    @include pintig.breakpoint-config(map.merge($_init-breakpoints, $breakpoints));
+
+    *,
+    :before,
+    :after {
+      margin: 0;
+      padding: 0;
+      box-sizing: inherit;
+      color: inherit;
+    }
+
+    html {
+      box-sizing: border-box;
+      font-size: 100%;
+    }
+
+    body {
+      background: pintig.key-create('body-fill', pintig.token-get('background'));
+      color: pintig.key-create('body-ink', pintig.token-get('background-ink'));
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    span,
+    a {
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      line-height: inherit;
+    }
+
+    main.content-wrap {
+      $margin: 15px;
+      width: calc(100% - #{$margin * 2});
+      max-width: pintig.key-create('content-wrap-max-width', pintig.primitive-token-get('dimension.xl'));
+      height: 100%;
+      display: pintig.key-create('content-wrap-display', flex);
+      flex-flow: column nowrap;
+      gap: pintig.key-create('content-wrap-gap', pintig.primitive-token-get('spacing.md'));
+      margin: 0 auto;
+      padding:
+        pintig.key-create('content-wrap-padding-y', pintig.primitive-token-get('spacing.lg'))
+        pintig.key-create('content-wrap-padding-x', pintig.primitive-token-get('spacing.none'));
+
+      // If grid
+      grid-template-columns: repeat(pintig.key-create('content-wrap-cols', 4), 1fr);
+
+      @include pintig.breakpoint-create('medium') {
+        @include pintig.key-bind('content-wrap-cols', repeat(8, 1fr));
+      }
+
+      @include pintig.breakpoint-create('large') {
+        @include pintig.key-bind('content-wrap-cols', repeat(12, 1fr));
+      }
     }
   }
 
