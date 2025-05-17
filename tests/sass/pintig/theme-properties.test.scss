@@ -15,12 +15,12 @@
   @include true.it('should return a themed property') {
     @include true.assert {
       @include true.output {
-        @include himig.property(background-color, (
+        @include himig.property(background, (
           'component-fill', himig.primitive-token-get('ms-orange.400')
         ));
       }
       @include true.expect {
-        background-color: var(--ms-component-fill, #e16c1d);
+        background: var(--ms-component-fill, oklch(66% 0.168 48.486deg));
       }
     }
   }
@@ -28,12 +28,12 @@
   @include true.it('should return a themed property binding') {
     @include true.assert {
       @include true.output {
-        @include himig.property(background-color, (
+        @include himig.property(background, (
           'component-fill', himig.primitive-token-get('ms-orange.400')
         ), $intent: 'bind');
       }
       @include true.expect {
-        --ms-component-fill: #e16c1d;
+        --ms-component-fill: oklch(66% 0.168 48.486deg);
       }
     }
   }
@@ -43,12 +43,12 @@
   @include true.it('should return a themed property') {
     @include true.assert {
       @include true.output {
-        @include himig.property(background-color, (
+        @include himig.property(background, (
           'component-fill', 'ms-orange.400'
         ));
       }
       @include true.expect {
-        background-color: var(--ms-component-fill, #e16c1d);
+        background: var(--ms-component-fill, oklch(66% 0.168 48.486deg));
       }
     }
   }

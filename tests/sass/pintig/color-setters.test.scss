@@ -25,9 +25,9 @@
         ));
       }
       @include true.expect {
-        background-color: var(--ms-component-fill, #e16c1d);
-        color: var(--ms-component-ink, #ffffff);
-        border-color: var(--ms-component-border, #e16c1d);
+        background: var(--ms-component-fill, oklch(66% 0.168 48.486deg));
+        color: var(--ms-component-ink, oklch(100% 0 89.876deg));
+        border-color: var(--ms-component-border, oklch(66% 0.168 48.486deg));
       }
     }
   }
@@ -41,7 +41,7 @@
         ));
       }
       @include true.expect {
-        background-color: var(--ms-component-fill, var(--ms-theme-accent-400));
+        background: var(--ms-component-fill, var(--ms-theme-accent-400));
         color: var(--ms-component-ink, var(--ms-theme-accent-ink));
         border-color: var(--ms-component-border, var(--ms-theme-accent-400));
       }
@@ -58,9 +58,9 @@
         ));
       }
       @include true.expect {
-        --ms-component-fill: #e16c1d;
-        --ms-component-ink: #ffffff;
-        --ms-component-border: #e16c1d;
+        --ms-component-fill: oklch(66% 0.168 48.486deg);
+        --ms-component-ink: oklch(100% 0 89.876deg);
+        --ms-component-border: oklch(66% 0.168 48.486deg);
       }
     }
   }
