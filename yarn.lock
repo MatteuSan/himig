@@ -961,12 +961,12 @@ __metadata:
   linkType: hard
 
 "@matteusan/himig@file:./packages/himig::locator=himig%40workspace%3A.":
-  version: 1.7.4
-  resolution: "@matteusan/himig@file:./packages/himig#./packages/himig::hash=014b8b&locator=himig%40workspace%3A."
+  version: 1.8.0
+  resolution: "@matteusan/himig@file:./packages/himig#./packages/himig::hash=f5a426&locator=himig%40workspace%3A."
   dependencies:
     "@matteusan/pintig": ^1.9
     "@matteusan/sentro": ^1.2.3
-  checksum: 2be5bc40ce7cba3d972fbbf5cca4b821da6a120dce9a40ac85cc39abfe1ac6d7ab4e8da2af271152ac6d5eee68b7da091423d25e6e87ec00e7b7dffcd2b5ecee
+  checksum: 5d7485b0b8a40dca5aa18c9567cff4fb1f14a10133db3145a03b7072eeaa7b60f83672edea03ba35cb1e31833c753dc3e6ef2327af9cc8c2fd1c21514d807aa0
   languageName: node
   linkType: hard
 
