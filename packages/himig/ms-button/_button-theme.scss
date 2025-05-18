@@ -29,10 +29,10 @@ $init-color: (
 $init-struct: (
   width: (
     default: 100%,
-    min: 69px,
+    min: 50px,
     max: max-content
   ),
-  padding: ('md' 'lg'),
+  padding: 'md',
   radius: 'small',
   border-width: 'xs',
   border-style: solid,

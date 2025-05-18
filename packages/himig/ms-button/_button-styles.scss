@@ -78,7 +78,7 @@ $_states: ('error');
 
       &:where(.is-small) {
         @include pintig.struct-bind('button', (
-          padding: ('sm' 'md'),
+          padding: 'sm',
         ));
         @include pintig.typography-apply('button', (
           size: 'xs'
@@ -87,7 +87,7 @@ $_states: ('error');
 
       &:where(.is-large) {
         @include pintig.struct-bind('button', (
-          padding: ('lg' 'xl'),
+          padding: 'lg',
           gap: 'sm',
           radius: 'md'
         ));
