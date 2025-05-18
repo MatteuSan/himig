@@ -4,13 +4,13 @@
 
 $init-color: (
   fill: (
-    default: 'primary-400'
+    default: 'primary-600'
   ),
   ink: (
     default: 'primary-ink',
     subtitle: 'primary-ink',
   ),
-  border: 'primary-400',
+  border: 'primary-600',
 );
 
 $init-struct: (
@@ -20,7 +20,7 @@ $init-struct: (
     max: auto
   ),
   radius: 'md',
-  padding: 'xl',
+  padding: 'lg',
   gap: (
     section: 'md',
     header: 'md',
