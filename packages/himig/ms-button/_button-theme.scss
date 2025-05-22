@@ -32,7 +32,7 @@ $init-struct: (
     min: 50px,
     max: max-content
   ),
-  padding: 'md',
+  padding: ('md' 'lg'),
   radius: 'small',
   border-width: 'xs',
   border-style: solid,
