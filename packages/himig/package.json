@@ -12,31 +12,31 @@
     ".": {
       "sass": "./_index.scss"
     },
-    "./ms-badge.scss": {
+    "./ms-badge": {
       "sass": "./ms-badge/_index.scss"
     },
-    "./ms-button.scss": {
+    "./ms-button": {
       "sass": "./ms-button/_index.scss"
     },
-    "./ms-card.scss": {
+    "./ms-card": {
       "sass": "./ms-card/_index.scss"
     },
-    "./ms-form-field.scss": {
+    "./ms-form-field": {
       "sass": "./ms-form-field/_index.scss"
     },
-    "./ms-link.scss": {
+    "./ms-link": {
       "sass": "./ms-link/_index.scss"
     },
-    "./ms-list.scss": {
+    "./ms-list": {
       "sass": "./ms-list/_index.scss"
     },
-    "./ms-select-field.scss": {
+    "./ms-select-field": {
       "sass": "./ms-select-field/_index.scss"
     },
-    "./ms-tick-field.scss": {
+    "./ms-tick-field": {
       "sass": "./ms-tick-field/_index.scss"
     },
-    "./ms-utils.scss": {
+    "./ms-utils": {
       "sass": "./ms-utils/_index.scss"
     }
   },
