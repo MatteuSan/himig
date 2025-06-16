@@ -28,7 +28,7 @@
     ) {
       .ms-form-field__label {
         @include pintig.color-bind('form-field-label', (
-          ink: pintig.theme-get($color, 'ink', 'disabled'),
+          ink: pintig.theme-get($color, 'ink', 'default'),
         ));
         @include pintig.typography-bind('form-field-label', (
           family: pintig.theme-get($typography, 'family'),
@@ -37,6 +37,12 @@
           line-height: pintig.theme-get($typography, 'height'),
         ));
         user-select: none;
+
+        &:has(+ .ms-form-field__input:disabled) {
+          @include pintig.color-bind('form-field-label', (
+            ink: pintig.theme-get($color, 'ink', 'disabled'),
+          ));
+        }
       }
 
       &:has(.ms-form-field__input:read-only:disabled) {
