@@ -7,11 +7,11 @@ A guide to setting up the development environment for Himig.
 
 ## Installation
 ```sh
-# Yarn
-$ yarn add @matteusan/himig sass
+# PNPM
+$ pnpm add @matteusan/himig @matteusan/pintig sass
 
 # NPM
-$ npm install @matteusan/himig sass
+$ npm i @matteusan/himig @matteusan/pintig sass
 ```
 
 ## Instantiation
