@@ -6,7 +6,7 @@ slug: /foundation/color/tokens
 Himig provides an extensive list of carefully crafted, pre-made color tokens ready to go.
 
 ## Color Token Schema
-The color tokens follow a specific schema to make indexing much easier. The color tokens follow a `100-800` color schema. All color tokens are using the CSS-standard OKLCH color space.
+The color tokens follow a specific schema to make indexing much easier. They follow a `100-800` color schema. All color tokens are using the CSS-standard OKLCH color space.
 
 ### Color Theme Schema
 The [color theme](../theme.md) schema will follow the same schema in the variant generation, except the `-ink` theme token variant.

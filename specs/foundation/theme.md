@@ -20,7 +20,7 @@ The color theme is defined in four different parts:
 #### SCSS
 Typically, when setting this up the design system comes in with the GS Theme by default. To override these, you can use
 a [color token key](color/color-tokens.md) to change the color. Otherwise, if you wish to use raw color values, you'd
-have to pass in a `map` with the [`200-800` schema](color/color-tokens.md#color-theme-schema).
+have to pass in a `map` with the [`100-800` schema](color/color-tokens.md#color-theme-schema).
 
 | $parameter    | Type                   |
 |---------------|------------------------|
@@ -35,10 +35,13 @@ have to pass in a `map` with the [`200-800` schema](color/color-tokens.md#color-
 
 @include himig.init(
   $surface: (
+    100: #f70,
     200: #f70,
     300: #f70,
     400: #f70,
+    500: #f70,
     600: #f70,
+    700: #f70,
     800: #f70,
   ),
   $accent: 'ms-yellow',

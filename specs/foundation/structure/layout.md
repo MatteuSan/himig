@@ -5,10 +5,19 @@ slug: /foundation/structure/layout
 # Layout
 Layout defines the static behavior of an element in an interface. Himig uses layout to organize content in an interface.
 
-## Grid
-Himig uses the 12-column grid system to cover all use cases for layout on multiple devices.
+## Flow
+By default, Himig uses a flex-box column-flowing layout scheme. However, you can turn on 'grid mode' by changing a property inside the main content wrapper.
 
-Read more about this layout system [here](https://material.io/design/layout/responsive-layout-grid.html).
+### Grid mode
+To turn on grid mode, add this line in your Himig init content block:
+
+```scss
+@include himig.key-bind('content-wrap-display', grid);
+```
+
+In grid mode, Himig uses the 12-column grid system to cover all use cases for layout on multiple devices.
+
+Read more about this layout system [here](https://m2.material.io/design/layout/responsive-layout-grid.html).
 
 | Breakpoint      | # of columns |
 |-----------------|--------------|

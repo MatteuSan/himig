@@ -24,7 +24,7 @@ This color's value can either be a [primitive token](../tokens.md#primitive-toke
 For the API information, please visit the [color composition API page](../../api/composition/color.md).
 
 ```scss
-@use 'pkg:@matteusan/sentro';
+@use 'pkg:@matteusan/himig';
 
 .ms-component {
   @include himig.color-fill('component', 'token-or-value');
@@ -41,7 +41,7 @@ This color's value can either be a [primitive token](../tokens.md#primitive-toke
 For the API information, please visit the [color composition API page](../../api/composition/color.md).
 
 ```scss
-@use 'pkg:@matteusan/sentro';
+@use 'pkg:@matteusan/himig';
 
 .ms-component {
   @include himig.color-ink('component', 'token-or-value');
@@ -57,7 +57,7 @@ This color's value can either be a [primitive token](../tokens.md#primitive-toke
 For the API information, please visit the [color composition API page](../../api/composition/color.md).
 
 ```scss
-@use 'pkg:@matteusan/sentro';
+@use 'pkg:@matteusan/himig';
 
 .ms-component {
   @include himig.color-border('component', 'token-or-value');
@@ -70,7 +70,7 @@ Himig provides an SCSS mixin that lets you apply all three in one go. It's the `
 For the API information, please visit the [color composition API page](../../api/composition/color.md).
 
 ```scss
-@use 'pkg:@matteusan/sentro';
+@use 'pkg:@matteusan/himig';
 
 .ms-component {
   @include himig.color-apply('component', (
@@ -87,10 +87,11 @@ The design system doesn't prohibit you to use the **transparent color** for a sp
 ## Valid Raw Colors
 Here's a list of all the valid raw colors you can use:
 
-| Color                    |
-|--------------------------|
-| `inherit`                |
-| `transparent`            |
-| `rgba(<color>, 0%)`      |
-| `rgba(<r> <g> <b> / 0%)` |
-| `rgba(<r>, <g>, <b>, 0)` |
+| Color                           |
+|---------------------------------|
+| `inherit`                       |
+| `transparent`                   |
+| `rgba(<color>, 0%)`             |
+| `rgba(<r> <g> <b> / 0%)`        |
+| `rgba(<r>, <g>, <b>, 0)`        |
+| `oklch(<l>% <c> <h>deg / <a>%)` |

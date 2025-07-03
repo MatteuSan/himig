@@ -74,10 +74,10 @@ Himig provides an SCSS mixin that lets you apply all structs in one go. It's the
 For the API information, please visit the [structure composition API page](../../api/composition/structure.md).
 
 ```scss
-@use 'pkg:@matteusan/sentro';
+@use 'pkg:@matteusan/himig';
 
 .ms-component {
-  @include himigstruct-apply('component', (
+  @include himig.struct-apply('component', (
     width: (
       default: 'token-or-value',
       max: 'token-or-value'
