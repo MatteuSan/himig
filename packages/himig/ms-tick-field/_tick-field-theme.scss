@@ -5,11 +5,11 @@
 $init-color: (
   fill: (
     default: rgba(0 0 0 / 0),
-    hover: 'accent-300',
-    checked: 'accent-300',
+    hover: 'accent-400',
+    checked: 'accent-400',
     input: (
       default: rgba(0 0 0 / 0),
-      hover: 'accent-400',
+      hover:  rgba(0 0 0 / 0),
       checked: 'accent-400'
     ),
   ),
@@ -18,12 +18,12 @@ $init-color: (
     input: 'accent-ink'
   ),
   border: (
-    default: 'surface-300',
-    hover: 'accent-600',
+    default: 'surface-600',
+    hover: 'accent-400',
     checked: 'accent-400',
     input: (
-      default: 'surface-300',
-      hover: 'accent-600',
+      default: 'surface-600',
+      hover: 'accent-400',
       checked: 'accent-400',
     )
   ),

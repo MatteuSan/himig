@@ -10,11 +10,11 @@
   "author": "Matteu <matteugt@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build:lit": "yarn lit:build && yarn lit:compile",
-    "lit:css": "yarn lit:scss && tsx scripts/scss-to-lit.ts",
-    "lit:scss": "yarn && sass packages/himig-components:packages/himig-components --style=compressed --pkg-importer=node --load-path=node_modules --no-source-map",
+    "build:lit": "pnpm run lit:build && pnpm run lit:compile",
+    "lit:css": "pnpm run lit:scss && tsx scripts/scss-to-lit.ts",
+    "lit:scss": "pnpm run && sass packages/himig-components:packages/himig-components --style=compressed --pkg-importer=node --load-path=node_modules --no-source-map",
     "lit:ts": "tsc --pretty --project \"./config/tsconfig.lit.json\"",
-    "lit:build": "yarn lit:css && yarn lit:ts",
+    "lit:build": "pnpm run lit:css && pnpm run lit:ts",
     "lit:compile": "rollup -c",
     "pack:dist": "npm pack --pack-destination=\"./dist\"",
     "pack:root": "npm pack --pack-destination=\"./\"",
@@ -28,8 +28,8 @@
     "pub:minor": "npm version minor --force && yarn pub:core:minor && cd ../../.. && yarn pub:main:minor",
     "pub:major": "npm version major --force && yarn pub:core:major && cd ../../.. && yarn pub:main:major",
     "run:docs": "cd documentation && yarn dev",
-    "test:html": "yarn && sass tests/sass/with-html.test.scss:tests/sass/with-html.test.css --pkg-importer=node --load-path=node_modules --no-source-map --style=compressed",
-    "test:sass": "yarn && jest --config=\"jest.config.ts\""
+    "test:html": "pnpm i && sass tests/sass/with-html.test.scss:tests/sass/with-html.test.css --pkg-importer=node --load-path=node_modules --no-source-map --style=compressed",
+    "test:sass": "pnpm i && jest --config=\"jest.config.ts\""
   },
   "devDependencies": {
     "@matteusan/himig": "file:./packages/himig",

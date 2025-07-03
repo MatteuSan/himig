@@ -564,7 +564,7 @@ packages:
   '@matteusan/himig@file:packages/himig':
     resolution: {directory: packages/himig, type: directory}
     peerDependencies:
-      '@matteusan/pintig': ^1.9
+      '@matteusan/pintig': ^1.10
 
   '@matteusan/pintig@file:packages/pintig':
     resolution: {directory: packages/pintig, type: directory}

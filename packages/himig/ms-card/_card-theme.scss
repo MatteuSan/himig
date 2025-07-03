@@ -4,13 +4,13 @@
 
 $init-color: (
   fill: (
-    default: 'primary-600'
+    default: 'primary-700'
   ),
   ink: (
     default: 'primary-ink',
     subtitle: 'primary-ink',
   ),
-  border: 'primary-600',
+  border: 'primary-700',
 );
 
 $init-struct: (
@@ -36,7 +36,7 @@ $init-typography: (
   ),
   size: (
     'default': 'body',
-    'title': 'title',
+    'title': 'subtitle',
     'subtitle': 'body',
     'icon': 66px
   ),
@@ -47,7 +47,7 @@ $init-typography: (
   ),
   line-height: (
     'default': 'normal',
-    'title': 'normal',
+    'title': 'x-short',
     'subtitle': 'normal',
   ),
   squeeze: (

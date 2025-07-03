@@ -8,8 +8,8 @@ $init-color: (
     focus: 'accent-400',
     disabled: 'disabled',
     error: (
-      default: 'error-800',
-      focus: 'error-800'
+      default: 'error-600',
+      focus: 'error-600'
     )
   ),
   ink: (
@@ -19,12 +19,12 @@ $init-color: (
     error: 'error-400'
   ),
   border: (
-    default: 'surface-400',
+    default: 'surface-600',
     focus: 'accent-400',
     disabled: 'disabled',
     error: (
-      default: 'error-800',
-      focus: 'error-400'
+      default: 'error-600',
+      focus: 'error-500'
     )
   ),
 );
