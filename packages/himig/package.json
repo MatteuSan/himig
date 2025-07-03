@@ -1,6 +1,6 @@
 {
   "name": "@matteusan/himig",
-  "version": "1.8.2",
+  "version": "1.9.0",
   "description": "Matteu's personal design system for building user interfaces.",
   "repository": "https://github.com/MatteuSan/himig",
   "author": "Matteu <matteugt@gmail.com>",
@@ -40,8 +40,7 @@
       "sass": "./ms-utils/_index.scss"
     }
   },
-  "dependencies": {
-    "@matteusan/pintig": "^1.9",
-    "@matteusan/sentro": "^1.2.3"
+  "peerDependencies": {
+    "@matteusan/pintig": "^1.10"
   }
 }
