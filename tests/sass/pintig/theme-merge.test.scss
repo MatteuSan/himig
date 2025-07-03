@@ -2,7 +2,7 @@
 // Copyright (c) 2025 MatteuSan
 // SPDX-License-Identifier: MIT
 
-@use 'pkg:@matteusan/himig';
+@use 'pkg:@matteusan/pintig';
 @use 'pkg:sass-true' as true;
 
 @include true.describe('Theme Merge [module]') {
@@ -21,7 +21,7 @@
     $user-theme: (
       fill: 'ms-red.400',
     );
-    $theme: himig.theme-merge($init-theme, $user-theme);
+    $theme: pintig.theme-merge($init-theme, $user-theme);
     @include true.assert-equal($theme, (
       fill: 'ms-red.400',
       ink: 'ms-orange.800',

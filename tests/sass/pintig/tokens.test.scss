@@ -2,7 +2,7 @@
 // Copyright (c) 2025 MatteuSan
 // SPDX-License-Identifier: MIT
 
-@use 'pkg:@matteusan/himig';
+@use 'pkg:@matteusan/pintig';
 @use 'pkg:sass-true' as true;
 
 @include true.describe('Token [module]') {
@@ -10,7 +10,7 @@
     @include true.assert {
       @include true.output {
         :root {
-          @include himig.token-config(
+          @include pintig.token-config(
             $surface: (
               300: #700,
               400: #400
@@ -29,12 +29,12 @@
   }
 
   @include true.it('should query a token') {
-    $token: himig.token-get('surface-300');
+    $token: pintig.token-get('surface-300');
     @include true.assert-equal($token, var(--ms-theme-surface-300));
   }
 
   @include true.it('should query a token\'s raw value') {
-    $token: himig.token-get-raw('surface-300');
+    $token: pintig.token-get-raw('surface-300');
     @include true.assert-equal($token, #700);
   }
 }

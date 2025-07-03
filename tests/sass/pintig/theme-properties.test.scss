@@ -2,11 +2,11 @@
 // Copyright (c) 2025 MatteuSan
 // SPDX-License-Identifier: MIT
 
-@use 'pkg:@matteusan/himig';
+@use 'pkg:@matteusan/pintig';
 @use 'pkg:sass-true' as true;
 
 :root {
-  @include himig.token-config($accent: (
+  @include pintig.token-config($accent: (
     400: #f70
   ));
 }
@@ -15,12 +15,12 @@
   @include true.it('should return a themed property') {
     @include true.assert {
       @include true.output {
-        @include himig.property(background, (
-          'component-fill', himig.primitive-token-get('ms-orange.400')
+        @include pintig.property(background, (
+          'component-fill', pintig.primitive-token-get('ms-orange.400')
         ));
       }
       @include true.expect {
-        background: var(--ms-component-fill, oklch(66% 0.168 48.486deg));
+        background: var(--ms-component-fill, oklch(65% 0.2 47.5deg));
       }
     }
   }
@@ -28,12 +28,12 @@
   @include true.it('should return a themed property binding') {
     @include true.assert {
       @include true.output {
-        @include himig.property(background, (
-          'component-fill', himig.primitive-token-get('ms-orange.400')
+        @include pintig.property(background, (
+          'component-fill', pintig.primitive-token-get('ms-orange.400')
         ), $intent: 'bind');
       }
       @include true.expect {
-        --ms-component-fill: oklch(66% 0.168 48.486deg);
+        --ms-component-fill: oklch(65% 0.2 47.5deg);
       }
     }
   }
@@ -43,12 +43,12 @@
   @include true.it('should return a themed property') {
     @include true.assert {
       @include true.output {
-        @include himig.property(background, (
+        @include pintig.property(background, (
           'component-fill', 'ms-orange.400'
         ));
       }
       @include true.expect {
-        background: var(--ms-component-fill, oklch(66% 0.168 48.486deg));
+        background: var(--ms-component-fill, oklch(65% 0.2 47.5deg));
       }
     }
   }
@@ -56,7 +56,7 @@
   @include true.it('should return a themed property binding') {
     @include true.assert {
       @include true.output {
-        @include himig.property(background-color, (
+        @include pintig.property(background-color, (
           'component-fill', 'accent-400'
         ), $intent: 'bind');
       }

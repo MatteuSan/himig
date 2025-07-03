@@ -2,11 +2,11 @@
 // Copyright (c) 2025 MatteuSan
 // SPDX-License-Identifier: MIT
 
-@use 'pkg:@matteusan/himig';
+@use 'pkg:@matteusan/pintig';
 @use 'pkg:sass-true' as true;
 
 :root {
-  @include himig.token-config(
+  @include pintig.token-config(
     $surface: (
       200: #8bf,
       400: #07f
@@ -20,26 +20,26 @@
 
 @include true.describe('Theme Tokens [module]') {
   @include true.it('should return a theme token custom property') {
-    $test: himig.token-get('accent-400');
-    $test2: himig.token-get('surface-200');
+    $test: pintig.token-get('accent-400');
+    $test2: pintig.token-get('surface-200');
     @include true.assert-equal($test, var(--ms-theme-accent-400));
     @include true.assert-equal($test2, var(--ms-theme-surface-200));
   }
   @include true.it('should return a theme token raw value') {
-    $test: himig.token-get-raw('accent-400');
-    $test2: himig.token-get-raw('surface-200');
+    $test: pintig.token-get-raw('accent-400');
+    $test2: pintig.token-get-raw('surface-200');
     @include true.assert-equal($test, #f70);
     @include true.assert-equal($test2, #8bf);
   }
   @include true.it('should switch to itself when not valid') {
-    $test: himig.token-switch('accent-400');
-    $test2: himig.token-switch(inherit);
+    $test: pintig.token-switch('accent-400');
+    $test2: pintig.token-switch(inherit);
     @include true.assert-equal($test, var(--ms-theme-accent-400));
     @include true.assert-equal($test2, inherit);
   }
   @include true.it('should switch to itself when not valid; when valid, it uses the raw value') {
-    $test: himig.token-switch-raw('accent-400');
-    $test2: himig.token-switch-raw(inherit);
+    $test: pintig.token-switch-raw('accent-400');
+    $test2: pintig.token-switch-raw(inherit);
     @include true.assert-equal($test, #f70);
     @include true.assert-equal($test2, inherit);
   }

@@ -2,18 +2,18 @@
 // Copyright (c) 2025 MatteuSan
 // SPDX-License-Identifier: MIT
 
-@use 'pkg:@matteusan/himig';
+@use 'pkg:@matteusan/pintig';
 @use 'pkg:sass-true' as true;
 
 @include true.describe('Primitive Token [module]') {
   @include true.it('should retrieve a token from the primitive token registry.') {
-    $test: himig.primitive-token-get('ms-red.400');
-    @include true.assert-equal($test, oklch(52.6% 0.201 27.778deg));
+    $test: pintig.primitive-token-get('ms-red.400');
+    @include true.assert-equal($test, oklch(65% 0.25 28.5deg));
   }
 
   @include true.it('should soft validate if the query is a valid primitive token.') {
-    $test: himig.primitive-token-check('ms-red.400');
-    $test2: himig.primitive-token-check('ms-red.900');
+    $test: pintig.primitive-token-check('ms-red.400');
+    $test2: pintig.primitive-token-check('ms-red.900');
     @include true.assert-equal($test, true);
     @include true.assert-equal($test2, false);
   }

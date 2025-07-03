@@ -2,11 +2,11 @@
 // Copyright (c) 2025 MatteuSan
 // SPDX-License-Identifier: MIT
 
-@use 'pkg:@matteusan/himig';
+@use 'pkg:@matteusan/pintig';
 @use 'pkg:sass-true' as true;
 
 :root {
-  @include himig.token-config(
+  @include pintig.token-config(
     $accent: (
       400: 'ms-orange.400',
       ink: 'ms-white.200'
@@ -18,23 +18,23 @@
   @include true.it('should apply colors to a component') {
     @include true.assert {
       @include true.output {
-        @include himig.color-apply('component', (
+        @include pintig.color-apply('component', (
           fill: 'ms-orange.400',
           ink: 'ms-white.200',
           border: 'ms-orange.400'
         ));
       }
       @include true.expect {
-        background: var(--ms-component-fill, oklch(66% 0.168 48.486deg));
+        background: var(--ms-component-fill, oklch(65% 0.2 47.5deg));
         color: var(--ms-component-ink, oklch(100% 0 89.876deg));
-        border-color: var(--ms-component-border, oklch(66% 0.168 48.486deg));
+        border-color: var(--ms-component-border, oklch(65% 0.2 47.5deg));
       }
     }
   }
   @include true.it('shoul apply colors to a component from the theme') {
     @include true.assert {
       @include true.output {
-        @include himig.color-apply('component', (
+        @include pintig.color-apply('component', (
           fill: 'accent-400',
           ink: 'accent-ink',
           border: 'accent-400',
@@ -51,23 +51,23 @@
   @include true.it('should bind colors to a component') {
     @include true.assert {
       @include true.output {
-        @include himig.color-bind('component', (
+        @include pintig.color-bind('component', (
           fill: 'ms-orange.400',
           ink: 'ms-white.200',
           border: 'ms-orange.400'
         ));
       }
       @include true.expect {
-        --ms-component-fill: oklch(66% 0.168 48.486deg);
+        --ms-component-fill: oklch(65% 0.2 47.5deg);
         --ms-component-ink: oklch(100% 0 89.876deg);
-        --ms-component-border: oklch(66% 0.168 48.486deg);
+        --ms-component-border: oklch(65% 0.2 47.5deg);
       }
     }
   }
   @include true.it('should bind colors to a component from the theme') {
     @include true.assert {
       @include true.output {
-        @include himig.color-bind('component', (
+        @include pintig.color-bind('component', (
           fill: 'accent-400',
           ink: 'accent-ink',
           border: 'accent-400',
