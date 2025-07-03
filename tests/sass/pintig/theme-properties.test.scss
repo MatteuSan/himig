@@ -61,7 +61,7 @@
         ), $intent: 'bind');
       }
       @include true.expect {
-        --ms-component-fill: var(--ms-theme-accent-400);
+        --ms-component-fill: var(--ms-accent-400);
       }
     }
   }

@@ -23,7 +23,7 @@
         @include true.expect {
           .ms-badge.is-large {
             --ms-badge-padding: 1.2rem 2.3rem;
-            --ms-badge-size: var(--ms-theme-size-supertitle);
+            --ms-badge-size: var(--ms-size-supertitle);
           }
         }
       }

@@ -23,7 +23,7 @@
         @include true.expect {
           .ms-button.is-large {
             --ms-button-padding: 1.2rem 2.3rem;
-            --ms-button-size: var(--ms-theme-size-supertitle);
+            --ms-button-size: var(--ms-size-supertitle);
           }
         }
       }

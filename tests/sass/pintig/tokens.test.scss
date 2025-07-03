@@ -20,8 +20,8 @@
       }
       @include true.expect {
         :root {
-          --ms-theme-surface-300: #700;
-          --ms-theme-surface-400: #400;
+          --ms-surface-300: #700;
+          --ms-surface-400: #400;
         }
 
       }
@@ -30,7 +30,7 @@
 
   @include true.it('should query a token') {
     $token: pintig.token-get('surface-300');
-    @include true.assert-equal($token, var(--ms-theme-surface-300));
+    @include true.assert-equal($token, var(--ms-surface-300));
   }
 
   @include true.it('should query a token\'s raw value') {

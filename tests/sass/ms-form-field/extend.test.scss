@@ -23,7 +23,7 @@
         @include true.expect {
           .ms-form-field.is-large {
             --ms-form-field-padding: 1.2rem 2.3rem;
-            --ms-form-field-size: var(--ms-theme-size-supertitle);
+            --ms-form-field-size: var(--ms-size-supertitle);
           }
         }
       }

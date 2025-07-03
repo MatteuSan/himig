@@ -41,9 +41,9 @@
         ));
       }
       @include true.expect {
-        background: var(--ms-component-fill, var(--ms-theme-accent-400));
-        color: var(--ms-component-ink, var(--ms-theme-accent-ink));
-        border-color: var(--ms-component-border, var(--ms-theme-accent-400));
+        background: var(--ms-component-fill, var(--ms-accent-400));
+        color: var(--ms-component-ink, var(--ms-accent-ink));
+        border-color: var(--ms-component-border, var(--ms-accent-400));
       }
     }
   }
@@ -74,9 +74,9 @@
         ));
       }
       @include true.expect {
-        --ms-component-fill: var(--ms-theme-accent-400);
-        --ms-component-ink: var(--ms-theme-accent-ink);
-        --ms-component-border: var(--ms-theme-accent-400);
+        --ms-component-fill: var(--ms-accent-400);
+        --ms-component-ink: var(--ms-accent-ink);
+        --ms-component-border: var(--ms-accent-400);
       }
     }
   }

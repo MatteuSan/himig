@@ -22,8 +22,8 @@
   @include true.it('should return a theme token custom property') {
     $test: pintig.token-get('accent-400');
     $test2: pintig.token-get('surface-200');
-    @include true.assert-equal($test, var(--ms-theme-accent-400));
-    @include true.assert-equal($test2, var(--ms-theme-surface-200));
+    @include true.assert-equal($test, var(--ms-accent-400));
+    @include true.assert-equal($test2, var(--ms-surface-200));
   }
   @include true.it('should return a theme token raw value') {
     $test: pintig.token-get-raw('accent-400');
@@ -34,7 +34,7 @@
   @include true.it('should switch to itself when not valid') {
     $test: pintig.token-switch('accent-400');
     $test2: pintig.token-switch(inherit);
-    @include true.assert-equal($test, var(--ms-theme-accent-400));
+    @include true.assert-equal($test, var(--ms-accent-400));
     @include true.assert-equal($test2, inherit);
   }
   @include true.it('should switch to itself when not valid; when valid, it uses the raw value') {
