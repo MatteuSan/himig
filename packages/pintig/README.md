@@ -1,2 +1,7 @@
-# pintig
-The core library for the Himig Design System. For internal use only.
+# Pintig
+A higher-level core library for building design systems using Sentro at TeuLabs.
+
+## Installation
+```npm
+npm i @matteusan/pintig
+```
