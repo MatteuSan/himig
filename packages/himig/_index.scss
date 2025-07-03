@@ -21,10 +21,10 @@ $vue-mode: $test-mode !default;
 
 @mixin init(
   $theme: (),
-  $primary: 'ms-dark-grey',
+  $primary: 'ms-neutral',
   $accent: 'ms-orange',
-  $surface: 'ms-dark-grey',
-  $background: 'ms-dark-grey.800',
+  $surface: 'ms-neutral',
+  $background: 'ms-neutral.800',
   $error: 'ms-red',
   $disabled: (
     'default': rgba(#fff, 12%),
@@ -64,30 +64,34 @@ $vue-mode: $test-mode !default;
     'weight': 'weight.normal',
     'line-height': 'line-height.normal',
     'squeeze': 'squeeze.normal',
+    'stretch': 'stretch.normal'
   );
 
   $_init-type-supertitle: (
     'family': 'family.serif',
-    'size': 'size.3xl',
+    'size': 'size.6xl',
     'weight': 'weight.normal',
-    'line-height': 'line-height.short',
-    'squeeze': 'squeeze.tight',
+    'line-height': 'line-height.x-short',
+    'squeeze': 'squeeze.x-tight',
+    'stretch': 'stretch.condensed'
   );
 
   $_init-type-title: (
     'family': 'family.serif',
-    'size': 'size.xl',
+    'size': 'size.3xl',
     'weight': 'weight.normal',
-    'line-height': 'line-height.short',
+    'line-height': 'line-height.x-short',
     'squeeze': 'squeeze.tight',
+    'stretch': 'stretch.condensed'
   );
 
   $_init-type-subtitle: (
     'family': 'family.sans-serif',
-    'size': 'size.md',
+    'size': 'size.xl',
     'weight': 'weight.light',
     'line-height': 'line-height.normal',
     'squeeze': 'squeeze.normal',
+    'stretch': 'stretch.normal'
   );
 
   $_init-type-body: (
@@ -96,6 +100,7 @@ $vue-mode: $test-mode !default;
     'weight': 'weight.normal',
     'line-height': 'line-height.normal',
     'squeeze': 'squeeze.normal',
+    'stretch': 'stretch.normal'
   );
 
   $_init-type-mono: (
@@ -104,6 +109,7 @@ $vue-mode: $test-mode !default;
     'weight': 'weight.normal',
     'line-height': 'line-height.normal',
     'squeeze': 'squeeze.normal',
+    'stretch': 'stretch.normal'
   );
 
   $_init-type-small: (
@@ -112,6 +118,7 @@ $vue-mode: $test-mode !default;
     'weight': 'weight.light',
     'line-height': 'line-height.tall',
     'squeeze': 'squeeze.normal',
+    'stretch': 'stretch.normal'
   );
 
   $_init-breakpoints: (
@@ -167,9 +174,7 @@ $vue-mode: $test-mode !default;
         )
       ));
 
-      // Immutables
       --ms-shadow-color: rgba(0, 0, 0, 0.25);
-      --ms-transition-time: 0.2s;
 
       font-family: pintig.token-get('family-global');
       line-height: pintig.token-get('line-height-global');
