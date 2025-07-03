@@ -9,7 +9,7 @@
   @include pintig.token-config(
     $accent: (
       400: 'ms-orange.400',
-      ink: 'ms-white.200'
+      ink: 'ms-neutral.200'
     )
   );
 }
@@ -20,13 +20,13 @@
       @include true.output {
         @include pintig.color-apply('component', (
           fill: 'ms-orange.400',
-          ink: 'ms-white.200',
+          ink: 'ms-neutral.200',
           border: 'ms-orange.400'
         ));
       }
       @include true.expect {
         background: var(--ms-component-fill, oklch(65% 0.2 47.5deg));
-        color: var(--ms-component-ink, oklch(100% 0 89.876deg));
+        color: var(--ms-component-ink, oklch(95% 0 0deg));
         border-color: var(--ms-component-border, oklch(65% 0.2 47.5deg));
       }
     }
@@ -53,13 +53,13 @@
       @include true.output {
         @include pintig.color-bind('component', (
           fill: 'ms-orange.400',
-          ink: 'ms-white.200',
+          ink: 'ms-neutral.200',
           border: 'ms-orange.400'
         ));
       }
       @include true.expect {
         --ms-component-fill: oklch(65% 0.2 47.5deg);
-        --ms-component-ink: oklch(100% 0 89.876deg);
+        --ms-component-ink: oklch(95% 0 0deg);
         --ms-component-border: oklch(65% 0.2 47.5deg);
       }
     }

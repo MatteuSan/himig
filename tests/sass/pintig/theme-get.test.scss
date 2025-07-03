@@ -12,12 +12,12 @@
         default: 'ms-orange.400',
         hover: 'ms-orange.200'
       ),
-      ink: 'ms-white.200',
+      ink: 'ms-neutral.200',
       border: 'ms-orange.400'
     );
     @include true.assert-equal(pintig.theme-get($theme, 'fill'), 'ms-orange.400');
     @include true.assert-equal(pintig.theme-get($theme, 'fill', 'hover'), 'ms-orange.200');
-    @include true.assert-equal(pintig.theme-get($theme, 'ink'), 'ms-white.200');
+    @include true.assert-equal(pintig.theme-get($theme, 'ink'), 'ms-neutral.200');
     @include true.assert-equal(pintig.theme-get($theme, 'border'), 'ms-orange.400');
   }
 }
