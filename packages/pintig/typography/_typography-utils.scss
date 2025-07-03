@@ -13,7 +13,7 @@
 @mixin family($component, $family, $intent: 'create') {
   @include theme.property(
       font-family,
-        ('#{$component}-family', theme.token-switch('family-#{$family}', token.primitive-token-switch('family.#{$family}', $family))),
+      ('#{$component}-family', theme.token-switch('family-#{$family}', token.primitive-token-switch('family.#{$family}', $family))),
       $intent
   );
 }
@@ -26,7 +26,7 @@
 @mixin size($component, $size, $intent: 'create') {
   @include theme.property(
       font-size,
-        ('#{$component}-size', theme.token-switch('size-#{$size}', token.primitive-token-switch('size.#{$size}', $size))),
+      ('#{$component}-size', theme.token-switch('size-#{$size}', token.primitive-token-switch('size.#{$size}', $size))),
       $intent
   );
 }
@@ -39,7 +39,7 @@
 @mixin weight($component, $weight, $intent: 'create') {
   @include theme.property(
       font-weight,
-        ('#{$component}-weight', theme.token-switch('weight-#{$weight}', token.primitive-token-switch('weight.#{$weight}', $weight))),
+      ('#{$component}-weight', theme.token-switch('weight-#{$weight}', token.primitive-token-switch('weight.#{$weight}', $weight))),
       $intent
   );
 }
@@ -52,7 +52,7 @@
 @mixin line-height($component, $line-height, $intent: 'create') {
   @include theme.property(
       line-height,
-        ('#{$component}-line-height', theme.token-switch('line-height-#{$line-height}', token.primitive-token-switch('line-height.#{$line-height}', $line-height))),
+      ('#{$component}-line-height', theme.token-switch('line-height-#{$line-height}', token.primitive-token-switch('line-height.#{$line-height}', $line-height))),
       $intent
   );
 }
@@ -65,7 +65,20 @@
 @mixin squeeze($component, $squeeze, $intent: 'create') {
   @include theme.property(
       letter-spacing,
-        ('#{$component}-squeeze', theme.token-switch('squeeze-#{$squeeze}', token.primitive-token-switch('squeeze.#{$squeeze}', $squeeze))),
+      ('#{$component}-squeeze', theme.token-switch('squeeze-#{$squeeze}', token.primitive-token-switch('squeeze.#{$squeeze}', $squeeze))),
+      $intent
+  );
+}
+
+/// Mixin for applying font stretch.
+/// @param {string} $component
+/// @param {string} $stretch
+/// @param {string} $intent
+/// @return {void} letter spacing styles.
+@mixin stretch($component, $stretch, $intent: 'create') {
+  @include theme.property(
+      font-stretch,
+      ('#{$component}-stretch', theme.token-switch('stretch-#{$stretch}', token.primitive-token-switch('stretch.#{$stretch}', $stretch))),
       $intent
   );
 }
