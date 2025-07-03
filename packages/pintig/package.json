@@ -1,6 +1,6 @@
 {
   "name": "@matteusan/pintig",
-  "version": "1.10.0",
+  "version": "1.9.0",
   "description": "A higher-level core library for building design systems using Sentro at TeuLabs.",
   "main": "_index.scss",
   "repository": "https://github.com/MatteuSan/himig",
