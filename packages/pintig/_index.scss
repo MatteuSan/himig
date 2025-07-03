@@ -2,6 +2,8 @@
 // Copyright (c) 2025 MatteuSan
 // SPDX-License-Identifier: MIT
 
+$prefix: 'ms' !default;
+$context: '' !default;
 $module-mode: false !default;
 $test-mode: $module-mode !default;
 $vue-mode: $test-mode !default;
@@ -40,8 +42,8 @@ $type-inherit-template: (
 );
 
 @use 'pkg:@matteusan/sentro' with (
-  $prefix: 'ms',
-  $context: 'theme',
+  $prefix: $prefix,
+  $context: $context,
   $token-validation: $validation,
   $key-validation: $validation,
   $breakpoint-validation: $validation,
