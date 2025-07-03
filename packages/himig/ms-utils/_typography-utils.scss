@@ -17,49 +17,56 @@ $_presets: (
     size: 'supertitle',
     weight: 'supertitle',
     line-height: 'supertitle',
-    squeeze: 'supertitle'
+    squeeze: 'supertitle',
+    stretch: 'supertitle',
   ),
   'title': (
     family: 'title',
     size: 'title',
     weight: 'title',
     line-height: 'title',
-    squeeze: 'title'
+    squeeze: 'title',
+    stretch: 'title',
   ),
   'subtitle': (
     family: 'subtitle',
     size: 'subtitle',
     weight: 'subtitle',
     line-height: 'subtitle',
-    squeeze: 'subtitle'
+    squeeze: 'subtitle',
+    stretch: 'subtitle',
   ),
   'body': (
     family: 'body',
     size: 'body',
     weight: 'body',
     line-height: 'body',
-    squeeze: 'body'
+    squeeze: 'body',
+    stretch: 'body',
   ),
   'mono': (
     family: 'mono',
     size: 'mono',
     weight: 'mono',
     line-height: 'mono',
-    squeeze: 'mono'
+    squeeze: 'mono',
+    stretch: 'mono',
   ),
   'small': (
     family: 'small',
     size: 'small',
     weight: 'small',
     line-height: 'small',
-    squeeze: 'small'
+    squeeze: 'small',
+    stretch: 'small'
   )
 );
 $_sizes: ('xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl');
 $_weights: ('black', 'bold', 'normal', 'light');
-$_line-heights: ('broad', 'normal', 'condensed', 'tall', 'short');
+$_line-heights: ('broad', 'normal', 'condensed', 'tall', 'short', 'x-tall', 'x-short');
 $_alignments: ('center', 'left', 'right', 'justify', 'justify-all');
-$_squeezes: ('tight', 'normal', 'loose');
+$_squeezes: ('x-tight', 'tight', 'normal', 'loose', 'x-loose');
+$_stretches: ('x-condensed', 'condensed', 'normal', 'wide', 'x-wide');
 
 @mixin typography($include: (), $exclude: ()) {
   $utils-to-render: helpers.handle-include-exclude((
@@ -69,7 +76,9 @@ $_squeezes: ('tight', 'normal', 'loose');
     'weight',
     'line-height',
     'alignment',
-    'squeeze'
+    'squeeze',
+    'stretch',
+    'style'
   ), $include, $exclude);
 
   @layer utils {
@@ -81,6 +90,7 @@ $_squeezes: ('tight', 'normal', 'loose');
           font-weight: pintig.token-switch('weight-#{map.get($values, 'weight')}', pintig.primitive-token-switch('weight.#{map.get($values, 'weight')}', $values));
           line-height: pintig.token-switch('line-height-#{map.get($values, 'weight')}', pintig.primitive-token-switch('line-height.#{map.get($values, 'line-height')}', $values));
           letter-spacing: pintig.token-switch('squeeze-#{map.get($values, 'squeeze')}', pintig.primitive-token-switch('squeeze.#{map.get($values, 'squeeze')}', $values));
+          font-stretch: pintig.token-switch('stretch-#{map.get($values, 'stretch')}', pintig.primitive-token-switch('stretch.#{map.get($values, 'stretch')}', $values));
         }
 
         @each $breakpoint in $_breakpoints {
@@ -91,6 +101,7 @@ $_squeezes: ('tight', 'normal', 'loose');
               font-weight: pintig.token-switch('weight-#{map.get($values, 'weight')}', pintig.primitive-token-switch('weight.#{map.get($values, 'weight')}', $values));
               line-height: pintig.token-switch('line-height-#{map.get($values, 'weight')}', pintig.primitive-token-switch('line-height.#{map.get($values, 'line-height')}', $values));
               letter-spacing: pintig.token-switch('squeeze-#{map.get($values, 'squeeze')}', pintig.primitive-token-switch('squeeze.#{map.get($values, 'squeeze')}', $values));
+              font-stretch: pintig.token-switch('stretch-#{map.get($values, 'stretch')}', pintig.primitive-token-switch('stretch.#{map.get($values, 'stretch')}', $values));
             }
           }
         }
@@ -187,6 +198,50 @@ $_squeezes: ('tight', 'normal', 'loose');
           .\@#{$breakpoint}\:squeeze-#{$squeeze} {
             @include pintig.breakpoint-create($breakpoint) {
               letter-spacing: pintig.primitive-token-get('squeeze.#{$squeeze}') !important;
+            }
+          }
+        }
+      }
+    }
+
+    @if list.index($utils-to-render, 'stretch') {
+      @each $stretch in $_stretches {
+        .stretch-#{$stretch} {
+          font-stretch: pintig.primitive-token-get('stretch.#{$stretch}');
+        }
+
+        @each $breakpoint in $_breakpoints {
+          .\@#{$breakpoint}\:stretch-#{$stretch} {
+            @include pintig.breakpoint-create($breakpoint) {
+              font-stretch: pintig.primitive-token-get('stretch.#{$stretch}') !important;
+            }
+          }
+        }
+      }
+    }
+
+    @if list.index($utils-to-render, 'style') {
+      @each $stretch in $_stretches {
+        .italic {
+          font-style: italic;
+        }
+
+        @each $breakpoint in $_breakpoints {
+          .\@#{$breakpoint}\:italic {
+            @include pintig.breakpoint-create($breakpoint) {
+              font-style: italic;
+            }
+          }
+        }
+
+        .oblique {
+          font-style: oblique;
+        }
+
+        @each $breakpoint in $_breakpoints {
+          .\@#{$breakpoint}\:oblique {
+            @include pintig.breakpoint-create($breakpoint) {
+              font-style: oblique;
             }
           }
         }
