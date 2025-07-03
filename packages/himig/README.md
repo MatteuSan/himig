@@ -6,11 +6,11 @@ use DartSass instead of the now deprecated LibSass (node-sass)**.
 
 ## Setup
 ```sh
-$ npm install @matteusan/himig --save
+$ npm i @matteusan/himig @matteusan/pintig --save
 
 # or
 
-$ yarn add @matteusan/himig
+$ pnpm add @matteusan/himig @matteusan/pintig
 ```
 ```scss
 // main.scss
