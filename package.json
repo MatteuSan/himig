@@ -24,9 +24,9 @@
     "pub:main:minor": "cd packages/himig && npm version minor --force && npm publish",
     "pub:core:major": "cd packages/pintig && npm version major --force && npm publish",
     "pub:main:major": "cd packages/himig && npm version major --force && npm publish",
-    "pub:patch": "npm version patch --force && yarn pub:core:patch && cd ../../.. && yarn pub:main:patch",
-    "pub:minor": "npm version minor --force && yarn pub:core:minor && cd ../../.. && yarn pub:main:minor",
-    "pub:major": "npm version major --force && yarn pub:core:major && cd ../../.. && yarn pub:main:major",
+    "pub:patch": "npm version patch --force && pnpm pub:core:patch && cd ../../.. && pnpm pub:main:patch",
+    "pub:minor": "npm version minor --force && pnpm pub:core:minor && cd ../../.. && pnpm pub:main:minor",
+    "pub:major": "npm version major --force && pnpm pub:core:major && cd ../../.. && pnpm pub:main:major",
     "run:docs": "cd documentation && yarn dev",
     "test:html": "pnpm i && sass tests/sass/with-html.test.scss:tests/sass/with-html.test.css --pkg-importer=node --load-path=node_modules --no-source-map --style=compressed",
     "test:sass": "pnpm i && jest --config=\"jest.config.ts\""
