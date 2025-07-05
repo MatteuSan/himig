@@ -38,7 +38,9 @@ $type-inherit-template: (
   family: inherit,
   size: inherit,
   weight: inherit,
-  line-height: inherit
+  line-height: inherit,
+  squeeze: inherit,
+  stretch: inherit,
 );
 
 @use 'pkg:@matteusan/sentro' with (
