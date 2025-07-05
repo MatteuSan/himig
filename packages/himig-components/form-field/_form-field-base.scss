@@ -26,7 +26,9 @@
         padding: ('xs' 'xs' 0 0),
       ));
       @include pintig.typography-apply('form-field-label', pintig.$type-inherit-template);
-      @include pintig.prefix(transition, all pintig.token-get('time-short') ease);
+      transition-property: background, color, border;
+      transition-duration: pintig.token-get('time-short');
+      transition-timing-function: pintig.token-get('easing');
       cursor: text;
     }
 
@@ -77,7 +79,9 @@
       resize: none;
       cursor: text;
       -webkit-appearance: caret;
-      @include pintig.prefix(transition, all pintig.token-get('time-short') ease);
+      transition-property: background, color, border;
+      transition-duration: pintig.token-get('time-short');
+      transition-timing-function: pintig.token-get('easing');
 
       &::placeholder {
         color: pintig.key-create('form-field-placeholder-ink', inherit);
@@ -95,7 +99,9 @@
         weight: inherit,
         line-height: inherit,
       ));
-      @include pintig.prefix(transition, all pintig.token-get('time-short') pintig.token-get('easing'));
+      transition-property: background, color, border;
+      transition-duration: pintig.token-get('time-short');
+      transition-timing-function: pintig.token-get('easing');
     }
   }
 }

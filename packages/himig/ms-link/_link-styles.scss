@@ -30,7 +30,9 @@
         line-height: pintig.theme-get($typography, 'line-height')
       ));
       text-decoration: underline;
-      @include pintig.prefix(transition, all pintig.token-get('time-short') pintig.token-get('easing'));
+      transition-property: background, color, border;
+      transition-duration: pintig.token-get('time-short');
+      transition-timing-function: pintig.token-get('easing');
 
       &:hover {
         @include pintig.color-bind('link', (

@@ -11,7 +11,9 @@
     flex-flow: row nowrap;
     align-items: center;
     gap: pintig.key-create('tick-field-gap', 0.5rem);
-    transition: all pintig.token-get('time-short') pintig.token-get('easing');
+    transition-property: background, color, border;
+    transition-duration: pintig.token-get('time-short');
+    transition-timing-function: pintig.token-get('easing');
 
     @content;
 
@@ -20,8 +22,10 @@
       place-content: center;
       @include pintig.struct-radius('tick-field-input', inherit);
       @include pintig.color-apply('tick-field-input', pintig.$color-inherit-template);
-      transition: all pintig.token-get('time-short') pintig.token-get('easing');
-      @include pintig.prefix('appearance', none);
+      transition-property: background, color, border;
+      transition-duration: pintig.token-get('time-short');
+      transition-timing-function: pintig.token-get('easing');
+      appearance: none;
       outline: none;
       cursor: pintig.key-create('tick-field-input-cursor', not-allowed);
 

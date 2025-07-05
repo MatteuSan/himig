@@ -85,7 +85,9 @@
           left: 0;
           opacity: 0;
           transform: translateY(100%);
-          transition: all pintig.token-get('time-short') pintig.token-get('easing-smooth');
+          transition-property: transform, bottom, opacity;
+          transition-duration: pintig.token-get('time-short');
+          transition-timing-function: pintig.token-get('easing-smooth');
 
           .ms-card__header {
             padding-block-end: 0 !important;
@@ -119,7 +121,7 @@
       display: flex;
       flex-flow: column nowrap;
       justify-content: space-between;
-      transition: all 0.8s var(--easing);
+      transition: all 0.8s var(--ms-easing);
       will-change: transform;
       gap: pintig.key-get('card-section-gap');
 
