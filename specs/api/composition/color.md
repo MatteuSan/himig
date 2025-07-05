@@ -63,8 +63,10 @@ This is especially useful whenever you want to make variants in color on an alre
 | $component | `string`              | The component name. This is used for the keys.          |
 | $theme     | `map<string, string>` | The colors you want to apply. (`fill`, `ink`, `border`) |
 
-## Border Mixin
-The border mixin lets you apply border color to an element while creating an API around it that follows the Himig spec.
+## Utility Mixins
+These mixins are used internally by the `apply` and `bind` mixins, but you can also use them independently to apply specific color styles.
+
+### Border Mixin
 
 ```scss
 @use 'pkg:@matteusan/himig';
@@ -81,7 +83,6 @@ The border mixin lets you apply border color to an element while creating an API
 | $intent    | `string`         | The intention of the color application. Choose between `create` and `bind`. |
 
 ## Fill Mixin
-The fill mixin lets you apply background color to an element while creating an API around it that follows the Himig spec.
 
 ```scss
 @use 'pkg:@matteusan/himig';
@@ -98,7 +99,6 @@ The fill mixin lets you apply background color to an element while creating an A
 | $intent    | `string`         | The intention of the color application. Choose between `create` and `bind`. |
 
 ## Ink Mixin
-The ink mixin lets you apply text color to an element while creating an API around it that follows the Himig spec.
 
 ```scss
 @use 'pkg:@matteusan/himig';
