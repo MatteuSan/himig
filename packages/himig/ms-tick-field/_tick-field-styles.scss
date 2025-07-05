@@ -21,9 +21,9 @@
   @layer components {
     @include base.init() {
       @include pintig.color-apply('tick-field', (
-        fill: pintig.theme-get($color, 'fill'),
-        ink: pintig.theme-get($color, 'ink'),
-        border: pintig.theme-get($color, 'border'),
+        fill: pintig.theme-get($color, 'fill', 'disabled'),
+        ink: pintig.theme-get($color, 'ink', 'disabled'),
+        border: pintig.theme-get($color, 'border', 'disabled'),
       ));
       @include pintig.struct-apply('tick-field', $struct);
       @include pintig.typography-bind('tick-field', $typography);
@@ -33,24 +33,34 @@
         weight: pintig.theme-get($typography, 'weight'),
         line-height: pintig.theme-get($typography, 'line-height'),
       ));
+      cursor: pintig.key-create('tick-field-cursor', not-allowed);
 
       @include pintig.struct-bind('tick-field-text', (
         gap: pintig.theme-get($struct, 'gap', 'text'),
       ));
 
-      &:hover,
-      &:has(.ms-tick-field__input:focus) {
+      &:has(.ms-tick-field__input:not(:disabled)) {
         @include pintig.color-bind('tick-field', (
-          fill: rgb(from pintig.token-switch(pintig.theme-get($color, 'fill', 'hover')) r g b / pintig.$color-fill-focus-opacity),
-          border: rgb(from pintig.token-switch(pintig.theme-get($color, 'border', 'hover')) r g b / pintig.$color-fill-focus-opacity),
+          fill: pintig.theme-get($color, 'fill'),
+          ink: pintig.theme-get($color, 'ink'),
+          border: pintig.theme-get($color, 'border'),
         ));
-      }
+        @include pintig.key-bind('tick-field-cursor', pointer);
 
-      &:has(.ms-tick-field__input:checked) {
-        @include pintig.color-bind('tick-field', (
-          fill: rgb(from pintig.token-switch(pintig.theme-get($color, 'fill', 'checked')) r g b / pintig.$color-fill-focus-opacity),
-          border: pintig.theme-get($color, 'border', 'checked'),
-        ));
+        &:hover,
+        &:has(.ms-tick-field__input:focus) {
+          @include pintig.color-bind('tick-field', (
+            fill: rgb(from pintig.token-switch(pintig.theme-get($color, 'fill', 'hover')) r g b / pintig.$color-fill-focus-opacity),
+            border: rgb(from pintig.token-switch(pintig.theme-get($color, 'border', 'hover')) r g b / pintig.$color-fill-focus-opacity),
+          ));
+        }
+
+        &:has(.ms-tick-field__input:checked) {
+          @include pintig.color-bind('tick-field', (
+            fill: rgb(from pintig.token-switch(pintig.theme-get($color, 'fill', 'checked')) r g b / pintig.$color-fill-focus-opacity),
+            border: pintig.theme-get($color, 'border', 'checked'),
+          ));
+        }
       }
 
       .ms-tick-field__input {
@@ -62,10 +72,32 @@
           border-style: 'solid'
         ));
         @include pintig.color-bind('tick-field-input', (
-          fill: pintig.theme-get($color, 'fill', 'input'),
+          fill: pintig.theme-get($color, 'fill', 'input', 'disabled'),
           ink: pintig.theme-get($color, 'ink', 'input'),
-          border: pintig.theme-get($color, 'border', 'input'),
+          border: pintig.theme-get($color, 'border', 'input', 'disabled'),
         ));
+
+        &:not(:disabled) {
+          @include pintig.color-bind('tick-field-input', (
+            fill: pintig.theme-get($color, 'fill', 'input'),
+            ink: pintig.theme-get($color, 'ink', 'input'),
+            border: pintig.theme-get($color, 'border', 'input'),
+          ));
+
+          &:hover,
+          &:focus {
+            @include pintig.color-fill('tick-field-input', rgb(from pintig.token-switch(pintig.theme-get($color, 'fill', 'input', 'hover')) r g b / pintig.$color-fill-focus-opacity), 'bind');
+            @include pintig.color-border('tick-field-input', rgb(from pintig.token-switch(pintig.theme-get($color, 'border', 'input', 'hover')) r g b / pintig.$color-fill-focus-opacity), 'bind');
+          }
+
+          &:checked {
+            @include pintig.color-bind('tick-field-input', (
+              fill: pintig.theme-get($color, 'fill', 'input', 'checked'),
+              ink: pintig.theme-get($color, 'ink', 'input'),
+              border: pintig.theme-get($color, 'border', 'input', 'checked'),
+            ));
+          }
+        }
 
         &[type='checkbox'] {
           @include pintig.struct-radius('tick-field-input', pintig.theme-get($struct, 'radius', 'input', 'checkbox'), 'bind');
@@ -73,20 +105,6 @@
 
         &[type='radio'] {
           @include pintig.struct-radius('tick-field-input', pintig.theme-get($struct, 'radius', 'input', 'radio'), 'bind');
-        }
-
-        &:hover,
-        &:focus {
-          @include pintig.color-fill('tick-field-input', rgb(from pintig.token-switch(pintig.theme-get($color, 'fill', 'input', 'hover')) r g b / pintig.$color-fill-focus-opacity), 'bind');
-          @include pintig.color-border('tick-field-input', rgb(from pintig.token-switch(pintig.theme-get($color, 'border', 'input', 'hover')) r g b / pintig.$color-fill-focus-opacity), 'bind');
-        }
-
-        &:checked {
-          @include pintig.color-bind('tick-field-input', (
-            fill: pintig.theme-get($color, 'fill', 'input', 'checked'),
-            ink: pintig.theme-get($color, 'ink', 'input'),
-            border: pintig.theme-get($color, 'border', 'input', 'checked'),
-          ));
         }
       }
     }

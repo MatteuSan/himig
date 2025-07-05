@@ -7,24 +7,29 @@ $init-color: (
     default: rgba(0 0 0 / 0),
     hover: 'accent-400',
     checked: 'accent-400',
+    disabled: 'disabled',
     input: (
       default: rgba(0 0 0 / 0),
       hover:  rgba(0 0 0 / 0),
-      checked: 'accent-400'
+      checked: 'accent-400',
+      disabled: 'disabled',
     ),
   ),
   ink: (
     default: 'surface-ink',
-    input: 'accent-ink'
+    input: 'accent-ink',
+    disabled: 'disabled-ink',
   ),
   border: (
     default: 'surface-600',
     hover: 'accent-400',
     checked: 'accent-400',
+    disabled: 'disabled',
     input: (
       default: 'surface-600',
       hover: 'accent-400',
       checked: 'accent-400',
+      disabled: 'disabled',
     )
   ),
 );

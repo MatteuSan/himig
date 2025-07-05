@@ -23,6 +23,11 @@
       transition: all pintig.token-get('time-short') pintig.token-get('easing');
       @include pintig.prefix('appearance', none);
       outline: none;
+      cursor: pintig.key-create('tick-field-input-cursor', not-allowed);
+
+      &:not(:disabled) {
+        @include pintig.key-bind('tick-field-input-cursor', pointer);
+      }
 
       &::before {
         content: '';
