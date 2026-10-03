@@ -1,54 +1,67 @@
 // @license
-// Copyright (c) 2025 MatteuSan
+// Copyright (c) 2026 MatteuSan
 // SPDX-License-Identifier: MIT
 
 @use 'pkg:@matteusan/pintig';
 @use 'sass:map';
 @use 'sass:list';
 @use 'sass:string';
-@use 'sass:meta';
 
-@use '../helpers';
+@function _default($query, $tone: ()) {
+  @if pintig.is-empty($tone) {
+    $parts: pintig.str-split($query, '-');
+    @if list.length($parts) < 2 {
+      @return string.unquote('var(--ms-#{list.nth($parts, 1)})');
+    }
+    @return string.unquote('var(--ms-#{list.nth($parts, 1)}-#{list.nth($parts, 2)})');
+  }
+  @return string.unquote('var(--ms-#{$query}-#{$tone})');
+}
+
+@function _alpha($query, $opacity) {
+  @return rgb(from var(--ms-#{$query}) r g b / $opacity);
+}
 
 @mixin text($fills, $inks, $borders) {
   $fill: map.get($fills, 'default');
   $ink-disabled: map.get($inks, 'disabled');
   $border: map.get($borders, 'default');
 
-  @include helpers.state(':not(:disabled)', '.ms-button') {
+  &:not(:disabled) {
     @include pintig.color-apply('button', (
       fill: transparent,
       ink: _default($fill),
       border: transparent
     ));
+    @include pintig.key-bind('button-outline', 2px solid _alpha($fill, pintig.$color-fill-default-opacity));
 
-    @include helpers.state(':hover', '.ms-button') {
+    &:hover {
       @include pintig.color-apply('button', (
-        fill: _alpha($fill, 400),
+        fill: _alpha($fill, pintig.$color-fill-hover-opacity),
         ink: _default($fill),
-        border: _alpha($border, 200)
+        border: _alpha($border, pintig.$color-border-hover-opacity)
       ));
     }
 
-    @include helpers.state(':focus-visible', '.ms-button') {
+    &:focus {
       @include pintig.color-apply('button', (
-        fill: _alpha($fill, 400),
+        fill: _alpha($fill, pintig.$color-fill-focus-opacity),
         ink: _default($fill),
-        border: _alpha($border, 200)
+        border: _alpha($border, pintig.$color-border-focus-opacity)
       ));
-      @include pintig.key-bind('button-outline', 2px solid _alpha($fill, 400));
+      @include pintig.key-bind('button-outline', 2px solid _alpha($fill, pintig.$color-outline-focus-opacity));
     }
 
-    @include helpers.state(':active', '.ms-button') {
+    &:active {
       @include pintig.color-apply('button', (
-        fill: _alpha($fill, 800),
+        fill: _alpha($fill, pintig.$color-fill-active-opacity),
         ink: _default($fill),
-        border: _alpha($border, 400)
+        border: _alpha($border, pintig.$color-border-active-opacity)
       ));
     }
   }
 
-  @include helpers.state('[disabled]', '.ms-button') {
+  &:disabled {
     @include pintig.color-apply('button', (
       fill: transparent,
       ink: _default($ink-disabled),
@@ -71,45 +84,47 @@
   $border-active: map.get($borders, 'active');
   $border-disabled: map.get($borders, 'disabled');
 
-  @include helpers.state(':not(:disabled)', '.is-outlined') {
-    @include pintig.color-apply('outlined-button', (
-      fill: transparent,
-      ink: _default($fill),
-      border: _default($border)
-    ));
-
-    @include helpers.state(':hover', '.is-outlined') {
+  &.is-outlined {
+    &:not(:disabled) {
       @include pintig.color-apply('outlined-button', (
-        fill: _default($fill-hover),
-        ink: _default($ink),
-        border: _default($border-hover)
-      ));
-    }
-
-    @include helpers.state(':focus-visible', '.is-outlined') {
-      @include pintig.color-apply('outlined-button', (
-        fill: _alpha($fill, 400),
+        fill: transparent,
         ink: _default($fill),
         border: _default($border)
       ));
-      @include pintig.key-bind('button-outline', 2px solid _alpha($fill, 400));
+
+      &:hover {
+        @include pintig.color-apply('outlined-button', (
+          fill: _default($fill-hover),
+          ink: _default($ink),
+          border: _default($border-hover)
+        ));
+      }
+
+      &:focus {
+        @include pintig.color-apply('outlined-button', (
+          fill: _alpha($fill, pintig.$color-fill-focus-opacity),
+          ink: _default($fill),
+          border: _default($border)
+        ));
+        @include pintig.key-bind('button-outline', 2px solid _alpha($fill, pintig.$color-outline-focus-opacity));
+      }
+
+      &:active {
+        @include pintig.color-apply('outlined-button', (
+          fill: _default($fill-active),
+          ink: _default($ink),
+          border: _default($border-active)
+        ));
+      }
     }
 
-    @include helpers.state(':active', '.is-outlined') {
+    &:disabled {
       @include pintig.color-apply('outlined-button', (
-        fill: _default($fill-active),
-        ink: _default($ink),
-        border: _default($border-active)
+        fill: transparent,
+        ink: _default($ink-disabled),
+        border: _default($border-disabled)
       ));
     }
-  }
-
-  @include helpers.state('[disabled]', '.is-outlined') {
-    @include pintig.color-apply('outlined-button', (
-      fill: transparent,
-      ink: _default($ink-disabled),
-      border: _default($border-disabled)
-    ));
   }
 }
 
@@ -127,66 +142,46 @@
   $border-active: map.get($borders, 'active');
   $border-disabled: map.get($borders, 'disabled');
 
-  @include helpers.state(':not(:disabled)', '.is-filled') {
-    @include pintig.color-apply('filled-button', (
-      fill: _default($fill),
-      ink: _default($ink),
-      border: _default($border)
-    ));
-
-    @include helpers.state(':hover', '.is-filled') {
+  &.is-filled {
+    &:not(:disabled) {
       @include pintig.color-apply('filled-button', (
-        fill: _default($fill-hover),
+        fill: _default($fill),
         ink: _default($ink),
-        border: _default($border-hover)
+        border: _default($border)
+      ));
+
+      &:hover {
+        @include pintig.color-apply('filled-button', (
+          fill: _default($fill-hover),
+          ink: _default($ink),
+          border: _default($border-hover)
+        ));
+      }
+
+      &:focus-visible {
+        @include pintig.color-apply('filled-button', (
+          fill: _default($fill-focus),
+          ink: _default($ink),
+          border: _default($border-focus)
+        ));
+        @include pintig.key-bind('button-outline', 2px solid _alpha($fill, pintig.$color-outline-focus-opacity));
+      }
+
+      &:active {
+        @include pintig.color-apply('filled-button', (
+          fill: _default($fill-active),
+          ink: _default($ink),
+          border: _default($border-active)
+        ));
+      }
+    }
+
+    &:disabled {
+      @include pintig.color-apply('filled-button', (
+        fill: _default($fill-disabled),
+        ink: _default($ink-disabled),
+        border: _default($border-disabled)
       ));
     }
-
-    @include helpers.state(':focus-visible', '.is-filled') {
-      @include pintig.color-apply('filled-button', (
-        fill: _default($fill-focus),
-        ink: _default($ink),
-        border: _default($border-focus)
-      ));
-      @include pintig.key-bind('button-outline', 2px solid _alpha($fill, 400));
-    }
-
-    @include helpers.state(':active', '.is-filled') {
-      @include pintig.color-apply('filled-button', (
-        fill: _default($fill-active),
-        ink: _default($ink),
-        border: _default($border-active)
-      ));
-    }
   }
-
-  @include helpers.state('[disabled]', '.is-filled') {
-    @include pintig.color-apply('filled-button', (
-      fill: _default($border-disabled),
-      ink: _default($ink-disabled),
-      border: _default($border-disabled)
-    ));
-  }
-}
-
-@function _default($query, $tone: ()) {
-  @if pintig.is-empty($tone) {
-    $string: pintig.str-split($query, '-');
-    @if list.length($string) < 2 {
-      @return 'var(--ms-theme-#{list.nth($string, 1)})';
-    }
-    @return 'var(--ms-theme-#{list.nth($string, 1)}-#{list.nth($string, 2)})';
-  }
-  @return 'var(--ms-theme-#{$query}-#{$tone})';
-}
-
-@function _alpha($query, $opacity: ()) {
-  $string: pintig.str-split($query, '-');
-  @if pintig.is-empty($opacity) {
-    @if list.length($string) < 2 {
-      @return 'var(--ms-theme-#{list.nth($string, 1)})';
-    }
-    @return 'var(--ms-theme-#{list.nth($string, 1)}-alpha-#{list.nth($string, 2)})';
-  }
-  @return 'var(--ms-theme-#{list.nth($string, 1)}-alpha-#{$opacity})';
 }

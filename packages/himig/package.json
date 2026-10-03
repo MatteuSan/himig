@@ -40,7 +40,7 @@
       "sass": "./ms-utils/_index.scss"
     }
   },
-  "peerDependencies": {
+  "dependencies": {
     "@matteusan/pintig": "^1.10"
   }
 }

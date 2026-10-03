@@ -6,17 +6,17 @@ use DartSass instead of the now deprecated LibSass (node-sass)**.
 
 ## Setup
 ```sh
-$ npm install @matteusan/himig --save
+$ npm install @matteusan/himig @matteusan/pintig --save
 
 # or
 
-$ yarn add @matteusan/himig
+$ pnpm add @matteusan/himig @matteusan/pintig
 ```
 ```scss
 // main.scss
 
-@use 'pkg:@matteusan/sentro';
-@use '@matteusan/himig/ms-button';
+@use 'pkg:@matteusan/himig';
+@use 'pkg:@matteusan/himig/ms-button';
 
 @include himig.init() {
   @include ms-button.render();

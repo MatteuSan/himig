@@ -1,5 +1,5 @@
 // @license
-// Copyright (c) 2025 MatteuSan
+// Copyright (c) 2026 MatteuSan
 // SPDX-License-Identifier: MIT
 
 @use 'pkg:@matteusan/pintig' with ($module-mode: true);
@@ -50,7 +50,7 @@ $_states: ('error');
   @include pintig.struct-apply('button', $struct);
   @include pintig.typography-apply('button', $typography);
 
-  @include helpers.state('[disabled]') {
+  :disabled {
     cursor: default;
     pointer-events: none;
   }
@@ -73,14 +73,14 @@ $_states: ('error');
     $borders: $borders,
   );
 
-  @include helpers.state(':not(:disabled)', '.is-raised') {
+  &.is-raised {
     @include pintig.struct-shadow('button', 'xs');
 
-    @include helpers.state(':hover', '.is-raised') {
+    @include helpers.state(':hover') {
       @include pintig.struct-shadow('button', 'xs');
     }
 
-    @include helpers.state(':active', '.is-raised') {
+    @include helpers.state(':active') {
       @include pintig.struct-shadow('button', 'sm');
     }
   }

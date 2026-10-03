@@ -1,12 +1,12 @@
 // @license
-// Copyright (c) 2025 MatteuSan
+// Copyright (c) 2026 MatteuSan
 // SPDX-License-Identifier: MIT
 
 @use 'pkg:@matteusan/pintig';
 @use 'sass:math';
 
 @mixin init($top-label-distance, $left-label-distance, $top-padding) {
-  .ms-form-field {
+  :host .ms-form-field {
     width: 100%;
     display: flex;
     flex-flow: column nowrap;

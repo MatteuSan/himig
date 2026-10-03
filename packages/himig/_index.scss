@@ -1,5 +1,5 @@
 // @license
-// Copyright (c) 2025 MatteuSan
+// Copyright (c) 2026 MatteuSan
 // SPDX-License-Identifier: MIT
 
 $expressive-inks: false !default;
@@ -72,7 +72,7 @@ $vue-mode: $test-mode !default;
     'size': 'size.6xl',
     'weight': 'weight.normal',
     'line-height': 'line-height.x-short',
-    'squeeze': 'squeeze.x-tight',
+    'squeeze': 'squeeze.tight',
     'stretch': 'stretch.condensed'
   );
 
@@ -81,7 +81,7 @@ $vue-mode: $test-mode !default;
     'size': 'size.3xl',
     'weight': 'weight.normal',
     'line-height': 'line-height.x-short',
-    'squeeze': 'squeeze.tight',
+    'squeeze': 'squeeze.normal',
     'stretch': 'stretch.condensed'
   );
 

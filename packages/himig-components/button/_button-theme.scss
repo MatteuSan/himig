@@ -1,12 +1,14 @@
 // @license
-// Copyright (c) 2025 MatteuSan
+// Copyright (c) 2026 MatteuSan
 // SPDX-License-Identifier: MIT
+
+@use 'pkg:@matteusan/pintig';
 
 $init-color: (
   fill: (
     default: 'accent-400',
-    hover: 'accent-300',
-    active: 'accent-200',
+    hover: 'accent-400',
+    active: 'accent-300',
     focus: 'accent-400',
     disabled: 'disabled',
   ),
@@ -19,8 +21,8 @@ $init-color: (
   ),
   border: (
     default: 'accent-400',
-    hover: 'accent-300',
-    active: 'accent-200',
+    hover: 'accent-400',
+    active: 'accent-300',
     focus: 'accent-400',
     disabled: 'disabled',
   ),
@@ -33,16 +35,16 @@ $init-struct: (
     max: max-content
   ),
   padding: ('md' 'lg'),
-  radius: 'var(--ms-theme-radius-small)',
+  radius: 'var(--ms-radius-small)',
   border-width: 'xs',
   border-style: solid,
   gap: 'xs'
 );
 
 $init-typography: (
-  family: 'var(--ms-theme-family-global)',
-  size: 'var(--ms-theme-size-global)',
-  weight: 'var(--ms-theme-weight-title)',
+  family: pintig.token-get('family-global'),
+  size: pintig.token-get('size-body'),
+  weight: pintig.primitive-token-get('weight.bold'),
   line-height: 1.25rem
 );
 

@@ -1,5 +1,5 @@
 // @license
-// Copyright (c) 2025 MatteuSan
+// Copyright (c) 2026 MatteuSan
 // SPDX-License-Identifier: MIT
 
 @use '../tools';
@@ -212,7 +212,7 @@ $_typography-tokens: (
   'family': (
     'mono': ('Jetbrains Mono', monospace),
     'sans-serif': ('Inter', sans-serif),
-    'serif': ('Noto Serif Display', serif),
+    'serif': ('Instrument Serif', serif),
   ),
   'size': (
     'xs': clamp(#{tools.to-rem(9.60px)}, 0.6718rem + 0.1409vw, #{tools.to-rem(12.00px)}),

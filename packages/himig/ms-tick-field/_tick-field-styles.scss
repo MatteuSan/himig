@@ -1,5 +1,5 @@
 // @license
-// Copyright (c) 2025 MatteuSan
+// Copyright (c) 2026 MatteuSan
 // SPDX-License-Identifier: MIT
 
 @use 'pkg:@matteusan/pintig';
@@ -65,10 +65,10 @@
 
       .ms-tick-field__input {
         @include pintig.struct-apply('tick-field-input', (
-          width: 1.5rem,
-          height: 1.5rem,
+          width: 1.25rem,
+          height: 1.25rem,
           margin: 0,
-          border-width: 'sm',
+          border-width: 'xs',
           border-style: 'solid'
         ));
         @include pintig.color-bind('tick-field-input', (
