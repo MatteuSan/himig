@@ -1,6 +1,6 @@
 /*
  * @license
- * Copyright (c) 2025 MatteuSan
+ * Copyright (c) 2026 MatteuSan
  * SPDX-License-Identifier: MIT
  */
 
@@ -13,7 +13,7 @@ import multiEntry from '@rollup/plugin-multi-entry';
 export default {
   input: [
     'packages/himig-components/button/ms-button.js',
-    // 'packages/himig-components/form-field/ms-form-field.js'
+    'packages/himig-components/form-field/ms-form-field.js'
   ],
   output: {
     dir: 'packages/himig-components',
