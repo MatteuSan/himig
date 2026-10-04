@@ -1,5 +1,5 @@
 // @license
-// Copyright (c) 2025 MatteuSan
+// Copyright (c) 2026 MatteuSan
 // SPDX-License-Identifier: MIT
 
 @use 'pkg:@matteusan/pintig';
@@ -38,6 +38,7 @@
         ));
         user-select: none;
 
+        &:has(+ .ms-form-field__input:read-only),
         &:has(+ .ms-form-field__input:disabled) {
           @include pintig.color-bind('form-field-label', (
             ink: pintig.theme-get($color, 'ink', 'disabled'),
@@ -45,7 +46,8 @@
         }
       }
 
-      &:has(.ms-form-field__input:read-only:disabled) {
+      &:has(.ms-form-field__input:read-only),
+      &:has(.ms-form-field__input:disabled) {
         @include pintig.color-ink('form-field-helper', pintig.theme-get($color, 'ink', 'disabled'), 'bind');
       }
 
