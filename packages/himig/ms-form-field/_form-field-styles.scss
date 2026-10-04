@@ -46,11 +46,6 @@
         }
       }
 
-      &:has(.ms-form-field__input:read-only),
-      &:has(.ms-form-field__input:disabled) {
-        @include pintig.color-ink('form-field-helper', pintig.theme-get($color, 'ink', 'disabled'), 'bind');
-      }
-
       .ms-form-field__input {
         @include pintig.struct-bind('form-field', (
           width: (
@@ -98,15 +93,19 @@
             border: pintig.theme-get($color, 'fill', 'disabled'),
           ));
           cursor: not-allowed;
+
+          + .ms-form-field__helper {
+            @include pintig.color-ink('form-field-helper', pintig.theme-get($color, 'ink', 'disabled'), 'bind');
+          }
         }
       }
 
       .ms-form-field__helper {
         padding: 0.3rem pintig.primitive-token-switch('padding.#{$resolve-padding}', $resolve-padding) 0;
-        @include pintig.color-bind('form-field-helper', (
+        @include pintig.color-apply('form-field-helper', (
           ink: pintig.theme-get($color, 'ink', 'helper'),
         ));
-        @include pintig.typography-bind('form-field-helper', (
+        @include pintig.typography-apply('form-field-helper', (
           family: pintig.theme-get($typography, 'family'),
           size: pintig.theme-get($typography, 'size', 'helper'),
           weight: pintig.theme-get($typography, 'weight'),

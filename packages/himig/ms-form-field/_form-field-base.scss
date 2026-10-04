@@ -1,5 +1,5 @@
 // @license
-// Copyright (c) 2025 MatteuSan
+// Copyright (c) 2026 MatteuSan
 // SPDX-License-Identifier: MIT
 
 @use 'pkg:@matteusan/pintig';
@@ -91,15 +91,6 @@
     }
 
     .ms-form-field__helper {
-      @include pintig.color-apply('form-field-helper', (
-        ink: inherit,
-      ));
-      @include pintig.typography-apply('form-field-helper', (
-        family: inherit,
-        size: inherit,
-        weight: inherit,
-        line-height: inherit,
-      ));
       transition-property: background, color, border;
       transition-duration: pintig.token-get('time-short');
       transition-timing-function: pintig.token-get('easing');
